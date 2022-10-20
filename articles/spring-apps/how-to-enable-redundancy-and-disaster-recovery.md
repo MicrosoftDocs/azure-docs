@@ -166,6 +166,14 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
 
 The environment is now set up. If you used the example values in the linked articles, you should be able to access the app using `https://bcdr-test.contoso.com`.
 
+### Use Azure Front Door and Azure Application Gateway to route traffic
+
+Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. Azure front door could not only provide multi-geo redundancy and closest region routing as Azure Traffic Manager does but also provide advanced feature like TLS protocol termination, application layer processing, WAF and so on. For more information, see [What is Azure Front Door?](../frontdoor/front-door-overview.md).
+
+We have provided a detailed example to show how to deploy a multi-geo redundancy VNet integrated Azure Spring Apps service which has proper reverse proxy configuration for Application Gateway and Front Door with a custom domain. The architecture is based on [Expose application to the internet with end-to-end TLS/SSL](../spring-apps/expose-apps-gateway-end-to-end-tls.md), which combines two Application Gateway integrated Azure Spring Apps VNet injection instance into a geo-redundant one. 
+
+:::image type="content" source="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png" alt-text="Architecture of muti-region spring apps ." lightbox="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png":::
+
 ## Next steps
 
 * [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md)
