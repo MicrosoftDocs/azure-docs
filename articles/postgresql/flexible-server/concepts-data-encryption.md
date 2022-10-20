@@ -56,7 +56,7 @@ For a PostgreSQL server to use customer-managed keys stored in Key Vault for enc
 
 - **unwrapKey**: To be able to decrypt the DEK. Azure Database for PostgreSQL needs the decrypted DEK to encrypt/decrypt the data
 
-The key vault administrator can also [enable logging of Key Vault audit events](/azure/key-vault/general/howto-logging?tabs=azure-cli), so they can be audited later.
+The key vault administrator can also [enable logging of Key Vault audit events](../../key-vault/general/howto-logging.md?tabs=azure-cli), so they can be audited later.
 
 When the server is configured to use the customer-managed key stored in the key Vault, the server sends the DEK to the key Vault for encryptions. Key Vault returns the encrypted DEK stored in the user database. Similarly, when needed, the server sends the protected DEK to the key Vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 

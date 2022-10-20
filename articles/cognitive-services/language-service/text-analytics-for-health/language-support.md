@@ -19,7 +19,40 @@ Use this article to learn which natural languages are supported by Text Analytic
 
 ## Hosted API Service
 
-The hosted API service supports English language, model version 03-01-2022.
+The hosted API service supports English language, model version 03-01-2022. Additional languages, English, Spanish, French, German Italian, Portuguese and Hebrew are supported with model version 2022-08-15-preview.
+
+When structuring the API request, the relevant language tags must be added for these languages: 
+
+```
+English – “en”
+Spanish – “es”
+French  - “fr”
+German – “de”
+Italian – “it”
+Portuguese – “pt”
+Hebrew – “he”
+```
+```json
+json
+
+{
+    "analysisInput": {
+        "documents": [
+            {
+                "text": "El médico prescrió 200 mg de ibuprofeno.",
+                "language": "es",
+                "id": "1"
+            }
+        ]
+    },
+    "tasks": [
+        {
+            "taskName": "analyze 1",
+            "kind": "Healthcare",
+        }
+    ]
+}
+```
 
 ## Docker container
 
