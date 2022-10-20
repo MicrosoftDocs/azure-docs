@@ -16,8 +16,6 @@ The following voices are now generally available. See the [full language and voi
 | ----- | ----- | ----- | ----- |
 | `eu-ES` | Basque | `eu-ES-AinhoaNeural` (Female)<br/>`eu-ES-AnderNeural` (Male) | 
 | `hy-AM` | Armenian (Armenia) | `hy-AM-AnahitNeural` (Female)<br/>`hy-AM-HaykNeural` (Male) | 
-| `wuu-CN` | Chinese (Wu, Simplified) | `wuu-CN-XiaotongNeural` (Female)<br/>`wuu-CN-YunzheNeural` (Male) | 
-| `yue-CN` | Chinese (Cantonese, Simplified) | `yue-CN-XiaoMinNeural` (Female)<br/>`yue-CN-YunSongNeural` (Male) | 
 
 #### Prebuilt Neural TTS Voices (Preview)
 
@@ -29,6 +27,8 @@ The following voices are now available in public preview. See the [full language
 | `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural`(Female)<br/>`es-ES-AlvaroNeural`(Male)<br/>`es-ES-ArnauNeural`(Male)<br/>`es-ES-DarioNeural`(Male)<br/>`es-ES-EliasNeural`(Male)<br/>`es-ES-EstrellaNeural`(Female)<br/>`es-ES-IreneNeural`(Female)<br/>`es-ES-LaiaNeural`(Female)<br/>`es-ES-LiaNeural`(Female)<br/>`es-ES-NilNeural`(Male)<br/>`es-ES-SaulNeural`(Male)<br/>`es-ES-TeoNeural`(Male)<br/>`es-ES-TrianaNeural`(Female)<br/>`es-ES-VeraNeural`(Female) | 
 | `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural`(Female)<br/>`ja-JP-DaichiNeural`(Male)<br/>`ja-JP-MayuNeural`(Female)<br/>`ja-JP-NaokiNeural`(Male)<br/>`ja-JP-ShioriNeural`(Female) | 
 | `ko-KR` | Korean (Korea) | `ko-KR-BongJinNeural`(Male)<br/>`ko-KR-GookMinNeural`(Male)<br/>`ko-KR-JiMinNeural`(Female)<br/>`ko-KR-SeoHyeonNeural`(Female)<br/>`ko-KR-SoonBokNeural`(Female)<br/>`ko-KR-YuJinNeural`(Female) | 
+| `wuu-CN` | Chinese (Wu, Simplified) | `wuu-CN-XiaotongNeural` (Female)<br/>`wuu-CN-YunzheNeural` (Male) | 
+| `yue-CN` | Chinese (Cantonese, Simplified) | `yue-CN-XiaoMinNeural` (Female)<br/>`yue-CN-YunSongNeural` (Male) | 
 
 #### General TTS voice updates
 
