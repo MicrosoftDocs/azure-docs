@@ -22,8 +22,6 @@ ms.custom: it-pro
 
 User management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
 
-- Enable or disable users
-- Create or delete users
 - Read or update manager of users
 - Update basic properties of users
 - Update contact info of users
@@ -33,26 +31,6 @@ This article lists the permissions you can use in your custom roles for differen
 ## License requirements
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
-
-## Enable or disable users
-
-The following permissions are available to enable or disable users.
-
-> [!div class="mx-tableFixed"]
-> | Permission | Description |
-> | ---------- | ----------- |
-> | microsoft.directory/users/enable | Enable users |
-> | microsoft.directory/users/disable | Disable users |
-
-## Create or delete users
-
-The following permissions are available to create or delete users.
-
-> [!div class="mx-tableFixed"]
-> | Permission | Description |
-> | ---------- | ----------- |
-> | microsoft.directory/users/create | Add users |
-> | microsoft.directory/users/delete | Delete users |
 
 ## Read or update manager of users
 
@@ -85,16 +63,6 @@ The following permissions are available to update contact info of users.
 
 ## Full list of permissions
 
-### Manage user state
-
-> [!div class="mx-tableFixed"]
-> | Permission | Description |
-> | ---------- | ----------- |
-> | microsoft.directory/users/create | Add users |
-> | microsoft.directory/users/delete | Delete users |
-> | microsoft.directory/users/enable | Enable users |
-> | microsoft.directory/users/disable | Disable users |
-
 ### Basic profile management
 
 > [!div class="mx-tableFixed"]
@@ -111,7 +79,6 @@ The following permissions are available to update contact info of users.
 > | microsoft.directory/users/basic/update | Update basic properties on users |
 > | microsoft.directory/users/contactInfo/update |  |
 > | microsoft.directory/users/manager/update | Update manager for users |
-> | microsoft.directory/users/userPrincipalName/update |  |
 
 ## Next steps
 
