@@ -333,6 +333,8 @@
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
+  - name: Session host statuses and health checks
+    href: troubleshoot-statuses-checks.md
   - name: Management issues
     href: troubleshoot-management-issues.md
   - name: Azure Virtual Desktop PowerShell

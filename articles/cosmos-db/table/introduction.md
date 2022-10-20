@@ -51,11 +51,9 @@ Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com
 
 Here are a few pointers to get you started:
 * [Build a .NET application by using the API for Table](quickstart-dotnet.md)
-* [Develop with the API for Table in .NET](tutorial-develop-table-dotnet.md)
 * [Query table data by using the API for Table](tutorial-query.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the API for Table](tutorial-global-distribution.md)
-* [Azure Cosmos DB Table .NET Standard SDK](dotnet-standard-sdk.md)
-* [Azure Cosmos DB Table .NET SDK](dotnet-sdk.md)
-* [Azure Cosmos DB Table Java SDK](java-sdk.md)
-* [Azure Cosmos DB Table Node.js SDK](nodejs-sdk.md)
-* [Azure Cosmos DB Table SDK for Python](python-sdk.md)
+* [Azure Cosmos DB Table .NET SDK](/dotnet/api/overview/azure/data.tables-readme)
+* [Azure Cosmos DB Table Java SDK](/java/api/overview/azure/data-tables-readme)
+* [Azure Cosmos DB Table Node.js SDK](/javascript/api/overview/azure/data-tables-readme)
+* [Azure Cosmos DB Table SDK for Python](/python/api/azure-data-tables/azure.data.tables)
