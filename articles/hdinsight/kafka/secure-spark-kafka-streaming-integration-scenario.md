@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 10/20/2022
+ms.date: 10/22/2022
 ---
 
 # Secure Spark and Kafka – Spark streaming integration scenario
@@ -62,7 +62,9 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
 
 1. Add a Ranger policy for `alicetest` with consume access to topics with wildcard pattern `alicetopic*`
 
-    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest.":::
+    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest." border="false":::
+    
+     
 1. Add a Ranger policy for `bobadmin` with all accesses to all topics with wildcard pattern `*`
 
     :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-bobadmin.png" alt-text="Screenshot showing how to add ranger policy for bobadmin.":::
@@ -235,7 +237,7 @@ From Spark cluster, read from kafka topic `alicetopic2` as user `alicetest` is a
         
     1. Click on 'stdout'. You'll see the output with the count of words from your Kafka topic.
     
-        :::image type="content" source="./media/hdinsight-spark-kafka/logs-for-spesfic-container.png" alt-text="Screenshot showing bobtopic job failed status.":::        
+        :::image type="content" source="./media/hdinsight-spark-kafka/logs-for-specific-container.png" alt-text="Screenshot showing bobtopic job failed status.":::        
         
     1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
     
@@ -303,7 +305,7 @@ From Spark cluster, read from kafka topic `alicetopic2` as user `bobadmin` is al
  
 1. From YARN UI, access the yarn job output you can see that `bobadmin` user is able to read from `alicetopic2` and the count of words is seen in the output.
 
-    :::image type="content" source="./media/hdinsight-spark-kafka/bobtest-user-reads-from-bobtopic2.png" alt-text="Screenshot showing bobtest user reads from bobtopic":::
+    :::image type="content" source="./media/hdinsight-spark-kafka/bobtest-user-reads-from-bobtopic-2.png" alt-text="Screenshot showing bobtest user reads from bobtopic":::
     
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
 
@@ -336,7 +338,7 @@ From Spark cluster, read from Kafka topic `bobtopic2` as user `bobadmin` is allo
 
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
 
-    :::image type="content" source="./media/hdinsight-spark-kafka/audit-logs-with-sucess-state-spark-kafka.png" alt-text="Screenshot showing for scenario 4 audit logs with success state.":::
+    :::image type="content" source="./media/hdinsight-spark-kafka/audit-logs-with-success-state-spark-kafka.png" alt-text="Screenshot showing for scenario 4 audit logs with success state.":::
     
 ## Next steps
 
