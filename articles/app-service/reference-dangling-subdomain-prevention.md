@@ -18,7 +18,7 @@ The risks of subdomain takeover include:
 - Phishing campaigns
 - Further risks of classic attacks such as XSS, CSRF, CORS bypass
 
-Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover.md).
+Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
 Azure App Service provides [Name Reservation](#how-name-reservation-service-works) Service and [domain verification tokens](#domain-verification-token) to prevent subdomain takeovers.
 ## How Name Reservation Service works

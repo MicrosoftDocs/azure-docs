@@ -30,7 +30,7 @@ To configure an app to use the OAuth 2.0 authorization code grant flow, save the
 - A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{AppReg Secret}` later.
 - A `redirect URI (or reply URL)` for your app to receive responses from Azure AD. If there's no redirect URIs specified, add a platform, select "Web", then add `http://localhost:8080`, and select save.
 
-For steps on how to configure an app in the Azure portal, see [Register your app](/azure/active-directory/develop/quickstart-register-app#register-an-application).
+For steps on how to configure an app in the Azure portal, see [Register your app](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
 ## Get authorization
 The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Azure AD will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Azure AD will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
