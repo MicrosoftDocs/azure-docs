@@ -23,7 +23,6 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
-| Feature| Remote User connectivity/Point-to-site VPN | [User Group Support for Remote User/Point-to-site VPN](user-groups-about.md)|Ability to assign different IP addresses to connecting users based on their credentials/identities. |October 2022|
 | Feature| Network Virtual Appliances (NVA)/Integrated Third-party solutions in Virtual WAN hubs| [Fortinet SD-WAN](https://docs.fortinet.com/document/fortigate-public-cloud/7.2.2/azure-vwan-sd-wan-deployment-guide/12818/deployment-overview)| General availability of Fortinet SD-WAN solution in Virtual WAN. Next-Generation Firewall use cases  in preview.| October 2022| SD-WAN solution Generally Available, Next Generation Firewall use cases in preview.|
 |Feature |ExpressRoute | [ExpressRoute circuit page now shows vWAN connection](virtual-wan-expressroute-portal.md)|| August 2022||
 |Feature | Site-to-site VPN | [BGP dashboard](monitor-bgp-dashboard.md)| Using the BGP dashboard, you can monitor BGP peers, advertised routes, and learned routes. The BGP dashboard is available for site-to-site VPNs that are configured to use BGP. |August 2022| |
