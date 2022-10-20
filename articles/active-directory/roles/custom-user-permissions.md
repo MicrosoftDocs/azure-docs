@@ -32,53 +32,111 @@ This article lists the permissions you can use in your custom roles for differen
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## Read or update manager of users
+## Read or update basic properties of users
 
-The following permissions are available to read or update manager of users.
-
-> [!div class="mx-tableFixed"]
-> | Permission | Description |
-> | ---------- | ----------- |
-> | microsoft.directory/users/manager/read | Read manager of users |
-> | microsoft.directory/users/manager/update | Update manager for users |
-
-## Update basic properties of users
-
-The following permissions are available to update basic properties of users.
+The following permissions are available to read or update basic properties of users.
 
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
-> | microsoft.directory/users/standard/read | Read basic properties on users |
-> | microsoft.directory/users/basic/update | Update basic properties on users |
+> | microsoft.directory/users/standard/read | Read basic properties on users. |
+> | microsoft.directory/users/basic/update | Update basic properties on users. |
 
-## Update contact info of users
+## Read or update other properties of users
 
-The following permissions are available to update contact info of users.
+The following permissions are available to read or update other properties of users.
 
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
-> | microsoft.directory/users/contactInfo/update | Update the contact info properties of users, such as address, phone, and email |
+> | microsoft.directory/users/contactInfo/update | Update the contact info properties of users, such as address, phone, and email. |
+> | microsoft.directory/users/extensionProperties/update | Update extension properties of users. |
+> | microsoft.directory/users/identities/read | Read identities of users. |
+> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name, user principal name, and object ID. |
 
-## Full list of permissions
+## Read or update employee and job information of users
 
-### Basic profile management
+The following permissions are available to read or update employee and job information of users.
+
+> [!div class="mx-tableFixed"]
+> | Permission | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/users/manager/read | Read manager of users. |
+> | microsoft.directory/users/manager/update | Update manager for users. |
+> | microsoft.directory/users/directReports/read | Read the direct reports for users. |
+> | microsoft.directory/users/jobInfo/update | Update the job info properties of users, such as job title, department, and company name. |
+> | microsoft.directory/users/usageLocation/update | Update usage location of users. |
+
+## Read device information of users
+
+The following permissions are available to read device information of users.
+
+> [!div class="mx-tableFixed"]
+> | Permission | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/users/ownedDevices/read | Read owned devices of users |
+> | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
+> | microsoft.directory/users/deviceForResourceAccount/read | Read deviceForResourceAccount of users. |
+
+## Read or manage licenses of users
+
+The following permissions are available to read or manage licenses of users.
+
+> [!div class="mx-tableFixed"]
+> | Permission | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/users/licenseDetails/read | Read license details of users. |
+> | microsoft.directory/users/assignLicense | Manage user licenses. |
+> | microsoft.directory/users/reprocessLicenseAssignment | Reprocess license assignments for users. |
+
+## Update policy information of users
+
+The following permissions are available to update policy information of users.
+
+> [!div class="mx-tableFixed"]
+> | Permission | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/users/parentalControls/update | Update parental controls of users. |
+> | microsoft.directory/users/passwordPolicies/update | Update password policies properties of users. |
+
+## Read assignments and memberships of users
+
+The following permissions are available to read assignments and memberships of users.
 
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
 > | microsoft.directory/users/appRoleAssignments/read | Read application role assignments for users |
-> | microsoft.directory/users/directReports/read | Read the direct reports for users |
-> | microsoft.directory/users/manager/read | Read manager of users |
-> | microsoft.directory/users/memberOf/read | Read the group memberships of users |
-> | microsoft.directory/users/ownedDevices/read | Read owned devices of users |
-> | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
 > | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
-> | microsoft.directory/users/standard/read | Read basic properties on users |
-> | microsoft.directory/users/basic/update | Update basic properties on users |
-> | microsoft.directory/users/contactInfo/update | Update the contact info properties of users, such as address, phone, and email |
-> | microsoft.directory/users/manager/update | Update manager for users |
+> | microsoft.directory/users/memberOf/read | Read the group memberships of users |
+
+## Full list of permissions
+
+> [!div class="mx-tableFixed"]
+> | Permission | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/users/appRoleAssignments/read | Read application role assignments for users. |
+> | microsoft.directory/users/assignLicense | Manage user licenses. |
+> | microsoft.directory/users/basic/update | Update basic properties on users. |
+> | microsoft.directory/users/contactInfo/update | Update the contact info properties of users, such as address, phone, and email. |
+> | microsoft.directory/users/deviceForResourceAccount/read | Read deviceForResourceAccount of users. |
+> | microsoft.directory/users/directReports/read | Read the direct reports for users. |
+> | microsoft.directory/users/extensionProperties/update | Update extension properties of users. |
+> | microsoft.directory/users/identities/read | Read identities of users. |
+> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name, user principal name, and object ID. |
+> | microsoft.directory/users/jobInfo/update | Update the job info properties of users, such as job title, department, and company name. |
+> | microsoft.directory/users/licenseDetails/read | Read license details of users. |
+> | microsoft.directory/users/manager/read | Read manager of users. |
+> | microsoft.directory/users/manager/update | Update manager for users. |
+> | microsoft.directory/users/memberOf/read | Read the group memberships of users. |
+> | microsoft.directory/users/ownedDevices/read | Read owned devices of users. |
+> | microsoft.directory/users/parentalControls/update | Update parental controls of users. |
+> | microsoft.directory/users/passwordPolicies/update | Update password policies properties of users. |
+> | microsoft.directory/users/registeredDevices/read | Read registered devices of users. |
+> | microsoft.directory/users/reprocessLicenseAssignment | Reprocess license assignments for users. |
+> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit. |
+> | microsoft.directory/users/standard/read | Read basic properties on users. |
+> | microsoft.directory/users/usageLocation/update | Update usage location of users. |
 
 ## Next steps
 
