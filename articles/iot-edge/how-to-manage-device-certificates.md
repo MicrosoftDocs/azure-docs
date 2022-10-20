@@ -350,7 +350,7 @@ retry = "4%"
 
 Don't use EST or `auto_renew` with other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment. IoT Edge can't update certificate thumbprints in Azure when a certificate is renewed, which prevents IoT Edge from reconnecting.
 
-## "Quickstart" Edge CA
+## Quickstart Edge CA
 
 Edge CA has two different modes:
 
