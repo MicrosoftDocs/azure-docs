@@ -6,6 +6,8 @@ ms.date: 10/19/2022
 ms.author: juliako
 ---
 
+# Azure Video Indexer insights
+
 Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. For more information about available models, see [overview](video-indexer-overview.md).
 
 [!INCLUDE [insights](./includes/insights.md)]
