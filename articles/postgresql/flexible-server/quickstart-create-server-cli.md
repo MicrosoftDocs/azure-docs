@@ -66,7 +66,7 @@ The server created has the following attributes:
 > [!NOTE] 
 > The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during creation, then you cannot change it to *Public access (allowed IP addresses)* after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
-If you'd like to change any defaults, please refer to the Azure CLI reference for [az postgres flexible-server create](https://learn.microsoft.com/en-us/cli/azure/postgres/flexible-server?view=azure-cli-latest#az-postgres-flexible-server-create).
+If you'd like to change any defaults, please refer to the Azure CLI reference for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
 
 > [!NOTE]
 > Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
