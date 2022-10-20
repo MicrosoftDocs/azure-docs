@@ -122,7 +122,7 @@ Reasons for why you may see dropped packets:
 
 ### SNAT connection count
 
-The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. This metric can be broken out to view different connection states including: attempted, established, failed, closed, and timed out connections. A failed connection volume of greater than zero indicates SNAT port exhaustion.
+The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. This metric can be broken out to view different connection states including: attempted, established, failed, closed, and timed out connections. A failed connection volume greater than zero indicates SNAT port exhaustion.
 
 Use this metric to: 
 
@@ -160,7 +160,7 @@ The **Total SNAT connection count** metric shows you the total number of active 
 
 You can use this metric to:
 
-- Assess if you are nearing the connection limit of your NAT gateway resource.
+- Assess if you're nearing the connection limit of your NAT gateway resource.
 
 - Help assess if you're experiencing a pattern of failed outbound connections. 
 
@@ -228,7 +228,7 @@ Setting the aggregation granularity to less than 5 minutes may trigger false pos
 
 ### Alerts for SNAT port exhaustion 
 
-Use the  **SNAT connection count** metric and alerts to help determine if you are experiencing SNAT port exhaustion. A failed connection volume greather than zero could inidicate SNAT port exhaustion. You may need to investigate further to determine the root cause of these failures.
+Use the **SNAT connection count** metric and alerts to help determine if you're experiencing SNAT port exhaustion. A failed connection volume greater than zero indicates SNAT port exhaustion. You may need to investigate further to determine the root cause of these failures.
 
 To create the alert, use the following steps:
 
