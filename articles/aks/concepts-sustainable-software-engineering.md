@@ -22,6 +22,36 @@ The guidance found in this article is focused on Azure Kubernetes Services you'r
 
 * Having clearly defined business requirements is crucial when building applications as they might have a direct impact on both cluster and workload architectures and configurations. Review the Well-Architected Framework workload for sustainability design areas alongside your application's holistic lifecycle when building or updating existing applications.
 
+
+## Sustainability is a shared responsibility
+
+As a cloud provider, Microsoft is responsible for the data centers hosting your applications.
+
+However, deploying an application in the Microsoft cloud doesn't automatically make it sustainable, even if the data centers are optimized for sustainability. Applications that aren't optimized may still emit more carbon than necessary.
+
+Read more about [the shared responsibility model for sustainability](/framework/sustainability/sustainability-design-methodology#the-shared-responsibility-model-for-sustainability)
+
+
+## Sustainability design principles
+ **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
+
+&nbsp;&nbsp;&nbsp; A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
+
+ **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
+
+&nbsp;&nbsp;&nbsp; One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate ; thereby increasing hardware efficiency as well.
+
+ **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
+
+&nbsp;&nbsp;&nbsp; There are two main approaches to hardware efficiency:
+ - For end-user devices, it's extending the lifespan of the hardware.
+ - For cloud computing, it's increasing the utilization of the resource.
+
+ **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
+
+ &nbsp;&nbsp;&nbsp; Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+
+
 ## Design checklist
 
 We recommend careful consideration of these application design patterns for building a sustainable workload on Azure Kubernetes Services before reviewing the detailed recommendations in each of the design areas.
