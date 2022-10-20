@@ -193,7 +193,7 @@ If the error message mentions `"container registry authorization failure"`, that
 This can be caused by desynchronization of a workspace resource's keys and it takes some time to automatically synchronize.
 However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
 
-Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network been set up properly.
+Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network has been set up properly.
 
 #### Generic image build failure
 
