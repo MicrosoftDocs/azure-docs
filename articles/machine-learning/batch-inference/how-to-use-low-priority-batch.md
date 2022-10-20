@@ -29,7 +29,7 @@ Azure Machine Learning Batch Deployments provides several capabilities that make
 
 - Batch deployment jobs consume low priority VMs by running on Azure Machine Learning compute clusters created with low priority VMs. Once a deployment is associated with a low priority VMs' cluster, all the jobs produced by such deployment will use low priority VMs. Per-job configuration is not possible.
 - Batch deployment jobs automatically seek the target number of VMs in the available compute cluster based on the number of tasks to submit. If VMs are preempted or unavailable, batch deployment jobs attempt to replace the lost capacity by queuing the failed tasks to the cluster.
-- When a job is interrupted, it is resubmitted to run again. Rescheduling is done at job level, regardless of the progress. No checkpointing capability is provided.
+- When a job is interrupted, it is resubmitted to run again. Rescheduling is done at the mini batch level, regardless of the progress. No checkpointing capability is provided.
 - Low priority VMs have a separate vCPU quota that differs from the one for dedicated VMs. Low-priority cores per region have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families. See [Azure Machine Learning compute quotas](../how-to-manage-quotas.md#azure-machine-learning-compute).
 
 ## Considerations and use cases
@@ -160,5 +160,9 @@ To view these metrics in the Azure portal
 ## Limitations
 
 - Once a deployment is associated with a low priority VMs' cluster, all the jobs produced by such deployment will use low priority VMs. Per-job configuration is not possible.
-- Rescheduling is done at the job level, regardless of the progress. No checkpointing capability is provided.
+- Rescheduling is done at the mini-batch level, regardless of the progress. No checkpointing capability is provided.
+
+> [!WARNING]
+> In the cases where the entire cluster is preempted (or running on a single-node cluster), the job will be cancelled as there is no capacity available for it to run. Resubmitting will be required in this case. 
+
 
