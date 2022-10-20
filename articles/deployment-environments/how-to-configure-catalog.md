@@ -1,7 +1,7 @@
 ---
-title: Configure a catalog
+title: Add and configure a catalog
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure a catalog in your dev center to provide curated infra-as-code templates to your development teams to deploy self-serve environments.
+description: Learn how to add and configure a catalog in your Azure Deployment Environments Preview dev center to provide deployment templates for your development teams.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: meghaanand
@@ -10,24 +10,29 @@ ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
-# Create and configure a catalog
+# Add and configure a catalog
 
-Learn how to configure a dev center [catalog](./concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of 'infra-as-code' templates called [catalog items](./concept-environments-key-concepts.md#catalog-items). To learn about configuring catalog items, see [How to configure a catalog item](./configure-catalog-item.md). 
+Learn how to configure an Azure Deployment Environments Preview dev center [catalog](./concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of infrastructure as code (IaC) templates called [*catalog items*](./concept-environments-key-concepts.md#catalog-items).
 
-The catalog could be a repository hosted in [GitHub](https://github.com) or in [Azure DevOps Services](https://dev.azure.com/).
+For more information about catalog items, see [Add and configure a catalog item](./configure-catalog-item.md).
+
+A catalog is a repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
-- To learn how to host a Git repository in an Azure DevOps Services project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
+- To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
 
-We offer an example [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository, or you can fork and customize the catalog items. You can attach your private repo to use your own catalog items.
+We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the catalog items in the sample catalog.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Add a new catalog
+> - Add a catalog
 > - Update a catalog
 > - Delete a catalog
+
+> [!IMPORTANT]
+> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise are not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Add a new catalog
 
