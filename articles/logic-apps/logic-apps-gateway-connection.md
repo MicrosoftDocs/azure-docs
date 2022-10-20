@@ -11,7 +11,7 @@ ms.date: 10/19/2021
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-Before you can access on-premises data sources from your logic app workflows, you need to [install an on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). You also need to create a gateway resource in Azure for your gateway installation. You can then select this gateway resource in the triggers and actions that you want to use for the [on-premises connectors](../connectors/managed.md#on-premises-connectors) that are available in Azure Logic Apps. Logic Apps supports read and write operations through the data gateway. But these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
+Before you can access on-premises data sources from your logic app workflows, you need to [install an on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). You also need to create a gateway resource in Azure for your gateway installation. You can then select this gateway resource in the triggers and actions that you use for the [on-premises connectors](../connectors/managed.md#on-premises-connectors) that are available in Azure Logic Apps. Logic Apps supports read and write operations through the data gateway, but these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
 This how-to guide shows how to create your Azure gateway resource for a previously [installed gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). For more information about gateways, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
