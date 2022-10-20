@@ -47,11 +47,11 @@ Everything up to this point makes up the billing process. It's where charges are
 
 After discounts are applied, cost details then flow into Cost Management, where:
 
-1. The [anomaly detection](./understand/analyze-unexpected-charges.md) model identifies anomalies daily based on normalized usage (not rated usage).
-1. The cost allocation engine applies tag inheritance and [splits shared costs](./costs/allocate-costs.md).
-1. AWS cost and usage reports are pulled based on any [connectors for AWS](./costs/aws-integration-manage.md) you may have configured.
-1. Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
-1. Cost alerts are sent out for [budgets](./costs/tutorial-acm-create-budgets.md), [anomalies](./understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](./costs/save-share-views.md#subscribe-to-cost-alerts), and more based on the configured settings.
+- The [anomaly detection](./understand/analyze-unexpected-charges.md) model identifies anomalies daily based on normalized usage (not rated usage).
+- The cost allocation engine applies tag inheritance and [splits shared costs](./costs/allocate-costs.md).
+- AWS cost and usage reports are pulled based on any [connectors for AWS](./costs/aws-integration-manage.md) you may have configured.
+- Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
+- Cost alerts are sent out for [budgets](./costs/tutorial-acm-create-budgets.md), [anomalies](./understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](./costs/save-share-views.md#subscribe-to-cost-alerts), and more based on the configured settings.
 
 Lastly, cost details are made available from [cost analysis](./costs/quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](./costs/tutorial-export-acm-data.md).
 
