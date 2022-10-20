@@ -17,13 +17,13 @@ In this article, you learn how to:
 
 - Use tools to identify high input/output (I/O) utilization, such as Azure Metrics, Query Store, and pg_stat_statements.
 - Identify root causes, such as long-running queries, checkpoint timings, a disruptive autovacuum daemon process, and high storage utilization.
-- Resolve high I/O utilization by using Explain Analyze, tune checkpoint-related server parameters, and the tune autovacuum daemon.
+- Resolve high I/O utilization by using Explain Analyze, tune checkpoint-related server parameters, and tune the autovacuum daemon.
 
 ## Tools to identify high I/O utilization
 
-Consider these tools to identify high I/O utilization.
+Consider the following tools to identify high I/O utilization.
 
-### Azure metrics
+### Azure Metrics
 
 Azure Metrics is a good starting point to check I/O utilization for a defined date and period. Metrics give information about the time during which I/O utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput to find out times when the workload is causing high I/O utilization. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
 
@@ -40,7 +40,7 @@ order by blk_read_time + blk_write_time  desc limit 5;
 
 ### The pg_stat_statements extension
 
-The pg_stat_statements extension helps identify queries that consume I/O on the server.
+The `pg_stat_statements` extension helps identify queries that consume I/O on the server.
 
 Use the following statement to view the top five SQL statements that consume I/O:
 
@@ -56,7 +56,7 @@ LIMIT 5;
 
 ## Identify root causes 
 
-If I/O consumption levels are high in general, the following could be possible root causes: 
+If I/O consumption levels are high in general, the following could be the root causes: 
 
 ### Long-running transactions  
 
@@ -73,11 +73,9 @@ ORDER BY duration DESC;
 
 ### Checkpoint timings
 
-High I/O can also be seen in scenarios where a checkpoint is happening too frequently. One way to identify this is by checking the PostgreSQL log file for the following log text:
+High I/O can also be seen in scenarios where a checkpoint is happening too frequently. One way to identify this is by checking the PostgreSQL log file for the following log text: "LOG: checkpoints are occurring too frequently."
 
-> "LOG: checkpoints are occurring too frequently."
-
-You could also investigate using an approach where periodic snapshots of `pg_stat_bgwriter` with a time stamp are saved. By using the saved snapshots, you can calculate the average checkpoint interval, number of checkpoints requested, and number of checkpoints timed. 
+You could also investigate by using an approach where periodic snapshots of `pg_stat_bgwriter` with a time stamp are saved. By using the saved snapshots, you can calculate the average checkpoint interval, number of checkpoints requested, and number of checkpoints timed. 
 
 ### Disruptive autovacuum daemon process
 
@@ -88,9 +86,9 @@ SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count, last_vacuu
 ```
 The query is used to check how frequently the tables in the database are being vacuumed. 
 
-* **last_autovacuum**: The date and time when the last autovacuum ran on the table.      
-* **autovacuum_count**: The number of times the table was vacuumed.    
-* **autoanalyze_count**: The number of times the table was analyzed.   
+* `last_autovacuum`: The date and time when the last autovacuum ran on the table.      
+* `autovacuum_count`: The number of times the table was vacuumed.    
+* `autoanalyze_count`: The number of times the table was analyzed.   
 
 ## Resolve high I/O utilization
 
@@ -145,7 +143,7 @@ If you've observed that the checkpoint is happening too frequently, increase the
         select round (pg_wal_lsn_diff ('LSN value when run second time', 'LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB;
         ```      
 
-* `checkpoint_completion_target`: A good practice would be to set the value to 0.9. As an example, a value of 0.9 for a `checkpoint_timeout` of 5 minutes indicates that the target to complete a checkpoint is 270 seconds, or 0.9*300 seconds. A value of 0.9 provides a fairly consistent I/O load. An aggressive value of `checkpoint_completion_target` might result in an increased I/O load on the server.
+* `checkpoint_completion_target`: A good practice would be to set the value to 0.9. As an example, a value of 0.9 for a `checkpoint_timeout` of 5 minutes indicates that the target to complete a checkpoint is 270 seconds (0.9\*300 seconds). A value of 0.9 provides a fairly consistent I/O load. An aggressive value of `checkpoint_completion_target` might result in an increased I/O load on the server.
 
 * `checkpoint_timeout`: You can increase the `checkpoint_timeout` value from the default value that's set on the server. As you're increasing the value, take into consideration that increasing it would also increase the time for crash recovery.
 
@@ -155,7 +153,7 @@ For more information about monitoring and tuning in scenarios where autovacuum i
 
 ###  Increase storage
 
-Increasing storage helps when you're adding more IOPS to the server. For more information about storage and associated IOPS review [Compute and storage options](./concepts-compute-storage.md).
+Increasing storage helps when you're adding more IOPS to the server. For more information about storage and associated IOPS, review [Compute and storage options](./concepts-compute-storage.md).
 
 ## Next steps
 
