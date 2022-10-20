@@ -416,37 +416,6 @@ root@xsense:/# sudo dpkg-reconfigure iot-sensor
 The configuration wizard starts automatically after you run this command. 
 For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
-## Manage SSL and TLS certificates
-
-Use the following command to import SSL and TLS certificates to the sensor from the CLI.
-
-To use this command:
-
-- Verify that the certificate file you want to import is readable on the appliance. Upload certificate files to the appliance using tools such as WinSCP or Wget.
-- Confirm with your IT office that the appliance domain as it appears in the certificate is correct for your DNS server and the corresponding IP address.
-
-For more information, see [Certificates for appliance encryption and authentication (OT appliances)](../how-to-deploy-certificates.md).
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-| **cyberx** | `cyberx-xsense-certificate-import` | cyberx-xsense-certificate-import [-h] [--crt &lt;PATH&gt;] [--key &lt;FILE NAME&gt;] [--chain &lt;PATH&gt;] [--pass &lt;PASSPHRASE&gt;] [--passphrase-set &lt;VALUE&gt;]`
-
-In this command:
-
-- `-h`: Shows the full command help syntax
-- `--crt`: The path to the certificate file you want to upload, with a `.crt` extension
-- `--key`: The `\*.key` file you want to use for the certificate. Key length must be a minimum of 2,048 bits
-- `--chain`: The path to a certificate chain file. Optional.
-- `--pass`: A passphrase used to encrypt the certificate. Optional.
-- `--passphrase-set`: Unused and set to *False* by default. Set to *True* to use passphrase supplied with the previous certificate. Optional.
-
-For example, for the *cyberx* user:
-
-```bash
-root@xsense:/# cyberx-xsense-certificate-import
-```
-
-<!--better example with attributes showing and also response?-->
 
 ## Back up and restore appliance snapshot
 
