@@ -23,16 +23,14 @@ The guidance found in this article is focused on Azure Kubernetes Services you'r
 * Having clearly defined business requirements is crucial when building applications, as they might have a direct impact on both cluster and workload architectures and configurations. When building or updating existing applications, review the Well-Architected Framework sustainability design areas, alongside your application's holistic lifecycle.
 
 
-## Sustainability is a shared responsibility
+## Understanding the shared responsibility model
 
-As a cloud provider, Microsoft is responsible for the data centers hosting your applications.
-
-However, deploying an application in the Microsoft cloud doesn't automatically make it sustainable, even if the data centers are optimized for sustainability. Applications that aren't optimized may still emit more carbon than necessary.
-
-Read more about [the shared responsibility model for sustainability](/framework/sustainability/sustainability-design-methodology#the-shared-responsibility-model-for-sustainability)
+Sustainability – just like security – is a shared responsibility between the cloud provider and the customer or partner designing and deploying AKS clusters on the platform. Deploying AKS does not automatically make it sustainable, even if the [data centers are optimized for sustainability](https://infrastructuremap.microsoft.com/fact-sheets). Applications that aren't optimized may still emit more carbon than necessary.
+ 
+Learn more about the [shared responsibility model for sustainability](/azure/architecture/framework/sustainability/sustainability-design-methodology#a-shared-responsibility).
 
 
-## Sustainability design principles
+## Design principles
  **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
 
     A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
@@ -50,10 +48,10 @@ Read more about [the shared responsibility model for sustainability](/framework/
 
  **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
- &nbsp;&nbsp;&nbsp; Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+    Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
 
 
-## Design checklist
+## Design patterns
 
 We recommend careful consideration of these design patterns for building a sustainable workload on Azure Kubernetes Service, before reviewing the detailed recommendations in each of the design areas.
 
@@ -63,18 +61,18 @@ We recommend careful consideration of these design patterns for building a susta
 | [Design for event-driven scaling](#design-for-event-driven-scaling) | ✔️ |  |
 | [Aim for stateless design](#aim-for-stateless-design) | ✔️ |  |
 | [Enable cluster and node auto-updates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
-| [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
-| [Choose a region that is closest to users](#choose-a-region-that-is-closest-to-users) | | ✔️ |
-| [Reduce network traversal between nodes](#reduce-network-traversal-between-nodes) | | ✔️ |
-| [Evaluate using a service mesh](#evaluate-using-a-service-mesh) | | ✔️ |
-| [Optimize log collection](#optimize-log-collection) | ✔️  | ✔️ |
-| [Match the scalability needs and utilize auto-scaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
-| [Use spot node pools when possible](#use-spot-node-pools-when-possible) |  | ✔️ |
 | [Install supported add-ons and extensions](#install-supported-add-ons-and-extensions) | ✔️ | ✔️ |
+| [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
+| [Use spot node pools when possible](#use-spot-node-pools-when-possible) |  | ✔️ |
+| [Match the scalability needs and utilize auto-scaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
 | [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
 | [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
 | [Tag your resources](#tag-your-resources) | ✔️ | ✔️ |
 | [Optimize storage utilization](#optimize-storage-utilization) | ✔️ | ✔️ |
+| [Choose a region that is closest to users](#choose-a-region-that-is-closest-to-users) | | ✔️ |
+| [Reduce network traversal between nodes](#reduce-network-traversal-between-nodes) | | ✔️ |
+| [Evaluate using a service mesh](#evaluate-using-a-service-mesh) | | ✔️ |
+| [Optimize log collection](#optimize-log-collection) | ✔️  | ✔️ |
 | [Cache static data](#cache-static-data) | ✔️ | ✔️ |
 | [Evaluate whether to use TLS termination](#evaluate-whether-to-use-tls-termination) | ✔️ | ✔️ |
 | [Use cloud native network security tools and controls](#use-cloud-native-network-security-tools-and-controls) | ✔️ | ✔️ |
