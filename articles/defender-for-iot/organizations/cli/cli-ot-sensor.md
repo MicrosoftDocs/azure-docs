@@ -448,6 +448,76 @@ root@xsense:/# cyberx-xsense-certificate-import
 
 <!--better example with attributes showing and also response?-->
 
+## Update sensor software versions
+
+This procedure explains how to update OT sensor software using the command line interface.
+
+
+1. Mount the secured update file to the `/home/cyberx` directory, and then copy it to the `/tmp` directory. Run:
+
+    ```bash
+    cp /home/cyberx/<file name> /tmp
+    ```
+
+    where `<file name>` is the name of the update file
+
+1. Verify that the update file isn't corrupted. Run:
+
+    ```bash
+	md5sum <filename>
+    ```
+
+    where `<file name>` is the name of the update file
+
+1. Create the update flag required to start the update. Run:
+
+    ```bash
+    touch /var/cyberx/media/device-info/pending_update
+    ```
+
+1. If this isn't the first update being run on your sensor, make sure that no old files are in use. You can skip this step if the `/update` directory doesn't exist. Run:
+
+    ```bash
+    cd /update
+    sudo rm -rf *
+    ```
+1. Stop the tomcat process:
+
+    ```bash
+	sudo monit stop tomcat
+    ```
+
+1. Extract the secured update file. Run:
+
+    ```bash
+    sudo /usr/local/bin/cyberx-update-extract --encrypted-file-path /tmp/<file name> --output-dir-path /var/cyberx/media/device-info/update
+    ```
+
+    Where `<file name>` is the name of the update file.
+
+1. Start tomcat again. Run:
+
+    ```bash
+    sudo monit start tomcat
+    ```
+
+1. Make sure that you're in the correct directory for the update. Run:
+
+    ```bash
+    cd /home/cyberx
+    ```
+
+1. Run the update script. Run:
+
+    ```bash
+    sudo python /var/cyberx/media/device-info/update/setup_upgrade.py --pre_reboot
+    ```
+
+The update runs on the sensor. To track the updates progress, run:
+
+```bash
+tail -f /var/cyberx/logs/upgrade.log
+```
 
 ## Back up and restore appliance snapshot
 
