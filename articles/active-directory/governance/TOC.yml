@@ -49,15 +49,15 @@
       - name: Automate employee onboarding tasks - Azure portal (Preview)
         href: tutorial-onboard-custom-workflow-portal.md 
       - name: Automate employee onboarding tasks - Microsoft Graph (Preview)
-        href: tutorial-onboard-custom-workflow-graph.md
+        href: /graph/tutorial-lifecycle-workflows-onboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Offboarding employees in real-time - Azure portal (Preview)
         href: tutorial-offboard-custom-workflow-portal.md
       - name: Offboarding employees in real-time - Microsoft Graph (Preview)
-        href: tutorial-offboard-custom-workflow-graph.md
+        href: /graph/tutorial-lifecycle-workflows-offboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Automate employee offboarding tasks - Azure portal (preview)
         href: tutorial-scheduled-leaver-portal.md  
       - name: Automate employee offboarding tasks - Microsoft Graph (preview)
-        href: tutorial-scheduled-leaver-graph.md 
+        href: /graph/tutorial-lifecycle-workflows-scheduled-leaver?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Concepts
   expanded: true
   items:
