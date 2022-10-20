@@ -157,9 +157,7 @@ sudo ./DiffGenTool
 
 ### Generate import manifest
 
-The basic process of importing an update to the Device Update service is unchanged  for delta updates, so if you haven't already, be sure to review this page:
-
-[How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
+The basic process of importing an update to the Device Update service is unchanged  for delta updates, so if you haven't already, be sure to review this page: [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
 
 The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
 
@@ -182,6 +180,18 @@ The `downloadHandler` element is used to specify how the Device Update agent wil
   "id": "microsoft/delta:1"
 }
 ```
+You can use the Azure Command Line Interface (CLI) to generate an import manifest for your delta update. If you haven't used the Azure CLI to create an import manifest before, refer to [these instructions](create-update.md#create-a-basic-device-update-import-manifest).
+
+```azurecli
+    az iot device-update update init v5 `
+--update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
+--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report>
+--step handler=microsoft/swupdate:2 properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'>
+--file path=<replace with path(s) to your update file(s), including the full file name> downloadHandler=microsoft/delta:1
+--related-file path=<replace with path(s) to your delta file(s), including the full file name> properties='{"microsoft.sourceFileHashAlgorithm": "sha256", "microsoft.sourceFileHash": "<replace with the source SWU image file hash>"}' 
+```
+
+Save your generated import manifest JSON to a file with the extension `.importmanifest.json`
 
 ### Import using the Azure portal
 
