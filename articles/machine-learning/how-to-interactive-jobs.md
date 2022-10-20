@@ -44,33 +44,34 @@ Note that interactive training is supported on **AzureML Compute Cluster** and *
 
 ### Submit an interactive job via the AzureML SDKv2
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-manage-environments-v2) to create a custom environment. 
-```python
-command_job = command(...
-    code="./src",  # local path where the code is stored
-    command="python main.py", # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running
-    environment="AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest",
-    compute="<name-of-compute>",
-    services={
-      "My_jupyterlab": JobService(
-        job_service_type = "JupyterLab"
-      ),
-      "My_vscode": JobService(
-        job_service_type = "VSCode"
-      ),
-      "My_tensorboard": JobService(
-        job_service_type = "Tensorboard"
-        logs = "~/logs" # location of Tensorboard logs # TODO VERIFY SYNTAX
-      ),
-      "My_ssh": JobService(
-        job_service_type = "SSH",
-        sshPublicKeys = "<add-public-key>" # TODO VERIFY SYNTAX
-      ),
-    }
-)
+  ```python
+  # NEED TO LINK OUT TO SAMPLES REPO INSTEAD OF HARD CODING
+  command_job = command(...
+      code="./src",  # local path where the code is stored
+      command="python main.py", # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running
+      environment="AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest",
+      compute="<name-of-compute>",
+      services={
+        "My_jupyterlab": JobService(
+          job_service_type = "JupyterLab"
+        ),
+        "My_vscode": JobService(
+          job_service_type = "VSCode"
+        ),
+        "My_tensorboard": JobService(
+          job_service_type = "Tensorboard"
+          logs = "~/logs" # location of Tensorboard logs # TODO VERIFY SYNTAX
+        ),
+        "My_ssh": JobService(
+          job_service_type = "SSH",
+          sshPublicKeys = "<add-public-key>" # TODO VERIFY SYNTAX
+        ),
+      }
+  )
 
-# submit the command
-returned_job = ml_client.jobs.create_or_update(command_job)
-```
+  # submit the command
+  returned_job = ml_client.jobs.create_or_update(command_job)
+  ```
   The `services=` section specifies the training applications you want to interact with.  
 
   Note that you can put `sleep <specific time>` at the end of your command to speicify the amount of time you want to reserve the compute resource. The format follows: 
@@ -85,27 +86,28 @@ returned_job = ml_client.jobs.create_or_update(command_job)
 
 ### Submit an interactive job via the AzureML CLI v2
 1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-manage-environments-v2) to create a custom environment. 
-```dotnetcli
-code: src 
-command: 
-  python train.py 
-  # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
-environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
-compute: azureml:<your compute name>
-services:
-    my_vs_code:
-      job_service_type: VSCode
-    my_tensor_board:
-      job_service_type: TensorBoard
-      properties:
-        logDir: "~/logs" # location of Tensorboard logs
-    my_jupyter_lab:
-      job_service_type: JupyterLab
-    my_ssh:
-     job_service_type: SSH
-     properties:
-       sshPublicKeys: <paste the entire pub key content>
-```
+  ```dotnetcli
+  # NEED TO LINK OUT TO SAMPLES REPO INSTEAD OF HARD CODING
+  code: src 
+  command: 
+    python train.py 
+    # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
+  environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
+  compute: azureml:<your compute name>
+  services:
+      my_vs_code:
+        job_service_type: VSCode
+      my_tensor_board:
+        job_service_type: TensorBoard
+        properties:
+          logDir: "~/logs" # location of Tensorboard logs
+      my_jupyter_lab:
+        job_service_type: JupyterLab
+      my_ssh:
+       job_service_type: SSH
+       properties:
+         sshPublicKeys: <paste the entire pub key content>
+  ```
   The `services` section specifies the training applications you want to interact with.  
 
   Note that you can put `sleep <specific time>` at the end of the command to speicify the amount of time you want to reserve the compute resource. The format follows: 
