@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 10/20/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -107,7 +107,7 @@ Azure AD Kerberos doesn't support using MFA to access Azure file shares configur
 
 ## Assign share-level permissions
 
-When you enable identity-based access, you can set for each share which users and groups have access to that particular share. Once a user is allowed into a share, NTFS permissions on individual files and folders take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
+When you enable identity-based access, you can set for each share which users and groups have access to that particular share. Once a user is allowed into a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
 
 To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
 
