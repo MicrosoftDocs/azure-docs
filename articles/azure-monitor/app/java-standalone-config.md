@@ -640,16 +640,19 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
 {
   "preview": {
     "instrumentation": {
+      "akka": {
+        "enabled": true
+      },
       "apacheCamel": {
         "enabled": true
       },
       "grizzly": {
         "enabled": true
       },
-      "springIntegration": {
+      "play": {
         "enabled": true
       },
-      "akka": { 
+      "springIntegration": {
         "enabled": true
       },
       "vertx": {
