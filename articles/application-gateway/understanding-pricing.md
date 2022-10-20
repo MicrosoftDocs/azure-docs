@@ -378,13 +378,13 @@ Let's assume you've provisioned a medium type WAF application Gateway, and you'v
 
 Monthly price estimates are based on 730 hours of usage per month.
 
-Fixed Price = $0.126 * 730 (Hours) = $91.98
+Fixed Price = $0.07 * 730 (Hours) = $51.1
 
 Variable Costs = 30 * 1000 * $0.007/GB = $210 (Medium tier has no cost for the first 10 TB processed per month)
 
 DDoS Protection Standard Costs = $2,944 * 1 (month) = $2,944
 
-Total Costs = $3,245.98
+Total Costs = $3,507.08
 
 
 ## Monitoring Billed Usage
