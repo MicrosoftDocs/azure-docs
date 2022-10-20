@@ -36,7 +36,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added `az ml job show-services` command.
   - Added model sweeping and hyperparameter tuning to AutoML NLP jobs.
 - `az ml schedule`
-  - Added `month_days` property in recurrene schedule.
+  - Added `month_days` property in recurrence schedule.
 - `az ml compute`
   - Added custom setup scripts support for compute instances.
 
@@ -63,7 +63,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 - `az ml component`
   - Added AutoML component.
 - `az ml dataset`
-  - Deprecated this command group (Use `az ml data` instead).
+  - Deprecated command group (Use `az ml data` instead).
 
 ## 2022-07-16
 
