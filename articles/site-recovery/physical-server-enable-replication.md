@@ -6,7 +6,7 @@ manager: jsuri
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: v-pgaddala
-ms.date: 09/21/2022
+ms.date: 10/20/2022
 ---
 
 # Enable replication for a physical server – Modernized
