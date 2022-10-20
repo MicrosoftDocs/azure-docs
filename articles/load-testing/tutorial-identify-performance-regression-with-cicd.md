@@ -195,7 +195,7 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
 
 You'll now create a CI/CD workflow to create and run a load test for the sample application. The sample application repository already contains a CI/CD workflow definition that first deploys the application to Azure, and then creates a load test based on JMeter test script (*SampleApp.jmx*). You'll update the sample workflow definition file to specify the Azure subscription and application details.
 
-On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
+On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about [ARM templates](/azure/azure-resource-manager/templates/overview).
 
 # [Azure Pipelines](#tab/pipelines)
 
