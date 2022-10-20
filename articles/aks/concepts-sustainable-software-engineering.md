@@ -35,7 +35,7 @@ Read more about [the shared responsibility model for sustainability](/framework/
 ## Sustainability design principles
  **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
 
-&nbsp;&nbsp;&nbsp; A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
+    A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
 
  **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
