@@ -88,10 +88,10 @@ Azure Arc-enabled Kubernetes follows the standard [semantic versioning scheme](h
 
 While the schedule may vary, a new minor version of Azure Arc-enabled Kubernetes agents is released approximately once per month.
 
-The following command upgrades the agent to version 1.1.0:
+The following command upgrades the agent to version 1.8.14:
 
 ```azurecli
-az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
+az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.8.14
 ```
 
 ## Check agent version

@@ -248,9 +248,9 @@
   - name: Lifecycle Workflows - FAQs (Preview)
     href: workflows-faqs.md  
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
-    href: lifecycle-workflows-developer-reference.md  
-  - name: Set employeeLeaveDateTime for leaver workflows
-    href: set-employee-leave-date-time.md  
+    href: lifecycle-workflows-developer-reference.md
+  - name: Set EmployeeLeaveDateTime for leaver workflows
+    href: /graph/tutorial-lifecycle-workflows-set-employeeleavedatetime    
   - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
     href: tutorial-prepare-azure-ad-user-accounts.md 
   - name: Configure a Logic App for Lifecycle Workflow use (Preview)
