@@ -16,10 +16,14 @@ ms.date: 10/19/2022
 
 # Known issues, limitations, and troubleshooting
 
-**Error code CutoverFailedOrCancelled 2007:** 
-- **Message**: Cutover failed or cancelled for database <DatabaseName>. Error details: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time. 
-- **Cause**: The error might occur due to the backups being placed incorrectly in the Azure Storage container. If the backups are placed in the network file share, this error could also occur due to network connectivity issues.
-**Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you are using network file share, there might be network-related issues and lags that are causing this error. Please wait for the process to be completed.
+Known issues and limitations associated with the Azure SQL Migration extension for Azure Data Studio.
+
+### Error code: 2007 - CutoverFailedOrCancelled 
+- **Message**: `Cutover failed or cancelled for database <DatabaseName>. Error details: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.`  
+
+- **Cause**: `The error might occur due to the backups being placed incorrectly in the Azure Storage container. If the backups are placed in the network file share, this error could also occur due to network connectivity issues.`  
+
+- **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you are using network file share, there might be network-related issues and lags that are causing this error. Please wait for the process to be completed.
 
 **Error code MigrationRestoreFailed 2009:**
 - **Message**: Migration for Database 'DatabaseName' failed with error 'Can not find server certificate with thumbprint ''
@@ -29,7 +33,7 @@ ms.date: 10/19/2022
 
 - **Message**: Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.
 - **Cause**: Unable to restore a SQL Server backup to an earlier version of SQL Server than the version at which the backup was created.
-- **Recommendation**: See [Issues that affect database restoration between different SQL Server versions](/SupportArticles-docs/support/sql/admin/backup-restore-operations) for troubleshooting steps.
+- **Recommendation**: See [Issues that affect database restoration between different SQL Server versions](../support/sql/admin/backup-restore-operations) for troubleshooting steps.
 <br/>
 
 - **Message**: Migration for Database <DatabaseName> failed with error 'The managed instance has reached its storage limit. The storage usage for the managed instance cannot exceed 32768 MBs.
@@ -38,8 +42,8 @@ ms.date: 10/19/2022
 <br/>
 
 - **Message**: Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3634 The operating system returned the error '1450(Insufficient system resources exist to complete the requested service.)
-- **Cause**: One of the symptoms listed in [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/SupportArticles-docs/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) can be the cause.
-- **Recommendation**: See [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/SupportArticles-docs/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) for troubleshooting steps.
+- **Cause**: One of the symptoms listed in [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](../support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) can be the cause.
+- **Recommendation**: See [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](../support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) for troubleshooting steps.
 <br/>
 
 - **Message**: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.
@@ -66,14 +70,14 @@ ms.date: 10/19/2022
 
 **Error code TestConnectionFailed 2012:**
 - **Message**: Failed to test connections using provided Integration Runtime.
-- **Cause**: Connection to the self-hosted Integration Runtime has failed. 
-- **Recommendation**: See [Troubleshoot self-hosted integration runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for general troubleshooting steps for Integration Runtime connectivity errors.
+- **Cause**: Connection to the Self-Hosted Integration Runtime has failed. 
+- **Recommendation**: See [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for general troubleshooting steps for Integration Runtime connectivity errors.
 <br/>
 
 **Error code IntegrationRuntimeIsNotOnline 2014:**
 - **Message**: Integration Runtime <IR Name> in resource group <Resource Group Name> Subscription <SubscriptionID> is not online.
-- **Cause**: The self hosted Integration Runtime is not online. 
-- **Recommendation**: Make sure the self-hosted Integration Runtime is registered and online. You can use scripts from [../data-factory/self-hosted-integration-runtime-automation-scripts](../data-factory/self-hosted-integration-runtime-automation-scripts.md) to perform the registration. Also, see [Troubleshoot self-hosted integration runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for general troubleshooting steps for Integration Runtime connectivity errors.
+- **Cause**: The Self-Hosted Integration Runtime is not online. 
+- **Recommendation**: Make sure the Self-hosted Integration Runtime is registered and online. To perform the registration, you can use scripts from [Automating self-hosted integration runtime installation using local PowerShell scripts](../data-factory/self-hosted-integration-runtime-automation-scripts.md). Also, see [Troubleshoot self-hosted integration runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for general troubleshooting steps for Integration Runtime connectivity errors.
 <br/>
 
 **Error code AzureSQLManagedInstanceNotReady 2030:**
