@@ -126,4 +126,4 @@ To learn more about analytics, see [How to use data explorer to analyze device d
 Now that you've learned how to use device groups in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](tutorial-create-telemetry-rules.md)
+> [Connect an IoT Edge device to your Azure IoT Central application](tutorial-connect-iot-edge-device.md)

@@ -90,4 +90,4 @@ On this view, you can select the columns to display and set a time range to view
 If you'd prefer to continue through the set of IoT Central tutorials and learn more about building an IoT Central solution, see:
 
 > [!div class="nextstepaction"]
-> [Create a gateway device template](./tutorial-define-gateway-device-type.md)
+> [Tutorial: Use device groups to analyze device telemetry](tutorial-use-device-groups.md)
