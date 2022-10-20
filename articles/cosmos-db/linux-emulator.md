@@ -142,7 +142,7 @@ Use the following steps to run the emulator on Linux:
 
 |Name  |Default  |Description  |
 |---------|---------|---------|
-|  Ports:  `-p`   |         |   Currently, only ports 8081 and 10251-10255 are needed by the emulator endpoint.     |
+|  Ports:  `-p`   |         |   Currently, only ports `8081` and `10250-10255` are needed by the emulator endpoint.     |
 | `AZURE_COSMOS_EMULATOR_PARTITION_COUNT`    |    10     |    Controls the total number of physical partitions, which in return controls the number of containers that can be created and can exist at a given point in time. We recommend starting small to improve the emulator start up time, i.e 3.     |
 |  Memory: `-m`   |         | On memory, 3 GB or more is required.     |
 | Cores:   `--cpus`  |         |   Make sure to allocate enough memory and CPU cores. At least four cores are recommended.      |
@@ -165,9 +165,9 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
 
 - Verify that the specific emulator container is in a running state.
 
-- Verify that no other applications are using emulator ports: 8081 and 10250-10255.
+- Verify that no other applications are using emulator ports: `8081` and `10250-10255`.
 
-- Verify that the container port 8081, is mapped correctly and accessible from an environment outside of the container.  
+- Verify that the container port `8081`, is mapped correctly and accessible from an environment outside of the container.  
 
    ```bash
    netstat -lt
