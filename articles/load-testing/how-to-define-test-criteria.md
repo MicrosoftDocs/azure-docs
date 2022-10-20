@@ -37,7 +37,7 @@ You can define a maximum of 10 test criteria for a load test. If there are multi
 
 The format of fail criteria in Azure Load Testing follows that of a conditional statement for a [supported metric](#supported-client-metrics-for-fail-criteria). For example, ensure that the average number of requests per second is greater than 500.
 
-The general structure of fail criteria is the following:
+Fail criteria have the following structure:
 
 - Test criteria at the load test level: `Aggregate_function (client_metric) condition threshold`.
 - Test criteria applied to specific JMeter requests: `Request: Aggregate_function (client_metric) condition threshold`.
@@ -80,7 +80,7 @@ In this section, you configure test criteria for a load test in the Azure portal
 
 1. On the **Test criteria** pane, fill the **Metric**, **Aggregate function**, **Condition**, and **Threshold** values for your test.
 
-    :::image type="content" source="media/how-to-define-test-criteria/test-creation-criteria.png" alt-text="Screenshot of the 'Test criteria' pane and the dropdown controls for adding test criteria to a load test.":::
+    :::image type="content" source="media/how-to-define-test-criteria/test-creation-criteria.png" alt-text="Screenshot of the 'Test criteria' pane for a load test in the Azure portal and highlights the fields for adding a test criterion.":::
 
     Optionally, enter the **Request name** information to add a test criterion for a specific JMeter request. The value should match the name of the JMeter sampler in the JMX file.
 
@@ -90,9 +90,9 @@ In this section, you configure test criteria for a load test in the Azure portal
 
     When you now run the load test, Azure Load Testing uses the test criteria to determine the status of the load test run.
 
-1. Run the test and view the test run status in the dashboard.
+1. Run the test and view the status in the load test dashboard.
 
-    The test run dashboard shows the test criteria and indicates whether the test results pass or fail the criteria. The overall test status will be failed if at least one criterion was met.
+    The dashboard shows each of the test criteria and their status. The overall test status will be failed if at least one criterion was met.
 
     :::image type="content" source="media/how-to-define-test-criteria/test-criteria-dashboard.png" alt-text="Screenshot that shows the test criteria on the load test dashboard.":::
  
@@ -102,7 +102,7 @@ In this section, you learn how to define test criteria for continuous integratio
 
 Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
 
-To specify test fail criteria in the YAML configuration file:
+To specify fail criteria in the YAML configuration file:
 
 1. Open the YAML test configuration file for your load test in your editor of choice.
 
@@ -142,7 +142,7 @@ In this section, you learn how to define test criteria for continuous integratio
 
 Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
 
-To specify test fail criteria in the YAML configuration file:
+To specify fail criteria in the YAML configuration file:
 
 1. Open the YAML test configuration file for your load test in your editor of choice.
 
