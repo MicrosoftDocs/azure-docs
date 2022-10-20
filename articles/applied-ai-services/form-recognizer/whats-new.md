@@ -23,15 +23,16 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## October 2022
 
-With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
+With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
 
 Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
 
 ## September 2022
 
-### Region expansion for training custom neural models 
+### Region expansion for training custom neural models
 
-Training custom neural models is now supported in six additional regions.
+Training custom neural models is now supported in six new regions.
+
 * Australia East
 * Central US
 * East Asia
@@ -39,7 +40,7 @@ Training custom neural models is now supported in six additional regions.
 * UK South
 * West US2
 
-For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
+For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
 
 #### Form Recognizer SDK version 4.0.0 GA release
 
@@ -202,7 +203,7 @@ This release includes the following updates:
 
 * **AI quality improvements**
 
-  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices as well as improved processing of digital PDF documents.
+  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices and improved processing of digital PDF documents.
 
   * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
 
