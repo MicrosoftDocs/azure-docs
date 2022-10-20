@@ -1,8 +1,9 @@
 ---
 title: Manage AWS assessments and standards
+titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 10/20/2022
 ---
 
 # Manage AWS assessments and standards

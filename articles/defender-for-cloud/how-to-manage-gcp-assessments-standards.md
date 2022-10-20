@@ -1,5 +1,6 @@
 ---
 title: Manage GCP assessments and standards
+titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your GCP environment.
 ms.topic: how-to
 ms.date: 10/18/2022
