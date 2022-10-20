@@ -40,7 +40,7 @@ App Service Environment v3 uses Isolated v2 App Service plans that are priced an
 The [back up and restore](../manage-backup.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [details](../manage-backup.md#automatic-vs-custom-backups) of this feature.
 
 > [!IMPORTANT]
-> You must configure custom backups for your apps in order to restore them to an App Service Environment v3. Automatic backup doesn't support restoration on different App Service Environment versions. For more information on custom backups, see [Automatic vs custom backups](https://learn.microsoft.com/azure/app-service/manage-backup?tabs=portal#automatic-vs-custom-backups).
+> You must configure custom backups for your apps in order to restore them to an App Service Environment v3. Automatic backup doesn't support restoration on different App Service Environment versions. For more information on custom backups, see [Automatic vs custom backups](../manage-backup.md#automatic-vs-custom-backups).
 :::image type="content" source="./media/migration/configure-custom-backup.png" alt-text="Screenshot that shows how to configure custom backup for an App Service app.":::
 >
 
