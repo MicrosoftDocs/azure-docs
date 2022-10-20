@@ -203,6 +203,7 @@ Using Content Delivery Network (CDN) is a sustainable approach to optimizing net
 * Ensure you [follow best practices](/azure/architecture/best-practices/cdn) for CDN and consider using [Azure CDN](/azure/cdn/cdn-how-caching-works?toc=%2Fazure%2Ffrontdoor%2FTOC.json) to lower the consumed bandwidth and keep costs down.
 
 ## Security
+
 Explore this section to learn more about the recommendations leading to an improved sustainable security posture.
 
 ### Evaluate whether to use TLS termination
