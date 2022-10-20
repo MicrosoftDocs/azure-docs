@@ -2,14 +2,14 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 10/21/2022
 ms.devlang: csharp, javascript, python
 ms.reviewer: mmcc
 ---
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)
 
-The Azure Monitor OpenTelemetry Distro (or in the case of .NET, Exporter) sends traces, metrics, and eventually logs to Azure Monitor Application Insights. As of today, Node.js and Python offer a "distro" and .NET offers an Exporter. To learn more, see [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+The Azure Monitor OpenTelemetry Exporter is a component that sends traces (and eventually all application telemetry) to Azure Monitor Application Insights. To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offerings. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces and metrics to Azure Monitor Application Insights.
 
@@ -386,6 +386,8 @@ For information on standard attributes for resources, see [Resource Semantic Con
 
 You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your telemetry will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
+> [!NOTE] 
+> Metrics are unaffected by sampling.
 
 #### [.NET](#tab/net)
 
@@ -664,7 +666,7 @@ You can populate the _client_IP_ field for requests by setting the `http.client_
 
 ##### [.NET](#tab/net)
 
-Use the add [custom property example](#add-a-custom-property), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
 // only applicable in case of activity.Kind == Server
@@ -673,7 +675,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 ##### [Node.js](#tab/nodejs)
 
-Use the add [custom property example](#add-a-custom-property), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
 ```typescript
 ...
@@ -690,7 +692,7 @@ class SpanEnrichingProcessor implements SpanProcessor{
 
 ##### [Python](#tab/python)
 
-Use the add [custom property example](#add-a-custom-property), but replace the following lines of code in `SpanEnrichingProcessor.py`:
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `SpanEnrichingProcessor.py`:
 
 ```python
 span._attributes["http.client_ip"] = "<IP Address>"
@@ -708,7 +710,7 @@ You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by s
 
 ##### [.NET](#tab/net)
 
-Use the add [custom property example](#add-custom-property), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
 ```C#
 Placeholder
@@ -716,7 +718,7 @@ Placeholder
 
 ##### [Node.js](#tab/nodejs)
 
-Use the add [custom property example](#add-custom-property), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
 ```typescript
 ...
@@ -733,7 +735,7 @@ class SpanEnrichingProcessor implements SpanProcessor{
 
 ##### [Python](#tab/python)
 
-Use the add [custom property example](#add-custom-property), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
 ```python
 span._attributes["enduser.id"] = "<User ID>"
@@ -813,7 +815,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```
 
 1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-Use the add [custom property example](#add-a-custom-property), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
     ```typescript
     ...
@@ -915,8 +917,9 @@ This section explains how to collect custom telemetry from your application.
 
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
-The OpenTelemetry API offers six metric "instruments" to cover a variety of metric scenarios.
-The following table shows how OpenTelemetry's instruments map to Azure Monitor's [five aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types):
+The OpenTelemetry API offers six metric "instruments" to cover a variety of metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
+
+The following table shows the recommended [aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types) for each of the OpenTelemetry Metric Instruments.
 
 | OpenTelemetry Instrument                             | Azure Monitor Aggregation Type                             |
 |------------------------------------------------------|------------------------------------------------------------|
@@ -928,7 +931,7 @@ The following table shows how OpenTelemetry's instruments map to Azure Monitor's
 | Asynchronous UpDownCounter (Python and Node.js only) | Sum                                                        |
 
 > [!CAUTION]
-> Although you can select other aggregation types in the UX besides what's shown in the mapping, it is not meaningful to your observability scenarios.
+> Aggregation types beyond what's shown in the table typically aren't meaningful.
 
 The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#instrument)
 describes the instruments and provides examples of when you might use each one.
@@ -991,6 +994,7 @@ from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
 
 exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
 reader = PeriodicExportingMetricReader(exporter)
+# Do not change the aggregation time interval from the default of 60 seconds
 metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_histogram_demo")
 
