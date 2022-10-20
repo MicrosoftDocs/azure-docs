@@ -1,4 +1,4 @@
----
+--- 
 title: Quickstart - Create an Azure DNS Private Resolver using the Azure portal
 description: In this quickstart, you create and test a private DNS resolver in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS resolver using the Azure portal.
 services: dns
