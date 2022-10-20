@@ -29238,8 +29238,11 @@
             "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
             "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
             "redirect_document_id": false
+        },
+		{
+		    "source_path_from_root": "/azure/databox-online/azure-stack-edge-gpu-deploy-arc-data-controller.md",
+		    "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-azure-portal",
+		    "redirect_document_id": false
         }
-
     ]
 }
-
