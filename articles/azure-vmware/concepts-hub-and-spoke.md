@@ -48,7 +48,7 @@ The architecture has the following main components:
 
 - **Spoke virtual network**
 
-    - **IaaS Spoke:** Hosts Azure IaaS based workloads, including VM availability sets and virtual machine scale sets, and the corresponding network components.
+    - **IaaS Spoke:** Hosts Azure IaaS based workloads, including VM availability sets and Virtual Machine Scale Sets, and the corresponding network components.
 
     - **PaaS Spoke:** Hosts Azure PaaS services using private addressing thanks to [Private Endpoint](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
 
