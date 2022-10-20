@@ -238,7 +238,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ***Sample document processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/layout-analyze)***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="Screenshot: Screenshot of layout analysis using the sample labeling tool":::
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of layout analysis using the sample labeling tool.":::
 
 > [!div class="nextstepaction"]
 >
