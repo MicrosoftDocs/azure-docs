@@ -80,7 +80,7 @@ As you use these features in your application, use the following documentation a
 
 | Language → Latest GA version | Reference documentation |Samples  |
 |---------|---------|---------|
-| [C#/.NET → v1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0) | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
+| [C#/.NET → v1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0) | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
 | [Python → v1.0.0](https://pypi.org/project/azure-ai-language-conversations/) |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
 
 ### Azure.AI.Language.QuestionAnswering 
@@ -95,7 +95,7 @@ As you use these features in your application, use the following documentation a
 
 | Language → Latest GA version |Reference documentation  |Samples  |
 |---------|---------|---------|
-| [C#/.NET → v1.0.0](https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering/1.0.0#readme-body-tab) | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
+| [C#/.NET → v1.0.0](https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering/1.0.0#readme-body-tab) | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
 | [Python → v1.0.0](https://pypi.org/project/azure-ai-language-questionanswering/1.0.0/) | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
 
 # [REST API](#tab/rest-api)

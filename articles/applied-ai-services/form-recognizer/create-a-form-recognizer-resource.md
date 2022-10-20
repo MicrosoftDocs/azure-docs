@@ -73,7 +73,7 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
 
-  * [C#](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [Python](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [Java](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [C#](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Java](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [JavaScript](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
