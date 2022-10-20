@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/19/2022
+ms.date: 10/21/2022
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -22,9 +22,13 @@ ms.custom: it-pro
 
 User management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
 
-- Read or update manager of users
-- Update basic properties of users
-- Update contact info of users
+- Read or update basic properties of users
+- Read or update other properties of users
+- Read or update employee and job information of users
+- Read device information of users
+- Read or manage licenses of users
+- Update policy information of users
+- Read assignments and memberships of users
 
 This article lists the permissions you can use in your custom roles for different user management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
 
