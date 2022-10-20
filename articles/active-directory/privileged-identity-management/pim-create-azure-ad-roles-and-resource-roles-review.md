@@ -34,7 +34,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
  
 3. For **Azure AD roles**, select **Azure AD roles** under **Privileged Identity Management**. For **Azure resources**, select **Azure resources** under **Privileged Identity Management**.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in Azure Portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Azure portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
 4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the subscription you want to manage.
 
