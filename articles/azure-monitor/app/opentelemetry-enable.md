@@ -960,13 +960,15 @@ public class Program
             })
             .Build();
 
-        Histogram<long> myHistogram = meter.CreateHistogram<long>("MyHistogram");
+        Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
 
-        var random = new Random();
-        for (int i = 0; i < 1000; i++)
-        {
-            myHistogram.Record(random.Next(1, 1000), new("tag1", "value1"), new("tag2", "value2"));
-        }
+        var rand = new Random();
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "green"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
 
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
