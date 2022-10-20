@@ -87,7 +87,7 @@ The best practice is to save the certificate and key in a Kubernetes secret in t
 
 To configure `sslSecret`, you need to save a Kubernetes Secret in your Kubernetes cluster in `azureml` namespace to store **cert.pem** (PEM-encoded TLS/SSL cert) and **key.pem** (PEM-encoded TLS/SSL key). 
 
-The sample YAML definition of the TLS/SSL secret is as follows, 
+Below is a sample YAML definition of an TLS/SSL secret:
 
 ```
 apiVersion: v1
