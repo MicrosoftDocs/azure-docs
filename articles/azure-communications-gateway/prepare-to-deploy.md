@@ -1,5 +1,5 @@
 ---
-title: Prepare to deploy Azure Voice Bridge #Required; page title displayed in search results. Include the word "install," "set up," or "deploy". Include the brand.
+title: Prepare to deploy Azure Communications Gateway
 description: #Required; article description that's displayed in search results. Use 100 to 160 characters. Include the word "install," "set up," or "deploy".
 author: #Required; your GitHub user alias, with correct capitalization.
 ms.author: #Required; Microsoft alias of author; optional team alias.
@@ -25,7 +25,7 @@ Write an H1 that clearly conveys the task the user will complete.
 
 -->
 
-# Prepare to deploy @@SERVICE@@
+# Prepare to deploy Azure Communications Gateway
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 

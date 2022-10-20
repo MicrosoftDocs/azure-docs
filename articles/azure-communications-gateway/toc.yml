@@ -1,0 +1,14 @@
+items:
+- name: 'Azure Communications Gateway documentation'
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Communications Gateway?
+    href: overview.md
+- name: Deployment
+  items:
+  - name: Prepare to deploy Azure Communications Gateway
+    href: prepare-to-deploy.md
+  - name: Deploy Azure Communications Gateway
+    href: deploy.md

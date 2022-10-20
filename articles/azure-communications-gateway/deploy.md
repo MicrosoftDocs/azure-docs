@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Voice Bridge #Required; page title displayed in search results. Include the word "install," "set up," or "deploy". Include the brand.
+title: Deploy Azure Communications Gateway
 description: #Required; article description that's displayed in search results. Use 100 to 160 characters. Include the word "install," "set up," or "deploy".
 author: #Required; your GitHub user alias, with correct capitalization.
 ms.author: #Required; Microsoft alias of author; optional team alias.
@@ -25,7 +25,11 @@ Write an H1 that clearly conveys the task the user will complete.
 
 -->
 
+<<<<<<<< HEAD:articles/voice-bridge/deploy.md
 # Deploy Azure Voice Bridge
+========
+# Deploy Azure Communications Gateway
+>>>>>>>> 5cdf1b649c61 (Use 'Azure Communications Gateway' as the name of the service):articles/azure-communications-gateway/deploy.md
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
