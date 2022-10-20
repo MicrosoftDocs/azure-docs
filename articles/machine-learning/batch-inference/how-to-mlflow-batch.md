@@ -243,7 +243,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    name: heart-dataset-unlabeled
    description: An unlabeled dataset for heart classification.
    type: uri_folder
-   path: heart-dataset
+   path: heart-classifier-mlflow/data
    ```
    
    Then, create the data asset:
@@ -255,7 +255,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    # [Azure ML SDK for Python](#tab/sdk)
    
    ```python
-   data_path = "resources/heart-dataset/"
+   data_path = "heart-classifier-mlflow/data"
    dataset_name = "heart-dataset-unlabeled"
 
    heart_dataset_unlabeled = Data(
