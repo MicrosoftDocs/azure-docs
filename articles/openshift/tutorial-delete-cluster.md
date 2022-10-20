@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Delete an Azure Red Hat OpenShift cluster
 description: In this tutorial, learn how to delete an Azure Red Hat OpenShift cluster using the Azure CLI
-author: sakthi-vetrivel
+author: konghot
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.author: suvetriv
+ms.author: pkonghot
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
