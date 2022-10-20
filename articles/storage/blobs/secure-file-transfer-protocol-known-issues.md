@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 10/20/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -79,7 +79,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
   
-- Maximum file upload size via the SFTP endpoint is 100 GB. 
+- Maximum file upload size via the SFTP endpoint is 91 GB. 
   
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 

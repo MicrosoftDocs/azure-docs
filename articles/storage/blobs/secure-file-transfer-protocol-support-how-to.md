@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
