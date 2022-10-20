@@ -128,12 +128,11 @@ Containers allow for reducing unnecessary resource allocation and making better 
 
 Spot nodes use Spot VMs and are great for workloads that can handle interruptions, early terminations, or evictions such as batch processing jobs and development and testing environments. 
 
-* Use [spot node pools](/azure/aks/spot-node-pool) to take advantage of unused capacity in Azure at a significant cost saving for a more sustainable platform design.
+* Use [spot node pools](/azure/aks/spot-node-pool) to take advantage of unused capacity in Azure at a significant cost saving for a more sustainable platform design for your [interruptible workloads](/azure/architecture/guide/spot/spot-eviction).
 
+### Match the scalability needs and utilize auto-scaling and bursting capabilities
 
-### Match the scalability needs and utilize auto-scaling and bursting capabilities 
-
-An oversized cluster does not maximize utilization of compute resources and can lead to a waste of energy. Separate your applications into different node pools to allow for cluster right sizing and independent scaling according to the application requirements. As you run out of capacity in your AKS cluster, burst from AKS to ACI to scale out additional pods to serverless nodes and ensure your wokload use all the allocated resources efficiently.
+An oversized cluster does not maximize utilization of compute resources and can lead to a waste of energy. Separate your applications into different node pools to allow for cluster right sizing and independent scaling according to the application requirements. As you run out of capacity in your AKS cluster, grow from AKS to ACI to scale out additional pods to serverless nodes and ensure your workload uses all the allocated resources efficiently.
 
 * Size your cluster to match the scalability needs of your application and [use cluster autoscaler](/azure/aks/cluster-autoscaler) in combination with [virtual nodes](/azure/aks/virtual-nodes) to rapidly scale and maximize compute resource utilization. Additionally, [enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas) at the namespace level and [scale user node pools to 0](/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0) when there is no demand.
 
@@ -155,12 +154,12 @@ Unused resources such as unreferenced images and storage resources should be ide
 
 ### Tag your resources
 
-Getting the right information and insights at the right time is important for producing reports about performane and resource utilization.
+Getting the right information and insights at the right time is important for producing reports about performance and resource utilization.
 
 * Set [Azure tags on your cluster](/azure/aks/use-tags) to enable monitoring of your workloads.
 
-
 ## Storage
+
 Explore this section to learn how to design a more sustainable data storage architecture and optimize existing deployments.
 
 ### Optimize storage utilization 
@@ -170,13 +169,14 @@ The data retrieval and data storage operations can have a significant impact on 
 * Understand the needs of your application to [choose the appropriate storage](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type) and define it using [storage classes](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs) to avoid storage underutilization. Additionally, consider [provisioning volumes dynamically](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes) to automatically scale the number of storage resources.
 
 ## Network and connectivity
+
 Explore this section to learn how to enhance and optimize network efficiency to reduce unnecessary carbon emissions.
 
 ### Choose a region that is closest to users
 
 The distance from a data center to the users has a significant impact on energy consumption and carbon emissions. Shortening the distance a network packet travels improves both your energy and carbon efficiency. 
 
-* Review your application requirements and [Azure geographies](https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/#overview) to choose a region that is the closest to the majority of where the network packets are going.
+* Review your application requirements and [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview) to choose a region that is the closest to the majority of where the network packets are going.
 
 ### Reduce network traversal between nodes
 
