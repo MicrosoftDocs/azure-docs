@@ -240,6 +240,14 @@ Flexible servers that are configured with high availability, log data is replica
 ## Availability for non-HA servers
 
 For Flexible servers configured **without** high availability, the service still provides built-in availability, storage redundancy and resiliency to help to recover from any planned or unplanned downtime events. Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this non-HA configuration.
+  
+During planned or unplanned failover events, if the server goes down, the service maintains high availability of the servers using following automated procedure:
+
+1. A new compute Linux VM is provisioned.
+2. The storage with data files is mapped to the new Virtual Machine
+3. PostgreSQL database engine is brought online on the new Virtual Machine.
+
+Picture below shows transition for VM and storage failure.
 
 :::image type="content" source="./media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha - steady state." border="false" lightbox="./media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png"::: 
 

@@ -19,17 +19,17 @@ resource properties with different needs for compliance.
 
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
-- display name
-- description
-- metadata
-- enforcement mode
-- excluded scopes
-- policy definition
-- non-compliance messages
-- parameters
-- identity
-- resource selectors (preview)
-- overrides (preview)
+- [display name](#display-name-and-description)
+- [description](#display-name-and-description)
+- [metadata](#metadata)
+- [resource selectors (preview)](#resource-selectors-preview)
+- [overrides (preview)](#overrides-preview)
+- [enforcement mode](#enforcement-mode)
+- [excluded scopes](#excluded-scopes)
+- [policy definition](#policy-definition-id)
+- [non-compliance messages](#non-compliance-messages)
+- [parameters](#parameters)
+- [identity](#identity)
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
@@ -191,15 +191,22 @@ shows our policy assignment with two additional Azure regions added to the **SDP
 
 Resource selectors have the following properties:
 - `name`: The name of the resource selector.
-- `selectors`: The factor used to determine which subset of resources applicable to the policy assignment should be evaluated for compliance.
-  - `kind`: The property of a `selector` that describes what characteristic will narrow down the set of evaluated resources. Each 'kind' can only be used once in a single resource selector. Allowed values are:
-    - `resourceLocation`: This is used to select resources based on their type. Can be used in up to 10 resource selectors. Cannot be used in the same resource selector as `resourceWithoutLocation`.
+
+- `selectors`: (Optional) The property used to determine which subset of resources applicable to the policy assignment should be evaluated for compliance.
+
+  - `kind`: The property of a selector that describes what characteristic will narrow down the set of evaluated resources. Each kind can only be used once in a single resource selector. Allowed values are:
+
+    - `resourceLocation`: This is used to select resources based on their type. Cannot be used in the same resource selector as `resourceWithoutLocation`.
+
     - `resourceType`: This is used to select resources based on their type.
+
     - `resourceWithoutLocation`: This is used to select resources at the subscription level which do not have a location. Currently only supports `subscriptionLevelResources`. Cannot be used in the same resource selector as `resourceLocation`.
+
   - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`. Can contain up to 50 values.
+
   - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`. Can contain up to 50 values.
   
-A **resource selector** can contain multiple **selectors**. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, multiple **resource selectors** can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
+A **resource selector** can contain multiple **selectors**. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, up to 10 **resource selectors** can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
 
 ## Overrides (preview)
 
@@ -234,7 +241,22 @@ Let's take a look at an example. Imagine you have a policy initiative named _Cos
 }
 ```
 
-Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they are specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list, in cases where the effect is [parameterized](definition-structure.md#parameters). 
+Overrides have the following properties:
+- `kind`: The property the assignment will override. The supported kind is `policyEffect`.
+
+- `value`: The new value which will override the existing value. The supported values are [effects](effects.md).
+
+- `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
+
+  - `kind`: The property of a selector that describes what characteristic will narrow down the scope of the override. Allowed value for `kind: policyEffect` is:
+
+    - `policyDefinitionReferenceId`: This specifies which policy definitions within an initiative assignment should take on the effect override.
+
+  - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`. Can contain up to 50 values.
+
+  - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`. Can contain up to 50 values.
+
+Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they are specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list (in cases where the effect is [parameterized](definition-structure.md#parameters)). 
 
 ## Enforcement mode
 

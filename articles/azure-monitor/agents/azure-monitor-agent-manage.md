@@ -165,7 +165,7 @@ Remove-AzVMExtension -Name AzureMonitorLinuxAgent -ResourceGroupName <resource-g
 
 ### Update on Azure virtual machines
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version,. Then install the new version as described.
+To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
 
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following PowerShell commands.
 
@@ -235,7 +235,7 @@ Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineNa
 ```
 ---
 
-We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enable-automatic-extension-upgrade) feature by using the following PowerShell commands.
+We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#manage-automatic-extension-upgrade) feature by using the following PowerShell commands.
 
 # [Windows](#tab/PowerShellWindowsArc)
 
@@ -308,7 +308,7 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 
 ### Update on Azure virtual machines
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version,. Then install the new version as described.
+To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
   
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following CLI commands.
 
@@ -374,7 +374,7 @@ az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Mo
 ```
 ---
 
- We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enable-automatic-extension-upgrade) feature by using the following PowerShell commands.
+ We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#manage-automatic-extension-upgrade) feature by using the following PowerShell commands.
 
 # [Windows](#tab/CLIWindowsArc)
 
@@ -418,7 +418,7 @@ Policy initiatives for Windows and Linux virtual machines, scale sets consist of
 #### Known issues
 
 - Managed Identity default behavior. [Learn more](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request).
-- Possible race condition with using built-in user-assigned identity creation policy. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#known-issues).
+- Possible rare condition with using built-in user-assigned identity creation policy. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#known-issues).
 - Assigning policy to resource groups. If the assignment scope of the policy is a resource group and not a subscription, the identity used by policy assignment (different from the user-assigned identity used by agent) must be manually granted [these roles](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#required-authorization) prior to assignment/remediation. Failing to do this step will result in *deployment failures*.
 - Other [Managed Identity limitations](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations).
 

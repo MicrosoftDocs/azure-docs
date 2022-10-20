@@ -7,11 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
-author: blackmist
-ms.author: larryfr
+ms.reviewer: mopeakande 
+author: santiagxf 
+ms.author: fasantia
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
 ---
 
 # CLI (v2) batch deployment YAML schema

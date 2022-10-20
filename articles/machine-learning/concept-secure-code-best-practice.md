@@ -6,8 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: larryfr
-author: blackmist
+ms.author: deeikele
+author: deeikele 
+ms.reviewer: larryfr
 ms.date: 10/21/2021
 ---
 

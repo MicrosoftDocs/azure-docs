@@ -45,6 +45,6 @@ Keep  in mind that when you [onboard customers through a public managed service 
 
 ## Next steps
 
-- Review the [security baseline information](../security-baseline.md) to understand how guidance from the Azure Security Benchmark applies to Azure Lighthouse.
+- Review the [security baseline information](/security/benchmark/azure/baselines/lighthouse-security-baseline) to understand how guidance from the Microsoft clou security benchmark applies to Azure Lighthouse.
 - [Deploy Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
