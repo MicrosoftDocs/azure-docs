@@ -123,6 +123,10 @@ For Unity 2020, use latest version of Unity 2020.3.
 
 For Unity 2021, use latest version of Unity 2021.3.
 
+### WMR vs. OpenXr
+
+In Unity 2019 and Unity 2020 you can still choose between the WMR (Windows Mixed Reality) and OpenXr plugin. WMR has been deprecated for Unity 2021 and onwards. A known limitation of the WMR version is that it does not work in linear color space.
+
 ## Next steps
 
 * [Quickstart: Render a model with Unity](../quickstarts/render-model.md)
