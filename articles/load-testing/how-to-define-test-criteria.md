@@ -64,7 +64,9 @@ Azure Load Testing supports the following client metrics:
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
 |`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     | Total number of requests. |
 
-## Define test fail criteria in the Azure portal
+## Define load test fail criteria
+
+# [Azure portal](#tab/portal)
 
 In this section, you configure test criteria for a load test in the Azure portal.
 
@@ -94,7 +96,7 @@ In this section, you configure test criteria for a load test in the Azure portal
 
     :::image type="content" source="media/how-to-define-test-criteria/test-criteria-dashboard.png" alt-text="Screenshot that shows the test criteria on the load test dashboard.":::
  
-## Define test fail criteria in CI/CD workflows
+# [Azure Pipelines](#tab/pipelines)
 
 In this section, you learn how to define test criteria for continuous integration and continuous delivery (CI/CD) workflows. When you run a load test as part of your CI/CD workflow, you define the load test configuration in a [YAML test configuration file](./reference-test-config-yaml.md).
 
@@ -133,6 +135,48 @@ To specify test fail criteria in the YAML configuration file:
     The log shows the overall test status, and the status of each of the test criteria. The status of the CI/CD workflow run also reflects the test run status.
 
     :::image type="content" source="media/how-to-define-test-criteria/azure-pipelines-log.png" alt-text="Screenshot that shows the test criteria in the CI/CD workflow log.":::
+
+# [GitHub Actions](#tab/github)
+
+In this section, you learn how to define test criteria for continuous integration and continuous delivery (CI/CD) workflows. When you run a load test as part of your CI/CD workflow, you define the load test configuration in a [YAML test configuration file](./reference-test-config-yaml.md).
+
+Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+
+To specify test fail criteria in the YAML configuration file:
+
+1. Open the YAML test configuration file for your load test in your editor of choice.
+
+1. Add your test criteria in the `failureCriteria` setting.
+
+    Use the [fail criteria format](#fail-criteria-structure), as described earlier. You can add multiple fail criteria for a load test.
+
+    The following example defines three fail criteria. The first two criteria apply to the overall load test, and the last one specifies a condition for the `GetCustomerDetails` request.
+
+    ```yaml
+    version: v0.1
+    testName: SampleTest
+    testPlan: SampleTest.jmx
+    description: Load test website home page
+    engineInstances: 1
+    failureCriteria:
+      - avg(response_time_ms) > 300
+      - percentage(error) > 50
+      - GetCustomerDetails: avg(latency_ms) >200
+    ```
+    
+    When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.
+
+    :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
+
+1. Save the YAML configuration file, and commit the changes to source control.
+
+1. After the CI/CD workflow runs, verify the test status in the CI/CD log.
+
+    The log shows the overall test status, and the status of each of the test criteria. The status of the CI/CD workflow run also reflects the test run status.
+
+    :::image type="content" source="media/how-to-define-test-criteria/github-actions-log.png" alt-text="Screenshot that shows the test criteria in the CI/CD workflow log.":::
+
+---
 
 ## Next steps
 
