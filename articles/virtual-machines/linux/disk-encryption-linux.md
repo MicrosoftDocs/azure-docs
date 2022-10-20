@@ -219,7 +219,7 @@ The **EncryptFormatAll** parameter reduces the time for Linux data disks to be e
  >If you're setting this parameter while updating encryption settings, it might lead to a reboot before the actual encryption. In this case, you will also want to remove the disk you don't want formatted from the fstab file. Similarly, you should add the partition you want encrypt-formatted to the fstab file before initiating the encryption operation. 
 
 ### EncryptFormatAll criteria
-The parameter goes though all partitions and encrypts them as long as they meet **all** of the criteria below:
+The parameter goes through all partitions and encrypts them as long as they meet **all** of the criteria below:
 - Is not a root/OS/boot partition
 - Is not already encrypted
 - Is not a BEK volume
