@@ -50,11 +50,17 @@ For example:
 
 ## View and manage IoT devices
 
-View and manage your IoT devices in the [Microsoft 365 Defender portal](https://security.microsoft.com/). From the **Endpoints** navigation menu, select **Endpoints** > **IoT devices**. For example:
+View and manage your IoT devices in the [Microsoft 365 Defender portal](https://security.microsoft.com/). On the Microsoft Defender **Home** page, scroll down to view the **Total discovered devices** widget. For example:
 
-<!--For example: TBD image-->
+:::image type="content" source="media/enterprise-iot/total-discovered-devices.png" alt-text="Screenshot of the Microsoft 365 Defender Home page.":::
 
-For more information, see [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview).
+Select **View all IoT devices** to jump to the Defender for Endpoint **Device inventory** page.
+
+To control the devices discovered by Defender for Endpoint, modify the device discovery level using tags and exclusions in the **Settings** > **Device discovery** area. For more information, see [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
+
+> [!TIP]
+> For a combined view of all OT and IoT devices, you can also view detected devices in [Defender for IoT in the Azure portal](how-to-manage-device-inventory-for-organizations.md). 
+>
 
 ## View related alerts, recommendations, and vulnerabilities
 
