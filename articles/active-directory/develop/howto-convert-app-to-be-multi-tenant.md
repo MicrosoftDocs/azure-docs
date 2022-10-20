@@ -1,6 +1,6 @@
 ---
-title: Convert app to an Azure AD multi-tenant app
-description: Shows how to convert a single tenant app to a multi-tenant app that can sign in a user from any Azure AD tenant.
+title: Convert single-tenant app to multi-tenant on Azure AD
+description: Shows how to convert an existing single-tenant app to a multi-tenant app that can sign in a user from any Azure AD tenant.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/17/2022
+ms.date: 10/20/2022
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev, engagement-fy23
