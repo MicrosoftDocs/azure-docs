@@ -8,10 +8,10 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
-author: blackmist
-ms.author: larryfr
+author: balapv
+ms.author: balapv
 ms.date: 08/08/2022
-ms.reviewer: nibaccam
+ms.reviewer: larryfr
 ---
 
 # CLI (v2) command job YAML schema
