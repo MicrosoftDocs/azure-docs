@@ -234,19 +234,19 @@ units) * 1 (Hours)  = $0.24
 
 Total Costs = $0.492 + $0.24 = $0.732
 
-### Example 6 – WAF_V2 with DDoS Protection Standard Plan, and with manual scaling set to 1 instance
+### Example 6 – WAF_V2 with DDoS Protection Standard Plan, and with manual scaling set to 2 instance
 
-Let’s assume you’ve provisioned a WAF_V2 and set it to manual scaling with the minimum acceptable value of 1 instance for the entire month. Let's also assume that you've enabled DDoS Protection Standard Plan. In this example, since you are paying the monthly fee for DDoS Protection Standard, there is no additional charges for WAF; and you are charged at the lower Standard_V2 rates.
+Let’s assume you’ve provisioned a WAF_V2 and set it to manual scaling with 2 instance for the entire month. Let's also assume that you've enabled DDoS Protection Standard Plan. In this example, since you are paying the monthly fee for DDoS Protection Standard, there is no additional charges for WAF; and you are charged at the lower Standard_V2 rates.
 
 Monthly price estimates are based on 730 hours of usage per month.
 
 Fixed Price = $0.246   * 730 (Hours) =  $179.58
 
-Variable Costs = $0.008  * 1(capacity units) * 730 (Hours) = $5.84
+Variable Costs = $0.008  * 2(capacity units) * 730 (Hours) = $11.68
 
 DDoS Protection Standard Cost = $2,944 * 1 (month) = $2,944
 
-Total Costs = $179.58 + $5.84 + $2,944 = $3,129.42
+Total Costs = $179.58 + $11.68 + $2,944 = $3,135.26
 
 
 ## V1 SKUs
