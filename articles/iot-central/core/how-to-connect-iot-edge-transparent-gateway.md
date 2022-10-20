@@ -385,6 +385,9 @@ To run the thermostat simulator on the `leafdevice` virtual machine:
     ...
     ```
 
+    > [!TIP]
+    > If you see an error when the downstream device tries to connect. Try re-running the device provisioning steps above.
+
 1. To see the telemetry in IoT Central, navigate to the **Overview** page for the **thermostat1** device:
 
     :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/downstream-device-telemetry.png" alt-text="Screenshot showing telemetry from the downstream device." lightbox="media/how-to-connect-iot-edge-transparent-gateway/downstream-device-telemetry.png":::
