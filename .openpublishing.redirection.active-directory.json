@@ -41,6 +41,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "articles/active-directory/governance/set-employee-leave-date-time.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/keylight-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/navex-irm-keylight-lockpath-tutorial",
       "redirect_document_id": false
