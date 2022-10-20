@@ -204,7 +204,7 @@ Using Content Delivery Network (CDN) is a sustainable approach to optimizing net
 
 ## Security
 
-Explore this section to learn more about the recommendations leading to an improved sustainable security posture.
+Explore this section to learn more about the recommendations leading to a sustainable, right-sized security posture.
 
 ### Evaluate whether to use TLS termination
 
