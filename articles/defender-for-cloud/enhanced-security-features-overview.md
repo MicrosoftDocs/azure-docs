@@ -40,7 +40,7 @@ Defender for Cloud offers many enhanced security features that can help protect 
 - [How do I enable Defender for Cloud's enhanced security for my subscription?](#how-do-i-enable-defender-for-clouds-enhanced-security-for-my-subscription)
 - [Can I enable Microsoft Defender for Servers on a subset of servers?](#can-i-enable-microsoft-defender-for-servers-on-a-subset-of-servers)
 - [If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Defender for Servers?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-defender-for-servers)
-- [My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers?](#my-subscription-has-microsoft-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [My subscription has Microsoft Defender for Servers enabled, which machines do I pay for?](#my-subscription-has-microsoft-defender-for-servers-enabled-which-machines-do-i-pay-for)
 - [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
 - [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
@@ -87,9 +87,9 @@ To request your discount, [contact Defender for Cloud's support team](https://po
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
 
-### My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers?
+### My subscription has Microsoft Defender for Servers enabled, which machines do I pay for?
 
-No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in a deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
+When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all machines in that subscription (including machines that are part of PaaS services and reside in this subscription) are billed according to their power state as shown in the following table:
 
 | State        | Description                                                                                                                                      | Instance usage billed |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|

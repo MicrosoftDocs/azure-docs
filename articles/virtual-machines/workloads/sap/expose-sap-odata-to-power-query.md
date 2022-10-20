@@ -40,13 +40,13 @@ Integrations between SAP products and the Microsoft 365 portfolio range from cus
 
 The mechanism described in this article uses the standard built-in OData capabilities of Power Query and puts emphasis for SAP landscapes deployed on Azure. Address on-premises landscapes with the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
-For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query-what-is-power-query#where-can-you-use-power-query).
+For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
 
 ## Setup considerations
 
 End users have a choice between local desktop or web-based clients (for instance Excel or Power BI). The client execution environment needs to be considered for the network path between the client application and the target SAP workload. Network access solutions such as VPN aren't in scope for apps like Excel for the web.
 
-[Azure API Management](/services/api-management/) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](../../../api-management/api-management-using-with-internal-vnet.md?tabs=stv2)
+[Azure API Management](/azure/api-management/) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](../../../api-management/api-management-using-with-internal-vnet.md?tabs=stv2)
 or [external](../../../api-management/api-management-using-with-vnet.md?tabs=stv2)). `Internal` refers to instances that are fully restricted to a private virtual network whereas `external` retains public access to Azure API Management. On-premises installations require a hybrid deployment to apply the approach as is using the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
 Power Query requires matching API service URL and Azure AD application ID URL. Configure a [custom domain for Azure API Management](../../../api-management/configure-custom-domain.md) to meet the requirement.
