@@ -77,7 +77,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You'll need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have the RUs increased. The maximum available is 1,000,000. In addition, we support [autoscaling of RUs](autoscale-azure-api-fhir.md).
+* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 100,000 RUs in the portal for Azure API for FHIR. You'll need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 100,000 RUs, you can put in a support ticket to have the RUs increased. The maximum available is 1,000,000. In addition, we support [autoscaling of RUs](autoscale-azure-api-fhir.md).
 
 * **Bundle size** - Each bundle is limited to 500 items.
 
