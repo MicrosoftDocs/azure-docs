@@ -10,7 +10,7 @@ ms.author: aahi
 ---
 
 
-Assigning deployment resources programmatically requires Microsoft Azure Active Directory (Azure AD) authentication**. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. To programmatically use Azure AD authentication when making REST API calls, see the [Cognitive Services authentication documentation](/azure/cognitive-services/authentication?tabs=powershell&tryIt=true&source=docs#authenticate-with-azure-active-directory).
+Assigning deployment resources programmatically requires Microsoft Azure Active Directory (Azure AD) authentication**. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. To programmatically use Azure AD authentication when making REST API calls, see the [Cognitive Services authentication documentation](../../../../authentication.md?source=docs&tabs=powershell&tryIt=true#authenticate-with-azure-active-directory).
 
 ### Assign resource 
 
@@ -32,7 +32,7 @@ Use the following URL when creating your API request. Replace the placeholder va
 
 ### Headers
 
-Use [Azure AD authentication](/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) to authenticate this API.
+Use [Azure AD authentication](../../../../authentication.md#authenticate-with-azure-active-directory) to authenticate this API.
 
 ### Body
 

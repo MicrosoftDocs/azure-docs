@@ -404,7 +404,7 @@
 - name: Reference
   items:
     - name: .NET
-      href: /dotnet/api/overview/azure/data.tables-readme-pre
+      href: /dotnet/api/overview/azure/data.tables-readme
     - name: Java
       href: /java/api/overview/azure/data-tables-readme
     - name: Node.js

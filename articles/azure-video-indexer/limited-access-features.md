@@ -24,20 +24,13 @@ The Azure Video Indexer service is made available to customers and partners unde
 
 ## Limited access features
 
-This section talks about limited access features in Azure Video Indexer.
-
-|When did I create the account?|Trial Account (Free)|	Paid Account <br/>(classic or ARM-based)|
-|---|---|---|
-|Existing VI accounts <br/><br/>created before June 21, 2022|Able to access face identification, customization and celebrities recognition till June 2023. <br/><br/>**Recommended**: Move to a paid account and afterward fill in the [intake form](https://aka.ms/facerecognition) and based on the eligibility criteria we will enable the features also after the grace period. |Able to access face identification, customization and celebrities recognition till June 2023\*.<br/><br/>**Recommended**: fill in the [intake form](https://aka.ms/facerecognition) and based on the eligibility criteria we will enable the features also after the grace period. <br/><br/>We proactively sent emails to these customers + AEs.|
-|New VI accounts <br/><br/>created after June 21, 2022	|Not able the access face identification, customization and celebrities recognition as of today. <br/><br/>**Recommended**: Move to a paid account and afterward fill in the [intake form](https://aka.ms/facerecognition). Based on the eligibility criteria we will enable the features (after max 10 days).|Azure Video Indexer disables the access face identification, customization and celebrities recognition as of today by default, but gives the option to enable it. <br/><br/>**Recommended**: Fill in the [intake form](https://aka.ms/facerecognition) and based on the eligibility criteria we will enable the features (after max 10 days).|
-
-\*In Brazil South we also disabled the face detection.
+[!INCLUDE [limited access](./includes/limited-access-account-types.md)]
 
 ## Help and support 
 
 FAQ about Limited Access can be found [here](https://aka.ms/limitedaccesscogservices).
 
-If you need help with Azure Video Indexer, find support [here](/azure/cognitive-services/cognitive-services-support-options). 
+If you need help with Azure Video Indexer, find support [here](../cognitive-services/cognitive-services-support-options.md). 
 
 [Report Abuse](https://msrc.microsoft.com/report/abuse) of Azure Video Indexer. 
 
@@ -45,4 +38,3 @@ If you need help with Azure Video Indexer, find support [here](/azure/cognitive-
 
 Learn more about the legal terms that apply to this service [here](https://azure.microsoft.com/support/legal/). 
 
- 

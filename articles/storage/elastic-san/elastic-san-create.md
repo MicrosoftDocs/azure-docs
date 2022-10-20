@@ -38,7 +38,7 @@ Use either the Azure PowerShell module or the Azure CLI to register your subscri
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
-Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
+Register-AzProviderFeature -FeatureName ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
 ```
 
 It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:

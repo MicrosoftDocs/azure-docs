@@ -304,6 +304,8 @@
         - name: Compute instance
           displayName: compute target, No public IP
           href: how-to-create-manage-compute-instance.md
+        - name: Customize compute instance with a script
+          href: how-to-customize-compute-instance.md
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
@@ -477,9 +479,6 @@
               href: how-to-configure-auto-train.md
             - name: Use automated ML (interface)
               href: how-to-use-automated-ml-for-ml-models.md
-            - name: Use automated ML with Databricks
-              displayName: automl
-              href: how-to-configure-databricks-automl-environment.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -507,7 +506,7 @@
               href: how-to-deploy-managed-online-endpoints.md
             - name: Safe rollout for online endpoints (CLI)
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Safe rollout for online endpoints (SDK preview)
+            - name: Safe rollout for online endpoints (SDK)
               href: how-to-safely-rollout-managed-endpoints-sdk-v2.md
             - name: Deployment scenarios
               items:
@@ -549,7 +548,7 @@
           items:
             - name: Batch scoring with batch endpoints (CLI)
               href: how-to-use-batch-endpoint.md
-            - name: Batch scoring with batch endpoints (SDK preview)
+            - name: Batch scoring with batch endpoints (SDK)
               href: how-to-use-batch-endpoint-sdk-v2.md
             - name: Batch endpoints in studio
               href: how-to-use-batch-endpoints-studio.md
@@ -557,6 +556,22 @@
               href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
+            - name: Scenarios
+              items:
+                - name: Using low priority VMs in batch deployments
+                  href: batch-inference/how-to-use-low-priority-batch.md
+                - name: Using MLflow models in batch deployments
+                  href: batch-inference/how-to-mlflow-batch.md
+                - name: Image processing tasks with batch deployments
+                  href: batch-inference/how-to-image-processing-batch.md
+                - name: NLP tasks with batch deployments
+                  href: batch-inference/how-to-nlp-processing-batch.md
+                - name: Customize outputs in batch deployments
+                  href: batch-inference/how-to-deploy-model-custom-output.md
+                - name: Invoking batch endpoints from Azure Data Factory
+                  href: batch-inference/how-to-use-batch-azure-data-factory.md
+                - name: Invoking batch endpoints from Event Grid events in storage
+                  href: batch-inference/how-to-use-event-grid-batch.md
         - name: Deploying MLflow models
           items:
             - name: Deploy MLflow models
