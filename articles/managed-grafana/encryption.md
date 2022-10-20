@@ -26,13 +26,13 @@ Managed Grafana leverages encryption offered by Azure Cosmos DB and Azure Databa
 
 Data stored in Azure Cosmos DB and Azure Database for PostgreSQL is encrypted at rest on storage devices and in transport over the network.
 
-For more information, go to [Encryption at rest in Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) and [Security in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-security).
+For more information, go to [Encryption at rest in Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) and [Security in Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/concepts-security.md).
 
 ## Server-side encryption
 
 The encryption model used by Managed Grafana is the server-side encryption model with Service-Managed keys.
 
-In this model, all key management aspects such as key issuance, rotation, and backup are managed by Microsoft. The Azure resource providers create the keys, place them in secure storage, and retrieve them when needed. For more information, go to [Server-side encryption using Service-Managed key](/azure/security/fundamentals/encryption-models).
+In this model, all key management aspects such as key issuance, rotation, and backup are managed by Microsoft. The Azure resource providers create the keys, place them in secure storage, and retrieve them when needed. For more information, go to [Server-side encryption using Service-Managed key](../security/fundamentals/encryption-models.md).
 
 ## Next steps
 
