@@ -26,7 +26,7 @@ Both share-level and file/directory level permissions are enforced when a user a
 
 ## Azure RBAC permissions
 
-The following table contains the Azure RBAC permissions related to this configuration. If you're using Azure Storage Explorer, you'll also need the [Reader and Data Access](../../role-based-access-control/built-in-roles#reader-and-data-access) role in order to access the file share when connecting with Storage Explorer and signing in with an Azure account.
+The following table contains the Azure RBAC permissions related to this configuration. If you're using Azure Storage Explorer, you'll also need the [Reader and Data Access](../../role-based-access-control/built-in-roles#reader-and-data-access.md) role in order to read/access the file share.
 
 | Built-in role  | NTFS permission  | Resulting access  |
 |---------|---------|---------|
