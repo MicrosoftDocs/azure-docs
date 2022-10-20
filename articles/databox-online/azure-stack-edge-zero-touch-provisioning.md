@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/18/2022
+ms.date: 10/20/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -319,7 +319,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 ## Quickly fetch or change device configuration settings
 
-Use the following steps to sign into the device, fetch the status of the webProxy property, set the webProxy property to “isEnabled = true,” and then fetch the status of the changed webProxy property.
+Use the following steps to sign into the device, fetch the status of the webProxy properties, set the webProxy properties to “isEnabled = true” and set the webProxy URI, and then fetch the status of the changed webProxy properties. After running the package, verify the new device configuration.
 
 1. Sign into the device.
 
@@ -333,7 +333,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    $p = Get-DeviceConfiguration
    ```
 
-1. Fetch the status of the webProxy property.
+1. Fetch the status of the webProxy properties.
 
    ```azurepowershell
    $p.device.webproxy
@@ -345,40 +345,35 @@ Use the following steps to sign into the device, fetch the status of the webProx
    PS C:\> $p.device.webproxy
 
    isEnabled      : False 
-   connectionURI  : null,
-   authentication : None
-   username       :
-   password       :
-   ```
-
-1. Set the webProxy property to “isEnabled = true.”
-
-   ```azurepowershell
-   $p.device.webproxy.isEnabled = $true
-   ```
-
-1. Fetch the status of the updated webProxy property.
-
-   ```azurepowershell
-   $p.device.webproxy
-   ```
-   
-   Here's a sample output showing the updated property:
-
-   ```output
-   PS C:\> $p.device.webproxy
-
-   isEnabled      : True 
    connectionURI  : null
    authentication : None
    username       :
    password       :
    ```
 
-1. Set the webProxy URI.
+1. Set the webProxy properties to “isEnabled = true” and set the webProxy URI.
 
    ```azurepowershell
+   $p.device.webproxy.isEnabled = $true
    $p.device.webproxy.connectionURI = "<specify a URI depending on the geographic location of the device>"
+   ```
+
+1. Fetch the status of the updated webProxy properties.
+
+   ```azurepowershell
+   $p.device.webproxy
+   ```
+   
+   Here's a sample output showing the updated properties:
+
+   ```output
+   PS C:\> $p.device.webproxy
+
+   isEnabled      : True 
+   connectionURI  : http://10.57.48.82:8080
+   authentication : None
+   username       :
+   password       :
    ```
 
 1. Run the package with the updated webProxy properties.
@@ -399,7 +394,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    Get-DeviceConfiguration | to-json
    ```
 
-   Here's an example of output showing the updated webProxy property:
+   Here's an example of output showing the updated webProxy properties:
 
    ```output
      "webProxy":  {
