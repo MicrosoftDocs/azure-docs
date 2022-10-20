@@ -59,7 +59,7 @@ The following permissions are available to update contact info of users.
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
-> | microsoft.directory/users/contactInfo/update |  |
+> | microsoft.directory/users/contactInfo/update | Update the contact info properties of users, such as address, phone, and email |
 
 ## Full list of permissions
 
@@ -77,7 +77,7 @@ The following permissions are available to update contact info of users.
 > | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
 > | microsoft.directory/users/standard/read | Read basic properties on users |
 > | microsoft.directory/users/basic/update | Update basic properties on users |
-> | microsoft.directory/users/contactInfo/update |  |
+> | microsoft.directory/users/contactInfo/update | Update the contact info properties of users, such as address, phone, and email |
 > | microsoft.directory/users/manager/update | Update manager for users |
 
 ## Next steps
