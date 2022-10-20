@@ -22,12 +22,12 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
-- Install the following Azure CLI extensions:
-  - `connectedk8s` (version 1.2.0 or later)
-  - `k8s-extension` (version 1.0.0 or later)
-  - `customlocation` (version 0.1.3 or later)
+- Install the latest versions of the following Azure CLI extensions:
+  - `connectedk8s`
+  - `k8s-extension`
+  - `customlocation`
   
     ```azurecli
     az extension add --name connectedk8s
@@ -59,7 +59,7 @@ In this article, you learn how to:
         Once registered, the `RegistrationState` state will have the `Registered` value.
 
 - Verify you have an existing [Azure Arc-enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
-  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.5.3 or later.
+  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 ## Enable custom locations on your cluster
 
