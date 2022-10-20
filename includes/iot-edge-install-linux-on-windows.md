@@ -206,7 +206,6 @@ Install IoT Edge for Linux on Windows on your target device.
       $ProgressPreference = 'SilentlyContinue'
       Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
       ```
-      
 :::moniker-end
 <!-- end iotedge-1.4 -->
 
