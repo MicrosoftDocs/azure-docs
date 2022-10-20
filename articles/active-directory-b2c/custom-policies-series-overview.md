@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.custom: b2c-docs-improvements
-ms.date: 10/30/2022
+ms.date: 12/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -23,7 +23,11 @@ User flows are already customizable such as [changing UI](customize-ui.md), [cus
 
 While you can use pre-made [custom policy starter pack](/tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how custom policy are built from scratch. In this how-to guide series, you'll learn all you need to customize the behavior of your user experience by using custom policies. 
 
-This how-to guide series consists of multiple articles. We recommend that you start this series from the fist article. For each article, except the first one, you're expected to continue with the custom policy you built in the preceding article.
+This how-to guide series consists of multiple articles. We recommend that you start this series from the fist article. For each article, except the first one, you're expected to use the custom policy you built in the preceding article.
+
+## Prerequisites
+
+- You already understand how to use Azure AD B2C user flows. If you haven't already used user flows, [learn how to Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow). This how-to guide series is intended for identity app developers who want to leverage the power of Azure AD B2C custom policies to achieve almost any authentication flow experience.    
 
 
 |Article  |Description  |

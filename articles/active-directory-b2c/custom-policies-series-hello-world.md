@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/30/2022
+ms.date: 12/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -24,7 +24,9 @@ While you can use pre-made custom policy *starter pack* to write custom policies
 ## Prerequisites 
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+
 - [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
+
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
 ## Step 1 - Configure the signing and encryption keys
@@ -286,12 +288,12 @@ In this article, you learned and used four sections that are included in an Azur
 
 Next, learn:  
 
-- How to [collect and use user inputs by using custom policy](custom-policies-series-collect-user-input.md)
+- How to [collect and use user inputs by using custom policy](custom-policies-series-collect-user-input.md).
 
-- About custom policy [claims overview](custom-policy-overview.md#claims) 
+- About custom policy [claims overview](custom-policy-overview.md#claims).
 
-- How to [declare a custom policy claim](claimsschema.md) 
+- How to [declare a custom policy claim](claimsschema.md). 
 
-- About custom policy [claims data type](claimsschema.md#datatype) 
+- About custom policy [claims data type](claimsschema.md#datatype). 
 
-- About custom policy [user input types](claimsschema.md#userinputtype)
+- About custom policy [user input types](claimsschema.md#userinputtype).

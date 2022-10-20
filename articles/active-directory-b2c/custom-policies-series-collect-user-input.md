@@ -1,7 +1,7 @@
 ---
 title: Collect and manipulate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
-description: Learn how to collect user inputs from a user and manipulate them by using Azure Active Directory B2C's custom policy  
+description: Learn how to collect user inputs from a user and manipulate them by using Azure Active Directory B2C custom policy  
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/30/2022
+ms.date: 12/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -22,18 +22,25 @@ Azure Active Directory B2C (Azure AD B2C) custom policy custom policies allows y
 In this article, you'll learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT token. To complete this task, you'll: 
 
 - Declare Claims. 
+
 - Define TechnicalProfiles.
+
 - Configure ClaimsTransformations to manipulate the Claims you declare.
+
 - Configure ContentDefinitions.
+
 - Configure and show user interfaces to the user by using Self-Asserted Technical Profiles and DisplayClaims.
+
 - Call Technical Profiles in a given sequence by using Orchestration Steps.    
 
 ## Prerequisites
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+
 - [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
-- Complete the steps in [Write your first custom policy - Hello World!](custom-policies-series-overview.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
+
+- Complete the steps in [Write your first custom policy - Hello World!](custom-policies-series-hello-world.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
 
 ## Step 1 - Declare Claims
@@ -41,6 +48,7 @@ In this article, you'll learn how to write a custom policy that collects user in
 Declare additional claims alongside *objectId* and *message*: 
 
 1. In VS Code, open the file `ContosoCustomPolicy.XML`. 
+
 1. In the `ClaimsSchema` section, add the following [ClaimType](claimsschema.md) declarations: 
 
     ```xml
@@ -98,6 +106,7 @@ A [ClaimsTransformation](claimstransformations.md) contains a function that you 
         
         </ClaimsTransformations>
     ```
+
 1. Add the following code inside the `ClaimsTransformations` element:
 
     ```xml
@@ -518,3 +527,9 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
 ``` 
 
 ## Next steps 
+
+Next, learn:
+
+- About [types of Technical Profiles](technicalprofiles.md#types-of-technical-profiles) in Azure AD B2C's custom policies. 
+
+- How to [Validate user inputs by using custom policy](custom-policies-series-validate-user-input.md).
