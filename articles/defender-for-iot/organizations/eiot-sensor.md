@@ -116,14 +116,16 @@ In the navigation pane of the [https://security.microsoft.com](https://security.
 
 1. Select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 
-1. Under **Set up network sensors** select the **Microsoft Defender for IoT** link.
+1. Under **Set up an Enterprise IoT Security sensor** select the **Microsoft Defender for IoT** link. For example:
+
+    :::image type="content" source="media/enterprise-iot/defender-for-endpoint-setup-sensor.png" alt-text="Screenshot of the Defender for IoT link in Defender for Endpoint.":::
 
 This brings you to the sensor setup process in the Azure portal. For example:
 
 :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Getting started page for Enterprise IoT security.":::
 
 > [!NOTE]
-> You can also access this page directly in Defender for IoT. In Defender for IoT in the Azure portal, select **Getting started** > **Set up Enterprise IoT Security**.
+> You can also access the sensor setup directly from Defender for IoT. In the Azure portal > Defender for IoT, select **Getting started** > **Set up Enterprise IoT Security**.
 
 ## Register a sensor
 
@@ -195,6 +197,8 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 After detecting new devices with the Enterprise IoT network sensor, you many need to edit the number of committed devices in your Enterprise IoT plan.
 
+You can only edit the number of committed devices on a monthly or annual commitment, as trial commitments automatically include 1,000 devices for 30 days. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+
 **To calculate the updated number of committed devices**:
 
 In the **Device inventory** page in the **Defender for Endpoint** portal:
@@ -227,9 +231,9 @@ For example:
 
 **To cancel your current plan and add a new one**:
 
-In the Defender for Endpoint **Settings** page:
+1. In the [https://security.microsoft.com](https://security.microsoft.com/) portal, go to **Settings** \> **Device discovery** \> **Enterprise IoT**, and select **Cancel plan**. For example:
 
-1. Cancel your current plan. <!--how?-->
+    :::image type="content" source="media/enterprise-iot/defender-for-endpoint-cancel-plan.png" alt-text="Screenshot of the Cancel plan option on the Defender for Endpoint page.":::
 
 1. Add back a new plan.
 
@@ -238,15 +242,6 @@ In the Defender for Endpoint **Settings** page:
 
 1. Accept the **terms and conditions** and select **Save**.
 
-1. 1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
-
-1. Select the following options for your plan:
-
-    - Select the Azure subscription from the list of available subscriptions in your Azure Active Directory tenant where you'd like to add a plan.
-
-    - For the sake of this tutorial, select a trial pricing plan. Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
-
-For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/) and [Cancel your Defender for IoT plan](eiot-mde.md#cancel-your-defender-for-iot-plan).
 
 ## Delete an Enterprise IoT network sensor
 

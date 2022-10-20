@@ -72,9 +72,10 @@ You may need to cancel a Defender for IoT plan if you no longer need the service
 
 You'll also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription, or if you've [registered an Enterprise IoT network sensor](eiot-sensor.md) and need to update the number of [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device). <!--right? b/c no need to add more committed devices if they're all managed by mde-->
 
-Cancel your Defender for IoT plan from the Defender for Endpoint settings page in the [https://security.microsoft.com](https://security.microsoft.com/) portal.
+To cancel your Defender for IoT plan in the [https://security.microsoft.com](https://security.microsoft.com/) portal, go to **Settings** \> **Device discovery** \> **Enterprise IoT**, and select **Cancel plan**. For example:
 
-<TBD - how?>
+:::image type="content" source="media/enterprise-iot/defender-for-endpoint-cancel-plan.png" alt-text="Screenshot of the Cancel plan option on the Defender for Endpoint page.":::
+
 
 After you cancel your plan, the integration stops and you'll no longer get added security value in Defender for Endpoint, or detect new Enterprise IoT devices in Defender for IoT.
 
