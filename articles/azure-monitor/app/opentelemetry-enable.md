@@ -123,11 +123,13 @@ Install these packages:
 
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 - [@opentelemetry/sdk-trace-node](https://www.npmjs.com/package/@opentelemetry/sdk-trace-node)
+- [@opentelemetry/sdk-metrics](https://www.npmjs.com/package/@opentelemetry/sdk-metrics)
 - [@azure/monitor-opentelemetry-exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter)
 
 ```sh
 npm install @opentelemetry/sdk-trace-base
 npm install @opentelemetry/sdk-trace-node
+npm install @opentelemetry/sdk-metrics
 npm install @azure/monitor-opentelemetry-exporter
 ```
 
