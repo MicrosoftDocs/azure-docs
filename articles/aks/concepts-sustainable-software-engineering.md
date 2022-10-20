@@ -15,11 +15,11 @@ Sustainable software engineering is a shift in priorities and focus. In many cas
 * Applying sustainable software engineering principles can give you faster performance or lower latency, such as by lowering total network traversal.
 * Reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads.
 
-The guidance found in this article is focused on Azure Kubernetes Services you're building or operating on Azure and includes design and configuration checklists, recommended design, and configuration options. Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application. 
+The guidance found in this article is focused on Azure Kubernetes Services you're building or operating on Azure and includes design and configuration checklists, recommended design, and configuration options. Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application.
 
 ## Prerequisites
-* Understanding the Well-Architected Framework sustainability guidance can help you produce a high quality, stable, and efficient cloud architecture. We recommend that you start by reading more about [sustainable workloads](/azure/architecture/framework/sustainability/sustainability-get-started) and reviewing your workload using the [Microsoft Azure Well-Architected Review](https://aka.ms/assessments) assessment.
 
+* Understanding the Well-Architected Framework sustainability guidance can help you produce a high quality, stable, and efficient cloud architecture. We recommend that you start by reading more about [sustainable workloads](/azure/architecture/framework/sustainability/sustainability-get-started) and reviewing your workload using the [Microsoft Azure Well-Architected Review](https://aka.ms/assessments) assessment.
 * Having clearly defined business requirements is crucial when building applications, as they might have a direct impact on both cluster and workload architectures and configurations. When building or updating existing applications, review the Well-Architected Framework sustainability design areas, alongside your application's holistic lifecycle.
 
 
@@ -31,25 +31,25 @@ Learn more about the [shared responsibility model for sustainability](/azure/arc
 
 
 ## Design principles
- **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
 
-    A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
+**[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
 
- **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
+   A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
 
-    One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate; thereby increasing hardware efficiency as well.
+**[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
- **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
+   One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate; thereby increasing hardware efficiency as well.
 
-    There are two main approaches to hardware efficiency:
+**[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
 
-        - For end-user devices, it's extending the lifespan of the hardware.
-        - For cloud computing, it's increasing the utilization of the resource.
+   There are two main approaches to hardware efficiency:
 
- **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
+   * For end-user devices, it's extending the lifespan of the hardware.
+   * For cloud computing, it's increasing the utilization of the resource.
 
-    Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+**[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
+   Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
 
 ## Design patterns and practices
 
@@ -84,7 +84,7 @@ Explore this section to learn more about how to optimize your applications for a
 
 ### Design for independent scaling of logical components
 
-A microservice architecture may reduce the compute resources required, as it allows for independent scaling of its logical components and ensures they are scaled according to the demand. 
+A microservice architecture may reduce the compute resources required, as it allows for independent scaling of its logical components and ensures they are scaled according to the demand.
 
 * Consider using [Dapr Framework](https://dapr.io/) or [other CNCF projects](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks) to help you separate your application functionality into different microservices, to allow independent scaling of its logical components.
 
@@ -92,7 +92,7 @@ A microservice architecture may reduce the compute resources required, as it all
 
 Scaling your workload based on relevant business metrics such as HTTP requests, queue length, and cloud events can help reduce its resource utilization, hence its carbon emissions. 
 
-* Use [Keda](https://keda.sh/) when building event-driven applications to allow scaling down to zero when there is no demand. 
+* Use [Keda](https://keda.sh/) when building event-driven applications to allow scaling down to zero when there is no demand.
 
 ### Aim for stateless design
 
