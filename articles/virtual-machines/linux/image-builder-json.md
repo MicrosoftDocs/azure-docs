@@ -599,10 +599,7 @@ Customize properties:
 
 ### File customizer
 
-The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.
-
-  > [!IMPORTANT]
-  > Azure Image Builder does not support using managed identities to download data from storage accounts. Please make sure that the URL for any files that need to be downloaded is either publicly accessible or a SAS uri.
+The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image. 
 
 
 # [JSON](#tab/json)
@@ -652,7 +649,7 @@ This customizer is supported by Windows directories and Linux paths, but there a
 If there's an error trying to download the file, or put it in a specified directory, then customize step will fail, and this error will be in the customization.log.
 
 > [!NOTE]
-> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`. For files that are in Azure storage, ensure that you either use a SAS URI or assign an identity with permissions to view that file to the build VM by following the documentation here: [User Assigned Identity for the Image Builder Build VM](https://learn.microsoft.com/azure/virtual-machines/linux/image-builder-json?tabs=json%2Cazure-powershell#user-assigned-identity-for-the-image-builder-build-vm). Any file that is not stored in Azure must be publicly accessible for Azure Image Builder to be able to download it.
 
 - **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
 
