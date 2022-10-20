@@ -304,7 +304,7 @@ There are two supported methods for authentication
 
 * Use a [Form Recognizer API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
 
-* Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
+* Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 #### Use your API key
 
@@ -356,7 +356,7 @@ async function main() {
 #### Use an Azure Active Directory (Azure AD) token credential
 
 > [!NOTE]
-> Regional endpoints do not support AAD authentication. Create a [custom subdomain](/azure/cognitive-services/authentication?tabs=powershell#create-a-resource-with-a-custom-subdomain) for your resource in order to use this type of authentication.
+> Regional endpoints do not support AAD authentication. Create a [custom subdomain](../../cognitive-services/authentication.md?tabs=powershell#create-a-resource-with-a-custom-subdomain) for your resource in order to use this type of authentication.
 
 Authorization is easiest using the `DefaultAzureCredential`. It provides a default token credential, based upon the running environment, capable of handling most Azure authentication scenarios.
 
@@ -374,7 +374,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.ide
         Install-Package Azure.Identity
     ```
 
-1. [Register an Azure AD application and create a new service principal](/azure/cognitive-services/authentication?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
 
@@ -403,7 +403,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
     </dependency>
     ```
 
-1. [Register an Azure AD application and create a new service principal](/azure/cognitive-services/authentication?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
 
@@ -431,7 +431,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
     npm install @azure/identity
     ```
 
-1. [Register an Azure AD application and create a new service principal](/azure/cognitive-services/authentication?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
 
@@ -457,7 +457,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
     ```python
     pip install azure-identity
     ```
-1. [Register an Azure AD application and create a new service principal](/azure/cognitive-services/authentication?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
 

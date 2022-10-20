@@ -54,7 +54,9 @@
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
     - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
+      href: tutorial-create-notebook.md
+    - name: Deploy app on AKS cluster using Bicep
+      href: tutorial-deploy-app-bicep-aks.md
 - name: Samples
   items:
     - name: .NET

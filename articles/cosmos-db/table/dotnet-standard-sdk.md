@@ -14,7 +14,7 @@ ms.custom: devx-track-dotnet, ignite-2022
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 > [!div class="op_single_selector"]
 > 
-> * [.NET](dotnet-sdk.md)
+> * [.NET](/dotnet/api/overview/azure/data.tables-readme)
 > * [.NET Standard](dotnet-standard-sdk.md)
 > * [Java](java-sdk.md)
 > * [Node.js](nodejs-sdk.md)
@@ -86,7 +86,7 @@ ms.custom: devx-track-dotnet, ignite-2022
    > Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
 
 ### <a name="0.9.1-preview"></a>0.9.1-preview
-* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Azure Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Azure Cosmos DB Table SDK For .NET Framework](dotnet-sdk.md). 
+* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Azure Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Azure Cosmos DB Table SDK For .NET Framework](/dotnet/api/overview/azure/data.tables-readme). 
    > [!NOTE]
    >  Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
 
