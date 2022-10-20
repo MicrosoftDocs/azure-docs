@@ -7,11 +7,52 @@ ms.topic: reference
 
 # OT sensor configuration CLI commands
 
-## SSL/TLS certificates
+## Manage SSL and TLS certificates
+
+Use the following command to import SSL and TLS certificates to the sensor from the CLI.
+
+To use this command:
+
+- Verify that the certificate file you want to import is readable on the appliance. Upload certificate files to the appliance using tools such as WinSCP or Wget.
+- Confirm with your IT office that the appliance domain as it appears in the certificate is correct for your DNS server and the corresponding IP address.
+
+For more information, see [Certificates for appliance encryption and authentication (OT appliances)](../how-to-deploy-certificates.md).
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+| **cyberx** | `cyberx-xsense-certificate-import` | cyberx-xsense-certificate-import [-h] [--crt &lt;PATH&gt;] [--key &lt;FILE NAME&gt;] [--chain &lt;PATH&gt;] [--pass &lt;PASSPHRASE&gt;] [--passphrase-set &lt;VALUE&gt;]`
+
+In this command:
+
+- `-h`: Shows the full command help syntax
+- `--crt`: The path to the certificate file you want to upload, with a `.crt` extension
+- `--key`: The `\*.key` file you want to use for the certificate. Key length must be a minimum of 2,048 bits
+- `--chain`: The path to a certificate chain file. Optional.
+- `--pass`: A passphrase used to encrypt the certificate. Optional.
+- `--passphrase-set`: Unused and set to *False* by default. Set to *True* to use passphrase supplied with the previous certificate. Optional.
+
+For example, for the *cyberx* user:
+
+```bash
+root@xsense:/# cyberx-xsense-certificate-import
+```
+
+<!--better example with attributes showing and also response?-->
 
 ## Trigger test alert
+With the following command, you can test connectivity and alert forwarding from the sensor to management products such as the Azure portal, on-premises management console, or third-party SIEM.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|  | `` | ``|
 
 ## Review audit logs
+
+An audit log of sensor activity can be reviewed from the command line using the following command.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|  | `` | ``|
 
 ## Apply ingress traffic filters (capture filter)
 
@@ -23,13 +64,56 @@ ms.topic: reference
 
 ## Local alert suppression
 
-### Show alert suppression
+### Show alert suppression rules
+Enter the following command to present the existing list of exclusion rules:
 
-### Create new alert suppression
+```azurecli-interactive
+alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
+[-dev DEVICES] [-a ALERTS]
+```
 
-### Append alert suppression
+### Create new alert suppression rule
+You can create a local alert exclusion rule by entering the following command into the CLI:
 
-### Delete alert suppression
+```azurecli-interactive
+alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
+[-dev DEVICES] [-a ALERTS]
+```
+
+The following attributes can be used with the alert exclusion rules:
+
+| Attribute | Description |
+|--|--|
+| [-h] | Prints the help information for the command. |
+| -n NAME | The name of the rule being created. |
+| [-ts TIMES] | The time span for which the rule is active. This should be specified as:<br />`xx:yy-xx:yy`<br />You can define more than one time period by using a comma between them. For example: `xx:yy-xx:yy, xx:yy-xx:yy`. |
+| [-dir DIRECTION] | The direction in which the rule is applied. This should be specified as:<br />`both | src | dst` |
+| [-dev DEVICES] | The IP address and the address type of the devices to be excluded by the rule, specified as:<br />`ip-x.x.x.x`<br />`mac-xx:xx:xx:xx:xx:xx`<br />`subnet: x.x.x.x/x` |
+| [-a ALERTS] | The name of the alert that the rule will exclude:<br />`0x00000`<br />`0x000001` |
+
+### Append alert suppression rule
+You can append local alert exclusion rules by entering the following command in the CLI:
+
+```azurecli-interactive
+alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
+[-dev DEVICES] [-a ALERTS]
+```
+
+The attributes used here are the same as the attributes explained in the Create local alert exclusion rules section. The difference in the usage is that here the attributes are applied on the existing rules.
+
+### Delete alert suppression rule
+You can delete an existing alert exclusion rule by entering the following command:
+
+```azurecli-interactive
+alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
+[-dev DEVICES] [-a ALERTS]
+```
+
+The following attribute can be used with the alert exclusion rules:
+
+| Attribute | Description|
+| --------- | ---------------------------------- |
+| -n NAME | The name of the rule to be deleted. |
 
 ## Define clients and servers
 
@@ -185,10 +269,121 @@ The following attributes are available for [creating](#create-local-alert-exclus
 ## Manage network configurations
 
 ## Capture data filter
+The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list. This command doesn't support the malware detection engine.
 
-## Manage SSL certificates
+```azurecli-interactive
+network capture-filter
+```
 
-## Manage time synchronization (NTP)
+After you enter the command, you'll be prompted with the following question:
+
+>`Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
+
+Select `Y` to open a nano file where you can add a device, channel, port, and subset according to the following syntax:
+
+| Attribute | Description |
+|--|--|
+| 1.1.1.1 | Includes all of the traffic for this device. |
+| 1.1.1.1,2.2.2.2 | Includes all of the traffic for this channel. |
+| 1.1.1,2.2.2 | Includes all of the traffic for this subnet. |
+
+Separate arguments by dropping a row.
+
+When you include a device, channel, or subnet, the sensor processes all the valid traffic for that argument, including ports and traffic that wouldn't usually be processed.
+
+You'll then be asked the following question:
+
+>`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
+
+Select `Y` to open a nano file where you can add a device, channel, port, and subsets according to the following syntax:
+
+| Attribute | Description |
+|--|--|
+| 1.1.1.1 | Excludes all the traffic for this device. |
+| 1.1.1.1,2.2.2.2 | Excludes all the traffic for this channel, meaning all the traffic between two devices. |
+| 1.1.1.1,2.2.2.2,443 | Excludes all the traffic for this channel by port. |
+| 1.1.1 | Excludes all the traffic for this subnet. |
+| 1.1.1,2.2.2 | Excludes all the traffic for between subnets. |
+
+Separate arguments by dropping a row.
+
+When you exclude a device, channel, or subnet, the sensor will exclude all the valid traffic for that argument.
+
+### Ports
+
+Include or exclude UDP and TCP ports for all the traffic.
+
+>`502`: single port
+
+>`502,443`: both ports
+
+>`Enter tcp ports to include (delimited by comma or Enter to skip):`
+
+>`Enter udp ports to include (delimited by comma or Enter to skip):`
+
+>`Enter tcp ports to exclude (delimited by comma or Enter to skip):`
+
+>`Enter udp ports to exclude (delimited by comma or Enter to skip):`
+
+### Components
+
+You're asked the following question:
+
+>`In which component do you wish to apply this capture filter?`
+
+Your options are: `all`, `dissector`, `collector`, `statistics-collector`, `rpc-parser`, or `smb-parser`.
+
+In most common use cases, we recommend that you select `all`. Selecting `all` doesn't include the malware detection engine, which isn't supported by this command.
+
+### Custom base capture filter 
+
+The base capture filter is the baseline for the components. For example, the filter determines which ports are available to the component.
+
+Select `Y` for all of the following options. All of the filters are added to the baseline after the changes are set. If you make a change, it will overwrite the existing baseline.
+
+>`Would you like to supply a custom base capture filter for the dissector component? [Y/N]:`
+
+>`Would you like to supply a custom base capture filter for the collector component? [Y/N]:`
+
+>`Would you like to supply a custom base capture filter for the statistics-collector component? [Y/N]:`
+
+>`Would you like to supply a custom base capture filter for the rpc-parser component? [Y/N]:`
+
+>`Would you like to supply a custom base capture filter for the smb-parser component? [Y/N]:`
+
+>`Type Y for "internal" otherwise N for "all-connected" (custom operation mode enabled) [Y/N]:`
+
+If you choose to exclude a subnet such as 1.1.1:
+
+- `internal` will exclude only that subnet.
+
+- `all-connected` will exclude that subnet and all the traffic to and from that subnet.
+
+We recommend that you select `internal`.
+
+> [!NOTE]
+> Your choices are used for all the filters in the tool and are not session dependent. In other words, you can't ever choose `internal` for some filters and `all-connected` for others.
+
+### Comments
+
+You can view filters in ```/var/cyberx/properties/cybershark.properties```:
+
+- **statistics-collector**: `bpf_filter property` in ```/var/cyberx/properties/net.stats.collector.properties```
+
+- **dissector**: `override.capture_filter` property in ```/var/cyberx/properties/cybershark.properties```
+
+- **rpc-parser**: `override.capture_filter` property in ```/var/cyberx/properties/rpc-parser.properties```
+
+- **smb-parser**: `override.capture_filter` property in ```/var/cyberx/properties/smb-parser.properties```
+
+- **collector**: `general.bpf_filter` property in ```/var/cyberx/properties/collector.properties```
+
+You can restore the default configuration by entering the following code for the cyberx user:
+
+```azurecli-interactive
+sudo cyberx-xsense-capture-filter -p all -m all-connected
+```
+
 
 ## template section
 
