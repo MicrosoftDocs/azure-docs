@@ -84,7 +84,7 @@ An up-to-date cluster avoids unnecessary performance issues and ensures you bene
 
 ### Install supported add-ons and extensions
 
-Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-policies) provide additional and supported functionality to your cluster while allowing you to benefit from the latest performance improvements and energy optimizations alongside your cluster lifecycle.
+Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-policies) provide additional and supported functionality to your cluster while allowing you to benefit from the latest performance improvements and energy optimizations throughout your cluster lifecycle.
 
 * Ensure you install [Keda](/azure/aks/integrations#available-add-ons) as an add-on and [Draft](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as an extension.
 
@@ -130,7 +130,7 @@ Getting the right information and insights at the right time is important for pr
 
 ### Automate cluster management and application delivery
 
-Sustainable operations such as automating cluster amangement and application delivery iare on of the many paths towards carbon footprint reduction. Rather than having direct access and operating the cluster manually, most operations should happen through code changes that can be reviewed and audited.
+Sustainable operations such as automating cluster management and application delivery are one of the paths to reducing carbon footprint. Rather than having direct access and operating the cluster manually, most operations should happen through code changes that can be reviewed and audited.
 
 * Leverage [GitOps for Azure Kubernetes Services](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks) as an operational framework for your cluster and application lifecycles to apply energy efficient development practices like CI/CD.
 
@@ -139,7 +139,7 @@ Explore this section to learn how to design a more sustainable data storage arch
 
 ### Optimize storage utilization 
 
-The data retrieved and its storage can have a significant impact on both energy and carbon efficiency. Designing solutions with the correct data access pattern can reduce energy consumption and embodied carbon.
+The data retrieved and their storage can have a significant impact on both energy and carbon efficiency. Designing solutions with the correct data access pattern can reduce energy consumption and embodied carbon.
 
 * Understand the needs of your application to [choose the appropriate storage](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type) and define it using [storage classes](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs) to avoid storage underutilization. Additionally, consider [provisioning volumes dynamically](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes) to automatically scale the number of storage resources.
 
