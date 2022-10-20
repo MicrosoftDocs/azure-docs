@@ -83,7 +83,7 @@ For a user to sign in to an application in Azure AD, the application must be rep
 
 For a multi-tenant application, the initial registration for the application resides in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
 
-![Diagram which illustrates a user's consent to a single-tier app][Consent-Single-Tier]
+![Diagram which illustrates a user's consent to a single-tier app.][Consent-Single-Tier]
 
 This consent experience is affected by the permissions requested by the application. The Microsoft identity platform supports two kinds of permissions, app-only and delegated.
 
@@ -122,7 +122,7 @@ This can be a problem if your logical application consists of two or more applic
 
 This is demonstrated in a multi-tier native client calling web API sample in the [Related content](#related-content) section at the end of this article. The following diagram provides an overview of consent for a multi-tier app registered in a single tenant.
 
-![Diagram which illustrates consent to multi-tier known client app][Consent-Multi-Tier-Known-Client]
+![Diagram which illustrates consent to multi-tier known client app.][Consent-Multi-Tier-Known-Client]
 
 #### Multiple tiers in multiple tenants
 
@@ -137,7 +137,7 @@ If it's an API built by an organization other than Microsoft, the developer of t
 
 The following diagram provides an overview of consent for a multi-tier app registered in different tenants.
 
-![Diagram which illustrates consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party]
+![Diagram which illustrates consent to multi-tier multi-party app.][Consent-Multi-Tier-Multi-Party]
 
 ### Revoking consent
 
@@ -163,7 +163,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 
 ## Next steps
 
-In this article, you learned how to convert a single tenant application to a multi-tenant application. After enabling Single Sign-On (SSO) between your app and Azure AD, update your app to access APIs exposed by Microsoft resources like Microsoft 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, for example, profile pictures and calendar appointments.
+In this article, you learned how to convert a single tenant application to a multi-tenant application. After enabling single sign-on (SSO) between your app and Azure AD, update your app to access APIs exposed by Microsoft resources like Microsoft 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, for example, profile pictures and calendar appointments.
 
 To learn more about making API calls to Azure AD and Microsoft 365 services like Exchange, SharePoint, OneDrive, OneNote, and more, visit [Microsoft Graph API][MSFT-Graph-overview].
 
