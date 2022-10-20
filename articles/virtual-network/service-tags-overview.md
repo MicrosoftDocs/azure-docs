@@ -1,4 +1,4 @@
----
+--- 
 title: Azure service tags overview
 titlesuffix: Azure Virtual Network
 description: Learn about service tags. Service tags help minimize the complexity of security rule creation.
