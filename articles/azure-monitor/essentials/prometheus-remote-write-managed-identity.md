@@ -166,4 +166,4 @@ This step isn't required if you're using an AKS identity since it will already h
 
 ## Next steps
 
-- [Learn more about Azure Monitor managed service for Prometheus](../prometheus-metrics-overview.md).
+- [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
