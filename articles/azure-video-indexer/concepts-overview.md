@@ -66,4 +66,4 @@ Azure Video Indexer supports embedding widgets in your apps. For more informatio
 ## Next steps
 
 - [overview](video-indexer-overview.md)
-- [Insights](video-indexer-output-json-v2.md)
+- Once you [set up](video-indexer-get-started.md), start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.

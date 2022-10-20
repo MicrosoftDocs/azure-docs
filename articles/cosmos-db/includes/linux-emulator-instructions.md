@@ -17,7 +17,7 @@
     ```bash
     docker run \
         --publish 8081:8081 \
-        --publish 10251-10254:10251-10254 \
+        --publish 10250-10255:10250-10255 \
         --memory 3g --cpus=2.0 \
         --name=test-linux-emulator \
         --env AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10 \
@@ -33,7 +33,7 @@
     ```bash
     docker run \
         --publish 8081:8081 \
-        --publish 10251-10254:10251-10254 \
+        --publish 10250-10255:10250-10255 \
         --name=test-linux-emulator-mongo \
         --env AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10 \
         --env AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true \
