@@ -88,16 +88,26 @@
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
-    - name: Anomaly Detector REST API preview 
+    - name: REST API (preview) 
       href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
-    - name: .NET 
-      href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
+    - name: .NET
+      href: /dotnet/api/azure.ai.anomalydetector?view=azure-dotnet-preview
     - name: Java
-      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector
+      href: /java/api/overview/azure/ai-anomalydetector-readme?view=azure-java-preview 
     - name: Python
-      href: https://pypi.org/project/azure-ai-anomalydetector
+      href: /python/api/azure-ai-anomalydetector/azure.ai.anomalydetector?view=azure-python-preview
     - name: Node.js
-      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector
+      href: /javascript/api/@azure/ai-anomaly-detector/?view=azure-node-preview
+    - name: Packages
+      items:
+      - name: .NET 
+        href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
+      - name: Java
+        href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector
+      - name: Python
+        href: https://pypi.org/project/azure-ai-anomalydetector
+      - name: Node.js
+        href: https://www.npmjs.com/package/@azure/ai-anomaly-detector
 - name: Resources
   items:
     - name: Enterprise readiness
