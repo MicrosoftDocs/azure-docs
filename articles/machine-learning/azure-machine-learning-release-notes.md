@@ -25,10 +25,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning SDK for Python v1.47.0
   + **azureml-automl-dnn-nlp**
     + Runtime changes for AutoML NLP to account for fixed training parameters, as part of the newly introduced model sweeping and hyperparameter tuning.
-  + **azureml-contrib-automl-pipeline-steps**
-    + Many Models and Hierarchical Time Series training now enforces check on timeout parameters to detect conflict before submitting the experiment for run. This will prevent experiment failure during the run by raising exception before submitting experiment.
-    + Customers can now control the step size while using rolling forecast in Many Models inference.
-    + ManyModels inference with unpartitioned tabular data now supports forecast_quantiles.
   + **azureml-mlflow**
     + AZUREML_ARTIFACTS_DEFAULT_TIMEOUT can be used to control the timeout for artifact upload
   + **azureml-train-automl-runtime**
