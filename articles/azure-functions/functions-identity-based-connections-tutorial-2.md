@@ -94,6 +94,7 @@ You've granted your function app access to the service bus namespace using manag
     | Name      | Value  | Description |
     | ------------ | ---------------- | ----------- |
     | **ServiceBusConnection__fullyQualifiedNamespace** | <SERVICE_BUS_NAMESPACE>.servicebus.windows.net | This setting connections your function app to the Service Bus use identity-based connections instead of secrets. |
+    | **AZURE_CLIENT_ID** | GUID | This setting has the clientId of the Managed Identity. |
 
 1. After you create the two settings, select **Save** > **Confirm**.
 
