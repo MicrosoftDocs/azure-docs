@@ -86,7 +86,7 @@ Next, create a personal access token and store it as a key vault secret in Azure
 
 #### Store the personal access token as a key vault secret
 
-To store the personal access token that you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
+To store the personal access token you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
 
 1. Create a [key vault](../key-vault/general/quick-create-portal.md#create-a-vault).
 1. Add the personal access token as a [secret to the key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
@@ -104,8 +104,10 @@ To store the personal access token that you generated as a [key vault secret](..
     | **Name** | Enter a name for the catalog. |
     | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Azure DevOps Services repository.|
     | **Branch**  | Enter the repository branch to connect to.|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains sub-folders with your catalog items. This folder path should be the path to the folder that contains the sub-folders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.|
     | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token-and-store-it-as-a-key-vault-secret) that contains your personal access token for the repository.|
+
+   :::image type="content" source="media/quickstart-create-configure-projects/catalog-item-add.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
 
 1. In the catalogs overview, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
 
@@ -120,7 +122,7 @@ To sync to the updated catalog:
 
 ## Delete a catalog
 
-You can delete a catalog to remove it from the dev center. Any templates contained in a deleted catalog will not be available when deploying new environments. You'll need to update the catalog item reference for any existing environments created using the catalog items in the deleted catalog. If the reference is not updated and the environment is redeployed, it'll result in deployment failure.
+You can delete a catalog to remove it from the dev center. Any templates contained in a deleted catalog won't be available when deploying new environments. You'll need to update the catalog item reference for any existing environments created using the catalog items in the deleted catalog. If the reference isn't updated and the environment is redeployed, it will result in deployment failure.
 
 To delete a catalog:
 
@@ -141,7 +143,7 @@ Ignored catalog items are caused by adding two or more catalog items with the sa
 
 ### Handle invalid catalog items
 
-Invalid catalog items can be caused due to a variety of reasons:
+Invalid catalog items can be caused due to various reasons:
 
 - **Manifest schema errors**
 
@@ -151,7 +153,7 @@ Invalid catalog items can be caused due to a variety of reasons:
 
   - Ensure that the manifest's engine type is correctly configured as `ARM`.
   - Ensure that the catalog item name is between 3 and 63 characters.
-  - Ensure that the catalog item name includes only characters that are valid for a URL: alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `)` `(` `*` `&` `$` `@`
+  - Ensure that the catalog item name includes only characters that are valid for a URL: alphanumeric characters and the symbols `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `)` `(` `*` `&` `$` `@`.
   
 - **Reference errors**
 

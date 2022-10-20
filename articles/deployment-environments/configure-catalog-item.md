@@ -18,7 +18,7 @@ In Azure Deployment Environments Preview, you can use a [catalog](concept-enviro
 A catalog item is combined of least two files:
 
 - An [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) in JSON file format. For example, *azuredeploy.json*.
-- A manifest YAML file (*manifest.yml*) .
+- A manifest YAML file (*manifest.yml*).
 
 >[!NOTE]
 > Azure Deployment Environments Preview currently supports only ARM templates.
@@ -27,7 +27,7 @@ The IaC template contains the environment definition and the manifest file provi
 
 We offer an example [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use to create the required files to create a catalog item. , or you can fork and customize the catalog items. You can attach your private repo to use your own catalog items.
 
-After you [attach a catalog](how-to-configure-catalog.md) to your dev center, the service will scan through the specified folder path to identify folders containing an ARM template and the associated manifest file. The specified folder path should be a folder that contains sub-folders with the catalog item files.
+After you [attach a catalog](how-to-configure-catalog.md) to your dev center, the service will scan through the specified folder path to identify folders containing an ARM template and the associated manifest file. The specified folder path should be a folder that contains subfolders with the catalog item files.
 
 In this article, you learn how to:
 
@@ -53,7 +53,7 @@ To add a catalog item:
    To learn about how to get started with ARM templates, see the following articles:
 
    - [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md) describes the structure of an ARM template and the properties that are available in the different sections of a template.
-   - [Use linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#use-relative-path-for-linked-templates) describes how to use linked templates with the new ARM `relativePath` property to easily modularize your templates and share core components between catalog items.
+   - [Use linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#use-relative-path-for-linked-templates) describes how to use linked templates with the new ARM template `relativePath` property to easily modularize your templates and share core components between catalog items.
 
 1. Add a manifest as a YAML file. The *manifest.yaml* file contains metadata related to the ARM template.
 
@@ -77,11 +77,11 @@ To add a catalog item:
 
     :::image type="content" source="../deployment-environments/media/configure-catalog-item/sync-catalog-items.png" alt-text="Screenshot that shows how to sync the catalog." :::
 
-The service scans the repository to find new catalog items. After syncing the repository, new catalog items are available to all projects in the dev center.
+The service scans the repository to find new catalog items. After you sync the repository, new catalog items are available to all projects in the dev center.
 
 ## Update an existing catalog item
 
-To modify the configuration of Azure resources in an existing catalog item, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific catalog item and when you redeploy an environment associated with that catalog item.
+To modify the configuration of Azure resources in an existing catalog item, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific catalog item. The update also is applied when you redeploy an environment that's associated with that catalog item.
 
 To update any metadata related to the ARM template, modify the *manifest.yaml* and [update the catalog](how-to-configure-catalog.md).
 
