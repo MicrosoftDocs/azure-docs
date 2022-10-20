@@ -1,12 +1,12 @@
 ---
 title: How to manage a dev box pool
-titleSuffix: Microsoft Dev Box
-description: This article describes how to create, and delete Microsoft Dev Box dev box pools.
+titleSuffix: Microsoft Dev Box Preview
+description: This article describes how to create, and delete Microsoft Dev Box Preview dev box pools.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/16/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
@@ -29,7 +29,7 @@ The following steps show you how to create a dev box pool associated with a proj
 
 <!-- how many dev box pools can you create -->
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box Preview service](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

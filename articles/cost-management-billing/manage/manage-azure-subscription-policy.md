@@ -33,7 +33,7 @@ The policy allows or stops users from other directories, who have access in the 
 
 ### Exempted Users
 
-For governance reasons, global administrators can block all subscription directory moves - in to our out of the current directory. However they might want to allow specific users to do either operations. For either situation, they can configure a list of exempted users that allows the users to bypass the policy setting that applies to everyone else.
+For governance reasons, global administrators can block all subscription directory moves - in to or out of the current directory. However they might want to allow specific users to do either operations. For either situation, they can configure a list of exempted users that allows the users to bypass the policy setting that applies to everyone else.
 
 ## Setting subscription policy
 

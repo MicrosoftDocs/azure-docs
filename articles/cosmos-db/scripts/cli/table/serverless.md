@@ -1,21 +1,21 @@
 ---
-title: Create an Azure Cosmos DB Table API serverless account and table
-description: Use Azure CLI to create a Table API serverless account and table for Azure Cosmos DB.
+title: Create an Azure Cosmos DB for Table serverless account and table
+description: Use Azure CLI to create a API for Table serverless account and table for Azure Cosmos DB.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: sample
 ms.date: 06/16/2022
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, ignite-2022
 ---
 
-# Use Azure CLI to create an Azure Cosmos DB Table API serverless account and table
+# Use Azure CLI to create an Azure Cosmos DB for Table serverless account and table
 
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
-The script in this article creates an Azure Cosmos DB Table API serverless account and table.
+The script in this article creates an Azure Cosmos DB for Table serverless account and table.
 
 ## Prerequisites
 
@@ -41,15 +41,15 @@ The script in this article creates an Azure Cosmos DB Table API serverless accou
 
 ## Sample script
 
-Run the following script to create an Azure resource group, an Azure Cosmos DB Table API serverless account, and Table API table. The resources might take a while to create.
+Run the following script to create an Azure resource group, an Azure Cosmos DB for Table serverless account, and API for Table table. The resources might take a while to create.
 
 :::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/serverless.sh" id="FullScript":::
 
 This script uses the following commands:
 
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
-- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with `--capabilities EnableTable EnableServerless` creates an Azure Cosmos DB serverless account for Table API.
-- [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) creates an Azure Cosmos DB Table API table.
+- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with `--capabilities EnableTable EnableServerless` creates an Azure Cosmos DB serverless account for API for Table.
+- [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) creates an Azure Cosmos DB for Table table.
 
 ## Clean up resources
 

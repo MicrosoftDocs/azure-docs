@@ -111,9 +111,9 @@
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
   - name: Migrate MongoDB
     items: 
-    - name: to Azure Cosmos DB Mongo API (offline)
+    - name: to Azure Cosmos DB for MongoDB (offline)
       href: tutorial-mongodb-cosmos-db.md
-    - name: to Azure Cosmos DB Mongo API (online)
+    - name: to Azure Cosmos DB for MongoDB (online)
       href: tutorial-mongodb-cosmos-db-online.md  
 
 
@@ -190,7 +190,7 @@
         href: known-issues-azure-sql-db-managed-instance-online.md
       - name: PostgreSQL to Azure DB for PostgreSQL
         href: known-issues-azure-postgresql-online.md
-      - name: MongoDB to Azure Cosmos DB API for MongoDB
+      - name: MongoDB to Azure Cosmos DB for MongoDB
         href: known-issues-mongo-cosmos-db.md
 
   - name: Videos

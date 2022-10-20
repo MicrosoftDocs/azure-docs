@@ -210,7 +210,7 @@ az postgres db create \
 Next, create a non-admin user and grant all permissions on the `demo` database to it.
 
 > [!NOTE]
-> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/single-server/how-to-create-users).
+> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](./how-to-create-users.md).
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 

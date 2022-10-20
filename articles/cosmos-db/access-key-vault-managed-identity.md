@@ -5,20 +5,21 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.devlang: csharp
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.reviewer: thweiss
 ---
 
 # Access Azure Key Vault from Azure Cosmos DB using a managed identity
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB may need to read secret/key data from Azure Key Vault. For example, your Azure Cosmos DB may require a customer-managed key stored in Azure Key Vault. To do this, Azure Cosmos DB should be configured with a managed identity, and then an Azure Key Vault access policy should grant the managed identity access.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An existing Azure Cosmos DB SQL API account. [Create an Azure Cosmos DB SQL API account](sql/create-cosmosdb-resources-portal.md)
+- An existing Azure Cosmos DB API for NoSQL account. [Create an Azure Cosmos DB API for NoSQL account](nosql/quickstart-portal.md)
 - An existing Azure Key Vault resource. [Create a key vault using the Azure CLI](../key-vault/general/quick-create-cli.md)
 - To perform the steps in this article, install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli).
 
@@ -30,7 +31,7 @@ Azure Cosmos DB may need to read secret/key data from Azure Key Vault. For examp
     # Variable for function app name
     keyVaultName="msdocs-keyvault"
     
-    # Variable for Cosmos DB account name
+    # Variable for Azure Cosmos DB account name
     cosmosName="msdocs-cosmos-app"
 
     # Variable for resource group name
@@ -88,5 +89,5 @@ In this step, create an access policy in Azure Key Vault using the previously ma
 
 ## Next steps
 
-* To use customer-managed keys in Azure Key Vault with your Azure Cosmos account, see [configure customer-managed keys](how-to-setup-cmk.md#using-managed-identity)
+* To use customer-managed keys in Azure Key Vault with your Azure Cosmos DB account, see [configure customer-managed keys](how-to-setup-cmk.md#using-managed-identity)
 * To use Azure Key Vault to manage secrets, see [secure credentials](access-secrets-from-keyvault.md).
