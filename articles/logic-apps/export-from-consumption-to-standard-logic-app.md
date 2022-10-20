@@ -92,7 +92,7 @@ Consider the following recommendations when you select logic apps for export:
 
 1. After the **Export** tab opens, select your Azure subscription and region, and then select **Next**.
 
-   ![Screenshot showing 'Export' tab and 'Select logic app instance' section with Azure subscription and ISE instance selected.](media/export-from-consumption-to-standard-logic-app/select-subscription-ise.png)
+   ![Screenshot showing 'Export' tab and 'Select logic app instance' section with Azure subscription and region selected.](media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png)
 
 1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.    
 
