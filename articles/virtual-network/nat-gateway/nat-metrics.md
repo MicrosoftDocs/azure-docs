@@ -122,17 +122,17 @@ Reasons for why you may see dropped packets:
 
 ### SNAT connection count
 
-The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. This metric can be broken out to view different connection states such as Attempted, Established, Failed, Closed, and Timed Out connections.
+The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. This metric can be broken out to view different connection states including: attempted, established, failed, closed, and timed out connections. A failed connection volume of greater than zero indicates SNAT port exhaustion.
 
 Use this metric to: 
 
 - Evaluate the health of your outbound connections.
 
-- Assess whether or not you're nearing or possibly experiencing SNAT exhaustion with a given NAT gateway resource.
+- Assess whether or not you're nearing or possibly experiencing SNAT port exhaustion.
 
 - Evaluate whether your NAT gateway resource should be scaled out further by adding more public IPs. 
 
-- Help assess if you're experiencing a pattern of failed outbound connections. 
+- Assess if you're experiencing a pattern of failed outbound connections. 
 
 To view the connection state of your connections:
 
@@ -226,7 +226,7 @@ To set up a datapath availability alert, follow these steps:
 >Aggregation granularity is the period of time over which the datapath availability is measured to determine if it has dropped below the threshold value. 
 Setting the aggregation granularity to less than 5 minutes may trigger false positive alerts that detect noise in the datapath.
 
-### Alerts for outbound availability 
+### Alerts for SNAT port exhaustion 
 
 Use the  **SNAT connection count** metric and alerts to help determine if you are experiencing SNAT port exhaustion. A failed connection volume greather than zero could inidicate SNAT port exhaustion. You may need to investigate further to determine the root cause of these failures.
 
@@ -250,7 +250,7 @@ To create the alert, use the following steps:
 
 9. Under Dimension values, select **Failed** connections. 
 
-8. In the When to evaluate section, select **1 minute** from the **Check every** drop-down menu.
+8. From the When to evaluate section, select **1 minute** under the **Check every** drop-down menu.
 
 9. Create an **Action** for your alert by providing a name, notification type, and type of action that is performed when the alert is triggered.
 
@@ -259,7 +259,7 @@ To create the alert, use the following steps:
 11. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT exhaustion on your NAT gateway resource is uncommon. If you see SNAT exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the NAT gateway [troubleshooting guide](./troubleshoot-nat.md). 
+>SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
 
 ## Network Insights
 
