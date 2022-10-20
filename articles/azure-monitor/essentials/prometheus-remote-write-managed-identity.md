@@ -24,7 +24,7 @@ This article applies to the following cluster configurations:
 ## Prerequisites
 
 - You must have self-managed Prometheus running on your AKS cluster. For example, see [Using Azure Kubernetes Service with Grafana and Prometheus](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459).
-- You used [Kube-Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) when you setup Prometheus on your AKS cluster.
+- You used [Kube-Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) when you set up Prometheus on your AKS cluster.
 
 
 ## Create Azure Monitor workspace
