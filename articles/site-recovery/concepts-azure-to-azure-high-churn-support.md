@@ -8,7 +8,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/04/2022
 ms.author: v-pgaddala
-
 ---
 
 # Azure VM Disaster Recovery - High Churn Support (Public Preview)
