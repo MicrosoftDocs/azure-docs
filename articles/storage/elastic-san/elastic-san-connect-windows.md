@@ -144,7 +144,7 @@ You can then re-run the commands from the single session configuration or use th
 
 To script multi-session configurations, use two files. An XML configuration file that you update for each volume you'd like to establish connections to, and a script which uses the XML files to create connections.
 
-Format the XML file with this
+The following example shows you how to format your XML file for the script:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
