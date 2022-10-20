@@ -182,7 +182,7 @@ To configure Staged Rollout, follow these steps:
 
 1. On the *Azure AD Connect* page, under the *Staged rollout of cloud authentication*, select the **Enable staged rollout for managed user sign-in** link. 
 
-1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication (Preview)](../authentication/active-directory-certificate-based-authentication-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
+1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication](../authentication/active-directory-certificate-based-authentication-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
 
 1. Add groups to the features you selected. For example, *pass-through authentication* and *seamless SSO*. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 
