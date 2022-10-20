@@ -46,7 +46,9 @@ To use RDP Shortpath for managed networks, you must enable a UDP listener on you
 
 The following diagram gives a high-level overview of the RDP Shortpath network connection:
 
-:::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections." lightbox="media/rdp-shortpath-connections.svg":::
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for managed networks and session hosts joined to an Active Directory domain:
+
+:::image type="content" source="media/rdp-shortpath-managed-networks.svg alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.svg":::
 
 ### Connection sequence
 
@@ -83,6 +85,10 @@ There are four primary components used to establish the RDP Shortpath data flow 
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
 
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks and session hosts joined to Azure Active Directory (Azure AD):
+
+:::image type="content" source="media/rdp-shortpath-public-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-public-networks.svg":::
+
 ### Network Address Translation and firewalls
 
 Most Azure Virtual Desktop clients run on computers on the private network. Internet access is provided through a Network Address Translation (NAT) gateway device. Therefore, the NAT gateway modifies all network requests from the private network and destined to the Internet. Such modification intends to share a single public IP address across all of the computers on the private network.
@@ -118,10 +124,6 @@ All connections begin by establishing a TCP-based [reverse connect transport](ne
 1. After RDP establishes the RDP Shortpath transport, all Dynamic Virtual Channels (DVCs), including remote graphics, input, and device redirection move to the new transport.
 
 If your users have both RDP Shortpath for managed network and public networks available to them, then the first algorithm found will be used. Whichever connection gets established first is what the user will use for that session.
-
-The diagram below gives a high-level overview of the network connections used by Azure Virtual Desktop with RDP Shortpath for public networks and Azure AD-joined virtual machines. 
-
-:::image type="content" source="media/azure-virtual-desktop-rdpshortpath-public-connection" alt-text="Diagram of Azure Virtual Desktop RDP Shortpath for Public Network Connections" lightbox="media/azure-virtual-desktop-rdpshortpath-public-connection":::
 
 > [!IMPORTANT]
 > When using a TCP-based transport, outbound traffic from session host to client is through the Azure Virtual Desktop Gateway. With RDP Shortpath, outbound traffic is established directly between session host and client over the internet. This removes a hop which improves latency and end user experience. However, due to the changes in data flow between session host and client where the Gateway is no longer used, there will be standard [Azure egress network charges](https://azure.microsoft.com/pricing/details/bandwidth/) billed in addition per subscription for the internet bandwidth consumed. To learn more about estimating the bandwidth used by RDP, see [RDP bandwidth requirements](rdp-bandwidth.md).
