@@ -149,7 +149,7 @@ Run the following PowerShell commands on the target device where you want to dep
    <!-- end iotedge-2020-11 -->
 
    <!-- iotedge-1.4 -->
-   :::version 1.4
+   :::moniker range=">=iotedge-1.4"
       * **X64/AMD64**
          ```powershell
          $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
@@ -163,7 +163,7 @@ Run the following PowerShell commands on the target device where you want to dep
          $ProgressPreference = 'SilentlyContinue'
          Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
          ```
-   :::end
+   :::moniker-end
    <!-- end iotedge-1.4 -->
 
 1. Install IoT Edge for Linux on Windows on your device.
