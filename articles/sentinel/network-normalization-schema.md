@@ -330,7 +330,7 @@ If the event is reported by one of the endpoints of the network session, it migh
 The following are the changes in version 0.2.1 of the schema:
 
 - Added `Src` and `Dst` as aliases to a leading identifier for the source and destination systems.
-- Added the fields `**`NetworkConnectionHistory`**`, `**`SrcVlanId`**`, `**`DstVlanId`**`, `InnerVlanId`, and `OuterVlanId`.
+- Added the fields `NetworkConnectionHistory`, `SrcVlanId`, `DstVlanId`, `InnerVlanId`, and `OuterVlanId`.
 
  
 The following are the changes in version 0.2.2 of the schema:
