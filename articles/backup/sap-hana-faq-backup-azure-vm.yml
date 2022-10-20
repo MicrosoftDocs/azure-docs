@@ -199,7 +199,7 @@ sections:
            - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md)
            - [Performance tiers for Azure managed disks](../virtual-machines/disks-change-performance.md)
            - [M-series](../virtual-machines/m-series.md)
-           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 
           >[!Note]
           >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).

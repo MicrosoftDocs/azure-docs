@@ -2,6 +2,7 @@
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 04/28/2020
 ---
 
@@ -208,7 +209,7 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 | snapshotsPerTenMinutesLimit | 1 | The maximum number of snapshots allowed in 10 minutes. Although there is no upper bound on this value, exercise caution increasing it on production workloads because it could impact the performance of your application. Creating a snapshot is fast, but creating a minidump of the snapshot and uploading it to the Snapshot Debugger service is a much slower operation that will compete with your application for resources (both CPU and I/O). |
 | tempFolder | null | Specifies the folder to write minidumps and uploader log files. If not set, then *%TEMP%\Dumps* is used. |
 | thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
-| uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
+| uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining `System.Net.WebRequest.DefaultWebProxy` and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
 
 ## blobs
 
@@ -236,9 +237,9 @@ This setting is a child of [logging](#logging). It controls the console logging 
 |DisableColors|false| Suppresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
 |isEnabled|false|Enables or disables console logging.| 
 
-## cosmosDb
+## Azure Cosmos DB
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#hostjson-settings).
+Configuration settings can be found in [Azure Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#hostjson-settings).
 
 ## customHandler
 

@@ -87,7 +87,20 @@ We recommend having your certificates ready before you start your deployment. Fo
 
 1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and network taps to the Defender for IoT appliance.
 
-1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
+1. Configure, connect, and validate SPAN ports in the mirrored switches using one of the following methods:
+
+    |Method  |Description  |
+    |---------|---------|
+    |[Switch SPAN port](traffic-mirroring/configure-mirror-span.md)     |  Mirror local traffic from interfaces on the switch to a different interface on the same switch.     |
+    |[Remote SPAN (RSPAN)](traffic-mirroring/configure-mirror-rspan.md)     | Mirror traffic from multiple, distributed source ports into a dedicated remote VLAN.        |
+    |[Active or passive aggregation (TAP)](traffic-mirroring/configure-mirror-tap.md)     |     Mirror traffic by installing an active or passive aggregation terminal access point (TAP) inline to the network cable.     |
+    |[ERSPAN](traffic-mirroring/configure-mirror-erspan.md)     |   Mirror traffic with ERSPAN encapsulation when you need to extend monitored traffic across Layer 3 domains, when using specific Cisco routers and switches.      |
+    |[ESXi vSwitch](traffic-mirroring/configure-mirror-esxi.md)     |  Use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a monitoring port.       |
+    |[Hyper-V vSwitch](traffic-mirroring/configure-mirror-hyper-v.md)     | Use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a monitoring port.      |
+
+    > [!NOTE]
+    > SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.
+    >
 
 1. Connect the configured SPAN port to a computer running Wireshark, and verify that the port is configured correctly.
 

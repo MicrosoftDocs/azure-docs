@@ -1,13 +1,16 @@
 - name: Azure Percept documentation
   href: index.yml
 
-- name: Azure Percept DK Overview
+- name: Retirement of Azure Percept DK
   items:
     - name: Retirement of Azure Percept DK
       href: retirement-of-azure-percept-dk.md   
+      
+- name: Azure Percept DK Overview
+  items:
     - name: Azure Percept overview
       href: overview-azure-percept.md   
-    - name: Azure Percept Studio overview v1
+    - name: Azure Percept Studio overview
       href: overview-azure-percept-studio.md   
     - name: Azure Percept DK and Vision device overview
       href: overview-azure-percept-dk.md   
