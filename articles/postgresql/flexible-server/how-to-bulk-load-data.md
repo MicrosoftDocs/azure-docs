@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/16/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 
@@ -18,12 +18,12 @@ This article discusses various methods for loading data in bulk in Azure Databas
 ## Loading methods
 
 The following data-loading methods are arranged in order from most time consuming to least time consuming:
-- Run a single-record `INSERT` command
+- Run a single-record `INSERT` command.
 - Batch into 100 to 1000 rows per commit. You can use a transaction block to wrap multiple records per commit.  
-- Run `INSERT` with multiple row values
-- Run the `COPY` command
+- Run `INSERT` with multiple row values.
+- Run the `COPY` command.
 
-The preferred method for loading data into a database is to use the `COPY` command. If the `COPY` command isn't possible, batch `INSERT` is the next best method. Multi-threading with a `COPY` command is the optimal method for loading data in bulk.
+The preferred method for loading data into a database is to use the `COPY` command. If the `COPY` command isn't possible, using batch `INSERT` is the next best method. Multi-threading with a `COPY` command is the optimal method for loading data in bulk.
 
 ## Best practices for initial data loads
 
@@ -47,13 +47,13 @@ The main drop constraints are described here:
 
 ### Unlogged tables
 
+Consider the pros and cons of using unlogged tables before you use them in initial data loads.
+
 Using unlogged tables makes data load faster. Data that's written to unlogged tables isn't written to the write-ahead log.
 
 The disadvantages of using unlogged tables are:
 - They aren't crash-safe. An unlogged table is automatically truncated after a crash or unclean shutdown.
 - Data from unlogged tables can't be replicated to standby servers.
-
-The pros and cons of using unlogged tables should be considered before you use them in initial data loads.
 
 To create an unlogged table or change an existing table to an unlogged table, use the following options:
 
@@ -77,13 +77,13 @@ To create an unlogged table or change an existing table to an unlogged table, us
 
 * `maintenance_work_mem`: Can be set to a maximum of 2 gigabytes (GB) on a flexible server. `maintenance_work_mem` helps in speeding up autovacuum, index, and foreign key creation.
 
-* `checkpoint_timeout`: On a flexible server, the checkpoint_timeout can be increased to a maximum of 24 hours from the default setting of 5 minutes. We recommend that you increase the value to 1 hour before you load data initially on the flexible server.
+* `checkpoint_timeout`: On a flexible server, the `checkpoint_timeout` value can be increased to a maximum of 24 hours from the default setting of 5 minutes. We recommend that you increase the value to 1 hour before you load data initially on the flexible server.
 
 * `checkpoint_completion_target`: We recommend a value of 0.9.
 
 * `max_wal_size`: Can be set to the maximum allowed value on a flexible server, which is 64 GB while you're doing the initial data load.
 
-* `wal_compression`: Can be turned on. Enabling this parameter can incur some extra CPU cost spent on the compression during WAL logging and on the decompression during WAL replay.
+* `wal_compression`: Can be turned on. Enabling this parameter can incur some extra CPU cost spent on the compression during write-ahead log (WAL) logging and on the decompression during WAL replay.
 
 
 ### Flexible server recommendations
@@ -182,29 +182,29 @@ The `number_of_scans`, `tuples_read`, and `tuples_fetched` columns would indicat
 
 * `maintenance_work_mem`: This parameter can be set to a maximum of 2 GB on the flexible server. `maintenance_work_mem` helps speed up index creation and foreign key additions.
 
-* `checkpoint_timeout`: On the flexible server, the `checkpoint_timeout` parameter can be increased to 10 or 15 minutes from the default setting of 5 minutes. Increasing `checkpoint_timeout` to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there's a crash. We recommend careful consideration before you make the change.
+* `checkpoint_timeout`: On the flexible server, the `checkpoint_timeout` value can be increased to 10 or 15 minutes from the default setting of 5 minutes. Increasing `checkpoint_timeout` to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there's a crash. We recommend careful consideration before you make the change.
 
 * `checkpoint_completion_target`: We recommend a value of 0.9.
 
 * `max_wal_size`: This value depends on SKU, storage, and workload. One way to arrive at the correct value for `max_wal_size` is shown in the following example.
 
-    During peak business hours, do the following to arrive at a value:
+    During peak business hours, arrive at a value by doing the following:
 
-    a. Take the current WAL LSN by running the following query:
+    a. Take the current WAL log sequence number (LSN) by running the following query:
 
-        ```sql
-        SELECT pg_current_wal_lsn (); 
-        ```
-    b. Wait for checkpoint_timeout number of seconds. Take the current WAL LSN by running the following query:
+    ```sql
+    SELECT pg_current_wal_lsn (); 
+    ```
+    b. Wait for `checkpoint_timeout` number of seconds. Take the current WAL LSN by running the following query:
 
-        ```sql
-        SELECT pg_current_wal_lsn (); 
-        ```
+    ```sql
+    SELECT pg_current_wal_lsn (); 
+    ```
     c. Use the two results to check the difference, in GB:
     
-        ```sql
-        SELECT round (pg_wal_lsn_diff('LSN value when run second time','LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB; 
-        ```
+    ```sql
+    SELECT round (pg_wal_lsn_diff('LSN value when run second time','LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB; 
+    ```
 
 * `wal_compression`: Can be turned on. Enabling this parameter can incur some extra CPU cost spent on the compression during WAL logging and on the decompression during WAL replay.
 
