@@ -130,6 +130,8 @@ $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -ser
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
+You can also disable certificate chain validation by using the [Backend](/rest/api/apimanagement/current-ga/backend) REST API.
+
 ## Delete a client certificate
 
 To delete a certificate, select it and then select **Delete** from the context menu (**...**).
