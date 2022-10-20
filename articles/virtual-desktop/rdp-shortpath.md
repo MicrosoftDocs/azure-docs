@@ -46,7 +46,7 @@ To use RDP Shortpath for managed networks, you must enable a UDP listener on you
 
 The following diagram gives a high-level overview of the network connections when using RDP Shortpath for managed networks and session hosts joined to an Active Directory domain.
 
-:::image type="content" source="media/rdp-shortpath-managed-networks.svg alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.svg":::
+:::image type="content" source="media/rdp-shortpath-managed-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.svg":::
 
 ### Connection sequence
 
@@ -85,7 +85,7 @@ There are four primary components used to establish the RDP Shortpath data flow 
 
 The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks and session hosts joined to Azure Active Directory (Azure AD).
 
-:::image type="content" source="media/rdp-shortpath-public-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-public-networks.svg":::
+:::image type="content" source="media/rdp-shortpath-public-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath-public-networks.svg":::
 
 ### Network Address Translation and firewalls
 
