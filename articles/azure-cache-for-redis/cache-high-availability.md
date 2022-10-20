@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/29/2022
+ms.date: 10/19/2022
 ms.author: franlanglois
 
 ---
@@ -21,7 +21,7 @@ Various high availability options are available in the Standard, Premium, and En
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Standard replication](#standard-replication-for-high-availability)| Dual-node replicated configuration in a single data center with automatic failover | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |✔|✔|✔|
 | [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across Availability Zones, with automatic failover | 99.9% in Premium; 99.99% in Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|✔|
-| [Geo-replication](#geo-replication) | Linked cache instances in two regions, with user-controlled failover | Premium; Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|Passive|Active|
+| Geo-replication | Linked cache instances in two regions, with user-controlled failover | Premium; Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-| [Passive](#passive-geo-replication) | [Active](#active-geo-replication) |
 | [Import/Export](#importexport) | Point-in-time snapshot of data in cache.  | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|✔|
 | [Persistence](#persistence) | Periodic data saving to storage account.  | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|Preview|
 
@@ -113,7 +113,7 @@ Zone-redundant Premium tier caches are available in the following regions:
 | West US 2 | Switzerland North | | | |
 | West US 3 | | | | |
 
-Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions: 
+Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions:
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
@@ -124,10 +124,11 @@ Zone-redundant Enterprise and Enterprise Flash tier caches are available in the 
 | South Central US | | | | |
 | West US 2 | | | | |
 
-\* Enterprise Flash tier not available in this region. 
+\* Enterprise Flash tier not available in this region.
 
 #### Availability zone redeployment and migration
-Currently, the only way to convert your cache from a non-AZ configuration to an AZ configuration is to redeploy the cache. To learn how to redeploy your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](https://learn.microsoft.com/azure/availability-zones/migrate-cache-redis)
+
+Currently, the only way to convert your cache from a non-AZ configuration to an AZ configuration is to redeploy the cache. To learn how to redeploy your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](/azure/availability-zones/migrate-cache-redis).
 
 ## Persistence
 
@@ -157,9 +158,10 @@ Consider choosing a geo-redundant storage account to ensure high availability of
 
 Applicable tiers: **Premium**
 
-Recommmended for: **Disaster recovery - single region**
+Recommended for: **Disaster recovery - single region**
 
 [Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is designed mainly for cross-region disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache.
+
 For more information on how to set it up, see [Configure geo-replication for Premium Azure Cache for Redis instances](./cache-how-to-geo-replication.md).
 
 If the region hosting the primary cache goes down, you’ll need to start the failover by: first, unlinking the secondary cache, and then, updating your application to point to the secondary cache for reads and writes.
@@ -168,7 +170,7 @@ If the region hosting the primary cache goes down, you’ll need to start the fa
 
 Applicable tiers: **Enterprise**, **Enterprise Flash**
 
-Recommmended for: **High Availability**, **Disaster recovery - multi-region**
+Recommended for: **High Availability**, **Disaster recovery - multi-region**
 
 The Enterprise tiers support a more advanced form of geo-replication called [active geo-replication](cache-how-to-active-geo-replication.md) that offers both higher availability and cross-region disaster recovery across multiple regions. The Azure Cache for Redis Enterprise software uses conflict-free replicated data types to support writes to multiple cache instances, merges changes, and resolves conflicts. You can join up to five Enterprise tier cache instances in different Azure regions to form a geo-replication group.
 
