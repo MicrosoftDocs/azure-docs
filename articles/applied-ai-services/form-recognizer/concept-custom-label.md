@@ -1,7 +1,7 @@
 ---
 title: Best practices for labeling documents in the Form Recognizer Studio
 titleSuffix: Azure Applied AI Services
-description: Label documents in in the Studio to create a training dataset. Labeling guidelines aimed at training a model with high accuracy
+description: Label documents in the Studio to create a training dataset. Labeling guidelines aimed at training a model with high accuracy
 author: vkurpad
 manager: netahw
 ms.service: applied-ai-services
@@ -15,7 +15,7 @@ recommendations: false
 
 # Best practices on generating a Form Recognizer labeled dataset
 
-Custom models, template and neural require a labeled dataset of at least 5 documents to train a model. The quality of the labeled dataset determines the accuracy of the trained model. This guide is intended to help you learn more about generating a high quality labeled dataset. The Form Recognzizer Studio enables you to start from a set of documents or images and build out the conplete labeled dataset. To learn more about getting started with the Form Recognizer Studio, see the [getting started guide](quickstarts/try-v3-form-recognizer-studio.md).
+Custom models, template and neural require a labeled dataset of at least 5 documents to train a model. The quality of the labeled dataset determines the accuracy of the trained model. This guide is intended to help you learn more about generating a high quality labeled dataset. The Form Recognizer Studio enables you to start from a set of documents or images and build out the complete labeled dataset. To learn more about getting started with the Form Recognizer Studio, see the [getting started guide](quickstarts/try-v3-form-recognizer-studio.md).
 
 ## Understanding the components of the labeled dataset
 
@@ -29,7 +29,7 @@ A labeled dataset contains tree types of files:
 
 ## Creating a balanced dataset
 
-Before you start labeling, its a good idea to look at a few different samples of the document to identify which samples you want to use in your labeled dataset. A balanced dataset represents all the typical variations you would expect to see for the document. Creating a balanced dataset will result in a model with the highest possible accuracy. A few examples to consider are:
+Before you start labeling, it's a good idea to look at a few different samples of the document to identify which samples you want to use in your labeled dataset. A balanced dataset represents all the typical variations you would expect to see for the document. Creating a balanced dataset will result in a model with the highest possible accuracy. A few examples to consider are:
 
 * Document formats - If your model will analyze both digital and scanned documents, add a few examples of each type to the training dataset
 
@@ -39,20 +39,20 @@ Before you start labeling, its a good idea to look at a few different samples of
 
 * Tables - For documents containing tables with a variable number of rows, ensure that the training dataset also represents documents with different number of rows.
 
-* Multi page tables - When tables span multiple pages, label the tables as a single table and add documents to the training dataset with the expected variations represented, for example a document with th table on a single page only, documents with tables spanning 2 or more pages.
+* Multi page tables - When tables span multiple pages, label the table as a single table. Add documents to the training dataset with the expected variations represented, a document with the table on a single page only, documents with the table spanning 2 or more pages.
 
 * Optional fields - If your documents contain documents with options fields, validate that the training dataset has a few documents with the optionality represented.
 
 ## Start by identifying the fields
 
-Take the time to identify each of the fields you plan to label in the dataset, identify if the fields are going to be present in each of the documents/forms or if they are optional. Define the fields with the type that best matches the supported types. 
+Take the time to identify each of the fields you plan to label in the dataset, paying attention to optional fields. Define the fields with the type that best matches the supported types.
 
 Use the following guidelines to defining the fields:
-* For custom neural models use semantically relevent names for fields. As an example, if the value being extracted is `Effective Date`, name it `effective_date` or `EffectiveDate` not date1
+
+* For custom neural models, use semantically relevant names for fields. As an example, if the value being extracted is `Effective Date`, name it `effective_date` or `EffectiveDate` not date1
 * Ideally, name your field Pascal case, camel case or with spaces.
 * If a value is part of a visually repeating structure and you only need a single value, label it as a table and extract the required value in post processing
-* For tabular fields spanning multiple pages define a single table
-
+* For tabular fields spanning multiple pages, define and label as a single table
 
 |Documents | Examples |
 |---|--|
@@ -60,7 +60,7 @@ Use the following guidelines to defining the fields:
 |semi-structured | invoices, purchase orders |
 |unstructured | contracts, letters|
 
-Custom neural models share the same labeling format and strategy as custom template models. Currently custom neural models only support a subset of the field types supported by custom template models. 
+Custom neural models share the same labeling format and strategy as custom template models. Currently custom neural models only support a subset of the field types supported by custom template models.
 
 ## Model capabilities
 
@@ -75,7 +75,7 @@ Custom neural models currently only support key-value pairs and selection marks,
 
 Tabular fields (tables) are supported with custom neural models starting with API version ```2022-06-30-preview```. Models trained with API version 2022-06-30-preview or later will accept tabular field labels and documents analyzed with the model with API version 2022-06-30-preview or later will produce tabular fields in the output within the  ```documents``` section of the result in the ```analyzeResult``` object.
 
-Tabular filds support **cross page tables** by default. To label a table that spans multiple pages, label each row of the table across the different pages in the single table. As a best practice ensure that your dataset contains a few samples of the expected variations, for example include samples where the entire table is on a single page, samples of tables spanning two or more pages.
+Tabular fields support **cross page tables** by default. To label a table that spans multiple pages, label each row of the table across the different pages in the single table. As a best practice ensure that your dataset contains a few samples of the expected variations, for example include samples where the entire table is on a single page, samples of tables spanning two or more pages.
 
 Tabular field is also useful when extracting repeating information within a document that is not recognized as a table. For example a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
 
