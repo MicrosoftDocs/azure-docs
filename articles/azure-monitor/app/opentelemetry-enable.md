@@ -35,6 +35,7 @@ Consider whether this preview is right for you. It *enables distributed tracing,
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
  - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
+ - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
 
 If you require a full-feature experience, use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
@@ -50,6 +51,7 @@ Consider whether this preview is right for you. It *enables distributed tracing,
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
+ - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
 
 If you require a full-feature experience, use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
@@ -70,6 +72,7 @@ Consider whether this preview is right for you. It *enables distributed tracing,
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
  - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
+ - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
 
 If you require a full-feature experience, use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
@@ -392,7 +395,7 @@ For information on standard attributes for resources, see [Resource Semantic Con
 
 ## Enable Sampling
 
-You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your telemetry will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 > [!NOTE] 
 > Metrics are unaffected by sampling.
@@ -1060,7 +1063,6 @@ from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
 
 exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
 reader = PeriodicExportingMetricReader(exporter)
-# Do not change the aggregation time interval from the default of 60 seconds
 metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_histogram_demo")
 
@@ -1428,7 +1430,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 ### Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry for 48 hours (except Python, which is 7 days) and periodically tries to send it again. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK does not have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry for 48 hours and periodically tries to send it again. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK does not have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
 #### [.NET](#tab/net)
 
