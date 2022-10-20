@@ -52,7 +52,7 @@ Limitations: accelerated networking must be supported on the VM OS, and can only
 
 Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md) instructions for more details.
 
-## Tuning Direct and Gateway Connection Configuration
+## Tuning direct and gateway connection configuration
 
 For optimizing direct and gateway mode connection configurations, see how to [tune connection configurations for java sdk v4](tune-connection-configurations-java-sdk-v4.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Connection Configurations for Azure Cosmos DB Java SDK v4
+title: Connection configurations for Azure Cosmos DB Java SDK v4
 description: Learn how to tune connection configurations to improve Azure Cosmos DB database performance for Java SDK v4
 author: kushagraThapar
 ms.service: cosmos-db
@@ -11,7 +11,7 @@ ms.author: kuthapar
 ms.custom: devx-track-java, contperf-fy21q2, ignite-2022
 ---
 
-# Tune Connection Configurations for Azure Cosmos DB Java SDK v4
+# Tune connection configurations for Azure Cosmos DB Java SDK v4
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
@@ -27,14 +27,14 @@ ms.custom: devx-track-java, contperf-fy21q2, ignite-2022
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are connection configurations you can tune to achieve peak performance when using Azure Cosmos DB Java SDK v4.
 
-## Connection Configuration
+## Connection configuration
 
 > [!NOTE]
 > In Azure Cosmos DB Java SDK v4, *Direct mode* is the best choice to improve database performance with most workloads.
 
 To learn more about different connectivity options, see the [connectivity modes](sdk-connection-modes.md) article.
 
-### Direct Connection mode
+### Direct connection mode
 
 Java SDK default connection mode is direct. Direct mode Azure Cosmos DB requests are made over TCP when using Azure Cosmos DB Java SDK v4. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance. The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. To learn more about architecture, see the [direct mode connection architecture](sdk-connection-modes.md#direct-mode)
 
@@ -54,7 +54,7 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
 --- 
 
-#### Customizing Direct Connection mode
+#### Customizing direct connection mode
 
 If non-default Direct mode behavior is desired, create a *DirectConnectionConfig* instance and customize its properties, then pass the customized property instance to the *directMode()* method in the Azure Cosmos DB client builder.
 
@@ -65,7 +65,7 @@ As a first step, use the following recommended configuration settings below. The
 | Configuration option       | Default          | Recommended   | Details |
 | :------------------:       | :-----:          | :---------:   | :-----: |
 | idleConnectionTimeout      | "PT0" (ZERO)     | "PT0" (ZERO)  | This represents the idle connection timeout duration for a *single connection* to an endpoint/backend node (representing a replica). By default, SDK doesn't automatically close idle connections to the backend nodes. |
-| idleEndpointTimeout        | "PT1H"           | "PT1H"        | This represents the idle connection timeout duration for the *connection pool* for an endpoint/backend node (representing a replica). By default, if there are no incoming requets to a specific endpoint/backend node, SDK will close all the connections in the connection pool to that endpoint/backend node after 1 hour to save network resources and I/O cost. For sparse or sporadic traffic pattern, we recommend setting this value to a higher number like 6 hours, 12 hours or even 24 hours, so that SDK will not have to open the connections frequently. However, this will utilize the network resources and will have higher number of connections kept open at any given time. If this is set to ZERO, idle endpoint check will be disabled. |
+| idleEndpointTimeout        | "PT1H"           | "PT1H"        | This represents the idle connection timeout duration for the *connection pool* for an endpoint/backend node (representing a replica). By default, if there are no incoming requests to a specific endpoint/backend node, SDK will close all the connections in the connection pool to that endpoint/backend node after 1 hour to save network resources and I/O cost. For sparse or sporadic traffic pattern, we recommend setting this value to a higher number like 6 hours, 12 hours or even 24 hours, so that SDK will not have to open the connections frequently. However, this will utilize the network resources and will have higher number of connections kept open at any given time. If this is set to ZERO, idle endpoint check will be disabled. |
 | maxConnectionsPerEndpoint  | "130"            | "130"         | This represents the upper bound size of the *connection pool* for an endpoint/backend node (representing a replica). SDK creates connections to endpoint/backend node on-demand and based on incoming concurrent requests. By default, if required, SDK will create maximum 130 connections to an endpoint/backend node. (NOTE: SDK doesn't create these 130 connections upfront). |
 | maxRequestsPerConnection   | "30"             | "30"          | This represents the upper bound size of the maximum number of requests that can be queued on a *single connection* for a specific endpoint/backend node (representing a replica). SDK queues requests to a single connection to an endpoint/backend node on-demand and based on incoming concurrent requests. By default, if required, SDK will queue maximum 30 requests to a single connection for a specific endpoint/backend node. (NOTE: SDK doesn't queue these 30 requests to a single connection upfront). |
 | connectTimeout             | "PT5S"           | "~PT1S"        | This represents the connection establishment timeout duration for a *single connection* to be established with an endpoint/backend node. By default SDK will wait for maximum 5 seconds for connection establishment before throwing an error. TCP connection establishment uses [multi-step handshake](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Protocol_operation) which increases latency of the connection establishment time, hence, customers are recommended to set this value according to their network bandwidth and environment settings. NOTE: This recommendation of ~PT1S is only for applications deployed in colocated regions of thier Cosmos DB accounts. |
@@ -90,7 +90,7 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
 --- 
 
-#### Customizing Gateway Connection mode
+#### Customizing gateway connection mode
 
 If non-default Gateway mode behavior is desired, create a *GatewayConnectionConfig* instance and customize its properties, then pass the customized property instance to the above *directMode()* override method or *gatewayMode()* method in the Azure Cosmos DB client builder.
 
