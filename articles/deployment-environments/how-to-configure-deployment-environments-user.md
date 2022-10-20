@@ -1,7 +1,7 @@
 ---
-title: Configure deployment environments user access
+title: Provide access to developers
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure access for developers by using the Deployment Environments Users built-in role.
+description: Learn how to configure access for developers by using the Deployment Environments User built-in role.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: rosemalcolm
@@ -13,18 +13,18 @@ ms.topic: how-to
 
 # Provide access to developers
 
-Development team members must have access to a specific project before they can create deployment environments. By using the built-in Deployment Environments User role, you can assign permissions to Active Directory Users or Groups at either the project level or the specific project environment type level. 
+In Azure Deployment Environments, development team members must get access to a specific project before they can create deployment environments. By using the built-in Deployment Environments User role, you can assign permissions to Active Directory users or groups at either the project level or the environment type level. 
 
-Based on the scope that users are granted access to, a Deployment Environments User can:
+Based on the scope of access that you allow, a Deployment Environments User can:
 
-* View the project environment types 
-* Create an environment
-* Read, write, delete, or perform actions (deploy, reset, etc.) on their own environment
-* Read or perform actions (deploy, reset, etc.) on environments created by other users
+* View the project environment types. 
+* Create an environment.
+* Read, write, delete, or perform actions (like deploy or reset) on their own environment.
+* Read or perform actions (deploy or reset) on environments that other users created.
 
-When the role is assigned at the project level, the Deployment Environments User will be able to perform the actions listed above on all environment types enabled at the Project level. When the role is assigned to specific environment type(s), the user will be able to perform the actions only on the respective environment type(s).
+When you assign the role at the project level, the Deployment Environments User can perform the preceding actions on all environment types enabled at the project level. When you assign the role to specific environment types, the Deployment Environments User can perform the actions only on the respective environment types.
 
-## Assign permissions to developers to a project
+## Assign permissions to developers for a project
 
 1. Select the project you want to provide your development team members access to.
 2. Select **Access Control(IAM)** from the left menu.
@@ -42,7 +42,7 @@ When the role is assigned at the project level, the Deployment Environments User
 
 The user can now view the project and all the Environment Types enabled within it. Deployment Environments users can [create environments from the CLI](./quickstart-create-access-environments.md).
 
-## Assign permissions to developers to a specific environment type
+## Assign permissions to developers for an environment type
 
 1. Select the project you want to provide your development team members access to.
 2. Select **Environment Types** and select the **...** beside the specific environment type.
