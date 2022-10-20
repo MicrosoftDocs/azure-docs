@@ -6,16 +6,18 @@ ms.date: 10/19/2022
 ms.reviewer: abinetabate
 ---
 
-# What is auto-instrumentation for Azure Monitor application insights?
+# What is auto-instrumentation for Azure Monitor Application Insights?
 
-Auto-instrumentation collects [Application Insights](app-insights-overview.md) [telemetry](data-model.md) when enabled either through the portal or by configuring an agent. It's the preferred instrumentation method because no code changes are required and [SDK update](sdk-support-guidance.md) overhead is eliminated.
+Auto-instrumentation collects [Application Insights](app-insights-overview.md) [telemetry](data-model.md).
 
-> [!NOTE] 
-> Auto-instrumentation was known as "codeless attach" before October 2021.
+> [!div class="checklist"]
+> - No code changes required
+> - [SDK update](sdk-support-guidance.md) overhead is eliminated
+> - Recommended when available
 
 ## Supported environments, languages, and resource providers
 
-The table below displays the current state of auto-instrumentation availability for each environment/resource provider and language pair.
+The table below displays the current state of auto-instrumentation availability.
 
 Links are provided to additional information for each supported scenario.
 
@@ -37,8 +39,11 @@ Links are provided to additional information for each supported scenario.
 - <a name="Preview">2</a>: This feature is in public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 - <a name="Agent">3</a>: An agent must be deployed and configured.
 
+> [!NOTE] 
+> Auto-instrumentation was known as "codeless attach" before October 2021.
+
 ## Next steps
 
-* [Application Insights Overview](./app-insights-overview.md)
-* [Application map](./app-map.md)
-* [End-to-end performance monitoring](../app/tutorial-performance.md)
+* [Application Insights Overview](app-insights-overview.md)
+* [Application Insights Overview dashboard](overview-dashboard.md)
+* [Application map](app-map.md)
