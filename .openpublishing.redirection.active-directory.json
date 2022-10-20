@@ -41,7 +41,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/active-directory/governance/set-employee-leave-date-time.md",
+      "source_path_from_root": "/articles/active-directory/governance/set-employee-leave-date-time.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime",
       "redirect_document_id": false
     },

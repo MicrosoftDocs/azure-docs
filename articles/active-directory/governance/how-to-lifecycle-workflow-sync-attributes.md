@@ -26,7 +26,7 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 |employeeLeaveDateTime|DateTimeOffset|Yes|Not currently|Not currently|
 
 > [!NOTE]
-> To take advantaged of leaver scenarios, you can set the employeeLeaveDateTime manually for cloud-only users. For more information, see: [Configure the employeeLeaveDateTime property for a user](https://learn.microsoft.com/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime)
+> To take advantaged of leaver scenarios, you can set the employeeLeaveDateTime manually for cloud-only users. For more information, see: [Configure the employeeLeaveDateTime property for a user](/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime)
 
 This document explains how to set up synchronization from on-premises Azure AD Connect cloud sync and Azure AD Connect for the required attributes.
 
