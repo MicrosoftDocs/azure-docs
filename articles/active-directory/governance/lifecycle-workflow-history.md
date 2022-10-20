@@ -16,37 +16,11 @@ ms.custom: template-concept
 
 
 
-Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. Making sure workflows are processed correctly is an important part of an organization's lifecycle management process. Workflows that aren't processed correctly can lead to many issues in terms of security and compliance. With Audit logs every action that Lifecycle Workflows complete are recorded. With history features, Lifecycle Workflows allow you to specify workflow events based on user, runs, or task summaries. This reporting feature allows you to quickly see what ran for who, and rather or not it was successful. In this article you'll learn the difference between auditing logs and 3 different type of history summaries you can query with Lifecycle Workflows. You'll also learn when you would use each when getting more information about how your workflows were utilized for users in your organization.
-
-
-
-## Audit Logs
-
-Every time a workflow is processed, an event is logged. These events are stored in the **Audit Logs** section, and can be used to gain information about workflows for historical, and auditing, purposes. 
-
-:::image type="content" source="media/lifecycle-workflow-history/audit-logs-concept.png" alt-text="Screenshot of a workflow audit log.":::
-
-On the **Audit Log** page you're presented a sequential list, by date, of every action Lifecycle Workflows has taken. From this information you're able to filter based on the following parameters:
-
-
-|Filter  |Description  |
-|---------|---------|
-|Date     | You can filter a specific range for the audit logs from as short as 24 hours up to 30 days.        |
-|Date option     | You can filter by your tenant's local time, or by UTC.        |
-|Service     | The Lifecycle Workflow service.        |
-|Category     | Categories of the event being logged. Separated into <br><br>  **All**- All events logged by Lifecycle Workflows.<br><br>  **TaskManagement**- Task specific related events logged by Lifecycle Workflows. <br><br> **WorkflowManagement**- Events dealing with the workflow itself.       |
-|Activity     |  You can filter based on specific activities, which are based on categories.       |
-
-After filtering this information, you're also able to see other information in the log such as:
-
-- **Status**: Whether or not the logged event was successful or not.
-- **Status Reason**: If the event failed, a reason is given why.
-- **Target(s)**: Who the logged event ran for. Information given as their Azure Active Directory object ID.
-- **Initiated by (actor)**: Who did the event being logged. Information given by the user name. 
+Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. Making sure workflows are processed correctly is an important part of an organization's lifecycle management process. Workflows that aren't processed correctly can lead to many issues in terms of security and compliance. With Lifecycle Workflow's history features, you can specify which workflow events you want to view a history of based on user, runs, or task summaries. This reporting feature allows you to quickly see what ran for who, and rather or not it was successful. Along with the summaries in these specific areas, you're also able to view detailed information about each specific event recorded in their respective summary section. In this article you'll learn the difference between the three different type of history summaries, and details, you can query with Lifecycle Workflows. You'll also learn when you would use each when getting more information about how your workflows were utilized for users in your organization. For detailed information about every action Lifecycle Workflows take, see: [Auditing Lifecycle Workflows](lifecycle-workflow-audits.md).
 
 ## Lifecycle Workflow History Summaries
 
-While the large set of information contained in audit logs can be useful for compliance reasons, for regular administration use it might be too much information. To make this large set of information processed easier to read, Lifecycle Workflows provide summaries for quick use. You can view these history summaries in three ways:
+Lifecycle Workflows introduce a history feature based on summaries and details. These history summaries allow you to quickly get information about for who a workflow ran, and whether or not this run was successful or not. This is valuable because the large set of information given by audit logs might become too numerous to be efficiently used. To make a large set of information processed easier to read, Lifecycle Workflows provide summaries for quick use. You can view these history summaries in three ways:
 
 - **Users summary**: Shows a summary of users processed by a workflow, and which tasks failed, successfully, and totally ran for each specific user. 
 - **Runs summary**: Shows a summary of workflow runs in terms of the workflow. Successful, failed, and total task information when workflow runs are noted.
@@ -61,7 +35,7 @@ User summaries allow you to view workflow information through the lens of users 
 :::image type="content" source="media/lifecycle-workflow-history/users-summary-concept.png" alt-text="Screenshot of a workflow user summary.":::
 
 
-Within the user summary you're able to find the following information:
+Within the user summary, you're able to find the following information:
 
 
 |Parameter  |Description  |
@@ -72,8 +46,9 @@ Within the user summary you're able to find the following information:
 |Total tasks     | The total number of tasks processed for users in a workflow during the selected time frame.        |
 |Failed tasks     |  The total number of failed tasks processed for users in a workflow during the selected time frame.       |
 
+### User history details
 
-User summaries allow you to filter based on:
+User detailed history information allows you to filter for specific information based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
 - **Status**: You can filter a specific status of the user processed. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
@@ -89,7 +64,7 @@ Runs summaries allow you to view workflow information through the lens of its ru
 
 :::image type="content" source="media/lifecycle-workflow-history/runs-status-concept.png" alt-text="Screenshot of a workflow runs summary.":::
 
-Within the runs summary you're able to find the following information:
+Within the runs summary, you're able to find the following information:
 
 
 |Parameter  |Description  |
@@ -99,7 +74,9 @@ Within the runs summary you're able to find the following information:
 |Failed     | Workflows that failed to run.        |
 |Failed tasks     | Workflows that ran with failed tasks.        |
 
-Runs summaries allow you to filter based on:
+### Runs history details
+
+Runs detailed history information allows you to filter for specific information based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
 - **Status**: You can filter a specific status of the workflow run. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
@@ -115,7 +92,7 @@ Task summaries allow you to view workflow information through the lens of its ta
 
 :::image type="content" source="media/lifecycle-workflow-history/task-summary-concept.png" alt-text="Screenshot of a workflow task summary.":::
 
-Within the tasks summary you're able to find the following information:
+Within the tasks summary, you're able to find the following information:
 
 
 |Parameter  |Description  |
@@ -125,7 +102,10 @@ Within the tasks summary you're able to find the following information:
 |Failed     | The number of failed processed tasks by a workflow.         |
 |Unprocessed     | The number of unprocessed tasks by a workflow.        |
 
-Task summaries allow you to filter based on:
+
+### Task history details
+
+Task detailed history information allows you to filter for specific information based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
 - **Status**: You can filter a specific status of the workflow run. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
@@ -136,6 +116,10 @@ Separating processing of the workflow from the tasks is important because, in a 
 
 ## Next steps
 
+- [userProcessingResult resource type](/graph/api/resources/identitygovernance-userprocessingresult?view=graph-rest-beta)
+- [taskReport resource type](/graph/api/resources/identitygovernance-taskreport?view=graph-rest-beta)
+- [run resource type](/graph/api/resources/identitygovernance-run?view=graph-rest-beta)
+- [taskProcessingResult resource type](/graph/api/resources/identitygovernance-taskprocessingresult?view=graph-rest-beta)
 - [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md)
 - [Lifecycle Workflow templates](lifecycle-workflow-templates.md)
 

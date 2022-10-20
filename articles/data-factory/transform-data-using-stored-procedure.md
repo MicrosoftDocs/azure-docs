@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 09/22/2022
 ---
 
 # Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory or Synapse Analytics

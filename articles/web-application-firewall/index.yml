@@ -42,7 +42,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Web Application Firewall
-            url: /learn/modules/introduction-azure-web-application-firewall/
+            url: /training/modules/introduction-azure-web-application-firewall/
 
 
   # Card

@@ -2,7 +2,7 @@
 title: Azure Resource Health overview
 description: Learn how Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources.
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 05/10/2022
 
 ---
 # Resource Health overview

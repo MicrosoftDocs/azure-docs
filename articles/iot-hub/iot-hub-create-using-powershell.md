@@ -14,37 +14,36 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## Introduction
-
 You can use Azure PowerShell cmdlets to create and manage Azure IoT hubs. This tutorial shows you how to create an IoT hub with PowerShell.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+Alternatively, you can use Azure Cloud Shell, if you'd rather not install additional modules onto your machine. The following section gets you started with Azure Cloud Shell.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Prerequisites
+
+You need a resource group to deploy an IoT hub. You can use an existing resource group or create a new one.
+
+To create a new resource group for your IoT hub, use the [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) command. This example creates a resource group called **MyIoTRG1** in the **East US** region:
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
+```
 
 ## Connect to your Azure subscription
 
-If you're using the Cloud Shell, you're already logged in to your subscription. If you're running PowerShell locally instead, enter the following command to sign in to your Azure subscription:
+If you're using Cloud Shell, you're already logged in to your subscription, so you can skip this section. If you're running PowerShell locally instead, enter the following command to sign in to your Azure subscription:
 
 ```powershell
 # Log into Azure account.
 Login-AzAccount
 ```
 
-## Create a resource group
-
-You need a resource group to deploy an IoT hub. You can use an existing resource group or create a new one.
-
-To create a resource group for your IoT hub, use the [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) command. This example creates a resource group called **MyIoTRG1** in the **East US** region:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
-```
-
 ## Create an IoT hub
 
-To create an IoT hub in the resource group you created in the previous step, use the [New-AzIotHub](/powershell/module/az.IotHub/New-azIotHub) command. This example creates an **S1** hub called **MyTestIoTHub** in the **East US** region:
+Create an IoT hub using your resource group. Use the [New-AzIotHub](/powershell/module/az.IotHub/New-azIotHub) command. This example creates an **S1** hub called **MyTestIoTHub** in the **East US** region:
 
 ```azurepowershell-interactive
 New-AzIotHub `
@@ -74,11 +73,17 @@ Remove-AzIotHub `
     -Name MyTestIoTHub
 ```
 
-Alternatively, to remove a resource group and all the resources it contains, use the [Remove-AzResourceGroup](/powershell/module/az.Resources/Remove-azResourceGroup) command:
+## Update the IoT hub
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name MyIoTRG1
-```
+You can change the settings of an existing IoT hub after it's created. Here are some properties you can set for an IoT hub:
+
+**Pricing and scale**: Migrate to a different tier or set the number of IoT Hub units.
+
+**IP Filter**: Specify a range of IP addresses that will be accepted or rejected by the IoT hub.
+
+**Properties**: A list of properties that you can copy and use elsewhere, such as the resource ID, resource group, location, and so on.
+
+Explore the [**Set-AzIotHub** commands](/powershell/module/az.iothub/set-aziothub) for a complete list of update options.
 
 ## Next steps
 

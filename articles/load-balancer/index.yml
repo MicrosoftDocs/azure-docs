@@ -34,12 +34,14 @@ landingContent:
             url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
             url: skus.md
+          - text: Upgrade guidance from basic to standard Load Balancer
+            url: load-balancer-basic-upgrade-guidance.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Load Balancer
-            url: /learn/modules/intro-to-azure-load-balancer/
+            url: /training/modules/intro-to-azure-load-balancer/
           - text: Improve application scalability and resiliency by using Azure Load Balancer
-            url: /learn/modules/improve-app-scalability-resiliency-with-load-balancer/
+            url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
 
   # Card (optional)
   - title: Get started
@@ -143,4 +145,3 @@ landingContent:
             url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
           - text: Oracle databse migration to Azure
             url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure
-

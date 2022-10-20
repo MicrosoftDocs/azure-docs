@@ -2,6 +2,7 @@
 title: Cost recommendations
 description: Full list of available cost recommendations in Advisor.
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/04/2022
 ---
 
@@ -59,31 +60,31 @@ Our internal telemetry shows that the PostgreSQL database server resources have 
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size underutilized PostgreSQL servers)](https://aka.ms/postgresqlpricing).
 
-## Cosmos DB
+## Azure Cosmos DB
 
 ### Review the configuration of your Azure Cosmos DB free tier account
 
-Your Azure Cosmos DB free tier account is currently containing resources with a total provisioned throughput exceeding 1000 Request Units per second (RU/s). Because Azure Cosmos DB's free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s will be billed at the regular pricing. As a result, we anticipate that you will get charged for the throughput currently provisioned on your Azure Cosmos DB account.
+Your Azure Cosmos DB free tier account is currently containing resources with a total provisioned throughput exceeding 1000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s will be billed at the regular pricing. As a result, we anticipate that you will get charged for the throughput currently provisioned on your Azure Cosmos DB account.
 
-Learn more about [Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](../cosmos-db/understand-your-bill.md#azure-free-tier).
+Learn more about [Azure Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](../cosmos-db/understand-your-bill.md#azure-free-tier).
 
 ### Consider taking action on your idle Azure Cosmos DB containers
 
 We haven't detected any activity over the past 30 days on one or more of your Azure Cosmos DB containers. Consider lowering their throughput, or deleting them if you don't plan on using them.
 
-Learn more about [Cosmos DB account - CosmosDBIdleContainers (Consider taking action on your idle Azure Cosmos DB containers)](/azure/cosmos-db/how-to-provision-container-throughput).
+Learn more about [Azure Cosmos DB account - CosmosDBIdleContainers (Consider taking action on your idle Azure Cosmos DB containers)](/azure/cosmos-db/how-to-provision-container-throughput).
 
 ### Enable autoscale on your Azure Cosmos DB database or container
 
 Based on your usage in the past 7 days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
 
-Learn more about [Cosmos DB account - CosmosDBAutoscaleRecommendations (Enable autoscale on your Azure Cosmos DB database or container)](../cosmos-db/provision-throughput-autoscale.md).
+Learn more about [Azure Cosmos DB account - CosmosDBAutoscaleRecommendations (Enable autoscale on your Azure Cosmos DB database or container)](../cosmos-db/provision-throughput-autoscale.md).
 
 ### Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
 
 Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%.
 
-Learn more about [Cosmos DB account - CosmosDBMigrateToManualThroughputFromAutoscale (Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container)](../cosmos-db/how-to-choose-offer.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToManualThroughputFromAutoscale (Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container)](../cosmos-db/how-to-choose-offer.md).
 
 ## Data Explorer
 
@@ -167,11 +168,11 @@ Reserved instances can provide a significant discount over pay-as-you-go prices.
 
 Learn more about [Virtual machine - ReservedInstance (Buy virtual machine reserved instances to save money over pay-as-you-go costs)](https://aka.ms/reservedinstances).
 
-### Consider Cosmos DB reserved instance to save over your pay-as-you-go costs
+### Consider Azure Cosmos DB reserved instance to save over your pay-as-you-go costs
 
-We analyzed your Cosmos DB usage pattern over last 30 days and calculate reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
+We analyzed your Azure Cosmos DB usage pattern over last 30 days and calculate reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Azure Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
 
-Learn more about [Subscription - CosmosDBReservedCapacity (Consider Cosmos DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - CosmosDBReservedCapacity (Consider Azure Cosmos DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs
 

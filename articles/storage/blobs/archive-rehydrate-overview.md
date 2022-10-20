@@ -28,7 +28,7 @@ To learn how to rehydrate an archived blob to an online tier, see [Rehydrate an 
 
 When you rehydrate a blob, you can set the priority for the rehydration operation via the optional *x-ms-rehydrate-priority* header on a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or [Copy Blob](/rest/api/storageservices/copy-blob) operation. Rehydration priority options include:
 
-- **Standard priority**: The rehydration request will be processed in the order it was received and may take up to 15 hours for objects under 10 GB in size.
+- **Standard priority**: The rehydration request will be processed in the order it was received and may take up to 15 hours to complete for objects under 10 GB in size.
 - **High priority**: The rehydration request will be prioritized over standard priority requests and may complete in less than one hour for objects under 10 GB in size.
 
 To check the rehydration priority while the rehydration operation is underway, call [Get Blob Properties](/rest/api/storageservices/get-blob-properties) to return the value of the `x-ms-rehydrate-priority` header. The rehydration priority property returns either *Standard* or *High*.

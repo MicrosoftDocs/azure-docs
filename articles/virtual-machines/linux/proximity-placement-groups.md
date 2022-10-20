@@ -24,12 +24,14 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 Create a proximity placement group using [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
 
 ```azurecli-interactive
-az group create --name myPPGGroup --location westus
+az group create --name myPPGGroup --location eastus
 az ppg create \
    -n myPPG \
    -g myPPGGroup \
-   -l westus \
+   -l eastus \
    -t standard 
+   --intent-vm-sizes Standard_E64s_v4 Standard_M416ms_v2 \
+   -z 1
 ```
 
 ## List proximity placement groups
@@ -38,6 +40,34 @@ You can list all of your proximity placement groups using [az ppg list](/cli/azu
 
 ```azurecli-interactive
 az ppg list -o table
+```
+## Show proximity placement group
+
+You can see the proximity placement group details and resources using [az ppg show](/cli/azure/ppg#az-ppg-show)
+
+```azurecli-interactive
+az ppg show --name myPPG --resource-group myPPGGroup
+{  "availabilitySets": [],  
+   "colocationStatus": null,  
+   "id": "/subscriptions/[subscriptionId]/resourceGroups/myPPGGroup/providers/Microsoft.Compute/proximityPlacementGroups/MyPPG",  
+   "intent": {    
+    "vmSizes": [      
+      "Standard_E64s_v4",      
+      "Standard_M416ms_v2"    
+    ]  
+   },  
+   "location": "eastus",  
+   "name": "MyPPG",  
+   "proximityPlacementGroupType": "Standard",  
+   "resourceGroup": "myPPGGroup",  
+   "tags": {},  
+   "type": "Microsoft.Compute/proximityPlacementGroups",  
+   "virtualMachineScaleSets": [],  
+   "virtualMachines": [],  
+   "zones": [    
+    "1" 
+   ]
+}
 ```
 
 ## Create a VM
@@ -51,8 +81,8 @@ az vm create \
    --image UbuntuLTS \
    --ppg myPPG  \
    --generate-ssh-keys \
-   --size Standard_D1_v2  \
-   -l westus
+   --size Standard_E64s_v4 \
+   -l eastus
 ```
 
 You can see the VM in the proximity placement group using [az ppg show](/cli/azure/ppg#az-ppg-show).

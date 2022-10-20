@@ -31,7 +31,7 @@ A combination of roles can be used to provide the right level of access. For exa
 
 Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
 
-Below actions will be blocked, after 9/28/22, if these permissions are not set:
+Below actions will be blocked with upcoming release, if these permissions are not set:
 * Create Deployment
 * Cancel Deployment
 * Retry Deployment 
@@ -112,6 +112,21 @@ $Scope = 'https://api.adu.microsoft.com/.default'
 Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
 ```
 
-## Next steps
+## Support for managed identities
 
-[Create device update resources and configure access control roles](create-device-update-account.md)
+Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. This eliminates the needs for developers having to manage credentials by providing an identity. Device Update for IoT Hub supports system-assigned managed identities.
+
+### System-assigned managed identity
+
+To add and remove a system-assigned managed identity in Azure portal:
+1. Sign in to the Azure portal and navigate to your desired Device Update for IoT Hub account.
+2. Navigate to Identity in your Device Update for IoT Hub portal
+3. Navigate to Identity in your IoT Hub portal
+4. Under System-assigned tab, select On and click Save.
+
+To remove system-assigned managed identity from an Device Update for IoT hub account, select Off and click Save.
+
+
+
+## Next Steps
+* [Create device update resources and configure access control roles](./create-device-update-account.md)

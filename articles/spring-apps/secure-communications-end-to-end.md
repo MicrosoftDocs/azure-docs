@@ -116,7 +116,7 @@ Azure Spring Apps is jointly built, operated, and supported by Microsoft and VMw
 
 ## Next steps
 
-- [Deploy Spring microservices to Azure](/learn/modules/azure-spring-cloud-workshop/)
+- [Deploy Spring microservices to Azure](/training/modules/azure-spring-cloud-workshop/)
 - [Azure Key Vault Certificates Spring Cloud Azure Starter (GitHub.com)](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates/pom.xml)
 - [Azure Spring Apps reference architecture](reference-architecture.md)
 - Migrate your [Spring Boot](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud), [Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud), and [Tomcat](/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud) applications to Azure Spring Apps

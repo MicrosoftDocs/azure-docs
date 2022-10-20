@@ -44,13 +44,13 @@ Most common restore point failures can be resolved by following the troubleshoot
   - Ensure all [extension issues](../virtual-machines/extensions/overview.md#troubleshoot-extensions) are resolved and retry the restore point operation.
 - **Ensure COM+ System Application** is up and running. Also, the **Distributed Transaction Coordinator service** should be running as **Network Service account**. 
 
-Follow the troubleshooting steps in [troubleshoot COM+ and MSDTC issues](/azure/backup/backup-azure-vms-troubleshoot#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error) in case of issues.
+Follow the troubleshooting steps in [troubleshoot COM+ and MSDTC issues](../backup/backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error) in case of issues.
 
 ### Step 4: Check the health of Azure VM Snapshot Extension
 
 Restore points use the VM Snapshot Extension to take an application consistent snapshot of the Azure virtual machine. Restore points install the extension as part of the first restore point creation operation.
 
-- **Ensure VMSnapshot extension isn't in a failed state**: Follow the steps in [Troubleshooting](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to verify and ensure the Azure VM snapshot extension is healthy.
+- **Ensure VMSnapshot extension isn't in a failed state**: Follow the steps in [Troubleshooting](../backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to verify and ensure the Azure VM snapshot extension is healthy.
 
 - **Check if antivirus is blocking the extension**: Certain antivirus software can prevent extensions from executing.
   
@@ -65,7 +65,7 @@ Restore points use the VM Snapshot Extension to take an application consistent s
 - **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the restore point to work. If you need a static private IP, you should configure it through the **Azure portal**, or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](#the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken).
 
 - **Ensure the VSS writer service is up and running**: 
-  Follow these steps to [troubleshoot VSS writer issues](/azure/backup/backup-azure-vms-troubleshoot#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
+  Follow these steps to [troubleshoot VSS writer issues](../backup/backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 
 ## Common issues
 
@@ -112,7 +112,7 @@ The Azure VM agent might be stopped, outdated, in an inconsistent state, or not 
 - In the Azure portal, go to **Virtual Machines** > **Settings** > **Properties** and ensure that the VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent.
   - [Restart](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms) the Guest Agent for Windows VMs.
   - [Restart](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) the Guest Agent for Linux VMs.
-- In the Azure portal, go to **Virtual Machines** > **Settings** > **Extensions** and ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
+- In the Azure portal, go to **Virtual Machines** > **Settings** > **Extensions** and ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](../backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
 
 ### VMRestorePointInternalError - Restore Point creation failed due to an internal execution error while creating VM snapshot. Please retry the operation after some time.Internal
 

@@ -136,6 +136,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Release notes
 
 For the latest updates and bug fixes, [consult the release notes](web-app-extension-release-notes.md).

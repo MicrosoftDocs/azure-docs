@@ -2,14 +2,14 @@
 title: "Tutorial: Sign in users in a Node.js & Express web app"
 description: In this tutorial, you add support for signing-in users in a web app.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: marsma
+ms.author: cwerner
 ---
 
 # Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app
@@ -25,6 +25,8 @@ Follow the steps in this tutorial to:
 > - Add app registration details
 > - Add code for user login
 > - Test the app
+
+For additional guidance, refer to the [sample code](https://github.com/Azure-Samples/ms-identity-node) that shows how to use MSAL Node to login, logout and acquire an access token for a protected resource such as Microsoft Graph.
 
 ## Prerequisites
 

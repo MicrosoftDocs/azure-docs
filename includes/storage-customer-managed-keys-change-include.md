@@ -14,7 +14,7 @@ ms.custom: "include file"
 
 You can change the key that you are using for Azure Storage encryption at any time.
 
-# [Azure portal](#tab/portal)
+# [Azure portal](#tab/azure-portal)
 
 To change the key with the Azure portal, follow these steps:
 
@@ -22,7 +22,7 @@ To change the key with the Azure portal, follow these steps:
 1. Select the key vault and choose a new key.
 1. Save your changes.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To change the key with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
 

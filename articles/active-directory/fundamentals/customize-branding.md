@@ -166,5 +166,5 @@ To ensure that the KMSI prompt is shown only when it can benefit the user, the K
 
 ## Next steps
 
-- [Add your organization's privacy info on Azure AD](/active-directory-properties-area.md)
+- [Add your organization's privacy info on Azure AD](./active-directory-properties-area.md)
 - [Learn more about Conditional Access](../conditional-access/overview.md)

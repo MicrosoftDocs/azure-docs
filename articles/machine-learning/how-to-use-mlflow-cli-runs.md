@@ -207,7 +207,7 @@ Copy this code into the file:
 
 ### Submitting the job
 
-Use the [Azure Machine Learning CLI (v2)](how-to-train-cli.md) to submit a remote run. When using the Azure Machine Learning CLI (v2), the MLflow tracking URI and experiment name are set automatically and directs the logging from MLflow to your workspace. Learn more about [logging Azure Machine Learning CLI (v2) experiments with MLflow](how-to-train-cli.md#model-tracking-with-mlflow) 
+Use the [Azure Machine Learning](how-to-train-model.md) to submit a remote run. When using the Azure Machine Learning CLI (v2), the MLflow tracking URI and experiment name are set automatically and directs the logging from MLflow to your workspace. Learn more about [logging Azure Machine Learning experiments with MLflow](how-to-use-mlflow-cli-runs.md) 
 
 
 Create a YAML file with your job definition in a `job.yml` file. This file should be created outside the `src` directory. Copy this code into the file:
@@ -277,7 +277,7 @@ To register and view a model from a job, use the following steps:
     mlflow.register_model(model_uri,"registered_model_name")
     ```
 
-1. View the registered model in your workspace with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+1. View the registered model in your workspace with [Azure Machine Learning studio](https://ml.azure.com).
 
     In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
 
@@ -294,7 +294,7 @@ To register and view a model from a job, use the following steps:
 
 ## Example files
 
-[Using MLflow (Jupyter Notebooks)](https://github.com/Azure/azureml-examples/tree/main/notebooks/using-mlflow)
+[Using MLflow (Jupyter Notebooks)](https://github.com/Azure/azureml-examples/tree/main/v1/notebooks/using-mlflow)
 
 ## Limitations
 

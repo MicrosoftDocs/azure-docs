@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/03/2022
+ms.date: 09/22/2022
 ms.service: bastion
 ms.topic: include
 
@@ -13,10 +13,13 @@ ms.topic: include
 | Access Linux VM Private Keys in Azure Key Vault (AKV) | Yes | Yes |
 | Connect to Linux VM using SSH | [Yes](../articles/bastion/bastion-connect-vm-ssh-linux.md) | [Yes](../articles/bastion/bastion-connect-vm-ssh-linux.md)|
 | Connect to Windows VM using RDP | [Yes](../articles/bastion/bastion-connect-vm-rdp-windows.md) | [Yes](../articles/bastion/bastion-connect-vm-rdp-windows.md)|
+| Kerberos authentication | [Yes](../articles/bastion/kerberos-authentication-portal.md) |[Yes](../articles/bastion/kerberos-authentication-portal.md)|
 | VM audio output | Yes | Yes |
-| Host scaling | Not available | [Yes](../articles/bastion/configuration-settings.md#instance) |
-| Specify custom inbound port | Not available | [Yes](../articles/bastion/configuration-settings.md#ports)|
-| Connect to Linux VM using RDP | Not available| [Yes](../articles/bastion/bastion-connect-vm-rdp-linux.md)|
-| Connect to Windows VM using SSH | Not available | [Yes](../articles/bastion/bastion-connect-vm-ssh-windows.md)|
-| Upload or download files | Not available | [Yes](../articles/bastion/vm-upload-download-native.md)|
-| Disable copy/paste (web-based clients) | Not available | Yes |
+| Connect to VMs using a native client | No | [Yes](../articles/bastion/connect-native-client-windows.md)|
+| Connect to VMs via IP address | No | [Yes](../articles/bastion/connect-ip-address.md)
+| Host scaling |  No  | [Yes](../articles/bastion/configuration-settings.md#instance) |
+| Specify custom inbound port | No | [Yes](../articles/bastion/configuration-settings.md#ports)|
+| Connect to Linux VM using RDP |  No | [Yes](../articles/bastion/bastion-connect-vm-rdp-linux.md)|
+| Connect to Windows VM using SSH |  No  | [Yes](../articles/bastion/bastion-connect-vm-ssh-windows.md)|
+| Upload or download files |  No  | [Yes](../articles/bastion/vm-upload-download-native.md)|
+| Disable copy/paste (web-based clients) |  No  | Yes |

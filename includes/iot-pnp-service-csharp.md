@@ -21,17 +21,17 @@ To complete this quickstart on Windows, you need the following software installe
 
 If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
 
-Clone the samples from the Azure IoT Samples for C# GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT Samples for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository:
+Clone the samples from the Azure IoT SDK for C# GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository:
 
 ```cmd
-git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
 ## Run the sample device
 
 In this quickstart, you use a sample thermostat device that's written in C# as the IoT Plug and Play device. To run the sample device:
 
-1. Open the *azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio 2019.
+1. Open the *azure-iot-sdk-csharp\iothub\device\samples\solutions\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio 2019.
 
 1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 

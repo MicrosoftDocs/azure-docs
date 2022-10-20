@@ -5,7 +5,7 @@ author: dtzar
 ms.author: davete
 ms.service: container-registry
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 10/11/2022
 ---
 
 # Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
@@ -56,7 +56,7 @@ In this tutorial:
     
     # Download the plugin
     curl -Lo notation-azure-kv.tar.gz \
-        https://github.com/Azure/notation-azure-kv/releases/download/v0.3.0-alpha.1/notation-azure-kv_0.3.0-alpha.1_Linux_amd64.tar.gz
+        https://github.com/Azure/notation-azure-kv/releases/download/v0.3.1-alpha.1/notation-azure-kv_0.3.1-alpha.1_Linux_amd64.tar.gz
     
     # Extract to the plugin directory
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv notation-azure-kv

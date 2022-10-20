@@ -5,6 +5,7 @@ description:
   replication task patterns
 ms.topic: article
 ms.date: 09/28/2021
+ms.custom: ignite-2022
 ---
 
 # Event replication tasks patterns
@@ -348,13 +349,9 @@ key. The shape of the target database is ultimately up to you and your
 application's needs. This pattern is also referred to as "event sourcing".
 
 > [!TIP]
-> You can easily create log projections into [Azure SQL
-> Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos
-> DB](../stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics and
-> you should prefer that option.
+> You can easily create log projections into [Azure SQL Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos DB](../stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics, and you should prefer that option.
 
-The following Azure Function projects the contents of an Event Hub
-compacted into an Azure CosmosDB collection.
+The following Azure Function projects the contents of an Event Hub compacted into an Azure Cosmos DB collection.
 
 ```C#
 [FunctionName("Eh1ToCosmosDb1Json")]

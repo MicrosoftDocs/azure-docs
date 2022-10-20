@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2021
+ms.date: 09/06/2022
 ms.author: ergreenl
 ms.custom: contperf-fy22q2, contperf-fy22q3
 
@@ -17,7 +17,7 @@ ms.custom: contperf-fy22q2, contperf-fy22q3
 
 # Assign users and groups to an application
 
-This article shows you how to assign users and groups to an enterprise application in Azure Active Directory (Azure AD) using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) portal for easy access. If the application exposes roles, you can also assign a specific role to the user.
+This article shows you how to assign users and groups to an enterprise application in Azure Active Directory (Azure AD) using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) portal for easy access. If the application exposes app roles, you can also assign a specific app role to the user.
 
 When you assign a group to an application, only users in the group will have access. The assignment does not cascade to nested groups.
 
@@ -33,7 +33,6 @@ To assign users to an app using PowerShell, you need:
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - If you have not yet installed the AzureAD module (use the command `Install-Module -Name AzureAD`). If you're prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 - Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
-- Optional: Completion of [Configure an app](add-application-portal-configure.md).
 
 ## Assign users, and groups, to an app using PowerShell
 

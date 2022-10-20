@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 09/29/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
@@ -14,14 +14,17 @@ ms.reviewer: ylunagaria
 
 # SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to use SFTP for file access, file transfer, and file management.  
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This support lets you securely connect to Blob Storage via an SFTP endpoint, allowing you to use SFTP for file access, file transfer, and file management. 
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
+> SFTP support is currently in PREVIEW. 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 >
-> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
+
+Here's a video that tells you more about it.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/5cSo3GqSTWY]
 
 Azure allows secure data transfer to Blob Storage accounts using Azure Blob service REST API, Azure SDKs, and tools such as AzCopy. However, legacy workloads often use traditional file transfer protocols such as SFTP. You could update custom applications to use the REST API and Azure SDKs, but only by making significant code changes.
 
@@ -64,7 +67,7 @@ You can authenticate local users connecting via SFTP by using a password or a Se
 
 #### Passwords
 
-You cannot set custom passwords, rather Azure generates one for you. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you'll have to generate a new one. For security reasons, you can't set the password yourself.   
+You can't set custom passwords, rather Azure generates one for you. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you'll have to generate a new one. For security reasons, you can't set the password yourself.   
 
 #### SSH key pairs
 
@@ -88,7 +91,7 @@ When performing write operations on blobs in sub directories, Read permission is
 
 ## Home directory
 
-As you configure permissions, you have the option of setting a home directory for the local user. If no other container is specified in an SFTP connection request, then this is the directory that the user connects to by default. For example, consider the following request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name as part of the `sftp` command.
+As you configure permissions, you have the option of setting a home directory for the local user. If no other container is specified in an SFTP connection request, then the home directory is the directory that the user connects to by default. For example, consider the following request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name as part of the `sftp` command.
 
 ```powershell
 sftp myaccount.myusername@myaccount.blob.core.windows.net
@@ -123,7 +126,7 @@ You can use many different SFTP clients to securely connect and then transfer fi
 
 SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize [Microsoft Security Development Lifecycle (SDL) approved algorithms](/security/sdl/cryptographic-recommendations) to securely access their data.
 
-At this time, in accordance with the Microsoft Security SDL, we do not plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `hmac-sha1`, `hmac-sha1-96`. Algorithm support is subject to change in the future.
+At this time, in accordance with the Microsoft Security SDL, we don't plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `hmac-sha1`, `hmac-sha1-96`. Algorithm support is subject to change in the future.
 
 ## Connecting with SFTP
 
@@ -154,7 +157,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Workday
 - XFB.Gateway
 
-The supported client list above is not exhaustive and may change over time.
+The supported client list above isn't exhaustive and may change over time.
 
 ## Limitations and known issues
 

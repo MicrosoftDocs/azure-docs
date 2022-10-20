@@ -74,6 +74,8 @@ A private endpoint uses a private IP address in the managed virtual network to e
 
 Only a managed private endpoint in an approved state can send traffic to a specific private link resource.
 
+> [!NOTE]
+> Custom DNS is not supported in managed virtual network.
 
 ## Interactive authoring
 
@@ -119,6 +121,8 @@ The following table lists the differences between different types of TTL：
 | Can be disabled | Y | Y | N |
 | Reserved compute is configurable | N | Y | N |
 
+> [!NOTE]
+> You can't enable TTL in default auto-resolve Azure integration runtime. You can create a new Azure integration runtime for it.
 
 ## Create a managed virtual network via Azure PowerShell
 

@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure SignalR
 description: Lists Azure Policy built-in policy definitions for Azure SignalR. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 08/16/2022
+ms.date: 09/12/2022
 author: vicancy
 ms.author: lianwei
 ms.service: signalr

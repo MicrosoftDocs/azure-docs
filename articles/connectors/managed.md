@@ -1,32 +1,37 @@
 ---
-title: Overview about managed connectors in Azure Logic Apps
-description: Learn about Microsoft-managed connectors to create automated integration workflows in Azure Logic Apps.
+title: Managed connector overview
+description: Learn about Microsoft-managed connectors hosted on Azure in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.custom: engagement-fy23
+ms.date: 09/07/2022
 ---
 
 # Managed connectors in Azure Logic Apps
 
 Managed connectors provide ways for you to access other services and systems where built-in connectors aren't available. You can use these triggers and actions to create workflows that integrate data, apps, cloud-based services, and on-premises systems. Different from built-in connectors, managed connectors are usually tied to a specific service or system such as Office 365, SharePoint, Azure Key Vault, Salesforce, Azure Automation, and so on. Managed by Microsoft and hosted in Azure, managed connectors usually require that you first create a connection from your workflow and authenticate your identity.
 
-For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app that runs in multi-tenant Azure Logic Apps, or a Standard logic app that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app type, and not the other.
+For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multi-tenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type, and not the other.
 
-For example, a Standard logic app provides both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption logic app doesn't have the built-in versions. A Consumption logic app provides built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard logic app doesn't have these built-in connectors. For more information, review the following documentation: [Built-in connectors in Azure Logic Apps](built-in.md) and  [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
-This article provides a general overview about managed connectors and how they're organized in Consumption logic apps versus Standard logic apps with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+This article provides a general overview about managed connectors and the way they're organized in the Consumption workflow designer versus the Standard workflow designer with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## Managed connector categories
 
-In a *Standard* logic app, all managed connectors are organized into the **Azure** group. In a *Consumption* logic app, managed connectors are organized into the **Standard** group or **Enterprise** group. However, pricing for managed connectors works the same in both Standard and Consumption logic apps. For more information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations) and [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+For a Consumption logic app workflow, managed connectors appear in the designer under the following labels:
 
 * [Standard connectors](#standard-connectors) provide access to services such as Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive, and many more.
 
 * [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270 for an additional cost.
 
-Some managed connectors also belong to the following informal groups:
+For a Standard logic app *stateful* workflow, all managed connectors appear in the designer under the **Azure** label, which describes how these connectors are hosted on the Azure platform. A Standard *stateless* workflow can use only the built-in connectors designed to run natively in single-tenant Azure Logic Apps.
+
+Regardless whether you have a Consumption or Standard workflow, managed connector pricing follows the pricing for Enterprise connectors and Standard connectors, but metering works differently based on the workflow type. For more pricing information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations) and [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+
+Some managed connectors also fall into the following informal groups:
 
 * [On-premises connectors](#on-premises-connectors) provide access to on-premises systems such as SQL Server, SharePoint Server, SAP, Oracle DB, file shares, and others.
 
@@ -38,7 +43,9 @@ Some managed connectors also belong to the following informal groups:
 
 ## Standard connectors
 
-For a *Consumption* logic app, this section lists *some* of the popular connectors in the **Standard** group. In a *Standard* logic app, all managed connectors are in the **Azure** group, but pricing works the same as Consumption logic apps. For more information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+In the Consumption workflow designer, managed connectors that follow the Standard connector pricing model appear under the **Standard** label. This section lists *only some* of the popular managed connectors. For more pricing information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations).
+
+In the Standard workflow designer, *all* managed connectors appear under the **Azure** label. Managed connector pricing still follows the pricing for Enterprise connectors and Standard connectors, but metering works differently based on the workflow type. For more pricing information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
 
 :::row:::
     :::column:::
@@ -57,7 +64,7 @@ For a *Consumption* logic app, this section lists *some* of the popular connecto
         [**Azure Event Hubs**][azure-event-hubs-doc]
         \
         \
-        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+        Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
     :::column-end:::
     :::column:::
         [![Azure Queues icon][azure-queues-icon]][azure-queues-doc]
@@ -159,7 +166,9 @@ For a *Consumption* logic app, this section lists *some* of the popular connecto
 
 ## Enterprise connectors
 
-For a *Consumption* logic app, this section lists connectors in the **Enterprise** group, which can access enterprise systems for an additional cost. In a *Standard* logic app, all managed connectors are in the **Azure** group, but pricing is the same as for Consumption logic apps. For more information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+In the Consumption workflow designer, managed connectors that follow the Enterprise connector pricing model appear under the **Enterprise** label. These connectors can access enterprise systems for an additional cost. For more pricing information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations).
+
+In the Standard workflow designer, *all* managed connectors appear under the **Azure** label. Managed connector pricing still follows the pricing for Enterprise connectors and Standard connectors, but metering works differently based on the workflow type. For more pricing information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
 
 :::row:::
     :::column:::
@@ -190,7 +199,7 @@ For a *Consumption* logic app, this section lists connectors in the **Enterprise
 
 Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
 
-For a *Consumption* logic app, this section lists example [Standard connectors](#standard-connectors) that can access on-premises systems. For the expanded on-premises connectors list, review [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
+For a Consumption workflow, this section lists example [Standard connectors](#standard-connectors) that can access on-premises systems. For the expanded on-premises connectors list, review [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
@@ -273,17 +282,17 @@ For a *Consumption* logic app, this section lists example [Standard connectors](
 
 ## Integration account connectors
 
-Integration account operations specifically support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account connectors to encode and decode messages, transform content, and more.
+Integration account operations support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, and others, you can use integration account connectors to encode and decode messages, transform content, and more.
 
 For example, if you use Microsoft BizTalk Server, you can create a connection from your workflow using the [on-premises BizTalk Server connector](/connectors/biztalk/). You can then extend or perform BizTalk-like operations in your workflow by using these integration account connectors.
 
-* Consumption logic apps
+* Consumption workflows
 
-  Before you use any integration account operations in a Consumption logic app, you have to [link your logic app to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+  Before you use any integration account operations in a Consumption workflow, you have to [link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-* Standard logic apps
+* Standard workflows
 
-  Integration account operations don't require that you link your logic app to your integration account. Instead, you create a connection to your integration account when you add the operation to your Standard logic app workflow.
+  Integration account operations don't require that you link your logic app resource to your integration account. Instead, you create a connection to your integration account when you add the operation to your Standard workflow.
 
 For more information, review the following documentation:
 
@@ -291,6 +300,18 @@ For more information, review the following documentation:
 * [Create and manage integration accounts for B2B workflows](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 :::row:::
+    :::column:::
+        [![AS2 Decode v2 icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Decode (v2)**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![AS2 Encode (v2) icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Encode (v2)**][as2-doc]
+    :::column-end:::
     :::column:::
         [![AS2 decoding icon][as2-icon]][as2-doc]
         \
@@ -303,6 +324,8 @@ For more information, review the following documentation:
         \
         [**AS2 encoding**][as2-doc]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![EDIFACT decoding icon][edifact-icon]][edifact-decode-doc]
         \
@@ -334,7 +357,8 @@ For more information, review the following documentation:
 In an integration service environment (ISE), these managed connectors also have [ISE versions](apis-list.md#ise-and-connectors), which have different capabilities than their multi-tenant versions:
 
 > [!NOTE]
-> Logic apps that run in an ISE and their connectors, regardless where those connectors run, follow a fixed pricing plan versus the consumption-based pricing plan. For more information, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
+>
+> Workflows that run in an ISE and their connectors, regardless where those connectors run, follow a fixed pricing plan versus the Consumption pricing plan. For more information, review [Azure Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) and [Azure Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 :::row:::
     :::column:::
@@ -496,7 +520,7 @@ In an integration service environment (ISE), these managed connectors also have 
 For more information, see these topics:
 
 * [Access to Azure virtual network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
-* [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
+* [Azure Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
 * [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 ## Next steps
@@ -589,7 +613,7 @@ For more information, see these topics:
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
 [azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic app workflows and Event Hubs"
 [azure-file-storage-doc]: /connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
 [azure-key-vault-doc]: /connectors/keyvault/ "Connect to your Azure Key Vault so that you can manage your secrets and keys"
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Run queries against Azure Monitor Logs across Log Analytics workspaces and Application Insights components"
@@ -632,6 +656,7 @@ For more information, see these topics:
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 
 <!--Integration account connector icons -->
+[as2-v2-icon]: ./media/apis-list/as2-v2.png
 [as2-icon]: ./media/apis-list/as2.png
 [edifact-icon]: ./media/apis-list/edifact.png
 [x12-icon]: ./media/apis-list/x12.png
@@ -646,4 +671,4 @@ For more information, see these topics:
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
 
 <!--Other doc links-->
-[gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Connect to data sources on-premises from logic apps with on-premises data gateway"
+[gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Connect to data sources on-premises from logic app workflows with on-premises data gateway"

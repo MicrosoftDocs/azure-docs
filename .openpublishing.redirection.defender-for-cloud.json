@@ -709,6 +709,32 @@
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-containers-usage",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-data-collection.md",
+            "redirect_url": "/azure/defender-for-cloud/monitoring-components",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-va-acr",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/release-notes.md#auto-deployment-of-azure-monitor-agent-preview",
+            "redirect_url": "/azure/defender-for-cloud/release-notes#azure-monitor-agent-integration-now-in-preview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-cicd.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": true
         }
+    
       ]
 }
