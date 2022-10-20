@@ -1,5 +1,5 @@
 ---
-title: Choosing a method of deployment for MedTech service in Azure - Azure Health Data Services
+title: Choosing a method of deployment for the MedTech service in Azure - Azure Health Data Services
 description: In this article, you'll learn how to choose a method to deploy the MedTech service in Azure.
 author: msjasteppe
 ms.service: healthcare-apis
@@ -23,7 +23,7 @@ The different deployment methods are:
 
 Using a Quickstart template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity RBAC roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but doesn't allow for much customization.
 
-For more information about the Quickstart template and the Deploy to Azure button, see [Deploy the MedTech service with a QuickStart template](deploy-02-new-button.md).
+For more information about the Quickstart template and the Deploy to Azure button, see [Deploy the MedTech service with a Quickstart template](deploy-02-new-button.md).
 
 ## Azure PowerShell and Azure CLI automation
 
