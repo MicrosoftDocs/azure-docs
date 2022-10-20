@@ -334,23 +334,30 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 ```typescript
 ...
 import { NodeTracerProvider, NodeTracerConfig } from "@opentelemetry/sdk-trace-node";
+import { MeterProvider, MeterProviderOptions } from "@opentelemetry/sdk-metrics";
 import { Resource } from "@opentelemetry/resources";
 import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
 
 // ----------------------------------------
 // Setting role name and role instance
 // ----------------------------------------
-const config: NodeTracerConfig = {
-        resource: new Resource({
-            [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
-            [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
-            [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
-        }),
-    };
+const testResource = new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
+    [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
+    [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
+});
+const tracerProviderConfig: NodeTracerConfig = {
+    resource: testResource
+};
+const meterProviderConfig: MeterProviderOptions = {
+    resource: testResource
+};
+
 // ----------------------------------------
 // Done setting role name and role instance
 // ----------------------------------------
-const provider = new NodeTracerProvider(config);
+const tracerProvider = new NodeTracerProvider(tracerProviderConfig);
+const meterProvider = new MeterProvider(meterProviderConfig);
 ...
 ```
 
@@ -1470,6 +1477,8 @@ const exporter = new AzureMonitorTraceExporter({
     disableOfflineStorage: false
 });
 ```
+
+To disable this feature you should set `disableOfflineStorage = true`.
 
 #### [Python](#tab/python)
 
