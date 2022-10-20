@@ -9,7 +9,7 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 10/20/2022
 ms.author: sumi
 ms.custom:
 
