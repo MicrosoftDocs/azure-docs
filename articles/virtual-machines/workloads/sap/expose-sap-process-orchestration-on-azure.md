@@ -30,7 +30,7 @@ Dispatching approaches include traditional reverse proxies like Apache, platform
 
 ## Primary Azure services 
 
-[Azure Application Gateway](../../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../../application-gateway/configuration-front-end-ip.md) and [internal private](../../../application-gateway/configuration-front-end-ip.md) HTTP routing, along with [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link.md). Examples include [security](../../../application-gateway/features.md) and [autoscaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md). 
+[Azure Application Gateway](../../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../../application-gateway/configuration-frontend-ip.md) and [internal private](../../../application-gateway/configuration-frontend-ip.md) HTTP routing, along with [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link.md). Examples include [security](../../../application-gateway/features.md) and [autoscaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md). 
 
 Azure Application Gateway is focused on exposing web applications, so it offers a web application firewall (WAF). Workloads in other virtual networks that will communicate with SAP through Azure Application Gateway can be connected via [private links](../../../application-gateway/private-link-configure.md), even across tenants.
 
