@@ -47,7 +47,7 @@ To implement a **Fix**:
 
     > [!NOTE]
     > The implications are listed in the grey box in the **Fixing resources** window that opens after clicking **Fix**. They list what changes happen when proceeding with the **Fix**.
-:::image type="content" source="media/implement-security-recommendations/fixing-resources-window.png" alt-text="screen shot showing fixing resources window." lightbox="media/implement-security-recommendations/fixing-resources-window.png":::
+:::image type="content" source="media/implement-security-recommendations/fixing-resources-window.png" alt-text="Screenshot showing fixing resources window." lightbox="media/implement-security-recommendations/fixing-resources-window.png":::
 
 1. Insert the relevant parameters if necessary, and approve the remediation.
 
