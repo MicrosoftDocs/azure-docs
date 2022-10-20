@@ -1198,7 +1198,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: /azure/media-services/latest/player-use-azure-media-player-how-to
+      url: /azure/media-services/latest/player-media-players-concept
     # Card
     - title: Content Delivery Network
       summary: Ensure secure, reliable content delivery with broad global reach
