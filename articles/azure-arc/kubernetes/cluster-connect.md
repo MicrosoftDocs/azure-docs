@@ -85,7 +85,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
   ```azurepowershell
   $CLUSTER_NAME = <cluster-name>
   $RESOURCE_GROUP = <resource-group-name>
-  $ARM_ID_CLUSTER = (az connectedk8s show -n $CLUSTER_NAME -g $RESOURCE_GROUP --query id -o tsv)
+  $ARM_ID_CLUSTER = (Get-AzConnectedKubernetes -ResourceGroupName $RESOURCE_GROUP -Name $CLUSTER_NAME).Id
   ```
 
 ---
@@ -186,7 +186,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     ```
 
     ```console
-    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed 's/$/\\\n/g')
+    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed 's/$/\n/g')
     ```
 1. Get the token to output to console
   

@@ -404,3 +404,5 @@
     href: reference-connect-msexchuserholdpolicies.md
   - name: Azure AD Connect version history archive
     href:  reference-connect-version-history-archive.md
+  - name: How to use BypassDirSyncOverrides
+    href: how-to-bypassdirsyncoverrides.md

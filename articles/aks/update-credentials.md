@@ -37,7 +37,7 @@ To check the expiration date of your service principal, use the [az ad sp creden
 ```azurecli
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
-az ad sp credential list --id "$SP_ID" --query "[].endDate" -o tsv
+az ad sp credential list --id "$SP_ID" --query "[].endDateTime" -o tsv
 ```
 
 ### Reset the existing service principal credential

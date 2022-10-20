@@ -14,8 +14,7 @@ ms.custom: ignite-fall-2021, mode-ui
 
 # Quickstart: Build your app in LUIS portal
 
-> [!NOTE]
-> A newer version of Language Understanding capabilities are now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/overview.md), [Custom Named Entity Recognition](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md).
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 In this quickstart, create a LUIS app using the prebuilt home automation domain for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. Next, try customizing your app by adding more intents and entities. When you're finished, you'll have a LUIS endpoint running in the cloud.
 

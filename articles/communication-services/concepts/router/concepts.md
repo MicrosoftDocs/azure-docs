@@ -146,7 +146,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 [cla]: https://cla.microsoft.com
 [nuget]: https://www.nuget.org/
 [netstandars2mappings]: https://github.com/dotnet/standard/blob/master/docs/versions.md
-[useraccesstokens]: /azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp
+[useraccesstokens]: ../../quickstarts/access-tokens.md?pivots=programming-language-csharp
 [communication_resource_docs]: ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
 [communication_resource_create_portal]:  ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
 [communication_resource_create_power_shell]: /powershell/module/az.communication/new-azcommunicationservice

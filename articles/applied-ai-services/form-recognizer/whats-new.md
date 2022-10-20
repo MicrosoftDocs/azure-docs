@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -18,6 +18,12 @@ ms.author: lajanuar
 # What's new in Azure Form Recognizer
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+
+## October 2022
+
+With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
+
+Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
 
 ## September 2022
 
@@ -285,7 +291,7 @@ This new release includes the following updates:
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
 * [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
-Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-v3-sdk-rest-api.md), or [.NET](quickstarts/get-started-v3-sdk-rest-api.md) SDK for the v3.0 preview API.
+Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 #### Form Recognizer model data extraction
 
@@ -443,7 +449,7 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Form Recognizer Studio to test the different prebuilt models or label and train a custom model
 
-Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-v3-sdk-rest-api.md), or [.NET](quickstarts/get-started-v3-sdk-rest-api.md) SDK for the v3.0 preview API.
+Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 #### Form Recognizer model data extraction
 
@@ -853,7 +859,7 @@ pip package version 3.1.0b4
 
   > [Learn more about Layout extraction](concept-layout.md)
 
-* **Client library update** - The latest versions of the [client libraries](./quickstarts/try-sdk-rest-api.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
+* **Client library update** - The latest versions of the [client libraries](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
 * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 * **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -883,7 +889,7 @@ pip package version 3.1.0b4
 
 **v2.0** includes the following update:
 
-* The [client libraries](./quickstarts/try-sdk-rest-api.md) for NET, Python, Java, and JavaScript have entered General Availability.
+* The [client libraries](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) for NET, Python, Java, and JavaScript have entered General Availability.
 
 **New samples** are available on GitHub.
 
@@ -978,7 +984,7 @@ For more information about the Form Recognizer Sample Labeling tool, review the 
 
 ### TLS 1.2 enforcement
 
-TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/cognitive-services-security.md).
+TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/security-features.md).
 
 ## January 2020
 
@@ -1020,7 +1026,7 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](./quickstarts/try-sdk-rest-api.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
+Complete a [quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 
