@@ -25,9 +25,9 @@ A catalog item is combined of least two files:
 
 The IaC template contains the environment definition and the manifest file provides metadata about the template. Your development teams use the catalog items that you provide in the catalog to deploy environments in Azure.
 
-We offer an example [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use to create the required files to create a catalog item. , or you can fork and customize the catalog items. You can attach your private repo to use your own catalog items.
+We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the catalog items in the sample catalog.
 
-After you [attach a catalog](how-to-configure-catalog.md) to your dev center, the service will scan through the specified folder path to identify folders containing an ARM template and the associated manifest file. The specified folder path should be a folder that contains subfolders with the catalog item files.
+After you [add a catalog](how-to-configure-catalog.md) to your dev center, the service scans the specified folder path to identify folders that contain an ARM template and an associated manifest file. The specified folder path should be a folder that contains subfolders that hold the catalog item files.
 
 In this article, you learn how to:
 

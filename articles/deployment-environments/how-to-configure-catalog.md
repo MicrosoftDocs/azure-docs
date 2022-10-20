@@ -147,7 +147,7 @@ Invalid catalog items can be caused due to various reasons:
 
 - **Manifest schema errors**
 
-  - Ensure that your catalog item manifest matches the required schema as described [here](./configure-catalog-item.md#add-a-new-catalog-item).
+  - Ensure that your catalog item manifest matches the required schema as described [here](./configure-catalog-item.md#add-a-catalog-item).
 
 - **Validation errors**
 

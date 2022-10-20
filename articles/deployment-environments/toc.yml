@@ -31,7 +31,7 @@ items:
       href: how-to-configure-catalog.md
     - name: Add and configure a catalog item
       href: configure-catalog-item.md
-    - name: Add and configure a managed identity
+    - name: Configure a managed identity
       href: how-to-configure-managed-identity.md
     - name: Configure dev center environment types
       href: how-to-configure-devcenter-environment-types.md
