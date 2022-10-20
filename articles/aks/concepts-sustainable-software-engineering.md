@@ -3,360 +3,190 @@ title: Concepts - Sustainable software engineering in Azure Kubernetes Services 
 description: Learn about sustainable software engineering in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 03/29/2021
 ---
 
 # Sustainable software engineering practices in Azure Kubernetes Service (AKS)
 
- The [Principles of Sustainable Software Engineering][principles-overview] are a core set of competencies to help you define, build, and run applications sustainably. The overall goal is to reduce the carbon footprint in every aspect of your application.
+The sustainable software engineering principles are a set of competencies to help you define, build, and run sustainable applications. The overall goal is to reduce the carbon footprint in every aspect of your application. The Azure Well-Architected Framework workload for sustainability aligns with the [The Principles of Sustainable Software Engineering](https://principles.green/) from the [Green Software Foundation](https://greensoftware.foundation/) and has an overview of the principles of sustainable software engineering.
 
 Sustainable software engineering is a shift in priorities and focus. In many cases, the way most software is designed and run highlights fast performance and low latency. Meanwhile, sustainable software engineering focuses on reducing as much carbon emission as possible. Consider:
 
-* Applying sustainable software engineering principles can give you faster performance or lower latency, such as by lowering total network travel. 
-* Reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads. 
+* Applying sustainable software engineering principles can give you faster performance or lower latency, such as by lowering total network traversal.
+* Reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads.
 
-The [sustainability guidance in the Microsoft Azure Well-Architected Framework (WAF)](/azure/architecture/framework/sustainability/) aims to address the approach to building any sustainable workload on Azure.
+The guidance found in this article is focused on Azure Kubernetes Services you're building or operating on Azure and includes design and configuration checklists, recommended design, and configuration options. Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application. 
 
-This article provides practical recommendations for applying that same WAF sustainability guidance, but specifically for AKS.
+## Prerequisites
+* Understanding the Well-Architected Framework workload for sustainability guidance can help produce a high quality, stable, and efficient cloud architecture. We recommend that you start by reading more about [sustainable workloads](/azure/architecture/framework/sustainability/sustainability-get-started) and reviewing your workload using the [Microsoft Azure Well-Architected Review](https://aka.ms/assessments) assessment.
 
-## Get started with WAF sustainability guidance
+* Having clearly defined business requirements is crucial when building applications as they might have a direct impact on both cluster and workload architectures and configurations. Review the Well-Architected Framework workload for sustainability design areas alongside your application's holistic lifecycle when building or updating existing applications.
 
-Before you look at AKS, it is important that you review the goals and general design mythology behind building sustainable workloads.  Start rooted in the foundational knowledge presented there for your entire solution, since AKS is only one component in your final architecture.
+## Design checklist
 
+We recommend careful consideration of these application design patterns for building a sustainable workload on Azure Kubernetes Services before reviewing the detailed recommendations in each of the design areas.
 
-* [What is a sustainable workload](/azure/architecture/framework/sustainability/sustainability-get-started)
-* [Design Methodology for building sustainable workloads](/azure/architecture/framework/sustainability/sustainability-design-methodology)
-* [Design principles of a sustainable workload](/azure/architecture/framework/sustainability/sustainability-design-principles)
+| Design pattern | Applies to workload | Applies to cluster |
+| --- | --- | --- |
+| [Design for independent scaling of logical components](#design-for-independent-scaling-of-logical-components) | ✔️ |  |
+| [Design for event-driven scaling](#design-for-event-driven-scaling) | ✔️ |  |
+| [Aim for stateless design](#aim-for-stateless-design) | ✔️ |  |
+| [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
+| [Enable cluster and node auto-updates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
+| [Use spot nodes when possible](#use-spot-node-pools-when-possible) |  | ✔️ |
+| [Choose a region that is closest to users](#choose-a-region-that-is-closest-to-users) | | ✔️ |
+| [Reduce network traversal between nodes](#reduce-network-traversal-between-nodes) | | ✔️ |
+| [Evaluate using a service mesh](#evaluate-using-a-service-mesh) | | ✔️ |
+| [Match the scalability needs and utilize auto-scaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
+| [Use spot node pools when possible](#use-spot-node-pools-when-possible) |  | ✔️ |
+| [Install supported add-ons and extensions](#install-supported-add-ons-and-extensions) | ✔️ | ✔️ |
+| [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
+| [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
+| [Tag your resources](#tag-your-resources) | ✔️ | ✔️ |
+| [Automate cluster management and application delivery](#automate-cluster-management-and-application-delivery) | ✔️ | ✔️ |
+| [Optimize storage utilization](#optimize-storage-utilization) | ✔️ | ✔️ |
+| [Cache static data](#cache-static-data) | ✔️ | ✔️ |
+| [Evaluate whether to use TLS termination](#evaluate-whether-to-use-tls-termination) | ✔️ | ✔️ |
+| [Use cloud native network security tools and controls](#use-cloud-native-network-security-tools-and-controls) | ✔️ | ✔️ |
+| [Scan for vulnerabilities](#scan-for-vulnerabilities) | ✔️ | ✔️ |
 
+## Application design
 
-## Cloud efficiency
-Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing natural resource consumption. Optimizing the application's cost is often the initial step in making workloads more sustainable, as it's an organic proxy to utilization and consumption.
+Explore this section to know more about how to optimize your applications for a more sustainable application design.
 
-> [!IMPORTANT]
-> [Reserved Instances](https://review.learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations) are a significant cost reduction vector. However, you should make sure to maximize utilisation of your reserved resouces, to avoid wasting capacity and energy, which would lead to an increase in carbon emissions and a lower ROI for your reservations.
+### Design for independent scaling of logical components
 
-## Sustainability is a shared responsibility
+A microservice architecture may reduce the compute resources required as it allows for independent scaling and ensures idle components are scaled accordingly to the demand. 
 
-As a cloud provider, Microsoft is responsible for the data centers hosting your applications.
+* Consider building your [CNCF projects on AKS](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks) and separating your application functionality into different microservices by using [Dapr](https://dapr.io/) to allow independent scaling of logical components.
 
-However, deploying an application in the Microsoft cloud doesn't automatically make it sustainable, even if the data centers are optimized for sustainability. Applications that aren't optimized may still emit more carbon than necessary.
+### Design for event-driven scaling
 
-Read more about [the shared responsibility model for sustainability](/framework/sustainability/sustainability-design-methodology#the-shared-responsibility-model-for-sustainability)
+Scaling your workload based on relevant business metrics such as HTTP requests, queue length, and cloud events can help reduce its resource utilization, hence its carbon emissions. 
 
+* Use [Keda](https://keda.sh/) when building event-driven applications to allow scaling down to zero when there is no demand. 
 
-## Sustainability design principles
- **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
+### Aim for stateless design
 
-&nbsp;&nbsp;&nbsp; A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
+Reducing in-memory or on-disk data required by the workload to function can be achieved by using an Azure platform as a service (PaaS) to store the service state. 
 
- **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
+* Consider [stateless design](/azure/aks/operator-best-practices-multi-region#remove-service-state-from-inside-containers) to reduce unnecessary network load, data processing, and compute resources.
 
-&nbsp;&nbsp;&nbsp; One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate ; thereby increasing hardware efficiency as well.
+## Application platform
 
- **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
+Explore this section to learn how to make better informed platform-related decisions around sustainability.
 
-&nbsp;&nbsp;&nbsp; There are two main approaches to hardware efficiency:
- - For end-user devices, it's extending the lifespan of the hardware.
- - For cloud computing, it's increasing the utilization of the resource.
+### Enable cluster and node auto-updates 
 
- **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
+An up-to-date cluster avoids unnecessary performance issues and ensures you benefit from the latest performance improvements and energy optimizations.
 
- &nbsp;&nbsp;&nbsp; Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+* Enable [cluster auto-upgrade](/azure/aks/auto-upgrade-cluster) and [apply security updates to nodes automatically using GitHub Actions](/azure/aks/node-upgrade-github-actions) to ensure your cluster don’t miss the latest improvements.
 
+### Install supported add-ons and extensions
 
-## Sustainability design considerations for AKS workloads and clusters
+Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-policies) provide additional and supported functionality to your cluster while allowing you to benefit from the latest performance improvements and energy optimizations alongside your cluster lifecycle.
 
-Sustainable guidance in the Well Architected Framework series is composed of architectural considerations and recommendations oriented around these key design areas.
+* Ensure you install [Keda](/azure/aks/integrations#available-add-ons) as an add-on and [Draft](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as an extension.
 
- -  Sustainability considerations for your AKS workloads (or applications), **should cover the All Key Sustainability Design Areas**
+### Containerize your workload where applicable
 
- -  In practice, you should consider the hollistic lifecycle of your application, as business requirements shape workload design, which informs cluster design.
- 
- - The following table maps sustainability design areas with sustainability design considerations for AKS workloads and clusters.
-  
-|Design area|Scope for AKS|
-|---|---|
-|[Application design](/azure/architecture/framework/sustainability/sustainability-application-design.md)|**workloads**: Modernize workloads to allow independent optimization of their logical components|
-|[Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md)|**AKS cluster is the Platform**: Design cluster for energy and hardware efficiency|
-|[Testing](/azure/architecture/framework/sustainability/sustainability-testing.md)|**cluster and workloads**: Optimize testing procedures for cluster and workload development lifecycle development lifecycle|
-|[_Operational procedures_](/azure/architecture/framework/sustainability/sustainability-operational-procedures.md)|Implement sustainability operations (not a technical consideration) |
-|[Storage](/azure/architecture/framework/sustainability/sustainability-storage.md)|**cluster and workloads**: Consider Stateless Vs Stateful Application Design; Plan for storage class and backup retention policies.|
-|[Network and connectivity](/azure/architecture/framework/sustainability/sustainability-networking.md)|**cluster and workloads**: Optimize network traffic for workloads and clusters|
-|[Security](/azure/architecture/framework/sustainability/sustainability-security.md)| **cluster and workloads**: Implement security controls and optimize log collection for monitoring and SEIM.|
+Containers allow for reducing unnecessary resource allocation and making better use of the resources deployed as they allow for bin packing and require less compute resources than virtual machines.
 
+* Use [Draft](/azure/aks/draft) to simplify application containerization by generating Dockerfiles and Kubernetes manifests.
 
-## Sustainability checklist for AKS workloads
+### Use spot node pools when possible 
 
-The following checklist provides recommendations for designing sustainable workloads hosted on AKS. 
+Spot nodes use Spot VMs and are great for workloads that can handle interruptions, early terminations, or evictions such as batch processing jobs and development and testing environments. 
 
-> [!IMPORTANT]
-> As your complete architecture would typically include several Azure services or even 3rd party integrations, your workload design considerations should refer to [Sustainability Design areas](/azure/architecture/framework/sustainability/sustainability-application-design.md), for a comprehensive approach.
+* Use [spot node pools](/azure/aks/spot-node-pool) to take advantage of unused capacity in Azure at a significant cost saving for a more sustainable platform design.
 
-<br/>
+### Turn off workloads and node pools outside of business hours 
 
-### **Optimize code for efficient resource usage** 
+Workloads may not need to run continuously and could be turned off to reduce energy waste hence carbon emissions. You can completely turn off (stop) your node pools in your AKS cluster, allowing you to also save on compute costs.
 
-_Applications deployed using inefficient code may result in an inherent impact on sustainability_.
+* Use the [KEDA CRON scaler](https://keda.sh/docs/2.7/scalers/cron/) to turn off your node pools outside of business hours.
 
-&nbsp;&nbsp;&nbsp; :heavy_check_mark: Reduce CPU cycles and the number of resources you need for your application.
- 
-&nbsp;&nbsp;&nbsp;  :heavy_check_mark: Profile and monitor software performance.
+### Match the scalability needs and utilize auto-scaling and bursting capabilities 
 
-<br/>
+An oversized cluster does not maximize compute resources utilization and can lead to a waste of energy. Separate your applications into different node pools to allow for cluster right sizing and independent scaling according to the application requirements. As you run out of capacity in your AKS cluster, burst from AKS to ACI to scale out additional pods to serverless nodes and ensure your wokload use all the allocated resources efficiently.
 
+* Size your cluster to match the scalability needs of your application and [use cluster autoscaler](/azure/aks/cluster-autoscaler) in combination with [virtual nodes](/azure/aks/virtual-nodes) to rapidly scale and maximize compute resources utilization. Additionally, [enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas) at the namespace level and [scale user node pools to 0](/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0) when there is no demand.
 
-### **Evaluate moving monoliths to a microservice architecture**
+## Operational procedures
 
-_Monolithic applications usually scale as a unit, leaving little room to scale only the individual components that may need it._
+Explore this section to set up your environment for measuring and continuously improving your workloads' cost and carbon efficiency.
 
-&nbsp;&nbsp;&nbsp; :heavy_check_mark: To help you Build Microservices Applications, use [Dapr](https://dapr.io/) or other projects from [cloud native foundation](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks).
+### Delete unused resources 
 
-<br/>
+Unused resources such as unreferenced images and storage resources should be identified and deleted as they have a direct impact on hardware and energy efficiency. Identifying and deleting unused resources msut be treated as a process, rather than a point-in-time activity to ensure continuous energy optimization. 
 
-### **Design for event-driven scaling** 
+* Use [Azure Advisor](/azure/advisor/advisor-cost-recommendations) to identify unused resources and [ImageCleaner](/azure/aks/image-cleaner?tabs=azure-cli) to clean up stale images and remove an area of risk in your cluster.
 
-_Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utilization; build event driven workloads that scale based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.), and could scale back to 0 when there is no demand_.
+### Tag your resources
 
-&nbsp;&nbsp;&nbsp; :heavy_check_mark: Use [Keda](https://keda.sh/) to help you build event driven applications, that could scale to zero when there is no demand.
+Getting the right information and insights at the right time is important for producing reports about emissions.
 
-<br/>
+* Set [Azure tags on your cluster](/azure/aks/use-tags) to track resources for carbon emissions.
 
-### **Maximize node resource utilization** 
+### Automate cluster management and application delivery
 
-_One approach to lowering your carbon footprint is increasing the utilization of your compute resources._
+Sustainable operations such as automating cluster amangement and application delivery iare on of the many paths towards carbon footprint reduction. Rather than having direct access and operating the cluster manually, most operations should happen through code changes that can be reviewed and audited.
 
-:heavy_check_mark: Define workloads [resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) to inform the Kubernetes scheduler which compute resources to assign to a pod.
+* Leverage [GitOps for Azure Kubernetes Services](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks) as an operational framework for your cluster and application lifecycles to apply energy efficient development practices like CI/CD.
 
-:heavy_check_mark: Use [Vertical Pod Auto-scaler](/azure/aks/vertical-pod-autoscaler) to automatically set resource requests and limits on containers per workload based on past usage.
+## Storage
+Explore this section to learn how to design a more sustainable data storage architecture and optimize existing deployments.
 
+### Optimize storage utilization 
 
-<br/>
+The data retrieved and its storage can have a significant impact on both energy and carbon efficiency. Designing solutions with the correct data access pattern can reduce energy consumption and embodied carbon.
 
-### **Aim for stateless design** 
+* Understand the needs of your application to [choose the appropriate storage](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type) and define it using [storage classes](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs) to avoid storage underutilization. Additionally, consider [provisioning volumes dynamically](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes) to automatically scale the number of storage resources.
 
-_Removing state from the design reduces the in-memory or on-disk data required by the workload to function_.
+## Network and connectivity
+Explore this section to learn how to enhance and optimize network efficiency to reduce unnecessary carbon emissions.
 
-:heavy_check_mark: When possible, aim for [stateless design](/azure/aks/operator-best-practices-multi-region#remove-service-state-from-inside-containers).
+### Choose a region that is closest to users
 
-<br/>
+The distance from a data center to the users has a significant impact on energy consumption and carbon emissions. Shortening the distance a network packet travels improves both your energy and carbon efficiency. 
 
-### **Optimize storage utilization for stateful workloads**
+* Review your application requirements and [Azure geographies](https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/#overview) to choose a region that is the closest to the majority of where the network packets are going.
 
-_From both an embodied carbon angle and an energy proportionality angle, it's better to maximize storage utilisation so the storage layer is optimised for the task._
+### Reduce network traversal between nodes
 
-:heavy_check_mark: Understand you workload's performance needs and access patterns to [choose the appropriate storage type](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type).
+Placing nodes in a single region or a single availability zone reduces the physical distance between the instances. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in more network traversal and increase in your carbon footprint. 
 
-:heavy_check_mark: Use [Storage Classes to define application storage needs](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs) and [dynamically provision persistent volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes).
+* Consider deploying your nodes within a [proximity placement group](/azure/virtual-machines/co-location) to reduce the network traversal by ensuring your compute resources are physically located close to each other.
 
-<br/>
+### Evaluate using a service mesh 
 
-### **Set retention policies for storage and backups** 
+A service mesh deploys additional containers for communication (sidecars) to provide more operational capabilities leading to CPU usage and network traffic increase. Nevertheless, it allows your application for decoupling from these capabilities as it moves them out of the application layer, and down to the infrastructure layer.
 
-_From an embodied carbon perspective, it's better to have an automated mechanism to delete unused storage resources, so that hardware is used efficiently, and the storage layer is optimised for the task._
+* Carefully consider the increase in CPU usage and network traffic generated by the [service mesh](/azure/aks/servicemesh-about) communication components before making the decision to use such service.
 
-:heavy_check_mark: As part of your storage class definitions, set the appropriate [reclaimPolicy](/azure/aks/concepts-storage#storage-classes), which controls the behavior of the underlying Azure storage resource when the pod is deleted. The underlying storage resource can either be deleted or retained for future pod use.
+### Cache static data
 
-:heavy_check_mark: Backup & restore [your persistent volumes](/azure/aks/operator-best-practices-storage#secure-and-back-up-your-data).
+Using Content Delivery Network (CDN) is a sustainable approach to optimizing network traffic because it reduces the data movement across a network. It minimizes latency through storing frequently read static data closer to users, and helps reduce the network traversal and server load.
 
-:heavy_check_mark: Define retention policies for backups to store only what is needed.
+* Ensure you [follow best practices](/azure/architecture/best-practices/cdn) for CDN and consider using [Azure CDN](/azure/cdn/cdn-how-caching-works?toc=%2Fazure%2Ffrontdoor%2FTOC.json) to lower the consumed bandwidth and keep costs down.
 
-<br/>
+## Security
+Explore this section to know more about the recommendations leading to a more sustainable security posture.
 
-### **Evaluate whether to use end to end TLS termination** 
+### Evaluate whether to use TLS termination
 
-_Terminating and re-establishing TLS is CPU consumption that might be unnecessary in certain architectures._
+Transport Layer Security (TLS) ensures that all data passed between the web server and browsers remain private and encrypted. However, terminating and re-establishing TLS is CPU consumption and might be unnecessary in certain architectures. A balanced level of security can offer a more sustainable and energy efficient workload while a higher level of security may increase the requirements of compute resources.
 
-:heavy_check_mark: Consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
+*  Review the information on TLS termination when using [Application Gateway](/azure/application-gateway/ssl-overview) or [Azure Front Door](/azure/application-gateway/ssl-overview) and consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
 
-:heavy_check_mark: Review the information on [TLS termination](/azure/application-gateway/ssl-overview#tls-termination) to better understand the performance and utilization impact it offers.
+### Use cloud native network security tools and controls
 
-<br/>
+Azure Font Door and Application Gateway help manage traffic from web applications while Azure Web Application Firewall provides protection against OWASP top 10 attacks and load shedding bad bots. Using these capabilities helps remove unnecessary data transmission and reduce the burden on the cloud infrastructure, with lower bandwidth and less infrastructure requirements.
 
-### **Evaluate whether to use a service mesh** 
+* Use [Application Gateway Ingress Controller (AGIC) in AKS](/azure/architecture/example-scenario/aks-agic/aks-agic) to filter and offload traffic at the network edge from reaching your origin to reduce energy consumption and carbon emissions.
 
-_Servish mesh operates by deploying additional containers for communication (sidecars) ; which increases CPU compute and network traffic, generated by the service mesh communication components._
+### Scan for vulnerabilities
 
-:heavy_check_mark: Evaluate if you (really) need a [service mesh](/azure/aks/servicemesh-about).
+Many attacks on cloud infrastructure seek to misuse deployed resources for the attacker's direct gain leading to an unnecessary spike in usage and cost. Vulnerability scanning tools help minimize the window of opportunity for attackers and mitigate any potential malicious usage of resources.
 
-:heavy_check_mark: If you are using Dapr, evaluate using it [with Or without a service mesh](https://docs.dapr.io/concepts/service-mesh/#when-to-use-dapr-or-a-service-mesh-or-both).
-
-<br/>
-
- ### **Assess for resilience and performance** 
-
-_To be able to scale down your workloads, or schedule them to SPOT nodes, your workloads need to tolerate interruptions and failures. Load testing and chaos engineering can significantly help improve resiliency of your workloads to handle stress and failures gracefully and with less wasted resources._
-
-:heavy_check_mark: Use [load testing](/azure/load-testing/tutorial-identify-performance-regression-with-cicd) to assess performance of your workloads during high spikes.
-
-:heavy_check_mark: Use [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering) resilience of your workloads to failures and interruptions.
-
-<br/>
-
-### **Turn off workloads outside of business hours** 
-
-_Reduce energy waste and optimize costs_
-
-:heavy_check_mark: You can use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to turn off applications (scale pods to zero), outside of regular business hours.
-
-<br/>
-
-
-### **Optimize log collection for workloads** 
-
-_Storing all logs from all possible sources (workloads, services, diagnostics and platform activity) can considerably increase storage and network traffic, which would impact higher costs and carbon emissions._
- 
-:heavy_check_mark: Make sure you are collecting and retaining only the log data necessary to support your requirements.
-
-:heavy_check_mark: [configure data collection rules for AKS Container Insights](/azure/azure-monitor/containers/container-insights-agent-config#data-collection-settings).
-
-:heavy_check_mark: Read more about optimizing data collection for your AKS workloads [in this community blog](https://medium.com/microsoftazure/azure-monitor-for-containers-optimizing-data-collection-settings-for-cost-ce6f848aca32).
-
-<br/>
-
-### **Monitor and optimize**
-
-_Continuously monitor your workloads capacity usage over time, to optimize their hosting platform (AKS nodes)._
-
-:heavy_check_mark: Read more about [Best Practices for Monitoring Cloud Applications](/azure/architecture/framework/devops/monitor-collection-data-storage).
-
-:heavy_check_mark: Read more about [Best Practices for Monitoring Microservices Application on AKS](/azure/architecture/microservices/logging-monitoring).
-
-<br/>
-<br/>
-
-## Sustainability Checklist for AKS clusters
-
-
-The following checklist provides recommendations for designing energy and hardware efficient AKS clusters, that operate in a sustainable way.
-
-<br/>
-
-### **Chose the best Azure region**
-
-_When choosing the Azure region to deploy your worklods to, evaluate carbon efficiency in your decision criteria._
-
-:heavy_check_mark: Evaluate deploying to Regions powered by renewable and low-carbon energy sources.
-
-:heavy_check_mark: Evaluate deploying to data centers close to the consumer.
-
-:heavy_check_mark: For choosing the right region, evaluate carbon efficiency, cost, latency, and compliance requirements.
-
-<br/>
-
-### **Enable cluster and node auto-updates** 
-
-_Running on outdated software can result in running a suboptimal workload with unnecessary performance issues. New software tends to be more efficient in general._
-
- :heavy_check_mark: Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster).
-
- :heavy_check_mark: Configure [Automatic **Security updates**](/aks/node-upgrade-github-actions).
- 
-<br/>
-
-
-### **Maximize node resource utilization** 
-
-_One approach to lowering your carbon footprint is increasing the utilization of your compute resources._
-
-:heavy_check_mark: Separate applications into different node pools to allow independent sizing & scalling of workloads.
-
-:heavy_check_mark: Align node SKU selection and managed disk size with applications requirements.
-
-:heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-practices-storage#size-the-nodes-for-storage-needs).
-
-:heavy_check_mark: [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximize your nodes usage).
-
-:heavy_check_mark: Enforce Kubernetes [Resource Quotas at the namespace level](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
-
-:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to further optimize scheduling your workloads (pods) on nodes.
-
-<br/>
- 
-### **Utilize node auto-scaling and bursting capabilities** 
-
-_Oversizing compute usually leaves "unused" or "underused" capacity ; ultimately leading to a waste of energy and increased costs._
-
-:heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on demand.
-
-:heavy_check_mark: Leverage [Scaling **User node pools** to 0](/azure/aks/scale-cluster#scale-user-node-pools-to-0) when there is no demand.
-
-:heavy_check_mark: Use [Virtual Nodes](/azure/aks/virtual-nodes) to rapidly burst to Serverless Nodes (that scale to zero when there is no demand).
-
-:heavy_check_mark: Review the [B-series burstable virtual machine sizes](https://azure.microsoft.com/blog/introducing-burstable-vm-support-in-aks/).
-
-<br/>
-
-###  **Use energy efficient hardware** 
-
-_The Arm-based VMs represent a cost-effective and power-efficient option that doesn't compromise on the required performance._
-
- :heavy_check_mark: Evaluate if [nodes with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads.
-
-<br/>
-
-### **Use SPOT nodes where possible** 
-
-_Think about the unused capacity in Azure data centers. Utilizing the otherwise wasted capacity—at significantly reduced prices—the workload contributes to a more sustainable platform design._
-
-:heavy_check_mark: Use [SPOT node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure datacenters and save you computing costs.
-
-<br/>
-
-**Reduce network travel between nodes** 
-
-_By reducing data travel distance between resources, you can reduce carbon emissions and electricity consumption of networking devices._
-
-:heavy_check_mark: Consider using [Proximity Placement Groups](/azure/aks/reduce-latency-ppg), which are logical groupings used to make sure Azure compute resources are physically located close to each other. 
-
-
-<br/>
-
-
-### **Delete zombie workloads** 
-
-_Reduce energy waste and optimize costs_.
-
-:heavy_check_mark: Use [ImageCleaner](/azure/aks/image-cleaner) to clean up stale images on your Azure Kubernetes Service cluster.
-
-<br/>
-
-### **Turn off node pools outside of regular business hours** 
-
-_Operating idle workloads will waste energy and contributes to an added carbon emission._
-
-:heavy_check_mark: Use [cluster stop / start](/azure/aks/start-stop-cluster) and [node pool stop / start](/azure/aks/start-stop-nodepools), for shutting them down outside regular business hours.
-
-<br/>
-
-### **Optimize log collection for clusters** 
-
-_Storing all logs from all possible sources (workloads, services, diagnostics and platform activity) can considerably increase storage and network traffic, which would impact higher costs and carbon emissions._
- 
-:heavy_check_mark: Read more about the [Cost optimization and Log Analytics](/azure/architecture/framework/services/monitoring/log-analytics/cost-optimization).
-
-:heavy_check_mark: Read more about [Monitoring AKS Data Reference](/azure/aks/monitor-aks-reference).
-
-<br/>
-
-### **Monitor and optimize**
-
-_Continuously monitor your nodes capacity utilization over time, to optimize their sizing._
-
-:heavy_check_mark: Read more about [Best Practices for Monitoring Cloud Applications](/azure/architecture/framework/devops/monitor-collection-data-storage).
-
-:heavy_check_mark: Read more about [Best Practices for Monitoring Microservices Application on AKS](/azure/architecture/microservices/logging-monitoring).
-
-<br/>
-
-### **Consider carbon awareness for workload orchestration**
-
-:heavy_check_mark: Plan your deployments to maximize compute utilization for batch workloads, during low carbon periods (at night for instance, where demand tension on power is usually lower).
-
-
-
-## Next step
-
-Review the sustainability Operational procedures.
-
-> [!div class="nextstepaction"]
-> [Operational procedures](/azure/architecture/framework/sustainability/sustainability-operational-procedures.md)
+* Follow recommendations from [Microsoft Defender for Cloud](/security/benchmark/azure/security-control-vulnerability-management) and run automated vulnerability scanning tools such as [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-va-acr) to avoid unnecessary resource usage by identifying vulnerabilities in your images and minimizing the window of opportunity for attackers.
