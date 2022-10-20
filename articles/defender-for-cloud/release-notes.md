@@ -237,13 +237,15 @@ The new release contains the following capabilities:
     > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
 
     |Recommendation| Assessment key|
-    |-|-|
-    |MFA should be enabled on accounts with owner permissions on your subscription|94290b00-4d0c-d7b4-7cea-064a9554e681|
-    |MFA should be enabled on accounts with read permissions on your subscription|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
-    |MFA should be enabled on accounts with write permissions on your subscription|57e98606-6b1e-6193-0e3d-fe621387c16b|
-    |External accounts with owner permissions should be removed from your subscription|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
-    |External accounts with read permissions should be removed from your subscription|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
-    |External accounts with write permissions should be removed from your subscription|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+    |--|--|
+    |Accounts with owner permissions on Azure resources should be MFA enabled|6240402e-f77c-46fa-9060-a7ce53997754|
+    |Accounts with write permissions on Azure resources should be MFA enabled|c0cb17b2-0607-48a7-b0e0-903ed22de39b|
+    |Accounts with read permissions on Azure resources should be MFA enabled|dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c|
+    |Guest accounts with owner permissions on Azure resources should be removed|20606e75-05c4-48c0-9d97-add6daa2109a|
+    |Guest accounts with write permissions on Azure resources should be removed|0354476c-a12a-4fcc-a79d-f0ab7ffffdbb|
+    |Guest accounts with read permissions on Azure resources should be removed|fde1c0c9-0fd2-4ecc-87b5-98956cbc1095|
+    |Blocked accounts with owner permissions on Azure resources should be removed|050ac097-3dda-4d24-ab6d-82568e7a50cf|
+    |Blocked accounts with read and write permissions on Azure resources should be removed| 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 ||
 
 The recommendations although in preview, will appear next to the recommendations that are currently in GA.
 
