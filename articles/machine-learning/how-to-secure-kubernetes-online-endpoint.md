@@ -44,7 +44,7 @@ This is the general process to secure an online endpoint:
 
 ## Get a domain name
 
-If you don't already own a domain name, purchase one from a *domain name registrar*. The process and price differ among registrars. The registrar provides tools to manage the domain name. You use these tools to map a fully qualified domain name (FQDN) (such as www.contoso.com) to the IP address that hosts your online endpoint. 
+If you don't already own a domain name, purchase one from a *domain name registrar*. The process and price differ among registrars. The registrar provides tools to manage the domain name. You use these tools to map a fully qualified domain name (FQDN) (such as `www.contoso.com`) to the IP address that hosts your online endpoint. 
 
 For more information on how to get the IP address of your online endpoints, see the [Update your DNS with FQDN](#update-your-dns-with-fqdn) section of this article.
 
