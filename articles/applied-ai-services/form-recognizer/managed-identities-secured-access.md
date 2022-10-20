@@ -272,7 +272,7 @@ That's it! You can now configure secure access for your Form Recognizer resource
 
 * **AccessDenied**:
 
-  :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of a access denied error.":::
+  :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
   **Resolution**: Check to make sure there's connectivity between the computer accessing the form recognizer studio and the form recognizer service. For example, you may need to add the client IP address to the Form Recognizer service's networking tab.
 
