@@ -98,9 +98,9 @@ In this section, you configure test criteria for a load test in the Azure portal
  
 # [Azure Pipelines](#tab/pipelines)
 
-In this section, you learn how to define test criteria for continuous integration and continuous delivery (CI/CD) workflows. When you run a load test as part of your CI/CD workflow, you define the load test configuration in a [YAML test configuration file](./reference-test-config-yaml.md).
+In this section, you configure test criteria for a load test, as part of an Azure Pipelines CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
 
-Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
 
 To specify fail criteria in the YAML configuration file:
 
@@ -138,9 +138,9 @@ To specify fail criteria in the YAML configuration file:
 
 # [GitHub Actions](#tab/github)
 
-In this section, you learn how to define test criteria for continuous integration and continuous delivery (CI/CD) workflows. When you run a load test as part of your CI/CD workflow, you define the load test configuration in a [YAML test configuration file](./reference-test-config-yaml.md).
+In this section, you configure test criteria for a load test, as part of a GitHub Actions CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
 
-Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
 
 To specify fail criteria in the YAML configuration file:
 
