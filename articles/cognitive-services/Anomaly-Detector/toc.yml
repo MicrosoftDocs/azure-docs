@@ -91,13 +91,13 @@
     - name: REST API (preview) 
       href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
     - name: .NET
-      href: /dotnet/api/azure.ai.anomalydetector?view=azure-dotnet-preview
+      href: /dotnet/api/azure.ai.anomalydetector?view=azure-dotnet-preview&preserve-view=true
     - name: Java
-      href: /java/api/overview/azure/ai-anomalydetector-readme?view=azure-java-preview 
+      href: /java/api/overview/azure/ai-anomalydetector-readme?view=azure-java-preview&preserve-view=true 
     - name: Python
-      href: /python/api/azure-ai-anomalydetector/azure.ai.anomalydetector?view=azure-python-preview
+      href: /python/api/azure-ai-anomalydetector/azure.ai.anomalydetector?view=azure-python-preview&preserve-view=true
     - name: Node.js
-      href: /javascript/api/@azure/ai-anomaly-detector/?view=azure-node-preview
+      href: /javascript/api/@azure/ai-anomaly-detector/?view=azure-node-preview&preserve-view=true
     - name: Packages
       items:
       - name: .NET 
