@@ -44,7 +44,6 @@ Consider whether this preview is right for you. It *enables distributed tracing,
 
  - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
- - [Azure Active Directory authentication](azure-ad-authentication.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
  - Autopopulation of User IP (to determine location attributes)
@@ -408,7 +407,24 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+```typescript
+...
+import { BasicTracerProvider, SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
+import { ApplicationInsightsSampler, AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
+
+// Sampler expects a sample rate of between 0 and 1 inclusive
+// A rate of 0.1 means approximately 10% of your traces are sent
+const aiSampler = new ApplicationInsightsSampler(0.75);
+const provider = new BasicTracerProvider({
+  sampler: aiSampler
+});
+const exporter = new AzureMonitorTraceExporter({
+  connectionString:
+    process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+});
+provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
+provider.register();
+```
 
 #### [Python](#tab/python)
 
@@ -471,9 +487,9 @@ Dependencies
 
 #### [Node.js](#tab/nodejs)
 
-Requests
+Requests/Dependencies
 - [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
-  [0.26.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.26.0)
+  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
   
 Dependencies
 - [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) version:
@@ -514,7 +530,8 @@ Dependencies
 
 #### [Node.js](#tab/nodejs)
 
-- Placeholder
+- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
+  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
 
 #### [Python](#tab/python)
 
@@ -795,14 +812,31 @@ You might use the following ways to filter out telemetry before it leaves your a
     The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
     
     ```typescript
-    ...
+    import { IncomingMessage } from "http";
+    import { RequestOptions } from "https";
+    import { registerInstrumentations } from "@opentelemetry/instrumentation";
     import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
-    
-    ...
+    import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
+
+
     const httpInstrumentationConfig: HttpInstrumentationConfig = {
-        ignoreIncomingPaths: [new RegExp(/dc.services.visualstudio.com/i)]
+        ignoreIncomingRequestHook: (request: IncomingMessage) => {
+            // Ignore OPTIONS incoming requests
+            if (request.method === 'OPTIONS') {
+                return true;
+            }
+            return false;
+        },
+        ignoreOutgoingRequestHook: (options: RequestOptions) => {
+            // Ignore outgoing requests with /test path
+            if (options.path === '/test') {
+                return true;
+            }
+            return false;
+        }
     };
     const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
+    const provider = new NodeTracerProvider();
     provider.register();
     registerInstrumentations({
         instrumentations: [
@@ -976,7 +1010,30 @@ public class Program
 
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+ ```typescript
+    import {
+        MeterProvider,
+        PeriodicExportingMetricReader,
+        PeriodicExportingMetricReaderOptions
+    } from "@opentelemetry/sdk-metrics";
+    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
+
+    const provider = new MeterProvider();
+    const exporter = new AzureMonitorMetricExporter({
+    connectionString:
+        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    });
+    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
+        exporter: exporter,
+    };
+    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
+    provider.addMetricReader(metricReader);
+    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
+    let histogram = meter.createHistogram("histogram");
+    histogram.record(1, { "testKey": "testValue" });
+    histogram.record(30, { "testKey": "testValue2" });
+    histogram.record(100, { "testKey2": "testValue" });
+```
 
 #### [Python](#tab/python)
 
@@ -1043,7 +1100,30 @@ public class Program
 
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+```typescript
+    import {
+        MeterProvider,
+        PeriodicExportingMetricReader,
+        PeriodicExportingMetricReaderOptions
+    } from "@opentelemetry/sdk-metrics";
+    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
+
+    const provider = new MeterProvider();
+    const exporter = new AzureMonitorMetricExporter({
+    connectionString:
+        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    });
+    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
+        exporter: exporter,
+    };
+    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
+    provider.addMetricReader(metricReader);
+    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
+    let counter = meter.createCounter("counter");
+    counter.add(1, { "testKey": "testValue" });
+    counter.add(5, { "testKey2": "testValue" });
+    counter.add(3, { "testKey": "testValue2" });
+```
 
 #### [Python](#tab/python)
 
@@ -1113,7 +1193,31 @@ public class Program
 
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+```typescript
+    import {
+        MeterProvider,
+        PeriodicExportingMetricReader,
+        PeriodicExportingMetricReaderOptions
+    } from "@opentelemetry/sdk-metrics";
+    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
+
+    const provider = new MeterProvider();
+    const exporter = new AzureMonitorMetricExporter({
+    connectionString:
+        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    });
+    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
+        exporter: exporter,
+    };
+    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
+    provider.addMetricReader(metricReader);
+    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
+    let gauge = meter.createObservableGauge("gauge");
+    gauge.addCallback((observableResult: ObservableResult) => {
+        let randomNumber = Math.floor(Math.random() * 100);
+        observableResult.observe(randomNumber, {"testKey": "testValue"});
+    });
+```
 
 #### [Python](#tab/python)
 
@@ -1177,7 +1281,27 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+```typescript
+import * as opentelemetry from "@opentelemetry/api";
+import { BasicTracerProvider, SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
+import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
+
+const provider = new BasicTracerProvider();
+const exporter = new AzureMonitorTraceExporter({
+    connectionString:
+        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+});
+provider.addSpanProcessor(new SimpleSpanProcessor(exporter as any));
+provider.register();
+const tracer = opentelemetry.trace.getTracer("example-basic-tracer-node");
+let span = tracer.startSpan("hello");
+try{
+    throw new Error("Test Error");
+}
+catch(error){
+    span.recordException(error);
+}
+```
 
 #### [Python](#tab/python)
 
@@ -1319,7 +1443,25 @@ To disable this feature you should set `AzureMonitorExporterOptions.DisableOffli
 
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+By default, the AzureMonitorExporter uses one of the following locations for offline storage.
+
+- Windows
+  - %TEMP%\Microsoft\AzureMonitor
+- Non-Windows
+  - %TMPDIR%/Microsoft/AzureMonitor
+  - /var/tmp/Microsoft/AzureMonitor
+
+To override the default directory you should set `storageDirectory`.
+
+For example:
+```typescript
+const exporter = new AzureMonitorTraceExporter({
+    connectionString:
+        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    storageDirectory: "C:\\SomeDirectory",
+    disableOfflineStorage: false
+});
+```
 
 #### [Python](#tab/python)
 
