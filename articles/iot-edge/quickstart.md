@@ -131,7 +131,7 @@ Run the following PowerShell commands on the target device where you want to dep
    <!-- end 1.1 -->
 
    <!-- iotedge-2020-11 -->
-   :::moniker range=">=iotedge-2020-11"
+   :::moniker range="iotedge-2020-11"
       * **X64/AMD64**
          ```powershell
          $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
