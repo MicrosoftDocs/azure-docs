@@ -73,7 +73,6 @@ We recommend careful consideration of these design patterns for building a susta
 | [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
 | [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
 | [Tag your resources](#tag-your-resources) | ✔️ | ✔️ |
-| [Automate cluster management and application delivery](#automate-cluster-management-and-application-delivery) | ✔️ | ✔️ |
 | [Optimize storage utilization](#optimize-storage-utilization) | ✔️ | ✔️ |
 | [Cache static data](#cache-static-data) | ✔️ | ✔️ |
 | [Evaluate whether to use TLS termination](#evaluate-whether-to-use-tls-termination) | ✔️ | ✔️ |
@@ -82,7 +81,7 @@ We recommend careful consideration of these design patterns for building a susta
 
 ## Application design
 
-Explore this section to know more about how to optimize your applications for a more sustainable application design.
+Explore this section to learn more about how to optimize your applications for a more sustainable application design.
 
 ### Design for independent scaling of logical components
 
@@ -135,7 +134,7 @@ Spot nodes use Spot VMs and are great for workloads that can handle interruption
 
 An oversized cluster does not maximize utilization of compute resources and can lead to a waste of energy. Separate your applications into different node pools to allow for cluster right sizing and independent scaling according to the application requirements. As you run out of capacity in your AKS cluster, burst from AKS to ACI to scale out additional pods to serverless nodes and ensure your wokload use all the allocated resources efficiently.
 
-* Size your cluster to match the scalability needs of your application and [use cluster autoscaler](/azure/aks/cluster-autoscaler) in combination with [virtual nodes](/azure/aks/virtual-nodes) to rapidly scale and maximize compute resources utilization. Additionally, [enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas) at the namespace level and [scale user node pools to 0](/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0) when there is no demand.
+* Size your cluster to match the scalability needs of your application and [use cluster autoscaler](/azure/aks/cluster-autoscaler) in combination with [virtual nodes](/azure/aks/virtual-nodes) to rapidly scale and maximize compute resource utilization. Additionally, [enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas) at the namespace level and [scale user node pools to 0](/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0) when there is no demand.
 
 ### Turn off workloads and node pools outside of business hours 
 
@@ -145,7 +144,7 @@ Workloads may not need to run continuously and could be turned off to reduce ene
 
 ## Operational procedures
 
-Explore this section to set up your environment for measuring and continuously improving your workloads' cost and carbon efficiency.
+Explore this section to set up your environment for measuring and continuously improving your workloads cost and carbon efficiency.
 
 ### Delete unused resources 
 
@@ -159,11 +158,6 @@ Getting the right information and insights at the right time is important for pr
 
 * Set [Azure tags on your cluster](/azure/aks/use-tags) to enable monitoring of your workloads.
 
-### Automate cluster management and application delivery
-
-Sustainable operations such as automating cluster management and application delivery are one of the paths to reducing carbon footprint. Rather than having direct access and operating the cluster manually, most operations should happen through code changes that can be reviewed and audited.
-
-* Leverage [GitOps for Azure Kubernetes Services](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks) as an operational framework for your cluster and application lifecycles to apply efficient development practices like CI/CD.
 
 ## Storage
 Explore this section to learn how to design a more sustainable data storage architecture and optimize existing deployments.
@@ -191,9 +185,9 @@ Placing nodes in a single region or a single availability zone reduces the physi
 
 ### Evaluate using a service mesh 
 
-A service mesh deploys additional containers for communication (sidecars) to provide more operational capabilities leading to CPU usage and network traffic increase. Nevertheless, it allows your application for decoupling from these capabilities as it moves them out of the application layer, and down to the infrastructure layer.
+A service mesh deploys additional containers for communication (sidecars) to provide more operational capabilities leading to an increase in CPU usage and network traffic. Nevertheless, it allows you to decouple your application from these capabilities as it moves them out from the application layer, and down to the infrastructure layer.
 
-* Carefully consider the increase in CPU usage and network traffic generated by the [service mesh](/azure/aks/servicemesh-about) communication components before making the decision to use such service.
+* Carefully consider the increase in CPU usage and network traffic generated by the [service mesh](/azure/aks/servicemesh-about) communication components before making the decision to use the service.
 
 ### Optimize log collection 
 
@@ -203,22 +197,22 @@ Sending and storing all logs from all possible sources (workloads, services, dia
 
 ### Cache static data
 
-Using Content Delivery Network (CDN) is a sustainable approach to optimizing network traffic because it reduces the data movement across a network. It minimizes latency through storing frequently read static data closer to users, and helps reduce the network traversal and server load.
+Using Content Delivery Network (CDN) is a sustainable approach to optimizing network traffic because it reduces the data movement across a network. It minimizes latency through storing frequently read static data closer to users, and helps reduce network traffic and server load.
 
 * Ensure you [follow best practices](/azure/architecture/best-practices/cdn) for CDN and consider using [Azure CDN](/azure/cdn/cdn-how-caching-works?toc=%2Fazure%2Ffrontdoor%2FTOC.json) to lower the consumed bandwidth and keep costs down.
 
 ## Security
-Explore this section to know more about the recommendations leading to a more sustainable security posture.
+Explore this section to learn more about the recommendations leading to an improved sustainable security posture.
 
 ### Evaluate whether to use TLS termination
 
-Transport Layer Security (TLS) ensures that all data passed between the web server and browsers remain private and encrypted. However, terminating and re-establishing TLS is CPU consumption and might be unnecessary in certain architectures. A balanced level of security can offer a more sustainable and energy efficient workload while a higher level of security may increase the requirements of compute resources.
+Transport Layer Security (TLS) ensures that all data passed between the web server and web browsers remain private and encrypted. However, terminating and re-establishing TLS increases CPU utilization and might be unnecessary in certain architectures. A balanced level of security can offer a more sustainable and energy efficient workload, while a higher level of security may increase the compute resource requirements.
 
-*  Review the information on TLS termination when using [Application Gateway](/azure/application-gateway/ssl-overview) or [Azure Front Door](/azure/application-gateway/ssl-overview) and consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
+*  Review the information on TLS termination when using [Application Gateway](/azure/application-gateway/ssl-overview) or [Azure Front Door](/azure/application-gateway/ssl-overview). Consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
 
 ### Use cloud native network security tools and controls
 
-Azure Font Door and Application Gateway help manage traffic from web applications while Azure Web Application Firewall provides protection against OWASP top 10 attacks and load shedding bad bots. Using these capabilities helps remove unnecessary data transmission and reduce the burden on the cloud infrastructure, with lower bandwidth and less infrastructure requirements.
+Azure Font Door and Application Gateway help manage traffic from web applications while Azure Web Application Firewall provides protection against OWASP top 10 attacks and load shedding bad bots. Using these capabilities helps remove unnecessary data transmission and reduces the burden on the cloud infrastructure, with lower bandwidth and less infrastructure requirements.
 
 * Use [Application Gateway Ingress Controller (AGIC) in AKS](/azure/architecture/example-scenario/aks-agic/aks-agic) to filter and offload traffic at the network edge from reaching your origin to reduce energy consumption and carbon emissions.
 
