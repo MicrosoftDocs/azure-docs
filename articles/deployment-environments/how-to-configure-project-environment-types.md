@@ -79,9 +79,9 @@ Update an existing project environment type as follows:
 
 ## Enable or disable a project environment type
 
-You an disable a project environment type to prevent developers from using it to create environments. Disabling a project environment type doesn't affect existing environments.
+You can disable a project environment type to prevent developers from using it to create environments. Disabling a project environment type doesn't affect existing environments.
 
-When you enable an environment type (or reenable one that you disabled), development teams can use it to create environments.
+When you enable an environment type (or re-enable one that you disabled), development teams can use it to create environments.
 
 1. In the Azure portal, open Azure Deployment Environments.
 1. Select **Projects** from the left pane, and then select the specific project.
