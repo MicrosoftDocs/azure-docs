@@ -24,14 +24,6 @@ In order to use Private Link in your Azure Virtual Desktop deployment, you'll ne
 - An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and [workspaces](environment-setup.md#workspaces).
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
-In addition, you'll also need the resources listed in the following table:
-
-| Resource type | Target sub-resource | Quantity |
-|--|--|
-| Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
-| Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
-| Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
-
 ## Enable preview content on your Azure subscription
 
 In order to use Private Link, you'll need to enable preview features on your Azure subscription first. To enable preview features:
@@ -44,9 +36,21 @@ In order to use Private Link, you'll need to enable preview features on your Azu
 
 3. In the bottom-right corner of the screen, select **Register**.
 
-Once you select **Register**, you'll be registered to use the Private Link public preview feature.
+Once you select **Register**, you'll be able to use Private Link.
+
+## Create a placeholder workspace
+
+A private endpoint to the global sub-resource of any workspace controls the shared fully-qualified domain name (FQDN) for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint before you start using Private Link. To create a workspace, follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information).
 
 ## Set up Private Link in the Azure portal
+
+Now, let's set up Private Link for your host pool. During the setup process, you'll create private endpoints to the following resources:
+
+| Resource type | Target sub-resource | Quantity |
+|--|--|
+| Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
+| Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
+| Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
 
 To configure Private Link in the Azure portal:
 
@@ -71,7 +75,11 @@ To configure Private Link in the Azure portal:
 
 1. When you're done, select **Next: Resource >**.
 
-1. In the **Resource** tab, select the target sub-resource you want to use from the drop-down menu. <!--will this change based on configuration or is it automatically "connection" every time?-->
+1. In the **Resource** tab, use the following resource:
+    
+    - Resource type: **Microsoft.DesktopVirtualization/hostpools**
+    - Resource: *your host pool*
+    - Target sub-resource: connection
 
 1.  Select **Next: Virtual Network >**.
 
@@ -95,7 +103,15 @@ To configure Private Link in the Azure portal:
 
 1. Review the details of your private endpoint. If everything looks good, select **Create** and wait for the deployment to finish.
 
-2. Now, repeat the process to create private endpoints for your resources. Return to step 3, but select **Workspaces** instead of host pools and select the name of the workspace you want to use, then follow the rest of the steps until the end. Repeat until you've made private endpoints for all of your resources.
+1. Now, repeat the process to create private endpoints for your resources. Return to step 3, but select **Workspaces** instead of host pools and use the following resources, then follow the rest of the steps until the end.
+
+    - Resource type: **Microsoft.DesktopVirtualization/workspaces**
+    - Resource: *your placeholder workspace*
+    - Target sub-resource: global
+
+    - Resource type: **Microsoft.DesktopVirtualization/workspaces**
+    - Resource: *your workspace*
+    - Target sub-resource: feed
 
 >[!NOTE]
 >You'll need to repeat this process to create a private endpoint for every resource you want to put into Private Link.
@@ -142,10 +158,6 @@ To validate your Private Link for Azure Virtual Desktop and make sure it's worki
    
    - Make sure your clients can't connect to Azure Virtual Desktop and your session hosts from public routes.
    - Make sure the session hosts can't connect to Azure Virtual Desktop from public routes.
-
-## Removing a private endpoint
-
-A private endpoint to the global sub-resource of any workspace controls the shared fully-qualified domain name (FQDN) for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint.
 
 ## Next steps
 
