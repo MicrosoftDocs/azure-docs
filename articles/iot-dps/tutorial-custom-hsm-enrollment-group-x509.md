@@ -1036,7 +1036,7 @@ In this section, you'll use your Windows command prompt.
 
 1. Copy the **ID Scope** value.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope in the Azure portal.":::
 
 1. In your Windows command prompt, go to the sample directory, and install the packages needed by the sample. The path shown is relative to the location where you cloned the SDK.
 
@@ -1062,6 +1062,8 @@ In this section, you'll use your Windows command prompt.
     * Replace `<registration-id>` with the **Registration ID** you used for your device, *device-01*.
     * Replace `certificate-file-path` with the device full chain certificate file you generated previously, *certs\device-01-full-chain.cert.pem*
     * Replace `key-file-path` with the device private key file you generated previously, *private\device-01.key.pem*.
+
+    (The paths shown above are relative to the directory where you ran the OpenSSL commands to create your certificate chain. Modify them accordingly for your system.)
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
@@ -1099,8 +1101,13 @@ In this section, you'll use your Windows command prompt.
     send status: MessageEnqueued
     ```
 
->[!TIP]
->The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For more information, see [Device concepts](./concepts-service.md).
+1. Update the environment variables for your second device (`device-02`) according to the table below and run the sample again.
+
+    |   Environment Variable        |  Value  |
+    | :---------------------------- | :--------- |
+    | PROVISIONING_REGISTRATION_ID  | `device-02` |
+    | CERTIFICATE_FILE              | *certs\device-02-full-chain.cert.pem* |
+    | KEY_FILE                      | *private\device-02.key.pem* |
 
 ::: zone-end
 
@@ -1110,26 +1117,26 @@ In this section, you'll use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
-1. Copy the **ID Scope** and **Global device endpoint** values.
+1. Copy the **ID Scope**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope in the Azure portal.":::
 
 1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
 
     ```cmd
-    cd ./azure-iot-sdk-python/samples/async-hub-scenarios
+    cd .\azure-iot-sdk-python\samples\async-hub-scenarios
     ```
 
     This sample uses six environment variables to authenticate and provision an IoT device using DPS. These environment variables are:
 
     | Variable name              | Description                                     |
     | :------------------------- | :---------------------------------------------- |
-    | `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS resource |
-    | `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS resource |
-    | `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate |
-    | `X509_CERT_FILE`           |  Your device certificate filename |
-    | `X509_KEY_FILE`            |  The private key filename for your device certificate |
-    | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |
+    | `PROVISIONING_HOST`        |  The endpoint to use for connecting to your DPS instance. For this tutorial, use the global endpoint, `global.azure-devices-provisioning.net` |
+    | `PROVISIONING_IDSCOPE`     |  The ID Scope for your DPS instance |
+    | `DPS_X509_REGISTRATION_ID` |  The registration ID for your device. It must match the subject common name in the device certificate |
+    | `X509_CERT_FILE`           |  The path to your device full chain certificate file |
+    | `X509_KEY_FILE`            |  The path to your device certificate private key file |
+    | `PASS_PHRASE`              |  The pass phrase used to encrypt the private key file (if used). Not needed for this tutorial. |
 
 1. Add the environment variables for the global device endpoint and ID Scope.
 
@@ -1138,58 +1145,67 @@ In this section, you'll use your Windows command prompt.
     set PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
 
-1. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
+1. The registration ID for the IoT device must match subject common name on its device certificate. For this tutorial, `device-01` is both the subject name and the registration ID for the device.
 
 1. Set the environment variable for the registration ID as follows:
 
     ```cmd
-    set DPS_X509_REGISTRATION_ID=my-x509-device
+    set DPS_X509_REGISTRATION_ID=device-01
     ```
 
-1. Set the environment variables for the certificate file, private key file, and pass phrase.
+1. Set the environment variables for the certificate file and private key file. The paths shown are relative to the directory where you ran the OpenSSL commands to create your certificate chain. Modify them accordingly for your system.
 
     ```cmd
-    set X509_CERT_FILE=./device-cert.pem
-    set X509_KEY_FILE=./device-key.pem
-    set PASS_PHRASE=1234
+    set X509_CERT_FILE=certs\device-01-full-chain.cert.pem
+    set X509_KEY_FILE=private\device-01.key.pem
     ```
 
 1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
 
-1. Save your changes.
-
-1. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+1. Run the sample. The sample connects to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample sends some test messages to the IoT hub.
 
     ```cmd
-    $ python azure-iot-sdk-python/samples/async-hub-scenarios/provision_x509.py
-    RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
+    python provision_x509.py
+    ```
+
+    You should see output similar to the following:
+
+    ```output
     The complete registration result is
-    my-x509-device
-    TestHub12345.azure-devices.net
+    device-01
+    contoso-hub-2.azure-devices.net
     initialAssignment
     null
     Will send telemetry from the provisioned device
-    sending message #4
-    sending message #7
-    sending message #2
-    sending message #8
-    sending message #5
-    sending message #9
     sending message #1
-    sending message #6
-    sending message #10
+    sending message #2
     sending message #3
-    done sending message #4
-    done sending message #7
-    done sending message #2
-    done sending message #8
-    done sending message #5
-    done sending message #9
+    sending message #4
+    sending message #5
+    sending message #6
+    sending message #7
+    sending message #8
+    sending message #9
+    sending message #10
     done sending message #1
-    done sending message #6
-    done sending message #10
+    done sending message #2
     done sending message #3
+    done sending message #4
+    done sending message #5
+    done sending message #6
+    done sending message #7
+    done sending message #8
+    done sending message #9
+    done sending message #10
     ```
+
+1. Update the environment variables for your second device (`device-02`) according to the table below and run the sample again.
+
+    |   Environment Variable        |  Value  |
+    | :---------------------------- | :--------- |
+    | DPS_X509_REGISTRATION_ID      | `device-02` |
+    | X509_CERT_FILE                | *certs\device-02-full-chain.cert.pem* |
+    | X509_KEY_FILE                 | *private\device-02.key.pem* |
 
 ::: zone-end
 
@@ -1199,9 +1215,9 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
-1. Copy the **ID Scope** and **Global device endpoint** values.
+1. Copy the **ID Scope**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope in the Azure portal.":::
 
 1. In your Windows command prompt, navigate to the sample project folder. The path shown is relative to the location where you cloned the SDK
 
@@ -1213,29 +1229,45 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
     1. Open the file `.\src\main\java\samples\com/microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
 
-    1. Update the following values with the **ID Scope** and **Provisioning Service Global Endpoint** that you copied previously.
+    1. Update the following values. For `idScope`, use the **ID Scope** that you copied previously. For global endpoint, use the  **Global device endpoint**. This endpoint is the same for every DPS instance, `global.azure-devices-provisioning.net`.
 
         ```java
         private static final String idScope = "[Your ID scope here]";
         private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+        ```
+
+    1. The sample defaults to using HTTPS as the transport protocol. If you want to change the protocol, comment out the following line and uncomment the line for the protocol you want to use.
+
+        ```java
         private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+        ```
 
     1. Update the value of the `leafPublicPem` constant string with the value of your certificate, *device-cert.pem*.
 
         The syntax of certificate text must follow the pattern below with no extra spaces or characters.
 
         ```java
-        private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n" +
+        private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n"
+        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
             ...
-        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n" +
+        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+        "-----END CERTIFICATE-----\n"
+        "-----BEGIN CERTIFICATE-----\n"
+        "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
+            ...
+        "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
+        "-----END CERTIFICATE-----\n"
+        "-----BEGIN CERTIFICATE-----\n"
+        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+            ...
+        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
         "-----END CERTIFICATE-----";        
         ```
 
         Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
 
         ```Bash
-        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' device-cert.pem
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./certs/device-01-full-chain.cert.pem
         ```
 
         Copy and paste the output certificate text for the constant value.
@@ -1255,7 +1287,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
         Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
 
         ```Bash
-        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' unencrypted-device-key.pem
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./private/device-01.key.pem
         ```
 
         Copy and paste the output private key text for the constant value.
