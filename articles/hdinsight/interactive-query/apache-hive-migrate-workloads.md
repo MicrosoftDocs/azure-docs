@@ -108,7 +108,7 @@ STACK_VERSION=$(hdp-select status hive-server2 | awk '{ print $3; }')
 
 **Problem**
 
-In certain situations when running a Hive query, you might receive `java.lang.ClassNotFoundException` stating  `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` class isn't found. This error occurs  happen when customer migrates from HDInsight 3.6 to HDInsight 4.0. The SerDe class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe`, which is a part of `hive-contrib-1.2.1000.2.6.5.3033-1.jar` in HDInsight 3.6 is removed and we're using `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` class, which is a part of `hive-exec jar` in HDI-4.0. `hive-exec jar` will load to HS2 by default when we start the service.
+In certain situations when running a Hive query, you might receive `java.lang.ClassNotFoundException` stating  `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` class isn't found. This error occurs when customer migrates from HDInsight 3.6 to HDInsight 4.0. The SerDe class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe`, which is a part of `hive-contrib-1.2.1000.2.6.5.3033-1.jar` in HDInsight 3.6 is removed and we're using `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` class, which is a part of `hive-exec jar` in HDI-4.0. `hive-exec jar` will load to HS2 by default when we start the service.
 
 **STEPS TO TROUBLESHOOT**
 
@@ -143,10 +143,10 @@ The update command is to update the details manually in the backend DB and the a
 HDInsight optionally integrates with Azure Active Directory using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
 
 1. Navigate to the Ranger Service Manager panel in your HDInsight 3.6 cluster.
-2. Navigate to the policy named **HIVE** and export the policy to a json file.
-3. Make sure that all users referred to in the exported policy json exist in the new cluster. If a user is referred to in the policy json but doesn't exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
-4. Navigate to the **Ranger Service Manager** panel in your HDInsight 4.0 cluster.
-5. Navigate to the policy named **HIVE** and import the ranger policy json from step 2.
+1. Navigate to the policy named **HIVE** and export the policy to a json file.
+1. Make sure that all users referred to in the exported policy json exist in the new cluster. If a user is referred to in the policy json but doesn't exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
+1. Navigate to the **Ranger Service Manager** panel in your HDInsight 4.0 cluster.
+1. Navigate to the policy named **HIVE** and import the ranger policy json from step 2.
 
 ## Hive changes in HDInsight 4.0 that may require application changes
 
