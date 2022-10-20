@@ -62,7 +62,7 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
 
 1. Add a Ranger policy for `alicetest` with consume access to topics with wildcard pattern `alicetopic*`
 
-    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest." border="false":::
+    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest." border="false":::
     
      
 1. Add a Ranger policy for `bobadmin` with all accesses to all topics with wildcard pattern `*`
@@ -338,7 +338,7 @@ From Spark cluster, read from Kafka topic `bobtopic2` as user `bobadmin` is allo
 
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
        
-      :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest." border="false":::
+      :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest." border="false":::
     
 ## Next steps
 
