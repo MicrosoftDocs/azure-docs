@@ -103,7 +103,7 @@ type: Opaque
 
 For more information on configuring [an sslSecret](reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl).
 
-After that, you can specify the sslSecret to be the name of this Kubernetes secret as CLI command follow (assuming you are using AKS), 
+After saving the secret in your cluster, you can specify the sslSecret to be the name of this Kubernetes secret with the following CLI command (this command will work only if you are using AKS):
 
 <!--CLI command-->
 ```azurecli
