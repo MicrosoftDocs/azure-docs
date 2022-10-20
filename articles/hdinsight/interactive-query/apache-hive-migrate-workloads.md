@@ -121,9 +121,9 @@ In certain situations when running a Hive query, you might receive `java.lang.Cl
      ```
      grep -Hrni "org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe" /usr/hdp/current/hive/lib
      ```
-1. If it couldn't find the class, it will return no output. If it finds the class in a JAR file, it will return the output.
+1. If it couldn't find the class, it will return no output. If it finds the class in a JAR file, it will return the output
 
-1. Below is the example took from HDI-4.x cluster
+1. Below is the example took from HDInsight 4.x cluster
 
     ```
     sshuser@hn0-alters:~$ grep -Hrni "org.apache.hadoop.hive.serde2.MultiDelimitSerDe" /usr/hdp/4.1.9.7/hive/lib/
