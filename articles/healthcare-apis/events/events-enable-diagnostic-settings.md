@@ -6,15 +6,15 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/06/2022
+ms.date: 10/21/2022
 ms.author: jasteppe
 ---
 
-# Enable Events diagnostic settings
+# Enable diagnostic settings in Events
 
 In this article, you'll be provided resources to enable the Events diagnostic settings for Azure Event Grid system topics. 
 
-After they're enabled, Event Grid system topics diagnostic logs and metrics will be exported for audit, analysis, troubleshooting, or backup.
+After they're enabled, Event Grid system topics diagnostic logs and metrics will be exported to the destination of your choosing for audit, analysis, troubleshooting, or backup.
 
 ## Resources
 
