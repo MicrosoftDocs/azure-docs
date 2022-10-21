@@ -231,7 +231,7 @@ The [Wayfinding service][wayfind] enables you to provide your customers with the
 
 #### Wayfinding paths
 
-When a wayfinding path is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg, as are any stairs or elevators used to move between floors.
+When a [wayfinding path][wayfinding path] is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg, as are any stairs or elevators used to move between floors.
 
 For example, the first leg of the path might be from the origin to the elevator on that floor. The next leg will be the elevator, and then the final leg will be the path from the elevator to the destination. The estimated travel time is calculated and displayed next to the starting point for each leg.
 
@@ -307,7 +307,8 @@ The following example shows how to update a dataset, create a new tileset, and d
 [style]: /rest/api/maps/v20220901preview/style
 [tileset]: /rest/api/maps/v20220901preview/tileset
 [routeset]: /rest/api/maps/v20220901preview/routestset
-[wayfind]: /rest/api/maps/v20220901preview/wayfind
+[wayfind]: /rest/api/maps/v20220901preview/wayfinding
+[wayfinding path] /rest/api/maps/v20220901preview/wayfinding/path
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
 [map-config-api]: /rest/api/maps/v20220901preview/map-configuration

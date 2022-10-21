@@ -30,7 +30,7 @@ Creator wayfinding is powered by [Havok][havok].
 
 ## Create a routeset
 
-A routeset is a collection of indoor map data that is used by the wayfinding service.
+A [routeset][routeset] is a collection of indoor map data that is used by the wayfinding service.
 
 A routeset is created from a dataset, but is independent from that dataset. This means that if the dataset is deleted, the routeset continues to exist.
 
@@ -103,7 +103,7 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 
 ## Get a wayfinding path
 
-In this section, you’ll use the wayfinding API to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers
+In this section, you’ll use the [wayfinding API][wayfinding API] to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers. For more information about Creator wayfinding, see [wayfinding][wayfinding] in the concepts article.
 
 To create a wayfinding query:
 
@@ -175,6 +175,9 @@ The wayfinding service calculates the path through specific intervening points. 
 
 [dataset]: creator-indoor-maps.md#datasets
 [tileset]: creator-indoor-maps.md#tilesets
+[routeset]: creator-indoor-maps.md#routeset
+[wayfinding]: creator-indoor-maps.md#wayfinding-preview
+[wayfinding API]: /rest/api/maps/v20220901preview/wayfinding
 [how to manage access to creator services]: how-to-manage-creator.md#access-to-creator-services
 [check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [wayfinding service]: creator-indoor-maps.md#wayfinding-preview

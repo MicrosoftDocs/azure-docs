@@ -180,8 +180,8 @@ Maps Creator provides three core services:
 
 * [WFS service][WFS]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
 
-<!----* [Wayfinding service][wayfinding-preview] (preview). Use the [wayfinding API][wayfind] to generate a path between two points within a facility. Use the [routeset API][routeset] to create the data that the wayfinding service needs to generate paths.
---->
+[Wayfinding service][wayfinding-preview] (preview). Use the [wayfinding API][wayfind] to generate a path between two points within a facility. Use the [routeset API][routeset] to create the data that the wayfinding service needs to generate paths.
+
 ### Elevation service
 
 The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
@@ -246,4 +246,6 @@ Stay up to date on Azure Maps:
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [FeatureState]: creator-indoor-maps.md#feature-statesets
 [WFS]: creator-indoor-maps.md#web-feature-service-api
-<!--[wayfinding-preview]: creator-indoor-maps.md# -->
+[wayfinding-preview]: creator-indoor-maps.md#wayfinding-preview
+[wayfind]: /rest/api/maps/v20220901preview/wayfinding
+[routeset]: /rest/api/maps/v20220901preview/routeset
