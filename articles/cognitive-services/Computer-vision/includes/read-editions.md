@@ -24,4 +24,4 @@ ms.author: pafarley
 >
 > **Computer Vision v3.2 GA Read**
 >
-> Follow the Computer Vision 3.2 GA Read [overview](../how-to/call-read-api) and [quickstart](../quickstarts-sdk/client-library.md), but note that all future Read OCR enhancements for image and document scenarios will be part of the two new services listed above. There will be no further updates to the Computer Vision 3.2 Read version.
+> Follow the Computer Vision 3.2 GA Read [overview](../how-to/call-read-api.md) and [quickstart](../quickstarts-sdk/client-library.md), but note that all future Read OCR enhancements for image and document scenarios will be part of the two new services listed above. There will be no further updates to the Computer Vision 3.2 Read version.
