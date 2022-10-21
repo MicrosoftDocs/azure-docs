@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/19/2022
+ms.date: 10/21/2022
 
 #Customer intent:
 
@@ -165,7 +165,7 @@ Here is what the condition looks like in code:
 
     ![Screenshot of condition displayed in code editor.](./media/storage-auth-abac-portal/condition-code.png)
 
-1. Click **Save** to add the condition and return the Add role assignment page.
+1. Click **Save** to add the condition and return to the Add role assignment page.
 
 1. Click **Next**.
 
