@@ -96,7 +96,7 @@ items:
     href: concept-metrics.md
   - name: Spring Boot Actuator
     href: concept-manage-monitor-app-spring-boot-actuator.md
-  - name: Customize Azure Spring Cloud egress with a user-defined route
+  - name: Customize Azure Spring Apps egress with a user-defined route
     href: concept-outbound-type.md
 - name: Security
   items:
