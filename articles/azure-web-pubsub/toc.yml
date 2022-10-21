@@ -62,6 +62,8 @@
       href: howto-develop-reliable-clients.md
     - name: Configure event handler
       href: howto-develop-eventhandler.md
+    - name: Send client events to Event Hubs
+      href: howto-develop-eventlistener.md
     - name: Create `WebPubSubServiceClient` with Azure Identity
       items:
       - name: Create `WebPubSubServiceClient` with Azure Identity and .NET
@@ -72,8 +74,6 @@
         href: howto-create-serviceclient-with-javascript-and-azure-identity.md
       - name: Create `WebPubSubServiceClient` with Azure Identity and Python
         href: howto-create-serviceclient-with-python-and-azure-identity.md
-    - name: Send client events to Event Hubs
-      href: howto-develop-eventlistener.md
   - name: Monitor
     items:
     - name: Audit compliance using Azure Policy
