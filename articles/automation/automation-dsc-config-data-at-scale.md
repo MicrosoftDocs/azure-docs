@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > This article refers to a solution that is maintained by the Open Source community. Support is only available in the form of GitHub collaboration, and not from Microsoft.
 
 Managing many servers is a challenge and difficulty lies in managing [configuration data](/powershell/dsc/configurations/configdata) as it involves organizing information across logical constructs like location, type, and environment. 
