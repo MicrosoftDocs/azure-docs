@@ -1242,22 +1242,12 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
         private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
         ```
 
-    1. Update the value of the `leafPublicPem` constant string with the value of your certificate, *device-cert.pem*.
+    1. Update the value of the `leafPublicPem` constant string with the value of your device certificate, *device-01.cert.pem*.
 
         The syntax of certificate text must follow the pattern below with no extra spaces or characters.
 
         ```java
         private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n"
-        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
-            ...
-        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
-        "-----END CERTIFICATE-----\n"
-        "-----BEGIN CERTIFICATE-----\n"
-        "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
-            ...
-        "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
-        "-----END CERTIFICATE-----\n"
-        "-----BEGIN CERTIFICATE-----\n"
         "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
             ...
         "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
@@ -1267,7 +1257,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
         Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
 
         ```Bash
-        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./certs/device-01-full-chain.cert.pem
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./certs/device-01.cert.pem
         ```
 
         Copy and paste the output certificate text for the constant value.
@@ -1292,6 +1282,63 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
         Copy and paste the output private key text for the constant value.
 
+    1. Add a `rootPublicPem` constant string with the value of your root CA certificate, *azure-iot-test-only.root.ca.cert.pem*. You can add it just after the `leafPrivateKey` constant.
+
+        The syntax of certificate text must follow the pattern below with no extra spaces or characters.
+
+        ```java
+        private static final String rootPublicPem = "-----BEGIN CERTIFICATE-----\n"
+        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+            ...
+        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+        "-----END CERTIFICATE-----";        
+        ```
+
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `rootPublicPem` string constant value and write it to the output.
+
+        ```Bash
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./certs/azure-iot-test-only.root.ca.cert.pem
+        ```
+
+        Copy and paste the output certificate text for the constant value.
+
+    1. Add an `intermediatePublicPem` constant string with the value of your intermediate CA certificate, *azure-iot-test-only.intermediate.cert.pem*. You can add it just after the previous constant.
+
+        The syntax of certificate text must follow the pattern below with no extra spaces or characters.
+
+        ```java
+        private static final String intermediatePublicPem = "-----BEGIN CERTIFICATE-----\n"
+        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+            ...
+        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+        "-----END CERTIFICATE-----";        
+        ```
+
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `intermediatePublicPem` string constant value and write it to the output.
+
+        ```Bash
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./certs/azure-iot-test-only.intermediate.cert.pem
+        ```
+
+        Copy and paste the output certificate text for the constant value.
+
+    1. Find the following lines in the `main` method.
+
+        ```java
+        // For group enrollment uncomment this line
+        //signerCertificatePemList.add("<Your Signer/intermediate Certificate Here>");
+        ```
+
+        Add these two lines directly beneath them to add your intermediate and root CA certificates to the signing chain.
+
+        ```java
+        signerCertificatePemList.add(intermediatePublicPem);
+        signerCertificatePemList.add(rootPublicPem);
+        ```
+
+        > [!NOTE]
+        > The order that the signing certificates are added is important. The sample will fail if it's changed.
+
     1. Save your changes.
 
 1. Build the sample, and then go to the `target` folder.
@@ -1313,41 +1360,47 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
     Starting...
     Beginning setup.
     WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
-    2022-05-11 09:42:05,025 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Initialized a ProvisioningDeviceClient instance using SDK version 2.0.0
-    2022-05-11 09:42:05,027 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Starting provisioning thread...
+    2022-10-21 10:41:20,476 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Initialized a ProvisioningDeviceClient instance using SDK version 2.0.2
+    2022-10-21 10:41:20,479 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Starting provisioning thread...
     Waiting for Provisioning Service to register
-    2022-05-11 09:42:05,030 INFO (global.azure-devices-provisioning.net-6255a8ba-CxnPendingConnectionId-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Opening the connection to device provisioning service...
-    2022-05-11 09:42:05,252 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Connection to device provisioning service opened successfully, sending initial device registration message
-    2022-05-11 09:42:05,286 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-RegisterTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.RegisterTask] - Authenticating with device provisioning service using x509 certificates
-    2022-05-11 09:42:06,083 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Waiting for device provisioning service to provision this device...
-    2022-05-11 09:42:06,083 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Current provisioning status: ASSIGNING
-    Waiting for Provisioning Service to register
-    2022-05-11 09:42:15,685 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Device provisioning service assigned the device successfully
-    IotHUb Uri : MyExampleHub.azure-devices.net
-    Device ID : java-device-01
-    2022-05-11 09:42:25,057 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
-    2022-05-11 09:42:25,080 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
-    2022-05-11 09:42:25,087 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Initialized a DeviceClient instance using SDK version 2.0.3
-    2022-05-11 09:42:25,129 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - Opening MQTT connection...
-    2022-05-11 09:42:25,150 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT CONNECT packet...
-    2022-05-11 09:42:25,982 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT CONNECT packet was acknowledged
-    2022-05-11 09:42:25,983 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT SUBSCRIBE packet for topic devices/java-device-01/messages/devicebound/#
-    2022-05-11 09:42:26,068 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT SUBSCRIBE packet for topic devices/java-device-01/messages/devicebound/# was acknowledged
-    2022-05-11 09:42:26,068 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - MQTT connection opened successfully
-    2022-05-11 09:42:26,070 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - The connection to the IoT Hub has been established
-    2022-05-11 09:42:26,071 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Updating transport status to new status CONNECTED with reason CONNECTION_OK
-    2022-05-11 09:42:26,071 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceIO] - Starting worker threads
-    2022-05-11 09:42:26,073 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking connection status callbacks with new status details
-    2022-05-11 09:42:26,074 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
-    2022-05-11 09:42:26,075 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
+    2022-10-21 10:41:20,482 INFO (global.azure-devices-provisioning.net-4f8279ac-CxnPendingConnectionId-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Opening the connection to device provisioning service...
+    2022-10-21 10:41:20,652 INFO (global.azure-devices-provisioning.net-4f8279ac-Cxn4f8279ac-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Connection to device provisioning service opened successfully, sending initial device registration message
+    2022-10-21 10:41:20,680 INFO (global.azure-devices-provisioning.net-4f8279ac-Cxn4f8279ac-azure-iot-sdk-RegisterTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.RegisterTask] - Authenticating with device provisioning service using x509 certificates
+    2022-10-21 10:41:21,603 INFO (global.azure-devices-provisioning.net-4f8279ac-Cxn4f8279ac-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Waiting for device provisioning service to provision this device...
+    2022-10-21 10:41:21,605 INFO (global.azure-devices-provisioning.net-4f8279ac-Cxn4f8279ac-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Current provisioning status: ASSIGNING
+    2022-10-21 10:41:24,868 INFO (global.azure-devices-provisioning.net-4f8279ac-Cxn4f8279ac-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Device provisioning service assigned the device successfully
+    IotHUb Uri : contoso-hub-2.azure-devices.net
+    Device ID : device-01
+    2022-10-21 10:41:30,514 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-10-21 10:41:30,526 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-10-21 10:41:30,533 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Initialized a DeviceClient instance using SDK version 2.1.2
+    2022-10-21 10:41:30,590 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - Opening MQTT connection...
+    2022-10-21 10:41:30,625 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT CONNECT packet...
+    2022-10-21 10:41:31,452 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT CONNECT packet was acknowledged
+    2022-10-21 10:41:31,453 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT SUBSCRIBE packet for topic devices/device-01/messages/devicebound/#
+    2022-10-21 10:41:31,523 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT SUBSCRIBE packet for topic devices/device-01/messages/devicebound/# was acknowledged
+    2022-10-21 10:41:31,525 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - MQTT connection opened successfully
+    2022-10-21 10:41:31,528 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - The connection to the IoT Hub has been established
+    2022-10-21 10:41:31,531 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Updating transport status to new status CONNECTED with reason CONNECTION_OK
+    2022-10-21 10:41:31,532 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceIO] - Starting worker threads
+    2022-10-21 10:41:31,535 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking connection status callbacks with new status details
+    2022-10-21 10:41:31,536 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
+    2022-10-21 10:41:31,537 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
     Sending message from device to IoT Hub...
-    2022-05-11 09:42:26,077 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    2022-10-21 10:41:31,539 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
     Press any key to exit...
-    2022-05-11 09:42:26,079 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
-    2022-05-11 09:42:26,422 DEBUG (MQTT Call: java-device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
-    2022-05-11 09:42:26,425 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] ) with status OK
+    2022-10-21 10:41:31,540 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
+    2022-10-21 10:41:31,844 DEBUG (MQTT Call: device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
+    2022-10-21 10:41:31,846 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] ) with status OK
     Message sent!
     ```
+
+1. Update the constants for your second device (`device-02`) according to the table below, rebuild, and run the sample again.
+
+    |   Constant        |  File to use |
+    | :---------------- | :--------- |
+    | `leafPublicPem`   | *.\certs\device-02.cert.pem* |
+    | `leafPrivateKey`  | *.\private\device-02.key.pem* |
 
 ::: zone-end
 
