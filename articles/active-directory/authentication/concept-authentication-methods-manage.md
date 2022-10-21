@@ -35,7 +35,7 @@ Or let's say you want to enable passwordless authentication with Microsoft Authe
 
 To manage the Authentication methods policy, click **Security** > **Authentication methods** > **Policies**.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
+:::image type="content" border="true" source="./media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
 ## MFA and SSPR settings
 
@@ -46,7 +46,7 @@ Two other policies, located in **Multifactor authentication** settings and **Pas
 
 To manage MFA methods for all users in the tenant, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
+:::image type="content" border="true" source="./media/concept-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
 To manage authentication methods for self-service password reset (SSPR) across the tenant, click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice call or SMS to be sent to a mobile phone. The **Office phone** option allows only voice call. 
 
@@ -81,7 +81,7 @@ The Authentication methods policy provides a migration path toward unified admin
 
 To view the migration options, open the Authentication methods policy and click **Manage migration**.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of migration options.":::
+:::image type="content" border="true" source="./media/concept-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of migration options.":::
 
 The following table describes each option.
 
@@ -93,7 +93,7 @@ The following table describes each option.
 
 All tenants are set to Pre-migration by default. At any time, you can change to another option. If you choose to roll back to Pre-migration afterward, you need to specify a reason.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
+:::image type="content" border="true" source="./media/concept-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
 
 
 ## Next steps
