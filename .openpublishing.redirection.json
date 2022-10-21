@@ -29233,6 +29233,11 @@
             "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
             "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/overview-experiment.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/overview",
+            "redirect_document_id": false
         }
 
     ]
