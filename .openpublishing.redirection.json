@@ -764,11 +764,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/node-access.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/aks/troubleshooting.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
