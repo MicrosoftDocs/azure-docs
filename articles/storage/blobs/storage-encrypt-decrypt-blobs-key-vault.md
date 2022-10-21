@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Encrypt and decrypt blobs using Azure Key Vault
 
-In this tutorial, you learn how to use client-side encryption to encrypt and decrypt blobs using keys stored in Azure Key Vault.
+In this tutorial, you learn how to use client-side encryption to encrypt and decrypt blobs using keys stored with Azure Key Vault.
 
 Azure Key Vault is a cloud solution for managing secrets, keys, and certificates. You can read more about Azure Key Vault on the [overview page](../../key-vault/general/overview.md).
 
