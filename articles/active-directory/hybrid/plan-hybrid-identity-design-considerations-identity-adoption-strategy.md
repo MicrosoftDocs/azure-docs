@@ -25,18 +25,18 @@ In this task, you define the hybrid identity adoption strategy for your hybrid i
 * [Determine multi-factor authentication requirements](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## Define business needs strategy
-The first task addresses determining the organizations business needs.  This can be very broad and scope creep can occur if you are not careful.  In the beginning, keep it simple but always remember to plan for a design that will accommodate and facilitate change in the future.  Regardless of whether it is a simple design or an extremely complex one, Azure Active Directory is the Microsoft Identity platform that supports Microsoft 365, Microsoft Online Services, and cloud aware applications.
+The first task addresses determining the organizations business needs.  This can be very broad and scope creep can occur if you are not careful.  In the beginning, keep it simple but always remember to plan for a design that will accommodate and facilitate change in the future.  Regardless of whether it is a simple design or a complex one, Azure Active Directory is the Microsoft Identity platform that supports Microsoft 365, Microsoft Online Services, and cloud aware applications.
 
 ## Define an integration strategy
-Microsoft has three main integration scenarios which are cloud identities, synchronized identities, and federated identities.  You should plan on adopting one of these integration strategies.  The strategy you choose can vary and the decisions in choosing one may include, what type of user experience you want to provide, do you have an existing infrastructure, and what is the most cost effective.  
+Microsoft has three main integration scenarios: cloud identities, synchronized identities, and federated identities.  You should plan on adopting one of these integration strategies.  The strategy you choose can vary and the decisions in choosing one may include, what type of user experience you want to provide, do you have an existing infrastructure, and what is the most cost effective.  
 
 ![integration scenarios](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 The scenarios defined in the above figure are:
 
-* **Cloud identities**: these are identities that exist solely in the cloud.  In the case of Azure AD, they would reside specifically in your Azure AD directory.
-* **Synchronized**: these are identities that exist on-premises and in the cloud.  Using Azure AD Connect, these users are either created or joined with existing Azure AD accounts.  The user’s password hash is synchronized from the on-premises environment to the cloud in what is called a password hash.  When using synchronized the one caveat is that if a user is disabled in the on-premises environment, it can take up to three hours for that account status to show up in Azure AD.  This is due to the synchronization time interval.
-* **Federated**: these identities exist both on-premises and in the cloud.  Using Azure AD Connect, these users are either created or joined with existing Azure AD accounts.  
+* **Cloud identities**: identities that exist solely in the cloud.  In the case of Azure AD, they would reside specifically in your Azure AD directory.
+* **Synchronized**: identities that exist on-premises and in the cloud.  Using Azure AD Connect, users are either created or joined with existing Azure AD accounts.  The user’s password hash is synchronized from the on-premises environment to the cloud in what is called a password hash.  When using synchronized the one caveat is that if a user is disabled in the on-premises environment, it can take up to three hours for that account status to show up in Azure AD.  This behavior is due to the synchronization time interval.
+* **Federated**: identities exist both on-premises and in the cloud.  Using Azure AD Connect, users are either created or joined with existing Azure AD accounts.  
 
 > [!NOTE]
 > For more information about the Synchronization options, read [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
@@ -47,9 +47,9 @@ The following table helps in determining the advantages and disadvantages of eac
 
 | Strategy | Advantages | Disadvantages |
 | --- | --- | --- |
-| **Cloud identities** |Easier to manage for small organization. <br> Nothing to install on-premises. No additional hardware needed<br>Easily disabled if the user leaves the company |Users will need to sign in when accessing workloads in the cloud <br> Passwords may or may not be the same for cloud and on-premises identities |
+| **Cloud identities** |Easier to manage for small organization. <br> Nothing to install on-premises. No extra hardware needed<br>Easily disabled if the user leaves the company |Users will need to sign in when accessing workloads in the cloud <br> Passwords may or may not be the same for cloud and on-premises identities |
 | **Synchronized** |On-premises password authenticates both on-premises and cloud directories <br>Easier to manage for small, medium, or large organizations <br>Users can have single sign-on (SSO) for some resources <br> Microsoft preferred method for synchronization <br> Easier to manage |Some customers may be reluctant to synchronize their directories with the cloud due specific company’s policies |
-| **Federated** |Users can have single sign-on (SSO) <br>If a user is terminated or leaves, the account can be immediately disabled and access revoked,<br> Supports advanced scenarios that cannot be accomplished with synchronized |More steps to set up and configure <br> Higher maintenance <br> May require additional hardware for the STS infrastructure <br> May require additional hardware to install the federation server. Additional software is required if AD FS is used <br> Require extensive setup for SSO <br> Critical point of failure if the federation server is down, users won’t be able to authenticate |
+| **Federated** |Users can have single sign-on (SSO) <br>If a user is terminated or leaves, the account can be immediately disabled and access revoked,<br> Supports advanced scenarios that cannot be accomplished with synchronized |More steps to set up and configure <br> Higher maintenance <br> May require extra hardware for the STS infrastructure <br> May require extra hardware to install the federation server. Additional software is required if AD FS is used <br> Require extensive setup for SSO <br> Critical point of failure if the federation server is down, users won’t be able to authenticate |
 
 ### Client experience
 The strategy that you use will dictate the user sign-in experience.  The following tables provide you with information on what the users should expect their sign-in experience to be.  Not all federated identity providers support SSO in all scenarios.
@@ -103,7 +103,7 @@ Over the years, several synchronization tools have existed and used for various 
 
 ### Supported topologies
 When defining a synchronization strategy, the topology that is used must be determined. Depending on the information that was determined in step 2 you can determine which topology is the proper one to use. 
-The single forest, single Azure AD topology is the most common and consists of a single Active Directory forest and a single instance of Azure AD.  This is going to be used in a majority of the scenarios and is the expected topology when using Azure AD Connect Express installation as shown in the figure below.
+The single forest, single Azure AD topology is the most common and consists of a single Active Directory forest and a single instance of Azure AD.  This topology is going to be used in a majority of the scenarios and is the expected topology when using Azure AD Connect Express installation as shown in the figure below.
 
 ![Supported topologies](./media/plan-hybrid-identity-design-considerations/single-forest.png)
 Single Forest Scenario
@@ -126,7 +126,7 @@ If this is the case, then the multi-forest single Azure AD topology should be co
 * All forests are accessible by Azure AD Connect – this means it does not need to be domain joined and can be placed in a DMZ if this facilitates this.
 * Users have only one mailbox
 * The forest that hosts a user’s mailbox has the best data quality for attributes visible in the Exchange Global Address List (GAL)
-* If there is no mailbox on the user, then any forest may be used to contribute these values
+* If there is no mailbox on the user, then any forest may be used to contribute values
 * If you have a linked mailbox, then there is also another account in a different forest used to sign in.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ If this is the case, then the multi-forest single Azure AD topology should be co
 > 
 > 
 
-If the above are not true and you have more than one active account or more than one mailbox, Azure AD Connect will pick one and ignore the other.  If you have linked mailboxes but no other account, these accounts will not be exported to Azure AD and that user will not be a member of any groups.  This is different from how it was in the past with DirSync and is intentional to better support these multi-forest scenarios. A multi-forest scenario is shown in the figure below.
+If the above are not true and you have more than one active account or more than one mailbox, Azure AD Connect will pick one and ignore the other.  If you have linked mailboxes but no other account, accounts will not be exported to Azure AD and that user will not be a member of any groups.  This behavior is different from how it was in the past with DirSync and is intentional to better support multi-forest scenarios. A multi-forest scenario is shown in the figure below.
 
 ![multiple Azure AD tenants](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
@@ -154,7 +154,7 @@ To do this, the following must be true:
 * A DNS domain can only be registered in a single Azure AD directory so the UPNs of the users in the on-premises AD must use separate namespaces
 * Users in one instance of Azure AD will only be able to see users from their instance.  They will not be able to see users in the other instances
 * Only one of the Azure AD directories can enable Exchange hybrid with the on-premises AD
-* Mutual exclusivity also applies to write-back.  This makes some write-back features not supported with this topology since these assume a single on-premises configuration.  This includes:
+* Mutual exclusivity also applies to write-back.  Thus, some write-back features are not supported with this topology since it is assumed to be a single on-premises configuration.  
   * Group write-back with default configuration
   * Device write-back
 
@@ -184,7 +184,7 @@ Multi-factor design options:
 | IIS applications not published through the Azure AD App Proxy |no |yes |
 | Remote access as VPN, RDG |no |yes |
 
-Even though you may have settled on a solution for your strategy, you still need to use the evaluation from above on where your users are located.  This may cause the solution to change.  Use the table below to assist you determining this:
+Even though you may have settled on a solution for your strategy, you still need to use the evaluation from above.  This decision may cause the solution to change.  Use the table below to assist you determining this:
 
 | User location | Preferred design option |
 | --- | --- |

@@ -27,7 +27,7 @@ The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect wi
 07/10/2020: Released for download
 
 ### Functional changes
-This release includes a public preview of the functionality to export the configuration of an existing Azure AD Connect server into a .JSON file which can then be used when installing a new Azure AD Connect server to create a copy of the original server.
+Includes a public preview of the functionality to export the configuration of an existing Azure AD Connect server into a .JSON file.   This file can be used when installing a new Azure AD Connect server to create a copy of the original server.
 
 A detailed description of this new feature can be found in [this article](./how-to-connect-import-export-config.md)
 
@@ -93,7 +93,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 
 ### Functional changes ADSyncAutoUpgrade 
 
-- Added support for the mS-DS-ConsistencyGuid feature for group objects. This allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed, e.g. when an AD server is rebuilt after a calamity. For more information see [Moving groups between forests](how-to-connect-migrate-groups.md).
+- Added support for the mS-DS-ConsistencyGuid feature for group objects. Allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed. For more information see [Moving groups between forests](how-to-connect-migrate-groups.md).
 - The mS-DS-ConsistencyGuid attribute is automatically set on all synced groups and you do not have to do anything to enable this feature. 
 - Removed the Get-ADSyncRunProfile because it is no longer in use. 
 - Changed the warning you see when attempting to use an Enterprise Admin or Domain Admin account for the AD DS connector account to provide more context. 
@@ -114,7 +114,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 ### Release status
 12/9/2019: Release for download. Not available through auto-upgrade.
 ### New features and improvements
-- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from Azure AD to Azure AD Domain Services.
+- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  Provides a performance improvement during password synchronization from Azure AD to Azure AD Domain Services.
 - We added support for reliable sessions between the authentication agent and service bus.
 - We added a DNS cache for websocket connections between authentication agent and cloud services.
 - We added the ability to target specific agent from cloud to test for agent connectivity.
