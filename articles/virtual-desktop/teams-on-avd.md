@@ -92,7 +92,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
         
         > [!NOTE]
-        > We recommend you use per-machine installation for better centralized management for both pooled and multi-session setups.
+        > We recommend you use per-machine installation for better centralized management for both pooled and personal host pool setups.
         >
         > Users and admins can't disable automatic launch for Teams during sign-in at this time.
 

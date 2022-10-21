@@ -24,7 +24,7 @@ The following table lists whether the Windows Desktop client or macOS client sup
 |Configure audio devices|Yes|No|
 |Live captions|Yes|Yes|
 |Communication Access Real-time Translation (CART) transcriptions|Yes|Yes|
-|Give and take control |Yes|Yes|
+|Give and take control |Yes|No|
 |Multiwindow|Yes|Yes|
 |Background blur|Yes|No|
 |Background images|Yes|No|
@@ -46,20 +46,20 @@ The following table lists the minimum required versions for each Teams feature. 
 |Supported features|Windows Desktop client version |macOS client version|WebRTC Service version|Teams version|
 |---|---|---|---|---|
 |Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
-|Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Configure camera devices|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Configure audio devices|1.2.1755 and later|Not supported|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Live captions|1.2.2322 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|CART transcriptions|1.2.2322 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Give and take control |1.2.2924 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Multiwindow|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|1.5.00.11865 and later|
-|Background blur|1.2.3004 and later|Not supported|1.0.2006.1101 and later|1.5.00.11865 and later|
-|Background images|1.2.3004 and later|Not supported|1.0.2006.1101 and later|1.5.00.11865 and later|
-|Screen share and video together|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Secondary ringer|1.2.3004 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Dynamic e911|1.2.2600 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Diagnostic overlay|1.2.3316 and later|Not supported|1.0.2006.23001 and later|Updates within 90 days of the current version|
-|Noise suppression|1.2.3316 and later|Not supported|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Configure camera devices|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Configure audio devices|1.2.1755 and later|Not supported|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Live captions|1.2.2322 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|CART transcriptions|1.2.2322 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Give and take control |1.2.2924 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Multiwindow|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|1.5.00.11865 and later|
+|Background blur|1.2.3004 and later|Not supported|1.0.2006.11001 and later|1.5.00.11865 and later|
+|Background images|1.2.3004 and later|Not supported|1.0.2006.11001 and later|1.5.00.11865 and later|
+|Screen share and video together|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Secondary ringer|1.2.3004 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Dynamic e911|1.2.2600 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
+|Diagnostic overlay|1.2.3316 and later|Not supported|1.17.2205.23001 and later|Updates within 90 days of the current version|
+|Noise suppression|1.2.3316 and later|Not supported|1.0.2006.11001 and later|Updates within 90 days of the current version|
 
 ## Next steps
 
