@@ -81,8 +81,8 @@ With Arc-enabled VMware vSphere, you can install the Arc connected machine agent
 
 To enable guest management (install the Arc connected machine agent), ensure the following:
 
-- VM is powered on..
-- VM has VMware tools installed and running
+- VM is powered on.
+- VM has VMware tools installed and running.
 - Resource bridge has access to the host on which the VM is running.
 - VM is running a [supported operating system](#supported-operating-systems).
 - VM has internet connectivity directly or through proxy. If the connection is through a proxy, ensure [these URLs](#networking-requirements) are allow-listed.
