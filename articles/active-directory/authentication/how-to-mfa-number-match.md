@@ -43,7 +43,7 @@ Number matching is available for the following scenarios. When enabled, all scen
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
-Number matching is available for sign in for Azure Government. It is available for SSPR and combined registration two weeks after General Availability. Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
+Number matching is available for sign in for Azure Government. It is available for combined registration two weeks after General Availability. Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
 
 ### Multifactor authentication
 
@@ -57,7 +57,7 @@ During self-service password reset, the Authenticator app notification will show
 
 ### Combined registration
 
-When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
+When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. Number matching will be available for combined registration in Azure Government two weeks after General Availability.
 
 ### AD FS adapter
 
