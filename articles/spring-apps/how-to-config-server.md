@@ -87,7 +87,7 @@ The following table lists the configurable properties that you can use to set up
 | `strict-host-key-checking` | No       | Indicates whether the Config Server instance will fail to start when using the private `host-key`. Should be *true* (default value) or *false*.                      |
 
 > [!NOTE]
-> Config Server doesn't support SHA-2 signatures yet. Until support is added, use SHA-1 signatures or basic auth instead.
+> Config Server uses RSA key with SHA-1 signatures for now, and we are actively working on to support it in future release. Before that, if using GitHub, for RSA public keys added to GitHub before 2021-11-02, corresponding private key is supported. For RSA public keys added to GitHub after 2021-11-02, corresponding private key is not supported, suggest using basic authentication.
 
 ### Private repository with basic authentication
 
