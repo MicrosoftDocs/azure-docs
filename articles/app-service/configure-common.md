@@ -196,7 +196,7 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 You can also configure arrays in app settings as shown in the table below.
 
-|App setting name | app setting value |
+|App setting name | App setting value |
 |-----------------|-------------------|
 |MY_ENV_VAR | ['entry1', 'entry2', 'entry3'] |
 
