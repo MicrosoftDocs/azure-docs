@@ -49,9 +49,9 @@ setx FR_ENDPOINT {yourEndpoint}
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **setx** </br>VARIABLE_NAME=value | Set or change the value of an environment variable| `setx FR_KEY={yourKey}`|
   | **setx** </br>VARIABLE_NAME= | Delete the environment variable by setting the value to an empty string.| `setx FR_KEY=` |
-  | **set** </b>VARIABLE_NAME | Display the value of a specific environment variable| `set  FR_KEY` |
+  | **setx** </br>VARIABLE_NAME=value | Set or change the value of an environment variable| `setx FR_KEY={yourKey}`|
+  | **set** </br>VARIABLE_NAME | Display the value of a specific environment variable| `set  FR_KEY` |
   | **set**| Display all environment variables.| `set`|
 
 #### [macOS](#tab/macOS)
@@ -94,8 +94,8 @@ Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** </br>VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| `export FR_KEY={yourKey}`|
   | **unset** </br>VARIABLE_NAME | Delete an environment variable.| `unset FR_KEY` |
+  | **export** </br>VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| `export FR_KEY={yourKey}`|
   | &bullet; **printenv**</br> VARIABLE_NAME</br> &bullet; **echo** </br> $VARIABLE_NAME| Display the value of a specific environment variable (with the **echo** command, precede the variable with $).| &bullet; `printenv FR_KEY` </br>&bullet; `echo $FR_KEY`</br>|
   | **printenv**| Display all environment variables.| `printenv` |
 
@@ -139,8 +139,8 @@ Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** </br>VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| `export FR_KEY={yourKey}`|
   | **unset** </br>VARIABLE_NAME| Delete an environment variable.|`unset FR_KEY=` |
+  | **export** </br>VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| `export FR_KEY={yourKey}`|
   | &bullet; **printenv** </br>VARIABLE_NAME</br> &bullet; **echo** </br>$VARIABLE_NAME| Display the value of an environment variable (with the **echo** command, precede the variable with $).| &bullet; `printenv FR_KEY` </br>&bullet; `echo $FR_KEY`</br>|
   | **printenv**| Display all environment variables.|`printenv`|
 
