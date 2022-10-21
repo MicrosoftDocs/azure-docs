@@ -373,6 +373,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `ip-filter` policy filters (allows/denies) calls from specific IP addresses and/or address ranges.
 
+> [!NOTE]
+> The policy filters the immediate caller's IP address. However, if API Management is hosted behind Application Gateway, the policy considers its IP address, not the originator of the API request. Presently, IP addresses in the `X-Forwarded-For` are not considered.
+
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement

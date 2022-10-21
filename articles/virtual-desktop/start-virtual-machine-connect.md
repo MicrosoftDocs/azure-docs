@@ -3,7 +3,7 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 10/18/2022
 ms.author: helohr
 manager: femila
 ms.custom: subject-rbac-steps
@@ -85,7 +85,7 @@ To assign the *Desktop Virtualization Power On Contributor* role with the Azure 
 > 1. Add the role assignment:
 >
 >    ```powershell
->    New-AzRoleAssignment -RoleDefinitionName "Azure Virtual Desktop Start VM on Connect" -ObjectId $objId -Scope /subscriptions/$subId
+>    New-AzRoleAssignment -RoleDefinitionName "Desktop Virtualization Power On Contributor" -ObjectId $objId -Scope /subscriptions/$subId
 >    ```
 
 ## Enable or disable Start VM on Connect

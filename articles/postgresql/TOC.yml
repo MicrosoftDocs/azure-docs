@@ -546,9 +546,18 @@
       - name: Troubleshoot high memory utilization
         href: flexible-server/how-to-high-memory-utilization.md 
         displayName: High Memory Utilization
+      - name: Troubleshoot High IO utilization
+        href: flexible-server/how-to-high-io-utilization.md 
+        displayName: High IOPS Utilization
       - name: Troubleshoot autovacuum 
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
+      - name: Best practices for bulk data upload 
+        href: flexible-server/how-to-bulk-load-data.md
+        displayName: Best practices for bulk data upload
+      - name: Best practices for pg_dump and restore
+        href: flexible-server/how-to-pgdump-restore.md
+        displayName: Best practices for pg_dump and restore
   - name: How-to guides
     items:
     - name: Manage a server
