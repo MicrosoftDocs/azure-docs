@@ -266,7 +266,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -645,7 +645,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
