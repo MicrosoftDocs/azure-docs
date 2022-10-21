@@ -17,7 +17,7 @@ ms.date: 10/21/2022
 - Handles Dapr version upgrades seamlessly
 - Exposes a simplified Dapr interaction model to increase developer productivity
 
-In this guide, you will deploy a Dapr bindings API microservice application template to Azure Container Apps via the [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md). You'll then learn how `azd` works alongside the Dapr application template with just one command.
+In this guide, you'll deploy a Dapr bindings API microservice application template to Azure Container Apps via the [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md). You'll then learn how `azd` works alongside the Dapr application template with just one command.
 
 The Dapr service you deploy:
 1. Listens to input binding events from a system CRON (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
@@ -122,7 +122,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) |
+   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](/developer/azure-developer-cli/faq.yml#what-is-an-environment-name) |
    | `Azure Location`   | The Azure location where your resources will be deployed. |
    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
@@ -183,7 +183,7 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 
 ## How `azd up` deployed the Dapr application
 
-While Microsoft provides several templates to get started deploying with `azd`, you can make your own Dapr application `azd`-compatible. Once you've `azd`-ified your application, simply running `azd up` will deploy it completely.
+While Microsoft provides several templates to get started deploying with `azd`, you can make your own Dapr application `azd`-compatible. Once you've set up your application with `azd`, simply running `azd up` will deploy it completely.
 
 Some preparation was required for [the above Dapr application](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres) to deploy with just one command. The Dapr bindings application template includes:
 
