@@ -112,13 +112,13 @@ We recommend that you check the following before you start troubleshooting Micro
 
 | Error | Possible causes | Recommended actions |
 | ---     | ---     | ---    |
-| <br />Failed to set the encryption key for secure backups. Activation did not succeed completely but the encryption passphrase was saved to the following file. |<li>The server is already registered with another vault.<li>During configuration, the passphrase was corrupted.| Unregister the server from the vault and register it again with a new passphrase.
+| Failed to set the encryption key for secure backups. Activation did not succeed completely but the encryption passphrase was saved to the following file. | - The server is already registered with another vault. <br><br> - During configuration, the passphrase was corrupted.| Unregister the server from the vault and register it again with a new passphrase. |
 
 ## The activation did not complete successfully
 
 | Error  | Possible causes | Recommended actions |
 |---------|---------|---------|
-|<br />The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support.     | <li> The scratch folder is located on a volume that doesn't have enough space. <li> The scratch folder has been incorrectly moved. <li> The OnlineBackup.KEK file is missing.         | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS agent.<li>Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+| The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support.     | - The scratch folder is located on a volume that doesn't have enough space. <br><br> - The scratch folder has been incorrectly moved. <br><br> - The OnlineBackup.KEK file is missing.         | - Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS agent. <br><br> - Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml). <br><br> - Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## Encryption passphrase not correctly configured
 
