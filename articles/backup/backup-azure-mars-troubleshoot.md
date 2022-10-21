@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 08/26/2022
+ms.date: 10/21/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -30,9 +30,9 @@ We recommend that you check the following before you start troubleshooting Micro
 - If you're trying to reregister your server to a vault:
   - Ensure the agent is uninstalled on the server and that it's deleted from the portal.
   - Use the same passphrase that was initially used to register the server.
+  - [Ensure your server is running on TLS 1.2](transport-layer-security.md).
 - For offline backups, ensure Azure PowerShell 3.7.0 is installed on both the source and the copy computer before you start the backup.
 - If the Backup agent is running on an Azure virtual machine, see [this article](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine).
-- [Ensure your server is running on TLS 1.2](transport-layer-security.md).
 
 ## Invalid vault credentials provided
 
