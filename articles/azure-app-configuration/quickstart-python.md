@@ -1,4 +1,4 @@
----
+--- 
 title: Quickstart for using Azure App Configuration with Python apps using the Python SDK | Microsoft Docs
 description: In this quickstart, create a Python app with Azure App Configuration Python SDK to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
