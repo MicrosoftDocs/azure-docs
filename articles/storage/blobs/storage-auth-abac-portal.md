@@ -129,19 +129,15 @@ Here is what the condition looks like in code:
 
 ## Step 4: Add a condition
 
-1. On the **Conditions (optional)** tab, click **Add condition**.
+1. On the **Conditions (optional)** tab, click **Add condition**. The Add role assignment condition page appears:
 
     ![Screenshot of Add role assignment condition page for a new condition.](./media/storage-auth-abac-portal/condition-add-new.png)
 
-    The Add role assignment condition page appears.
-
 1. In the Add action section, click **Add action**.
 
-    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition.
+    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. Check the box next to **Read a blob**, then click **Select**:
 
     ![Screenshot of Select an action pane with an action selected.](./media/storage-auth-abac-portal/condition-actions-select.png)
-
-1. Check the box next to **Read a blob**, then click **Select**.
 
 1. In the Build expression section, click **Add expression**.
 
