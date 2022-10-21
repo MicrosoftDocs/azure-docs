@@ -136,7 +136,7 @@ You should see a list of output that looks like the following:
 :::image type="content" source="media/elastic-san-create/elastic-san-volume.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-volume.png":::
 
 
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next sections.
+Note down the values for **targetIQN**, **targetPortalHostName**, and **targetPortalPort**, you'll need them for the next sections.
 
 ## Multi-session connections
 
@@ -144,12 +144,12 @@ To establish multiple sessions to a volume, first you'll need to create a single
 
 To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
 
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
+Replace **yourTargetIQN**, **yourTargetPortalHostName**, and **yourTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
 
 ```
-iscsiadm -m node --targetname yourStorageTargetIQN --portal yourStorageTargetPortalHostName:yourStorageTargetPortalPort -o new
+iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort -o new
 
-iscsiadm -m node --targetname yourStorageTargetIQN -p yourStorageTargetPortalHostName:yourStorageTargetPortalPort -l
+iscsiadm -m node --targetname yourTargetIQN -p yourTargetPortalHostName:yourTargetPortalPort -l
 ```
 
 Then, get the session ID and create as many sessions as needed with the session ID. To get the session ID, run `iscsiadm -m session` and you should see output similar to the following:
@@ -172,12 +172,12 @@ You can verify the number of sessions using `sudo multipath -ll`
 
 To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
 
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
+Replace **yourTargetIQN**, **yourTargetPortalHostName**, and **yourTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
 
 ```
-iscsiadm -m node --targetname yourStorageTargetIQN --portal yourStorageTargetPortalHostName:yourStorageTargetPortalPort -o new
+iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort -o new
 
-iscsiadm -m node --targetname yourStorageTargetIQN -p yourStorageTargetPortalHostName:yourStorageTargetPortalPort -l
+iscsiadm -m node --targetname yourTargetIQN -p yourTargetPortalHostName:yourTargetPortalPort -l
 ```
 
 ## Next steps
