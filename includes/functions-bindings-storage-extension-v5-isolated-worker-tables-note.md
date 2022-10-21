@@ -12,7 +12,7 @@ ms.author: mahender
 > - [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs]
 > - [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues]
 >
-> The Table API extension doesn't currently support isolated process. If your app needs to use Azure Tables, you must use [Microsoft.Azure.Functions.Worker.Extensions.Storage, version 4.x]. This same package also has a [5.x version], which references the packages for Blob Storage and Queue Storage only. When referencing these newer split packages, make sure you aren't also referencing an older version of the combined storage package, which would cause conflicts between the two definitions of the same bindings.
+> The Azure Cosmos DB for Table extension doesn't currently support isolated process. If your app needs to use Azure Tables, you must use [Microsoft.Azure.Functions.Worker.Extensions.Storage, version 4.x]. This same package also has a [5.x version], which references the packages for Blob Storage and Queue Storage only. When referencing these newer split packages, make sure you aren't also referencing an older version of the combined storage package, which would cause conflicts between the two definitions of the same bindings.
 
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues

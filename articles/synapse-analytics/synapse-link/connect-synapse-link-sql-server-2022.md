@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, engagement-fy23
 ms.date: 09/27/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf

@@ -984,6 +984,8 @@ Known issues for the Azure Monitor OpenTelemetry Exporters include:
 - Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
 - Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
 
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Support
 
 To get support:
