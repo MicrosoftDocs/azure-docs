@@ -14,29 +14,25 @@ ms.date: 10/20/2022
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To send and receive AS2 messages in workflows that you create using Azure Logic Apps, use the **AS2** connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication. This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples in this article use the [Request](../connectors/connectors-native-reqres.md) trigger.
+To send and receive AS2 messages in workflows that you create using Azure Logic Apps, you can use the **AS2 (v2)** connector, which provides actions that support and manage AS2 communication. If you need tracking capabilities, the original **AS2** connector is still available, but is being deprecated.
 
-* If you're working with Consumption logic app workflows and don't need tracking capabilities, use the **AS2 (v2)** connector, rather than the original **AS2** connector, which is being deprecated.
+Except for tracking capabilities, the **AS2 (v2)** connector provides the same capabilities as the original **AS2** connector, runs natively with the Azure Logic Apps runtime, and offers significant performance improvements in message size, throughput, and latency. Unlike the original **AS2** connector, the **AS2 (v2)** connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
 
-  Except for tracking, the **AS2 (v2)** connector provides the same capabilities as the original version, runs natively with the Azure Logic Apps runtime, and offers significant performance improvements in message size, throughput, and latency. Also, the v2 connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
-
-* If you're working with Standard logic app workflows and don't need tracking capabilities, use the **AS2 (v2)** built-in connector. Otherwise, the original **AS2** managed connector is available, but is being deprecated.
-
-  Except for tracking, the **AS2 (v2)** connector provides the same capabilities as the original version, runs natively with the Azure Logic Apps runtime, and offers significant performance improvements in message size, throughput, and latency. The v2 connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
+This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. The **AS2 (v2)** connector doesn't include any triggers, so you can use any trigger to start your workflow. The examples in this article use the [Request](../connectors/connectors-native-reqres.md) trigger.
 
 ## Connector technical reference
 
-The AS2 connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+The AS2 connector has different versions, based on [logic app type and host environment](logic-apps-overview.md#resource-environment-differences).
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Original AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [AS2 original managed connector reference](/connectors/as2/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, not triggers. You can use the original AS2 trigger or a different trigger. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- <br><br>- [Original AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multi-tenant Azure Logic Apps | **AS2 (v2)** and **AS2** managed connectors (Standard class). For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Consumption** | Integration service environment (ISE) | **AS2 (v2)** and **AS2** managed connectors (Standard class) and **AS2** ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **AS2** managed connector and **AS2 (v2)** built-in connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, not triggers. You can use the original AS2 trigger or a different trigger. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
 <a name="as-v2-operations"></a>
 
-## AS2 (v2) operations
+### AS2 (v2) operations
 
 The **AS2 (v2)** connector has no triggers. The following table describes the actions that the **AS2 (v2)** connector provides for establishing security and reliability when transmitting messages:
 
@@ -65,12 +61,12 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
   | Logic app workflow | Link required? |
   |--------------------|----------------|
-  | Consumption | - **AS2 (v2)** connector: No link required. <br>- Original **AS2** connector: [Link required between logic app and integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account). |
-  | Standard | - **AS2 (v2)** connector: [Link required](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account) <br>- Original **AS2** connector: [Link required](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account). |
+  | Consumption | - **AS2 (v2)** connector: Connection required, but no link required <br>- **AS2** connector: [Link required](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account), but no connection required |
+  | Standard | - **AS2 (v2)** connector: [Link required](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account), but no connection required <br>- **AS2** connector: Connection required, but no link required |
 
 * If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
-  1. In the Azure portal, open your key vault. On the key vault menu, under **Settings**, select **Keys**.
+  1. In the [Azure portal](https://portal.azure.com), open your key vault. On the key vault menu, under **Settings**, select **Keys**.
 
   1. On the **Keys** pane, select your key. On the **Versions** pane, select the key version that you're using.
 
@@ -88,11 +84,13 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 1. On the designer, under the trigger or action where you want to add the AS2 action, select **New step**.
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter `as2 encode`. Select the action named **AS2 Encode**.
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2**.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
+1. From the actions list, select the action named **AS2 Encode**.
 
-1. After the AS2 operation appears on the designer, provide information for the following properties:
+   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-encode-consumption.png)
+
+1. After the **AS2 (v2)** operation appears on the designer, provide information for the following properties:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -102,22 +100,56 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    For example, the message payload is the **Body** content output from the Request trigger:
 
-   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-message-encode-details.png)
+   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-message-encode-details-consumption.png)
+
+   > [!NOTE]
+   >
+   > If you experience problems when sending signed or encrypted messages, consider trying 
+   > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
+   > about SHA256 formats, so each provider uses their own implementation or format.
+
+### [Standard](#tab/standard)
+
+#### [AS2 (v2) connector](#tab/as2-v2)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **as2 encode**.
+
+1. From the actions list, select the action named **AS2 Encode**.
+
+   ![Screenshot showing the Azure portal, designer for Standard workflow, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-v2-encode-built-in-standard.png)
+
+1. In the action information pane, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Message to encode** | Yes | The message payload |
+   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement |
+   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
+
+   For example, the message payload is the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the Standard workflow designer and "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-built-in-standard.png)
 
    > [!NOTE]
    >
    > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
    > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
-### [Standard](#tab/standard)
+#### [AS2 connector](#tab/as2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
 1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter `as2 encode`. Select the action named **AS2 Encode**.
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **as2 encode**.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "Encode to AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-encode-as2-message.png)
+1. From the actions list, select the action named **Encode to AS2 message**.
+
+   ![Screenshot showing the Azure portal, workflow designer for Standard, and "Encode to AS2 message" action selected.](./media/logic-apps-enterprise-integration-as2/select-encode-as2-message-managed-standard.png)
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -128,7 +160,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    For example:
 
-   ![Screenshot showing the "Encode to AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-encode-connection-standard.png)
+   ![Screenshot showing the "Encode to AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-encode-connection-managed-standard.png)
 
 1. When you're done, select **Create**.
 
@@ -136,17 +168,20 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Message to encode** | Yes | The message payload |
-   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement |
-   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
+   | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement |
+   | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
+   | **body** | Yes | The message payload |
 
    For example, the message payload is the **Body** content output from the Request trigger:
 
-   ![Screenshot showing the "AS2 Encode" operation with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-message-details.png)
+   ![Screenshot showing the "Encode to AS2 message" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-message-details-managed-standard.png)
 
-   > [!TIP]
+   > [!NOTE]
+   >
    > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
    > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
+
+---
 
 ---
 
@@ -160,25 +195,29 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 1. On the designer, under the trigger or action where you want to add the AS2 action, select **New step**. This example uses the [Request](../connectors/connectors-native-reqres.md) trigger.
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter `as2 decode`. Select the action named **AS2 Decode**.
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2**. Select the action named **AS2 Decode**.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation selected.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
+   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation selected.](media/logic-apps-enterprise-integration-as2/select-as2-decode-consumption.png)
 
 1. In the AS2 operation shape, select the values for the **Message to encode** and the **Message headers** properties from the previous trigger or action outputs.
 
    In this example, you can select the outputs from the Request trigger.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-message-decode-details.png)
+   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-message-decode-details-consumption.png)
 
 ### [Standard](#tab/standard)
+
+#### [AS2 (v2) connector](#tab/as2-v2)
+
+#### [AS2 connector](#tab/as2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
 1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter `as2 decode`. Select the action named **Decode AS2 message**.
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **as2 decode**. Select the action named **Decode AS2 message**.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-message.png)
+   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-message-managed-standard.png)
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -186,11 +225,10 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for the connection |
    | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
-   ||||
 
    For example:
 
-   ![Screenshot showing the "Decode AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-decode-connection-standard.png)
+   ![Screenshot showing the "Decode AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-decode-connection-managed-standard.png)
 
 1. When you're done, select **Create**.
 
@@ -198,7 +236,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    In this example, you can select the outputs from the Request trigger.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/decode-as2-message-details.png)
+   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/decode-as2-message-details-managed-standard.png)
 
 ---
 
@@ -208,4 +246,4 @@ To try deploying a fully operational logic app and sample AS2 (v2) scenario, rev
 
 ## Next steps
 
-* Learn about other [connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
