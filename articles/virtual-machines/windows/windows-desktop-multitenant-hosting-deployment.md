@@ -11,12 +11,12 @@ ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
 
 ---
-# How to deploy Windows 10 on Azure
+# How to deploy Windows 11 on Azure
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-For customers with Windows 10 Enterprise E3/E5 per user or Azure Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. Multitenant Hosting Rights are only available for Windows 10 (version 1703 or later).
+For customers with Windows 11 Enterprise E3/E5 per user or Azure Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 11 allows you to bring your Windows 10 Licenses to the cloud and run Windows 11 Virtual Machines on Azure without paying for another license. Multitenant Hosting Rights are only available for Windows 11.
 
-For more information, see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting).
+For more information, see [Multitenant Hosting for Windows 11](https://www.microsoft.com/en-us/CloudandHosting).
 
 > [!NOTE]
 > - To use Windows 7, 8.1 and 10 images for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
@@ -24,10 +24,10 @@ For more information, see [Multitenant Hosting for Windows 10](https://www.micro
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
 
-For more details about subscription licenses that qualify to run Windows 10 on Azure, download the [Windows 10 licensing brief for Virtual Desktops](https://download.microsoft.com/download/3/D/4/3D42BDC2-6725-4B29-B75A-A5B04179958B/Licensing_brief_PLT_Windows_10_licensing_for_Virtual_Desktops.pdf)
+For more details about subscription licenses that qualify to run Windows 11 on Azure, download the [Windows 11 licensing brief for Virtual Desktops](https://download.microsoft.com/download/3/D/4/3D42BDC2-6725-4B29-B75A-A5B04179958B/Licensing_brief_PLT_Windows_10_licensing_for_Virtual_Desktops.pdf)
 
 > [!IMPORTANT]
-> Users **must** have one of the below subscription licenses in order to use Windows 10 images in Azure for any production workload. If you do not have one of these subscription licenses, they can be purchased through your [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
+> Users **must** have one of the below subscription licenses in order to use Windows 11 images in Azure for any production workload. If you do not have one of these subscription licenses, they can be purchased through your [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
 
 ## Operating systems and licenses
 
@@ -46,24 +46,30 @@ You have a choice of operating systems that you can use for session hosts to pro
 
 External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.
 
-## Deploying Windows 10 Image from Azure Marketplace 
-For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 
+## Deploying Windows 11 Image from Azure Marketplace 
+For PowerShell, CLI and Azure Resource Manager template deployments, Windows 11 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-11`.
 
 ```powershell
-Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
+Get-AzVmImageSku -Location 'West US' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-11'
 
-Skus                        Offer      PublisherName           Location 
-----                        -----      -------------           -------- 
-rs4-pro                     Windows-10 MicrosoftWindowsDesktop eastus   
-rs4-pron                    Windows-10 MicrosoftWindowsDesktop eastus   
-rs5-enterprise              Windows-10 MicrosoftWindowsDesktop eastus   
-rs5-enterprisen             Windows-10 MicrosoftWindowsDesktop eastus   
-rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
+Skus                 Offer      PublisherName           Location
+----                 -----      -------------           --------
+win11-21h2-avd       Windows-11 MicrosoftWindowsDesktop westus
+win11-21h2-ent       Windows-11 MicrosoftWindowsDesktop westus   
+win11-21h2-entn      Windows-11 MicrosoftWindowsDesktop westus  
+win11-21h2-pro       Windows-11 MicrosoftWindowsDesktop westus  
+win11-21h2-pron      Windows-11 MicrosoftWindowsDesktop westus  
+win11-22h2-avd       Windows-11 MicrosoftWindowsDesktop westus  
+win11-22h2-ent       Windows-11 MicrosoftWindowsDesktop westus  
+win11-22h2-entn      Windows-11 MicrosoftWindowsDesktop westus  
+win11-22h2-pro       Windows-11 MicrosoftWindowsDesktop westus  
+win11-22h2-pron      Windows-11 MicrosoftWindowsDesktop westus  
+
 ```
 
 For more information on available images see [Find and use Azure Marketplace VM images with Azure PowerShell](./cli-ps-findimage.md)
 
-## Uploading Windows 10 VHD to Azure
+## Uploading Windows 11 VHD to Azure
 if you are uploading a generalized Windows 10 VHD, please note Windows 10 does not have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
 
 ```powershell
@@ -84,7 +90,7 @@ For more information:
 * [How to prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md)
 
 
-## Deploying Windows 10 with Multitenant Hosting Rights
+## Deploying Windows 11 with Multitenant Hosting Rights
 Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzVhd` cmdlet as follows:
 
 ```powershell
@@ -135,5 +141,5 @@ LicenseType              :
 Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join Azure Active Directory. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
 
 ## Next Steps
-- Learn more about [Configuring VDA for Windows 10](/windows/deployment/vda-subscription-activation)
-- Learn more about [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting)
+- Learn more about [Configuring VDA for Windows 11](/windows/deployment/vda-subscription-activation)
+- Learn more about [Multitenant Hosting for Windows 11](https://www.microsoft.com/en-us/CloudandHosting)
