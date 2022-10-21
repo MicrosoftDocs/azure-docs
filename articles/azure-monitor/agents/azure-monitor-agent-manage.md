@@ -254,8 +254,8 @@ Use the following CLI commands to uninstall the Azure Monitor agent on Azure Arc
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
-<!--- Content here  -->
 *Add uninstall content for the ARM template.*
+
 ---
 
 ## Update
@@ -360,7 +360,6 @@ To perform a one-time upgrade of the agent, use the following CLI commands.
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
-<!--- Content here  -->
 *Add update content for the ARM template.*
 
 ---
