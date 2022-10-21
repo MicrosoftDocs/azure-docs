@@ -61,7 +61,7 @@ You can authorize access to data in your storage account using the following ste
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Storage Account Key Operator Service Role](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role), but any role which includes this action will work.
+> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../articles/role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Storage Account Key Operator Service Role](../articles/role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](retrieve-credentials.md)]
 

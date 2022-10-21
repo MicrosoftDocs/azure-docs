@@ -82,7 +82,7 @@ Use the following Python classes to interact with these resources:
 
 These example code snippets show you how to do the following tasks with the Azure Blob Storage client library for Python:
 
-- [Authenticate the client](#authenticate-the-client)
+- [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
@@ -91,7 +91,7 @@ These example code snippets show you how to do the following tasks with the Azur
 
 ### Authenticate to Azure and authorize access to blob data
 
-[!INCLUDE [storage-quickstart-passwordless-auth-intro](../../../storage-quickstart-passwordless-auth-intro.md)]
+[!INCLUDE [storage-quickstart-passwordless-auth-intro](../../../includes/storage-quickstart-passwordless-auth-intro.md)]
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
