@@ -38,8 +38,10 @@ eureka.instance.preferIpAddress
 eureka.instance.instance-id
 server.port
 spring.cloud.config.tls.keystore
+spring.config.import
 spring.application.name
 spring.jmx.enabled
+management.endpoints.jmx.exposure.include
 ```
 
 > [!CAUTION]
