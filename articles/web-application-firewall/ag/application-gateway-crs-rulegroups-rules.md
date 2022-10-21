@@ -744,7 +744,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
+|932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
