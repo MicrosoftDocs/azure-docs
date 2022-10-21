@@ -36,7 +36,7 @@ To manage a dev box definition, you need the following permissions:
 When you create a dev box definition, you can choose a preconfigured image from the Marketplace, or a custom image from an attached Azure Compute Gallery.
 
 #### Marketplace
-The Marketplace gives you quick, easy access to a variety of images, including images that are preconfigured with productivity tools like Microsoft Teams and provide optimal performance.
+The Marketplace gives you quick, easy access to various images, including images that are preconfigured with productivity tools like Microsoft Teams and provide optimal performance.
 
 When selecting a Marketplace image, consider using either of these two images:
  - Windows 11 Enterprise + Microsoft 365 Apps 21H2
@@ -85,7 +85,7 @@ If you don't have an available dev center, follow the steps in [Quickstart: Conf
 ## Delete a dev box definition
 Over time, your needs for dev boxes will change. You may want top move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions may no longer be appropriate for your needs. 
 
-You can delete a dev box definition when you no longer want to use it. Deleting a dev box definition is permanent, and cannot be undone. Dev box definitions cannot be deleted if they are in use by one or more dev box pools. 
+You can delete a dev box definition when you no longer want to use it. Deleting a dev box definition is permanent, and can't be undone. Dev box definitions can't be deleted if they are in use by one or more dev box pools. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
