@@ -8,9 +8,10 @@ ms.subservice: develop
 ms.custom: aaddev, ignite-2022
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 10/21/2022
 ms.author: davidmu
 ms.reviewer: ludwignick
+ms.custom: engagement-fy23
 ---
 
 # Customize claims emitted in tokens for a specific app in a tenant
