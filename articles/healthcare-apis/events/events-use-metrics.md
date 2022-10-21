@@ -1,6 +1,6 @@
 ---
-title: Display Events metrics in Azure Health Data Services
-description: This article explains how to display Events metrics
+title: Use Events metrics in Azure Health Data Services
+description: This article explains how use display Events metrics
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -13,6 +13,9 @@ ms.author: jasteppe
 # How to use Events metrics
 
 In this article, you'll learn how to use Events metrics in the Azure portal. 
+
+> [!TIP]
+> To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics)]
 
 > [!NOTE]
 > For the purposes of this article, an Azure Event Hubs event hub was used as the Events message endpoint. 

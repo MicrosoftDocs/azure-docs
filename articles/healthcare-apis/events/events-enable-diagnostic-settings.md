@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.author: jasteppe
 ---
 
-# Enable diagnostic settings for Events
+# How to enable diagnostic settings for Events
 
 In this article, you'll be provided resources to enable the Events diagnostic settings for Azure Event Grid system topics. 
 
