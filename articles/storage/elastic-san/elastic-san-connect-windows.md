@@ -83,6 +83,12 @@ az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $vol
 ```
 ---
 
+## Connect to a volume
+
+You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
+
+When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
+
 ## Set up your environment
 
 To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
@@ -98,13 +104,28 @@ Start-Service -Name MSiSCSI
 Set-Service -Name MSiSCSI -StartupType Automatic
 ```
 
-## Connect to a volume
+### Multipath I/O
 
-You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
+Multipath I/O enables highly available and fault-tolerant iSCSI network connections. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
-When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
+Install Multipath I/O, enable multipath support for iSCSI devices, and set a default load balancing policy.
 
-### Single-session configuration
+```powershell
+# Install Multipath-IO
+Add-WindowsFeature -Name 'Multipath-IO'
+
+# Verify if the installation was successful
+Get-WindowsFeature -Name 'Multipath-IO'
+
+# Enable multipath support for iSCSI devices
+Enable-MSDSMAutomaticClaim -BusType iSCSI
+
+# Set the default load balancing policy based on your requirements. In this example, we set it to round robin
+# which should be optimal for most workloads.
+Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
+```
+
+## Single-session configuration
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
 
@@ -125,32 +146,39 @@ Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **you
 ```
 # Add target IQN
 # The *s are essential, as they are default arguments
-iscsicli AddTarget $yourStorageTargetIQN * $yourStorageTargetPortalHostName $yourStorageTargetPortalPort * 0 * * * * * * * * * 0
+iscsicli AddTarget yourStorageTargetIQN * yourStorageTargetPortalHostName yourStorageTargetPortalPort * 0 * * * * * * * * * 0
 
 # Login
-# If you didn't want the session to be persitent, use iscsicli LoginTarget instead, the rest of the command is the same
+# If you didn't want the session to be persistent, use iscsicli LoginTarget instead, the rest of the command is the same
 # The *s are essential, as they are default arguments
-iscsicli PersistentLoginTarget $yourStorageTargetIQN t $yourStorageTargetPortalHostName $yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
+iscsicli PersistentLoginTarget yourStorageTargetIQN t yourStorageTargetPortalHostName yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
 
 ```
 
-### Multi-session configuration
+## Multi-session configuration
 
-To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume. To do this, set the login flag to **0x00000002** to enable multipathing for the target.
+To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume. To do this, set the login flag (second asterisk) to **0x00000002** to enable multipathing for the target.
 
-You can then rerun the commands from the single session configuration or use a script.
+You can then rerun the commands from the [single session configuration](#single-session-configuration) or use a script.
 
-To script multi-session configurations, use two files. An XML configuration file that you update for each volume you'd like to establish connections to, and a script that uses the XML files to create connections.
+To script multi-session configurations, use two files. An XML configuration file includes the information for each volume you'd like to establish connections to, and a script that uses the XML files to create connections.
 
-The following example shows you how to format your XML file for the script:
+The following example shows you how to format your XML file for the script, for each volume, create a new **<Target>** section:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Targets>
   <Target>
-     <Iqn>Storage Target Iqn</Iqn>
-     <Hostname>Storage Target Portal Hostname</Hostname>
-     <Port>Storage Target Portal Port</Port>
+     <Iqn>Volume 1 Storage Target Iqn</Iqn>
+     <Hostname>Volume 1 Storage Target Portal Hostname</Hostname>
+     <Port>Volume 1 Storage Target Portal Port</Port>
+     <NumSessions>Number of sessions</NumSessions>
+     <EnableMultipath>true</EnableMultipath>
+  </Target>
+  <Target>
+     <Iqn>Volume 2 Storage Target Iqn</Iqn>
+     <Hostname>Volume 2 Storage Target Portal Hostname</Hostname>
+     <Port>Volume 2 Storage Target Portal Port</Port>
      <NumSessions>Number of sessions</NumSessions>
      <EnableMultipath>true</EnableMultipath>
   </Target>
@@ -198,26 +226,6 @@ foreach ($Target in $TargetConfig.Targets.Target)
 ```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
-
-### Multipath I/O
-
-Multipath I/O enables highly available and fault-tolerant iSCSI network connections. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
-
-Install Multipath I/O, enable multipath support for iSCSI devices, and set a default load balancing policy.
-
-```powershell
-# Install Multipath-IO
-Add-WindowsFeature -Name 'Multipath-IO'
-
-# Verify if the installation was successful
-Get-WindowsFeature -Name 'Multipath-IO'
-
-# Enable multipath support for iSCSI devices
-Enable-MSDSMAutomaticClaim -BusType iSCSI
-
-# Set the default load balancing policy based on your requirements. In this example, we set it to round robin        # which should be optimal for most workloads.
-Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
-```
 
 ## Next steps
 

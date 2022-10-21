@@ -83,63 +83,17 @@ az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $vol
 ```
 ---
 
-## Environment setup
-
-To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
-
-As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
-
 ## Connect to a volume
 
 You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
 
 When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
-### Single-session connections
+## Environment setup
 
-Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
+To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
 
-Run the following command to get these values:
-
-```azurecli
-az elastic-san volume list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
-```
-
-You should see a list of output that looks like the following:
-
-:::image type="content" source="media/elastic-san-create/elastic-san-volume.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-volume.png":::
-
-
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
-
-To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
-
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
-
-```
-iscsiadm -m node --targetname **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
-
-iscsiadm -m node --targetname **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
-```
-
-### Multi-session connections
-
-To establish multiple sessions to a volume, create a single session first. Then, get the session ID and create as many sessions as needed with the session ID.
-
-To get the session ID, run `iscsiadm -m session` and you should see output similar to the following:
-
-```
-tcp:[15] <name>:port,-1 <iqn>
-```
-In the previous example, 15 is the session ID.
-
-With the session ID, you can create as many sessions as you need with the following command, replace $max with your desired number of additional sessions. However, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot.
-
-```
-for i in `seq 1 $max`; do sudo iscsiadm -m session -r 1 --op new; done
-```
-
-You can verify the number of sessions using `sudo multipath -ll`
+As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
 
 ### Multipath I/O
 
@@ -164,6 +118,53 @@ devices {
 ```
 
 After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command would be `sudo systemctl restart multipath-tools.service` and on RHEL the command would be `sudo systemctl restart multipathd`.
+
+## Single-session connections
+
+Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
+
+Run the following command to get these values:
+
+```azurecli
+az elastic-san volume list -e yourSanName -g yourResourceGroup -v yourVolumeGroupName -n yourVolumeName
+```
+
+You should see a list of output that looks like the following:
+
+:::image type="content" source="media/elastic-san-create/elastic-san-volume.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-volume.png":::
+
+
+Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
+
+To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
+
+Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
+
+```
+iscsiadm -m node --targetname yourStorageTargetIQN --portal yourStorageTargetPortalHostName:yourStorageTargetPortalPort -o new
+
+iscsiadm -m node --targetname yourStorageTargetIQN -p yourStorageTargetPortalHostName:yourStorageTargetPortalPort -l
+```
+
+## Multi-session connections
+
+To establish multiple sessions to a volume, create a single session first. Then, get the session ID and create as many sessions as needed with the session ID.
+
+To get the session ID, run `iscsiadm -m session` and you should see output similar to the following:
+
+```
+tcp:[15] <name>:port,-1 <iqn>
+tcp:[18] <name>:port,-1 <iqn>
+```
+15 is the session ID we'll use from the previous example.
+
+With the session ID, you can create as many sessions as you need with the following command, replace $max with your desired number of additional sessions. However, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot.
+
+```
+for i in `seq 1 $max`; do sudo iscsiadm -m session -r 15 --op new; done
+```
+
+You can verify the number of sessions using `sudo multipath -ll`
 
 ## Next steps
 
