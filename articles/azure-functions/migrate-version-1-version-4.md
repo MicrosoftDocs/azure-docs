@@ -13,7 +13,7 @@ If you're running on version 1.x of the Azure Functions runtime, it's likely bec
 
 Migrating a C# function app from version 1.x to version 4.x of the Functions runtime requires you to make changes to your project code. Many of these changes are a result of changes in the C# language and .NET APIs. 
 
-You can chose to upgrade your project to one of the following versions of .NET, all of which can run on Functions version 4.x: 
+You can upgrade your project to one of the following versions of .NET, all of which can run on Functions version 4.x: 
 
 | .NET version | Process model<sup>*</sup> | 
 | --- | --- | --- |
@@ -24,7 +24,7 @@ You can chose to upgrade your project to one of the following versions of .NET, 
 
 <sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md).
 
-This article guides you through how to update your C# function app project to be able to run on one of the supported version of .NET in Functions version 4.x. Choose the tab that matches your targer version of .NET and desired process model.
+This article guides you through how to update your C# function app project to be able to run on one of the supported versions of .NET in Functions version 4.x. Choose the tab that matches your target version of .NET and desired process model.
 
 Migrating from version 1.x to version 4.x also can affect bindings. If you're migrating a JavaScript app, proceed directly to [Behavior changes after version 1.x](#behavior-changes-after-version-1x). 
 
@@ -277,7 +277,7 @@ A program.cs file isn't required when running in-process.
 
 ### host.json file
 
-Settings in the host.json file apply at the function app level, both locally and in Azure. In version 1.x, your host.json file is either empty or it contains some settings that apply to all functions in the function app. For more information, see [Host.json v1](./functions-host-json-v1.md). If you host.json file has setting values, review the [host.json v2 format](./functions-host-json.md) for any changes.
+Settings in the host.json file apply at the function app level, both locally and in Azure. In version 1.x, your host.json file is either empty or it contains some settings that apply to all functions in the function app. For more information, see [Host.json v1](./functions-host-json-v1.md). If your host.json file has setting values, review the [host.json v2 format](./functions-host-json.md) for any changes.
 
 To run on version 4.x, you must add `"version": "2.0"` to the host.json file. You should also consider adding `logging` to your configuration, as in the following examples: 
 
@@ -305,7 +305,7 @@ The local.settings.json file is only used when running locally. For information,
 
 :::code language="json" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json":::
 
-When upgrading to version 4.x, makes sure that your local.settings.json file has at least the following elements:
+When you upgrade to version 4.x, make sure that your local.settings.json file has at least the following elements:
 
 # [.NET Framework 4.8](#tab/v4)
 
@@ -326,7 +326,7 @@ When upgrading to version 4.x, makes sure that your local.settings.json file has
 
 ### Namespace changes
 
-C# functions that run in an isolated worker process use libraries in a different namespace than those used in version 1.x. In-process functions use libraries in the same namespace. 
+C# functions that run in an isolated worker process uses libraries in a different namespace than those libraries used in version 1.x. In-process functions use libraries in the same namespace. 
 
 Version 1.x and in-process libraries are generally in the namespace `Microsoft.Azure.WebJobs.*`. Isolated worker process function app use libraries in the namespace `Microsoft.Azure.Functions.Worker.*`. You can see the impact of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) that follow.
 
@@ -419,7 +419,7 @@ namespace Company.Function
 }
 ```
 
-In verson 4.x, the HTTP trigger template looks like the following example:
+In version 4.x, the HTTP trigger template looks like the following example:
 
 # [.NET Framework 4.8](#tab/v4)
 
