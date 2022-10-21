@@ -1,7 +1,7 @@
 ---
 title: Set up a lab in Azure Education Hub
 description: This quickstart explains how to set up a lab in Azure Education Hub.
-author: vangellotti
+author: vinnieangel
 ms.author: vangellotti
 ms.topic: quickstart
 ms.date: 10/19/2022
