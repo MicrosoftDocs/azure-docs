@@ -128,7 +128,7 @@ Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **S
 Run the following command to get these values:
 
 ```azurecli
-az elastic-san volume list -e yourSanName -g yourResourceGroup -v yourVolumeGroupName -n yourVolumeName
+az elastic-san volume show -e yourSanName -g yourResourceGroup -v yourVolumeGroupName -n yourVolumeName
 ```
 
 You should see a list of output that looks like the following:
