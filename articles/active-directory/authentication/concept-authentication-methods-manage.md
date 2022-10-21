@@ -50,7 +50,7 @@ To manage MFA methods for all users in the tenant, click **Security** > **Multif
 
 To manage authentication methods for self-service password reset (SSPR) across the tenant, click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice call or SMS to be sent to a mobile phone. The **Office phone** option allows only voice call. 
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
+:::image type="content" border="true" source="./media/concept-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
 
 ## How policies work together
 
