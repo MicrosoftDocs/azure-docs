@@ -170,7 +170,7 @@ Set-ExecutionPolicy Unrestricted
 
 Error | Possible causes | Recommended actions
 --- | --- | ---
-The current operation failed due to an internal service error "Resource not provisioned in service stamp". Please retry the operation after some time. (ID: 230006) | The protected server was renamed. | <br><br> - Rename the server back to the original name as registered with the vault. <br><br> - Re-register the server to the vault with the new name.
+The current operation failed due to an internal service error "Resource not provisioned in service stamp". Please retry the operation after some time. (ID: 230006) | The protected server was renamed. | - Rename the server back to the original name as registered with the vault. <br><br> - Re-register the server to the vault with the new name.
 
 ## Job could not be started as another job was in progress
 
