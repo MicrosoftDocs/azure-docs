@@ -110,7 +110,7 @@ This is an improvement from how most caches work and allows the following additi
 - If you wanted to modify read consistency when using cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency
 
 > [!NOTE]
-> When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes.
+> The minimum `MaxIntegratedCacheStaleness` value is 0 and the maximum value is 10 years. When not explicitly configured, the `MaxIntegratedCacheStaleness` defaults to 5 minutes.
 
 To better understand the `MaxIntegratedCacheStaleness` parameter, consider the following example:
 

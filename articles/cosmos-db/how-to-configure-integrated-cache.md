@@ -70,6 +70,9 @@ You must ensure the request consistency is session or eventual. If not, the requ
 
 Configure `MaxIntegratedCacheStaleness`, which is the maximum time in which you are willing to tolerate stale cached data. It is recommended to set the `MaxIntegratedCacheStaleness` as high as possible because it will increase the likelihood that repeated point reads and queries can be cache hits. If you set `MaxIntegratedCacheStaleness` to 0, your read request will **never** use the integrated cache, regardless of the consistency level. When not configured, the default `MaxIntegratedCacheStaleness` is 5 minutes.
 
+>[!NOTE]
+> The `MaxIntegratedCacheStaleness` can be set as high as 10 years. In practice, this value is the maximum staleness and the cache may be reset sooner due to node restarts which may occur. 
+
 Adjusting the `MaxIntegratedCacheStaleness` is supported in these versions of each SDK:
 
 | SDK | Supported versions |
