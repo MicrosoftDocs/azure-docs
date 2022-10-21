@@ -185,7 +185,7 @@ The following `UxElement` string IDs will display disclaimer link(s) at the bott
 
 | ID | Example value |
 | --- | ------------- |
-| `disclaimer_msg_intro` | By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply. |
+| `disclaimer_msg_intro` | By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply. |
 | `disclaimer_link_1_text` | Privacy Statement |
 | `disclaimer_link_1_url` | {insert your privacy statement URL} |
 | `disclaimer_link_2_text` | Terms and Conditions |
