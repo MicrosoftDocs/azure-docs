@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/20/2022
+ms.date: 10/21/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -43,7 +43,7 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 
 |Cmdlet|Description|
 |---------|---------|
-|Set-login|First-time sign in, set or change sign in credentials to access the device.|
+|Set-Login|First-time sign in, set or change sign in credentials to access the device.|
 |Get-DeviceConfiguration|Fetch the current device configuration.|
 |Set-DeviceConfiguration|Change the device configuration.|
 |New-Package|Prepare a device setup configuration package to apply to one or more devices.|
@@ -69,13 +69,13 @@ Use the following steps to import the PowerShell module and sign into the device
 1. Import the PowerShell module.
 
    ```azurepowershell
-   Import-Module Drive:\<Local path>\ZtpRestHelpers.ps1
+   Import-Module "<Local path to PowerShell module>"\ZtpRestHelpers.ps1
    ```
 
 1. Sign into the device using the ```Set-Login``` cmdlet. First-time sign into the device requires password reset.
 
    ```azurepowershell
-   Set-Login "https://<IP address>" "<Password1>" “<NewPassword>”
+   Set-Login "https://<IP address>" "<Password1>" "<NewPassword>"
    ```
 
 ## Change password and fetch the device configuration
@@ -85,13 +85,13 @@ Use the following steps to sign into a device, change the password, and fetch th
 1. Sign into the device and change the device password.
 
    ```azurepowershell
-   Set-Login “https://<IP address>” “<CurrentPassword>” “<NewPassword>”
+   Set-Login "https://<IP address>" "<CurrentPassword>" "<NewPassword>"
    ```
 
 1. Fetch the device configuration.
 
    ```azurepowershell
-   Get-DeviceConfiguration | to-json
+   Get-DeviceConfiguration | To-json
    ```
 
 ## Apply initial configuration to a device
@@ -109,7 +109,7 @@ Run the following cmdlets in PowerShell:
 1. Set the time object properties.
 
    ```azurepowershell
-   $time = New-Object PSObject -Property @{ timezone = "Hawaiian Standard Time" }
+   $time = New-Object PSObject -Property @{ TimeZone = "Hawaiian Standard Time" }
    ```
 
 1. Set the update object properties.
@@ -121,19 +121,19 @@ Run the following cmdlets in PowerShell:
 1. Create a package with the new time and update settings.
 
    ```azurepowershell
-   $pkg = New-Package -time $time -update $update
+   $pkg = New-Package -Time $time -Update $update
    ```
 
 1. Run the package.
 
    ```azurepowershell
-   $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $pkg
+   $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $pkg
    ```
 
 1. Verify that the operation is complete.
 
    ```azurepowershell
-   Get-DeviceConfigurationStatus | to-json
+   Get-DeviceConfigurationStatus | To-json
    ```
    Here's an example output:
 
@@ -165,13 +165,13 @@ Run the following cmdlets in PowerShell:
 1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
-   Get-DeviceConfiguration | to-json
+   Get-DeviceConfiguration | To-json
    ```
 
 1. Save the device configuration to the local system as a JSON file.
 
    ```azurepowershell
-   Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
+   Get-DeviceConfiguration | To-json | Out-File "C:\<Local path>\TestConfig2.json"
    ```
 
 1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices that aren't yet activated. 
@@ -201,14 +201,14 @@ Run the following cmdlets in PowerShell:
    Fetch the node.id from the device with the following command in PowerShell:
 
    ```azurepowershell
-   Get-DeviceConfiguration | to-json
+   Get-DeviceConfiguration | To-json
    ```
 
    Here's an example of output showing node.id for the device:
 
    ```output
 
-      PS C:\> Get-DeviceConfiguration | to-json
+      PS C:\> Get-DeviceConfiguration | To-json
       {
         "device":  {
                          "deviceInfo":  {
@@ -228,25 +228,25 @@ Run the following cmdlets in PowerShell:
 1. Create a package that uses a local JSON file for device configuration settings.
 
    ```azurepowershell
-   $p = Get-Content -Path "Drive:\Temp\<ConfigFileName.json>" | ConvertFrom-json
+   $p = Get-Content -Path "<Local path>\<ConfigFileName.json>" | ConvertFrom-json
    ```
 
 1. Run the package.
 
    ```azurepowershell
-   $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
+   $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
    ```
 
 1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
-   Get-DeviceConfigurationStatus | to-json
+   Get-DeviceConfigurationStatus | To-json
    ```
 
 1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
-   Get-DeviceConfiguration | to-json
+   Get-DeviceConfiguration | To-json
    ```
 
 ## Activate a device
@@ -264,36 +264,36 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 1. Set the ActivationKey property.
 
    ```azurepowershell
-   $ActivationKey = "<activation key>"
+   $ActivationKey = "<Activation key>"
    ```
 1. Create an activation object and set the activationKey property.
 
    ```azurepowershell
-   $activation = New-Object PsObject -Property @{activationkey=$ActivationKey; ServiceEncryptionKey=""}
+   $activation = New-Object PsObject -Property @{AtivationKey=$ActivationKey; ServiceEncryptionKey=""}
    ```
 
 1. Create a package with the activation object and activation key.
 
    ```azurepowershell
-   $p = New-Package -activation $activation
+   $p = New-Package -Activation $activation
    ```
 
 1. Run the package.
 
    ```azurepowershell
-   $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
+   $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
    ```
 
 1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
-   Get-DeviceConfigurationStatus | to-json
+   Get-DeviceConfigurationStatus | To-json
    ```
 
 1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
-   Get-DeviceConfiguration | to-json
+   Get-DeviceConfiguration | To-json
    ```
 
    Here's an example of output showing device activation status:
@@ -379,19 +379,19 @@ Use the following steps to sign into the device, fetch the status of the webProx
 1. Run the package with the updated webProxy properties.
 
    ```azurepowershell
-   $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
+   $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
    ```
 
 1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
-   Get-DeviceConfigurationStatus | to-json
+   Get-DeviceConfigurationStatus | To-json
    ```
 
 1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
-   Get-DeviceConfiguration | to-json
+   Get-DeviceConfiguration | To-json
    ```
 
    Here's an example of output showing the updated webProxy properties:
@@ -399,7 +399,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    ```output
      "webProxy":  {
                       "isEnabled":  true,
-                      "connectionURI":  "http://10.128.24.15:8080",
+                      "connectionURI":  "http://10.57.48.82:8080",
                       "authentication":  "None",
                       "username":  null,
                       "password":  null
@@ -424,12 +424,12 @@ Use the following steps to sign into the device and run device diagnostics to ve
 1. Fetch the status of the device diagnostics operation.
 
    ```azurepowershell
-   Get-DeviceDiagnostic | to-json
+   Get-DeviceDiagnostic | To-json
    ```
    Here's an example of output showing device diagnostics:
 
    ```output
-          PS C:\> Get-DeviceDiagnostic | to-json
+          PS C:\> Get-DeviceDiagnostic | To-json
       {
          "lastRefreshTime":  "2022-09-27T20:12:10.643768Z",
          "status":  "Complete",
