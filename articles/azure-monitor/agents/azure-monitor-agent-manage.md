@@ -65,29 +65,123 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
 > [!NOTE]
 > This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *The Azure Monitor agents can't function without being associated with data collection rules.*
 
-## Use the Azure portal
+<!-- streamline start -->
+## Install
 
-Follow these instructions to use the Azure portal.
-
-### Install
+#### [Portal](#tab/azure-portal)
 
 To install the Azure Monitor agent by using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This process creates the rule, associates it to the selected resources, and installs the Azure Monitor agent on them if it's not already installed.
 
-### Uninstall
+#### [PowerShell](#tab/azure-powershell)
 
-To uninstall the Azure Monitor agent by using the Azure portal, go to your virtual machine, scale set, or Azure Arc-enabled server. Select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Uninstall**.
+You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers by using the PowerShell command for adding a virtual machine extension.
 
-### Update
+### Install on Azure virtual machines
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version. Then install the new version as described.
+Use the following PowerShell commands to install the Azure Monitor agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
 
-We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature. Go to your virtual machine or scale set, select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Enable automatic upgrade**.
+#### User-assigned managed identity
 
-## Use Resource Manager templates
+**Windows**
 
-Follow these instructions to use Azure Resource Manager templates.
+```powershell
+Set-AzVMExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true -SettingString '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
+```
 
-### Install
+**Linux**
+
+```powershell
+Set-AzVMExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true -SettingString '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
+```
+
+#### System-assigned managed identity
+
+**Windows**
+
+```powershell
+Set-AzVMExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true
+```
+
+**Linux**
+
+```powershell
+Set-AzVMExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true
+```
+
+### Install on Azure Arc-enabled servers
+
+Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
+
+**Windows**
+
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -EnableAutomaticUpgrade
+```
+
+**Linux**
+
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -EnableAutomaticUpgrade
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers by using the Azure CLI command for adding a virtual machine extension.
+
+### Install on Azure virtual machines
+
+Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
+
+#### User-assigned managed identity
+
+# [Windows](#tab/CLIWindows)
+
+```azurecli
+az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true --settings '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":"/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
+```
+
+# [Linux](#tab/CLILinux)
+
+```azurecli
+az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true --settings '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":"/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
+```
+
+---
+
+#### System-assigned managed identity
+
+# [Windows](#tab/CLIWindows)
+
+```azurecli
+az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true
+```
+
+# [Linux](#tab/CLILinux)
+
+```azurecli
+az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true
+```
+
+---
+
+### Install on Azure Arc-enabled servers
+
+Use the following CLI commands to install the Azure Monitor agent on Azure Arc-enabled servers.
+
+# [Windows](#tab/CLIWindowsArc)
+
+```azurecli
+az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
+```
+
+# [Linux](#tab/CLILinuxArc)
+
+```azurecli
+az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
+```
+---
+
+#### [Resource Manager template](#tab/azure-resource-manager)
 
 You can use Resource Manager templates to install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers and to create an association with data collection rules. You must create any data collection rule prior to creating the association.
 
@@ -98,54 +192,49 @@ Get sample templates for installing the agent and creating the association from 
 
 Install the templates by using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md), such as the following commands.
 
-# [PowerShell](#tab/ARMAgentPowerShell)
-
+<!-- No formatting applied -->
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -TemplateFile "<template-filename.json>" -TemplateParameterFile "<parameter-filename.json>"
 ```
 
-# [CLI](#tab/ARMAgentCLI)
-
 ```azurecli
 az deployment group create --resource-group "<resource-group-name>" --template-file "<path-to-template>" --parameters "@<parameter-filename.json>"
 ```
+
+- **PowerShell**
+
+  ```powershell
+  New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -TemplateFile "<template-filename.json>" -TemplateParameterFile "<parameter-filename.json>"
+  ```
+
+- **CLI**
+
+  ```azurecli
+  az deployment group create --resource-group "<resource-group-name>" --template-file "<path-to-template>" --parameters "@<parameter-filename.json>"
+  ```
+
+- **PowerShell**: ```powershell
+  New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -TemplateFile "<template-filename.json>" -TemplateParameterFile "<parameter-filename.json>"
+  ```
+
+- **CLI**: ```azurecli
+  az deployment group create --resource-group "<resource-group-name>" --template-file "<path-to-template>" --parameters "@<parameter-filename.json>"
+   ```
+
+| Tool | Command |
+|-------|-----|
+| Powershell |```powershell New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -TemplateFile "<template-filename.json>" -TemplateParameterFile "<parameter-filename.json>"```|
+| Azure CLI | ```azurecli az deployment group create --resource-group "<resource-group-name>" --template-file "<path-to-template>" --parameters "@<parameter-filename.json>"``` |
+
 ---
 
-## Use PowerShell
+## Uninstall
 
-You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers by using the PowerShell command for adding a virtual machine extension.
+#### [Portal](#tab/azure-portal)
 
-### Install on Azure virtual machines
+To uninstall the Azure Monitor agent by using the Azure portal, go to your virtual machine, scale set, or Azure Arc-enabled server. Select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Uninstall**.
 
-Use the following PowerShell commands to install the Azure Monitor agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
-
-#### User-assigned managed identity
-
-# [Windows](#tab/PowerShellWindows)
-
-```powershell
-Set-AzVMExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true -SettingString '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
-```
-# [Linux](#tab/PowerShellLinux)
-
-```powershell
-Set-AzVMExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true -SettingString '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
-```
----
-
-#### System-assigned managed identity
-
-# [Windows](#tab/PowerShellWindows)
-
-```powershell
-Set-AzVMExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true
-```
-# [Linux](#tab/PowerShellLinux)
-
-```powershell
-Set-AzVMExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true
-```
----
+#### [PowerShell](#tab/azure-powershell)
 
 ### Uninstall on Azure virtual machines
 
@@ -160,42 +249,6 @@ Remove-AzVMExtension -Name AzureMonitorWindowsAgent -ResourceGroupName <resource
 
 ```powershell
 Remove-AzVMExtension -Name AzureMonitorLinuxAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> 
-```
----
-
-### Update on Azure virtual machines
-
-To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
-
-We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following PowerShell commands.
-
-# [Windows](#tab/PowerShellWindows)
-
-```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorWindowsAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
-```
-
-# [Linux](#tab/PowerShellLinux)
-
-```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorLinuxAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
-```
---- 
-   
-
-### Install on Azure Arc-enabled servers
-
-Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
-
-# [Windows](#tab/PowerShellWindowsArc)
-
-```powershell
-New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -EnableAutomaticUpgrade
-```
-# [Linux](#tab/PowerShellLinuxArc)
-
-```powershell
-New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -EnableAutomaticUpgrade
 ```
 ---
 
@@ -215,6 +268,73 @@ Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroup
 Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroupName <resource-group-name> -Name AzureMonitorLinuxAgent
 ```
 ---
+
+#### [Azure CLI](#tab/azure-cli)
+
+### Uninstall on Azure virtual machines
+
+Use the following CLI commands to uninstall the Azure Monitor agent on Azure virtual machines.
+
+# [Windows](#tab/CLIWindows)
+
+```azurecli
+az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorWindowsAgent
+```
+
+# [Linux](#tab/CLILinux)
+
+
+```azurecli
+az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorLinuxAgent
+```
+---
+
+### Uninstall on Azure Arc-enabled servers
+
+Use the following CLI commands to uninstall the Azure Monitor agent on Azure Arc-enabled servers.
+
+# [Windows](#tab/CLIWindowsArc)
+
+```azurecli
+az connectedmachine extension delete --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name>
+```
+# [Linux](#tab/CLILinuxArc)
+
+```azurecli
+az connectedmachine extension delete --name AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name>
+```
+---
+
+---
+
+## Update
+
+#### [Portal](#tab/azure-portal)
+
+To perform a one-time update of the agent, you must first uninstall the existing agent version. Then install the new version as described.
+
+We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature. Go to your virtual machine or scale set, select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Enable automatic upgrade**.
+
+#### [PowerShell](#tab/azure-powershell)
+
+### Update on Azure virtual machines
+
+To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
+
+We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following PowerShell commands.
+
+# [Windows](#tab/PowerShellWindows)
+
+```powershell
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorWindowsAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
+```
+
+# [Linux](#tab/PowerShellLinux)
+
+```powershell
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorLinuxAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
+```
+--- 
 
 ### Upgrade on Azure Arc-enabled servers
 
@@ -250,61 +370,7 @@ Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -Machine
 ```
 ---
 
-## Use the Azure CLI
-
-You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers by using the Azure CLI command for adding a virtual machine extension.
-
-### Install on Azure virtual machines
-
-Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
-
-#### User-assigned managed identity
-
-# [Windows](#tab/CLIWindows)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true --settings '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":"/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
-```
-
-# [Linux](#tab/CLILinux)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true --settings '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":"/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
-```
----
-
-#### System-assigned managed identity
-
-# [Windows](#tab/CLIWindows)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true
-```
-
-# [Linux](#tab/CLILinux)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true
-```
----
-
-### Uninstall on Azure virtual machines
-
-Use the following CLI commands to uninstall the Azure Monitor agent on Azure virtual machines.
-
-# [Windows](#tab/CLIWindows)
-
-```azurecli
-az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorWindowsAgent
-```
-
-# [Linux](#tab/CLILinux)
-
-
-```azurecli
-az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorLinuxAgent
-```
----
+#### [Azure CLI](#tab/azure-cli)
 
 ### Update on Azure virtual machines
 
@@ -321,39 +387,6 @@ az vm extension set -name AzureMonitorWindowsAgent --publisher Microsoft.Azure.M
 
 ```azurecli
 az vm extension set -name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
-```
----
-
-### Install on Azure Arc-enabled servers
-
-Use the following CLI commands to install the Azure Monitor agent on Azure Arc-enabled servers.
-
-# [Windows](#tab/CLIWindowsArc)
-
-```azurecli
-az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
-```
-
-# [Linux](#tab/CLILinuxArc)
-
-```azurecli
-az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
-```
----
-
-### Uninstall on Azure Arc-enabled servers
-
-Use the following CLI commands to uninstall the Azure Monitor agent on Azure Arc-enabled servers.
-
-# [Windows](#tab/CLIWindowsArc)
-
-```azurecli
-az connectedmachine extension delete --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name>
-```
-# [Linux](#tab/CLILinuxArc)
-
-```azurecli
-az connectedmachine extension delete --name AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name>
 ```
 ---
 
@@ -388,6 +421,9 @@ az connectedmachine extension update --name AzureMonitorWindowsAgent --machine-n
 az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
 ```
 ---
+
+---
+<!-- streamline end -->
 
 ## Use Azure Policy
 
