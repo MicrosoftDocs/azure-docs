@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Export DICOM Files
 
-The DICOM service supports the bulk export of data to an [Azure Blob Storage account](../../storage/blobs/storage-blobs-introduction.md).  DICOM data that is exported to a storage account will be exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.  
+The DICOM service provides the ability to easily export DICOM data in a file format, simplifying the process of using medical imaging in external workflows, such as AI and machine learning. DICOM studies, series, and instances can be exported in bulk to an [Azure Blob Storage account](../../storage/blobs/storage-blobs-introduction.md) using the export API.  DICOM data that is exported to a storage account will be exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.  
 
 There are three steps to exporting data from the DICOM service: 
 
@@ -54,7 +54,7 @@ The system managed identity will need **Storage Blob Data Contributor** permissi
 
 3. Click **Save** to add the permission to the system managed identity.
 
-## Call the export API
+## Use the export API
 
 The export API exposes one `POST` endpoint for exporting data. 
 
@@ -62,7 +62,9 @@ The export API exposes one `POST` endpoint for exporting data.
 POST <dicom-service-url>/<version>/export
 ```
 
-Given a *source*, the set of data to be exported, and a *destination*, the location to which data will be exported, the endpoint returns a reference to the newly-started long-running export operation. The duration of this operation depends on the volume of data to be exported.
+Given a *source*, the set of data to be exported, and a *destination*, the location to which data will be exported, the endpoint returns a reference to the newly-started long-running export operation. The duration of this operation depends on the volume of data to be exported.  See [Operation Status](#operation-status) below for more details about monitoring progress of export operations.  
+
+Any errors encountered while attempting to export will be recorded in an error log.  See [Errors](#errors) below for details.
 
 ## Request
 
