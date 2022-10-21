@@ -16,10 +16,6 @@ sections:
   - name: General
     questions:
       - question: |
-          Can I get Azure Synapse Link for SQL in my existing Azure Synapse workspace?
-        answer: |
-          You can get Azure Synapse Link for SQL when your Azure Synapse workspace is created after May 24th, 2022.  The support for Synapse workspaces created before May 24th, 2022 will be coming soon. When you see the error code: SynapseLinkStorageResourceNotProvisioned, it indicates that you are using the Synapse workspaces created before May 24th, 2022.
-      - question: |
           Can I use Azure Synapse Link for SQL to replicate data to Azure Synapse SQL serverless pool as the destination store?
         answer: |
           No, currently Azure Synapse Link for SQL supports Synapse dedicated SQL pool as the data destination store only.

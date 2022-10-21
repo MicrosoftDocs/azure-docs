@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 08/24/2022
+ms.date: 09/26/2022
 ms.topic: conceptual
 ---
 
@@ -24,7 +24,7 @@ $HOME\.KVA\.ssh\logkey
 
 To run the `az arcappliance logs` command, the path to the kubeconfig must be provided. The kubeconfig is generated after successful completion of the `az arcappliance deploy` command and is placed in the same directory as the CLI command in ./kubeconfig or as specified in `--outfile` (if the parameter was passed).  
 
-If `az arcappliance deploy` was not completed, then the kubeconfig file may exist but may be empty or missing data, so it can't be used for logs collection. In this case, the Appliance VM IP address can be used to collect logs instead. The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane Endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 10.97.176.27", the command to use for logs collection would be: 
+If `az arcappliance deploy` was not completed, then the kubeconfig file may exist but may be empty or missing data, so it can't be used for logs collection. In this case, the Appliance VM IP address can be used to collect logs instead. The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane Endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 10.97.176.27", the command to use for logs collection would be:
 
 ```azurecli
 az arcappliance logs hci --out-dir c:\logs --ip 10.97.176.27
@@ -122,30 +122,31 @@ When the appliance is deployed to a host resource pool, there is no high availab
 
 ### Restricted outbound connectivity
 
-If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked.
+Make sure the URLs listed below are added to your allowlist.
 
-URLS:
+#### Proxy URLs used by appliance agents and services
 
-| Agent resource | Description |
-|---------|---------|
-|`https://mcr.microsoft.com`|Microsoft container registry|
-|`https://*.his.arc.azure.com`|Azure Arc Identity service|
-|`https://*.dp.kubernetesconfiguration.azure.com`|Azure Arc configuration service|
-|`https://*.servicebus.windows.net`|Cluster connect|
-|`https://guestnotificationservice.azure.com` |Guest notification service|
-|`https://*.dp.prod.appliances.azure.com`|Resource bridge data plane service|
-|`https://ecpacr.azurecr.io` |Resource bridge container image download |
-|`.blob.core.windows.net`<br> `*.dl.delivery.mp.microsoft.com`<br> `*.do.dsp.mp.microsoft.com` |Resource bridge image download |
-|`https://azurearcfork8sdev.azurecr.io` |Azure Arc for Kubernetes container image download |
-|`adhs.events.data.microsoft.com ` |Required diagnostic data sent to Microsoft from control plane nodes|
-|`v20.events.data.microsoft.com` |Required diagnostic data sent to Microsoft from the Azure Stack HCI or Windows Server host|
+|**Service**|**Port**|**URL**|**Direction**|**Notes**|
+|--|--|--|--|--|
+|Microsoft container registry | 443 | `https://mcr.microsoft.com`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images for installation. |  
+|Azure Arc Identity service | 443 | `https://*.his.arc.azure.com` | Appliance VM IP and Control Plane IP need outbound connection. | Manages identity and access control for Azure resources |  
+|Azure Arc configuration service | 443 | `https://*.dp.kubernetesconfiguration.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used for Kubernetes cluster configuration.|
+|Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and Control Plane IP need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
+|Guest Notification service| 443 | `https://guestnotificationservice.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used to connect on-prem resources to Azure.|
+|SFS API endpoint | 443 | msk8s.api.cdp.microsoft.com | Host machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
+|Resource bridge (appliance) Dataplane service| 443 | `https://*.dp.prod.appliances.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Communicate with resource provider in Azure.|
+|Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, https://ecpacr.azurecr.io`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
+|Resource bridge (appliance) image download| 80 | `*.dl.delivery.mp.microsoft.com`| Host machine,  Appliance VM IP and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
+|Azure Arc for Kubernetes container image download| 443 | `https://azurearcfork8sdev.azurecr.io`|  Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
+|ADHS telemetry service | 443 | adhs.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Runs inside the appliance/mariner OS. Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any Kubernetes control plane. |
+|Microsoft events data service | 443 |v20.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
 
-URLs used by other Arc agents:
+#### Used by other Arc agents
 
-|Agent resource | Description |
-|---------|---------|
-|`https://management.azure.com` |Azure Resource Manager|
-|`https://login.microsoftonline.com` |Azure Active Directory|
+|**Service**|**URL**|
+|--|--|
+|Azure Resource Manager| `https://management.azure.com`|
+|Azure Active Directory| `https://login.microsoftonline.com`|
 
 ### Azure Arc resource bridge is unreachable
 
@@ -350,8 +351,8 @@ When deploying the resource bridge on VMware Vcenter, you may get an error sayin
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
-* Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
+- Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
-* [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+- [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).

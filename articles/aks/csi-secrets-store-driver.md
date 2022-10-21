@@ -124,6 +124,9 @@ The Secrets Store CSI Driver allows for the following methods to access an Azure
 
 Follow the instructions in [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods] for your chosen method.
 
+> [!NOTE]
+> The rest of the examples on this page require that you've followed the instructions in [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods], chosen one of the identity methods, and configured a SecretProviderClass.  Come back to this page after completed those steps.
+
 ## Validate the secrets
 
 After the pod starts, the mounted content at the volume path that you specified in your deployment YAML is available.
