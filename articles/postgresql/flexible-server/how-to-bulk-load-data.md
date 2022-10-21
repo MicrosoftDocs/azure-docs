@@ -133,7 +133,7 @@ Creating indexes on foreign keys in the child tables can be beneficial in the fo
 
 ### Identify unused indexes
 
-Identify unused indexes in the database and drop them. Indexes are an overhead on data loads. The fewer the indexes on a table the better the performance is during data ingestion.
+Identify unused indexes in the database and drop them. Indexes are an overhead on data loads. The fewer the indexes on a table, the better the performance during data ingestion.
 
 You can identify unused indexes in two ways: by Query Store and an index usage query.
 
