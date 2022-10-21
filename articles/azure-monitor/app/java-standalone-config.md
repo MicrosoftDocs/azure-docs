@@ -32,14 +32,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.1.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.2.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.2.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
@@ -62,7 +62,7 @@ You can also set the connection string using the environment variable `APPLICATI
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.2.jar` is located.
 
 ```json
 {
@@ -136,7 +136,7 @@ Furthermore, sampling is trace ID based, to help ensure consistent sampling deci
 
 ### Rate-Limited Sampling
 
-Starting from 3.4.1, rate-limited sampling is available, and is now the default.
+Starting from 3.4.2, rate-limited sampling is available, and is now the default.
 
 If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
 (approximately) 5 requests per second, along with all the dependencies and logs on those requests.
@@ -264,7 +264,7 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 
 ## Connection string overrides (preview)
 
-This feature is in preview, starting from 3.4.1.
+This feature is in preview, starting from 3.4.2.
 
 Connection string overrides allow you to override the [default connection string](#connection-string), for example:
 * Set one connection string for one http path prefix `/myapp1`.
@@ -416,6 +416,29 @@ These are the valid `level` values that you can specify in the `applicationinsig
 > | project timestamp, message, itemType
 > ```
 
+### Log markers for Logback and Log4j 2 (preview)
+
+Log markers are disabled by default.
+
+You can enable the `Marker` property for Logback and Log4j 2:
+
+```json
+{
+  "preview": {
+    "captureLogbackMarker":  true
+  }
+}
+```
+
+```json
+{
+  "preview": {
+    "captureLog4jMarker":  true
+  }
+}
+```
+
+This feature is in preview, starting from 3.4.2.
 
 ### Code properties for Logback (preview) 
 
@@ -433,7 +456,7 @@ You can enable code properties (_FileName_, _ClassName_, _MethodName_, _LineNumb
 >
 > This feature could add a performance overhead.
 
-This feature is in preview, starting from 3.4.1.
+This feature is in preview, starting from 3.4.2.
 
 ### LoggingLevel
 
@@ -479,7 +502,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 Literal values in JDBC queries are masked by default in order to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.1, this behavior can be disabled if desired, e.g.
+Starting from 3.4.2, this behavior can be disabled if desired, e.g.
 
 ```json
 {
@@ -497,7 +520,7 @@ Starting from 3.4.1, this behavior can be disabled if desired, e.g.
 
 Literal values in Mongo queries are masked by default in order to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.1, this behavior can be disabled if desired, e.g.
+Starting from 3.4.2, this behavior can be disabled if desired, e.g.
 
 ```json
 {
@@ -775,7 +798,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.1.jar` is located.
+`applicationinsights-agent-3.4.2.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
