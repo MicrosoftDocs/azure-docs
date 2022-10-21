@@ -38,7 +38,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/sdk/assets/data). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/sdk/assets/data). And please find examples below.
 
 ## MLTable paths: file
 ```yaml
