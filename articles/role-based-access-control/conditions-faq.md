@@ -28,7 +28,7 @@ If you add three or more expressions for a targeted action, you must define the 
 
 **Are conditions supported via Azure AD Privileged Identity Management (Azure AD PIM) for Azure resources?**
 
-Yes, but adding conditions on eligible role assignments using Azure AD PIM for Azure resources is currently in preview. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+Yes, for specific roles. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 **Are conditions supported for classic administrators?**
 

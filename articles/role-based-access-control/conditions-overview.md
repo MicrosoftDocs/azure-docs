@@ -107,14 +107,9 @@ Some features of conditions are still in preview. The following table lists the 
 | Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), or [REST API](conditions-role-assignments-rest.md) | GA | October 2022 |
 | Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
-| Add conditions on eligible role assignments using Azure AD PIM for Azure resources | Preview | November 2021 |
 | Use resource and request attributes in a condition | Preview | May 2021 |
 
 ## Conditions and Azure AD PIM
-
-> [!IMPORTANT]
-> Adding conditions on eligible role assignments using Azure AD PIM for Azure resources is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can also add conditions to eligible role assignments using Azure AD Privileged Identity Management (Azure AD PIM) for Azure resources. With Azure AD PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in Azure AD PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use Azure AD PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
