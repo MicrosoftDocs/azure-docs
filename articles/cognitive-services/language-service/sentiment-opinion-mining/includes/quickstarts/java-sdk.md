@@ -28,6 +28,8 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
 ### Add the client library
 
 Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) online.
@@ -48,10 +50,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 
 ## Code example
 
-Create a Java file named `Example.java`. Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
-
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+Create a Java file named `Example.java`. Open the file and copy the below code.
 
 ```java
 import com.azure.core.credential.AzureKeyCredential;
@@ -60,12 +59,13 @@ import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
 
 public class Example {
-
-    private static String KEY = "replace-with-your-key-here";
-    private static String ENDPOINT = "replace-with-your-endpoint-here";
+    
+    // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+    private static String languageKey = System.getenv("LANGUAGE_KEY");
+    private static String languageEndpoint = System.getenv("LANGUAGE_ENDPOINT");
 
     public static void main(String[] args) {
-        TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+        TextAnalyticsClient client = authenticateClient(languageKey, languageEndpoint);
         sentimentAnalysisWithOpinionMiningExample(client);
     }
     // Method to authenticate the client object with your key and endpoint.

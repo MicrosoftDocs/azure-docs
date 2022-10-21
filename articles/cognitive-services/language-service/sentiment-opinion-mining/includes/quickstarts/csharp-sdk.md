@@ -29,6 +29,8 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
 ### Create a new .NET Core application
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
@@ -40,11 +42,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ## Code example
 
-Copy the following code into your *program.cs* file. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
-
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
-
+Copy the following code into your *program.cs* file.
 
 ```csharp
 using Azure;
@@ -56,8 +54,12 @@ namespace Example
 {
     class Program
     {
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
-        private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
+        // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+        static string languageKey = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
+        static string languageEndpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
+
+        private static readonly AzureKeyCredential credentials = new AzureKeyCredential(languageKey);
+        private static readonly Uri endpoint = new Uri(languageEndpoint);
 
         // Example method for detecting opinions text. 
         static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)

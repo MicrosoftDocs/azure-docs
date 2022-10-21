@@ -25,6 +25,10 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 ## Setting up
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+[!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
+
 ### Install the client library
 
 After installing Python, you can install the client library with:
@@ -41,21 +45,19 @@ pip install azure-ai-textanalytics==5.2.0
 
 Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
-
 ```python
-key = "paste-your-key-here"
-endpoint = "paste-your-endpoint-here"
+# This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_REGION"
+language_key = os.environ.get('LANGUAGE_KEY')
+language_endpoint = os.environ.get('LANGUAGE_ENDPOINT')
 
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 
 # Authenticate the client using your key and endpoint 
 def authenticate_client():
-    ta_credential = AzureKeyCredential(key)
+    ta_credential = AzureKeyCredential(language_key)
     text_analytics_client = TextAnalyticsClient(
-            endpoint=endpoint, 
+            endpoint=language_endpoint, 
             credential=ta_credential)
     return text_analytics_client
 

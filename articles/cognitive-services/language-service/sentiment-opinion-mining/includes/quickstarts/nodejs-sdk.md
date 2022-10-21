@@ -27,6 +27,8 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
 ### Create a new Node.js application
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
@@ -58,18 +60,17 @@ npm install @azure/ai-text-analytics@5.1.0
 
 Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
-
-
 ```javascript
 "use strict";
 
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const key = '<paste-your-key-here>';
-const endpoint = '<paste-your-endpoint-here>';
+
+// This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+const languageKey = process.env.LANGUAGE_KEY;
+const languageEndpoint = process.env.LANGUAGE_ENDPOINT;
+
 // Authenticate the client with your key and endpoint.
-const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
+const textAnalyticsClient = new TextAnalyticsClient(LanguageEndpoint,  new AzureKeyCredential(languageKey));
 
 // Example method for detecting sentiment and opinions in text.
 async function sentimentAnalysisWithOpinionMining(client){
