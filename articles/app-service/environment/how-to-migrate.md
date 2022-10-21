@@ -19,9 +19,7 @@ An App Service Environment v1 and v2 can be automatically migrated to an [App Se
 
 Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-migration-feature) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-Ensure there are no locks on your virtual network. Virtual network locks will block platform operations during migration.
-
-:::image type="content" source="./media/migration/vnet-locks.png" alt-text="Screenshot that shows where to find and update virtual network locks.":::
+Ensure there are no locks on your virtual network, resource group, or subscription. Locks will block platform operations during migration.
 
 ::: zone pivot="experience-azcli"
 
@@ -82,7 +80,25 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 az network vnet subnet update --resource-group $VNET_RG -name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
 
-## 6. Prepare your configurations
+## 6. Confirm there are no locks on the virtual network
+
+Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+
+Use the following command to check if your virtual network has any locks.
+
+```azurecli
+az lock list --resource-group $VNET_RG --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
+```
+
+Delete any locks using the following command.
+
+```azurecli
+az lock delete --resource-group jordan-rg --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
+```
+
+For related commands to check if your subscription or resource group has locks, see [Azure CLI reference for locks](../../azure-resource-manager/management/lock-resources.md#azure-cli).
+
+## 7. Prepare your configurations
 
 You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). This can be done by setting the `zoneRedundant` property to "true". Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). If you don't want to configure zone redundancy, don't include the `zoneRedundant` parameter.
 
@@ -143,7 +159,7 @@ If you're using a system assigned managed identity for your custom domain suffix
 }
 ```
 
-## 7. Migrate to App Service Environment v3
+## 8. Migrate to App Service Environment v3
 
 Only start this step once you've completed all pre-migration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. This step takes up to three hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. During that time, there will be about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment will be blocked during this step. 
 
@@ -179,7 +195,7 @@ From the [Azure portal](https://portal.azure.com), navigate to the **Migration**
 
 On the migration page, the platform will validate if migration is supported for your App Service Environment. If your environment isn't supported for migration, a banner will appear at the top of the page and include an error message with a reason. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the error messages you may see if you aren't eligible for migration. If your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state, you won't be able to use the migration feature. If your environment [won't be supported for migration with the migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
-:::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot that shows what the portal looks like when migration is not supported.":::
+:::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot that shows what the portal looks like when migration isn't supported.":::
 
 If migration is supported for your App Service Environment, you'll be able to proceed to the next step in the process. The migration page will guide you through the series of steps to complete the migration.
 
@@ -201,7 +217,13 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 :::image type="content" source="./media/migration/subnet-delegation-ux.png" alt-text="Screenshot that shows subnet delegation using the portal.":::
 
-## 5. Choose your configurations
+## 5. Confirm there are no locks on the virtual network
+
+Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+
+:::image type="content" source="./media/migration/vnet-locks.png" alt-text="Screenshot that shows where to find and remove virtual network locks.":::
+
+## 6. Choose your configurations
 
 You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). Select **Enabled** if you'd like to configure zone redundancy.
 
@@ -217,7 +239,7 @@ After you add your custom domain suffix details, the "Migrate" button will be en
 
 :::image type="content" source="./media/migration/custom-domain-suffix.png" alt-text="Screenshot that shows the configuration details have been added and environment is ready for migration.":::
 
-## 6. Migrate to App Service Environment v3
+## 7. Migrate to App Service Environment v3
 
 Once you've completed all of the above steps, you can start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. This step takes up to three hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. Scaling and modifications to your existing App Service Environment will be blocked during this step.
 
