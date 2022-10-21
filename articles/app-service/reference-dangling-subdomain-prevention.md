@@ -23,9 +23,9 @@ Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/az
 Azure App Service provides [Name Reservation Service](#how-app-service-prevents-subdomain-takeovers) and [domain verification tokens](#how-you-can-prevent-subdomain-takeovers) to prevent subdomain takeovers.
 ## How App Service prevents subdomain takeovers
 
-Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, re-use of the DNS will be forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
+Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, reuse of the DNS is forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
 
-After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean up any associations/pointers to said DNS or re-claim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'. Name Reservation Service is enabled by default on Azure App Service and doesn't require additional configuration.
+After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean-up any associations/pointers to said DNS or reclaim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'. Name Reservation Service is enabled by default on Azure App Service and doesn't require more configuration.
 
 #### Example scenario
 
@@ -40,6 +40,6 @@ When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT
 
 These records prevent the creation of another App Service app using the same name from your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
 
-DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation. Be aware that the DNS records take time to propagate.
+DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation.
 
 To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id)
