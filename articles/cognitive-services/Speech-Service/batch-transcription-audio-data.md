@@ -214,7 +214,7 @@ With system assigned managed identity, you'll use a plain Storage Account URL (n
 }
 ```
 
-You could otherwise choose specify individual files in the container. For example: 
+You could otherwise specify individual files in the container. For example: 
 
 ```json
 {
@@ -270,7 +270,7 @@ You will use the SAS URL when you [create a batch transcription](batch-transcrip
 }
 ```
 
-You could otherwise choose specify individual files in the container. You must generate and use a different SAS URL with read (r) permissions for each file. For example: 
+You could otherwise specify individual files in the container. You must generate and use a different SAS URL with read (r) permissions for each file. For example: 
 
 ```json
 {
