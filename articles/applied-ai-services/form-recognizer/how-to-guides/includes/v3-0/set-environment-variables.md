@@ -41,7 +41,7 @@ setx FR_ENDPOINT {yourEndpoint}
 
 ```
 
-* After you set your environment variables, you'll need to exit the shell and reopen it before the changes will be available. The value will remain modified until you change it again.
+* After you set your environment variables, you'll need to exit the shell, and reopen it before the changes will be available. The value will remain modified until you change it again.
 
 * Restart any running programs that will read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
 
