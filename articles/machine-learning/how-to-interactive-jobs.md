@@ -69,7 +69,7 @@ It might take a few minutes to start the job and the training applications speci
 #### Submit an interactive job
 
 # [Python SDK](#tab/python)
-1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](./how-to-manage-environments-v2) to create a custom environment. 
+1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
 
     ```python
     # NEED TO LINK OUT TO SAMPLES REPO INSTEAD OF HARD CODING
@@ -114,7 +114,7 @@ It might take a few minutes to start the job and the training applications speci
 
 # [Azure CLI](#tab/azurecli)
 
-1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-manage-environments-v2) to create a custom environment. 
+1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
     ```dotnetcli
     # NEED TO LINK OUT TO SAMPLES REPO INSTEAD OF HARD CODING
     code: src 
@@ -162,7 +162,7 @@ It might take a few minutes to start the job and the training applications speci
 
 - To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. 
 
-You can find the reference documentation for these commands [here](https://learn.microsoft.com/en-us/cli/azure/ml?view=azure-cli-latest).
+You can find the reference documentation for these commands [here](/cli/azure/ml?view=azure-cli-latest).
 
 ---
 
