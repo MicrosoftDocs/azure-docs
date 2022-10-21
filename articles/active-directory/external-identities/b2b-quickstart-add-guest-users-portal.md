@@ -16,7 +16,9 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Add a guest user and send an invitation
 
-With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account. In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. In addition to this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
+With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account.
+
+In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. In addition to this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
