@@ -65,7 +65,7 @@ Here are some ways to detect if your application was impacted:
     - **Android**: Check the documentation for your device and version of Android.
     - **Other hardware devices, especially IoT**: Contact the device manufacturer.
 
-- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations, you'll need to allow the following CRL and OCSP URLs. For a complete list of CRL and OCSP URLs used in Azure, see the [Azure CA details article](azure-CA-details.md).
+- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations, you'll need to allow the following CRL and OCSP URLs. For a complete list of CRL and OCSP URLs used in Azure, see the [Azure CA details article](azure-CA-details.md#certificate-downloads-and-revocation-lists).
 
     - http://crl3&#46;digicert&#46;com
     - http://crl4&#46;digicert&#46;com
