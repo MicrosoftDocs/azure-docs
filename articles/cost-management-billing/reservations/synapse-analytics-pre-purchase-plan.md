@@ -38,7 +38,7 @@ You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a 
 
 - You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
 - For Enterprise Agreement (EA) subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
-- For CSP subscriptions, follow the steps in https://learn.microsoft.com/en-us/partner-center/azure-ri-server-subscriptions.
+- For CSP subscriptions, follow the steps in [Acquire, provision, and manage Azure reserved VM instances (RI) + server subscriptions for customers](/partner-center/azure-ri-server-subscriptions).
 
 ### To Purchase:
 
