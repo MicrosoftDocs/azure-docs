@@ -23,7 +23,12 @@ Project environment types enable development infrastructure teams to:
   You can provide subscriptions for environment types in a project to automatically apply the right set of policies on environments. This action also abstracts Azure governance-related concepts from your development teams.
 - Preconfigure the managed identity that developers will use to perform the deployment, along with the access levels that development teams get after the environment is created.
 
-In this article, you'll learn how to add, update, enable, disable, and delete a project environment type. 
+In this article, you'll learn how to:
+
+* Add a new project environment type.
+* Update a project environment type.
+* Enable or disable a project environment type.
+* Delete a project environment type. 
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
