@@ -33,7 +33,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
 | `type` | const | `mltable` to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe | `mltable` | `mltable`|
-| `paths` | array | Paths can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. |`file`, `folder`, `pattern`  | |
+| `paths` | array | Paths can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(* and **) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. |`file`, `folder`, `pattern`  | |
 | `transformations`| array | Defined sequence of transformations that are applied to data loaded from defined paths. |`read_delimited`, `read_parquet` , `read_json_lines` , `read_delta_lake`, `take` to take the first N rows from dataset, `take_random_sample` to take a random sample of records in the dataset approximately by the probability specified, `drop_columns`, `keep_columns`,... || 
 
 ## Examples
@@ -59,6 +59,10 @@ transformations:
       delimiter: ,
       encoding: ascii
       header: all_files_same_headers
+  - columns: [Trip_Pickup_DateTime, Trip_Dropoff_DateTime]
+      column_type:
+        datetime:
+          formats: ['%Y-%m-%d %H:%M:%S']
 ```
 
 ## MLTable transformations
@@ -68,6 +72,9 @@ These are transforms that all mltable-artifact files support:
 - `take_random_sample`: Takes a random sample of the table where each record has a *probability* of being selected. The user can also include a *seed*.
 - `drop_columns`: Drops the specified columns from the table. This transform supports regex so that users can drop columns matching a particular pattern.
 - `keep_columns`: Keeps only the specified columns in the table. This transform supports regex so that users can keep columns matching a particular pattern.
+- `convert_column_types` 
+      - `columns`: The column name you want to convert type of.
+      - `column_type`: The type you want to convert the column to, e.g. string, float, int, or datetime with specified formats.
 
 ## MLTable transformations: read_delimited
 
@@ -116,10 +123,6 @@ transformations:
   - convert_column_types:
       - columns: image_url
         column_type: stream_info
-      - columns: [Trip_Pickup_DateTime, Trip_Dropoff_DateTime]
-        column_type:
-          datetime:
-            formats: ['%Y-%m-%d %H:%M:%S']
 ```
 
 ### Json lines transformations
@@ -129,9 +132,7 @@ Below are the supported transformations that are specific for json lines:
 - `include_path` Boolean to keep path information as column in the MLTable. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
 - `invalid_lines` How to handle lines that are invalid JSON. Supported values are `error` and `drop`. Defaults to `error`.
 - `encoding` Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
-- `convert_column_types` 
-      - `columns`: The column name you want to convert type of.
-      - `column_type`: The type you want to convert the column to, e.g. string, float, int, or datetime with specified formats.
+
 
 ## MLTable transformations: read_parquet
 ```yaml
