@@ -22,25 +22,21 @@ In this article, you learn how to train a custom neural voice through the Speech
 
 ## Train your Custom Neural Voice model
 
+If you want to create a voice in the same language of your training data, select **Neural** method. For the **Neural** method, you can select different versions of the training recipe for your model. The versions vary according to the features supported and model training time. Normally new versions are enhanced ones with bugs fixed and new features supported. The latest version is selected by default.
+
+You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts).
+
+> [!NOTE]
+> Although the total number of hours required per training method will vary, the same unit price applies to each. For more information, see the [Custom Neural training pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+To create a custom neural voice, select at least 300 utterances.
+
 After you validate your data files, you can use them to build your Custom Neural Voice model.
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
 1. On the **Train model** tab, select **Train a new model** to create a voice model with the data you've uploaded.
-
 1. Select the training method for your model.
-
-    If you want to create a voice in the same language of your training data, select **Neural** method. For the **Neural** method, you can select different versions of the training recipe for your model. The versions vary according to the features supported and model training time. Normally new versions are enhanced ones with bugs fixed and new features supported. The latest version is selected by default.
-
-    You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts).
-
-    The same unit price applies to both **Neural** and **Neural - cross lingual**. Check [the pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for training.
-
 1. Choose the data you want to use for training, and specify a speaker file.
-
-   >[!NOTE]
-   >- To create a custom neural voice, select at least 300 utterances.
-   >- To train a neural voice, you must specify a voice talent profile. This profile must provide the audio consent file of the voice talent, acknowledging to use their speech data to train a custom neural voice model.
-
 1. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script, including up to 100 utterances. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
 
    ```
