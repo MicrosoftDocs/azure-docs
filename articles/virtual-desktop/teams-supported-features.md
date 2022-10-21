@@ -36,7 +36,7 @@ The following table lists whether the Windows Desktop client or macOS client sup
 
 ## Minimum requirements
 
-The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure VIrtual Desktop, we recommend using the latest supported versions of each client and the WebRTC service, which you can find in the following list:
+The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure Virtual Desktop, we recommend using the latest supported versions of each client and the WebRTC service, which you can find in the following list:
 
 - [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
 - [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
