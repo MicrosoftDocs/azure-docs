@@ -89,8 +89,8 @@ If your storage account does not have any associated disks or Virtual Machines d
 
 The following screenshots show how to upgrade a Classic storage account to an Azure Resource Manager storage account using Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to your storage account.
-3. In the **Settings** section, click **Migrate to Azure Resource Manager**.
+2. Navigate to your classic storage account.
+3. In the **Settings** section, click **Migrate to ARM**.
 4. Click on **Validate** to determine migration feasibility.
 5. If validation passes, click on **Prepare** to create a migrated storage account.
 6. Type **yes** to confirm migration and click **Commit** to finish the migration.
