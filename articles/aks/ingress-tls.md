@@ -13,16 +13,16 @@ ms.date: 05/18/2022
 
 # Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 
-Transport layer security (TLS) is a protocol for providing security in communication, such as encryption, authentication, and integrity, by using certificates. Using TLS with an ingress controller on AKS allows you to secure communication between your applications, while also having the benefits of an ingress controller.
+The transport layer security (TLS) protocol uses certificates to provide security for communication, encryption, authentication, and integrity. Using TLS with an ingress controller on AKS allows you to secure communication between your applications, while also having the benefits of an ingress controller.
 
-You can bring your own certificates and integrate them with the Secrets Store CSI driver. Alternatively, you can also use [cert-manager][cert-manager], which is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, two applications are run in the AKS cluster, each of which is accessible over a single IP address.
+You can bring your own certificates and integrate them with the Secrets Store CSI driver. Alternatively, you can use [cert-manager][cert-manager], which automatically generates and configures [Let's Encrypt][lets-encrypt] certificates. Two applications are run in the AKS cluster, each of which is accessible over a single IP address.
 
 > [!NOTE]
-> There are two open source ingress controllers for Kubernetes based on Nginx: one is maintained by the Kubernetes community ([kubernetes/ingress-nginx][nginx-ingress]), and one is maintained by NGINX, Inc. ([nginxinc/kubernetes-ingress]). This article will be using the Kubernetes community ingress controller.
+> There are two open source ingress controllers for Kubernetes based on Nginx: one is maintained by the Kubernetes community ([kubernetes/ingress-nginx][nginx-ingress]), and one is maintained by NGINX, Inc. ([nginxinc/kubernetes-ingress]). This article uses the Kubernetes community ingress controller.
 
 ## Before you begin
 
-This article also assumes that you have an ingress controller and applications set up. If you need an ingress controller or example applications, see [Create an ingress controller][aks-ingress-basic].
+This article assumes that you have an ingress controller and applications set up. If you need an ingress controller or example applications, see [Create an ingress controller][aks-ingress-basic].
 
 This article uses [Helm 3][helm] to install the NGINX ingress controller on a [supported version of Kubernetes][aks-supported versions]. Make sure that you're using the latest release of Helm and have access to the `ingress-nginx` and `jetstack` Helm repositories. The steps outlined in this article may not be compatible with previous versions of the Helm chart, NGINX ingress controller, or Kubernetes.
 
@@ -48,13 +48,13 @@ To use TLS with your own certificates with Secrets Store CSI Driver, you'll need
 
 ## Use TLS with Let's Encrypt certificates
 
-To use TLS with Let's Encrypt certificates, you'll deploy [cert-manager][cert-manager], which is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates.
+To use TLS with Let's Encrypt certificates, you'll deploy [cert-manager][cert-manager], which automatically generates and configures [Let's Encrypt][lets-encrypt] certificates.
 
 ### Import the cert-manager images used by the Helm chart into your ACR
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use `az acr import` to import those images into your ACR.
+Use `az acr import` to import the following images into your ACR.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
@@ -71,7 +71,7 @@ az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGE
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Use `Import-AzContainerRegistryImage` to import those images into your ACR.
+Use `Import-AzContainerRegistryImage` to import the following images into your ACR.
 
 ```azurepowershell
 $RegistryName = "<REGISTRY_NAME>"
@@ -86,16 +86,18 @@ Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName 
 Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
 Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
 ```
+
 ---
 
 > [!NOTE]
-> In addition to importing container images into your ACR, you can also import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an Azure Container Registry][acr-helm].
+> In addition to importing container images into your ACR, you can import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an Azure Container Registry][acr-helm].
 
 ## Ingress controller configuration options
 
-By default, an NGINX ingress controller is created with a new public IP address assignment. This public IP address is only static for the life-span of the ingress controller, and is lost if the controller is deleted and re-created. 
+By default, an NGINX ingress controller is created with a new public IP address assignment. This public IP address is only static for the life-span of the ingress controller, and is lost if the controller is deleted and re-created.
 
 You have the option of choosing one of the following methods:
+
 * Using a dynamic public IP address.
 * Using a static public IP address.
 
@@ -103,11 +105,11 @@ You have the option of choosing one of the following methods:
 
 A common configuration requirement is to provide the NGINX ingress controller an existing static public IP address. The static public IP address remains if the ingress controller is deleted.
 
-The commands below create an IP address that will be deleted if you delete your AKS cluster. 
+The commands below create an IP address that will be deleted if you delete your AKS cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
- First get the resource group name of the AKS cluster with the [az aks show][az-aks-show] command:
+Get the resource group name of the AKS cluster with the [az aks show][az-aks-show] command:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -121,7 +123,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-First get the resource group name of the AKS cluster with the [Get-AzAksCluster][get-az-aks-cluster] command:
+Get the resource group name of the AKS cluster with the [Get-AzAksCluster][get-az-aks-cluster] command:
 
 ```azurepowershell-interactive
 (Get-AzAksCluster -ResourceGroupName $ResourceGroup -Name myAKSCluster).NodeResourceGroup
@@ -135,15 +137,17 @@ Next, create a public IP address with the *static* allocation method using the [
 
 ---
 
-Alternatively, you can create an IP address in a different resource group, which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
-
-* The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*. 
-* Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides. 
+> [!NOTE]
+> Alternatively, you can create an IP address in a different resource group, which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
+>
+> * The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*.
+> * Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides.
+>
 
 When you update the ingress controller, you must pass a parameter to the Helm release so the ingress controller is made aware of the static IP address of the load balancer to be allocated to the ingress controller service. For the HTTPS certificates to work correctly, a DNS name label is used to configure an FQDN for the ingress controller IP address.
 
-1. Add the `--set controller.service.loadBalancerIP="<EXTERNAL_IP>"` parameter. Specify your own public IP address that was created in the previous step.
-1. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
+1. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
+2. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -187,7 +191,7 @@ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-
 
 The example output shows the details about the ingress controller:
 
-```
+```console
 NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
 nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
