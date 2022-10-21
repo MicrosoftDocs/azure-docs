@@ -164,7 +164,7 @@ transforms:
 ### Delta lake transformations
 
 - `timestamp_as_of`: Timestamp to be specified for timetravel on the specific Delta Lake data.
-- `version_as_of`:Version to be specified for timetravel on the specific Delta Lake data.
+- `version_as_of`: Version to be specified for timetravel on the specific Delta Lake data.
 
 ## Next steps
 
