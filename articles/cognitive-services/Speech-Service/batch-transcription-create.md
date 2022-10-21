@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/11/2022
+ms.date: 10/21/2022
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
