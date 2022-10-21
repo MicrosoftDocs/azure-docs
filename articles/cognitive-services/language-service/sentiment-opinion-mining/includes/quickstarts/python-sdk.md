@@ -25,9 +25,9 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 ## Setting up
 
-[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
-
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
 ### Install the client library
 

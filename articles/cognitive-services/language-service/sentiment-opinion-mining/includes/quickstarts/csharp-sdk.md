@@ -165,7 +165,7 @@ Document sentiment: Mixed
 
 [!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
 
-[!INCLUDE [clean up resources](../../../includes/clean-up-variables.md)]
+[!INCLUDE [clean up environment variables](../../../includes/clean-up-variables.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
