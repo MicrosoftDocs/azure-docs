@@ -22,34 +22,32 @@ The guidance found in this article is focused on Azure Kubernetes Services you'r
 * Understanding the Well-Architected Framework sustainability guidance can help you produce a high quality, stable, and efficient cloud architecture. We recommend that you start by reading more about [sustainable workloads](/azure/architecture/framework/sustainability/sustainability-get-started) and reviewing your workload using the [Microsoft Azure Well-Architected Review](https://aka.ms/assessments) assessment.
 * Having clearly defined business requirements is crucial when building applications, as they might have a direct impact on both cluster and workload architectures and configurations. When building or updating existing applications, review the Well-Architected Framework sustainability design areas, alongside your application's holistic lifecycle.
 
-
 ## Understanding the shared responsibility model
 
 Sustainability – just like security – is a shared responsibility between the cloud provider and the customer or partner designing and deploying AKS clusters on the platform. Deploying AKS does not automatically make it sustainable, even if the [data centers are optimized for sustainability](https://infrastructuremap.microsoft.com/fact-sheets). Applications that aren't optimized may still emit more carbon than necessary.
- 
-Learn more about the [shared responsibility model for sustainability](/azure/architecture/framework/sustainability/sustainability-design-methodology#a-shared-responsibility).
 
+Learn more about the [shared responsibility model for sustainability](/azure/architecture/framework/sustainability/sustainability-design-methodology#a-shared-responsibility).
 
 ## Design principles
 
 **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
 
-   A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
+A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
 
 **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
-   One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate; thereby increasing hardware efficiency as well.
+One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate; thereby increasing hardware efficiency as well.
 
-**[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
+**[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible.
 
-   There are two main approaches to hardware efficiency:
+There are two main approaches to hardware efficiency:
 
-   * For end-user devices, it's extending the lifespan of the hardware.
-   * For cloud computing, it's increasing the utilization of the resource.
+* For end-user devices, it's extending the lifespan of the hardware.
+* For cloud computing, it's increasing the utilization of the resource.
 
 **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
-   Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
 
 ## Design patterns and practices
 
@@ -90,7 +88,7 @@ A microservice architecture may reduce the compute resources required, as it all
 
 ### Design for event-driven scaling
 
-Scaling your workload based on relevant business metrics such as HTTP requests, queue length, and cloud events can help reduce its resource utilization, hence its carbon emissions. 
+Scaling your workload based on relevant business metrics such as HTTP requests, queue length, and cloud events can help reduce its resource utilization, hence its carbon emissions.
 
 * Use [Keda](https://keda.sh/) when building event-driven applications to allow scaling down to zero when there is no demand.
 
@@ -104,7 +102,7 @@ Removing state from your design reduces the in-memory or on-disk data required b
 
 Explore this section to learn how to make better informed platform-related decisions around sustainability.
 
-### Enable cluster and node auto-updates 
+### Enable cluster and node auto-updates
 
 An up-to-date cluster avoids unnecessary performance issues and ensures you benefit from the latest performance improvements and compute optimizations.
 
@@ -122,9 +120,9 @@ Containers allow for reducing unnecessary resource allocation and making better 
 
 * Use [Draft](/azure/aks/draft) to simplify application containerization by generating Dockerfiles and Kubernetes manifests.
 
-### Use spot node pools when possible 
+### Use spot node pools when possible
 
-Spot nodes use Spot VMs and are great for workloads that can handle interruptions, early terminations, or evictions such as batch processing jobs and development and testing environments. 
+Spot nodes use Spot VMs and are great for workloads that can handle interruptions, early terminations, or evictions such as batch processing jobs and development and testing environments.
 
 * Use [spot node pools](/azure/aks/spot-node-pool) to take advantage of unused capacity in Azure at a significant cost saving for a more sustainable platform design for your [interruptible workloads](/azure/architecture/guide/spot/spot-eviction).
 
@@ -134,7 +132,7 @@ An oversized cluster does not maximize utilization of compute resources and can 
 
 * Size your cluster to match the scalability needs of your application and [use cluster autoscaler](/azure/aks/cluster-autoscaler) in combination with [virtual nodes](/azure/aks/virtual-nodes) to rapidly scale and maximize compute resource utilization. Additionally, [enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas) at the namespace level and [scale user node pools to 0](/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0) when there is no demand.
 
-### Turn off workloads and node pools outside of business hours 
+### Turn off workloads and node pools outside of business hours
 
 Workloads may not need to run continuously and could be turned off to reduce energy waste, hence carbon emissions. You can completely turn off (stop) your node pools in your AKS cluster, allowing you to also save on compute costs.
 
@@ -144,9 +142,9 @@ Workloads may not need to run continuously and could be turned off to reduce ene
 
 Explore this section to set up your environment for measuring and continuously improving your workloads cost and carbon efficiency.
 
-### Delete unused resources 
+### Delete unused resources
 
-Unused resources such as unreferenced images and storage resources should be identified and deleted as they have a direct impact on hardware and energy efficiency. Identifying and deleting unused resources must be treated as a process, rather than a point-in-time activity to ensure continuous energy optimization. 
+Unused resources such as unreferenced images and storage resources should be identified and deleted as they have a direct impact on hardware and energy efficiency. Identifying and deleting unused resources must be treated as a process, rather than a point-in-time activity to ensure continuous energy optimization.
 
 * Use [Azure Advisor](/azure/advisor/advisor-cost-recommendations) to identify unused resources and [ImageCleaner](/azure/aks/image-cleaner?tabs=azure-cli) to clean up stale images and remove an area of risk in your cluster.
 
@@ -160,7 +158,7 @@ Getting the right information and insights at the right time is important for pr
 
 Explore this section to learn how to design a more sustainable data storage architecture and optimize existing deployments.
 
-### Optimize storage utilization 
+### Optimize storage utilization
 
 The data retrieval and data storage operations can have a significant impact on both energy and hardware efficiency. Designing solutions with the correct data access pattern can reduce energy consumption and embodied carbon.
 
@@ -172,23 +170,23 @@ Explore this section to learn how to enhance and optimize network efficiency to 
 
 ### Choose a region that is closest to users
 
-The distance from a data center to the users has a significant impact on energy consumption and carbon emissions. Shortening the distance a network packet travels improves both your energy and carbon efficiency. 
+The distance from a data center to the users has a significant impact on energy consumption and carbon emissions. Shortening the distance a network packet travels improves both your energy and carbon efficiency.
 
 * Review your application requirements and [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview) to choose a region that is the closest to the majority of where the network packets are going.
 
 ### Reduce network traversal between nodes
 
-Placing nodes in a single region or a single availability zone reduces the physical distance between the instances. However, for business critical workloads, you need to ensure your cluster is spread accross multiple availability-zones, which may result in more network traversal and increase in your carbon footprint. 
+Placing nodes in a single region or a single availability zone reduces the physical distance between the instances. However, for business critical workloads, you need to ensure your cluster is spread across multiple availability-zones, which may result in more network traversal and increase in your carbon footprint.
 
 * Consider deploying your nodes within a [proximity placement group](/azure/virtual-machines/co-location) to reduce the network traversal by ensuring your compute resources are physically located close to each other. For critical workloads configure [proximity placement groups with availability zones](/azure/aks/reduce-latency-ppg#configure-proximity-placement-groups-with-availability-zones).
 
-### Evaluate using a service mesh 
+### Evaluate using a service mesh
 
 A service mesh deploys additional containers for communication, typically in a [sidecar pattern](/azure/architecture/patterns/sidecar), to provide more operational capabilities leading to an increase in CPU usage and network traffic. Nevertheless, it allows you to decouple your application from these capabilities as it moves them out from the application layer, and down to the infrastructure layer.
 
 * Carefully consider the increase in CPU usage and network traffic generated by [service mesh](/azure/aks/servicemesh-about) communication components before making the decision to use one.
 
-### Optimize log collection 
+### Optimize log collection
 
 Sending and storing all logs from all possible sources (workloads, services, diagnostics and platform activity) can considerably increase storage and network traffic, which would impact higher costs and carbon emissions.
 
@@ -208,7 +206,7 @@ Explore this section to learn more about the recommendations leading to a sustai
 
 Transport Layer Security (TLS) ensures that all data passed between the web server and web browsers remain private and encrypted. However, terminating and re-establishing TLS increases CPU utilization and might be unnecessary in certain architectures. A balanced level of security can offer a more sustainable and energy efficient workload, while a higher level of security may increase the compute resource requirements.
 
-*  Review the information on TLS termination when using [Application Gateway](/azure/application-gateway/ssl-overview) or [Azure Front Door](/azure/application-gateway/ssl-overview). Consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
+* Review the information on TLS termination when using [Application Gateway](/azure/application-gateway/ssl-overview) or [Azure Front Door](/azure/application-gateway/ssl-overview). Consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
 
 ### Use cloud native network security tools and controls
 
