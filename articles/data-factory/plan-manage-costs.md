@@ -132,6 +132,8 @@ Once the feature is enabled, each pipeline will have a separate entry in our Bil
 
 Using the graphing tools of Cost Analysis, you get similar charts and trends lines as shown [above](#monitor-costs-at-factory-level-with-cost-analysis), but for individual pipelines. You also get the summary view by factory name, as factory name is included in billing report, allowing for proper filtering when necessary.
 
+The change _only_ impacts how bills are emitted going forward, and does not change past charges. Please give some time before the change populate to billing report: typically, the change is reflected within 1 day.
+
 > [!WARNING]
 > By opting in the per billing setting, there will be one entry for each pipeline in your factory. Please be particularly aware if you have excessive amount of pipelines in the factory, as it may significantly lengthen and complicate your billing report.
 
