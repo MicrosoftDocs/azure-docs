@@ -1,6 +1,6 @@
 ---
 title: Support matrix for Azure Arc-enabled VMware vSphere (preview)
-description: In this article, you'll learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements etc.
+description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
 ms.date: 10/21/2022
 
@@ -53,7 +53,7 @@ The following firewall URL exceptions are needed for the Azure Arc resource brid
 | Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and control plane endpoint need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
 | Guest Notification service | 443 | `https://guestnotificationservice.azure.com` | Appliance VM IP and control plane endpoint need outbound connection. | Used to connect on-premises resources to Azure. |
 | SFS API endpoint | 443 | `msk8s.api.cdp.microsoft.com` | Host machine, Appliance VM IP and control plane endpoint need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
-| Resource bridge (appliance) Dataplane service | 443 | `https://*.dp.prod.appliances.azure.com` | Appliance VM IP and control plane endpoint need outbound connection. | Communicate with resource provider in Azure. |
+| Resource bridge (appliance) Data plane service | 443 | `https://*.dp.prod.appliances.azure.com` | Appliance VM IP and control plane endpoint need outbound connection. | Communicate with resource provider in Azure. |
 | Resource bridge (appliance) container image download | 443 | `*.blob.core.windows.net`, `https://ecpacr.azurecr.io` | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
 | Resource bridge (appliance) image download | 80 | `*.dl.delivery.mp.microsoft.com` | Host machine, Appliance VM IP and control plane endpoint need outbound connection. | Download the Arc resource bridge OS images. |
 | Azure Arc for K8s container image download | 443 | `https://azurearcfork8sdev.azurecr.io` | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
