@@ -30,5 +30,3 @@ This article provides a reference for API Management access restriction policies
 
 > [!TIP]
 > You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with AAD authentication by applying the `validate-jwt` policy on the API level or you can apply it on the API operation level and use `claims` for more granular control.
-
-[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

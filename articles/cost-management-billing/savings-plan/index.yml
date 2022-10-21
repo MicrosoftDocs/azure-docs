@@ -46,6 +46,10 @@ landingContent:
       links:
       - text: How a savings plan discount is applied
         url: discount-application.md
+    - linkListType: learn
+      links:
+      - text: Training - Azure savings plan for compute
+        url: /training/modules/azure-savings-plan-for-compute/
 
   # Card (optional)
   - title: Manage savings plans after purchase
@@ -66,5 +70,7 @@ landingContent:
         url: view-utilization.md
       - text: View savings plan cost and usage
         url: utilization-cost-reports.md
+      - text: Troubleshoot utilization
+        url: troubleshoot-savings-plan-utilization.md
       - text: Charge back Azure savings plan costs
         url: charge-back-costs.md

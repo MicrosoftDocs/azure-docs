@@ -9,6 +9,8 @@ ms.author: eur
 
 | Voice | Styles |Roles |
 | ----- | ----- | ----- |
+|en-GB-RyanNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
+|en-GB-SoniaNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
 |en-US-AriaNeural|`chat`, `customerservice`, `narration-professional`, `newscast-casual`, `newscast-formal`, `cheerful`, `empathetic`, `angry`, `sad`, `excited`, `friendly`, `terrified`, `shouting`, `unfriendly`, `whispering`, `hopeful`|Not supported|
 |en-US-DavisNeural<sup>1,2</sup>|`chat`, `angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-GuyNeural|`newscast`, `angry`, `cheerful`, `sad`, `excited`, `friendly`, `terrified`, `shouting`, `unfriendly`, `whispering`, `hopeful`|Not supported|
@@ -18,7 +20,10 @@ ms.author: eur
 |en-US-NancyNeural<sup>1,2</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-TonyNeural<sup>1,2</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
+|es-MX-JorgeNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
 |fr-FR-DeniseNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
+|fr-FR-HenriNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
+|it-IT-IsabellaNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
 |ja-JP-NanamiNeural|`chat`, `customerservice`, `cheerful`|Not supported|
 |pt-BR-FranciscaNeural|`calm`|Not supported|
 |zh-CN-XiaohanNeural<sup>6</sup>|`calm`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `sad`, `gentle`, `affectionate`, `embarrassed`|Not supported|

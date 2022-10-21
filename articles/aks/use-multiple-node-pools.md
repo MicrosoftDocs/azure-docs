@@ -156,6 +156,7 @@ Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
 
 > [!NOTE]
 > When adding a new Mariner node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
+
 2. [Cordon the existing Ubuntu nodes][cordon-and-drain].
 3. [Drain the existing Ubuntu nodes][drain-nodes].
 4. Remove the existing Ubuntu nodes using the `az aks delete` command.

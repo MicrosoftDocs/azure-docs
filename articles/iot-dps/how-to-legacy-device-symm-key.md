@@ -23,6 +23,9 @@ This tutorial also assumes that the device update takes place in a secure enviro
 
 This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
 
+>[!NOTE]
+> If you've previously completed [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md) and still have your Azure resources and development environment set up, you can proceed to [Create a symmetric key enrollment group](#create-a-symmetric-key-enrollment-group) in this tutorial.
+
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.

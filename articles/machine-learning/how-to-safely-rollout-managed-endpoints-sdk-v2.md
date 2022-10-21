@@ -184,7 +184,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-1/sample-request.json) file.
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
 
 ```python
 # test the blue deployment with some sample data
@@ -253,7 +253,7 @@ ml_client.begin_create_or_update(green_deployment)
 
 ### Test the new deployment
 
-Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-2/sample-request.json) file.
+Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
 
 ```python
 ml_client.online_endpoints.invoke(
@@ -336,7 +336,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
 ## Next steps
-- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
+- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
