@@ -37,7 +37,7 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Cause**: `Unable to restore a SQL Server backup to an earlier version of SQL Server than the version at which the backup was created.`
 
-- **Recommendation**: See [Issues that affect database restoration between different SQL Server versions](../support/sql/admin/backup-restore-operations) for troubleshooting steps.
+- **Recommendation**: See [Issues that affect database restoration between different SQL Server versions](/support/sql/admin/backup-restore-operations) for troubleshooting steps.
 <br/>
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'The managed instance has reached its storage limit. The storage usage for the managed instance can't exceed 32768 MBs.`
@@ -49,9 +49,9 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3634 The operating system returned the error '1450(Insufficient system resources exist to complete the requested service.)`
 
-- **Cause**: `One of the symptoms listed in [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](../support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) can be the cause.`
+- **Cause**: One of the symptoms listed in [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) can be the cause.
 
-- **Recommendation**: See [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](../support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) for troubleshooting steps.
+- **Recommendation**: See [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) for troubleshooting steps.
 <br/>
 
 - **Message**: `The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' isn't <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.`
@@ -75,7 +75,7 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: Run RESTORE FILELISTONLY to check the logical file names in your backup. See [RESTORE Statements - FILELISTONLY (Transact-SQL)](/sql/t-sql/statements/restore-statements-filelistonly-transact-sql) for more information on RESTORE FILELISTONLY.
 <br/>
 
-- **Message**: `Migration for Database <Database Name> failed with error 'Azure SQL target resource failed to connect to storage account. Make sure the target SQL VNet is whitelisted under the Azure Storage firewall rules'.`
+- **Message**: `Migration for Database <Database Name> failed with error 'Azure SQL target resource failed to connect to storage account. Make sure the target SQL VNet is allowed under the Azure Storage firewall rules.'`
 
 - **Cause**: `Azure Storage firewall isn't configured to allow access to Azure SQL target.`
 
