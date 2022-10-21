@@ -1,12 +1,12 @@
 ---
 title: Configure passive geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Premium instances across Azure regions
-
-# Do we want to change this description
-
+# Do we want to change this description because we are talking about more than premium tier @MSFTeegarden
 author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
+ms.custom: engagement-fy23
 ms.date: 05/24/2022
 ms.author: franlanglois
 ---
