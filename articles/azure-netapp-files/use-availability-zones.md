@@ -12,23 +12,27 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 10/21/2022
 ms.author: anfdocs
 ---
 # Use availability zones for high availability in Azure NetApp Files
 
-Azure [availability zones](../availability-zones/az-overview.md#availability-zones) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. 
+Azure [availability zones](../availability-zones/az-overview.md#availability-zones) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
 
 >[!IMPORTANT]
 > Availability zones are referred to as _logical zones_. Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription, and the mapping will be different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription. 
 
 Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones let you design and operate applications and databases that automatically transition between zones without interruption. You can design resilient solutions by using Azure services that use availability zones.  
 
-The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/architecture/framework/resiliency/app-design#use-availability-zones-within-a-region). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation. 
+The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/architecture/framework/resiliency/app-design#use-availability-zones-within-a-region). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation.
 
-Azure NetApp Files lets you deploy volumes in availability zones. The Azure NetApp Files [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy volumes in the logical availability zone of your choice, in alignment with Azure compute and other services in the same zone.  
+:::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="../media/azure-netapp-files/availability-zone-diagram.png":::
 
-Azure NetApp Files deployments will occur in the availability of zone of choice if the Azure NetApp Files is present in that availability zone and if it has sufficient capacity. All VMs within the region in (peered) VNets can access all Azure NetApp Files resources.
+Azure NetApp Files' [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy volumes in availability zones of your choice, in alignment with Azure compute and other services in the same zone.  
+
+All Virtual Machines within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). Virtual Machines accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
+
+Azure NetApp Files deployments will occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 
 >[!IMPORTANT]
 >Azure NetApp Files availability zone volume placement provides zonal placement. It doesn't provide proximity placement towards compute. As such, it doesn’t provide lowest latency guarantee. VM-to-storage latencies are within the availability zone latency envelopes. 
