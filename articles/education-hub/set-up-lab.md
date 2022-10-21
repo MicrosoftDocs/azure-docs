@@ -1,5 +1,5 @@
 ---
-title: Set up a lab
+title: Set up a lab in Azure Education Hub
 description: This quickstart explains how to set up a lab in Azure Education Hub.
 author: vangellotti
 ms.author: vangellotti
@@ -10,7 +10,7 @@ ms.subservice: education-hub
 ms.custom: mode-other
 ---
 
-# Quickstart: Set up a course and create a classroom
+# Quickstart: Set up a lab
 
 This quickstart explains how to set up a lab in the Microsoft Azure Education Hub, including subscription details.
 
