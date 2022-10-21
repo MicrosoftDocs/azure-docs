@@ -43,7 +43,7 @@ In this article, you learn how to:
 - Ensure Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) for further information.
 
 >[!NOTE]
->For further information about LDAPS and certificate issuance, consult with your security or identity management team.
+>For more information about LDAPS and certificate issuance, see with your security or identity management team.
 
 ## Export the certificate for LDAPS authentication
 
@@ -74,8 +74,8 @@ Now proceed to export the certificate
 
 1. Still on the Certificates console, right select the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard prompt is displayed,  select the **Next** button.
 
-1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and select the **Next** button.
-1. In the **Export File Format** section, select the 2nd option, **Base-64 encoded X.509(.CER)** and then select the **Next** button.
+1. In the **Export Private Key** section, select the second option, **No, do not export the private key** and select the **Next** button.
+1. In the **Export File Format** section, select the second option, **Base-64 encoded X.509(.CER)** and then select the **Next** button.
 1. In the **File to Export** section, select the **Browse...** button and select a folder location where to export the certificate, enter a name then select the **Save** button.
 
 >[!NOTE]
@@ -104,7 +104,7 @@ Your Azure VMware Solution Private cloud should now be able to resolve your on-p
 
 ## Add Active Directory over LDAP with SSL
 
-In your Azure VMware Solution private cloud you'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server.
+In your Azure VMware Solution private cloud, you'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server.
 
 1. Browse to your Azure VMware Solution private cloud and then select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
 
@@ -121,7 +121,7 @@ In your Azure VMware Solution private cloud you'll run the `New-LDAPSIdentitySou
    | **SecondaryURL**  | Secondary fall-back URL if there's primary failure. For example, **ldaps://yourbackupldapserver.avslab.local:636**. |
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source. Typically the **avsldap\** format.    |
    | **DomainName**  | The FQDN of the domain, for example **avslab.local**.  |
-   | **Name**  | User-friendly name of the external identity source, for example, **avslab.local**. This is how it will be displayed in vCenter. |
+   | **Name**  | User-friendly name of the external identity source. For example, **avslab.local**, is how it will be displayed in vCenter. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
@@ -131,7 +131,7 @@ In your Azure VMware Solution private cloud you'll run the `New-LDAPSIdentitySou
 ## Add Active Directory over LDAP
 
 >[!NOTE]
->We don't recommend this method. Instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) method.
+>We recommend you use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) method.
 
 You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter Server.
 
@@ -197,9 +197,9 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
     :::image type="content" source="media/run-command/run-packages-execution-command-status.png" alt-text="Screenshot showing how to check the run commands notification or status." lightbox="media/run-command/run-packages-execution-command-status.png":::
 
-## Assign additional vCenter Server Roles to Active Directory Identities
+## Assign more vCenter Server Roles to Active Directory Identities
 
-After you've added an external identity over LDAP or LDAPS you can assign vCenter Server Roles to Active Directory security groups based on your organization's security controls.
+After you've added an external identity over LDAP or LDAPS, you can assign vCenter Server Roles to Active Directory security groups based on your organization's security controls.
 
 1. After you sign in to vCenter Server with cloudadmin privileges, you can select an item from the inventory, select **ACTIONS** menu and select **Add Permission**.
 
