@@ -28,7 +28,7 @@ When you assign the role at the project level, the user can perform the precedin
 ## Assign permissions to dev managers for a project
 
 1. Select the project that you want your development team members to be able to access.
-2. Select **Access Control(IAM)** from the left menu.
+2. Select **Access control (IAM)** from the left menu.
 
    :::image type="content" source=".\media\configure-project-admin\access-control-page.png" alt-text="Screenshot that shows the link to the access control page.":::
 
@@ -36,11 +36,11 @@ When you assign the role at the project level, the user can perform the precedin
 
    :::image type="content" source=".\media\configure-project-admin\add-role-assignment.png" alt-text="Screenshot that shows the menu option for adding a role assignment.":::
 
-4. On the **Add role assignment** page, on the **Role** tab, search for **DevCenter Project Admin**, select the **DevCenter Project Admin** built-in role, and then select **Next**.
+4. On the **Add role assignment** page, on the **Role** tab, search for **devcenter project admin**, select the **DevCenter Project Admin** built-in role, and then select **Next**.
 
    :::image type="content" source=".\media\configure-project-admin\built-in-role.png" alt-text="Screenshot that shows selecting the built-in DevCenter Project Admin role.":::
 
-5. On the **Members** tab, select **+ Select Members**.
+5. On the **Members** tab, select **+ Select members**.
 
     :::image type="content" source=".\media\configure-project-admin\select-role-members.png" alt-text="Screenshot that shows the link for selecting role members.":::
  
@@ -53,11 +53,11 @@ The users can now view the project and manage all the environment types that you
 ## Assign permissions to dev managers for an environment type
 
 1. Select the project that you want your development team members to be able to access.
-2. Select **Environment Types**, and then select the ellipsis (**...**) beside the specific environment type.
+2. Select **Environment types**, and then select the ellipsis (**...**) beside the specific environment type.
 
    :::image type="content" source=".\media\configure-project-admin\project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project.":::
 
-3. Select **Access Control**.
+3. Select **Access control (IAM)**.
 
    :::image type="content" source=".\media\configure-project-admin\access-control-page.png" alt-text="Screenshot that shows the link to the access control page.":::
 
@@ -65,11 +65,11 @@ The users can now view the project and manage all the environment types that you
 
    :::image type="content" source=".\media\configure-project-admin\add-role-assignment.png" alt-text="Screenshot that shows the menu option for adding a role assignment.":::
 
-5. On the **Add role assignment** page, on the **Role** tab, search for **DevCenter Project Admin**, select the **DevCenter Project Admin** built-in role, and then select **Next**.
+5. On the **Add role assignment** page, on the **Role** tab, search for **devcenter project admin**, select the **DevCenter Project Admin** built-in role, and then select **Next**.
 
    :::image type="content" source=".\media\configure-project-admin\built-in-role.png" alt-text="Screenshot that shows selecting the built-in DevCenter Project Admin role.":::
 
-6. On the **Members** tab, select **+ Select Members**.
+6. On the **Members** tab, select **+ Select members**.
 7. In **Select members**, select the Active Directory users or groups that you want to add, and then choose **Select**.
 8. On the **Members** tab, select **Review + assign**.
 
