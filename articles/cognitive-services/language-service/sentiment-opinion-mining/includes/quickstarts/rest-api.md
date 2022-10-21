@@ -14,9 +14,6 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you will use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
-
-
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).

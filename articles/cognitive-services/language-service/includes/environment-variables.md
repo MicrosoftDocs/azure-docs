@@ -11,7 +11,7 @@ ms.author: aahi
 
 ### Create environment variables 
 
-Your application must be authenticated to access Cognitive Services resources. For production, use a secure way of storing and accessing your credentials. In this example, you will write your credentials to environment variables on the local machine running the application.
+Your application must be authenticated to send API requests. For production, use a secure way of storing and accessing your credentials. In this example, you will write your credentials to environment variables on the local machine running the application.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 
