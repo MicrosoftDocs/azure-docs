@@ -16,7 +16,7 @@ Watermarking (preview), alongside [screen capture protection](screen-capture-pro
 
 Here's a screenshot showing what watermarking looks like when it's enabled:
 
-:::image type="content" source="media/watermarking-result.png" alt-text="A screenshot showing watermarking enabled on a remote desktop." lightbox="media/watermarking-result.svg":::
+:::image type="content" source="media/watermarking-result.png" alt-text="A screenshot showing watermarking enabled on a remote desktop." lightbox="media/watermarking-result.png":::
 
 
 > [!IMPORTANT]
