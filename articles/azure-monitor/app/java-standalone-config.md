@@ -416,6 +416,29 @@ These are the valid `level` values that you can specify in the `applicationinsig
 > | project timestamp, message, itemType
 > ```
 
+### Log markers for Logback and Log4j 2 (preview)
+
+Log markers are disabled by default.
+
+You can enable the `Marker` property for Logback and Log4j 2:
+
+```json
+{
+  "preview": {
+    "captureLogbackMarker":  true
+  }
+}
+```
+
+```json
+{
+  "preview": {
+    "captureLog4jMarker":  true
+  }
+}
+```
+
+This feature is in preview, starting from 3.4.2.
 
 ### Code properties for Logback (preview) 
 
