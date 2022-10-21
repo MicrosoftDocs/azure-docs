@@ -163,7 +163,7 @@ The resource health check functions in following conditions:
 | Resource health check    | Details    |
 | --- | --- |
 | **Supported Resources** | Recovery Services vault, Backup vault |
-| **Supported Regions** | Recovery Services vault: Supported in all Azure public regions, US sovereign cloud, and China Sovereign cloud. <br><br> Backup vault: Supported in all Azure public regions, except Sovereign clouds. |
+| **Supported Regions** | - Recovery Services vault: Supported in all Azure public regions, US Sovereign cloud, and China Sovereign cloud. <br><br> - Backup vault: Supported in all Azure public regions, except Sovereign clouds. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
 ## Zone-redundant storage support
