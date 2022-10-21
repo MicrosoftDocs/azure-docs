@@ -190,6 +190,8 @@ The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (
 - Database names with SQL Server reserved words aren't valid.
 
 ## Azure SQL Managed Instance and SQL Server on Azure Virtual Machine known issues and limitations
+- If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. 
+- If migrating a single database to **Azure SQL Managed Instance**, the database backups must be placed in a flat-file structure inside a database folder, and the folders can't be nested, as it's not supported.
 - Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
 - Configuring high availability and disaster recovery on your target to match source topology isn't supported by DMS.
 - The following server objects aren't supported:
@@ -202,3 +204,6 @@ The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (
 - SQL Server 2008 and below as target versions aren't supported when migrating to SQL Server on Azure Virtual Machines.
 - If you're using SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations.
+
+    > [!NOTE]
+    > For more information on limitations when migrating [SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate#limitations).
