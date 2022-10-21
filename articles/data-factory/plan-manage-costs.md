@@ -117,7 +117,7 @@ In certain cases, you may want a granular breakdown of cost of operations within
 You need to opt in for _each_ factory that you want detailed billing for. To turn on per pipeline detailed billing feature,
 
 1. Go to Azure Data Factory portal
-1. Under _Monitor_ tab, select _Factory setting_ in _General_ section
+1. Under _Manage_ tab, select _Factory setting_ in _General_ section
 1. Select _Showing billing report_ by pipeline
 1. Publish the change
 
