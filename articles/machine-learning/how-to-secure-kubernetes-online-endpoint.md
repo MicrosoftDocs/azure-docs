@@ -58,7 +58,7 @@ There are many ways to get an TLS/SSL certificate (digital certificate). The mos
 > [!NOTE]
 > SSL Key in PEM file with pass phrase protected isn't supported.
 
-When you request a certificate, you must provide the FQDN of the address that you plan to use for the online endpoint (for example, www.contoso.com). The address that's stamped into the certificate and the address that the clients use are compared to verify the identity of the online endpoint. If those addresses don't match, the client gets an error message.
+When you request a certificate, you must provide the FQDN of the address that you plan to use for the online endpoint (for example, `www.contoso.com`). The address that's stamped into the certificate and the address that the clients use are compared to verify the identity of the online endpoint. If those addresses don't match, the client gets an error message.
 
 For more information on how to configure IP banding with FQDN, see the [Update your DNS with FQDN](#update-your-dns-with-fqdn) section of this article.
 
@@ -147,7 +147,7 @@ You can follow following steps to update DNS record for your custom domain name:
    > For Kubernetes clusters that using either `nodePort` or `clusterIP` as Inference Router Service, you need to set up your own load balancing solution and TLS/SSL termination for `azureml-fe`, and get the IP address of the `azureml-fe` service in cluster scope.
 
 
-1. Use the tools from your domain name registrar to update the DNS record for your domain name. The record maps the FQDN (for example, www.contoso.com) to the IP address. The record must point to the IP address of the online endpoint.
+1. Use the tools from your domain name registrar to update the DNS record for your domain name. The record maps the FQDN (for example, `www.contoso.com`) to the IP address. The record must point to the IP address of the online endpoint.
 
    > [!TIP]
    > Microsoft does not responsible for updating the DNS for your custom DNS name or certificate. You must update it with your domain name registrar.
