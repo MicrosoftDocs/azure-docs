@@ -59,6 +59,9 @@ Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure C
 
 For workloads that have heavy create payloads, set the `EnableContentResponseOnWrite` request option to `false`. The service will no longer return the created or updated resource to the SDK. Normally, because the application has the object that's being created, it doesn't need the service to return it. The header values are still accessible, like a request charge. Disabling the content response can help improve performance, because the SDK no longer needs to allocate memory or serialize the body of the response. It also reduces the network bandwidth usage to further help performance.
 
+> [!IMPORTANT]
+> Setting `EnableContentResponseOnWrite` to `false` will also disable the response from a trigger operation.
+
 ## Next steps
 
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).

@@ -36,7 +36,7 @@ A single diagnostic setting can define no more than one of each of the destinati
 
 ## Sources
 
-The following sections describe the 
+The following table describes the data sources that can be collected with diagnostic settings.
 
 | Source | Description |
 |:---|:---|
@@ -250,9 +250,15 @@ To create or update diagnostic settings by using the [Azure Monitor REST API](/r
 For details on using Azure Policy to create diagnostic settings at scale, see [Create diagnostic settings at scale by using Azure Policy](diagnostic-settings-policy.md).
 
 ---
-## Troubleshooting
 
-Here are some troubleshooting tips.
+## Time before telemetry gets to destination
+
+When you create a diagnostic setting, data should start flowing to your selected destination(s) with 90 minutes. If you get no information within 24 hours, then either:
+
+- No logs are being generated.
+- Something is wrong in the underlying routing mechanism. Try disabling the configuration and then reenabling it. Contact Azure support through the Azure portal if you continue to have issues.
+
+## Troubleshooting
 
 ### Metric category isn't supported
 
