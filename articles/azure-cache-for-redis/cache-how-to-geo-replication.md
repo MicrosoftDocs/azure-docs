@@ -70,7 +70,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
 ## Add a geo-replication link
 
-1. To link two caches together for geo-replication, fist select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from **Geo-replication** on the left.
+1. To link two caches together for geo-replication, fist select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from the working pane.
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-menu.png" alt-text="Cache geo-replication menu":::
 
@@ -104,14 +104,14 @@ After geo-replication is configured, the following restrictions apply to your li
 
 Once the caches are linked, URLs are generated that always point to the geo-primary cache. If a failover is initiated from the geo-primary to the geo-secondary, the URL remains the same, and the underlying DNS record is updated automatically to point to the new geo-primary.
 
-<!-- need image -->
+:::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-urls.png" alt-text="Screenshot showing four URLs created by adding geo-replication.":::
 
 Four URLs are shown:
 
-- Geo-Primary URL is a proxy URL with the format of `<cache-1-name>.geo.redis.cache.windows.net`. This URL always has the name of the first cache to be linked, but it always points to whichever cache is the current geo-primary.
-- Linked cache Geo-Primary URL is a proxy URL with the format of `<cache-2-name>.geo.redis.cache.windows.net`. This URL always has the name of the second cache to be linked, and it will also always point to whichever cache is the current geo-primary.
-- Current Geo Primary Cache is the direct address of the cache that is currently the geo-primary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`. The address listed in this field changes if a failover is initiated.  
-- Current Geo Secondary Cache is the direct address of the cache that is currently the geo-secondary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`.  The address listed in this field changes if a failover is initiated.
+- **Geo-Primary URL** is a proxy URL with the format of `<cache-1-name>.geo.redis.cache.windows.net`. This URL always has the name of the first cache to be linked, but it always points to whichever cache is the current geo-primary.
+- **Linked cache Geo-Primary URL** is a proxy URL with the format of `<cache-2-name>.geo.redis.cache.windows.net`. This URL always has the name of the second cache to be linked, and it will also always point to whichever cache is the current geo-primary.
+- **Current Geo Primary Cache** is the direct address of the cache that is currently the geo-primary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`. The address listed in this field changes if a failover is initiated.  
+- **Current Geo Secondary Cache** is the direct address of the cache that is currently the geo-secondary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`.  The address listed in this field changes if a failover is initiated.
 
 The goal of the two geo-primary URLs is to make updating the cache address easier on the application side in the event of a failover. Changing the address of either linked cache from `redis.cache.windows.net` to `geo.redis.cache.windows.net` ensures that your application is always pointing to the geo-primary, even if a failover is triggered.
 
@@ -122,6 +122,7 @@ The URLs for the current geo-primary and current geo-secondary cache are provide
 With one click, you can trigger a failover from the geo-primary to the geo-secondary.
 
 <!-- image -->
+:::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-failover.png" alt-text="asd":::
 
 This causes the following steps to be taken:
 
