@@ -45,11 +45,11 @@ Each authorization option is briefly described below:
     For more information about ABAC and its feature status, see:
     > [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)
     >
-    > [The status of ABAC condition features](../../role-based-access-control/conditions-overview.md)
+    > [The status of ABAC condition features](../../role-based-access-control/conditions-overview.md#features-of-conditions)
     >
     > [The status of ABAC condition features in Azure Storage](#status-of-condition-features-in-azure-storage)
 
-<!--- After the core ABAC doc updates are published, add this heading to the second lin above: #status-of-condition-features --->
+<!--- After the core ABAC doc updates are published, change the heading in the second link above to: #status-of-condition-features --->
 
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
 
