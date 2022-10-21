@@ -218,6 +218,8 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
+        - name: Connect to cluster nodes
+          href: node-access.md
         - name: Create virtual nodes
           items:
             - name: Use virtual nodes
@@ -489,6 +491,8 @@
               href: dapr.md
             - name: Migrate from Dapr OSS
               href: dapr-migration.md
+            - name: Troubleshoot the Dapr extension
+              href: dapr-troubleshooting.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true

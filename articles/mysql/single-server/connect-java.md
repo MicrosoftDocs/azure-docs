@@ -233,7 +233,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user.sql
+mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:

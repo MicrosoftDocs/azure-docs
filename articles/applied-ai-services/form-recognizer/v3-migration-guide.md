@@ -7,8 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
@@ -371,4 +372,4 @@ In this migration guide, you've learned how to upgrade your existing Form Recogn
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
+* [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
