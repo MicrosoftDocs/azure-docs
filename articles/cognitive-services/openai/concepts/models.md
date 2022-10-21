@@ -167,6 +167,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
 | Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
+
 \*Models available by request only. Please open a support reuqest
 
 ### Codex Models
@@ -175,7 +176,9 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Code-Cushman-001* | Yes | No | South Central US, West Europe | East US, South Central US, West Europe |
 | Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
 | Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
+
 \*Models available for Fine-tuning by request only. Please open a support request.
+
 
 
 ### Embeddings Models
