@@ -4,7 +4,7 @@ description: This article tells how to convert configurations to composite resou
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.subservice: dsc
-ms.date: 08/08/2019
+ms.date: 10/21/2022
 ms.custom: engagement-fy23
 ms.topic: conceptual
 ---
