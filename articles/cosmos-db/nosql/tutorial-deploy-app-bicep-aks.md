@@ -114,7 +114,7 @@ Create a *param.json* file by using the JSON in the following example. Replace t
 Set shell variables by using the following commands. Replace the `{deployment name}` and `{location}` placeholders with your own values.
 
 ```bash
-deploymentName='{deployment name}'  # Name of the Deployment
+deploymentName='{deployment name}'  # Name of the deployment
 location='{location}' # Location for deploying the resources
 ```
 
@@ -245,7 +245,7 @@ Open the *Application* folder in Visual Studio Code. Run the application by usin
 
     :::image type="content" source="./media/tutorial-deploy-app-bicep-aks/context-menu-build-docker-image.png" alt-text="Screenshot of the context menu in Visual Studio Code with the Build Image option selected.":::
 
-    In the prompt that asks for the name and version to tag the image, enter the name **todo:latest**.
+1. In the prompt that asks for the name and version to tag the image, enter the name **todo:latest**.
 
 1. Use the **Docker** pane to push the built image to Azure Container Registry. You'll find the built image under the **Images** node. Open the **todo** node, right-click **latest**, and then select **Push**.
 
