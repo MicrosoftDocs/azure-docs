@@ -67,7 +67,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 ## Attach an Identity
 
-After you've created a dev center, the next step is to attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. Learn about the [types of identities](how-to-configure-managed-identity.md#types-of-managed-identities) (system assigned managed identity or a user assigned managed identity) you can attach.
+After you've created a dev center, the next step is to attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. Learn about the [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity) (system assigned managed identity or a user assigned managed identity) you can attach.
 
 ### Using a system-assigned managed identity
 
