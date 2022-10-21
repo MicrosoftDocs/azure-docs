@@ -252,6 +252,9 @@ The detailed REST API protocol is defined [here][rest].
 
 ### Event listener
 
+> [!NOTE]
+> Event listener feature is in preview.
+
 The event listener listens to the incoming client events. Each event listener contains a filter to specify which kinds of events it concerns, an endpoint about where to send the events to.
 
 Currently we support [**Event Hubs**](https://azure.microsoft.com/products/event-hubs/) as an event listener endpoint.

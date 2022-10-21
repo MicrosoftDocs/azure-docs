@@ -10,6 +10,9 @@ ms.date: 09/30/2022
 
 # Send client events to Event Hubs
 
+> [!NOTE]
+> Event listener feature is in preview.
+
 ## Overview
 
 If you want to listen to your [client events](concept-service-internals.md#terms) without exposing a publicly accessible endpoint, you can configure an "event listener" rule with an [event hub](https://azure.microsoft.com/products/event-hubs/) endpoint, and a filter to specify which kinds of events it concerns. You can configure multiple event listeners at the same time. Web PubSub service notifies all concerning event listeners in parallel when a client event comes.
