@@ -27,5 +27,5 @@ A comprehensive list of features of Azure Native ISV Services is listed below.
 ### Integrations
 
 - Log and metrics: Use Microsoft Azure Monitor for collecting telemetry across all Azure environments.
-- VNet injection: provides private data plane access to Azure Native ISV services from customers’ virtual networks.
+- VNet injection: Provides private data plane access to Azure Native ISV services from customers’ virtual networks.
 - Unified billing: Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license purchase is required to use Azure Native ISV Services.
