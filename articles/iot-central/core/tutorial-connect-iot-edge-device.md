@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this tutorial, you need:
 
-[!INCLUDE [iot-central-prerequisites-basic](../../includes/iot-central-prerequisites-basic.md)]
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 You also need to be able to upload configuration files to your IoT Central application from your local machine.
 
