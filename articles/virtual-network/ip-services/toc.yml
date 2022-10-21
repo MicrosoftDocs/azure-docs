@@ -74,12 +74,14 @@ items:
       href: virtual-network-network-interface-addresses.md
     - name: Create a custom IP address prefix (BYOIP)
       items:
-      - name: Portal
+      - name: Portal (IPv4)
         href: create-custom-ip-address-prefix-portal.md      
-      - name: PowerShell
+      - name: PowerShell (IPv4)
         href: create-custom-ip-address-prefix-powershell.md
-      - name: CLI
+      - name: CLI (IPv4)
         href: create-custom-ip-address-prefix-cli.md
+      - name: PowerShell (IPv6)
+        href: create-custom-ip-address-prefix-ipv6.md
     - name: Resource management
       items:
       - name: Load balancer
