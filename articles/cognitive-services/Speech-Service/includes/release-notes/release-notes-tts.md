@@ -39,8 +39,8 @@ The following voices are now available in public preview. See the [full language
 - Improved question tone for the `nl-NL-MaartenNeural` and `pt-BR-AntonioNeural` voices.
 - Added support for the `<lang ="en-US">` tag for better English pronunciation with the following voices: `de-DE-ConradNeural`, `de-DE-KatjaNeural`, `es-ES-AlvaroNeural`, `es-MX-DaliaNeural`, `es-MX-JorgeNeural`, `fr-CA-SylvieNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, `it-IT-DiegoNeural`, and `it-IT-IsabellaNeural`.
 - Added support for the `style="chat"` tag with the following voices: `en-GB-RyanNeural`, `es-MX-JorgeNeural`, and `it-IT-IsabellaNeural`.
-- Added support for the `style="cheerful"` tag with the following voices: `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural`.
-- Added support for the `style="sad"` tag with the following voices: `en-GB-SoniaNeural` and `fr-FR-HenriNeural`.
+- Added support for the `style="cheerful"` tag with the following voices: `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="sad"` tag with the following voices: `en-GB-SoniaNeural`, `fr-FR-DeniseNeural` and `fr-FR-HenriNeural`.
 
 ### 2022-September release
 
