@@ -33,7 +33,7 @@ items:
 - name: How-to guides
   expanded: true
   items: 
-  - name: Mappings
+  - name: Map
     expanded: true
     items:
     - name: Device
