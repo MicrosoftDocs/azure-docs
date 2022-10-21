@@ -54,7 +54,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 > [!IMPORTANT]
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
 >
-> To avoid issues during promotion of replicas always change the following server parameters first on the replicas before doing them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+> To avoid issues during promotion of replicas always change the following server parameters first on the replicas before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 
 ## Promote replicas
 
@@ -158,4 +158,5 @@ You can also delete the read replica from the **Replication** window by followin
 ## Next steps
 
 * Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
-* Learn how to [create and manage read replicas in the Azure CLI and REST API](how-to-read-replicas-cli.md).
+
+[//]: # (* Learn how to [create and manage read replicas in the Azure CLI and REST API]&#40;how-to-read-replicas-cli.md&#41;.)
