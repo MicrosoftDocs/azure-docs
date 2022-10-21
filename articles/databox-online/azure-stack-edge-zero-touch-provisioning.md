@@ -138,7 +138,7 @@ Run the following cmdlets in PowerShell:
    Here's an example output:
 
    ```output
-   PS C:\> Get-DeviceConfigurationStatus | to-json
+   PS C:\> Get-DeviceConfigurationStatus | To-json
       {
        "deviceConfiguration":  {
                                 "status":  "Complete",
@@ -171,7 +171,7 @@ Run the following cmdlets in PowerShell:
 1. Save the device configuration to the local system as a JSON file.
 
    ```azurepowershell
-   Get-DeviceConfiguration | To-json | Out-File "C:\<Local path>\TestConfig2.json"
+   Get-DeviceConfiguration | To-json | Out-File "<Local path>\TestConfig2.json"
    ```
 
 1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices that aren't yet activated. 
@@ -299,7 +299,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    Here's an example of output showing device activation status:
 
    ```output
-   PS C:\> Get-DeviceConfiguration | to-json
+   PS C:\> Get-DeviceConfiguration | To-json
    {
     "device":  {
                    "deviceInfo":  {
