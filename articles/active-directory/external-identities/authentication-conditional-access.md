@@ -178,6 +178,7 @@ In external user scenarios, the authentication methods that are acceptable for f
 |Microsoft Authenticator push notification    | &#x2705;        | &#x2705; |
 |Microsoft Authenticator phone sign-in        | &#x2705;        | &#x2705; |
 |OATH software token                          | &#x2705;        | &#x2705; |
+|Azure AD certificate-based authentication    | &#x2705;        |          |
 |OATH hardware token                          | &#x2705;        |          |
 |FIDO2 security key                           | &#x2705;        |          |
 |Windows Hello for Business                   | &#x2705;        |          |
