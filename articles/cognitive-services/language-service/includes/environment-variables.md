@@ -72,6 +72,7 @@ For iOS and macOS development, you set the environment variables in Xcode. For e
 1. Select **Arguments** on the **Run** (Debug Run) page
 1. Under **Environment Variables** select the plus (+) sign to add a new environment variable. 
 1. Enter `LANGUAGE_KEY` for the **Name** and enter your Language resource key for the **Value**.
+1. Perform these steps for your resource endpoint. Name the new environment variable `LANGUAGE_ENDPOINT`.
 
 For more configuration options, see the [Xcode documentation](https://help.apple.com/xcode/#/dev745c5c974).
 
