@@ -18,7 +18,7 @@ ms.author: pafarley
 
 The new Computer Vision v4.0 Image Analysis REST API preview offers the ability to extract printed or handwritten text from images. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for global language support. 
 
-Compared with the async Computer Vision 3.2 GA Read [overview](../how-to/call-read-api.md) and [quickstart](../quickstarts-sdk/client-library.md), the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation.
+Compared with the async Computer Vision 3.2 GA Read [overview](./how-to/call-read-api.md) and [quickstart](./quickstarts-sdk/client-library.md), the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation.
 
 [!INCLUDE [read-editions](./includes/read-editions.md)]
 
