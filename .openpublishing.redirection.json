@@ -26,6 +26,11 @@
             "redirect_document_id":  false
         },
         {
+            "source_path_from_root": "/articles/storage/elastic-san/elastic-san-connect.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-connect-windows",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
