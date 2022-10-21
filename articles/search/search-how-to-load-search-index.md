@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 10/21/2022
 ---
 
 # Load data into a search index in Azure Cognitive Search
@@ -29,15 +29,15 @@ You can prepare these documents yourself, but if content resides in a [supported
 
 ### [**Azure portal**](#tab/portal)
 
-Using Azure portal, the sole means for loading an index is the [Import Data wizard](search-import-data-portal.md). The wizard creates objects. If you want to load an existing index, you will need to use an alternative approach.
+Using Azure portal, the sole means for loading an index is an indexer or running the [Import Data wizard](search-import-data-portal.md). The wizard creates objects. If you want to load an existing index, you will need to use an alternative approach.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index. You can follow this link to review the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-1. Follow this link to review the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
+1. Alternatively, you can [reset and run an indexer](search-howto-run-reset-indexers.md), which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
 
 ### [**REST**](#tab/import-rest)
 

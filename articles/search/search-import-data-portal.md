@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 10/21/2022
 ---
 # Import data wizard in Azure Cognitive Search
 
@@ -75,6 +75,8 @@ The wizard is organized into four main steps:
 1. Optionally, add AI enrichments to extract or generate content and structure. Inputs for creating a knowledge store are collected in this step.
 
 1. Run the wizard to create objects, load data, set a schedule and other configuration options.
+
+The workflow is a pipeline, so it's one way. You can't use the wizard to edit any of the objects that were created, but you can use other portal tools, such as the index or indexer designer or the JSON editors, for allowed updates.
 
 <a name="data-source-inputs"></a>
 
