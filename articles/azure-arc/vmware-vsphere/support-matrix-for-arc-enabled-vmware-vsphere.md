@@ -61,9 +61,9 @@ The following firewall URL exceptions are needed for the Azure Arc resource brid
 | Microsoft events data service | 443 | `v20.events.data.microsoft.com`  | Appliance VM IP and control plane endpoint need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
 | vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
 
-## Azure permissions required
+## Azure role/permission requirements
 
-Following are the minimum Azure roles required for various operations:
+The minimum Azure roles required for operations related to Arc-enabled VMware vSphere are as follows:
 
 | **Operation** | **Minimum role required** | **Scope** |
 | --- | --- | --- |
@@ -73,7 +73,7 @@ Following are the minimum Azure roles required for various operations:
 | VM Provisioning | Azure Arc VMware VM Contributor | On the subscription or resource group where you want to provision VMs |
 | VM Operations | Azure Arc VMware VM Contributor | On the subscription or resource group that contains the VM, or on the VM itself |
 
-Any roles with higher permissions such as *Owner/Contributor* role on the same scope, will also allow you to perform all the operations listed above.
+Any roles with higher permissions on the same scope, such as Owner or Contributor, will also allow you to perform the operations listed above.
 
 ## Guest management (Arc agent) requirements
 
