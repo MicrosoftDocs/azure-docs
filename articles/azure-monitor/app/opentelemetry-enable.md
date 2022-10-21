@@ -37,7 +37,7 @@ Consider whether this preview is right for you. It *enables distributed tracing,
  - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
  - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
 
-If you require a full-feature experience, use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
+If you require a full-feature experience, use the existing Application Insights [ASP.NET](asp-net.md), or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
 ### [Node.js](#tab/nodejs)
 
@@ -395,14 +395,14 @@ For information on standard attributes for resources, see [Resource Semantic Con
 
 ## Enable Sampling
 
-You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+You may want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 > [!NOTE] 
 > Metrics are unaffected by sampling.
 
 #### [.NET](#tab/net)
 
-In this example, we utilize the `ApplicationInsightsSampler` which offers compatibility with Application Insights SDKs.
+In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
 
 ```dotnetcli
 dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
@@ -442,7 +442,7 @@ provider.register();
 
 #### [Python](#tab/python)
 
-In this example, we utilize the `ApplicationInsightsSampler` which offers compatibility with Application Insights SDKs.
+In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
 
 ```python
 from opentelemetry import trace
@@ -963,7 +963,7 @@ This section explains how to collect custom telemetry from your application.
 
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
-The OpenTelemetry API offers six metric "instruments" to cover a variety of metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
+The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
 The following table shows the recommended [aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types) for each of the OpenTelemetry Metric Instruments.
 
@@ -1275,8 +1275,8 @@ input()
 ### Add Custom Exceptions
 
 Select instrumentation libraries automatically support exceptions to Application Insights.
-However, you may want to manually report exceptions beyond what instrumention libraries report.
-For instance, exceptions caught by your code are *not* ordinarily not reported, and you may wish to report them
+However, you may want to manually report exceptions beyond what instrumentation libraries report.
+For instance, exceptions caught by your code *aren't* ordinarily not reported, and you may wish to report them
 and thus draw attention to them in relevant experiences including the failures blade and end-to-end transaction view.
 
 #### [.NET](#tab/net)
@@ -1430,7 +1430,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 ### Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry for 48 hours and periodically tries to send it again. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK does not have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry for 48 hours and periodically tries to send it again. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
 #### [.NET](#tab/net)
 
@@ -1444,7 +1444,7 @@ By default, the AzureMonitorExporter uses one of the following locations for off
   - /var/tmp/Microsoft/AzureMonitor
   - /tmp/Microsoft/AzureMonitor
 
-To override the default directory you should set `AzureMonitorExporterOptions.StorageDirectory`.
+To override the default directory, you should set `AzureMonitorExporterOptions.StorageDirectory`.
 
 For example:
 ```csharp
@@ -1456,7 +1456,7 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .Build();
 ```
 
-To disable this feature you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
+To disable this feature, you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
 
 #### [Node.js](#tab/nodejs)
 
@@ -1468,7 +1468,7 @@ By default, the AzureMonitorExporter uses one of the following locations for off
   - %TMPDIR%/Microsoft/AzureMonitor
   - /var/tmp/Microsoft/AzureMonitor
 
-To override the default directory you should set `storageDirectory`.
+To override the default directory, you should set `storageDirectory`.
 
 For example:
 ```typescript
@@ -1480,7 +1480,7 @@ const exporter = new AzureMonitorTraceExporter({
 });
 ```
 
-To disable this feature you should set `disableOfflineStorage = true`.
+To disable this feature, you should set `disableOfflineStorage = true`.
 
 #### [Python](#tab/python)
 
@@ -1488,7 +1488,7 @@ By default, the Azure Monitor exporters will use the following path:
 
 `<tempfile.gettempdir()>/Microsoft/AzureMonitor/opentelemetry-python-<your-instrumentation-key>`
 
-To override the default directory you should set `storage_directory` to the directory you want.
+To override the default directory, you should set `storage_directory` to the directory you want.
 
 For example:
 ```python
@@ -1498,7 +1498,7 @@ exporter = AzureMonitorTraceExporter(connection_string="your-connection-string",
 
 ```
 
-To disable this feature you should set `disable_offline_storage` to `True`. Defaults to `False`.
+To disable this feature, you should set `disable_offline_storage` to `True`. Defaults to `False`.
 
 For example:
 ```python
@@ -1535,7 +1535,7 @@ provider.register();
 
 #### [Python](#tab/python)
 
-The Azure Monitor Exporter uses the Python standard logging [library](https://docs.python.org/3/library/logging.html) for its own internal logging. OpenTelemetry API and Azure Monitor Exporter logs are usually logged at the severity level of WARNING or ERROR for irregular activity. The INFO severity level is used for regular or successful activity. By default, the Python logging library sets the severity level to WARNING, so you must change the severity level to see logs under this severity setting. The following example shows how to output logs of *all* severity levels to the console *and* a file:
+The Azure Monitor Exporter uses the Python standard logging [library](https://docs.python.org/3/library/logging.html) for its own internal logging. OpenTelemetry API and Azure Monitor Exporter logs are logged at the severity level of WARNING or ERROR for irregular activity. The INFO severity level is used for regular or successful activity. By default, the Python logging library sets the severity level to WARNING, so you must change the severity level to see logs under this severity setting. The following example shows how to output logs of *all* severity levels to the console *and* a file:
 
 ```python
 ...
