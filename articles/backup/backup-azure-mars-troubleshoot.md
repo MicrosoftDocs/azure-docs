@@ -32,6 +32,7 @@ We recommend that you check the following before you start troubleshooting Micro
   - Use the same passphrase that was initially used to register the server.
 - For offline backups, ensure Azure PowerShell 3.7.0 is installed on both the source and the copy computer before you start the backup.
 - If the Backup agent is running on an Azure virtual machine, see [this article](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine).
+- [Ensure your server is running on TLS 1.2](transport-layer-security.md).
 
 ## Invalid vault credentials provided
 
@@ -75,7 +76,7 @@ We recommend that you check the following before you start troubleshooting Micro
 | Error  | Possible cause | Recommended actions |
 | ---     | ---     | ---    |
 | - The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to the internet. <br><br> - (407) Proxy Authentication Required. | A proxy is blocking the connection. |  - On Internet Explorer, go to **Tools** > **Internet options** > **Security** > **Internet**. Select **Custom Level** and scroll down to the **File download** section. Select **Enable**. <br> You might also have to add [URLs and IP addresses](install-mars-agent.md#verify-internet-access) to your trusted sites in Internet Explorer. <br><br> - Change the settings to use a proxy server. Then provide the proxy server details. <br><br><br> - If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs and IP addresses](install-mars-agent.md#verify-internet-access). <br><br> - If you have antivirus software installed on the server, exclude these files from the antivirus scan: <br> - CBEngine.exe (instead of dpmra.exe). <br> - CSC.exe (related to .NET Framework). There's a CSC.exe for every .NET Framework version installed on the server. Exclude CSC.exe files for all versions of .NET Framework on the affected server. <br><br> - The scratch folder or cache location. <br> The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <br><br> - The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin. |
-
+| The server registration status could not be verified with Microsoft Azure Backup. Verify that you are connected to the internet and that the proxy settings are configured correctly. | The MARS agent isn't able to contact Azure services. | - Ensure network connectivity and proxy settings. <br><br> - Ensure that you are running the latest MARS agent. <br><br> - [Ensure your server is running on TLS 1.2](transport-layer-security.md). |
 ## The specified vault credential file cannot be used as it is not downloaded from the vault associated with this server
 
 | Error  | Possible cause | Recommended actions |
