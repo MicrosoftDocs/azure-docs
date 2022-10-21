@@ -1,6 +1,6 @@
 ---
-title: Configure Events diagnostic settings for diagnostic logs and metrics export - Azure Health Data Services
-description: This article provides resources on how to configure Events Diagnostic settings for diagnostic logs and metrics exporting.
+title: Enable Events diagnostic settings for diagnostic logs and metrics export - Azure Health Data Services
+description: This article provides resources on how to enable Events diagnostic settings for diagnostic logs and metrics exporting.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,11 +10,11 @@ ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
-# Configure Events diagnostic settings
+# Enable Events diagnostic settings
 
-In this article, you'll be provided resources to configure the Events diagnostic settings for Azure Event Grid system topics. 
+In this article, you'll be provided resources to enable the Events diagnostic settings for Azure Event Grid system topics. 
 
-After they're configured, Event Grid system topics diagnostic logs and metrics will be exported for audit, analysis, troubleshooting, or backup.
+After they're enabled, Event Grid system topics diagnostic logs and metrics will be exported for audit, analysis, troubleshooting, or backup.
 
 ## Resources
 
@@ -30,9 +30,9 @@ After they're configured, Event Grid system topics diagnostic logs and metrics w
 
 ## Next steps
 
-To learn how to display Events metrics in the Azure portal, see
+To learn how to use Events metrics in the Azure portal, see
 
->[!div class="nextstepaction"]
->[How to display Events metrics](./events-display-metrics.md)
+> [!div class="nextstepaction"]
+> [How to use Events metrics](events-use-metrics.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
