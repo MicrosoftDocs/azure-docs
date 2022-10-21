@@ -80,7 +80,7 @@ As mentioned in the preceding section, the add-on creates a user-assigned manage
 The preceding command installs the Secrets Store CSI Driver and the Azure Key Vault Provider on your nodes. Verify that the installation is finished by listing all pods that have the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace, and ensure that your output looks similar to the output shown here:
 
 ```bash
-kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-store-provider-azure)'
+kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver,secrets-store-provider-azure)'
 
 NAME                                     READY   STATUS    RESTARTS   AGE
 aks-secrets-store-csi-driver-4vpkj       3/3     Running   2          4m25s
