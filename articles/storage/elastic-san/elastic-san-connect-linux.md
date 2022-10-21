@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume from 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 10/21/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -99,7 +99,9 @@ As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with R
 
 Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
 
-Once you've installed the package, modify **/etc/multipath.conf** based on your needs. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. If you need to make any specific configurations, such as excluding volumes from the multipath topology, see the man page for multipath.conf. As an example, for RHEL, use `mpathconf --enable` to create **/etc/multipath.conf**.
+Once you've installed the package, check if **/etc/multipath.conf** exists. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. As an example, `mpathconf --enable` to create **/etc/multipath.conf** will create the file on RHEL. 
+
+You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults that'll generally be applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the man page for multipath.conf.
 
 ```
 defaults {
@@ -117,9 +119,9 @@ devices {
 }
 ```
 
-After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command would be `sudo systemctl restart multipath-tools.service` and on RHEL the command would be `sudo systemctl restart multipathd`.
+After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command is `sudo systemctl restart multipath-tools.service` and on RHEL the command is `sudo systemctl restart multipathd`.
 
-## Single-session connections
+### Gather information
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
 
@@ -134,7 +136,11 @@ You should see a list of output that looks like the following:
 :::image type="content" source="media/elastic-san-create/elastic-san-volume.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-volume.png":::
 
 
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
+Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next sections.
+
+## Multi-session connections
+
+To establish multiple sessions to a volume, first you'll need to create a single session with particular parameters. 
 
 To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
 
@@ -146,11 +152,7 @@ iscsiadm -m node --targetname yourStorageTargetIQN --portal yourStorageTargetPor
 iscsiadm -m node --targetname yourStorageTargetIQN -p yourStorageTargetPortalHostName:yourStorageTargetPortalPort -l
 ```
 
-## Multi-session connections
-
-To establish multiple sessions to a volume, create a single session first. Then, get the session ID and create as many sessions as needed with the session ID.
-
-To get the session ID, run `iscsiadm -m session` and you should see output similar to the following:
+Then, get the session ID and create as many sessions as needed with the session ID. To get the session ID, run `iscsiadm -m session` and you should see output similar to the following:
 
 ```
 tcp:[15] <name>:port,-1 <iqn>
@@ -158,13 +160,25 @@ tcp:[18] <name>:port,-1 <iqn>
 ```
 15 is the session ID we'll use from the previous example.
 
-With the session ID, you can create as many sessions as you need with the following command, replace $max with your desired number of additional sessions. However, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot.
+With the session ID, you can create as many sessions as you need however, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot. The following script is a loop that creates as many additional sessions as you specify. Replace **numberOfAdditionalSessions** with your desired number of additional sessions and replace **sessionID** with the session ID you'd like to use, then run the script.
 
 ```
-for i in `seq 1 $max`; do sudo iscsiadm -m session -r 15 --op new; done
+for i in `seq 1 numberOfAdditionalSessions`; do sudo iscsiadm -m session -r sessionID --op new; done
 ```
 
 You can verify the number of sessions using `sudo multipath -ll`
+
+## Single-session connections
+
+To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
+
+Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
+
+```
+iscsiadm -m node --targetname yourStorageTargetIQN --portal yourStorageTargetPortalHostName:yourStorageTargetPortalPort -o new
+
+iscsiadm -m node --targetname yourStorageTargetIQN -p yourStorageTargetPortalHostName:yourStorageTargetPortalPort -l
+```
 
 ## Next steps
 

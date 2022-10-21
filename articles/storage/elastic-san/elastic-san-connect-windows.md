@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume from 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 10/21/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -125,7 +125,7 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
 ```
 
-## Single-session configuration
+### Gather information
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
 
@@ -139,31 +139,17 @@ $connectVolume.storagetargetportalhostname
 $connectVolume.storagetargetportalport
 ```
 
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
-
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
-
-```
-# Add target IQN
-# The *s are essential, as they are default arguments
-iscsicli AddTarget yourStorageTargetIQN * yourStorageTargetPortalHostName yourStorageTargetPortalPort * 0 * * * * * * * * * 0
-
-# Login
-# If you didn't want the session to be persistent, use iscsicli LoginTarget instead, the rest of the command is the same
-# The *s are essential, as they are default arguments
-iscsicli PersistentLoginTarget yourStorageTargetIQN t yourStorageTargetPortalHostName yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
-
-```
+Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next sections.
 
 ## Multi-session configuration
 
-To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume. To do this, set the login flag (second asterisk) to **0x00000002** to enable multipathing for the target.
+To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume.
 
-You can then rerun the commands from the [single session configuration](#single-session-configuration) or use a script.
+You can then use the following scripts to create your connections.
 
 To script multi-session configurations, use two files. An XML configuration file includes the information for each volume you'd like to establish connections to, and a script that uses the XML files to create connections.
 
-The following example shows you how to format your XML file for the script, for each volume, create a new **<Target>** section:
+The following example shows you how to format your XML file for the script, for each volume, create a new `<Target>` section:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -226,6 +212,23 @@ foreach ($Target in $TargetConfig.Targets.Target)
 ```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
+
+## Single-session configuration
+
+Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume. If you'd like to modify these commands, run `iscsicli commandHere -?` for information on the command and its parameters.
+
+```
+# Add target IQN
+# The *s are essential, as they are default arguments
+iscsicli AddTarget yourStorageTargetIQN * yourStorageTargetPortalHostName yourStorageTargetPortalPort * 0 * * * * * * * * * 0
+
+# Login
+# The *s are essential, as they are default arguments
+iscsicli LoginTarget yourStorageTargetIQN t yourStorageTargetPortalHostName yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0 
+
+# This command instructs the system to automatically reconnect after a reboot
+iscsicli PersistentLoginTarget yourStorageTargetIQN t yourStorageTargetPortalHostName yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
+```
 
 ## Next steps
 
