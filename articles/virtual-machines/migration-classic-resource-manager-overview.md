@@ -92,7 +92,7 @@ The following screenshots show how to upgrade a Classic storage account to an Az
 2. Navigate to your classic storage account.
 3. In the **Settings** section, click **Migrate to ARM**.
 4. Click on **Validate** to determine migration feasibility.
-   :::image type="content" source="/media/validate-storage-account.png" alt-text="Screenshot showing the page for migrating your classic storage account to Azure Resource Manager.":::
+   :::image type="content" source="./media/migration-classic-resource-manager/validate-storage-account.png" alt-text="Screenshot showing the page for migrating your classic storage account to Azure Resource Manager.":::
 1. If validation passes, click on **Prepare** to create a migrated storage account.
 1. Type **yes** to confirm migration and click **Commit** to finish the migration.
 
