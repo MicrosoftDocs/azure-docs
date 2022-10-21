@@ -24,8 +24,7 @@ recommendations: false
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 >[!NOTE]
-> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, please see the [migration guide](v3-migration-guide.md) for more information.
-
+> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
 ## October 2022
 
@@ -35,7 +34,7 @@ Use the REST API parameter `api-version=2022-06-30-preview` when using the API o
 
 ### Region expansion for training custom neural models 
 
-Training custom neural models now supported in additional regions.
+Training custom neural models now supported in added regions.
 * East US
 * East US2
 * US Gov Arizona
@@ -581,7 +580,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 * Client defaults to the latest supported service version, currently v2.1. You can specify version 2.0  in the **FormRecognizerClientOptions** object's **Version** property.
 
-* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _ID_ keyword for all related identity documents recognition API functionalities.
 
 * **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**.
 
@@ -669,7 +668,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 #### **Breaking changes (May)**
 
-* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword.
+* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _ID_ keyword.
 
 * **FieldValueType**. Renamed value type *country* to **countryRegion**.  Removed value type *gender*.
 

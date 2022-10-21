@@ -21,7 +21,7 @@ recommendations: false
 
 ## Migrating from a v3.0 preview API version
 
-Preview APIs are periodically deprecated. If you are using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the 2022-08-31 (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+Preview APIs are periodically deprecated. If you're using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the 2022-08-31 (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
 
 The 2022-08-31 API has a few updates from the preview API versions:
 * Field rename:  boundingBox to polygon to support non-quadrilateral polygon regions.
@@ -106,7 +106,7 @@ Base64 encoding is also supported in Form Recognizer v3.0:
 }
 ```
 
-### Additional supported parameters
+### Additionally supported parameters
 
 Parameters that continue to be supported:
 
