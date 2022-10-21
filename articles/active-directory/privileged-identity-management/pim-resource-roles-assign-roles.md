@@ -40,7 +40,7 @@ You can use the Azure attribute-based access control (Azure ABAC) to add conditi
 >- Can't be assigned for a duration of less than five minutes
 >- Can't be removed within five minutes of it being assigned
 
-Currently, the following built-in roles are supported in Azure AD PIM as part of Azure ABAC:
+Currently, the following built-in roles can have conditions added:
 
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
@@ -215,7 +215,7 @@ Follow these steps to update or remove an existing role assignment.
 
     :::image type="content" source="./media/pim-resource-roles-assign-roles/resources-update-remove.png" alt-text="Screenshot demonstrates how to update or remove role assignment." lightbox="./media/pim-resource-roles-assign-roles/resources-update-remove.png":::
 
-1. To add or update a condition to refine Azure resource access, select **Add** or **View/Edit** in the **Condition** column for the role assignment. Currently, the Storage Blob Data Owner, Storage Blob Data Reader, and Storage Blob Data Contributor roles in Azure AD PIM are the only roles supported as part of [Azure ABAC](../../role-based-access-control/conditions-overview.md).
+1. To add or update a condition to refine Azure resource access, select **Add** or **View/Edit** in the **Condition** column for the role assignment. Currently, the Storage Blob Data Owner, Storage Blob Data Reader, and Storage Blob Data Contributor roles in Azure AD PIM are the only roles that can have conditions added.
 
 1. Select **Add expression** or **Delete** to update the expression. You can also select **Add condition** to add a new condition to your role.
 
