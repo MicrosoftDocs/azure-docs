@@ -356,7 +356,7 @@ For more information on creating an environment, see
 
 1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into an environment variables:
 
-    :::code language="{language}" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="read_condafile":::
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="read_condafile":::
 
 1. The following example demonstrates how to use the template to register the environment. The contents of the conda file from the previous step are passed to the template using the `condaFile` parameter:
 
@@ -680,11 +680,11 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 
 1. The following example demonstrates using the template to create an online endpoint:
 
-    :::code language="azurecli" source="~/azureml-examples/deploy-arm-templates-az-cli.sh" id="create_endpoint":::
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_endpoint":::
 
 1. After the endpoint has been created, the following example demonstrates how to deploy the model to the endpoint:
 
-    :::code language="azurecli" source="~/azureml-examples/deploy-arm-templates-az-cli.sh" id="create_deployment":::
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_deployment":::
 
 ---
 
