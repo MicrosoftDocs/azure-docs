@@ -83,7 +83,7 @@ To add a catalog item:
 
 The service scans the repository to find new catalog items. After you sync the repository, new catalog items are available to all projects in the dev center.
 
-## Update an existing catalog item
+## Update a catalog item
 
 To modify the configuration of Azure resources in an existing catalog item, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific catalog item. The update also is applied when you redeploy an environment that's associated with that catalog item.
 

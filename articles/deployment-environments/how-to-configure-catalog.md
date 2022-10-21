@@ -34,9 +34,9 @@ In this article, you learn how to:
 > [!IMPORTANT]
 > Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise are not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Add a new catalog
+## Add a catalog
 
-To add a new catalog, you complete these tasks:
+To add a catalog, you complete these tasks:
 
 - Get the clone URL for your repository.
 - Create a personal access token
