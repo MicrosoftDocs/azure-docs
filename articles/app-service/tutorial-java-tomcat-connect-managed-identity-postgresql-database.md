@@ -25,7 +25,7 @@ ms.author: xshi
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
-* [Azure CLI](/cli/azure/overview). This quickstart requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
+* [Azure CLI](/cli/azure/overview)
 
 ## Clone the sample app and prepare the repo
 
