@@ -7,7 +7,7 @@ ms.author: msangapu
 author: msangapu-msft
 ---
 
-# Mitigating subdomain takeovers in Azure App Service?
+# Mitigating subdomain takeovers in Azure App Service
 
 Subdomain takeovers are a common threat for organizations that regularly create and delete many resources. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
