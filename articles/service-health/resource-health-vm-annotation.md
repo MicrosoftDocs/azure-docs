@@ -8,7 +8,7 @@ ms.date: 9/29/2022
 
 # Resource Health virtual machine Health Annotations
 
-When the health of your virtual machine is impacted by availability impacting disruptions (see [Resource types and health checks](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview)), the platform emits context as to why the disruption has occurred to assist you in responding appropriately. 
+When the health of your virtual machine is impacted by availability impacting disruptions (see [Resource types and health checks](resource-health-checks-resource-types.md)), the platform emits context as to why the disruption has occurred to assist you in responding appropriately. 
 
 The below table summarizes all the annotations that the platform emits today:
 
