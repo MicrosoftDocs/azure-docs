@@ -162,7 +162,7 @@ It might take a few minutes to start the job and the training applications speci
 
 - To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. 
 
-You can find the reference documentation for these commands [here](/cli/azure/ml?view=azure-cli-latest).
+You can find the reference documentation for these commands [here](/cli/azure/ml).
 
 ---
 
