@@ -54,7 +54,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 > [!IMPORTANT]
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
 >
-> To avoid issues during promotion of replicas always change the following server parameters first on the replicas before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+> To avoid issues during promotion of replicas always change the following server parameters on the replicas first, before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 
 ## Promote replicas
 
