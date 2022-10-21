@@ -1,15 +1,18 @@
 ---
-title:  Customize Azure Spring Cloud egress with a user-defined route
-description: Learn how to customize Azure Spring Cloud egress with a user-defined route.
+title:  Customize Azure Spring Apps egress with a user-defined route
+description: Learn how to customize Azure Spring Apps egress with a user-defined route.
 author: karlerickson
 ms.author: yinglzh
 ms.service: spring-apps
 ms.topic: article
-ms.date: 09/25/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 10/20/2022
+ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 ---
 
-# Customize Azure Spring Cloud egress with a user-defined route
+# Customize Azure Spring Apps egress with a user-defined route
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 

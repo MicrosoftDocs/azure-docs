@@ -144,7 +144,7 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
 ### Disable secure transfer
 
-Azure Files doesn't currently support encryption with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer.
+Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer.
 
 1. Select **Home** and then **Storage accounts**.
 

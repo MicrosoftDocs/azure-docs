@@ -108,6 +108,7 @@ Here's an example of how this syntax might appear:
 
 ## Virtual machine considerations
 
+<<<<<<< HEAD
 Create a virtual machine in the same region and availability zone, preferably where you have both your target and source servers, or at least have the virtual machine closer to the source server or a target server. We recommend that you use Azure Virtual Machines with a high-performance local SSD. 
 
 For more information about the SKUs, see:
@@ -120,3 +121,17 @@ For more information about the SKUs, see:
 - [Troubleshoot high memory utilization](./how-to-high-memory-utilization.md)
 - [Troubleshoot and tune autovacuum](./how-to-autovacuum-tuning.md)
 - [Troubleshoot high IOPS utilization](./how-to-high-io-utilization.md)
+=======
+Create a virtual machine in the same region, same availability zone (AZ) preferably where you have both your target and source servers or at least have the virtual machine closer to source server or a target server. Use of Azure Virtual Machines with high-performance local SSD is recommended. For more details about the SKUs review
+
+[Edv4 and Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)   
+
+[Ddv4 and Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md)
+
+## Next steps
+
+- Troubleshoot high CPU utilization [High CPU Utilization](./how-to-high-cpu-utilization.md).
+- Troubleshoot high memory utilization [High Memory Utilization](./how-to-high-memory-utilization.md).
+- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
+- Troubleshoot high CPU utilization [High IOPS Utilization](./how-to-high-io-utilization.md).
+>>>>>>> 6f0d236ff4c0ba98435e5597295297b4467fa83c

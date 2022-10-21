@@ -37,7 +37,7 @@ We use a LinkedIn-like pattern for the From address. This pattern should make it
 
 > [!NOTE]
 > For the Azure service operated by [21Vianet in China](/azure/china), the sender address is Invites@oe.21vianet.com.  
-> For the [Azure AD Government](/azure/azure-government), the sender address is invites@azuread.us.
+> For the [Azure AD Government](../../azure-government/index.yml), the sender address is invites@azuread.us.
 
 ### Reply To
 
