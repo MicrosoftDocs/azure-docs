@@ -6,7 +6,7 @@ manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 10/21/2022
 ms.author: tagore
 
 ---
@@ -92,14 +92,10 @@ The following screenshots show how to upgrade a Classic storage account to an Az
 2. Navigate to your classic storage account.
 3. In the **Settings** section, click **Migrate to ARM**.
 4. Click on **Validate** to determine migration feasibility.
-5. If validation passes, click on **Prepare** to create a migrated storage account.
-6. Type **yes** to confirm migration and click **Commit** to finish the migration.
+   :::image type="content" source="/media/validate-storage-account.png" alt-text="Screenshot showing the page for migrating your classic storage account to Azure Resource Manager.":::
+1. If validation passes, click on **Prepare** to create a migrated storage account.
+1. Type **yes** to confirm migration and click **Commit** to finish the migration.
 
-    ![Validate Storage Account](../../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
-    
-    ![Prepare Storage Account](../../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
-    
-    ![Finalize Storage Account Migration](../../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### Migration of unattached resources
 Storage Accounts with no associated disks or Virtual Machines data may be migrated independently.
