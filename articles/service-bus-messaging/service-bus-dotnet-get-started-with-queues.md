@@ -228,7 +228,7 @@ This section shows you how to create a .NET console application to send messages
 
     1. Notice the values in the **Essentials** section.
 
-        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
+        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue." lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
 
     Notice the following values:
     - The **Active** message count value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
@@ -261,7 +261,7 @@ In this section, you'll create a .NET console application that receives messages
     Install-Package Azure.Identity
     ```
 
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
 ### [Connection String](#tab/connection-string)
 
@@ -272,7 +272,7 @@ In this section, you'll create a .NET console application that receives messages
     Install-Package Azure.Messaging.ServiceBus
     ```
 
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
 ---
 

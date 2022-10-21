@@ -55,7 +55,7 @@ You can authorize access to data in your storage account using the following ste
 
 4. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
 
-    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
+    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
     > [!NOTE]
     > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
@@ -79,7 +79,7 @@ After you copy the connection string, write it to a new environment variable on 
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
-After you add the environment variable in Windows, you must start a new instance of the command window. If you are using Visual Studio on Windows, you may need to relaunch Visual Studio after creating the environment variable for the change to be detected.
+After you add the environment variable in Windows, you must start a new instance of the command window. If you're using Visual Studio on Windows, you may need to relaunch Visual Studio after creating the environment variable for the change to be detected.
 
 **Linux**:
 

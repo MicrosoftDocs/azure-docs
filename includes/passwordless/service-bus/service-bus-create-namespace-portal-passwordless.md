@@ -38,7 +38,7 @@ To create a namespace:
 
     1. Select **Review + create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
    
-        :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Image showing the Create a namespace page":::
+        :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Image showing the Create a namespace page.":::
     1. On the **Create** page, review settings, and select **Create**. 
 4. Select **Go to resource** on the deployment page. 
 

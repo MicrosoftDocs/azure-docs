@@ -12,7 +12,7 @@ ms.custom: include file
 
 When developing locally, make sure that the user account that connects to Azure Service Bus has the correct permissions. You'll need the `Azure Service Bus Data Owner` role in order to send and receive messages. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the `Microsoft.Authorization/roleAssignments/write` action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](/azure/role-based-access-control/scope-overview) page.
 
-The following example assigns the `Azure Service Bus Data Owner` role to your user account, which provides full access to Azure Service Bus resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to gives users only the minimum permissions needed for a more secure production environments.
+The following example assigns the `Azure Service Bus Data Owner` role to your user account, which provides full access to Azure Service Bus resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to give users only the minimum permissions needed for a more secure production environment.
 
 > [!IMPORTANT]
 > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
@@ -55,7 +55,7 @@ az role assignment create --assignee "<user@domain>" \
 
 ### [PowerShell](#tab/roles-powershell)
 
-To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource id using the `Get-AzResource` command.
+To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource ID using the `Get-AzResource` command.
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName "<your-service-bus-resource-group>" -Name "<your-service-bus-name>"

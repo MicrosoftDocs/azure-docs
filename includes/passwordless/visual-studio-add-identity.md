@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: alexwolfmsft
+ms.service: storage
+ms.topic: include
+ms.date: 10/21/2022
+ms.author: alexwolf
+ms.custom: include file
+---
+
 To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
 # [Visual Studio](#tab/identity-visual-studio)

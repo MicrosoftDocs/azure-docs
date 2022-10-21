@@ -106,7 +106,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 #### Create the managed identity using the Azure portal
 
-The following steps demonstrate how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
+The following steps demonstrate how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
 
 ### [Service Connector](#tab/service-connector)
 
@@ -240,7 +240,7 @@ az spring app identity assign \
 
 ### [Azure Container Apps](#tab/container-apps-identity)
 
-You can assign a managed identity to an Azure Container Apps instance with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
+You can assign a managed identity to an Azure Container Apps instance with the [az container app identity assign](/cli/azure/containerapp/identity) command.
 
 ```azurecli
 az containerapp identity assign \

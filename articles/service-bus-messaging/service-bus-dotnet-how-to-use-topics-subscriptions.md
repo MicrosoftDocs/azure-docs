@@ -247,7 +247,7 @@ In this section, you'll create a .NET console application that receives messages
     Install-Package Azure.Identity
     ```
 
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
 ### [Connection String](#tab/connection-string)
 
@@ -258,7 +258,7 @@ In this section, you'll create a .NET console application that receives messages
     Install-Package Azure.Messaging.ServiceBus
     ```
 
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
 ---
 
@@ -266,7 +266,7 @@ In this section, you'll create a .NET console application that receives messages
 
 In this section, you'll add code to retrieve messages from the subscription.
 
-1. Replace the existing contents of `Program.cs` with the the following properties and methods:
+1. Replace the existing contents of `Program.cs` with the following properties and methods:
 
      ## [Passwordless (Recommended)](#tab/passwordless)
 
