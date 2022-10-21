@@ -171,7 +171,7 @@ The summary displays the estimated travel time in seconds for the total journey.
 
 The wayfinding service calculates the path through specific intervening points. Each point is displayed, along with its latitude and longitude details.
 
-## Implement the wayfinding service in your map
+<!-- TODO: ## Implement the wayfinding service in your map   (Refer to sample app once completed)  -->
 
 [dataset]: creator-indoor-maps.md#datasets
 [tileset]: creator-indoor-maps.md#tilesets
