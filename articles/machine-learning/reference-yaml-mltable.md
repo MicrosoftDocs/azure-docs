@@ -85,7 +85,7 @@ transformations:
 
 ## Delimited files transformations
 Following transformations are specific to delimited files.
-- infer_column_types: Boolean to infer column data types. Defaults to `True`. Type inference requires that the data source is accessible from current compute. Currently type inference will only pull first 200 rows. If the data contains multiple types of value, it is better to provide desired type as an override via set_column_types argument
+- infer_column_types: Boolean to infer column data types. Defaults to `True`. Type inference requires that the data source is accessible from current compute. Currently type inference will only pull first 200 rows. 
 - encoding: Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Defaults to `utf8`.
 - header: user can choose one of the following options: `no_header`, `from_first_file`, `all_files_different_headers`, `all_files_same_headers`. Defaults to `all_files_same_headers`.
 - delimiter: The separator used to split columns.
