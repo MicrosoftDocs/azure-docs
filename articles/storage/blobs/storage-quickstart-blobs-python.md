@@ -89,11 +89,9 @@ These example code snippets show you how to do the following tasks with the Azur
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
 
-### Authenticate the client
+### Authenticate to Azure and authorize access to blob data
 
-Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
-
-You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
+[!INCLUDE [storage-quickstart-passwordless-auth-intro](../../../storage-quickstart-passwordless-auth-intro.md)]
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
@@ -163,7 +161,7 @@ You can authorize access to data in your storage account using the following ste
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](/azure/role-based-access-control/resource-provider-operations#microsoftstorage). The least privilege built-in role with permissions for this action is [Storage Account Key Operator Service Role](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role), but any role which includes this action will work.
+> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](/azure/role-based-access-control/resource-provider-operations#microsoftstorage). The least privileged built-in role with permissions for this action is [Storage Account Key Operator Service Role](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
 
