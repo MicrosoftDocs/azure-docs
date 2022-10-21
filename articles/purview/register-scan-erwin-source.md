@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage erwin Mart servers in Microsoft Purview (Preview)
+# Connect to and manage erwin Mart servers in Microsoft Purview
 
 This article outlines how to register erwin Mart servers, and how to authenticate and interact with erwin Mart Servers in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

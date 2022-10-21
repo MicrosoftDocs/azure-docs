@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage MySQL in Microsoft Purview (Preview)
+# Connect to and manage MySQL in Microsoft Purview
 
 This article outlines how to register MySQL, and how to authenticate and interact with MySQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP Business Warehouse in Microsoft Purview (Preview)
+# Connect to and manage SAP Business Warehouse in Microsoft Purview
 
 This article outlines how to register SAP Business Warehouse (BW), and how to authenticate and interact with SAP BW in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

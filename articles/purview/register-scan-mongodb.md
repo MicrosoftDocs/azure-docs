@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage MongoDB in Microsoft Purview (Preview)
+# Connect to and manage MongoDB in Microsoft Purview
 
 This article outlines how to register MongoDB, and how to authenticate and interact with MongoDB in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
