@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # Consume events with Logic Apps
 
-This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) events. Logic Apps create and run automated workflows to process event data from other applications. You'll learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform a service operation.
+This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) events. Logic Apps creates and runs automated workflows to process event data from other applications. You'll learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform a service operation.
 
 Here's an example of a Logic App workflow:
 
@@ -255,9 +255,9 @@ You need to add a specific action. Select "Choose an operation" to continue. The
 The options in this example are:
 
 - Method is "Get"
-- URL is ```"concat('https://', triggerBody()?['subject'], '/_history/', triggerBody()?['dataVersion'])"```.
+- URL is `"concat('https://', triggerBody()?['subject'], '/_history/', triggerBody()?['dataVersion'])"`.
 - Authentication type is "Managed Identity".
-- Audience is ```"concat('https://', triggerBody()?['data']['resourceFhirAccount'])"```
+- Audience is `"concat('https://', triggerBody()?['data']['resourceFhirAccount'])"`.
 
 ### Allow FHIR Reader access to your Logic App
 
@@ -269,7 +269,7 @@ At this point, you need to give the FHIR Reader access to your app, so it can ve
 
 3. Select on Azure role assignments. Select "Add role assignment".
 
-4. Specify the following:
+4. Specify the following options:
 
    - Scope = Subscription
    - Subscription = your subscription
@@ -339,7 +339,7 @@ Here's an example of a workflow trigger success operation:
 
 ## Next steps
 
-For more information about FHIR events, see
+For more information about FHIR events, see:
 
 > [!div class="nextstepaction"]
 > [What are Events?](./events-overview.md)
