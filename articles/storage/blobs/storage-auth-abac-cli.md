@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/19/2022
+ms.date: 10/21/2022
 
 #Customer intent:
 
@@ -192,7 +192,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 1. In the **Condition** column, click **View/Edit** to view the condition.
 
-    ![Screenshot of Add role assignment condition in the Azure portal.](./media/shared/condition-view.png)
+:::image type="content" source="./media/shared/condition-view.png" alt-text="Screenshot of Add role assignment condition in the Azure portal." lightbox="./media/shared/condition-view.png":::
 
 ## Step 6: Test the condition
 
