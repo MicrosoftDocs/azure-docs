@@ -105,8 +105,12 @@ A verbal statement recorded by the voice talent is required before you can [depl
 
 To submit the voice talent verbal statement, follow these steps:
 
-1. Select **Custom Voice** > Your project name > **Deploy model** > **Manage your voice talent** to record and submit the verbal statement.
+1. Select **Custom Voice** > Your project name > **Deploy model** > **Manage your voice talent**.
     :::image type="content" source="media/custom-voice/lite/lite-voice-talent-consent.png" alt-text="Screenshot of the record voice talent consent dashboard.":::
+1. Select the model.
+1. Enter the voice talent name and company name.
+1. Read and record the statement. Select the microphone icon to start recording. Select the stop icon to stop recording.
+1. Select **Submit** to submit the statement.
 1. Check the processing status in the script table at the bottom of the dashboard. Once the status is **Succeeded**, you can [deploy the model](#deploy-model).
 
 ## Deploy model
