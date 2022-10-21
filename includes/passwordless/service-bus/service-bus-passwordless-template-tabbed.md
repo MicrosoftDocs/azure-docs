@@ -16,7 +16,7 @@ ms.custom: include file
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
-[!INCLUDE [passwordless-default-azure-credential-overview](../default-azure-credential-overview.md)]
+[!INCLUDE [passwordless-default-azure-credential-overview](../dotnet-default-azure-credential-overview.md)]
 
 ### Assign roles to your Azure AD user
 
