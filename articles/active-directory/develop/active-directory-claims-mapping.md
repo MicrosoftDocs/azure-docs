@@ -5,13 +5,12 @@ author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, ignite-2022
+ms.custom: aaddev, ignite-2022, engagement-fy23
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/21/2022
 ms.author: davidmu
 ms.reviewer: ludwignick
-ms.custom: engagement-fy23
 ---
 
 # Customize claims emitted in tokens for a specific app in a tenant
