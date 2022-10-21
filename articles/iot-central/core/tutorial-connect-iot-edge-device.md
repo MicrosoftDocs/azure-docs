@@ -90,7 +90,7 @@ To find these values, navigate to the **Environmental sensor - 001** device from
 
 In this tutorial, you deploy the IoT Edge runtime to a Linux virtual machine in Azure. To deploy and configure the virtual machine, select the following button:
 
-[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Fedge-vm-deploy-1-4%2FedgeDeploy.json)
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmain%2Fedge-vm-deploy-1-4%2FedgeDeploy.json)
 
 On the **Custom deployment** page, use the following values to complete the form:
 
@@ -168,7 +168,7 @@ The module now includes a **telemetry** interface that defines **machine**, **am
 
 :::image type="content" source="media/tutorial-connect-iot-edge-device/telemetry-interface.png" alt-text="Screenshot that shows the device template with the telemetry interface.":::
 
-To add some forms and views to enable you to manage the device and view the telemetry:
+To add a view that plots telemetry from the device:
 
 1. In the **Environmental sensor** device template, select **Views**.
 
@@ -186,7 +186,7 @@ To add some forms and views to enable you to manage the device and view the tele
 
 1. To publish the template, select **Publish**.
 
-## View telemetry
+## View telemetry and control module
 
 To view the telemetry from your device, you need to attach the device to the device template:
 
@@ -202,9 +202,11 @@ To view the telemetry from your device, you need to attach the device to the dev
 
     :::image type="content" source="media/tutorial-connect-iot-edge-device/environmental-telemetry-view.png" alt-text="Screenshot that shows the telemetry line charts.":::
 
-1. The **Raw data** page now includes columns for the:
-    * **ambient**, **machine**, and **timeCreated** telemetry values.
-    * **SendData** and **SendInterval** properties.
+1. The **Raw data** page now includes columns for the **ambient**, **machine**, and **timeCreated** telemetry values.
+
+To control the module by using the properties defined in the deployment manifest, navigate to the **Environmental sensor - 001** device and select the **Manage** view.
+
+IoT Central created this view automatically from the **manage** interface in the **SimulatedTemperatureSensor** module. The **Raw data** page now includes columns for the **SendData** and **SendInterval** properties.
 
 ## Clean up resources
 
