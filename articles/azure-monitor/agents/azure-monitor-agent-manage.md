@@ -312,8 +312,6 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
   Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -MachineName <arc-server-name> -Name AzureMonitorLinuxAgent -EnableAutomaticUpgrade
   ```
 
----
-
 #### [Azure CLI](#tab/azure-cli)
 
 ### Update on Azure virtual machines
