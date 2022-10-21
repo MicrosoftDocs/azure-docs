@@ -223,8 +223,6 @@
     href: move-resources.md
   - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
-  - name: Screen capture protection
-    href: screen-capture-protection.md
   - name: Customize session host image
     items:
       - name: Set up golden image in Azure
@@ -285,6 +283,12 @@
         href: configure-single-sign-on.md
       - name: Set up the KDC proxy
         href: key-distribution-center-proxy.md
+  - name: Security
+    items:
+    - name: Screen capture protection
+      href: screen-capture-protection.md
+    - name: Watermarking
+      href: watermarking.md
   - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
