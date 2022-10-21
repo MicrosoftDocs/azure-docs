@@ -22,7 +22,7 @@ With batch transcriptions, you submit the [audio data](batch-transcription-audio
 
 ::: zone pivot="speech-cli"
 
-To create a transcription and connect it to an existing project, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
+To create a transcription, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
 
 - Set the required `content` parameter. You can specify either a semi-colon delimited list of individual files, or the URL for an entire container. This property will not be returned in the response. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `language` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
@@ -38,17 +38,16 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
   },
   "properties": {
     "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": true,
-    "displayFormWordLevelTimestampsEnabled": false,
+    "wordLevelTimestampsEnabled": false,
     "channels": [
       0,
       1
@@ -56,11 +55,12 @@ You should receive a response body in the following format:
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked"
   },
-  "lastActionDateTime": "2022-09-10T18:39:07Z",
+  "lastActionDateTime": "2022-10-21T14:21:59Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-09-10T18:39:07Z",
+  "createdDateTime": "2022-10-21T14:21:59Z",
   "locale": "en-US",
-  "displayName": "My Transcription"
+  "displayName": "My Transcription",
+  "description": ""
 }
 ```
 
@@ -81,6 +81,7 @@ To create a transcription, use the [CreateTranscription](https://eastus.dev.cogn
 - You must set either the `contentContainerUrl` or `contentUrls` property. This property will not be returned in the response. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
 - Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
+- Optionally you can set the `wordLevelTimestampsEnabled` property to `true` to enable word-level timestamps in the transcription results. The default value is `false`. For more information, see [request configuration options](#request-configuration-options).
 
 Make an HTTP POST request using the URI as shown in the following [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
@@ -104,17 +105,16 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
   },
   "properties": {
     "diarizationEnabled": false,
     "wordLevelTimestampsEnabled": true,
-    "displayFormWordLevelTimestampsEnabled": false,
     "channels": [
       0,
       1
@@ -122,9 +122,9 @@ You should receive a response body in the following format:
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked"
   },
-  "lastActionDateTime": "2022-09-10T18:39:07Z",
+  "lastActionDateTime": "2022-10-21T14:18:06Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-09-10T18:39:07Z",
+  "createdDateTime": "2022-10-21T14:18:06Z",
   "locale": "en-US",
   "displayName": "My Transcription"
 }
@@ -177,8 +177,7 @@ Here are some property options that you can use to configure a transcription whe
 
 Batch transcription uses the default base model for the locale that you specify. You don't need to set any properties to use the default base model. 
 
-Optionally, you can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. 
-
+Optionally, you can modify the previous [create transcription example](#create-a-batch-transcription) by setting the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. 
 
 ::: zone pivot="speech-cli"
 
@@ -192,12 +191,15 @@ spx batch transcription create --name "My Transcription" --language "en-US" --co
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
-  "contentContainerUrl": "https://YourStorageAccountName.blob.core.windows.net/YourContainerName?YourSASToken",
+  "contentUrls": [
+    "https://crbn.us/hello.wav",
+    "https://crbn.us/whatstheweatherlike.wav"
+  ],
   "locale": "en-US",
+  "displayName": "My Transcription",
   "model": {
     "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
-  "displayName": "My Transcription",
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
@@ -206,7 +208,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 ::: zone-end
 
-To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
+To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [custom model deployment endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
 
 Batch transcription requests for expired models will fail with a 4xx error. You'll want to set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 

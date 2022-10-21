@@ -42,7 +42,8 @@ For stereo audio streams, the left and right channels are split during the trans
 
 When audio files are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account, you can request transcription of individual audio files or an entire Azure Blob Storage container. You can also [write transcription results](batch-transcription-create.md#destination-container-url) to a Blob container.
 
-[Batch transcription](batch-transcription.md) requires the storage container must have at most 5 GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5 GB.
+> [!NOTE]
+> For blob and container limits, see [batch transcription quotas and limits](speech-services-quotas-and-limits.md#batch-transcription).
 
 # [Azure portal](#tab/portal)
 
@@ -114,12 +115,12 @@ Follow these steps to create a storage account and upload wav files from your lo
 
 ## Trusted Azure services security mechanism
 
-This section explains how to restrict access to your batch transcription source audio files in an Azure Storage account using the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity). 
+This section explains how to set up and limit access to your batch transcription source audio files in an Azure Storage account using the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity). 
 
 > [!NOTE]
 > With the trusted Azure services security mechanism, you need to use [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) to store audio files. Usage of [Azure Files](../../storage/files/storage-files-introduction.md) is not supported.
 
-If you perform all actions in this article, your Storage account will be in the following configuration:
+If you perform all actions in this section, your Storage account will be in the following configuration:
 - Access to all external network traffic is prohibited.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited.
@@ -130,7 +131,7 @@ So in effect your Storage account becomes completely "locked" and can't be used 
 For example, you may allow traffic from selected public IP addresses and Azure Virtual networks. You may also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
 
 > [!NOTE] 
-> Using [private endpoints](speech-services-private-link.md) isn't required to secure the storage account. You can use a private endpoint for batch transcription API requests, while separately accessing the source audio files from a secure storage account, or the other way around.
+> Using [private endpoints for Speech](speech-services-private-link.md) isn't required to secure the storage account. You can use a private endpoint for batch transcription API requests, while separately accessing the source audio files from a secure storage account, or the other way around.
 
 By following the steps below, you'll severely restrict access to the storage account. Then you'll assign the minimum required permissions for Speech resource managed identity to access the Storage account. 
 
@@ -166,7 +167,7 @@ Follow these steps to restrict access to the storage account.
 
 For more information, see [Prevent anonymous public read access to containers and blobs](/azure/storage/blobs/anonymous-read-access-prevent) and [Prevent Shared Key authorization for an Azure Storage account](/azure/storage/common/shared-key-authorization-prevent).
 
-### Grant storage account access to the Speech resource
+### Configure Azure Storage firewall
 
 Having restricted access to the Storage account, you need to grant access to specific managed identities. Follow these steps to add access for the Speech resource.
 
@@ -180,13 +181,13 @@ Having restricted access to the Storage account, you need to grant access to spe
 1. Select **Save**.
 
     > [!NOTE]
-    > It may takes up to 5 min for the network changes to propagate.
+    > It may take up to 5 min for the network changes to propagate.
 
-Although by now the access is permitted, the Speech resource can't yet access the Storage account. You need to assign a specific access role for Speech resource managed identity.
+Although by now the network access is permitted, the Speech resource can't yet access the data in the Storage account. You need to assign a specific access role for Speech resource managed identity.
 
 ### Assign resource access role
 
-Follow these steps to assign the **Storage Blob Data Read** role to the managed identity of your Speech resource.
+Follow these steps to assign the **Storage Blob Data Reader** role to the managed identity of your Speech resource.
 
 > [!IMPORTANT]
 > You need to be assigned the *Owner* role of the Storage account or higher scope (like Subscription) to perform the operation in the next steps. This is because only the *Owner* role can assign roles to others. See details [here](../../role-based-access-control/built-in-roles.md).
@@ -218,7 +219,7 @@ With system assigned managed identity, you'll use a plain Storage Account URL (n
 A shared access signature (SAS) is a URI that grants restricted access to an Azure Storage container. Use it when you want to grant access to your batch transcription files for a specific time range without sharing your storage account key. 
 
 > [!TIP]
-> If you only want your Speech resource to access the container, use the [trusted Azure services security mechanism](#trusted-azure-services-security-mechanism) instead.
+> If the container with batch transcription source files should only be accessed by your Speech resource, use the [trusted Azure services security mechanism](#trusted-azure-services-security-mechanism) instead.
 
 # [Azure portal](#tab/portal)
 
