@@ -33,34 +33,41 @@ Note that interactive training is supported on **AzureML Compute Cluster** and *
 ### AzureML Studio
 #### Submit an interactive job
 1. Create a new job from the left navigation pane in the studio portal.
-![screenshot select-job-ui](media/how-to-train-interactive-jobs/create-job.png) // TODO Update screenshot
-1. Choose `Compute cluster` or `Attached compute` (Kubernetes) as the compute type, choose the compute target, and specify how many nodes you need in `Instance count`. 
-![screenshot select-compute-ui](media/how-to-train-interactive-jobs/select-compute.png) // TODO Update screenshot
-1. Follow the wizard to choose the environment you want to start the job.
-![screenshot select-environment-ui](media/how-to-train-interactive-jobs/select-environment.png) // TODO Update screenshot
-1. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job. **You can end your command with `sleep <specific time>` to pause the job and reserve the compute.** An example is like below:
-![screenshot set-command](media/how-to-train-interactive-jobs/sleep-command.png) // TODO Update screenshot
-1. Select the training applications you want to interact with in the job.
-![screenshot select-apps](media/how-to-train-interactive-jobs/select-training-apps.png) // TODO Update screenshot
-1. Review and create the job.
 
-It might take a few minutes to start the job and applications specified. After the job is submitted and in **Running** state, you can connect to the applications by finding them from the job details page on the studio portal or directly from the CLI/SDK.
+![screenshot select-job-ui](media/create-job.png) 
+
+2. Choose `Compute cluster` or `Attached compute` (Kubernetes) as the compute type, choose the compute target, and specify how many nodes you need in `Instance count`. 
+
+![screenshot select-compute-ui](media/select-compute.png) 
+
+3. Follow the wizard to choose the environment you want to start the job.
+
+![screenshot select-environment-ui](media/select-environment.png) 
+
+4. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job. **You can end your command with `sleep <specific time>` to pause the job and reserve the compute.** An example is like below:
+
+![screenshot set-command](media/sleep-command.png) 
+
+5. Select the training applications you want to interact with in the job.
+
+![screenshot select-apps](media/select-training-apps.png) 
+
+6. Review and create the job.
 
 #### Connect to endpoints
 You can connect to the applications by clicking the button **Debug and monitor** in the job details page. 
-![screenshot connect-to-apps](./media/accessbutton.png) // TODO Update screenshot
+![screenshot connect-to-apps](media/debug-and-monitor.png)
 
 Clicking the applications in the panel opens a new tab for the applications. Please note that you can access the applications only when the applications is in **Running** status and only the **job owner** is authorized to access the applications.
-![screenshot apps-panel](./media/appspanel.png) // TODO Update screenshot
+![screenshot apps-panel](media/ij-right-panel.png)
 
-It might take a few minutes to start the job and applications specified. 
-
+It might take a few minutes to start the job and the training applications specified during job creation.
 
 ### AzureML SDKv2/CLIv2
 #### Submit an interactive job
 
 # [Python SDK](#tab/python)
-1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-manage-environments-v2) to create a custom environment. 
+1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](./how-to-manage-environments-v2) to create a custom environment. 
 
   ```python
   # NEED TO LINK OUT TO SAMPLES REPO INSTEAD OF HARD CODING
@@ -145,13 +152,13 @@ It might take a few minutes to start the job and applications specified.
 #### Connect to endpoints
 
 # [Python SDK](#tab/python)
-1. Printing the returned job will show you the different endpoint links you can click out to.
+- Once the job is submitted, you can use the `python ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
 // TODO -- add screenshot
 
 # [Azure CLI](#tab/azurecli)
-1. When the job is **running**, Run the command `az ml job show-services --name <job name> --node-index <compute node index>` to get the URL to the applications. The endpoint URL will show under `services` in the output. Here is an example:
-![screenshot show-services-cli](./media/servicescli.png)
-1. To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. 
+- When the job is **running**, Run the command `az ml job show-services --name <job name> --node-index <compute node index>` to get the URL to the applications. The endpoint URL will show under `services` in the output. 
+
+- To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. 
 
 You can find the reference documentation for these commands [here](https://learn.microsoft.com/en-us/cli/azure/ml?view=azure-cli-latest).
 
@@ -159,17 +166,24 @@ You can find the reference documentation for these commands [here](https://learn
 
 ### Interact with the applications
 When you click on the endpoints to interact when your job, you are taken to the user container under your working directory, where you can access your code, inputs, outputs, and logs. If you run into any issues while connecting to the applications, the interactive capability and applications logs can be found from **system_logs->interactive_capability** under **Outputs + logs** tab.
-![screenshot check-logs](./media/ijlogs.png)
+![screenshot check-logs](./media/ij-logs.png)
 
-1. You can open a terminal from Jupyter Lab and start interacting within the job container. You can also directly iterate your training script with Jupyter Lab. 
-![screenshot jupyterlab](./media/jupyterlab.png)
-1. 1. If you have opened VS code, you will see... // TO DO finish statement and add screenshot
-1. If you have logged tensorflow events for your job, you can use TensorBoard to monitor the metrics when your job is running.
+- You can open a terminal from Jupyter Lab and start interacting within the job container. You can also directly iterate your training script with Jupyter Lab. 
 
+// Add screenshot
+
+- You can also interact with the job container within VS Code. // TODO should we talk about breakpoint debugging?
+
+// Add screenshot
+
+- If you have logged tensorflow events for your job, you can use TensorBoard to monitor the metrics when your job is running.
+
+// Add screenshot
 
 ### End the interactive job
-1. Once you are done with the interactive training, you can also go to the job details page to cancel the job. This will release the compute resource. Alternatively, use `az ml job cancel -n <your job name>` in the CLI. 
-![screenshot cancel-job](./media/canceljob.png)
+Once you are done with the interactive training, you can also go to the job details page to cancel the job. This will release the compute resource. Alternatively, use `az ml job cancel -n <your job name>` in the CLI or `ml_client.job.cancel("<job name>")` in the SDK. 
+
+// Add UI screenshot
 
 ## Next steps
 
