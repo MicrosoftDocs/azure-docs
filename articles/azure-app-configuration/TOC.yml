@@ -23,7 +23,9 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
-        - name: Python
+        - name: Python provider
+          href: quickstart-python-provider.md
+        - name: Python SDK
           href: quickstart-python.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
