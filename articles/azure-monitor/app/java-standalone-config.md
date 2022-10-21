@@ -31,14 +31,14 @@ You'll find more information and configuration options in the following sections
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.1.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.2.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.2.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -59,7 +59,7 @@ You can also set the connection string by using the environment variable `APPLIC
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located:
+If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.2.jar` is located.
 
 ```json
 {
@@ -127,7 +127,7 @@ Sampling is also based on trace ID to help ensure consistent sampling decisions 
 
 ### Rate-limited sampling
 
-Starting from 3.4.1, rate-limited sampling is available and is now the default.
+Starting from 3.4.2, rate-limited sampling is available and is now the default.
 
 If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
 (approximately) 5 requests per second, along with all the dependencies and logs on those requests.
@@ -245,7 +245,7 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 
 ## Connection string overrides (preview)
 
-This feature is in preview, starting from 3.4.1.
+This feature is in preview, starting from 3.4.2.
 
 Connection string overrides allow you to override the [default connection string](#connection-string). For example, you can:
 
@@ -434,7 +434,7 @@ You can enable code properties, such as `FileName`, `ClassName`, `MethodName`, a
 >
 > This feature could add a performance overhead.
 
-This feature is in preview, starting from 3.4.1.
+This feature is in preview, starting from 3.4.2.
 
 ### LoggingLevel
 
@@ -477,7 +477,7 @@ To disable auto-collection of Micrometer metrics and Spring Boot Actuator metric
 
 Literal values in JDBC queries are masked by default to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.1, this behavior can be disabled. For example:
+Starting from 3.4.2, this behavior can be disabled. For example:
 
 ```json
 {
@@ -495,7 +495,7 @@ Starting from 3.4.1, this behavior can be disabled. For example:
 
 Literal values in Mongo queries are masked by default to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.1, this behavior can be disabled. For example:
+Starting from 3.4.2, this behavior can be disabled. For example:
 
 ```json
 {
@@ -761,12 +761,9 @@ and the console, corresponding to this configuration:
 
 In the preceding configuration example:
 
-* `destination` can be one of `file`, `console` or `file+console`.
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.1.jar` is located.
-* `maxSizeMb` is the maximum size of the log file before it rolls over.
-* `maxHistory` is the number of rolled-over log files that are retained, in addition to the current log file.
+`applicationinsights-agent-3.4.2.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.
