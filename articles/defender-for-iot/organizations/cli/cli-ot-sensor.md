@@ -450,73 +450,40 @@ root@xsense:/# cyberx-xsense-certificate-import
 
 ## Update sensor software versions
 
-This procedure explains how to update OT sensor software using the command line interface.
+In this procedure, you will learn how to update the OT sensor software through the command line interface.
 
+1. Transfer the upgrade file to the sensor (sftp or scp can be used)<br><br>Login as `cyberx_host` user and Transfer the file to  `/opt/sensor/logs/`
+ 
+1. Login as cyberx user <br>
+Move the file to the location accessible for the upgrade process
+```bash
+cd /var/host-logs/ 
+mv <filename> /var/cyberx/media/device-info/update_agent.tar
+```
+1. Start the upgrade process:
+```bash
+curl -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
+```
 
-1. Mount the secured update file to the `/home/cyberx` directory, and then copy it to the `/tmp` directory. Run:
-
-    ```bash
-    cp /home/cyberx/<file name> /tmp
-    ```
-
-    where `<file name>` is the name of the update file
-
-1. Verify that the update file isn't corrupted. Run:
-
-    ```bash
-	md5sum <filename>
-    ```
-
-    where `<file name>` is the name of the update file
-
-1. Create the update flag required to start the update. Run:
-
-    ```bash
-    touch /var/cyberx/media/device-info/pending_update
-    ```
-
-1. If this isn't the first update being run on your sensor, make sure that no old files are in use. You can skip this step if the `/update` directory doesn't exist. Run:
-
-    ```bash
-    cd /update
-    sudo rm -rf *
-    ```
-1. Stop the tomcat process:
-
-    ```bash
-	sudo monit stop tomcat
-    ```
-
-1. Extract the secured update file. Run:
-
-    ```bash
-    sudo /usr/local/bin/cyberx-update-extract --encrypted-file-path /tmp/<file name> --output-dir-path /var/cyberx/media/device-info/update
-    ```
-
-    Where `<file name>` is the name of the update file.
-
-1. Start tomcat again. Run:
-
-    ```bash
-    sudo monit start tomcat
-    ```
-
-1. Make sure that you're in the correct directory for the update. Run:
-
-    ```bash
-    cd /home/cyberx
-    ```
-
-1. Run the update script. Run:
-
-    ```bash
-    sudo python /var/cyberx/media/device-info/update/setup_upgrade.py --pre_reboot
-    ```
-
-The update runs on the sensor. To track the updates progress, run:
-
+1. Monitoring the upgrade progress has started
 ```bash
 tail -f /var/cyberx/logs/upgrade.log
+```
+Output will appear similar to the example below
+
+```bash
+2022-05-23 15:39:00,632 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Extracting upgrade package from /var/cyberx/media/device-info/update_agent.tar to /var/cyberx/media/device-info/update
+
+2022-05-23 15:39:33,180 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Prepared upgrade, scheduling in 30 seconds
+
+2022-05-23 15:40:03,181 [pool-34-thread-1] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Send upgrade request to os-manager. file location: /var/cyberx/media/device-info/update
+```
+1. During the upgrade, ssh will disconnect - an indication that it is running.
+
+1. Monitoring the upgrade process (login as `cyberx_host`)
+
+```bash
+Tail -f /opt/sensor/logs/install.log
 ```
 
 ## Back up and restore appliance snapshot
