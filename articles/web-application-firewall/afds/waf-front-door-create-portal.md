@@ -64,7 +64,7 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
 When you create a WAF policy, by default, WAF policy is in **Detection** mode. In **Detection** mode, WAF doesn't block any requests, instead, requests matching the WAF rules are logged at WAF logs.
 To see WAF in action, you can change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, requests that match defined rules are blocked and logged at WAF logs.
 
- :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot of the Overview page of Front Door WAF policy where.":::
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot of the Overview page of Front Door WAF policy that shows how to switch to prevention mode.":::
 
 ### Custom rules
 
