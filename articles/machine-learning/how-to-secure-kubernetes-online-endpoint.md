@@ -139,7 +139,7 @@ You can follow following steps to update DNS record for your custom domain name:
 
    If you use AKS, you can easily get the IP address from [Azure portal](https://portal.azure.com/#home). Go to your AKS resource page, navigate to **Service and ingresses** and then find the **azureml-fe** service under the **azuerml** namespace, then you can find the IP address in the **External IP** column.
     
-   :::image type="content" source="media/how-to-secure-kubernetes-online-endpoint/get-IPaddress-from-AKSui.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
+   :::image type="content" source="media/how-to-secure-kubernetes-online-endpoint/get-ip-address-from-aks-ui.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
 
    In addition, you can run this Kubernetes command `kubectl describe svc azureml-fe -n azureml` in your cluster to get the IP address from the **LoadBalancer Ingress** parameter in the output.
 

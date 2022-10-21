@@ -443,7 +443,7 @@ Managed online endpoints have bandwidth limits for each endpoint. You find the l
 
 When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
-| Status code| Compute | Reason phrase |	Why this code might get returned |
+| Status code| Reason phrase |	Why this code might get returned |
 | --- | --- | --- |
 | 200 | OK | Your model executed successfully, within your latency bound. |
 | 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
