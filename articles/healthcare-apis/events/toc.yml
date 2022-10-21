@@ -19,7 +19,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Monitoring
+  - name: Monitor
     expanded: true
     items:
     - name: Display Events metrics
@@ -28,7 +28,7 @@ items:
       href: events-export-logs-metrics.md
   - name: Disable Events and delete workspaces
     href: events-disable-delete-workspace.md 
-  - name: Troubleshooting and problem solve
+  - name: Troubleshoot and problem solve
     expanded: true
     items:
     - name: Events troubleshooting guide  
