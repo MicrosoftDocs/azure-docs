@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure API Management FAQ | Microsoft Docs
+  title: Azure API Management FAQs | Microsoft Docs
   description: Learn the answers to frequently asked questions (FAQs) about Azure API Management.
   services: api-management
   documentationcenter: ''
@@ -8,7 +8,7 @@ metadata:
   
   ms.service: api-management
   ms.topic: faq
-  ms.date: 10/19/2022
+  ms.date: 10/20/2022
   ms.author: danlep 
   ms.custom: engagement-fy23,fasttrack-edit
 title: Azure API Management FAQs
@@ -88,7 +88,7 @@ sections:
       - question: |
           Does API Management only support REST APIs?
         answer: |
-          API Management supports REST APIs as well as passthrough to [SOAP](import-soap-api.md), [WebSocket](websocket-api.md), and [GraphQL](graphql-apo.md) APIs. API Management also supports [synthetic GraphQL](graphql-schema-resolve.md) APIs.
+          API Management supports REST APIs as well as passthrough to [SOAP](import-soap-api.md), [WebSocket](websocket-api.md), and [GraphQL](graphql-api.md) APIs. API Management also supports [synthetic GraphQL](graphql-schema-resolve-api.md) APIs.
 
           API Management also integrates with Azure compute offerings commonly used for building and hosting APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Container Apps](import-container-app-with-oas.md), and [Web Apps](import-app-service-as-api.md).
 
@@ -120,9 +120,13 @@ sections:
           The minimum subnet size needed to deploy API Management is /29. Learn more about using API Management in [virtual networks](virtual-network-concepts.md).
 
       - question: |
+          Does API Management provide a web application firewall (WAF)?
+        answer: |
+          While API Management doesn't include a WAF component, hile API Management doesn’t have a built-in WAF component, deploying a WAF upstream (in front) of the API Management instance is strongly recommended. For example, use [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) or [Azure Front Door](front-door-api-management.md).
+      - question: |
           What are the differences between the managed gateway and the self-hosted gateway?
         answer: |
-          Learn more in [API gateway in API Management](api-management-gateway-overview.md) and the [Self-hosted gateway overview](self-hosted-gateway-overview.md).
+          Learn more in [API gateway in API Management](api-management-gateways-overview.md) and the [Self-hosted gateway overview](self-hosted-gateway-overview.md).
 
       - question: |
           How does API Management handle trailing slashes when calling backend services?
