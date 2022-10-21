@@ -28,7 +28,7 @@ When an Azure Spring Apps service instance is deployed in your virtual network (
 
 ## Configure Application Gateway for Azure Spring Apps
 
-We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Apps back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Apps and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Apps, cookies and generated redirect URLs (for example) can be broken.
+We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Apps back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Apps and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Apps, cookies and generated redirect URLs (for example) can be broken. For more information, see [Host name preservation](/azure/architecture/best-practices/host-name-preservation.md).
 
 To configure Application Gateway in front of Azure Spring Apps in a private VNET, use the following steps.
 
