@@ -176,7 +176,8 @@ Follow the next steps to create a deployment using the previous scoring script:
    Then, create the deployment with the following command:
    
    ```azurecli
-   az ml batch-endpoint create -f endpoint.yml
+   DEPLOYMENT_NAME="classifier-xgboost-parquet"
+   az ml batch-deployment create -f endpoint.yml
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
@@ -202,6 +203,11 @@ Follow the next steps to create a deployment using the previous scoring script:
        retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
        logging_level="info",
    )
+   ```
+   
+   Then, create the deployment with the following command:
+   
+   ```python
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
    ---
@@ -256,7 +262,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    # [Azure ML CLI](#tab/cli)
    
    ```azurecli
-   JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name')
+   JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --deployment-name $DEPLOYMENT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name')
    ```
    
    > [!NOTE]
