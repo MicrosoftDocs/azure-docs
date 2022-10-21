@@ -20,7 +20,7 @@ To set the environment variable for your Language resource key, open a console w
 
 1. To set the `LANGUAGE_KEY` environment variable, replace `your-key` with one of the keys for your resource.
 2. To set the `LANGUAGE_ENDPOINT` environment variable, replace `your-endpoint` with the endpoint for your resource.
-1. 
+
 #### [Windows](#tab/windows)
 
 ```console
