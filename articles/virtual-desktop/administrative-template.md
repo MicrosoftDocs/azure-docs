@@ -8,7 +8,7 @@ ms.author: daknappe
 ---
 # Administrative template for Azure Virtual Desktop
 
-We have created an administrative template for Azure Virtual Desktop to configure some features of Azure Virtual Desktop. You can use the template with Group Policy and Intune, which enables you to centrally configure session hosts that are joined to Azure Active Directory (Azure AD) or to an Active Directory (AD) domain. You can also use the template with Group Policy locally on each session host, but this is not recommended to manage session hosts at scale.
+We've created an administrative template for Azure Virtual Desktop to configure some features of Azure Virtual Desktop. You can use the template with Group Policy and Intune, which enables you to centrally configure session hosts that are joined to Azure Active Directory (Azure AD) or to an Active Directory (AD) domain. You can also use the template with Group Policy locally on each session host, but this isn't recommended to manage session hosts at scale.
 
 You can configure the following features with the administrative template:
 
@@ -26,7 +26,7 @@ You'll need the following permission:
 
 - For Group Policy in an Active Directory domain, you'll need to be a member of the **Domain Admins** security group.
 
-- For Intune, you'll need to be a assigned the **Intune administrator** role-based access control (RBAC) role.
+- For Intune, you'll need to be assigned the **Intune administrator** role-based access control (RBAC) role.
 
 - For local Group Policy on a session host, you'll need to be a member of the local **Administrators** security group.
 
