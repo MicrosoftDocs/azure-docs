@@ -18,7 +18,7 @@ Before you get started, here's what you need to configureWindows Sandbox in Azur
 
 - A working Azure profile that can access the Azure portal.
 - A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
-- Azure Virtual Desktop session hosts that supported the nested virtualization capability. To check if a specific VM size supports nested virtualization, navigate to the description page matching your VM size from [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes-general.md).
+- Azure Virtual Desktop session hosts that supported the nested virtualization capability. To check if a specific VM size supports nested virtualization, navigate to the description page matching your VM size from [Sizes for virtual machines in Azure](../virtual-machines/sizes-general.md).
 
 ## Prepare the VHD image for Azure
 

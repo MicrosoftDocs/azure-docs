@@ -37,6 +37,16 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 
 ## Register component in your workspace
 
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to custom components. 
+
 To build pipeline using components in UI, you need to register components to your workspace first. You can use CLI or SDK to register components to your workspace, so that you can share and reuse the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
 
 In the example below take using CLI for example. If you want to learn more about how to build a component, see [Create and run pipelines using components with  CLI](how-to-create-component-pipelines-cli.md).
