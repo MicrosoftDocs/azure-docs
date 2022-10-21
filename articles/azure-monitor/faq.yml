@@ -87,7 +87,7 @@ sections:
       - question: |
           Why am I seeing duplicate records in Azure Monitor Logs?
         answer: |
-          You may on occasion notice duplicate records in Azure Monitor Logs. This will typically be from one of the following two conditions.
+          You may on occasion notice duplicate records in Azure Monitor Logs. This duplication is typically from one of the following two conditions.
           
           - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability may result in duplicates for a small percentage of telemetry items.
           - If the duplicate records come from a virtual machine, then you may have both the Log Analytics agent and Azure Monitor agent installed. If you still need the Log Analytics agent installed, then configure the Log Analytics workspace to no longer collect data that’s also being collected by the data collection rule used by Azure Monitor agent.
@@ -196,7 +196,7 @@ sections:
       - question: |
           What is an action rule?
         answer: |
-          An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](alerts/alerts-action-rules.md).
+          An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This rule allows you to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](alerts/alerts-action-rules.md).
           
   - name: Agents
     questions:
@@ -297,8 +297,8 @@ sections:
           What's the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring System Center Operations Manager? Can we use AMA for System Center Operations Manager scenarios?
         answer: |
           Here's how AMA impacts the two System Center Operations Manager related monitor scenarios:
-          - **Scenario 1**: For monitoring the Windows operating system of System Center Operations Manager, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
-          - **Scenario 2**: For onboarding/connecting System Center Operations Manager to Log Analytics workspaces, since this is enabled via a System Center Operations Manager connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the Operations Manager management server. As such, there's no impact to this use case from AMA perspective.  
+          - **Scenario 1**: Monitoring the Windows operating system of System Center Operations Manager. The upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
+          - **Scenario 2**: Onboarding/connecting System Center Operations Manager to Log Analytics workspaces. This is enabled via a System Center Operations Manager connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the Operations Manager management server. As such, there's no impact to this use case from AMA perspective.  
                     
           
       - question: |
@@ -804,7 +804,7 @@ sections:
           
           However, there are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error will not be captured by Application Insights. Many modern web servers do not allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
-          In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
+          In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and would not be captured out-of-box by Application Insights. To help detect issues at this layer, you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
 
   - name: OpenTelemetry
     questions:
@@ -848,7 +848,7 @@ sections:
           You can see our progress toward OpenTelemetry-Based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
 
       - question: |
-          Is running Application Insights alongside competitor agents supported? (e.g., AppDynamics, DataDog, NewRelic, etc.)
+          Is running Application Insights alongside competitor agents supported? (for example, AppDynamics, DataDog, NewRelic, etc.)
         answer: |
           No. This isn't something we plan to test or support, though our OpenTelemetry-based offerings allow you to [export to an OTLP endpoint](app/opentelemetry-enable.md#enable-the-otlp-exporter) alongside Azure Monitor simultaneously.
 
@@ -1065,7 +1065,7 @@ sections:
       - question: |
           Why did my VM fail to onboard?
         answer: |
-          When onboarding an Azure VM from the Azure portal, the following steps occur:
+          The following steps occur onboarding an Azure VM from the Azure portal:
           
           * A default Log Analytics workspace is created, if that option was selected.
           * The Log Analytics agent is installed on Azure VMs using a VM extension, if determined it's required.
