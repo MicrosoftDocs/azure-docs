@@ -133,7 +133,8 @@ Content-type: application/json
 
 If you disabled the strong [password complexity](password-complexity.md), update the password policy to [DisableStrongPassword](user-profile-attributes.md#password-policy-attribute):
 
-Note: After a user reset their password, the passwordPolicies will be changed back to DisablePasswordExpiration
+> [!NOTE]
+> After the user resets their password, the passwordPolicies will be changed back to DisablePasswordExpiration
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<user-object-ID>
