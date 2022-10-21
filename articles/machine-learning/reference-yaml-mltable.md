@@ -22,7 +22,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 
 > [!Note]
-> `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could just use `uri_file`, `uri_folder` as mentioned in [CLI (v2) data YAML schema](https://learn.microsoft.com/azure/machine-learning/reference-yaml-data).
+> `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could just use `uri_file`, `uri_folder` as mentioned in [CLI (v2) data YAML schema](reference-yaml-data.md).
 
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
