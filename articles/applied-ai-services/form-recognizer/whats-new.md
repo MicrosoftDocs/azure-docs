@@ -7,8 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -17,19 +19,22 @@ ms.author: lajanuar
 
 # What's new in Azure Form Recognizer
 
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 ## October 2022
 
-With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
+With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
 
 Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
 
 ## September 2022
 
-### Region expansion for training custom neural models 
+### Region expansion for training custom neural models
 
-Training custom neural models is now supported in six additional regions.
+Training custom neural models is now supported in six new regions.
+
 * Australia East
 * Central US
 * East Asia
@@ -37,7 +42,7 @@ Training custom neural models is now supported in six additional regions.
 * UK South
 * West US2
 
-For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
+For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
 
 #### Form Recognizer SDK version 4.0.0 GA release
 
@@ -200,7 +205,7 @@ This release includes the following updates:
 
 * **AI quality improvements**
 
-  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices as well as improved processing of digital PDF documents.
+  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices and improved processing of digital PDF documents.
 
   * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
 
@@ -859,7 +864,7 @@ pip package version 3.1.0b4
 
   > [Learn more about Layout extraction](concept-layout.md)
 
-* **Client library update** - The latest versions of the [client libraries](./quickstarts/try-sdk-rest-api.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
+* **Client library update** - The latest versions of the [client libraries](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
 * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 * **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -889,7 +894,7 @@ pip package version 3.1.0b4
 
 **v2.0** includes the following update:
 
-* The [client libraries](./quickstarts/try-sdk-rest-api.md) for NET, Python, Java, and JavaScript have entered General Availability.
+* The [client libraries](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) for NET, Python, Java, and JavaScript have entered General Availability.
 
 **New samples** are available on GitHub.
 
@@ -1026,7 +1031,7 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](./quickstarts/try-sdk-rest-api.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
+Complete a [quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

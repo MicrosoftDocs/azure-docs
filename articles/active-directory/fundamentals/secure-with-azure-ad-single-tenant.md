@@ -25,7 +25,7 @@ Many separation scenarios can be achieved within a single tenant. If possible, w
 
 If a set of resources require unique tenant-wide settings, or there is minimal risk tolerance for unauthorized access by tenant members, or critical impact could be caused by configuration changes, you must achieve isolation in multiple tenants.
 
-**Configuration separation** - In some cases, resources such as applications have dependencies on tenant-wide configurations like authentication methods or [named locations](/azure/active-directory/conditional-access/location-condition#named-locations). You should consider these dependencies when isolating resources. Global administrators can configure the resource settings and tenant-wide settings that affect resources.
+**Configuration separation** - In some cases, resources such as applications have dependencies on tenant-wide configurations like authentication methods or [named locations](../conditional-access/location-condition.md#named-locations). You should consider these dependencies when isolating resources. Global administrators can configure the resource settings and tenant-wide settings that affect resources.
 
 If a set of resources require unique tenant-wide settings, or the tenant's settings must be administered by a different entity, you must achieve isolation with multiple tenants.
 
