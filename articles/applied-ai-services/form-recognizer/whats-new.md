@@ -52,12 +52,7 @@ Training custom neural models is now supported in six new regions.
 * UK South
 * West US2
 
-<<<<<<< HEAD
-
-For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
-=======
 For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
->>>>>>> main
 
 #### Form Recognizer SDK version 4.0.0 GA release
 
