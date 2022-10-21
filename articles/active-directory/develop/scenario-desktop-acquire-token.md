@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/19/2021
+ms.date: 10/21/2022
 ms.author: owenrichards
 ms.custom: aaddev, devx-track-python, has-adal-ref, engagement-fy23
 
@@ -21,7 +21,7 @@ After you've built an instance of the public client application, you'll use it t
 
 ## Recommended pattern
 
-The web API is defined by its `scopes`. Whatever the experience you provide in your application, the pattern to use is:
+The web API is defined by its *scopes*. Whatever the experience you provide in your application, the pattern to use is:
 
 - Systematically attempt to get a token from the token cache by calling `AcquireTokenSilent`.
 - If this call fails, use the `AcquireToken` flow that you want to use, which is represented here by `AcquireTokenXX`.
