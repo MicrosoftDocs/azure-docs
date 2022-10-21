@@ -7,91 +7,69 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 10/20/2022
 ---
 
 # Exchange AS2 messages using workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To send and receive AS2 messages in workflows that you create using Azure Logic Apps, use the **AS2** connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication.
+To send and receive AS2 messages in workflows that you create using Azure Logic Apps, use the **AS2** connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication. This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples in this article use the [Request](../connectors/connectors-native-reqres.md) trigger.
 
-* If you're working with the **Logic App (Consumption)** resource type and don't need tracking capabilities, use the **AS2 (v2)** connector, rather than the original **AS2** connector, which is being deprecated.
+* If you're working with Consumption logic app workflows and don't need tracking capabilities, use the **AS2 (v2)** connector, rather than the original **AS2** connector, which is being deprecated.
 
-  Except for tracking, **AS2 (v2)** provides better performance, the same capabilities as the original version, is native to the Azure Logic Apps runtime, and has significant performance improvements in message size, throughput, and latency. Also, the v2 connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
+  Except for tracking, the **AS2 (v2)** connector provides the same capabilities as the original version, runs natively with the Azure Logic Apps runtime, and offers significant performance improvements in message size, throughput, and latency. Also, the v2 connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
 
-* If you're working with the **Logic App (Standard)** resource type, only the original **AS2** connector is currently available.
+* If you're working with Standard logic app workflows and don't need tracking capabilities, use the **AS2 (v2)** built-in connector. Otherwise, the original **AS2** managed connector is available, but is being deprecated.
 
-  For technical information about the original **AS2** connector version, review the [connector's reference page](/connectors/as2/), which describes the triggers, actions, and limits as documented by the connector's Swagger file.
+  Except for tracking, the **AS2 (v2)** connector provides the same capabilities as the original version, runs natively with the Azure Logic Apps runtime, and offers significant performance improvements in message size, throughput, and latency. The v2 connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
 
-### [Consumption](#tab/consumption)
+## Connector technical reference
 
-The following lists describe actions that the **AS2 (v2)** connector provides for establishing security and reliability when transmitting messages:
+The AS2 connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
-* [**AS2 Encode** action](#encode) for providing encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs these tasks when configured:
+| Logic app | Environment | Connector version |
+|-----------|-------------|-------------------|
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Original AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [AS2 original managed connector reference](/connectors/as2/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, not triggers. You can use the original AS2 trigger or a different trigger. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- <br><br>- [Original AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
-  * Signs outgoing messages.
-  * Encrypts outgoing messages.
-  * Compresses the message.
-  * Transmits the file name in the MIME header.
+<a name="as-v2-operations"></a>
 
-* [**AS2 Decode** action](#decode) for providing decryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN). For example, this action performs these tasks:
+## AS2 (v2) operations
 
-  * Processes AS2/HTTP headers.
-  * Reconciles received MDNs with the original outbound messages.
-  * Updates and correlates records in the non-repudiation database.
-  * Writes records for AS2 status reporting.
-  * Outputs payload contents as base64-encoded.
-  * Determines whether MDNs are required. Based on the AS2 agreement, determines whether MDNs should be synchronous or asynchronous.
-  * Generates synchronous or asynchronous MDNs based on the AS2 agreement.
-  * Sets the correlation tokens and properties on MDNs.
+The **AS2 (v2)** connector has no triggers. The following table describes the actions that the **AS2 (v2)** connector provides for establishing security and reliability when transmitting messages:
 
-  This action also performs these tasks when configured:
-
-  * Verifies the signature.
-  * Decrypts the messages.
-  * Decompresses the message.
-  * Check and disallow message ID duplicates.
-
-### [Standard](#tab/standard)
-
-For more information about the original **AS2** connector's triggers, actions, and limits version, review the [connector's reference page](/connectors/as2/) as documented by the connector's Swagger file.
-
----
-
-This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger.
-
-## Limits
-
-For information about the AS2 connector limits for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences), review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits).
+| Action | Description |
+|--------|-------------|
+| [**AS2 Encode** action](#encode) | Provides encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs the following tasks when configured: <br><br>- Sign outgoing messages. <br>- Encrypt outgoing messages. <br>- Compress the message. <br>- Transmit the file name in the MIME header. |
+| [**AS2 Decode** action](#decode) | Provide decryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN). For example, this action performs the following tasks when configured: <br><br>- Process AS2/HTTP headers. <br>- Reconcile received MDNs with the original outbound messages. <br>- Update and correlate records in the non-repudiation database. <br>- Write records for AS2 status reporting. <br>- Output payload contents as base64-encoded.  <br>-  Determine whether MDNs are required. Based on the AS2 agreement, determine whether MDNs should be synchronous or asynchronous. <br>- Generate synchronous or asynchronous MDNs based on the AS2 agreement. <br>- Set the correlation tokens and properties on MDNs. <br>- Verify the signature. <br>- Decrypt the messages. <br>- Decompress the message. <br>- Check and disallow message ID duplicates. |
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+* The logic app resource and workflow where you want to use the AS2 operations.
 
-  * Is associated with the same Azure subscription as your logic app resource.
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) to define and store artifacts for use in enterprise integration and B2B workflows.
 
-  * Exists in the same location or Azure region as your logic app resource.
-
-  * When you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences) and the **AS2 (v2)** operations, your logic app resource doesn't need a link to your integration account. However, you still need this account to store artifacts, such as partners, agreements, and certificates, along with using the AS2, [X12](logic-apps-enterprise-integration-x12.md), or [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
-
-  * When you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences) and the original **AS2** operations, your workflow requires a connection to your integration account that you create directly from your workflow when you add the AS2 operation.
+  > [!IMPORTANT]
+  >
+  > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
 * At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is **AS2Identity** for this scenario.
 
 * An [AS2 agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type.
 
-* The logic app resource and workflow where you want to use the AS2 operations.
+* Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource requires a [link to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-  > [!NOTE]
-  > The **AS2 (v2)** connector provides only actions, not triggers. In this article, the examples for this connector use the 
-  > [Request](../connectors/connectors-native-reqres.md) trigger. The original **AS2** connector includes triggers and actions. 
-  > For more information about the original **AS2** connector's triggers, actions, and limits version, review the 
-  > [connector's reference page](/connectors/as2/) as documented by the connector's Swagger file.
+  * If you're working on a Consumption logic app workflow with the **AS2 (v2)** managed connector operations, your logic app resource doesn't need a link to your integration account.
 
-  If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
+  * If you're working on a Standard logic app workflow, you can link your logic app resource to your integration account, upload maps and schemas directly to your logic app resource, or both, based on the following scenarios:
+
+    * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
+
+  * When you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences) and the original **AS2** operations, your workflow requires a connection to your integration account that you create directly from your workflow when you add the AS2 operation.
 
 * If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
