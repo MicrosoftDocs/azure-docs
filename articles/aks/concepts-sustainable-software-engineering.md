@@ -61,7 +61,6 @@ We recommend careful consideration of these design patterns for building a susta
 | [Enable cluster and node auto-updates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
 | [Install supported add-ons and extensions](#install-supported-add-ons-and-extensions) | ✔️ | ✔️ |
 | [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
-| [Use energy efficient hardware](#use-energy-efficient-hardware) |  | ✔️ |
 | [Match the scalability needs and utilize auto-scaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
 | [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
 | [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
@@ -119,12 +118,6 @@ Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-po
 Containers allow for reducing unnecessary resource allocation and making better use of the resources deployed as they allow for bin packing and require less compute resources than virtual machines.
 
 * Use [Draft](/azure/aks/draft) to simplify application containerization by generating Dockerfiles and Kubernetes manifests.
-
-### Use energy efficient hardware
-
-Ampere’s Cloud Native Processors are uniquely designed to meet both the high performance and power efficiency needs of the cloud. 
-
-* Evaluate if [nodes with Ampere Altra Arm–based processors](/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads.
 
 ### Match the scalability needs and utilize auto-scaling and bursting capabilities
 
