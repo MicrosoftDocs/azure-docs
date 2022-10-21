@@ -47,19 +47,21 @@ To check which version your packet core instance is currently running, and wheth
 
 We recommend upgrading your packet core instance during a maintenance window or a period of low traffic to minimize the impact of the upgrade on your service.
 
-Consider the following points when planning for your upgrade:
+A typical upgrade takes around 60 minutes if you have a high-bandwidth connection to Azure. On a limited 1 Mbps connection, this can increase to <><!-- TODO: add estimated time --> minutes. In addition to this time, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
 
-- A typical upgrade takes around 1 hour if you have a high-bandwidth connection to Azure. On a limited 1 Mbps connection, this can increase to <><!-- TODO: add estimated time --> hours.
 - Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, you'll need to upgrade ASE first.
   - If you're upgrading from a packet core version that the current version of ASE supports, you can upgrade ASE and packet core independently.
-  - If you're upgrading from a packet core version that isn't supported by the current version of ASE, it's possible that packet core won't operate normally with the new ASE version. In this case, you'll need to plan a maintenance window until both ASE and packet core are fully upgraded.
+  - If you're upgrading from a packet core version that isn't supported by the current version of ASE, it's possible that packet core won't operate normally with the new ASE version. In this case, we recommend planning a maintenance window that allows you time to fully upgrade both ASE and packet core. Refer to [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update) for how long the ASE upgrade will take.
+- Review [Restore backed up deployment information](#restore-backed-up-deployment-information) and [Verify upgrade](#verify-upgrade) for the post-upgrade steps you'll need to follow to ensure your deployment is fully operational. Make sure your upgrade plan allows sufficient time for these steps. <!-- Can we be more helpful here and estimate how long these should take? -->
 
 ### Back up deployment information
 
-<!-- TODO: add info on what data gets lost and how to back up -->
 The following information will be lost over an upgrade:
 
-
+1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), note down the current password and keep it in a secure location.
+2. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), note down the current password and keep it in a secure location.
+3. If you have customized packet core dashboards, your changes won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed up copy of your dashboards.
+4. If you have data that you directly entered into the packet core instance during installation, this will be lost over upgrade. Note down your relevant packet core configuration and save it in a secure location. <!-- TODO: clarify what data this could be -->
 
 ### Upgrade ASE
 
@@ -86,19 +88,22 @@ If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you ne
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
 
 ### Restore backed up deployment information
-<!-- TODO -->
+
+Reconfigure your deployment using the information you gathered in [Back up deployment information](#back-up-deployment-information).
+
 1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
 2. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
-3. Recreate dashboards
-4. Re-register devices
+3. If you have backed up packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
+4. If you have backed up packet core configuration, follow <><!-- TODO: link to relevant procedure, potentially Modify packet core --> to restore it.
+5. Re-register your devices and recreate any sessions<!-- TODO: add link or provide instructions -->.
 
 ### Verify upgrade
 
 Once the upgrade completes, check if your deployment is operating normally.
 
 1. Select **Go to resource group**, and then select the **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
-2. Test registered devices and sessions.
-3. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
+2. Test registered devices and sessions. <!-- Should we be more specific here? -->
+3. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally. <!-- Should we be more specific here? -->
 
 ## Rollback
 
@@ -106,8 +111,9 @@ If you encountered issues after the upgrade, you can roll back the packet core i
 
 Note that any configuration you set while your packet core instance was running a newer versions will be lost if you roll back to a version that does not support this configuration. Check the release notes for information on when new features were introduced.
 
-1. Follow the steps in [Upgrade packet core](#upgrade-packet-core). When selecting the version you want to upgrade to, choose the previous packet core version you noted down earlier.
-<!-- TODO: TBC how rollback will work -->
+1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
+2. Navigate to the **Packet Core Control Plane** resource that you want to roll back as described in [View the current packet core version](#view-the-current-packet-core-version).
+<!-- TODO: Add steps once we get more info on how rollback will work -->
 
 ## Next steps
 
