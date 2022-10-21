@@ -438,7 +438,7 @@ You can enable the `Marker` property for Logback and Log4j 2:
 }
 ```
 
-This feature is in preview, starting from 3.5.0.
+This feature is in preview, starting from 3.4.2.
 
 ### Code properties for Logback (preview) 
 
