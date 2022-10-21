@@ -39,7 +39,8 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 
 You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas in its paired region or the universal replica regions. Currently 
+You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas in its paired region or any other global region of Azure. Currently [special Azure regions](https://learn.microsoft.com/en-us/azure/virtual-machines/regions#special-azure-regions) are not supported.
+
 
 ### Universal replica regions
 
