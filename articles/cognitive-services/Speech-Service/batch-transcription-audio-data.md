@@ -214,6 +214,17 @@ With system assigned managed identity, you'll use a plain Storage Account URL (n
 }
 ```
 
+You could otherwise choose specify individual files in the container. For example: 
+
+```json
+{
+    "contentUrls": [
+        "https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name_1>",
+        "https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name_2>"
+    ]
+}
+```
+
 ## SAS URL for batch transcription
 
 A shared access signature (SAS) is a URI that grants restricted access to an Azure Storage container. Use it when you want to grant access to your batch transcription files for a specific time range without sharing your storage account key. 
@@ -256,6 +267,17 @@ You will use the SAS URL when you [create a batch transcription](batch-transcrip
 ```json
 {
     "contentContainerUrl": "https://<storage_account_name>.blob.core.windows.net/<container_name>?SAS_TOKEN"
+}
+```
+
+You could otherwise choose specify individual files in the container. You must generate and use a different SAS URL with read (r) permissions for each file. For example: 
+
+```json
+{
+    "contentUrls": [
+        "https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name_1>?SAS_TOKEN_1",
+        "https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name_2>?SAS_TOKEN_2"
+    ]
 }
 ```
 
