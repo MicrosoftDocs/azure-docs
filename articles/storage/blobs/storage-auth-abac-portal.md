@@ -89,7 +89,7 @@ Here is what the condition looks like in code:
     | --- | --- |
     | Project  | Cascade |
 
-   ![Screenshot showing Upload blob pane with Blog index tags section.](./media/storage-auth-abac-portal/container-upload-blob.png)
+:::image type="content" source="./media/storage-auth-abac-portal/container-upload-blob.png" alt-text="Screenshot showing Upload blob pane with Blog index tags section." lightbox="./media/storage-auth-abac-portal/container-upload-blob.png":::
 
 1. Click the **Upload** button to upload the file.
 
@@ -111,17 +111,17 @@ Here is what the condition looks like in code:
 
 1. Click **Add** > **Add role assignment**.
 
-   ![Screenshot of Add > Add role assignment menu.](./media/storage-auth-abac-portal/add-role-assignment-menu.png)
+:::image type="content" source="./media/storage-auth-abac-portal/add-role-assignment-menu.png" alt-text="Screenshot of Add > Add role assignment menu." lightbox="./media/storage-auth-abac-portal/add-role-assignment-menu.png":::
 
     The Add role assignment page opens.
 
 1. On the **Roles** tab, select the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role.
 
-    ![Screenshot of Add role assignment page with Roles tab.](./media/storage-auth-abac-portal/roles.png)
+:::image type="content" source="./media/storage-auth-abac-portal/roles.png" alt-text="Screenshot of Add role assignment page with Roles tab." lightbox="./media/storage-auth-abac-portal/roles.png":::
 
 1. On the **Members** tab, select the user you created earlier.
 
-   ![Screenshot of Add role assignment page with Members tab.](./media/storage-auth-abac-portal/members.png)
+:::image type="content" source="./media/storage-auth-abac-portal/members.png" alt-text="Screenshot of Add role assignment page with Members tab." lightbox="./media/storage-auth-abac-portal/members.png":::
 
 1. (Optional) In the **Description** box, enter **Read access to blobs with the tag Project=Cascade**.
 
@@ -131,13 +131,13 @@ Here is what the condition looks like in code:
 
 1. On the **Conditions (optional)** tab, click **Add condition**. The Add role assignment condition page appears:
 
-    ![Screenshot of Add role assignment condition page for a new condition.](./media/storage-auth-abac-portal/condition-add-new.png)
+:::image type="content" source="./media/storage-auth-abac-portal/condition-add-new.png" alt-text="Screenshot of Add role assignment condition page for a new condition." lightbox="./media/storage-auth-abac-portal/condition-add-new.png":::
 
 1. In the Add action section, click **Add action**.
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. Check the box next to **Read a blob**, then click **Select**:
 
-    ![Screenshot of Select an action pane with an action selected.](./media/storage-auth-abac-portal/condition-actions-select.png)
+:::image type="content" source="./media/storage-auth-abac-portal/condition-actions-select.png" alt-text="Screenshot of Select an action pane with an action selected." lightbox="./media/storage-auth-abac-portal/condition-actions-select.png":::
 
 1. In the Build expression section, click **Add expression**.
 
@@ -153,13 +153,13 @@ Here is what the condition looks like in code:
     | Operator | StringEqualsIgnoreCase |
     | Value | Cascade |
 
-    ![Screenshot of Build expression section for blob index tags.](./media/storage-auth-abac-portal/condition-expressions.png)
+:::image type="content" source="./media/storage-auth-abac-portal/condition-expressions.png" alt-text="Screenshot of Build expression section for blob index tags." lightbox="./media/storage-auth-abac-portal/condition-expressions.png":::
 
 1. Scroll up to **Editor type** and click **Code**.
 
     The condition is displayed as code. You can make changes to the condition in this code editor. To go back to the visual editor, click **Visual**.
 
-    ![Screenshot of condition displayed in code editor.](./media/storage-auth-abac-portal/condition-code.png)
+:::image type="content" source="./media/storage-auth-abac-portal/condition-code.png" alt-text="Screenshot of condition displayed in code editor." lightbox="./media/storage-auth-abac-portal/condition-code.png":::
 
 1. Click **Save** to add the condition and return to the Add role assignment page.
 
@@ -169,7 +169,7 @@ Here is what the condition looks like in code:
 
     After a few moments, the security principal is assigned the role at the selected scope.
 
-    ![Screenshot of role assignment list after assigning role.](./media/storage-auth-abac-portal/rg-role-assignments-condition.png)
+:::image type="content" source="./media/storage-auth-abac-portal/rg-role-assignments-condition.png" alt-text="Screenshot of role assignment list after assigning role." lightbox="./media/storage-auth-abac-portal/rg-role-assignments-condition.png":::
 
 ## Step 5: Assign Reader role
 
@@ -188,7 +188,7 @@ Here is what the condition looks like in code:
 
 1. Ensure that the authentication method is set to **Azure AD User Account** and not **Access key**.
 
-    ![Screenshot of storage container with test files.](./media/storage-auth-abac-portal/test-storage-container.png)
+:::image type="content" source="./media/storage-auth-abac-portal/test-storage-container.png" alt-text="Screenshot of storage container with test files." lightbox="./media/storage-auth-abac-portal/test-storage-container.png":::
 
 1. Click the Baker text file.
 
