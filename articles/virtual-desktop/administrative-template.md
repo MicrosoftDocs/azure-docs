@@ -3,7 +3,7 @@ title: Administrative template for Azure Virtual Desktop
 description: Learn how to use the administrative template for Azure Virtual Desktop with Group Policy and Intune to configure settings.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 10/21/2022
 ms.author: daknappe
 ---
 # Administrative template for Azure Virtual Desktop

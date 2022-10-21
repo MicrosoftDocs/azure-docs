@@ -40,7 +40,7 @@ To enable watermarking, follow the steps below:
 
 1. Follow the steps to download and add the [Administrative template for Azure Virtual Desktop](administrative-template.md).
 
-1. Once you have verified that the Azure Virtual Desktop administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
+1. Once you've verified that the Azure Virtual Desktop administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
 
 1. You can configure the following options:
 
