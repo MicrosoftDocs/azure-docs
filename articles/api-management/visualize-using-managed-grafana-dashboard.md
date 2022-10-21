@@ -25,7 +25,7 @@ You can use [Azure Managed Grafana](../managed-grafana/index.yml) to visualize A
     * To visualize detailed data about requests to the API Management gateway, [integrate](api-management-howto-app-insights.md) your API Management instance with Application Insights.
 
     > [!NOTE]
-    > To visualize data in a single dashboard, ensure that you configure the same Log Analytics workspace for the diagnotic settings and for Application Insights.
+    > To visualize data in a single dashboard, configure the Log Analytics workspace for the diagnostic settings and the Application Insights instance in the same resource group as your API Management instance.
 
 * Managed Grafana workspace
 
