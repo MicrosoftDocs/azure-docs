@@ -106,7 +106,7 @@ For more information about the governance capabilities of Microsoft Purview, for
     while (getattr(pa,'provisioning_state')) != "Succeeded" :
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
-        if getattr(pa,'provisioning_state') != "Failed" :
+        if getattr(pa,'provisioning_state') == "Failed" :
             print("Error in creating Microsoft Purview account")
             break
         time.sleep(30)      
@@ -165,7 +165,7 @@ Here’s the full Python code:
     while (getattr(pa,'provisioning_state')) != "Succeeded" :
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
-        if getattr(pa,'provisioning_state') != "Failed" :
+        if getattr(pa,'provisioning_state') == "Failed" :
             print("Error in creating Microsoft Purview account")
             break
         time.sleep(30)    
