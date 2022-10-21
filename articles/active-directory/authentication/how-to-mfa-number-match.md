@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/17/2022
+ms.date: 10/21/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in the Authenticator app that will be enabled for all users of the Microsoft Authenticator app starting 28th of February 2023.<br> 
+>Number matching is a key security upgrade to traditional second factor notifications in the Authenticator app that will be enabled for all users of the Microsoft Authenticator app starting February 28, 2023.<br> 
 >We highly recommend enabling number matching in the near-term for improved sign-in security.
 
 ## Prerequisites
@@ -26,7 +26,7 @@ This topic covers how to enable number matching in Microsoft Authenticator push 
   >[!NOTE]
   >The policy schema for Microsoft Graph APIs has been improved. The older policy schema is now deprecated. Make sure you use the new schema to help prevent errors.
 
-- If your organization is using ADFS adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
+- If your organization is using AD FS adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
 
 ## Number matching
 
