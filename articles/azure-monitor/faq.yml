@@ -443,7 +443,7 @@ sections:
       - question: |
           Can I use Application Insights with ...?
         answer: |
-          * [Web apps on an IIS server in Azure VM or Azure virtual machine scale set](app/azure-vm-vmss-apps.md)
+          * [Web apps on an IIS server in Azure VM or Azure Virtual Machine Scale Set](app/azure-vm-vmss-apps.md)
           * [Web apps on an IIS server - on-premises or in a VM](app/asp-net.md)
           * [Java web apps](app/java-in-process-agent.md)
           * [Node.js apps](app/nodejs.md)
@@ -1092,7 +1092,7 @@ sections:
           * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored vs unmonitored machines in the group.  It can also be used to filter the list of machines when the group is expanded.
           * The map style has been updated to be more consistent with App Map from Application insights.
           * The side panels have been updated, and do not have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk.
-          * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, and Cloud services.
+          * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure Virtual Machine Scale Sets, and Cloud services.
           * You can't create new Service Map machine groups in the VM insights Map feature.
           
       - question: |
@@ -1103,7 +1103,7 @@ sections:
       - question: |
           Are groups supported with VM insights?
         answer: |
-          Yes, once you install the Dependency agent we collect information from the VMs to display groups based upon subscription, resource group, virtual machine scale sets, and cloud services.  If you've been using Service Map and have created machine groups, these are displayed as well.  Computer groups will also appear in the groups filter if you've created them for the workspace you're viewing.
+          Yes, once you install the Dependency agent we collect information from the VMs to display groups based upon subscription, resource group, Virtual Machine Scale Sets, and cloud services.  If you've been using Service Map and have created machine groups, these are displayed as well.  Computer groups will also appear in the groups filter if you've created them for the workspace you're viewing.
 
       - question: |
           How do I see the details for what is driving the 95th percentile line in the aggregate performance charts?
@@ -1113,7 +1113,7 @@ sections:
       - question: |
           How does the Map feature handle duplicate IPs across different vnets and subnets?
         answer: |
-          If you're duplicating IP ranges either with VMs or Azure virtual machine scale sets across subnets and vnets, it can cause VM insights Map to display incorrect information. This is a known issue and we are investigating options to improve this experience.
+          If you're duplicating IP ranges either with VMs or Azure Virtual Machine Scale Sets across subnets and vnets, it can cause VM insights Map to display incorrect information. This is a known issue and we are investigating options to improve this experience.
 
       - question: |
           Does Map feature support IPv6?
