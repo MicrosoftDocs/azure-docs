@@ -4,16 +4,17 @@ description: This article describes the information to gather before opening a c
 services: automation
 ms.subservice:
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.custom: engagement-fy23
+ms.date: 10/21/2022
 ---
 
 # Data to collect when opening a case for Microsoft Azure Automation
 
-This article describes some of the information that you should gather before you open a case for Azure Automation with Microsoft Azure Support. This information is not required to open the case. However, it can help Microsoft resolve your problem more quickly. Also, you may be asked for this data by the support engineer after you open the case.
+This article describes the information that you should gather before you open a case for Azure Automation with Microsoft Azure Support. Even though this information isn't required to open a case. However, it helps the support team to quickly resolve a problem.  
+ 
+> [!NOTE]
+> For more information, refer the Knowledge Base article [4034605 - How to capture Azure Automation-scripted diagnostics](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-## Basic data
-
-Collect the basic data described in the Knowledge Base article [4034605 - How to capture Azure Automation-scripted diagnostics](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
 ## Data for Update Management issues on Linux
 
