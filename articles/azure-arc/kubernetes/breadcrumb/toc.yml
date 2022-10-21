@@ -1,0 +1,23 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Azure Arc
+    tocHref: /azure/azure-arc
+    topicHref: /azure/azure-arc
+    items:
+    - name: Arc-enabled Kubernetes
+      tocHref: /azure/defender-for-cloud
+      topicHref: /azure/azure-arc/kubernetes
+    - name: Arc-enabled Kubernetes
+      tocHref: /azure/azure-monitor/containers
+      topicHref: /azure/azure-arc/kubernetes
+    - name: Arc-enabled Kubernetes
+      tocHref: /azure/governance/policy/concepts
+      topicHref: /azure/azure-arc/kubernetes
+    - name: Arc-enabled Kubernetes
+      tocHref: /azure/machine-learning
+      topicHref: /azure/azure-arc/kubernetes
+
+
+      

@@ -9,7 +9,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: scale-in-policy
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma, devx-track-azurecli
+ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -22,6 +22,9 @@ The scale-in policy feature provides users a way to configure the order in which
 1. Default
 2. NewestVM
 3. OldestVM
+
+> [!IMPORTANT]
+> Flexible orchestration for virtual machine scale sets does not currently support scale-in policy.
 
 ### Default scale-in policy
 
@@ -87,6 +90,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "<VMSS location>" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -ScaleInPolicy “OldestVM”
 ```
 
@@ -99,6 +103,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
+  --orchestration-mode flexible \
   --image UbuntuLTS \
   --admin-username <azureuser> \
   --generate-ssh-keys \

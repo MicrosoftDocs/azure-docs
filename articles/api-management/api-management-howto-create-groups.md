@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management. Create groups, and then associate them with products or developers.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 # How to create and use groups to manage developer accounts in Azure API Management
 
@@ -29,7 +29,7 @@ In addition to these system groups, administrators can create custom groups or [
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
-In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+In addition to creating and managing groups in the Azure portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -93,7 +93,9 @@ Once the association is added between the developer and the group, you can view 
 ## <a name="next-steps"> </a>Next steps
 
 * Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][How create and publish a product in Azure API Management],
-* In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+* In addition to creating and managing groups in the Azure portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+* Learn how to manage the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that asre used in notifications to developers from your API Management instance.
+
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

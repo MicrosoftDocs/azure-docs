@@ -3,11 +3,15 @@ title: Create an Azure Automation Run As account
 description: This article tells how to create an Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ---
 
 # How to create an Azure Automation Run As account
+
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
 
 Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article describes how to create a Run As or Classic Run As account from the Azure portal or Azure PowerShell.
 
@@ -41,6 +45,13 @@ The following list provides the requirements to create a Run As account in Power
 * Azure PowerShell PowerShell 6.2.4 or later. For information, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 * An Automation account, which is referenced as the value for the `AutomationAccountName` and `ApplicationDisplayName` parameters.
 * Permissions equivalent to the ones listed in [Required permissions to configure Run As accounts](automation-security-overview.md#permissions).
+
+If you are planning to use a certificate from your enterprise or third-party certificate authority (CA), Automation requires the certificate to have the following configuration:
+
+   * Specify the provider **Microsoft Enhanced RSA and AES Cryptographic Provider**
+   * Marked as exportable
+   * Configured to use the SHA256 algorithm
+   * Saved in the `*.pfx` or `*.cer` format.
 
 To get the values for `AutomationAccountName`, `SubscriptionId`, and `ResourceGroupName`, which are required parameters for the PowerShell script, complete the following steps.
 
@@ -104,6 +115,6 @@ The PowerShell script includes support for several configurations.
 
 ## Next steps
 
-* To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
 
 * To get started with a Python 3 runbook, see [Tutorial: Create a Python 3 runbook](learn/automation-tutorial-runbook-textual-python-3.md).

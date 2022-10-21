@@ -1,6 +1,6 @@
 ---
-title: Azure Certified Device Requirements
-description: Azure Certified Device program requirements
+title: Azure Certified Device Certification Requirements
+description: Azure Certified Device Certification Requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
@@ -9,7 +9,7 @@ ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
 ---
 
-# Azure Certified Device Requirements 
+# Azure Certified Device Certification Requirements 
 (previously known as IoT Hub)
 
 This document outlines the device specific capabilities that will be represented in the Azure Certified Device catalog. A capability is singular device attribute that may be software implementation or combination of software and hardware implementations. 
@@ -91,4 +91,4 @@ Promise of Azure Certified Device certification are:
 | **OS**                                    | Agnostic                                                     |
 | **Validation Type**                       | Policy                                                       |
 | **Validation**                            | To simplify device configuration for users, we require all devices can be configured to connect to Azure without the need to recompile and deploy device source code. This includes DPS information, such as Scope ID, which should be set as configuration settings and not compiled. However, if your device contains certain secure hardware or if there are extenuating circumstances in which the user will expect to compile and deploy code, contact the certification team to request an exception review. |
-| **Resources**                             | **a)** [Device provisioning service overview](../iot-dps/about-iot-dps.md)  **b)** [Sample config file for DPS ID Scope transfer](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |
+| **Resources**                             | **a)** [Device provisioning service overview](../iot-dps/about-iot-dps.md)  **b)** Sample config file for DPS ID Scope transfer |

@@ -27,10 +27,13 @@ You can control the BGP timers by configuring a lower BGP keep-alive and hold-ti
 
 In this scenario, BFD can help. BFD provides low-overhead link failure detection in a subsecond time interval. 
 
+> [!NOTE]
+> BFD provides faster failover time when a link failure is detected, but the overall connection convergence will take up to a minute for failover between ExpressRoute virtual network gateways and MSEEs. 
+>
 
 ## Enabling BFD
 
-BFD is configured by default under all the newly created ExpressRoute private peering interfaces on the MSEEs. As such, to enable BFD, you only need to configure BFD on both your primary and secondary devices. Configuring BFD is two-step process. You configure the BFD on the interface and then link it to the BGP session.
+BFD is configured by default under all the newly created ExpressRoute private and Microsoft peering interfaces on the MSEEs. As such, to enable BFD, you only need to configure BFD on both your primary and secondary devices. Configuring BFD is two-step process. You configure the BFD on the interface and then link it to the BGP session.
 
 An example CE/PE (using Cisco IOS XE) configuration is shown below. 
 
@@ -54,7 +57,7 @@ router bgp 65020
 ```
 
 >[!NOTE]
->To enable BFD under an already existing private peering; you need to reset the peering. See [Reset ExpressRoute peerings][ResetPeering]
+>To enable BFD under an already existing private or Microsoft peering, you'll need to reset the peering. This will need to be done on circuits configured with private peering before August 2018 and Microsoft peering before January 2020. See [Reset ExpressRoute peerings][ResetPeering]
 >
 
 ## BFD Timer Negotiation

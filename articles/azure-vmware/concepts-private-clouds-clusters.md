@@ -1,8 +1,9 @@
 ---
 title: Concepts - Private clouds and clusters
-description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and vSphere clusters. 
+description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.service: azure-vmware
+ms.date: 08/25/2021
 ---
 
 #  Azure VMware Solution private cloud and cluster concepts
@@ -11,9 +12,9 @@ Azure VMware Solution delivers VMware-based private clouds in Azure. The private
 
 A private cloud includes clusters with:
 
-- Dedicated bare-metal server nodes provisioned with VMware ESXi hypervisor 
-- vCenter Server for managing ESXi and vSAN 
-- VMware NSX-T software-defined networking for vSphere workload VMs  
+- Dedicated bare-metal server hosts provisioned with VMware ESXi hypervisor 
+- VMware vCenter Server for managing ESXi and vSAN 
+- VMware NSX-T Data Center software-defined networking for vSphere workload VMs  
 - VMware vSAN datastore for vSphere workload VMs  
 - VMware HCX for workload mobility  
 - Resources in the Azure underlay (required for connectivity and to operate the private cloud)
@@ -22,7 +23,7 @@ As with other resources, private clouds are installed and managed from within an
 
 The diagram shows a single Azure subscription with two private clouds that represent a development and production environment. In each of those private clouds are two clusters. 
 
-:::image type="content" source="media/hosts-clusters-private-clouds-final.png" alt-text="Image that shows two private clouds in a customer subscription.":::
+:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows shows a single Azure subscription with two private clouds that represent a development and production environment." border="false":::
 
 ## Hosts
 
@@ -40,7 +41,7 @@ The diagram shows a single Azure subscription with two private clouds that repre
 
 ## Host maintenance and lifecycle management
 
-One benefit of Azure VMware Solution private clouds is the platform is maintained for you.  Microsoft is responsible for the lifecycle management of VMware software (ESXi, vCenter, and vSAN). Microsoft is also responsible for the lifecycle management of NSX-T appliances, bootstrapping the network configuration, such as creating the Tier-0 gateway and enabling North-South routing. You're responsible for NSX-T SDN configuration: network segments, distributed firewall rules, Tier 1 gateways, and load balancers. 
+
 
 [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
@@ -66,13 +67,13 @@ Azure VMware Solution monitors the following conditions on the host:
 - Connection failure 
 
 > [!NOTE]
-> Azure VMware Solution tenant admins must not edit or delete the above defined VMware vCenter alarms, as these are managed by the Azure VMware Solution control plane on vCenter. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
+> Azure VMware Solution tenant admins must not edit or delete the above defined VMware vCenter Server alarms, as these are managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
 
 ## Backup and restoration
 
-Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.  Backups are kept for three days. If you need to restore from a backup, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
+Private cloud vCenter Server and NSX-T Data Center configurations are on an hourly backup schedule.  Backups are kept for three days. If you need to restore from a backup, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
 
-Azure VMware Solution continuously monitors the health of both the underlay and the VMware components. When Azure VMware Solution detects a failure, it takes action to repair the failed components.
+Azure VMware Solution continuously monitors the health of both the physical underlay and the VMware Solution components. When Azure VMware Solution detects a failure, it takes action to repair the failed components.
 
 ## Next steps
 
@@ -80,13 +81,13 @@ Now that you've covered Azure VMware Solution private cloud concepts, you may wa
 
 - [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
 - [Azure VMware Solution storage concepts](concepts-storage.md)
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md
 
 <!-- LINKS - external-->
-[VCSA versions]: https://kb.vmware.com/s/article/2143838
+[vCSA versions]: https://kb.vmware.com/s/article/2143838
 [ESXi versions]: https://kb.vmware.com/s/article/2143832
 [vSAN versions]: https://kb.vmware.com/s/article/2150753
 

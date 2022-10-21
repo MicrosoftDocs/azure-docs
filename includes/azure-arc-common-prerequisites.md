@@ -2,18 +2,20 @@
 author: MikeRayMSFT
 ms.service: azure-arc
 ms.topic: include
-ms.date: 09/05/2020
+ms.date: 07/30/2021
 ms.author: mikeray
 ---
 
 ## Prerequisites
 
-Before you can proceed with the tasks in this article you need to have:
+Before you can proceed with the tasks in this article, you need to have the necessary tools. All deployments require the following tools:
 
-- [The client tools installed](../articles/azure-arc/data/install-client-tools.md)
+- Azure Data Studio
+- Azure Arc extension for Azure Data Studio
+- Azure CLI (`az`)
+- `arcdata` extension for Azure CLI
+- `kubectl`
 
-   Tools include `azdata`, Azure Data Studio, and Azure CLI.
+   Additional client tools depending your environment. For a more comprehensive list, see [Client tools](../articles/azure-arc/data/install-client-tools.md).
 
-   For Azure Data Studio, install extensions for **Azure Data CLI**, **Azure Arc**, and **PostgreSQL** (depending on data services)
-
-- [An Azure Arc data controller installed](../articles/azure-arc/data/create-data-controller.md)
+In addition to the required tools, to complete the tasks, you need [an Azure Arc data controller](../articles/azure-arc/data/plan-azure-arc-data-services.md).

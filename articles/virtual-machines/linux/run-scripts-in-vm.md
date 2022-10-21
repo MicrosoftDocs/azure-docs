@@ -12,6 +12,8 @@ ms.topic: how-to
 ---
 # Run scripts in your Linux VM
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 To automate tasks or troubleshoot issues, you may need to run commands in a VM. The following article gives a brief overview of the features that are available to run scripts and commands within your VMs.
 
 ## Custom Script Extension
@@ -29,7 +31,7 @@ The [Custom Script Extension](../extensions/custom-script-linux.md) is primarily
 The [Run Command](run-command.md) feature enables virtual machine and application management and troubleshooting using scripts, and is available even when the machine is not reachable, for example if the guest firewall doesn't have the RDP or SSH port open.
 
 * Run scripts in Azure virtual machines.
-* Can be run using [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* Can be run using [Azure portal](run-command.md), [REST API](../windows/run-command.md), [Azure CLI](/cli/azure/vm/run-command#az-vm-run-command-invoke), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Quickly run a script and view output and repeat as needed in the Azure portal.
 * Script can be typed directly or you can run one of the built-in scripts.
 * Run PowerShell script in Windows machines and Bash script in Linux machines.

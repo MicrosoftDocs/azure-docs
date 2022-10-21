@@ -6,18 +6,20 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 05/04/2022
 ms.author: cynthn
 ---
 
 # Time sync for Linux VMs in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
 Time sync is important for security and event correlation. Sometimes it is used for distributed transactions implementation. Time accuracy between multiple computer systems is achieved through synchronization. Synchronization can be affected by multiple things, including reboots and network traffic between the time source and the computer fetching the time. 
 
 Azure is backed by infrastructure running Windows Server 2016. Windows Server 2016 has improved algorithms used to correct time and condition the local clock to synchronize with UTC.  The Windows Server 2016 Accurate Time feature greatly improved how the VMICTimeSync service that governs VMs with the host for accurate time. Improvements include more accurate initial time on VM start or VM restore and interrupt latency correction. 
 
 > [!NOTE]
-> For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
+> For a quick overview of Windows Time service, take a look at this [high-level overview video](/shows/).
 >
 > For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
@@ -51,10 +53,7 @@ Historically, most Azure Marketplace images with Linux have been configured in o
 
 To confirm ntpd is synchronizing correctly, run the `ntpq -p` command.
 
-Starting in early calendar 2021, the most current Azure Marketplace images with Linux are being changed to use chronyd as the time sync service,
-and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize
-against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source
-over the public internet.
+Some Azure Marketplace images with Linux are being changed to use chronyd as the time sync service, and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source over the public internet.
 
 The VMICTimeSync is used in parallel and provides two functions:
 - Immediately updates the Linux VM time-of-day clock after a host maintenance event
@@ -101,27 +100,19 @@ cat /sys/class/ptp/ptp0/clock_name
 
 This should return `hyperv`, meaning the Azure host.
 
-In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device.
-Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be /dev/ptp0 or it might be /dev/ptp1, which makes
-it difficult to configure chronyd with the correct clock source. To solve this problem, the most recent Linux images have a udev rule that creates the
-symlink /dev/ptp_hyperv to whichever /dev/ptp entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of /dev/ptp0 or /dev/ptp1.
+In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of `/dev/ptp0` or `/dev/ptp1`.
 
 ### chrony
 
 On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
-refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
+refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
 ```
-Per above, if the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
 
-For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
+If the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
 
-For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
-
-For more information about chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
-
-If both chrony and VMICTimeSync sources are enabled simultaneously, you can mark one as **prefer**, which sets the other source as a backup. Because NTP services do not update the clock for large skews except after a long period, the VMICTimeSync will recover the clock from paused VM events far more quickly than NTP-based tools alone.
+Stratum information isn't automatically conveyed from the Azure host to the Linux guest. The preceding configuration line specifies that the Azure host time source is to be treated as Stratum 2, which in turn causes the Linux guest to report itself as Stratum 3. You can change the stratum setting in the configuration line if you want the Linux guest to report itself differently.
 
 By default, chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony fails to fix the drift. To overcome this, the `makestep` parameter in **/etc/chrony.conf** can be changed to force a time sync if the drift exceeds the threshold specified.
 
@@ -135,6 +126,12 @@ Here, chrony will force a time update if the drift is greater than 1 second. To 
 systemctl restart chronyd
 ```
 
+For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
+
+For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
+
+For more information about chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
+
 ### systemd 
 
 On SUSE and Ubuntu releases before 19.10, time sync is configured using [systemd](https://www.freedesktop.org/wiki/Software/systemd/). For more information about Ubuntu, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html). For more information about SUSE, see Section 4.5.8 in [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
@@ -142,5 +139,3 @@ On SUSE and Ubuntu releases before 19.10, time sync is configured using [systemd
 ## Next steps
 
 For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time).
-
-

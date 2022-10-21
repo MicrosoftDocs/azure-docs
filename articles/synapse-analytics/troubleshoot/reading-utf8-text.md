@@ -1,8 +1,8 @@
 ---
 title: "Troubleshoot: Reading UTF-8 text from CSV or PARQUET files using serverless SQL pool"
 description: Reading UTF-8 text from CSV or PARQUET files using serverless SQL pool in Azure Synapse Analytics
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.topic: troubleshooting
 ms.service: synapse-analytics
 ms.subservice: troubleshooting

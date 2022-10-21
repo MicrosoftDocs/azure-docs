@@ -2,18 +2,18 @@
 title: Understanding pricing - Azure Application Gateway
 description: This article describes the billing process for Azure Application Gateway and Web Application Firewall for both v1 to v2 SKUs
 services: application-gateway
-author: azhar2005
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/01/2020
-ms.author: azhussai
+ms.date: 10/03/2022
+ms.author: greglin
 ---
 
 # Understanding Pricing for Azure Application Gateway and Web Application Firewall
 
->[!NOTE]
->Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
+> [!NOTE]
+> Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Azure Application Gateway is a layer 7 load-balancing solution, which enables scalable, highly available, and secure web application delivery on Azure.
 
@@ -21,129 +21,6 @@ There are no upfront costs or termination costs associated with Application Gate
 You will be billed only for the resources pre-provisioned and utilized based on actual hourly consumption. Costs associated with Application Gateway are classified into two components: fixed costs and variable costs. Actual costs within each component will vary according to the SKU being utilized.
 
 This article describes the costs associated with each SKU and it is recommended that users utilize this document for planning and managing costs associated with the Azure Application Gateway.
-
-## V1 SKUs
-
-Standard Application Gateway and WAF V1 SKUs are billed as a combination of:
-
-* Fixed Cost
-
-    Cost based on the time a particular type of Application Gateway/WAF is provisioned and running for processing requests.
-    The fixed cost component takes in consideration the following factors:
-    * Tier - Standard Application Gateway or WAF
-    * Size - Small, Medium & Large
-    * Instance Count - Number of instances to be deployed
-
-    For N instances, the costs associated will be N * cost of one Instance of a particular Tier(Standard & WAF) & Size(Small, Medium & Large) combination.
-
-* Variable Cost
-
-    Cost based on the amount of data processed by the Application Gateway/WAF. Both the request and response bytes processed by the Application Gateway would be considered for billing.
-
-Total Cost = Fixed Cost + Variable Cost
-
-### Standard Application Gateway
-
-Fixed Cost & Variable Cost will be calculated according to the Application Gateway type.
-The following table shows example prices based on a snapshot of East US pricing and are meant for illustration purposes only.
-
-#### Fixed Cost (East US region pricing)
-
-|              Application Gateway Type             |  Costs ($/hr)  |
-| ------------------------------------------------- | ---------------|
-|                     Small                         |    $0.025      |
-|                     Medium                        |    $0.07       |
-|                     Large                         |    $0.32       |
-
-Monthly price estimates are based on 730 hours of usage per month.
-
-#### Variable Cost (East US region pricing)
-
-|              Data Processed             |  Small ($/GB)  |  Medium ($/GB) |  Large ($/GB) |
-| --------------------------------------- | -------------- | -------------- | ------------- |
-| First 10 TB/month                       |     $0.008     |      Free      |     Free      |
-| Next 30 TB (10–40 TB)/month             |     $0.008     |     $0.007     |     Free      |
-| Over 40 TB/month                        |     $0.008     |     $0.007     |     $0.0035   |
-
-For more pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
-
-### WAF V1
-
-Fixed Cost & Variable Costs will be calculated according to the provisioned Application Gateway type.
-
-The following table shows example prices based on a snapshot of East US pricing and are for illustration purposes only.
-
-#### Fixed Cost (East US region pricing)
-
-|              Application Gateway Type             |  Costs ($/hr)  |
-| ------------------------------------------------- | ---------------|
-|                     Small                         |       NA       |
-|                     Medium                        |     $0.126     |
-|                     Large                         |     $0.448     |
-
-Monthly price estimates are based on 730 hours of usage per month.
-
-#### Variable Cost (East US region pricing)
-
-|              Data Processed             |  Small ($/GB)  |  Medium ($/GB) |  Large ($/GB) |
-| --------------------------------------- | -------------- | -------------- | ------------- |
-| First 10 TB/month                       |     $0.008     |      Free      |     Free      |
-| Next 30 TB (10–40 TB)/month             |     $0.008     |     $0.007     |     Free      |
-| Over 40 TB/month                        |     $0.008     |     $0.007     |     $0.0035   |
-
-For more pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
-
-> [!NOTE]
-> Outbound data transfers - data going out of Azure data centers from application gateways will be charged at standard [data transfer rates](https://azure.microsoft.com/pricing/details/bandwidth/).
-
-### Example 1 (a) – Standard Application Gateway with 1 instance count
-
-Let’s assume you’ve provisioned a standard Application Gateway of medium type with 1 instance and it processes 500 GB in a month. 
-Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
-
-Fixed Price = $0.07 * 730 (Hours) =  $51.1
-Monthly price estimates are based on 730 hours of usage per month.
-
-Variable Costs = Free (Medium tier has no costs for the first 10 TB processed per month)
-Total Costs = $51.1 + 0 = $51.1 
-
-> [!NOTE]
-> To support high availability scenarios, it is required to setup a minimum of 2 instances for V1 SKUs. See [SLA for Application Gateway](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2/)
-
-### Example 1 (b) – Standard Application Gateway with > 1 instance count
-
-Let’s assume you’ve provisioned a standard Application Gateway of medium type with five instances and it processes 500 GB in a month. 
-Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
-
-Fixed Price = 5 (Instance count) * $0.07 * 730 (Hours) =  $255.5
-Monthly price estimates are based on 730 hours of usage per month.
-
-Variable Costs = Free (Medium tier has no costs for the first 10 TB processed per month)
-Total Costs = $255.5 + 0 = $255.5 
-
-### Example 2 – WAF Application Gateway
-
-Let’s assume you’ve provisioned a small type standard Application Gateway and a large type WAF Application Gateway for the first 15 days of the month. The small application gateway processes 15 TB in the duration that it is active and the large WAF application gateway processes 100 TB in the duration that it is active. 
-Your Application Gateway costs using the pricing mentioned above would be calculated as follows: 
-
-###### Small instance Standard Application Gateway
-
-24 Hours * 15 Days = 360 Hours
-
-Fixed Price = $0.025 * 360 (Hours) =  $9
-
-Variable Costs = 10 * 1000 *  $0.008/GB + 5 * 1000 * $0.008/GB  = $120
-
-Total Costs = $9 + $120 = $129
-
-###### Large instance WAF Application Gateway
-24 Hours * 15 Days = 360 Hours
-
-Fixed Price = $0.448  * 360 (Hours) =  $161.28
-
-Variable Costs = 60 * 1000 * $0.0035/GB  = $210 (Large tier has no costs for the first 40 TB processed per month)
-
-Total Costs = $161.28 + $210 = $371.28
 
 ## V2 SKUs  
 
@@ -159,7 +36,7 @@ A single Capacity Unit consists of the following parameters:
 * 2.22-Mbps throughput
 * 1 Compute Unit
 
-If any one of these parameters are exceeded, then another n capacity unit(s) are necessary, even if the other two parameters don’t exceed this single capacity unit’s limits.
+If any of these parameters are exceeded, then another N capacity units are necessary, even if the other two parameters don’t exceed this single capacity unit’s limits.
 The parameter with the highest utilization among the three above will be internally used for calculating capacity units, which is in turn billed.
 
 ##### Compute Unit
@@ -340,9 +217,9 @@ Monthly price estimates are based on 730 hours of usage per month.
 
 Fixed Price = $0.443 * 730 (Hours) =  $323.39
 
-Variable Costs = $0.0144  * 730 (Hours) * {Max (25/50, 8.88/2.22)} = $23.36 (4 Capacity units required to handle 8.88 Mbps)
+Variable Costs = $0.0144  * 730 (Hours) * {Max (25/50, 8.88/2.22)} = $42.048 (4 Capacity units required to handle 8.88 Mbps)
 
-Total Costs = $323.39 + $23.36 = $346.75
+Total Costs = $323.39 + $42.048 = $365.438
 
 ### Example 5 (a) – Standard_V2 with Autoscaling, time-based calculations
 
@@ -356,6 +233,129 @@ Variable Costs = $0.008  * 10(capacity units) * 1 (Hours)  + $0.008  * 20(capaci
 units) * 1 (Hours)  = $0.24
 
 Total Costs = $0.492 + $0.24 = $0.732
+
+## V1 SKUs
+
+Standard Application Gateway and WAF V1 SKUs are billed as a combination of:
+
+* Fixed Cost
+
+    Cost based on the time a particular type of Application Gateway/WAF is provisioned and running for processing requests.
+    The fixed cost component takes in consideration the following factors:
+    * Tier - Standard Application Gateway or WAF
+    * Size - Small, Medium & Large
+    * Instance Count - Number of instances to be deployed
+
+    For N instances, the costs associated will be N * cost of one Instance of a particular Tier(Standard & WAF) & Size(Small, Medium & Large) combination.
+
+* Variable Cost
+
+    Cost based on the amount of data processed by the Application Gateway/WAF. Both the request and response bytes processed by the Application Gateway would be considered for billing.
+
+Total Cost = Fixed Cost + Variable Cost
+
+### Standard Application Gateway
+
+Fixed Cost & Variable Cost will be calculated according to the Application Gateway type.
+The following table shows example prices based on a snapshot of East US pricing and are meant for illustration purposes only.
+
+#### Fixed Cost (East US region pricing)
+
+|              Application Gateway Type             |  Costs ($/hr)  |
+| ------------------------------------------------- | ---------------|
+|                     Small                         |    $0.025      |
+|                     Medium                        |    $0.07       |
+|                     Large                         |    $0.32       |
+
+Monthly price estimates are based on 730 hours of usage per month.
+
+#### Variable Cost (East US region pricing)
+
+|              Data Processed             |  Small ($/GB)  |  Medium ($/GB) |  Large ($/GB) |
+| --------------------------------------- | -------------- | -------------- | ------------- |
+| First 10 TB/month                       |     $0.008     |      Free      |     Free      |
+| Next 30 TB (10–40 TB)/month             |     $0.008     |     $0.007     |     Free      |
+| Over 40 TB/month                        |     $0.008     |     $0.007     |     $0.0035   |
+
+For more pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
+
+### WAF V1
+
+Fixed Cost & Variable Costs will be calculated according to the provisioned Application Gateway type.
+
+The following table shows example prices based on a snapshot of East US pricing and are for illustration purposes only.
+
+#### Fixed Cost (East US region pricing)
+
+|              Application Gateway Type             |  Costs ($/hr)  |
+| ------------------------------------------------- | ---------------|
+|                     Small                         |       NA       |
+|                     Medium                        |     $0.126     |
+|                     Large                         |     $0.448     |
+
+Monthly price estimates are based on 730 hours of usage per month.
+
+#### Variable Cost (East US region pricing)
+
+|              Data Processed             |  Small ($/GB)  |  Medium ($/GB) |  Large ($/GB) |
+| --------------------------------------- | -------------- | -------------- | ------------- |
+| First 10 TB/month                       |     $0.008     |      Free      |     Free      |
+| Next 30 TB (10–40 TB)/month             |     $0.008     |     $0.007     |     Free      |
+| Over 40 TB/month                        |     $0.008     |     $0.007     |     $0.0035   |
+
+For more pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
+
+> [!NOTE]
+> Outbound data transfers - data going out of Azure data centers from application gateways will be charged at standard [data transfer rates](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+### Example 1 (a) – Standard Application Gateway with 1 instance count
+
+Let’s assume you’ve provisioned a standard Application Gateway of medium type with 1 instance and it processes 500 GB in a month. 
+Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
+
+Fixed Price = $0.07 * 730 (Hours) =  $51.1
+Monthly price estimates are based on 730 hours of usage per month.
+
+Variable Costs = Free (Medium tier has no costs for the first 10 TB processed per month)
+Total Costs = $51.1 + 0 = $51.1 
+
+> [!NOTE]
+> To support high availability scenarios, it is required to setup a minimum of 2 instances for V1 SKUs. See [SLA for Application Gateway](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2/)
+
+### Example 1 (b) – Standard Application Gateway with > 1 instance count
+
+Let’s assume you’ve provisioned a standard Application Gateway of medium type with five instances and it processes 500 GB in a month. 
+Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
+
+Fixed Price = 5 (Instance count) * $0.07 * 730 (Hours) =  $255.5
+Monthly price estimates are based on 730 hours of usage per month.
+
+Variable Costs = Free (Medium tier has no costs for the first 10 TB processed per month)
+Total Costs = $255.5 + 0 = $255.5 
+
+### Example 2 – WAF Application Gateway
+
+Let’s assume you’ve provisioned a small type standard Application Gateway and a large type WAF Application Gateway for the first 15 days of the month. The small application gateway processes 15 TB in the duration that it is active and the large WAF application gateway processes 100 TB in the duration that it is active. 
+Your Application Gateway costs using the pricing mentioned above would be calculated as follows: 
+
+###### Small instance Standard Application Gateway
+
+24 Hours * 15 Days = 360 Hours
+
+Fixed Price = $0.025 * 360 (Hours) =  $9
+
+Variable Costs = 10 * 1000 *  $0.008/GB + 5 * 1000 * $0.008/GB  = $120
+
+Total Costs = $9 + $120 = $129
+
+###### Large instance WAF Application Gateway
+24 Hours * 15 Days = 360 Hours
+
+Fixed Price = $0.448  * 360 (Hours) =  $161.28
+
+Variable Costs = 60 * 1000 * $0.0035/GB  = $210 (Large tier has no costs for the first 40 TB processed per month)
+
+Total Costs = $161.28 + $210 = $371.28
 
 
 ## Monitoring Billed Usage
@@ -376,7 +376,7 @@ You can view the amount of consumption for different parameters (compute unit, t
 
 * Estimated Billed Capacity units
 
-    Estimated Billed Capacity units indicates the number of capacity units using which the billing is estimated. This is calculated as the greater value between Current capacity units (capacity units required to load balance the traffic) and Fixed billable capacity units (minimum capacity units kept provisioned).
+    The **Estimated Billed Capacity units** metric indicates the number of capacity units estimated for billing. This metric is calculated as the greater value between **Current capacity units** (capacity units required to load balance the traffic) and **Fixed billable capacity units** (minimum capacity units kept provisioned).
 
 More metrics such as throughput, current connections and compute units are also available to understand bottlenecks and estimate the number of capacity units required. Detailed information is available at [Application Gateway Metrics](application-gateway-metrics.md)
 
@@ -396,4 +396,4 @@ Observed Capacity Units in metrics = 49.23
 See the following articles to learn more about how pricing works in Azure Application Gateway:
 
 * [Azure Application Gateway pricing page](https://azure.microsoft.com/pricing/details/application-gateway/)
-* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=application-gateway)
+* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=application-gateway)

@@ -1,14 +1,12 @@
 ---
 title: 'Quickstart: Create an Azure DB for MariaDB - ARM template'
 description: In this Quickstart article, learn how to create an Azure Database for MariaDB server by using an Azure Resource Manager template.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.date: 05/14/2020
 ms.topic: quickstart
-ms.service: mariadb
-ms.custom:
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for MariaDB server
@@ -43,7 +41,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 You create an Azure Database for MariaDB server with a defined set of compute and storage resources. To learn more, see [Azure Database for MariaDB pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/managed-mariadb-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformariadb/managed-mariadb-with-vnet/azuredeploy.json":::
 
@@ -209,4 +207,4 @@ read -p "Press [ENTER] to continue: "
 For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

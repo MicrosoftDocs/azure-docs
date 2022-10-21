@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 
@@ -50,4 +50,4 @@ For executing **serverless SQL pool** queries, recommended tools are [Azure Data
 
 ## Next steps
 
-To start querying your analytics with Visual Studio and other applications, see [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To start querying your analytics with Visual Studio and other applications, see [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?context=/azure/synapse-analytics/context/context).

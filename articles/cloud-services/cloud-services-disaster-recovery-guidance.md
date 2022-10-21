@@ -4,16 +4,15 @@ description: Learn what to do in the event of an Azure service disruption that i
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---
 
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services (classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
 
@@ -44,7 +43,7 @@ For more detail about how to create and deploy a cloud service application, see 
 Depending on your application data sources, you may need to check the recovery procedures for your application data source.
 
 * For Azure Storage data sources, see [Azure Storage redundancy](../storage/common/storage-redundancy.md) to check on the options that are available based on the chosen redundancy model for your application.
-* For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) to check on the options that are available based on the chosen replication model for your application.
+* For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview) to check on the options that are available based on the chosen replication model for your application.
 
 
 ## Option 3: Wait for recovery

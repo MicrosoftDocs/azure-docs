@@ -1,15 +1,15 @@
 ---
-title: Localization string IDs - Azure Active Directory B2C | Microsoft Docs
+title: Localization string IDs - Azure Active Directory B2C  
 description: Specify the IDs for a content definition with an ID of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/10/2021
-ms.author: mimart
+ms.date: 04/19/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -24,7 +24,7 @@ The **Localization** element enables you to support multiple locales or language
 The following IDs are used for a content definition with an ID of `api.signuporsignin`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value | Page Layout Version |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **forgotpassword_link** | Forgot your password? | `All` |
 | **createaccount_intro** | Don't have an account? | `All` |
 | **button_signin** | Sign in | `All` |
@@ -53,9 +53,8 @@ The following IDs are used for a content definition with an ID of `api.signupors
 | **invalid_generic** | Please enter a valid {0} | `>= 2.1.1` |
 | **heading** | Sign in | `>= 2.1.1` |
 
-
 > [!NOTE]
-> * Placeholders like {0} will be filled automatically with the `DisplayName` value of `ClaimType`. 
+> * Placeholders like {0} will be filled automatically with the `DisplayName` value of `ClaimType`.
 > * To learn how to localize `ClaimType`, see [Sign-up or sign-in example](#signupsigninexample).
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
@@ -92,7 +91,7 @@ The following example localizes the Facebook identity provider to Arabic:
 ### Sign-up or sign-in error messages
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfInvalidPassword** | Your password is incorrect. |
 | **UserMessageIfPasswordExpired**| Your password has expired.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | We can't seem to find your account. |
@@ -142,7 +141,7 @@ The following example localizes the Facebook identity provider to Arabic:
 The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **ver_sent** | Verification code has been sent to: |
 | **ver_but_default** | Default |
 | **cancel_message** | The user has canceled entering self-asserted information |
@@ -159,6 +158,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **months** | January, February, March, April, May, June, July, August, September, October, November, December |
 | **ver_fail_server** | We are having trouble verifying your email address. Please enter a valid email address and try again. |
 | **error_requiredFieldMissing** | A required field is missing. Please fill out all required fields and try again. |
+| **heading** | User Details |
 | **initial_intro** | Please provide the following details. |
 | **ver_but_resend** | Send new code |
 | **button_continue** | Create |
@@ -178,10 +178,22 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **ver_intro_msg** | Verification is necessary. Please click Send button. |
 | **ver_input** | Verification code |
 
+### Sign-up and self-asserted pages disclaimer links
+
+The following `UxElement` string IDs will display disclaimer link(s) at the bottom of the self-asserted page. These links are not displayed by default unless specified in the localized strings.
+
+| ID | Example value |
+| --- | ------------- |
+| **disclaimer_msg_intro** | By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply. |
+| **disclaimer_link_1_text** | Privacy Statement |
+| **disclaimer_link_1_url** | {insert your privacy statement URL} |
+| **disclaimer_link_2_text** | Terms and Conditions |
+| **disclaimer_link_2_url** | {insert your terms and conditions URL} |
+
 ### Sign-up and self-asserted pages error messages
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | A user with the specified ID already exists. Please choose a different one. |
 | **UserMessageIfClaimNotVerified** | Claim not verified: {0} |
 | **UserMessageIfIncorrectPattern** | Incorrect pattern for: {0} |
@@ -223,6 +235,7 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="error_passwordEntryMismatch">The password entry fields do not match. Please enter the same password in both fields and try again.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_requiredFieldMissing">A required field is missing. Please fill out all required fields and try again.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="helplink_text">What is this?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">User Details</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="initial_intro">Please provide the following details.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="preloader_alt">Please wait</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
@@ -239,6 +252,14 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="ver_input">Verification code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_success_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <!-- The following elements will display a message and two links at the bottom of the page. 
+         For policies that you intend to show to users in the United States, we suggest displaying the following text. Replace the content of the disclaimer_link_X_url elements with links to your organization's privacy statement and terms and conditions. 
+          Uncomment any of these lines to display them.  -->
+    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString> -->
+    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString> -->
+    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString> -->
     <LocalizedString ElementType="ErrorMessage" StringId="ServiceThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">A user with the specified ID already exists. Please choose a different one.</LocalizedString>
@@ -254,46 +275,46 @@ The following example shows the use of some of the user interface elements in th
 
 The Following are the IDs for a content definition with an ID of `api.phonefactor`, and [phone factor technical profile](phone-factor-technical-profile.md).
 
-| ID | Default value |
-| -- | ------------- |
-| **button_verify** | Call Me |
-| **country_code_label** | Country Code |
-| **cancel_message** | The user has canceled multi-factor authentication |
-| **text_button_send_second_code** | send a new code |
-| **code_pattern** | \\d{6} |
-| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. |
-| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. |
-| **button_verify_code** | Verify Code |
-| **requiredField_code** | Please enter the verification code you received |
-| **invalid_code** | Please enter the 6-digit code you received |
-| **button_cancel** | Cancel |
-| **local_number_input_placeholder_text** | Phone number |
-| **button_retry** | Retry |
-| **alternative_text** | I don't have my phone |
-| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. |
-| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. |
-| **enter_code_text_intro** | Enter your verification code below, or  |
-| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. |
-| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. |
-| **button_send_code** | Send Code |
-| **invalid_number** | Please enter a valid phone number |
-| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. |
-| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. |
-| **requiredField_countryCode** | Please select your country code |
-| **requiredField_number** | Please enter your phone number |
-| **country_code_input_placeholder_text** |Country or region |
-| **number_label** | Phone Number |
-| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. |
-| **error_sms_throttled** | You hit the limit on the number of text messages. Try again shortly. |
-| **error_phone_throttled** | You hit the limit on the number of call attempts. Try again shortly. |
-| **error_throttled** | You hit the limit on the number of verification attempts. Try again shortly. |
-| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. |
-| **countryList** | See [the countries list](#phone-factor-authentication-page-example). |
-| **error_448** | The phone number you provided is unreachable. |
-| **error_449** | User has exceeded the number of retry attempts. |
-| **verification_code_input_placeholder_text** | Verification code |
+| ID | Default value | Page Layout Version |
+| --- | ------------- | ------ |
+| **button_verify** | Call Me | `All` |
+| **country_code_label** | Country Code | `All` |
+| **cancel_message** | The user has canceled multi-factor authentication | `All` |
+| **text_button_send_second_code** | send a new code | `All` |
+| **code_pattern** | \\d{6} | `All` |
+| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. | `All` |
+| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. | `All` |
+| **button_verify_code** | Verify Code | `All` |
+| **requiredField_code** | Please enter the verification code you received | `All` |
+| **invalid_code** | Please enter the 6-digit code you received | `All` |
+| **button_cancel** | Cancel | `All` |
+| **local_number_input_placeholder_text** | Phone number | `All` |
+| **button_retry** | Retry | `All` |
+| **alternative_text** | I don't have my phone | `All` |
+| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. | `All` |
+| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. | `All` |
+| **enter_code_text_intro** | Enter your verification code below, or  | `All` |
+| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. | `All` |
+| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. | `All` |
+| **button_send_code** | Send Code | `All` |
+| **invalid_number** | Please enter a valid phone number | `All` |
+| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. | `All` |
+| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. | `All` |
+| **number_pattern** | `^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$` | `All` |
+| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. | `All` |
+| **requiredField_countryCode** | Please select your country code | `All` |
+| **requiredField_number** | Please enter your phone number | `All` |
+| **country_code_input_placeholder_text** |Country or region | `All` |
+| **number_label** | Phone Number | `All` |
+| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. | `All` |
+| **error_sms_throttled** | You hit the limit on the number of text messages. Try again shortly. | `>= 1.2.3` |
+| **error_phone_throttled** | You hit the limit on the number of call attempts. Try again shortly. | `>= 1.2.3` |
+| **error_throttled** | You hit the limit on the number of verification attempts. Try again shortly. | `>= 1.2.3` |
+| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. | `All` |
+| **countryList** | See [the countries list](#phone-factor-authentication-page-example). | `All` |
+| **error_448** | The phone number you provided is unreachable. | `All` |
+| **error_449** | User has exceeded the number of retry attempts. | `All` |
+| **verification_code_input_placeholder_text** | Verification code | `All` |
 
 The following example shows the use of some of the user interface elements in the MFA enrollment page:
 
@@ -357,8 +378,8 @@ The following example shows the use of some of the user interface elements in th
 The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.1.0 or higher.
 
 | ID | Default value |
-| -- | ------------- |
-|intro_msg <sup>*</sup>| Verification is necessary. Please click Send button.|
+| --- | ------------- |
+|intro_msg<sup>1</sup>| Verification is necessary. Please click Send button.|
 |success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
 |success_verify_code_msg | E-mail address verified. You can now continue.|
@@ -367,13 +388,16 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_verify_code | Verify code|
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
+| UserMessageIfVerificationControlClaimsNotVerified<sup>2</sup>| The claims for verification control have not been verified. |
 
-Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customiztion](customize-ui-with-html.md) with Cascading Style Sheets. For example:
-    
+<sup>1</sup> The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+
 ```css
 .verificationInfoText div{display: block!important}
 ```
 
+<sup>2</sup> This error message is displayed to the user if they enter a verification code, but instead of completing the verification by selecting on the **Verify** button, they select the **Continue** button.
+  
 ### Verification display control example
 
 ```xml
@@ -389,6 +413,7 @@ Note: The `intro_msg` element is hidden, and not shown on the self-asserted page
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsNotVerified">The claims for verification control have not been verified.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -398,7 +423,7 @@ Note: The `intro_msg` element is hidden, and not shown on the self-asserted page
 The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.0.0.
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |verification_control_but_change_claims |Change |
 |verification_control_fail_send_code |Failed to send the code, please try again later. |
 |verification_control_fail_verify_code |Failed to verify the code, please try again later. |
@@ -423,17 +448,58 @@ The following are the IDs for a [Verification display control](display-control-v
 </LocalizedResources>
 ```
 
+## TOTP MFA controls display control user interface elements
+
+The following are the IDs for a [time-based one-time password (TOTP) display control](display-control-time-based-one-time-password.md) with [page layout version](page-layout.md) 2.1.9 and later. 
+
+| ID | Default value |
+| --- | ------------- |
+|title_text |Download the Microsoft Authenticator using the download links for iOS and Android or use any other authenticator app of your choice. |
+| DN |Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment. |
+|DisplayName |Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment. |
+|title_text |Scan the QR code |
+|info_msg |You can download the Microsoft Authenticator app or use any other authenticator app of your choice. |
+|link_text |Can't scan? Try this |
+|title_text| Enter the account details manually. |
+|account_name | Account Name: |
+|display_prefix | Secret |
+|collapse_text | Still having trouble? |
+|DisplayName | Enter the verification code from your authenticator app​.|
+|DisplayName | Enter your code. |
+| button_continue | Verify |
+
+### TOTP MFA controls display control example
+
+```xml
+      <LocalizedResources Id="api.selfasserted.totp.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorAppIconControl" StringId="title_text">Download the Microsoft Authenticator using the download links for iOS and Android or use any other authenticator app of your choice.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorAppIconControl" StringId="DN">Once you&#39;ve downloaded the Authenticator app, you can use any of the methods below to continue with enrollment.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="QrCodeScanInstruction" StringId="DisplayName">Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="title_text">Scan the QR code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="info_msg">You can download the Microsoft Authenticator app or use any other authenticator app of your choice.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="link_text">Can&#39;t scan? Try this</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="title_text">Enter the account details manually</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="account_name">Account Name:</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="display_prefix">Secret</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="collapse_text">Still having trouble?</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="QrCodeVerifyInstruction" StringId="DisplayName">Enter the verification code from your authenticator app​.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="otpCode" StringId="DisplayName">Enter your code.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_continue">Verify</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+```
+
 ## Restful service error messages
 
 The following are the IDs for [Restful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |DefaultUserMessageIfRequestFailed | Failed to establish connection to restful service end point. Restful service URL: {0} |
 |UserMessageIfCircuitOpen | {0} Restful Service URL: {1} |
 |UserMessageIfDnsResolutionFailed | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
 |UserMessageIfRequestTimeout | Failed to establish connection to restful service end point within timeout limit {0} seconds. Restful service URL: {1} |
-
 
 ### Restful service example
 
@@ -453,7 +519,7 @@ The following are the IDs for [Restful service technical profile](restful-techni
 The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfCouldntSendSms | Cannot Send SMS to the phone, please try another phone number. |
 |UserMessageIfInvalidFormat | Your phone number is not in a valid format, please correct it and try again.|
 |UserMessageIfMaxAllowedCodeRetryReached | Wrong code entered too many times, please try again later.|
@@ -481,17 +547,16 @@ The following are the IDs for an [Azure AD MFA technical profile](multi-factor-a
 The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfChallengeExpired | The code has expired.|
 |UserMessageIfInternalError | The email service has encountered an internal error, please try again later.|
 |UserMessageIfThrottled | You have sent too many requests, please try again later.|
 |UserMessageIfVerificationFailedNoRetry | You have exceeded maximum number of verification attempts.|
 |UserMessageIfVerificationFailedRetryAllowed | The verification has failed, please try again.|
 
-
 ### Azure AD SSPR example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
@@ -507,13 +572,14 @@ The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technic
 
 The following are the IDs for a [one-time password technical profile](one-time-password-technical-profile.md) error messages
 
-| ID | Default value |
-| -- | ------------- |
-|UserMessageIfMaxRetryAttempted |One time password provided verification has exceeded maximum number of attempts |
-|UserMessageIfSessionDoesNotExist |One time password verification session has expired |
-|UserMessageIfSessionConflict |One time password verification session has conflict |
-|UserMessageIfInvalidCode |One time password provided for verification is incorrect |
-|UserMessageIfVerificationFailedRetryAllowed |That code is incorrect. Please try again. | 
+| ID | Default value | Description |
+| --- | ------------- | ----------- |
+| UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
+| UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
+| UserMessageIfMaxNumberOfCodeGenerated | No | The message to display to the user if the code generation has exceeded the maximum allowed number of attempts. |
+| UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
+| UserMessageIfVerificationFailedRetryAllowed | No | The message to display to the user if they've provided an invalid code, and user is allowed to provide the correct code.  |
+|UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
 
 ### One time password example
 
@@ -522,9 +588,10 @@ The following are the IDs for a [one-time password technical profile](one-time-p
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -534,8 +601,8 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 The following are the IDs for claims transformations error messages:
 
 | ID | Claims transformation | Default value |
-| -- | ------------- |------------- |
-|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Boolean claim value comparison failed for claim type "inputClaim".| 
+| --- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Boolean claim value comparison failed for claim type "inputClaim".|
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
 

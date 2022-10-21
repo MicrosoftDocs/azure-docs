@@ -4,9 +4,10 @@ description: Learn how to create a streaming pipeline using Apache Storm and Apa
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 08/05/2022
+ROBOTS: NOINDEX
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
---- 
+---
 
 # Tutorial: Use Apache Storm with Apache Kafka on HDInsight
 
@@ -28,8 +29,6 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](./kafka/apache-kafka-get-started.md) document.
-
-* Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) framework. For more information, see the [Create an Apache Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
 
 * [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 
@@ -465,7 +464,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
     The value returned is similar to the following text:
 
     ```output
-    wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    <brokername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,<brokername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
      ```
 
     > [!IMPORTANT]  
@@ -494,7 +493,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
     The value returned is similar to the following text:
 
     ```output
-    zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    <zookeepername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,<zookeepername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
     ```
 
     > [!IMPORTANT]  
@@ -505,8 +504,8 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 3. Edit the `dev.properties` file in the root of the project. Add the Broker and Zookeeper hosts information for the __Kafka__ cluster to the matching lines in this file. The following example is configured using the sample values from the previous steps:
 
     ```bash
-    kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-    kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    kafka.zookeeper.hosts: <zookeepername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,<zookeepername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    kafka.broker.hosts: <brokername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,<brokername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
     kafka.topic: stormtopic
     ```
 

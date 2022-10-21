@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/06/2020
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -19,6 +19,10 @@ Properties represent point-in-time values. For example, a device can use a prope
 
 You can also define cloud properties in an Azure IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
 
+To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+
+To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+
 ## Define your properties
 
 Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on/off state of a device. Properties can also represent basic device properties, such as the software version of the device. You declare properties as read-only or writable.
@@ -31,7 +35,7 @@ The following table shows the configuration settings for a property capability.
 
 | Field           | Description                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Display name    | The display name for the property value used on dashboards and forms.                                                                                                                                                              |
+| Display name    | The display name for the property value used on dashboard tiles and device forms.                                                                                                                                                              |
 | Name            | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value.           |
 | Capability type | Property.                                                                                                                                                                                                                          |
 | Semantic type   | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available.                                                                       |
@@ -40,7 +44,7 @@ The following table shows the configuration settings for a property capability.
 | Severity        | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**.                                                                                                                         |
 | State values    | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value.                                                                                   |
 | Unit            | A unit for the property value, such as **mph**, **%**, or **&deg;C**.                                                                                                                                                              |
-| Display unit    | A display unit for use on dashboards and forms.                                                                                                                                                                                    |
+| Display unit    | A display unit for use on dashboards tiles and device forms.                                                                                                                                                                                    |
 | Comment         | Any comments about the property capability.                                                                                                                                                                                        |
 | Description     | A description of the property capability.                                                                                                                                                                                          |
 
@@ -83,11 +87,11 @@ Optional fields, such as display name and description, let you add more details 
 
 When you create a property, you can specify complex schema types such as **Object** and **Enum**.
 
-![Screenshot that shows how to add a capability.](./media/howto-use-properties/property.png)
+:::image type="content" source="media/howto-use-properties/property.png" alt-text="Screenshot that shows how to add a capability.":::
 
 When you select the complex **Schema**, such as **Object**, you need to define the object, too.
 
-:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot that shows how to define an object":::
+:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot that shows how to define an object.":::
 
 The following code shows the definition of an Object property type. This object has two fields with types string and integer.
 
@@ -161,7 +165,7 @@ This article uses Node.js for simplicity. For other language examples, see the [
 
 The following view in Azure IoT Central application shows the properties you can see. The view automatically makes the **Device model** property a _read-only device property_.
 
-:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property":::
+:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property.":::
 
 ## Implement writable properties
 
@@ -218,11 +222,19 @@ For more information on device twins, see [Configure your devices from a back-en
 
 When the operator sets a writable property in the Azure IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds by using a device twin reported property. When Azure IoT Central receives the reported property value, it updates the property view with a status of **Accepted**.
 
-The following view shows the writable properties. When you enter the value and select **Save**, the initial status is **Pending**. When the device accepts the change, the status changes to **Accepted**.
+When you enter the value and select **Save**, the initial status is **Pending**. When the device accepts the change, the status changes to **Accepted**.
 
-![Screenshot that shows Pending status.](./media/howto-use-properties/status-pending.png)
+## Use properties on unassigned devices
 
-![Screenshot that shows Accepted property.](./media/howto-use-properties/accepted.png)
+You can view and update writable properties on a device that isn't assigned to a device template.
+
+To view existing properties on an unassigned device, navigate to the device in the **Devices** section, select **Manage device**, and then **Device Properties**:
+
+:::image type="content" source="media/howto-use-properties/view-unassigned-device-properties.png" alt-text="Screenshot that shows properties on an unassigned device.":::
+
+You can update the writable properties in this view:
+
+:::image type="content" source="media/howto-use-properties/update-unassigned-device-properties.png" alt-text="Screenshot that shows how to update properties.":::
 
 ## Next steps
 

@@ -102,6 +102,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
+| https://\*.docker.com              | StorageClass (required)                             |
 
 ### URL patterns for gateway for Azure Government
 
@@ -146,7 +147,7 @@ To understand and refine the performance of your solution, you could use:
     - `dkr image [prune]` to clean up unused images and free up space.
     - `dkr ps --size` to view the approximate size of a running container. 
 
-    For more information on the available commands, go to [ Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
+    For more information on the available commands, go to [Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 
 Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge Mini R before deploying in production.
 

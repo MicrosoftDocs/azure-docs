@@ -2,9 +2,9 @@
 title: Azure Analysis Services alias server names | Microsoft Docs
 description: Learn how to create Azure Analysis Services server name aliases. Users can then connect to your server with a shorter alias name instead of the server name.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -28,9 +28,15 @@ When connecting from a client, the alias server name is entered using **link://*
 
 ![Power BI Desktop connection](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
+> [!NOTE]
+> The link is evaluated on the client.
+
 ## Create an alias
 
 To create an alias endpoint, you can use any method that returns a valid Azure Analysis Services server name. For example, a reference to a file in Azure Blob Storage containing the real server name, or create and publish an ASP.NET Web Forms application.
+
+> [!IMPORTANT]
+> The location of the link file cannot require authentication.
 
 In this example, an ASP.NET Web Forms Application is created in Visual Studio. The page reference and user control are removed from the Default.aspx page. The contents of Default.aspx are simply the following Page directive:
 

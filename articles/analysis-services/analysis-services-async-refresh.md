@@ -2,9 +2,9 @@
 title: Asynchronous refresh for Azure Analysis Services models | Microsoft Docs
 description: Describes how to use the Azure Analysis Services REST API to code asynchronous refresh of model data.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 

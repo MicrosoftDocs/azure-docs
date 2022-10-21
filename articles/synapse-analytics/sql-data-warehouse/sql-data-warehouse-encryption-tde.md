@@ -1,15 +1,14 @@
 ---
 title: Transparent Data Encryption (Portal) for dedicated SQL pool (formerly SQL DW)
 description: Transparent Data Encryption (TDE) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
-services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 04/30/2019
-ms.author: jrasnick
-ms.reviewer: rortloff
+ms.date: 06/23/2021
+ms.author: wiassaf
+ms.reviewer:
 ms.custom: seo-lt-2019
 ---
 
@@ -21,6 +20,9 @@ ms.custom: seo-lt-2019
 > * [Authentication](sql-data-warehouse-authentication.md)
 > * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+
+> [!NOTE]
+> This article applies to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (dedicated SQL pools (formerly SQL DW)). For documentation on Transparent Data Encryption for dedicated SQL pools inside Synapse workspaces, see [Azure Synapse Analytics encryption](../security/workspaces-encryption.md).
 
 ## Required Permissions
 

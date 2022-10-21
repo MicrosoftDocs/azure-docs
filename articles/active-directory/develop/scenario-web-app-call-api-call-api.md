@@ -1,6 +1,5 @@
 ---
-title: Call a web api from a web app | Azure
-titleSuffix: Microsoft identity platform
+title: Call a web api from a web app
 description: Learn how to build a web app that calls web APIs (calling a protected web API)
 services: active-directory
 author: jmprieur
@@ -130,8 +129,8 @@ public async Task<IActionResult> Profile()
   string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
   // Use the access token to call a protected web API.
-  HttpClient client = new HttpClient();
-  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+  HttpClient httpClient = new HttpClient();
+  httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
   var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 

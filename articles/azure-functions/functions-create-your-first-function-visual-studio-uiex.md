@@ -4,7 +4,8 @@ description: In this quickstart, you learn how to create and publish an HTTP tri
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, mode-ui
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Quickstart: Create your first function in Azure using Visual Studio
@@ -18,8 +19,6 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 + Create an Azure <abbr title="The profile that maintains billing information for Azure usage.">account</abbr> with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + Install [Visual Studio 2019](https://azure.microsoft.com/downloads/) and select the **Azure development** workload during installation. 
-
-![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 <br/>
 <details>
@@ -149,19 +148,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 ## 7. Clean up resources
 
-Delete the function app and its resources to avoid incurring any further costs.
-
-1. In the Cloud Explorer, expand your subscription, expand **App Services**, right-click your function app, and choose **Open in Portal**. 
-
-1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page":::
-
-1. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
- 
-1. Select **Delete resource group**, and follow the instructions.
-
-    Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## Next steps
 

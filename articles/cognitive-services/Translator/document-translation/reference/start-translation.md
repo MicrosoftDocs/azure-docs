@@ -3,31 +3,29 @@ title: Start translation
 titleSuffix: Azure Cognitive Services
 description: Start a document translation request with the Document Translation service.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
-ms.author: v-jansk
+ms.date: 02/01/2022
 ---
 
 # Start translation
 
-Use this API to start a bulk (batch) translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
+Use this API to start a translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
 
 The prefix and suffix filter (if supplied) are used to filter folders. The prefix is applied to the subpath after the container name.
 
 Glossaries / Translation memory can be included in the request and are applied by the service when the document is translated.
 
-If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists at the destination, it will be overwritten. The targetUrl for each target language must be unique.
+If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists in the destination, the job will fail. The targetUrl for each target language must be unique.
 
 ## Request URL
 
 Send a `POST` request to:
 ```HTTP
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -58,7 +56,7 @@ Definition for the input batch translation request.
 |Name|Type|Required|Description|
 |--- |--- |--- |--- |
 |source|SourceInput[]|True|inputs.source listed below. Source of the input documents.|
-|storageType|StorageInputType[]|True|inputs.storageType listed below. Storage type of the input documents source string.|
+|storageType|StorageInputType[]|False|inputs.storageType listed below. Storage type of the input documents source string. Required for single document translation only.|
 |targets|TargetInput[]|True|inputs.target listed below. Location of the destination for the output.|
 
 **inputs.source**
@@ -69,8 +67,8 @@ Source of the input documents.
 |--- |--- |--- |--- |
 |filter|DocumentFilter[]|False|DocumentFilter[] listed below.|
 |filter.prefix|string|False|A case-sensitive prefix string to filter documents in the source path for translation. For example, when using an Azure storage blob Uri, use the prefix to restrict sub folders for translation.|
-|filter.suffix|string|False|A case-sensitive suffix string to filter documents in the source path for translation. This is most often use for file extensions.|
-|language|string|False|Language code If none is specified, we will perform auto detect on the document.|
+|filter.suffix|string|False|A case-sensitive suffix string to filter documents in the source path for translation. It's most often use for file extensions.|
+|language|string|False|Language code If none is specified, we'll perform auto detect on the document.|
 |sourceUrl|string|True|Location of the folder / container or single file with your documents.|
 |storageSource|StorageSource|False|StorageSource listed below.|
 |storageSource.AzureBlob|string|False||
@@ -93,16 +91,19 @@ Destination for the finished translated documents.
 |category|string|False|Category / custom system for translation request.|
 |glossaries|Glossary[]|False|Glossary listed below. List of Glossary.|
 |glossaries.format|string|False|Format.|
-|glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We will use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
+|glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We'll use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
 |glossaries.storageSource|StorageSource|False|StorageSource listed above.|
+|glossaries.version|string|False|Optional Version. If not specified, default is used.|
 |targetUrl|string|True|Location of the folder / container with your documents.|
 |language|string|True|Two letter Target Language code. See [list of language codes](../../language-support.md).|
 |storageSource|StorageSource []|False|StorageSource [] listed above.|
-|version|string|False|Version.|
 
 ## Example request
 
 The following are examples of batch requests.
+
+> [!NOTE]
+> In the following examples, limited access has been granted to the contents of an Azure Storage container [using a shared access signature(SAS)](../../../../storage/common/storage-sas-overview.md) token.
 
 **Translating all documents in a container**
 
@@ -111,11 +112,11 @@ The following are examples of batch requests.
     "inputs": [
         {
             "source": {
-                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
             },
             "targets": [
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
                     "language": "fr"
                 }
             ]
@@ -126,22 +127,20 @@ The following are examples of batch requests.
 
 **Translating all documents in a container applying glossaries**
 
-Ensure you have created glossary URL & SAS token for the specific blob/document (not for the container)
-
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
             },
             "targets": [
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
-                    "language": "fr"
-     "glossaries": [
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "language": "fr",
+                    "glossaries": [
                         {
-                            "glossaryUrl": https://my.blob.core.windows.net/glossaries/en-fr.xlf?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=BsciG3NWoOoRjOYesTaUmxlXzyjsX4AgVkt2AsxJ9to%3D,
+                            "glossaryUrl": "https://my.blob.core.windows.net/glossaries/en-fr.xlf?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=BsciG3NWoOoRjOYesTaUmxlXzyjsX4AgVkt2AsxJ9to%3D",
                             "format": "xliff",
                             "version": "1.2"
                         }
@@ -156,21 +155,21 @@ Ensure you have created glossary URL & SAS token for the specific blob/document 
 
 **Translating specific folder in a container**
 
-Ensure you have specified the folder name (case sensitive) as prefix in filter â€“ though the SAS token is still for the container.
+Make sure you've specified the folder name (case sensitive) as prefix in filter.
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D,
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D",
                 "filter": {
                     "prefix": "MyFolder/"
                 }
             },
             "targets": [
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
                     "language": "fr"
                 }
             ]
@@ -181,10 +180,11 @@ Ensure you have specified the folder name (case sensitive) as prefix in filter â
 
 **Translating specific document in a container**
 
-* Ensure you have specified "storageType": "File"
-* Ensure you have created source URL & SAS token for the specific blob/document (not for the container)
-* Ensure you have specified the target filename as part of the target URL â€“ though the SAS token is still for the container.
-* Sample request below shows a single document getting translated into two target languages
+* Specify "storageType": "File"
+* Create source URL & SAS token for the specific blob/document.
+* Specify the target filename as part of the target URL â€“ though the SAS token is still for the container.
+
+The sample request below shows a single document translated into two target languages
 
 ```json
 {
@@ -192,15 +192,15 @@ Ensure you have specified the folder name (case sensitive) as prefix in filter â
         {
             "storageType": "File",
             "source": {
-                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D"
             },
             "targets": [
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
                     "language": "es"
                 },
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
                     "language": "de"
                 }
             ]
@@ -217,10 +217,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |
 |202|Accepted. Successful request and the batch request are created by the service. The header Operation-Location will indicate a status url with the operation ID.HeadersOperation-Location: string|
 |400|Bad Request. Invalid request. Check input parameters.|
-|401|Unauthorized. Please check your credentials.|
+|401|Unauthorized. Check your credentials.|
 |429|Request rate is too high.|
 |500|Internal Server Error.|
-|503|Service is currently unavailable.  Please try again later.|
+|503|Service is currently unavailable.  Try again later.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 ## Error response
@@ -229,9 +229,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Cognitive Services API Guidelines. This contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(this can be nested).|
 |inner.Errorcode|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document ID" if the document is invalid.|
 
 ## Examples
 
@@ -242,7 +243,7 @@ The following information is returned in a successful response.
 You can find the job ID in the POST method's response Header Operation-Location URL value. The last parameter of the URL is the operation's job ID (the string following "/operation/").
 
 ```HTTP
-Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0.preview.1/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
+Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
 ```
 
 ### Example error response

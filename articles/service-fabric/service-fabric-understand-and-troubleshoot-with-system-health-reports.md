@@ -1,8 +1,12 @@
 ---
 title: Troubleshoot with system health reports 
 description: Describes the health reports sent by Azure Service Fabric components and their usage for troubleshooting cluster or application problems
-ms.topic: conceptual
-ms.date: 2/28/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Use system health reports to troubleshoot
@@ -72,7 +76,7 @@ The warning report is automatically cleared when all seed nodes become healthy.
 
 For cluster running Service Fabric version older than 6.5:
 In this case, the warning report needs to be cleared manually. **Users should make sure all the seed nodes become healthy before clearing the report**: if the seed node is Down, users need to bring that seed node up;if the seed node is Removed or Unknown, that seed node needs to be removed from the cluster.
-After all the seed nodes become healthy, use following command from Powershell to [clear the warning report](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+After all the seed nodes become healthy, use following command from PowerShell to [clear the warning report](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Create a serverless Apache Spark pool using the Azure portal'
-description: Create a serverless Apache Spark pool using the Azure portal by following the steps in this guide. 
-services: synapse-analytics 
-author: julieMSFT 
-ms.service: synapse-analytics 
-ms.topic: quickstart 
+description: Create a serverless Apache Spark pool using the Azure portal by following the steps in this guide.
+author: WilliamDAssafMSFT
+ms.service: synapse-analytics
+ms.topic: quickstart
 ms.subservice: spark
-ms.date: 04/15/2020 
-ms.author: jrasnick 
-ms.reviewer: jrasnick 
+ms.date: 08/19/2021
+ms.author: wiassaf
+ms.reviewer: sngun
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a new serverless Apache Spark pool using the Azure portal
@@ -33,9 +33,11 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Navigate to the Synapse workspace 
 1. Navigate to the Synapse workspace where the Apache Spark pool will be created by typing the service name (or resource name directly) into the search bar.
-![Azure portal search bar with Synapse workspaces typed in.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
-![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
+
+    ![Azure portal search bar with Synapse workspaces typed in.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
+
+2. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
+    ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## Create new Apache Spark pool
@@ -53,6 +55,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 
     ![Apache Spark pool create flow - basics tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-02.png)
+
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 

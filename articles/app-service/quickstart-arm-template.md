@@ -5,8 +5,8 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.date: 03/10/2022
+ms.custom: subject-armqs, mode-arm, devdivchpfy22
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -16,7 +16,7 @@ adobe-target-content: ./quickstart-arm-template-uiex
 
 # Quickstart: Create App Service app using an ARM template
 
-Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
+Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -37,7 +37,7 @@ Use the following button to deploy on **Windows**:
 ## Review the template
 
 ::: zone pivot="platform-windows"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
@@ -53,12 +53,12 @@ This template contains several parameters that are predefined for your convenien
 | webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
 | location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
-| language   | string  | ".net"                       | Programming language stack (.net, php, node, html) |
+| language   | string  | ".net"                       | Programming language stack (.NET, php, node, html) |
 | helloWorld | boolean | False                        | True = Deploy "Hello World" app |
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-linux). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 
@@ -93,7 +93,7 @@ Run the code below to deploy a .NET framework app on Windows.
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsofot.web/app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux.
@@ -144,7 +144,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 > [PHP with MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
+> [Connect to Azure SQL database with Java](/azure/azure-sql/database/connect-query-java?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)

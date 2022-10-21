@@ -15,8 +15,6 @@ ms.subservice: partner
 
 This article provides information for using Azure Blob storage with Veeam solutions, including details on how to get started and best practices.
 
-# Overview
-
 Azure Blob storage can be used with many Veeam products to provide cost-effective data retention and recovery capabilities. Not all Azure Blob features are supported by each product, learn more about [using object storage with Veeam Products](https://www.veeam.com/kb4241).
 ## Backup on-premises workloads to Azure
 
@@ -64,8 +62,6 @@ Kasten supports the use of Azure blob storage as backup target. Learn how to [co
 
 ## Resources
 
-### Veeam Documentation
-
 - 	[Veeam Backup & Replication for VMware vSphere](https://helpcenter.veeam.com/docs/backup/vsphere/)
 - 	[Veeam Backup & Replication for Microsoft Hyper-V](https://helpcenter.veeam.com/docs/backup/hyperv/)
 - 	[Veeam Backup & Replication support for Azure VMware Solution](https://www.veeam.com/kb4012)
@@ -74,7 +70,6 @@ Kasten supports the use of Azure blob storage as backup target. Learn how to [co
 - 	[Kasten K10 by Veeam](https://docs.kasten.io/latest/)
 - 	[Veeam Plug-ins for Enterprise Applications User Guide](https://helpcenter.veeam.com/docs/backup/plugins/)
 - 	[Veeam Agent Management Guide](https://helpcenter.veeam.com/docs/backup/agents/)
-
 
 ### Additional Veeam Resources
 

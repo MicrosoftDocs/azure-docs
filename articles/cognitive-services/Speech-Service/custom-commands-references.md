@@ -3,13 +3,14 @@ title: 'Custom Commands concepts and definitions - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn about concepts and definitions for Custom Commands applications.
 services: cognitive-services
-author: singhsaumya
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.author: sausin
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Custom Commands concepts and definitions
@@ -20,7 +21,7 @@ This article serves as a reference for concepts and definitions for Custom Comma
 Commands are the basic building blocks of a Custom Commands application. A command is a set of configurations required to complete a specific task defined by a user.
 
 ### Example sentences
-Example utterances are the set examples the user can say to trigger a particular command. You need to provide only a sample of utterances and not an exhaustive list. 
+Example utterances are the set examples the user can say to trigger a particular command. You need to provide only a sample of utterances and not an exhaustive list.
 
 ###	Parameters
 Parameters are information required by the commands to complete a task. In complex scenarios, parameters can also be used to define conditions that trigger custom actions.
@@ -37,9 +38,6 @@ Parameters are information required by commands to complete a task. In complex s
 
 ### Name
 A parameter is identified by the name property. You should always give a descriptive name to a parameter. A parameter can be referred across different sections, for example, when you construct conditions, speech responses, or other actions.
- 
-### IsGlobal
-This check box indicates whether the scope of this parameter is shared across all the commands in the application. If a parameter is global, its value can potentially be provided from any command scope. After a value is assigned, it can be referred from any of the commands. 
 
 ### Required
 This check box indicates whether a value for this parameter is required for command fulfillment or completion. You must configure responses to prompt the user to provide a value if a parameter is marked as required.
@@ -49,12 +47,24 @@ Note that, if you configured a **required parameter** to have a **Default value*
 ### Type
 Custom Commands supports the following parameter types:
 
+* Age
+* Currency
 * DateTime
+* Dimension
+* Email
 * Geography
 * Number
+* Ordinal
+* Percentage
+* PersonName
+* PhoneNumber
 * String
+* Temperature
+* Url
 
-All these parameter types except for Geography, support default value configuration, which you can configure from the portal.
+Every locale supports the "String" parameter type, but availability of all other types differs by locale. Custom Commands uses LUIS's prebuilt entity resolution, so the availability of a parameter type in a locale depends on LUIS's prebuilt entity support in that locale. You can find [more details on LUIS's prebuilt entity support per locale](../luis/luis-reference-prebuilt-entities.md). Custom LUIS entities (such as machine learned entities) are currently not supported.
+
+Some parameter types like Number, String and DateTime support default value configuration, which you can configure from the portal.
 
 ### Configuration
 Configuration is a parameter property defined only for the type String. The following values are supported:
@@ -77,7 +87,7 @@ A rule in Custom Commands is defined by a set of *conditions* that, when met, ex
 ### Types
 Custom Commands supports the following rule categories:
 
-* **Completion rules**: These rules must be executed upon command fulfillment. All the rules configured in this section for which the conditions are true will be executed. 
+* **Completion rules**: These rules must be executed upon command fulfillment. All the rules configured in this section for which the conditions are true will be executed.
 * **Interaction rules**: These rules can be used to configure additional custom validations, confirmations, and a one-step correction, or to accomplish any other custom dialog logic. Interaction rules are evaluated at each turn in the processing and can be used to trigger completion rules.
 
 The different actions configured as part of a rule are executed in the order in which they appear in the authoring portal.
@@ -114,7 +124,6 @@ The post-execution state is the dialog state after processing the current input 
 * **Complete the command**: Complete the command and no additional rules of the command will be processed.
 * **Execute completion rules**: Execute all the valid completion rules.
 * **Wait for user's input**: Wait for the next user input.
-
 
 
 ## Next steps

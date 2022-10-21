@@ -5,17 +5,16 @@ description: Provides a general overview of Azure Active Directory monitoring.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk  
 
@@ -43,7 +42,7 @@ Currently, you can route the logs to:
 
 You'll need an Azure AD premium license to access the Azure AD sign in logs.
 
-For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 To deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant.
 

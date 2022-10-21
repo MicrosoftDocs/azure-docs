@@ -137,7 +137,7 @@ One of the benefits of using Azure is that you can deploy your applications into
 
 ### Azure portal
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](../../azure-resource-manager/management/manage-resources-portal.md).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](../../azure-portal/azure-portal-overview.md) and [Manage Azure resources through portal](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### Resources
 
@@ -153,15 +153,15 @@ An Azure Resource Manager template is a JavaScript Object Notation (JSON) file t
 
 ### Automation
 
-In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure command-line interface (CLI).
+In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure CLI.
 
 #### Azure PowerShell
 
 Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
-#### Azure command-line interface
+#### Azure CLI
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+The Azure CLI provides a command-line experience for creating, managing, and deleting Azure resources. The Azure CLI is available for Windows, Linux, and macOS. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### REST APIs
 
@@ -275,7 +275,7 @@ The following mechanisms are available for deployment automation:
 
 - **Template linking**: From within one Resource Manager template, you can link to another template. This allows deployment decomposition into a set of targeted, purpose-specific templates.
 
-You can build Resource Manager templates in any text editor. However, the Azure SDK for Visual Studio includes tools to help you. By using Visual Studio, you can add resources to the template through a wizard, then deploy and debug the template directly from within Visual Studio. For more information, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+You can build Resource Manager templates in any text editor. However, the Azure SDK for Visual Studio includes tools to help you. By using Visual Studio, you can add resources to the template through a wizard, then deploy and debug the template directly from within Visual Studio. For more information, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 Finally, you can convert existing resource groups into a reusable template from the Azure portal. This can be helpful if you want to create a deployable template of an existing resource group, or you just want to examine the underlying JSON. To export a resource group, select the **Automation Script** button from the resource group's settings.
 
@@ -331,58 +331,45 @@ In addition to deploying Azure compute resources individually, you can use the A
 
 #### Command-line interface (CLI)
 
-As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. When you're using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
+As with the PowerShell module, the Azure CLI provides deployment automation and can be used on Windows, OS X, or Linux systems. When you're using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### Access and security for virtual machines
 
-Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/public-ip-addresses.md).
+Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
 You manage access to the virtual machine over the public IP address by using a network security group (NSG) resource. An NSG acts like a firewall and allows or denies traffic across the network interface or subnet on a set of defined ports. For instance, to create a Remote Desktop session with an Azure VM, you need to configure the NSG to allow inbound traffic on port 3389. For more information, see [Opening ports to a VM in Azure using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
 Finally, as with the management of any computer system, you should provide security for an Azure virtual machine at the operating system by using security credentials and software firewalls.
 
-## Azure Storage
-
-Azure Storage is a Microsoft-managed service that provides durable, scalable, and redundant storage. You can add an Azure storage account as a resource to any resource group by using any resource deployment method. Azure includes four storage types: Blob storage, File Storage, Table storage, and Queue storage. When deploying a storage account, two account types are available, general-purpose and blob storage. A general-purpose storage account gives you access to all four storage types. Blob storage accounts are similar to general-purpose accounts, but contain specialized blobs that include hot and cold access tiers. For more information on blob storage, see [Azure Blob storage](../../storage/blobs/storage-blob-storage-tiers.md).
-
-Azure storage accounts can be configured with different levels of redundancy:
-
-- **Locally redundant storage** provides high availability by ensuring that three copies of all data are made synchronously before a write is deemed successful. These copies are stored in a single facility in a single region. The replicas reside in separate fault domains and upgrade domains. This means the data is available even if a storage node that's holding your data fails or is taken offline to be updated.
-
-- **Geo-redundant storage** makes three synchronous copies of the data in the primary region for high availability, and then asynchronously makes three replicas in a paired region for disaster recovery.
-
-- **Read-access geo-redundant storage** is geo-redundant storage plus the ability to read the data in the secondary region. This ability makes it suitable for partial disaster recovery. If there's a problem with the primary region, you can change your application to have read-only access to the paired region.
+## Azure storage
+Azure provides Azure Blob storage, Azure Files, Azure Table storage, and Azure Queue storage to address a variety of different storage use cases, all with high durability, scalability, and redundancy guarantees. Azure storage services are managed through an Azure storage account that can be deployed as a resource to any resource group by using any resource deployment method. 
 
 ### Use cases
-
 Each storage type has a different use case.
 
 #### Blob storage
+The word *blob* is an acronym for *binary large object*. Blobs are unstructured files like those that you store on your computer. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
-The word *blob* is an acronym for *binary large object*. Blobs are unstructured files like those that you store on your computer. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage. Azure Blob storage also holds Azure Virtual Machines data disks.
+Azure Blob storage supports three kinds of blobs:
 
-Azure Storage supports three kinds of blobs:
+- **Block blobs** are used to hold ordinary files up to 195 GiB in size (4 MiB × 50,000 blocks). The primary use case for block blobs is the storage of files that are read from beginning to end, such as media files or image files for websites. They are named block blobs because files larger than 64 MiB must be uploaded as small blocks. These blocks are then consolidated (or committed) into the final blob.
 
-- **Block blobs** are used to hold ordinary files up to 195 GB in size (4 MB × 50,000 blocks). The primary use case for block blobs is the storage of files that are read from beginning to end, such as media files or image files for websites. They are named block blobs because files larger than 64 MB must be uploaded as small blocks. These blocks are then consolidated (or committed) into the final blob.
+- **Page blobs** are used to hold random-access files up to 1 TiB in size. Page blobs are used primarily as the backing storage for the VHDs that provide durable disks for Azure Virtual Machines, the IaaS compute service in Azure. They are named page blobs because they provide random read/write access to 512 byte pages.
 
-- **Page blobs** are used to hold random-access files up to 1 TB in size. Page blobs are used primarily as the backing storage for the VHDs that provide durable disks for Azure Virtual Machines, the IaaS compute service in Azure. They are named page blobs because they provide random read/write access to 512-byte pages.
+- **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that's running on multiple VMs. A single append blob can be up to 195 GiB.
 
-- **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that's running on multiple VMs. A single append blob can be up to 195 GB.
+For more information, see [What is Azure Blob storage](../../storage/blobs/storage-blobs-overview.md).
 
-For more information, see [Get started with Azure Blob storage using .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+#### Azure Files
+Azure Files offers fully managed file shares in the cloud that are accessble via the industry standard Server Message Block (SMB) or Network File System (NFS) protocols. The service supports both SMB 3.1.1, SMB 3.0, SMB 2.1, NFS 4.1. With Azure Files, you can migrate applications that rely on file shares to Azure quickly and without costly rewrites. Applications running on Azure virtual machines, in cloud services, or from on-premises clients can mount a file share in the cloud.
 
-#### File storage
+Because a Azure file shares expose a standard SMB or NFS endpoints, applications running in Azure can access data in the share via file system I/O APIs. Developers can therefore use their existing code and skills to migrate existing applications. IT pros can use PowerShell cmdlets to create, mount, and manage Azure file shares as part of the administration of Azure applications.
 
-Azure File storage is a service that offers file shares in the cloud by using the standard Server Message Block (SMB) protocol. The service supports both SMB 2.1 and SMB 3.0. With Azure File storage, you can migrate applications that rely on file shares to Azure quickly and without costly rewrites. Applications running on Azure virtual machines, in cloud services, or from on-premises clients can mount a file share in the cloud. This is similar to how a desktop application mounts a typical SMB share. Any number of application components can then mount and access the File storage share simultaneously.
-
-Because a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file system I/O APIs. Developers can therefore use their existing code and skills to migrate existing applications. IT pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
-
-For more information, see [Get started with Azure File storage on Windows](../../storage/files/storage-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
+For more information, see [What is Azure Files](../../storage/files/storage-files-introduction.md).
 
 #### Table storage
-
 Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schema-less design. Because Table storage is schema-less, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table. A storage account can contain any number of tables, up to the capacity limit of the storage account.
@@ -390,7 +377,6 @@ You can use Table storage to store flexible datasets, such as user data for web 
 For more information, see [Get started with Azure Table storage](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 #### Queue storage
-
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
 For more information, see [Get started with Azure Queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md).
@@ -413,17 +399,17 @@ In addition to deploying Azure resources individually, you can use the Azure Pow
 
 #### Command-line interface (CLI)
 
-As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
+As with the PowerShell module, the Azure CLI provides deployment automation and can be used on Windows, macOS, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
-### Access and security for Azure Storage
+### Access and security for Azure storage services
 
-Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries.
+Azure storage services are accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries.
 
 #### Virtual machine disks
 
-When you're deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see "Manage Azure disks" for [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) and [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
+When you're deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GiB, a single VM disk has a maximum size of 1,023 GiB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see "Manage Azure disks" for [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) and [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 #### Storage tools
 
@@ -431,7 +417,7 @@ Azure storage accounts can be accessed through many different storage explorers,
 
 #### Storage API
 
-Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, and automatic retries. For more information, see [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
+Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, the Azure storage service offer programming libraries for several popular languages. These libraries simplify working with the Azure storage platform by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, and automatic retries. For more information, see [Azure storage services REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 #### Storage access keys
 

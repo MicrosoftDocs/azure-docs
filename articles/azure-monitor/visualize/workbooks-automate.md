@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 07/05/2022
 ---
 
 # Programmatically manage workbooks
@@ -188,7 +188,7 @@ This template shows how to deploy a simple workbook that displays a 'Hello World
 | `workbookType` | The gallery that the workbook will be shown under. Supported values include workbook, `tsg`, Azure Monitor, etc. |
 | `workbookSourceId` | The ID of the resource instance to which the workbook will be associated. The new workbook will show up related to this resource instance - for example in the resource's table of content under _Workbook_. If you want your workbook to show up in the workbook gallery in Azure Monitor, use the string _Azure Monitor_ instead of a resource ID. |
 | `workbookId` | The unique guid for this workbook instance. Use _[newGuid()]_ to automatically create a new guid. |
-| `kind` | Used to specify if the created workbook is shared or private. Use value _shared_ for shared workbooks and _user_ for private ones. |
+| `kind` | Used to specify if the created workbook is shared. All new workbooks will use the value _shared_. |
 | `location` | The Azure location where the workbook will be created. Use _[resourceGroup().location]_ to create it in the same location as the resource group |
 | `serializedData` | Contains the content or payload to be used in the workbook. Use the Resource Manager template from the workbooks UI to get the value |
 
@@ -286,7 +286,7 @@ The example below demonstrates the customization of an exported Workbook Azure R
 }
 ```
 
-In this example, the following steps facilitated the customization of an exported Azure Resource Manager template:
+In this example, the following steps facilitate the customization of an exported Azure Resource Manager template:
 1. Export the Workbook as an Azure Resource Manager template as explained in the above section
 2. In the template's `variables` section:
     1. Parse the `serializedData` value into a JSON object variable, which creates a JSON structure including an array of items that represent the content of the Workbook.
@@ -302,4 +302,4 @@ For a technical reason, this mechanism cannot be used to create workbook instanc
 
 ## Next steps
 
-Explore how workbooks are being used to power the new [Azure Monitor for Storage experience](../insights/storage-insights-overview.md).
+Explore how workbooks are being used to power the new [Storage insights experience](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).

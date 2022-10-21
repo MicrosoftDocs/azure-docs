@@ -3,11 +3,10 @@ title: Build the landing page for your transactable SaaS offer in the commercial
 description: Learn how to build a landing page for your transactable SaaS offer.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 01/27/2022
 ---
 
 # Build the landing page for your transactable SaaS offer in the commercial marketplace
@@ -41,7 +40,9 @@ The following sections will guide you through the process of building a landing 
 
 ## Create an Azure AD app registration
 
-The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer's [Technical configuration](plan-saas-offer.md#technical-information) page.
+The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer's [Technical configuration](plan-saas-offer.md#technical-information) page.)
+
+[!INCLUDE [pound-sign-note](./includes/pound-sign-note.md)]
 
 The first step to using the identity is to make sure your landing page is registered as an Azure AD application. Registering the application lets you use Azure AD to authenticate users and request access to user resources. It can be considered the application's definition, which lets the service know how to issue tokens to the app based on the app's settings.
 
@@ -74,7 +75,7 @@ This enables the solution to work in scenarios that observe the [separation of c
 
 ## Resolve the marketplace purchase identification token
 
-When the buyer is sent to your landing page, a token is added to the URL parameter. This token is different from both the Azure AD-issued token and the access token used for service-to-service authentication, and is used as an input for the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) resolve call to get the details of the subscription. As with all calls to the SaaS fulfillment APIs, your service-to-service request will be authenticated with an access token that is based on the app's Azure AD Application ID user for service-to-service authentication.
+When the buyer is sent to your landing page, a token is added to the URL parameter. This token is different from both the Azure AD-issued token and the access token used for service-to-service authentication, and is used as an input for the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) resolve call to get the details of the subscription. As with all calls to the SaaS fulfillment APIs, your service-to-service request will be authenticated with an access token that is based on the app's Azure AD Application ID user for service-to-service authentication.
 
 > [!NOTE]
 > In most cases, it's preferable to make this call from a second, single-tenant application. See [Use two Azure AD apps to improve security in production](#use-two-azure-ad-apps-to-improve-security-in-production) earlier in this article.
@@ -85,11 +86,11 @@ To authenticate your application with the SaaS fulfillment APIs, you need an acc
 
 ### Call the resolve endpoint
 
-The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) endpoint that can be called to confirm the validity of the marketplace token and to return information about the subscription.
+The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) endpoint that can be called to confirm the validity of the marketplace token and to return information about the subscription.
 
 ## Read information from claims encoded in the ID token
 
-As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) flow, Azure AD adds an [ID token](../active-directory/develop/id-tokens.md) to the request when the buyer is sent to the landing page. This token contains multiple pieces of basic information that could be useful in the activation process, including the information seen in this table.
+As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) flow, put the tenant id value you receive in `https://login.microsoftonline.com/{tenant}/v2.0`. Azure AD adds an [ID token](../active-directory/develop/id-tokens.md) to the request when the buyer is sent to the landing page. This token contains multiple pieces of basic information that could be useful in the activation process, including the information seen in this table.
 
 | Value | Description |
 | ------------ | ------------- |
@@ -98,9 +99,8 @@ As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md
 | email | User's email address. Note that this field may be empty. |
 | name | Human-readable value that identifies the subject of the token. In this case, it will be the buyer's name. |
 | oid | Identifier in the Microsoft identity system that uniquely identifies the user across applications. Microsoft Graph will return this value as the ID property for a given user account. |
-| tid | Identifier that represents the Azure AD tenant the buyer is from. In the case of an MSA identity, this will always be ``9188040d-6c67-4c5b-b112-36a304b66dad``. For more information, see the note in the next section: Use the Microsoft Graph API. |
+| tid | Identifier that represents the Azure AD tenant the buyer is from. In the case of an MSA identity, this will always be `9188040d-6c67-4c5b-b112-36a304b66dad`. For more information, see the note in the next section: Use the Microsoft Graph API. |
 | sub | Identifier that uniquely identifies the user in this specific application. |
-|||
 
 ## Use the Microsoft Graph API
 
@@ -115,7 +115,6 @@ The ID token contains basic information to identify the buyer, but your activati
 | mobilePhone | Primary cellular telephone number for the user. |
 | preferredLanguage | ISO 639-1 code for the user's preferred language. |
 | surname | Last name of the user. |
-|||
 
 Additional properties—such as the name of the user's company or the user's location (country)—can be selected for inclusion in the request. See [properties for the user resource type](/graph/api/resources/user#properties) for more details.
 
@@ -127,3 +126,7 @@ Most apps that are registered with Azure AD grant delegated permissions to read 
 ## Next steps
 
 - [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
+
+**Video tutorials**
+
+- [Building a Simple SaaS Landing Page in .NET](https://go.microsoft.com/fwlink/?linkid=2196323)

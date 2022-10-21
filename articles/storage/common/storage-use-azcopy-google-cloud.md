@@ -10,26 +10,21 @@ ms.author: normesta
 ms.subservice: common
 ---
 
-# Copy data from Google Cloud Storage to Azure Storage by using AzCopy (preview)
+# Copy data from Google Cloud Storage to Azure Storage by using AzCopy
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you copy objects, directories, and buckets from Google Cloud Storage to Azure Blob Storage by using AzCopy.
 
-> [!IMPORTANT]
-> Copying data from Google Cloud Storage to Azure Storage is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Choose how you'll provide authorization credentials
 
-* To authorize with Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
+- To authorize with Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
 
-* To authorize with Google Cloud Storage, use a service account key.
+- To authorize with Google Cloud Storage, use a service account key.
 
 ### Authorize with Azure Storage
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-> [!NOTE] 
+> [!NOTE]
 > The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -53,7 +48,7 @@ AzCopy uses the [Put Block From URL](/rest/api/storageservices/put-block-from-ur
 > [!TIP]
 > The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
- These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts. 
+ These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts.
 
 ### Copy an object
 
@@ -68,7 +63,6 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 ```azcopy
 azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'
 ```
-
 
 ### Copy a directory
 
@@ -115,7 +109,7 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### Copy all buckets in a Google Cloud project 
+### Copy all buckets in a Google Cloud project
 
 First, set the `GOOGLE_CLOUD_PROJECT` to project ID of Google Cloud project.
 
@@ -131,7 +125,7 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### Copy a subset of buckets in a Google Cloud project 
+### Copy a subset of buckets in a Google Cloud project
 
 First, set the `GOOGLE_CLOUD_PROJECT` to project ID of Google Cloud project.
 
@@ -151,13 +145,13 @@ azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccou
 
 Google Cloud Storage has a different set of naming conventions for bucket names as compared to Azure blob containers. You can read about them [here](https://cloud.google.com/storage/docs/naming-buckets). If you choose to copy a group of buckets to an Azure storage account, the copy operation might fail because of naming differences.
 
-AzCopy handles three of the most common issues that can arise; buckets that contain periods, buckets that contain consecutive hyphens, and buckets that contain underscores. Google Cloud Storage bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. If the bucket name has an underscore (`_`), then AzCopy replaces the underscore with a hyphen (For example: a bucket named `my_bucket` becomes `my-bucket`. 
+AzCopy handles three of the most common issues that can arise; buckets that contain periods, buckets that contain consecutive hyphens, and buckets that contain underscores. Google Cloud Storage bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. If the bucket name has an underscore (`_`), then AzCopy replaces the underscore with a hyphen. For example, a bucket named `my_bucket` becomes `my-bucket`.
 
 ## Handle differences in object naming rules
 
 Google Cloud Storage has a different set of naming conventions for object names as compared to Azure blobs. You can read about them [here](https://cloud.google.com/storage/docs/naming-objects).
 
-Azure Storage does not permit object names (or any segment in the virtual directory path) to end with trailing dots (For example `my-bucket...`). Trailing dots are trimmed off when the copy operation is performed. 
+Azure Storage does not permit object names (or any segment in the virtual directory path) to end with trailing dots (For example `my-bucket...`). Trailing dots are trimmed off when the copy operation is performed.
 
 ## Handle differences in object metadata
 
@@ -203,4 +197,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

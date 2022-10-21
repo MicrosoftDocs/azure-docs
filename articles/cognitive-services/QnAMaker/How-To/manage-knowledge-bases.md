@@ -3,19 +3,21 @@ title: Manage knowledge bases - QnA Maker
 description: QnA Maker allows you to manage your knowledge bases by providing access to the knowledge base settings and content.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/18/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Create knowledge base and manage settings
 
 QnA Maker allows you to manage your knowledge bases by providing access to the knowledge base settings and data sources.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Prerequisites
 
-> [!div class="checklist"]
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
 ## Create a knowledge base
 
@@ -25,7 +27,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 
 1. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
 
-    If you haven't created the resource yet, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+    If you haven't created the resource yet, select **Stable** and **Create a QnA service**. You are directed to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
     When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
@@ -36,13 +38,14 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 1. In **Step 3**, name your knowledge base `My Sample QnA KB`.
 
 1. In **Step 4**, configure the settings with the following table:
-
+    
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Default answer text**| `Quickstart - default answer not found.`|
     |**+ Add URL**|`https://azure.microsoft.com/en-us/support/faq/`|
-    |**Chit-chat**|Select **Professional**|
+    |**Chit-chat**|Select **Professional**|  
+
 
 1. In **Step 5**, Select **Create your KB**.
 
@@ -66,19 +69,18 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
        |--|--|
        |Add URL|You can add new URLs to add new FAQ content to Knowledge base by clicking **Manage knowledge base -> '+ Add URL'** link.|
        |Delete URL|You can delete existing URLs by selecting the delete icon, the trash can.|
-       |Refresh content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content once. This is not setting a regular schedule of updates.|
+       |Refresh content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This action will update the knowledge base with latest URL content once. This action is not setting a regular schedule of updates.|
        |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
     |Import|You can also import any existing knowledge base by selecting **Import Knowledge base** button. |
     |Update|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if necessary.
 
+    <br/>
   1. Once you are done making changes to the knowledge base, select **Save and train** in the top-right corner of the page in order to persist the changes.
 
        ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
        >[!CAUTION]
        >If you leave the page before selecting **Save and train**, all changes will be lost.
-
-
 
 ## Manage large knowledge bases
 
@@ -99,10 +101,3 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal.
 
 If you share your knowledge base with collaborators,](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB.
-
-## Next steps
-
-Learn about [managing the language](../index.yml) of all knowledge bases in a resource.
-
-* Edit QnA pairs
-* Manage Azure resources used by QnA Maker

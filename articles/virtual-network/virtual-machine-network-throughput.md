@@ -9,7 +9,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -60,9 +59,6 @@ Once this limit is hit, additional connections are dropped. Connection establish
 Metrics are available in [Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or VMSS instances.
 
 ![Screenshot shows the Metrics page of Azure Monitor with a line chart and totals for inbound and outbound flows.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
-
-Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. 
-We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs. 
 
 ## Next steps
 

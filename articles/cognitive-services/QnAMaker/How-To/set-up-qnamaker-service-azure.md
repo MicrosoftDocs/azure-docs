@@ -3,12 +3,15 @@ title: Set up a QnA Maker service - QnA Maker
 description: Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
-ms.date: 11/09/2020
+ms.topic: how-to
+ms.date: 09/14/2021
+ms.custom: ignite-fall-2021
 ---
 # Manage QnA Maker resources
 
-Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
+Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service. If you are trying the Custom question answering feature, you would need to create the Language resource and add the Custom question answering feature.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 A solid understanding of the following concepts is helpful before creating your resource:
 
@@ -17,11 +20,9 @@ A solid understanding of the following concepts is helpful before creating your 
 
 ## Create a new QnA Maker service
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the _subscription_ keys on the **Keys** page for the resource in the Azure portal.
 
-1. Sign in to the Azure portal and [create a QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
+1. Sign in to the Azure portal and [create a QnA Maker](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
 
 1. Select **Create** after you read the terms and conditions:
 
@@ -57,41 +58,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-# [QnA Maker managed (preview release)](#tab/v2)
-
-This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the *subscription* keys on the **Keys** page for the resource in the Azure portal.
-
-1. Sign in to the Azure portal and [create a QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
-
-1. Select **Create** after you read the terms and conditions:
-
-    ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
-
-1. In **QnA Maker**, check the Managed (preview) checkbox and select the appropriate tiers and regions:
-
-    ![Create a new QnA Maker managed service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
-
-    * Choose the **Subscription** under which the QnA Maker resource will be deployed.
-    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this QnA Maker managed (Preview) resource. QnA Maker managed (Preview) creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
-    * In the **Name** field, enter a unique name to identify this QnA Maker managed (Preview) service. 
-    * Choose the **Location** where you want the QnA Maker managed (Preview) service to be deployed. The management APIs and service endpoint will be hosted in this location. 
-    * Select the **Pricing tier** for the QnA Maker managed (Preview) service (free for preview). See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
-    * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
-    * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
-
-1. After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
-
-1. After deployment is completed, you'll see the following resources created in your subscription:
-
-    ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
-
-    The resource with the _Cognitive Services_ type has your _subscription_ keys.
-
----
-
 ## Upgrade Azure resources
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 ### Upgrade QnA Maker SKU
 
@@ -150,34 +117,10 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
 
 Free Search resources are deleted after 90 days without receiving an API call.
-    
-# [QnA Maker managed (preview release)](#tab/v2)
-
-### Upgrade the Azure Cognitive Search service
-
-If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
-
-Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
-
-1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
-
-    ![QnA Maker Azure search resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
-
-1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
-
-1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
-
-### Inactivity policy for free Search resources
-
-If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
-
-Free Search resources are deleted after 90 days without receiving an API call.
-
----
 
 ## Delete Azure resources
 
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
+If you delete any of the Azure resources used for your knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
 
 ## Next steps
 

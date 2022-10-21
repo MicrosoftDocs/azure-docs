@@ -25,7 +25,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: FAQ
-            url: avere-vfxt-faq.md
+            url: avere-vfxt-faq.yml
 
   # Card
   - title: Plan and prepare

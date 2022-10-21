@@ -2,9 +2,10 @@
 title: Using customer-managed storage accounts in Azure Monitor Log Analytics
 description: Use your own storage account for Log Analytics scenarios
 ms.topic: conceptual
-author: noakup
-ms.author: noakuper
-ms.date: 09/03/2020
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: noakuper
+ms.date: 04/04/2022
 ---
 
 # Using customer-managed storage accounts in Azure Monitor Log Analytics
@@ -17,17 +18,20 @@ Log Analytics relies on Azure Storage in various scenarios. This use is typicall
 ## Ingesting Azure Diagnostics extension logs (WAD/LAD)
 The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Log Analytics to review and analyze them.
 ### How to collect Azure Diagnostics extension logs from your storage account
-Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/storage%20insights/createorupdate).
+Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/storage-insights/create-or-update).
 
 Supported data types:
-* Syslog
-* Windows events
+* [Syslog](../agents/data-sources-syslog.md)
+* [Windows events](../agents/data-sources-windows-events.md)
 * Service Fabric
-* ETW Events
-* IIS Logs
+* [ETW Events](../agents/data-sources-event-tracing-windows.md)
+* [IIS Logs](../agents/data-sources-iis-logs.md)
 
 ## Using Private links
-Customer-managed storage accounts are used to ingest Custom logs or IIS logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 
+Customer-managed storage accounts are used to ingest Custom logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 
+
+> [!IMPORTANT]
+> Collection of IIS logs is not supported with private link.
 
 ### Using a customer-managed storage account over a Private Link
 #### Workspace requirements
@@ -61,6 +65,11 @@ The storage account and the key vault must be in the same region, but they can b
 To configure your Azure Storage account to use CMK with Azure Key Vault, use the [Azure portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), or the [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
 
 ## Link storage accounts to your Log Analytics workspace
+
+> [!NOTE]
+> - Delending if you link storage account for queries, or for log alerts, existing queries will be removed from workspace. Copy saved searches and log alerts that you need before this configuration. You can find directions for moving saved queries and log alerts in [workspace move procedure](./move-workspace-region.md). 
+> - You can connect up to five storage accounts for the ingestion of Custom logs & IIS logs, and one storage account for Saved queries and Saved log alert queries (each).
+
 ### Using the Azure portal
 On the Azure portal, open your Workspace' menu and select *Linked storage accounts*. A blade will open, showing the linked storage accounts by the use cases mentioned above (Ingestion over Private Link, applying CMK to saved queries or to alerts).
 ![Linked storage accounts blade image](./media/private-storage/all-linked-storage-accounts.png)
@@ -98,7 +107,7 @@ To replace a storage account used for ingestion,
 When using your own storage account, retention is up to you. Log Analytics won't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
 
 #### Consider load
-Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
+Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ### Related charges
 Storage accounts are charged by the volume of stored data, the type of the storage, and the type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables).

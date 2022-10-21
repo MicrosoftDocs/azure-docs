@@ -8,10 +8,9 @@ manager: timlt
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: azure
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte

@@ -4,14 +4,16 @@ description: Set up plans for an Azure Container offer in Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 03/15/2022
 ---
 
 # Set up plans for an Azure Container offer
 
 The **Plan setup** page lets you configure which clouds the plan is available in. Your answers on this tab affect which fields are displayed on other tabs.
+
+Container offers for Kubernetes applications are only available in Azure Global. If you chose to sell a Kubernetes application in the offer setup page you may not see this tab.
 
 ## Azure regions
 

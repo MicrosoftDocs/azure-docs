@@ -6,76 +6,107 @@ author: aaronpowell
 ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 10/08/2021
 ---
 
 # Custom authentication in Azure Static Web Apps
 
 Azure Static Web Apps provides [managed authentication](authentication-authorization.md) that uses provider registrations managed by Azure. To enable more flexibility over the registration, you can override the defaults with a custom registration.
 
-- Custom authentication also allows you to [configure custom providers](#configure-a-custom-openid-connect-provider) that support [OpenID Connect](https://openid.net/connect/). This configuration allows the registration of multiple external providers.
+- Custom authentication also allows you to [configure custom providers](./authentication-custom.md?tabs=openid-connect#configure-a-custom-identity-provider) that support [OpenID Connect](https://openid.net/connect/). This configuration allows the registration of multiple external providers.
 
 - Using any custom registrations disables all pre-configured providers.
 
-- Specifically for Azure Active Directory (AAD) registrations, you have the option of providing a tenant, which allows you to bypass the [invitation flow](./authentication-authorization.md#role-management) for group management.
-
 > [!NOTE]
-> Custom authentication is only available in the Standard tier of Azure Static Web Apps.
+> Custom authentication is only available in the Azure Static Web Apps Standard plan.
 
-## Override pre-configured provider
+## Configure a custom identity provider
 
-The settings used to override a provider are configured in the `auth` section of the [configuration file](configuration.md).
+Custom identity providers are configured in the `auth` section of the [configuration file](configuration.md).
 
-To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
-
-### Configuration
-
-The following tables contain the different configuration options for each provider.
+To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md#configure-application-settings) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
 # [Azure Active Directory](#tab/aad)
 
-| Field Path                             | Description                                                                                                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant.                                                              |
-| `registration.clientIdSettingName`     | The name of an application setting that is configured with the Application (client) ID for the Azure AD app registration. |
-| `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration.            |
+To create the registration, begin by creating the following [application settings](application-settings.md#configure-application-settings):
+
+| Setting Name | Value |
+| --- | --- |
+| `AZURE_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
+| `AZURE_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
+
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
+
+Azure Active Directory providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
+
+### Azure Active Directory Version 1
 
 ```json
 {
   "auth": {
-    "azureActiveDirectory": {
-      "registration": {
-        "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-        "clientIdSettingName": "<AAD_CLIENT_ID>",
-        "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
+        }
       }
     }
   }
 }
 ```
 
-Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 then you need to add the following entry to your configuration.
+Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
-```json
-"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
-```
-
-For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
-
-# [Apple](#tab/apple)
-
-| Field Path                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
+### Azure Active Directory Version 2
 
 ```json
 {
   "auth": {
-    "apple": {
-      "registration": {
-        "clientIdSettingName": "<APPLE_CLIENT_ID>",
-        "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
+        }
+      }
+    }
+  }
+}
+```
+
+Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
+
+For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately) on using an existing registration.
+
+To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Azure AD app to a set of users in an Azure AD tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+
+> [!NOTE]
+> While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
+
+# [Apple](#tab/apple)
+
+To create the registration, begin by creating the following [application settings](application-settings.md):
+
+| Setting Name | Value |
+| --- | --- |
+| `APPLE_CLIENT_ID` | The Apple client ID. |
+| `APPLE_CLIENT_SECRET` | The Apple client secret. |
+
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
+
+```json
+{
+  "auth": {
+    "identityProviders": {
+      "apple": {
+        "registration": {
+          "clientIdSettingName": "APPLE_CLIENT_ID",
+          "clientSecretSettingName": "APPLE_CLIENT_SECRET"
+        }
       }
     }
   }
@@ -86,19 +117,24 @@ For more information on how to configure Apple as an authentication provider, se
 
 # [Facebook](#tab/facebook)
 
-| Field Path                          | Description                                                                            |
-| ----------------------------------- | -------------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | The name of the application setting for the App ID.                                    |
-| `registration.appId`                | The value of the App ID. This value can be used as an alternative to the `appIdSettingName`. |
-| `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                                |
+To create the registration, begin by creating the following [application settings](application-settings.md):
+
+| Setting Name | Value |
+| --- | --- |
+| `FACEBOOK_APP_ID` | The Facebook application ID. |
+| `FACEBOOK_APP_SECRET` | The Facebook application secret. |
+
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
   "auth": {
-    "facebook": {
-      "registration": {
-        "appIdSettingName": "<FACEBOOK_APP_ID>",
-        "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
+    "identityProviders": {
+      "facebook": {
+        "registration": {
+          "appIdSettingName": "FACEBOOK_APP_ID",
+          "appSecretSettingName": "FACEBOOK_APP_SECRET"
+        }
       }
     }
   }
@@ -109,18 +145,25 @@ For more information on how to configure Facebook as an authentication provider,
 
 # [GitHub](#tab/github)
 
-| Field Path                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
+
+To create the registration, begin by creating the following [application settings](application-settings.md):
+
+| Setting Name | Value |
+| --- | --- |
+| `GITHUB_CLIENT_ID` | The GitHub client ID. |
+| `GITHUB_CLIENT_SECRET` | The GitHub client secret. |
+
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
   "auth": {
-    "github": {
-      "registration": {
-        "clientIdSettingName": "<GITHUB_CLIENT_ID>",
-        "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+    "identityProviders": {
+      "github": {
+        "registration": {
+          "clientIdSettingName": "GITHUB_CLIENT_ID",
+          "clientSecretSettingName": "GITHUB_CLIENT_SECRET"
+        }
       }
     }
   }
@@ -129,18 +172,25 @@ For more information on how to configure Facebook as an authentication provider,
 
 # [Google](#tab/google)
 
-| Field Path                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
+
+To create the registration, begin by creating the following [application settings](application-settings.md):
+
+| Setting Name | Value |
+| --- | --- |
+| `GOOGLE_CLIENT_ID` | The Google client ID. |
+| `GOOGLE_CLIENT_SECRET` | The Google client secret. |
+
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
   "auth": {
-    "google": {
-      "registration": {
-        "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
-        "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
+    "identityProviders": {
+      "google": {
+        "registration": {
+          "clientIdSettingName": "GOOGLE_CLIENT_ID",
+          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
+        }
       }
     }
   }
@@ -151,19 +201,24 @@ For more information on how to configure Google as an authentication provider, s
 
 # [Twitter](#tab/twitter)
 
-| Field Path                               | Description                                                                                        |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                          |
-| `registration.consumerKey`               | The value of the Consumer Key. This value can be used as an alternative to the `consumerKeySettingName`. |
-| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                       |
+To create the registration, begin by creating the following [application settings](application-settings.md):
+
+| Setting Name | Value |
+| --- | --- |
+| `TWITTER_CONSUMER_KEY` | The Twitter consumer key. |
+| `TWITTER_CONSUMER_SECRET` | The Twitter consumer secret. |
+
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
   "auth": {
-    "twitter": {
-      "registration": {
-        "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
-        "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+    "identityProviders": {
+      "twitter": {
+        "registration": {
+          "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
+          "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET"
+        }
       }
     }
   }
@@ -172,11 +227,9 @@ For more information on how to configure Google as an authentication provider, s
 
 For more information on how to configure Twitter as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
 
----
+# [OpenID Connect](#tab/openid-connect)
 
-## Configure a custom OpenID Connect provider
-
-This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). The following steps are required to use an custom OIDC provider.
+You can configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). The following steps are required to use an custom OIDC provider.
 
 - One or more OIDC providers are allowed.
 - Each provider must have a unique name in the configuration.
@@ -186,12 +239,19 @@ This section shows you how to configure Azure Static Web Apps to use a custom au
 
 You're required to register your application's details with an identity provider. Check with the provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
 
+Once the application is registered with the identity provider, create the following application secrets in the [application settings](application-settings.md) of the Static Web App:
+
+| Setting Name | Value |
+| --- | --- |
+| `MY_PROVIDER_CLIENT_ID` | The client ID generated by the authentication provider for your static web app. |
+| `MY_PROVIDER_CLIENT_SECRET` | The client secret generated by the authentication provider's custom registration for your static web app. |
+
+If you register additional providers, each one needs an associated client ID and client secret store in application settings.
+
 > [!IMPORTANT]
 > Application secrets are sensitive security credentials. Do not share this secret with anyone, distribute it within a client application, or check into source control.
 
 Once you have the registration credentials, use the following steps to create a custom registration.
-
-1. Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later. Alternatively, the client ID can be included in the configuration file.
 
 1. You need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
@@ -201,20 +261,20 @@ Once you have the registration credentials, use the following steps to create a 
    {
      "auth": {
        "identityProviders": {
-         "openIdConnectProviders": {
+         "customOpenIdConnectProviders": {
            "myProvider": {
              "registration": {
-               "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID>",
+               "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
                "clientCredential": {
-                 "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
+                 "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET"
                },
                "openIdConnectConfiguration": {
-                 "wellKnownOpenIdConfiguration": "https://<MY_ID_SERVER>/.well-known/openid-configuration"
+                 "wellKnownOpenIdConfiguration": "https://<PROVIDER_ISSUER_URL>/.well-known/openid-configuration"
                }
              },
              "login": {
                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-               "scope": [],
+               "scopes": [],
                "loginParameterNames": []
              }
            }
@@ -224,34 +284,40 @@ Once you have the registration credentials, use the following steps to create a 
    }
    ```
 
-- The provider name, `myProvider` in this example, is the unique identifier used by Azure Static Web Apps.
-- The `registration` object that contains the client ID and client secret.
-- The `wellKnownOpenIdConfiguration` uses the path to the _Issuer URL_ of the provider.
-- The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
+  - The provider name, `myProvider` in this example, is the unique identifier used by Azure Static Web Apps.
+  - Make sure to replace `<PROVIDER_ISSUER_URL>` with the path to the _Issuer URL_ of the provider.
+  - The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
 
-### Login, logout, and purging user details
+---
 
-To use a custom OIDC provider, use the following URL patterns.
+## Authentication callbacks
+
+Identity providers require a redirect URL to complete the login or logout request. Most providers require that you add the callback URLs to an allowlist. The following endpoints are available as redirect destinations.
+
+| Type   | URL pattern                                                 |
+| ------ | ----------------------------------------------------------- |
+| Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
+| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
+
+If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
+
+> [!Note]
+> These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
+
+## Login, logout, and user details
+
+To use a custom identity provider, use the following URL patterns.
 
 | Action             | Pattern                                  |
 | ------------------ | ---------------------------------------- |
 | Login              | `/.auth/login/<PROVIDER_NAME_IN_CONFIG>` |
 | Logout             | `/.auth/logout`                          |
+| User details       | `/.auth/me`                              |
 | Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
-### Authentication callbacks
-
-Authentication providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
-
-| Type   | URL pattern                                                 |
-| ------ | ----------------------------------------------------------- |
-| Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME>/callback`  |
-| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME>/callback` |
-
-> [!Note]
-> These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
+If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Securing authentication secrets in Azure Key Vault](./key-vault-secrets.md)
+> [Set user roles programmatically](./assign-roles-microsoft-graph.md)

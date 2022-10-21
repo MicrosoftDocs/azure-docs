@@ -1,6 +1,5 @@
 ---
-title: Android MSAL configuration file | Azure
-titleSuffix: Microsoft identity platform
+title: Android MSAL configuration file
 description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Azure Active Directory.
 services: active-directory
 author: shoatman
@@ -28,8 +27,8 @@ This article will help you understand the various settings in the configuration 
 
 | Property | Data Type | Required | Notes |
 |-----------|------------|-------------|-------|
-| `client_id` | String | Yes | Your app's Client ID from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | String | Yes | Your app's Redirect URI from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | String | Yes | Your app's Client ID from the [Application registration page](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Yes | Your app's Redirect URI from the [Application registration page](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `broker_redirect_uri_registered` | Boolean | No | Possible values: `true`, `false` |
 | `authorities` | List\<Authority> | No | The list of authorities your app needs |
 | `authorization_user_agent` | AuthorizationAgent (enum) | No | Possible values: `DEFAULT`, `BROWSER`, `WEBVIEW` |

@@ -3,6 +3,7 @@ title: PowerShell developer reference for Azure Functions
 description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.devlang: powershell
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 
@@ -233,7 +234,7 @@ Logging in PowerShell functions works like regular PowerShell logging. You can u
 | ------------- | -------------- |
 | Error | **`Write-Error`** |
 | Warning | **`Write-Warning`**  | 
-| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`** <br/> Writes to _Information_ level logging. |
+| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`** <br/> Writes to the `Information` log level. |
 | Debug | **`Write-Debug`** |
 | Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
@@ -333,7 +334,8 @@ Use an `HttpResponseContext` object to return a response, as shown in the follow
     },
     {
       "type": "http",
-      "direction": "out"
+      "direction": "out",
+      "name": "Response"
     }
   ]
 }
@@ -346,7 +348,7 @@ param($req, $TriggerMetadata)
 
 $name = $req.Query.Name
 
-Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     StatusCode = [System.Net.HttpStatusCode]::OK
     Body = "Hello $name!"
 })
@@ -388,10 +390,12 @@ The following table shows the PowerShell versions available to each major versio
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3.x (recommended) | PowerShell 7 (recommended)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
-| 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
+| 4.x (recommended) | PowerShell 7.2 (recommended) <br/>PowerShell 7  | .NET 6 |
+| 3.x               | PowerShell 7 | .NET Core 3.1 |
 
 You can see the current version by printing `$PSVersionTable` from any function.
+
+To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
 
 ### Running local on a specific version
 
@@ -411,6 +415,7 @@ When running locally the Azure Functions runtime defaults to using PowerShell Co
 ### Changing the PowerShell version
 
 Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
 
 Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
 
@@ -451,7 +456,7 @@ Functions lets you leverage [PowerShell gallery](https://www.powershellgallery.c
 }
 ```
 
-When you create a new PowerShell functions project, dependency management is enabled by default, with the Azure [`Az` module](/powershell/azure/new-azureps-module-az) included. The maximum number of modules currently supported is 10. The supported syntax is _`MajorNumber`_`.*` or exact module version as shown in the following requirements.psd1 example:
+When you create a new PowerShell functions project, dependency management is enabled by default, with the Azure [`Az` module](/powershell/azure/new-azureps-module-az) included. The maximum number of modules currently supported is 10. The supported syntax is *`MajorNumber.*`* or exact module version, as shown in the following requirements.psd1 example:
 
 ```powershell
 @{
@@ -468,7 +473,7 @@ You may want to target a specific version of a module in your requirements.psd1 
 
 ```powershell
 @{
-	Az.Accounts = '1.9.5'
+	'Az.Accounts' = '1.9.5'
 }
 ```
 
@@ -484,7 +489,7 @@ In this way, the older version of the Az.Account module is loaded first when the
 
 The following considerations apply when using dependency management:
 
-+ Managed dependencies requires access to <https://www.powershellgallery.com> to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
++ Managed dependencies requires access to `https://www.powershellgallery.com` to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
 
 + Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
 
@@ -568,7 +573,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-When running locally, app settings are read from the [local.settings.json](functions-run-local.md#local-settings-file) project file.
+When running locally, app settings are read from the [local.settings.json](functions-develop-local.md#local-settings-file) project file.
 
 ## Concurrency
 
@@ -592,9 +597,9 @@ Depending on your use case, Durable Functions may significantly improve scalabil
 
 ### Considerations for using concurrency
 
-PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the ```PSWorkerInProcConcurrencyUpperBound``` application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
+PowerShell is a *single_threaded* scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The number of runspaces created, and therefore the number of concurrent threads per worker, is limited by the `PSWorkerInProcConcurrencyUpperBound` application setting. By default, the number of runspaces is set to 1,000 in version 4.x of the Functions runtime. In versions 3.x and below, the maximum number of runspaces is set to 1. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
 
-Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
+Azure PowerShell uses some *process-level* contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 
 There's immense value in concurrency with Azure PowerShell, since some operations can take a considerable amount of time. However, you must proceed with caution. If you suspect that you're experiencing a race condition, set the PSWorkerInProcConcurrencyUpperBound app setting to `1` and instead use [language worker process level isolation](functions-app-settings.md#functions_worker_process_count) for concurrency.
 

@@ -2,11 +2,11 @@
 title: Copy data to and from WASB into Azure Data Lake Storage Gen1 using DistCp
 description: Use the DistCp tool to copy data to and from Azure Storage blobs to Azure Data Lake Storage Gen1
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
-ms.author: twooley
+ms.author: normesta
 
 ---
 

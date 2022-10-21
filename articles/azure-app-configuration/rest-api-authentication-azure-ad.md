@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory REST API - authentication
 description: Use Azure Active Directory to authenticate to Azure App Configuration by using the REST API
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -35,13 +35,9 @@ Before acquiring an Azure AD token, you must identify what user you want to auth
 
 ### Audience
 
-Request the Azure AD token with a proper audience. For Azure App Configuration, use one of the following audiences. The audience can also be referred to as the *resource* that the token is being requested for.
+Request the Azure AD token with a proper audience. For Azure App Configuration use the following audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
-- {configurationStoreName}.azconfig.io
-- *.azconfig.io
-
-> [!IMPORTANT]
-> When the audience requested is `{configurationStoreName}.azconfig.io`, it must exactly match the `Host` request header (case sensitive) used to send the request.
+`https://azconfig.io`
 
 ### Azure AD authority
 

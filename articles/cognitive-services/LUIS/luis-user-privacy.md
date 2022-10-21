@@ -15,6 +15,9 @@ ms.date: 04/08/2020
 
 # Export and delete your customer data in Language Understanding (LUIS) in Cognitive Services
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Delete customer data to ensure privacy and compliance.
 
 ## Summary of customer data request features​
@@ -27,7 +30,7 @@ Customer content is stored encrypted in Microsoft regional Azure storage and inc
 - User account content collected at registration
 - Training data required to build the models
 - Logged user queries used by [active learning](luis-concept-review-endpoint-utterances.md) to help improve the model
-  - Users can turn off query logging by appending `&log=false` to the request, details [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+  - Users can turn off query logging by appending `&log=false` to the request, details [here](./troubleshooting.yml#how-can-i-disable-the-logging-of-utterances-)
 
 ## Deleting customer data
 LUIS users have full control to delete any user content, either through the LUIS web portal or the LUIS Authoring (also known as Programmatic) APIs. The following table displays links assisting with both:

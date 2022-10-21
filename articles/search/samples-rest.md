@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 09/15/2022
 ---
 
 # REST code samples for Azure Cognitive Search
@@ -19,8 +19,8 @@ REST is the definitive programming interface for Azure Cognitive Search, and all
 
 REST samples are usually developed and tested on Postman, but you can use any client that supports HTTP calls:
 
-+ Start with [Quickstart: Create an Azure Cognitive Search index using REST APIs](search-get-started-rest.md) for help in formulating HTTP calls.
-+ Try [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md), currently in preview, if you work in Visual Studio Code.
++ [Use Postman](search-get-started-rest.md). This quickstart explains how to formulate the HTTP request from end-to-end.
++ [Use the Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md), currently in preview. This quickstart uses Azure integration and builds the requests internally, which means you can complete tasks more quickly.
 
 ## Doc samples
 
@@ -33,11 +33,11 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [Debug-sessions](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) | Source code for [Tutorial: Diagnose, repair, and commit changes to your skillset](cognitive-search-tutorial-debug-sessions.md). This article shows you how to use a skillset debug session in the Azure portal. REST is used to create the objects used during debug.|
 | [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) | Source code for [Tutorial: Create a custom analyzer for phone numbers](tutorial-create-custom-analyzer.md). This article explains how to use analyzers to preserve patterns and special characters in searchable content.|
 | [knowledge-store](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) | Source code for [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md). This article explains the necessary steps for populating a knowledge store used for knowledge mining workflows. |
-| [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Source code for [How to shape and export enrichments](knowledge-store-projections-examples.md). This article explains how to specify the physical data structures in a knowledge store.|
-| [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Source code for [How to index encrypted blobs using blob indexers and skillsets](search-howto-index-encrypted-blobs.md). This article shows how to index documents in Azure Blob storage that have been previously encrypted using Azure Key Vault. |
+| [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Source code for [Define projections in a knowledge store](knowledge-store-projections-examples.md). This article explains how to specify the physical data structures in a knowledge store.|
+| [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Source code for [How to index encrypted blobs using blob indexers and skillsets](search-howto-index-encrypted-blobs.md). This article shows how to index documents in Azure Blob Storage that have been previously encrypted using Azure Key Vault. |
 
-> [!Tip]
-> Try the [Samples browser](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> [!TIP]
+> Try the [Samples browser](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 

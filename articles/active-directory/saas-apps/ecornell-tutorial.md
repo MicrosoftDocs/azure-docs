@@ -48,6 +48,8 @@ To configure the integration of eCornell into Azure AD, you need to add eCornell
 1. In the **Add from the gallery** section, type **eCornell** in the search box.
 1. Select **eCornell** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD single sign-on for eCornell
 
 Configure and test Azure AD SSO with eCornell using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in eCornell.
@@ -148,7 +150,7 @@ In this section, a user called B.Simon is created in eCornell. eCornell supports
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the eCornell tile in the Access Panel, you should be automatically signed in to the eCornell for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the eCornell tile in the Access Panel, you should be automatically signed in to the eCornell for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

@@ -12,6 +12,7 @@ ms.custom: mimckitt
 
 ---
 # Azure virtual machine scale sets and attached data disks
+
 To expand your available storage, Azure [virtual machine scale sets](./index.yml) support VM instances with attached data disks. You can attach data disks when the scale set is created, or to an existing scale set.
 
 > [!NOTE]

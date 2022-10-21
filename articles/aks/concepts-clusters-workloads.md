@@ -30,7 +30,7 @@ You can build and run modern, portable, microservices-based applications, using 
 
 As an open platform, Kubernetes allows you to build your applications with your preferred programming language, OS, libraries, or messaging bus. Existing continuous integration and continuous delivery (CI/CD) tools can integrate with Kubernetes to schedule and deploy releases.
 
-AKS provides a managed Kubernetes service that reduces the complexity of deployment and core management tasks, like upgrade coordination. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications. AKS is built on top of the open-source Azure Kubernetes Service Engine: [aks-engine][aks-engine].
+AKS provides a managed Kubernetes service that reduces the complexity of deployment and core management tasks, like upgrade coordination. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications.
 
 ## Kubernetes cluster architecture
 
@@ -58,7 +58,7 @@ AKS provides a single-tenant control plane, with a dedicated API server, schedul
 
 While you don't need to configure components (like a highly available *etcd* store) with this managed control plane, you can't access the control plane directly. Kubernetes control plane and node upgrades are orchestrated through the Azure CLI or Azure portal. To troubleshoot possible issues, you can review the control plane logs through Azure Monitor logs.
 
-To configure or directly access a control plane, deploy your own Kubernetes cluster using [aks-engine][aks-engine].
+To configure or directly access a control plane, deploy a self-managed Kubernetes cluster using [Cluster API Provider Azure][cluster-api-provider-azure].
 
 For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
@@ -68,10 +68,9 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 | Component | Description |  
 | ----------------- | ------------- |  
-| `kubelet`                                                                                 | The Kubernetes agent that processes the orchestration requests from the control plane and scheduling of running the requested containers.                                                        |  
-| *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods.                                      |  
-| *container runtime*                                                                            | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ node pools use `containerd` as their container runtime. AKS clusters using Kubernetes prior to node pool version 1.19 for node pools use [Moby](https://mobyproject.org/) (upstream docker) as their container runtime.                                                                                    |  
-
+| `kubelet` | The Kubernetes agent that processes the orchestration requests from the control plane along with scheduling and running the requested containers. |  
+| *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods. |  
+| *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -79,7 +78,9 @@ The Azure VM size for your nodes defines the storage CPUs, memory, size, and typ
 
 In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations][reservation-discounts]) are automatically applied.
 
-Deploy your own Kubernetes cluster with [aks-engine][aks-engine] if using a different host OS, container runtime, or including different custom packages. The upstream `aks-engine` releases features and provides configuration options ahead of support in AKS clusters. So, if you wish to use a container runtime other than `containerd` or [Moby](https://mobyproject.org/), you can run `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
+For managed disks, the default disk size and performance will be assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
+
+If you need advanced configuration and control on your Kubernetes node container runtime and OS, you can deploy a self-managed cluster using [Cluster API Provider Azure][cluster-api-provider-azure].
 
 ### Resource reservations
 
@@ -119,6 +120,9 @@ Two types of resources are reserved:
       - 6% of the next 112 GB of memory (up to 128 GB)
       - 2% of any memory above 128 GB
 
+>[!NOTE]
+> AKS reserves an additional 2GB for system process in Windows nodes that are not part of the calculated memory.
+
 Memory and CPU allocation rules:
 * Keep agent nodes healthy, including some hosting system pods critical to cluster health. 
 * Cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. 
@@ -150,7 +154,7 @@ In an AKS cluster with multiple node pools, you may need to tell the Kubernetes 
 
 Node selectors let you define various parameters, like node OS, to control where a pod should be scheduled.
 
-The following basic example schedules an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
+The following basic example schedules an NGINX instance on a Linux node using the node selector *"kubernetes.io/os": linux*:
 
 ```yaml
 kind: Pod
@@ -162,7 +166,7 @@ spec:
     - name: myfrontend
       image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
-    "beta.kubernetes.io/os": linux
+    "kubernetes.io/os": linux
 ```
 
 For more information on how to control where pods are scheduled, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
@@ -173,7 +177,7 @@ Kubernetes uses *pods* to run an instance of your application. A pod represents 
 
 Pods typically have a 1:1 mapping with a container. In advanced scenarios, a pod may contain multiple containers. Multi-container pods are scheduled together on the same node, and allow containers to share related resources.
 
-When you create a pod, you can define *resource requests* to request a certain amount of CPU or memory resources. The Kubernetes Scheduler tries meet the request by scheduling the pods to run on a node with available resources. You can also specify maximum resource limits to prevent a pod from consuming too much compute resource from the underlying node. Best practice is to include resource limits for all pods to help the Kubernetes Scheduler identify necessary, permitted resources.
+When you create a pod, you can define *resource requests* to request a certain amount of CPU or memory resources. The Kubernetes Scheduler tries to meet the request by scheduling the pods to run on a node with available resources. You can also specify maximum resource limits to prevent a pod from consuming too much compute resource from the underlying node. Best practice is to include resource limits for all pods to help the Kubernetes Scheduler identify necessary, permitted resources.
 
 For more information, see [Kubernetes pods][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
@@ -258,7 +262,7 @@ Replicas in a StatefulSet are scheduled and run across any available node in an 
 
 ### DaemonSets
 
-For specific log collection or monitoring, you may need to run a pod on all, or selected, nodes. You can use *DaemonSet* deploy one or more identical pods, but the DaemonSet Controller ensures that each node specified runs an instance of the pod.
+For specific log collection or monitoring, you may need to run a pod on all, or selected, nodes. You can use *DaemonSet* deploy on one or more identical pods, but the DaemonSet Controller ensures that each node specified runs an instance of the pod.
 
 The DaemonSet Controller can schedule pods on nodes early in the cluster boot process, before the default Kubernetes scheduler has started. This ability ensures that the pods in a DaemonSet are started before traditional pods in a Deployment or StatefulSet are scheduled.
 
@@ -297,7 +301,7 @@ This article covers some of the core Kubernetes components and how they apply to
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[aks-engine]: https://github.com/Azure/aks-engine
+[cluster-api-provider-azure]: https://github.com/kubernetes-sigs/cluster-api-provider-azure
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

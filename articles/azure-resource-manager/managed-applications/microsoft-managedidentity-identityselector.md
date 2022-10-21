@@ -1,11 +1,11 @@
 ---
 title: IdentitySelector UI element
 description: Describes the Microsoft.ManagedIdentity.IdentitySelector UI element for Azure portal. Use to assign managed identities to a resource.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 

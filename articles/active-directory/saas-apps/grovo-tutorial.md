@@ -48,6 +48,8 @@ To configure the integration of Grovo into Azure AD, you need to add Grovo from 
 1. In the **Add from the gallery** section, type **Grovo** in the search box.
 1. Select **Grovo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD single sign-on for Grovo
 
 Configure and test Azure AD SSO with Grovo using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Grovo.
@@ -142,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "S P initiated S A M L 2.0" section with the "Set up" button selected.](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-4. In **SP Initiated SAML 2.0** popup window perform the following steps:
+4. In the **SP Initiated SAML 2.0** pop-up window, perform the following steps:
 
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
@@ -167,7 +169,7 @@ In this section, a user called B.Simon is created in Grovo. Grovo supports just-
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Grovo tile in the Access Panel, you should be automatically signed in to the Grovo for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Grovo tile in the Access Panel, you should be automatically signed in to the Grovo for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

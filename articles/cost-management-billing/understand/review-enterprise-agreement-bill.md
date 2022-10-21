@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 08/08/2022
 ms.author: banders
 
 ---
@@ -16,6 +16,13 @@ ms.author: banders
 Azure customers with an Enterprise Agreement receive an invoice when they exceed the organization's credit or use services that aren't covered by the credit.
 
 Your organization's credit includes your Azure Prepayment (previously called monetary commitment). Azure Prepayment is the amount your organization paid upfront for usage of Azure services. You can add Azure Prepayment funds to your Enterprise Agreement by contacting your Microsoft account manager or reseller.
+
+> [!NOTE]
+> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](../manage/ea-direct-portal-get-started.md).
+>
+> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
 
 This tutorial applies only to Azure customers with an Azure Enterprise Agreement.
 
@@ -37,7 +44,7 @@ This section doesn't apply to Azure customers in Australia, Japan, or Singapore.
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -70,7 +77,7 @@ This section only applies to Azure customers in Australia, Japan, or Singapore.
 You receive one or more Azure invoices when any of the following events occur:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -363,7 +370,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### To access Microsoft Azure Consumption Insights:
 
-1. Go to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Go to Microsoft Azure Consumption Insights.
 1. Select **Get It Now**.
 1. Provide an enrollment number and the number of months, and then select **Next**.
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).

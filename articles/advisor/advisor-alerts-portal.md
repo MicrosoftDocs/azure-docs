@@ -1,7 +1,7 @@
 ---
 title: Create Azure Advisor alerts for new recommendations using Azure portal
 description: Create Azure Advisor alerts for new recommendation
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/09/2019
 ---
 

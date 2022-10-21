@@ -1,21 +1,16 @@
 ---
 title: Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide | Microsoft Docs
 description: Multi-SID high-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 03/25/2022
 ms.author: radeltch
-
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide
@@ -43,9 +38,9 @@ ms.author: radeltch
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 [suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
@@ -101,47 +96,12 @@ To achieve high availability, SAP NetWeaver requires highly available NFS shares
 
 The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
-The following list shows the configuration of the (A)SCS and ERS load balancer for this multi-SID cluster example with three SAP systems. You will need separate frontend IP, health probes, and load-balancing rules for each ASCS and ERS instance for each of the SIDs. Assign all VMs, that are part of the ASCS/ASCS cluster to one backend pool.  
+The presented configuration for this multi-SID cluster example with three SAP systems shows a load balancer with:
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address for NW1:  10.3.1.14
-  * IP address for NW2:  10.3.1.16
-  * IP address for NW3:  10.3.1.13
-* Probe Ports
-  * Port 620<strong>&lt;nr&gt;</strong>, therefore for NW1, NW2, and NW3 probe ports 620**00**, 620**10** and 620**20**
-* Load-balancing rules - 
-* create one for each instance, that is, NW1/ASCS, NW2/ASCS and NW3/ASCS.
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-### ERS
-
-* Frontend configuration
-  * IP address for NW1 10.3.1.15
-  * IP address for NW2 10.3.1.17
-  * IP address for NW3 10.3.1.19
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>, therefore for NW1, NW2, and N# probe ports 621**02**, 621**12** and 621**22**
-* Load-balancing rules - create one for each instance, that is, NW1/ERS, NW2/ERS and NW3/ERS.
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
+* Frontend IP addresses for ASCS: 10.3.1.14 (NW1), 10.3.1.16 (NW2) and 10.3.1.13 (NW3)  
+* Frontend IP addresses for ERS:  10.3.1.15 (NW1), 10.3.1.17 (NW2) and 10.3.1.19 (NW3)
+* Probe port 62000 for NW1 ASCS, 62010 for NW2 ASCS and 62020 for NW3 ASCS
+* Probe port 62102 for NW1 ASCS, 62112 for NW2 ASCS and 62122 for NW3 ASCS
 
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
@@ -236,8 +196,8 @@ This documentation assumes that:
 
    Update file `/etc/auto.direct` with the file systems for the additional SAP systems that you are deploying to the cluster.  
 
-   * If using NFS file server, follow the instructions [here](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation)
-   * If using Azure NetApp Files, follow the instructions [here](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) 
+   * If using NFS file server, follow the instructions on the [Azure VMs high availability for SAP NetWeaver on SLES](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation) page
+   * If using Azure NetApp Files, follow the instructions on the [Azure VMs high availability for SAP NW on SLES with Azure NetApp Files](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) page
 
    You will need to restart the `autofs` service to mount the newly added shares.  
 
@@ -261,7 +221,7 @@ This documentation assumes that:
        op monitor interval=20s timeout=40s
    
       sudo crm configure primitive vip_NW2_ASCS IPaddr2 \
-        params ip=10.3.1.16 cidr_netmask=24 \
+        params ip=10.3.1.16 \
         op monitor interval=10 timeout=20
    
       sudo crm configure primitive nc_NW2_ASCS azure-lb port=62010
@@ -275,7 +235,7 @@ This documentation assumes that:
         op monitor interval=20s timeout=40s
    
       sudo crm configure primitive vip_NW3_ASCS IPaddr2 \
-       params ip=10.3.1.13 cidr_netmask=24 \
+       params ip=10.3.1.13 \
        op monitor interval=10 timeout=20
    
       sudo crm configure primitive nc_NW3_ASCS azure-lb port=62020
@@ -307,7 +267,7 @@ This documentation assumes that:
       op monitor interval=20s timeout=40s
    
     sudo crm configure primitive vip_NW2_ERS IPaddr2 \
-      params ip=10.3.1.17 cidr_netmask=24 \
+      params ip=10.3.1.17 \
       op monitor interval=10 timeout=20
    
     sudo crm configure primitive nc_NW2_ERS azure-lb port=62112
@@ -320,7 +280,7 @@ This documentation assumes that:
       op monitor interval=20s timeout=40s
    
     sudo crm configure primitive vip_NW3_ERS IPaddr2 \
-      params ip=10.3.1.19 cidr_netmask=24 \
+      params ip=10.3.1.19 \
       op monitor interval=10 timeout=20
    
     sudo crm configure primitive nc_NW3_ERS azure-lb port=62122
@@ -580,7 +540,7 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
 
 1. Test HAGetFailoverConfig and HACheckFailoverConfig
 
-   Run the following commands as <sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
+   Run the following commands as \<sapsid\>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig

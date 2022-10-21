@@ -1,9 +1,10 @@
 ---
 title: 'Customer data request features​ - Azure Time Series Insights | Microsoft Docs'
 description: Learn about customer data request features in Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,6 +13,8 @@ ms.custom: seodec18
 ---
 
 # Summary of customer data request features
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 Azure Time Series Insights is a managed cloud service with storage, analytics, and visualization components that make it easy to ingest, store, explore, and analyze billions of events simultaneously.
 

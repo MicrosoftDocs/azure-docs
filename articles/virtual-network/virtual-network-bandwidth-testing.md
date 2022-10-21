@@ -6,7 +6,6 @@ services: virtual-network
 documentationcenter: na
 author: steveesp
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -51,9 +50,7 @@ Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 #### Get NTTTCP onto the VMs.
 
 Download the latest version:
-https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe
-
-Or view the top-level GitHub Page: <https://github.com/microsoft/ntttcp>\
+https://github.com/microsoft/ntttcp/releases/latest
 
 Consider putting NTTTCP in separate folder, like c:\\tools
 

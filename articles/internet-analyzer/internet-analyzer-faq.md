@@ -2,12 +2,12 @@
 title: 'Internet Analyzer FAQ | Microsoft Docs'
 description: The FAQ for Azure Internet Analyzer. 
 services: internet-analyzer
-author: diego-perez-botero
+author: KumudD
 
 ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
-ms.author: mebeatty
+ms.author: kumud
 ---
 # Azure Internet Analyzer FAQ (Preview)
 
@@ -17,7 +17,7 @@ This is the FAQ for Azure Internet Analyzer- if you have additional questions, g
 
 The preview is available to select customers. If you are interested in joining the preview, please do the following:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the **Subscriptions** page.
 3. Click on the Azure subscription that you plan to use Internet Analyzer with.
 4. Go to the **Resource providers** settings for the subscription.

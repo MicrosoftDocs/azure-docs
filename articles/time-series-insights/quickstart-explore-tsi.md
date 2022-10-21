@@ -1,18 +1,21 @@
 ---
 title: 'Quickstart: Explore the Gen2 demo environment - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Explore key features of the Azure Time Series Insights Gen2 demo environment.
-ms.service: time-series-insights 
+ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc seodec18
+ms.custom: mvc seodec18, mode-other
 ms.date: 03/01/2021
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This quickstart gets you started with an Azure Time Series Insights Gen2 environment. In the free demo, you tour key features that have been added to Azure Time Series Insights Gen2.
 
@@ -27,7 +30,7 @@ In this quickstart, you learn how to use Azure Time Series Insights Gen2 to find
 
 The Azure Time Series Insights Gen2 Explorer demonstrates historical data and root cause analysis. To get started:
 
-1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.  
+1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.
 
 1. If you're prompted, sign in to the Azure Time Series Insights Gen2 Explorer by using your Azure account credentials.
 
@@ -119,7 +122,7 @@ By using Azure Time Series Insights Gen2 and sensor telemetry, we've discovered 
 
     Two of the voltage sensors are operating comparably and within normal parameters. It looks like the **GridVoltagePhase3** sensor is the culprit.
 
-1. With highly contextual data added, the phase 3 drop-off appears even more to be the problem. Now, we have a good lead on the cause of the warning. We're ready to refer the issue to our maintenance team.  
+1. With highly contextual data added, the phase 3 drop-off appears even more to be the problem. Now, we have a good lead on the cause of the warning. We're ready to refer the issue to our maintenance team.
 
     * Change the display to overlay all **Generator System** sensors on the same chart scale.
 

@@ -11,13 +11,12 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
-ms.custom:
+ms.custom: devx-track-azurepowershell
 
 ---
 

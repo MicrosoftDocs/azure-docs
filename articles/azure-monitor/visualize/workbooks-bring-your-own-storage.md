@@ -6,9 +6,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/11/2020
-ms.author: lagayhar
-author: lgayhardt
+ms.date: 07/05/2022
 ---
 
 # Bring your own storage to save workbooks
@@ -25,11 +23,11 @@ There are times when you may have a query or some business logic that you want t
 3. Select the **Save** button to save the workbook.
 4. There's an option to `Save content to an Azure Storage Account`, select the checkbox to save to an Azure Storage Account.
 
-    ![Screenshot showing a the saved dialog](./media/workbooks-bring-your-own-storage/saved-dialog-default.png)
+    ![Screenshot showing the **Save** dialog.](./media/workbooks-bring-your-own-storage/saved-dialog-default.png)
 
 5. Select the desire Storage account and Container. The Storage account list is from the Subscription selected above.
 
-    ![Screenshot showing a save dialog with storage option](./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png)
+    ![Screenshot showing the **Save** dialog with storage option.](./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png)
 
 6. Then select **Change** to select a managed identity previously created.
 

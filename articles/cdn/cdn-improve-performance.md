@@ -3,7 +3,7 @@ title: Improve performance by compressing files in Azure CDN | Microsoft Docs
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
-ms.author: allensu
+ms.author: duau
 
 ---
 # Improve performance by compressing files in Azure CDN
@@ -93,7 +92,8 @@ The standard and premium CDN tiers provide the same compression functionality, b
 ### Azure CDN Standard from Microsoft profiles
 
 For **Azure CDN Standard from Microsoft** profiles, only eligible files are compressed. To be eligible for compression, a file must:
-- Be of a MIME type that has been [configured for compression](#enabling-compression).
+- Be of a MIME type that has been [configured for compression](#enabling-compression)
+- Have only "identity" *Content-Encoding* headers in the origin response
 - Be larger than 1 KB
 - Be smaller than 8 MB
 
@@ -117,11 +117,8 @@ These profiles support the following compression encodings:
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
-- brotli 
 
-If the request supports more than one compression type, those compression types take precedence over brotli compression.
-
-When a request for an asset specifies brotli compression (HTTP header is `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs brotli compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache.
+Azure CDN from Verizon does not support brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
 
 ### Azure CDN Standard from Akamai profiles
 

@@ -5,17 +5,16 @@ description: Provides you with a resolution to missing data in Azure Active Dire
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/15/2018
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -93,5 +92,5 @@ You have two options to retain the data for longer than 30 days. You can use the
 
 * [Azure AD reporting retention](reference-reports-data-retention.md).
 * [Azure Active Directory reporting latencies](reference-reports-latencies.md).
-* [Azure Active Directory reporting FAQ](reports-faq.md).
+* [Azure Active Directory reporting FAQ](reports-faq.yml).
 

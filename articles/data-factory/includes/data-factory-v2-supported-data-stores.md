@@ -2,20 +2,20 @@
 title: include file
 description: include file
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/18/2020
-ms.author: jingwang
-ms.custom: include file
+ms.date: 09/29/2021
+ms.author: jianleishen
+ms.custom: include file, ignite-2022
 ---
 
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime) | Supported by [self-hosted IR](../concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cognitive Search index](../connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB's API for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for NoSQL](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Explorer](../connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2](../connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
@@ -23,12 +23,14 @@ ms.custom: include file
 | &nbsp; |[Azure Database for MySQL](../connector-azure-database-for-mysql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Database for PostgreSQL](../connector-azure-database-for-postgresql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |✓ |✓ |✓ |✓ |
-| &nbsp; |[Azure File Storage](../connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Files](../connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
-| **Database** |[Amazon Redshift](../connector-amazon-redshift.md) |✓ | |✓ |✓  |
+| **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |✓ | |✓ |✓  |
+| &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |✓ | |✓ |✓  |
+| &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill](../connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery](../connector-google-bigquery.md) |✓ | |✓ |✓  |
@@ -47,7 +49,7 @@ ms.custom: include file
 | &nbsp; |[Presto](../connector-presto.md) |✓ | |✓ |✓  |
 | &nbsp; |[SAP Business Warehouse via Open Hub](../connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[SAP Business Warehouse via MDX](../connector-sap-business-warehouse.md) |✓ | | |✓  |
-| &nbsp; |[SAP HANA](../connector-sap-hana.md) |✓ |✓ | |✓  |
+| &nbsp; |[SAP HANA](../connector-sap-hana.md) |✓ | Sink supported only with the [ODBC Connector and the SAP HANA ODBC driver](../connector-sap-hana.md#sap-hana-sink) | |✓  |
 | &nbsp; |[SAP table](../connector-sap-table.md) |✓ | | |✓  |
 | &nbsp; |[Snowflake](../connector-snowflake.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Spark](../connector-spark.md) |✓ | |✓ |✓  |
@@ -57,21 +59,23 @@ ms.custom: include file
 | &nbsp; |[Vertica](../connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (Preview)](../connector-couchbase.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ | |✓ |✓  |
+| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ |✓ |✓ |✓  |
 | **File** |[Amazon S3](../connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
+| &nbsp; |[Amazon S3 Compatible Storage](../connector-amazon-s3-compatible-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[File system](../connector-file-system.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[FTP](../connector-ftp.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[HDFS](../connector-hdfs.md) |✓ | |✓ |✓  |
+| &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[SFTP](../connector-sftp.md) |✓ |✓ |✓ |✓  |
 | **Generic protocol** |[Generic HTTP](../connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic OData](../connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[Generic REST](../connector-rest.md) |✓ | ✓ |✓ |✓  |
 | **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
-| &nbsp; |[Common Data Service](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |✓ | |✓ |✓  |
+| &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics AX](../connector-dynamics-ax.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |

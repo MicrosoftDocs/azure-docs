@@ -22,12 +22,11 @@ services, including compute, network, storage, and databases. Any charges incurr
 deducted from the credit. You can see your remaining credit on the [Azure Sponsorships 
 portal](https://www.microsoftazuresponsorships.com/).
 
-After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes 
-disabled. The Azure for Students subscription is not renewable. To continue using Azure, you may upgrade 
-to a pay-as-you-go subscription in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). If you decide 
-not to upgrade at the end of 12 months or after you've exhausted your $100 credit, whichever occurs first, 
-any products you've deployed are decommissioned and you won't be able to access them. You have 90 days 
-from the end of your free subscription to upgrade to a pay-as-you-go subscription.
+After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes disabled. 
+If you've reached the end of your 12 months and are still a student, you'll be able to renew your Azure for Students offer. 
+We'll notify you shortly before your 12-month anniversary to let you know how to renew. 
+If your student status is no longer valid after the offer expired, you will not be able to renew. 
+In such case, if you wish to continue using Azure services, you may upgrade to a pay-as-you-go subscription in the Azure portal.
 
 To get detailed terms of use for Azure for Students, see the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
 
@@ -36,4 +35,4 @@ To get detailed terms of use for Azure for Students, see the [offer terms](https
 - [Get help with login errors](troubleshoot-login.md)
 - [Download software (Azure for Students)](download-software.md)
 - [Azure for Students Starter overview](azure-students-starter-program.md)
-- [Microsoft Learn: a free online learning platform](/learn/)
+- [Microsoft Learn training](/training/)

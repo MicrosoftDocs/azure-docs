@@ -12,7 +12,7 @@ ms.custom:
 
 # Generate ARM Template for Cloud Services (extended support) using the Azure portal
 
-This article explains how to download the ARM template and parameter file from the [Azure portal](https://portal.azure.com) for your Cloud Service. The ARM template and parameter file can be used in deployments via Powershell to create or update a cloud service
+This article explains how to download the ARM template and parameter file from the [Azure portal](https://portal.azure.com) for your Cloud Service. The ARM template and parameter file can be used in deployments via PowerShell to create or update a cloud service
 
 ## Get ARM template via portal
 
@@ -29,6 +29,6 @@ This article explains how to download the ARM template and parameter file from t
     :::image type="content" source="media/download-template-portal-2.png" alt-text="Image shows the package SAS URI and configuration SAS URI parameters on the Azure portal.":::
   
 ## Next steps 
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md)
   

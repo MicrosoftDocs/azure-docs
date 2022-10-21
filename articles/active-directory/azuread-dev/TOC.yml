@@ -129,26 +129,12 @@
       href: ../develop/howto-add-branding-in-azure-ad-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Terms of Service and Privacy Statement
       href: ../develop/howto-add-terms-of-service-privacy-statement.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Active Directory connected service
-      href: ../develop/vs-active-directory-add-connected-service.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: Get started with .NET MVC projects
-      href: ../develop/vs-active-directory-dotnet-getting-started.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: What happened to my .NET MVC project?
-      href: ../develop/vs-active-directory-dotnet-what-happened.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: Get started with WebAPI projects
-      href: ../develop/vs-active-directory-webapi-getting-started.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: What happened to my WebAPI project?
-      href: ../develop/vs-active-directory-webapi-what-happened.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: Error during authentication detection
-      href: ../develop/vs-active-directory-error.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Bring an app to market
     items:
     - name: Publish to App Source
       href: howto-get-appsource-certified.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+      href: /office/dev/store/add-in-submission-guide
   - name: Azure Access Control Service
     displayName: ACS
     items:
@@ -184,9 +170,9 @@
   - name: Azure AD blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: Microsoft identity platform developer blog
-    href: https://developer.microsoft.com/identity/blogs/
+    href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
   - name: Try Sign in with Microsoft
-    href: https://azure.microsoft.com/develop/identity/signin/
+    href: https://developer.microsoft.com/identity/add-sign-in-with-microsoft
   - name: Getting help
     displayName: support, help options
     href: ../develop/developer-support-help-options.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json

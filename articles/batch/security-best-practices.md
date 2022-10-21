@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 12/18/2020
+ms.date: 09/01/2021
 ms.topic: conceptual
 ---
 
@@ -13,7 +13,7 @@ By default, Azure Batch accounts have a public endpoint and are publicly accessi
 
 :::image type="content" source="media/security-best-practices/typical-environment.png" alt-text="Diagram showing a typical Batch environment.":::
 
-Many features are available to help you create a more secure Azure Batch deployment. You can restrict access to nodes and reduce the discoverability of the nodes from the internet by [provisioning the pool without public IP addresses](batch-pool-no-public-ip-address.md). The compute nodes can securely communicate with other virtual machines or with an on-premises network by [provisioning the pool in a subnet of an Azure virtual network](batch-virtual-network.md). And you can enable [private access from virtual networks](private-connectivity.md) from a service powered by Azure Private Link.
+Many features are available to help you create a more secure Azure Batch deployment. You can restrict access to nodes and reduce the discoverability of the nodes from the internet by [provisioning the pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md). The compute nodes can securely communicate with other virtual machines or with an on-premises network by [provisioning the pool in a subnet of an Azure virtual network](batch-virtual-network.md). And you can enable [private access from virtual networks](private-connectivity.md) from a service powered by Azure Private Link.
 
 :::image type="content" source="media/security-best-practices/secure-environment.png" alt-text="Diagram showing a more secure Batch environment.":::
 
@@ -27,13 +27,13 @@ Many security features are only available for pools configured using [Virtual Ma
 
 Batch account access supports two methods of authentication: Shared Key and [Azure Active Directory (Azure AD)](batch-aad-auth.md).
 
-We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here.
+We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Azure AD using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
 
 ### Batch account pool allocation mode
 
 When creating a Batch account, you can choose between two [pool allocation modes](accounts.md#batch-accounts):
 
-- **Batch service**: The default option, where the underlying Cloud Service or virtual machine scale set resources used to allocate and manage pool nodes are created in internal subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible. 
+- **Batch service**: The default option, where the underlying Cloud Service or virtual machine scale set resources used to allocate and manage pool nodes are created in internal subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible.
 - **User subscription**: The underlying Cloud Service or virtual machine scale set resources are created in the same subscription as the Batch account. These resources are therefore visible in the subscription, in addition to the corresponding Batch resources.
 
 With user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription mode is required if you want to create Batch pools using Azure Reserved VM Instances, use Azure Policy on virtual machine scale set resources, and/or  manage the core quota on the subscription (shared across all Batch accounts in the subscription). To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
@@ -58,9 +58,9 @@ Batch management operations via Azure Resource Manager are encrypted using HTTPS
 
 The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH (this access is enabled by default, with communication via load balancers).
 
-### Restricting access to Batch endpoints 
+### Restricting access to Batch endpoints
 
-Several capabilities are available to limit access to the various Batch endpoints, especially when the solution uses a virtual network. 
+Several capabilities are available to limit access to the various Batch endpoints, especially when the solution uses a virtual network.
 
 #### Use private endpoints
 
@@ -99,7 +99,7 @@ By default, all the compute nodes in an Azure Batch virtual machine configuratio
 
 To restrict access to these nodes and reduce the discoverability of these nodes from the internet, you can provision the pool without public IP addresses.
 
-For more information, see [Create a pool without public IP addresses](batch-pool-no-public-ip-address.md).
+For more information, see [Create a pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md).
 
 #### Limit remote access to pool nodes
 
@@ -108,7 +108,7 @@ By default, Batch allows a node user with network connectivity to connect extern
 To limit remote access to nodes, use one of the following methods:
 
 - Configure the [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) to deny access. The appropriate network security group (NSG) will be associated with the pool.
-- Create your pool [without public IP addresses](batch-pool-no-public-ip-address.md). By default, these pools can't be accessed outside of the VNet.
+- Create your pool [without public IP addresses](simplified-node-communication-pool-no-public-ip.md). By default, these pools can't be accessed outside of the VNet.
 - Associate an NSG with the VNet to deny access to the RDP or SSH ports.
 - Don't create any users on the node. Without any node users, remote access won't be possible.
 
@@ -138,13 +138,13 @@ For extra security, encrypt these disks using one of these Azure disk encryption
 
 ## Securely access services from compute nodes
 
-Batch nodes can [securely access credentials and secrets](credential-access-key-vault.md) stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault.
+Batch nodes can securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault. By [enabling automatic certificate rotation in your Batch pool](automatic-certificate-rotation.md), the credentials will be automatically renewed. This is the recommended option for Batch nodes to access credentials stored in Azure Key Vault, although you can also [set up Batch nodes to securely access credentials and secrets with a certificate](credential-access-key-vault.md) without automatic certificate rotation.
 
 ## Governance and compliance
 
 ### Compliance
 
-To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](https://azure.microsoft.com/overview/trusted-cloud/compliance). 
+To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
 These  offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. Review the [comprehensive overview of compliance offerings](https://aka.ms/AzureCompliance) to determine which ones may be relevant to your Batch solutions.
 

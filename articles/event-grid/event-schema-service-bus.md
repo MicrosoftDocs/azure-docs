@@ -2,14 +2,17 @@
 title: Azure Service Bus as Event Grid source
 description: Describes the properties that are provided for Service Bus events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/15/2021
 ---
 
 # Azure Service Bus as an Event Grid source
 
 This article provides the properties and schema for Service Bus events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
+>[!NOTE]
+> Only Premium tier Service Bus namespace supports event integration. Basic and Standard tiers do not support integration with Event Grid.
+
+[!INCLUDE [event-grid-service-bus.md](../service-bus-messaging/includes/event-grid-service-bus.md)]
 
 ## Tutorials and how-tos
 |Title  |Description  |

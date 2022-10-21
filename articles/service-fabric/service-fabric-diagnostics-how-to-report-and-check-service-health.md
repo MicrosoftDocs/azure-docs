@@ -1,9 +1,12 @@
 ---
 title: Report and check health with Azure Service Fabric 
 description: Learn how to send health reports from your service code and how to check the health of your service by using the health monitoring tools that Azure Service Fabric provides.
-ms.topic: conceptual
-ms.date: 02/25/2019
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 # Report and check service health
 When your services encounter problems, your ability to respond to and fix incidents and outages depends on your ability to detect the issues quickly. If you report problems and failures to the Azure Service Fabric health manager from your service code, you can use standard health monitoring tools that Service Fabric provides to check the health status.

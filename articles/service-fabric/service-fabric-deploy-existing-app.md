@@ -1,10 +1,14 @@
 ---
 title: Deploy an existing executable to Azure Service Fabric 
 description: Learn how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
-
-ms.topic: conceptual
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Package and deploy an existing executable to Service Fabric
 
 When packaging an existing executable as a [guest executable](service-fabric-guest-executables-introduction.md), you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
@@ -43,7 +47,7 @@ You can use Visual Studio to produce an application package that contains multip
 
 ## Use Yeoman to package and deploy an existing executable on Linux
 
-The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
+The procedure for creating and deploying a guest executable on Linux is the same as deploying a C# or Java application.
 
 1. In a terminal, type `yo azuresfguest`.
 2. Name your application.

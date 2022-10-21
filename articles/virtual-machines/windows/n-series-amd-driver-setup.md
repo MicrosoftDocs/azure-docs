@@ -4,7 +4,7 @@ description: How to set up AMD GPU drivers for N-series VMs running Windows Serv
 author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
@@ -14,6 +14,8 @@ ms.author: vikancha
 ---
 
 # Install AMD GPU drivers on N-series VMs running Windows
+
+**Applies to:** Windows VMs :heavy_check_mark: Flexible scale sets 
 
 To take advantage of the GPU capabilities of the new Azure NVv4 series VMs running Windows, AMD GPU drivers must be installed. The [AMD GPU Driver Extension](../extensions/hpccompute-amd-gpu-windows.md) installs AMD GPU drivers on a NVv4-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [AMD GPU Driver Extension documentation](../extensions/hpccompute-amd-gpu-windows.md) for supported operating systems and deployment steps.
 
@@ -29,7 +31,9 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 | OS | Driver |
 | -------- |------------- |
-| Windows 10 Enterprise multi-session - Build 1909 <br/><br/>Windows 10 - Build 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+| Windows 10 - Build 2009, 2004, 1909 <br/><br/>Windows 10 Enterprise multi-session - Build 2009, 2004, 1909 <br/><br/>Windows Server 2016 (version 1607)<br/><br/>Windows Server 2019 (version 1909) | [21.Q2-1](https://download.microsoft.com/download/4/e/a/4ea28d3f-28e2-4eaa-8ef2-4f7d32882a0b/AMD-Azure-NVv4-Driver-21Q2-1.exe) (.exe) |
+
+Previous supported driver version for Windows builds up to 1909 is [20.Q4-1](https://download.microsoft.com/download/0/e/6/0e611412-093f-40b8-8bf9-794a1623b2be/AMD-Azure-NVv4-Driver-20Q4-1.exe) (.exe)
 
  > [!NOTE]
    >  If you use build 1903/1909 then you may need to update the following group policy for optimal performance. These changes are not needed for any other Windows builds.
@@ -37,12 +41,12 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
    >  [Computer Configuration->Policies->Windows Settings->Administrative Templates->Windows Components->Remote Desktop Services->Remote Desktop Session Host->Remote Session    Environment], set the Policy [Use WDDM graphics display driver for Remote Desktop Connections] to Disabled.
    >  
 
-
+ 
 ## Driver installation
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-2. If you need to uninstall the previous driver version then download the AMD cleanup utility [here](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
+2. If you need to uninstall the previous driver version then download the [AMD cleanup utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
 
 3. Download and install the latest driver.
 

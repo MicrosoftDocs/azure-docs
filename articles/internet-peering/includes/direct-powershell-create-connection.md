@@ -3,11 +3,12 @@ title: include file
 titleSuffix: Azure
 description: include file
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: halkazwini 
+ms.custom: devx-track-azurepowershell
 ---
 
 The following example shows how to create a 10-Gbps Direct peering in Seattle.
@@ -27,7 +28,7 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> The value for <index>**$peeringLocation[]**<index> in the previous example should correspond to the peering location of your choice.
+> The value for **$peeringLocation[]** in the previous example should correspond to the peering location of your choice.
 
 Create another connection in case you need redundancy at a given peering location.
 

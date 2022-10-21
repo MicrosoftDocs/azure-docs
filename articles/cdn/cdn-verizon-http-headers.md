@@ -3,7 +3,7 @@ title: Verizon-specific HTTP headers for Azure CDN rules engine | Microsoft Docs
 description: This article describes how to use Verizon-specific HTTP headers with Azure CDN rules engine.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: allensu
+ms.author: duau
 
 ---
 

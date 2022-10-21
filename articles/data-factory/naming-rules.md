@@ -5,8 +5,9 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 01/26/2022
 ---
 
 # Azure Data Factory - naming rules

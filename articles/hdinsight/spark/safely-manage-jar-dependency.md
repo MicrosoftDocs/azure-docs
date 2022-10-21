@@ -4,7 +4,7 @@ description: This article discusses best practices for managing Java Archive (JA
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 02/05/2020
+ms.date: 05/13/2022
 ---
 
 # Safely manage jar dependencies

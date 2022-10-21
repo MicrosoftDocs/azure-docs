@@ -1,13 +1,11 @@
 ---
-title: Tutorial - CI/CD to Azure VMs using Azure Pipelines
-description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
+title: CI/CD to Azure VMs using Azure Pipelines
+description: Learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
+ms.service: virtual-machines
 author: ushan
 tags: azure-devops-pipelines
-ms.assetid: 
-ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
-ms.tgt_pltfrm: azure-pipelines
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
@@ -16,7 +14,9 @@ ms.custom: devops, devx-track-js
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use devops services like Azure Pipelines to build and deploy my applications automatically.
 ---
 
-# Tutorial: Deploy your app to Linux virtual machines in Azure using Azure DevOps Services and Azure Pipelines
+# Deploy your app to Linux virtual machines in Azure using Azure DevOps Services and Azure Pipelines
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code after every code commit. 
 This document contains the steps associated with setting up a CI/CD pipeline for doing multi-machine deployments using Azure Pipelines.
@@ -148,7 +148,7 @@ a deployment script that can be run locally on the Ubuntu server. Set up a CI bu
 
 Select the **starter** template and copy the below YAML snippet that builds your Java project and runs tests with Apache Maven:
 
-```YAML
+```yaml
 jobs:
 - job: Build
   displayName: Build Maven Project
@@ -173,7 +173,7 @@ For more guidance, follow the steps mentioned in [Build your Java app with Maven
 
 Select the **starter** template and copy the below YAML snippet that builds a general Node.js project with npm.
 
-```YAML
+```yaml
 - stage: Build
   displayName: Build stage
   jobs:  
@@ -214,7 +214,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 1. Change the YAML file for the above pipeline to include a [deployment job](/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
 
-   ```YAML
+   ```yaml
    jobs:  
    - deployment: VMDeploy
      displayName: web
@@ -231,12 +231,12 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
    `runOnce` is the simplest deployment strategy wherein all the life cycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.
 
    Below is the example YAML snippet for `runOnce` :
-   ```YAML
+   ```yaml
    jobs:
    - deployment: VMDeploy
      displayName: web
      pool:
-       vmImage: 'Ubuntu-16.04'
+       vmImage: 'Ubuntu-latest'
      environment:
        name: <environment name>
        resourceType: VirtualMachine
@@ -249,7 +249,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 4. Below is an example of the YAML snippet that you can use to define a rolling strategy for Virtual machines updates upto 5 targets in each iteration. `maxParallel` will determine the number of targets that can be deployed to, in parallel. The selection accounts for absolute number or percentage of targets that must remain available at any time excluding the targets that are being deployed to. It is also used to determine the success and failure conditions during deployment.
 
-   ```YAML
+   ```yaml
    jobs: 
    - deployment: VMDeploy
      displayName: web

@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 This is the third tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials:
 
-1. [Prepare Azure](tutorial-prepare-azure.md)
+1. [Prepare Azure](./tutorial-prepare-azure-for-hyperv.md)
 2. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## Select a replication goal
@@ -99,7 +99,8 @@ If you're running a Hyper-V core server, download the setup file and follow thes
 3. Register the server by running this command:
 
     ```
-    cd  "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
+    cd "C:\Program Files\Microsoft Azure Site Recovery Provider"
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
     ```
 
 ## Set up the target environment

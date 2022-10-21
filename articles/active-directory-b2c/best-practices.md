@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Recommendations and best practices to consider when working with Azure Active Directory B2C (Azure AD B2C).
 services: active-directory-b2c
 author: vigunase
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/01/2021
 ms.author: vigunase
 ms.subservice: B2C
 ---
@@ -35,7 +35,7 @@ Define your application and service architecture, inventory current systems, and
 | Architect an end-to-end solution | Include all of your applications' dependencies when planning an Azure AD B2C integration. Consider all services and products that are currently in your environment or that might need to be added to the solution, for example, Azure Functions, customer relationship management (CRM) systems, Azure API Management gateway, and storage services. Take into account the security and scalability for all services. |
 | Document your users' experiences | Detail all the user journeys your customers can experience in your application. Include every screen and any branching flows they might encounter when interacting with the identity and profile aspects of your application. Include usability, accessibility, and localization in your planning. |
 | Choose the right authentication protocol |  For a breakdown of the different application scenarios and their recommended authentication flows, see [Scenarios and supported authentication flows](../active-directory/develop/authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). |
-| Pilot a proof-of-concept (POC) end-to-end user experience | Start with our [Microsoft code samples](code-samples.md) and [community samples](https://github.com/azure-ad-b2c/samples). |
+| Pilot a proof-of-concept (POC) end-to-end user experience | Start with our [Microsoft code samples](integrate-with-app-code-samples.md) and [community samples](https://github.com/azure-ad-b2c/samples). |
 | Create a migration plan |Planning ahead can make migration go more smoothly. Learn more about [user migration](user-migration.md).|
 | Usability vs. security | Your solution must strike the right balance between application usability and your organization's acceptable level of risk. |
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
@@ -87,4 +87,4 @@ Stay up to date with the state of the service and find support options.
 |--|--|
 | [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Stay up to date with Azure AD B2C product updates and announcements. |
 | [Microsoft Support](support-options.md) | File a support request for Azure AD B2C technical issues. Billing and subscription management support is provided at no cost. |
-| [Azure status](https://status.azure.com/status) | View the current health status of all Azure services. |
+| [Azure status](https://azure.status.microsoft/status) | View the current health status of all Azure services. |

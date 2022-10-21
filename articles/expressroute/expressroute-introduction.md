@@ -5,10 +5,10 @@ services: expressroute
 author: duongau
 
 ms.service: expressroute
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-
 ---
 # What is Azure ExpressRoute?
 ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
@@ -61,7 +61,9 @@ For example, if you connect to Microsoft in Amsterdam through ExpressRoute. You'
 You can enable [ExpressRoute Premium](expressroute-faqs.md) to extend connectivity across geopolitical boundaries. For example, if you connect to Microsoft in Amsterdam through ExpressRoute you'll have access to all Microsoft cloud services hosted in all regions across the world. You can also access services deployed in South America or Australia the same way you access North and West Europe regions. National clouds are excluded.
 
 ### Local connectivity with ExpressRoute Local
-You can transfer data cost-effectively by enabling the [Local SKU](expressroute-faqs.md). With Local SKU, you can bring your data to an ExpressRoute location near the Azure region you want. With Local, Data transfer is included in the ExpressRoute port charge. 
+You can transfer data cost-effectively by enabling the [Local SKU](expressroute-faqs.md). With Local SKU, you can bring your data to an ExpressRoute location near the Azure region you want. With Local, Data transfer is included in the ExpressRoute port charge.
+
+For peering location and supported Azure local region, see [providers by locations](expressroute-locations-providers.md#partners).
 
 ### Across on-premises connectivity with ExpressRoute Global Reach
 You can enable ExpressRoute Global Reach to exchange data across your on-premises sites by connecting your ExpressRoute circuits. For example, if you have a private data center in California connected to an ExpressRoute circuit in Silicon Valley and another private data center in Texas connected to an ExpressRoute circuit in Dallas. With ExpressRoute Global Reach, you can connect your private data centers together through these two ExpressRoute circuits. Your cross-data-center traffic will traverse through Microsoft's network.
@@ -78,7 +80,7 @@ ExpressRoute Direct provides customers the opportunity to connect directly into 
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
-* Massive Data Ingestion into services like Storage and Cosmos DB
+* Massive data ingestion into services like Azure Storage and Azure Cosmos DB
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity, such as: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 
@@ -118,5 +120,6 @@ Subscribe to the RSS feed and view the latest ExpressRoute feature updates on th
 
 ## Next steps
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+* [Learn module: Introduction to Azure ExpressRoute](/training/modules/intro-to-azure-expressroute).
 * Learn about [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 * Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).

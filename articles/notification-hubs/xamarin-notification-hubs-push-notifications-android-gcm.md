@@ -11,10 +11,10 @@ ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 01/12/2021
+ms.date: 08/27/2021
 ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
@@ -184,7 +184,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
     public class AzureListener : Java.Lang.Object, INotificationListener
     ```
 
-12. Add the following code inside `MyFirebaseMessagingService` class, to process messages that are received.
+12. Add the following code inside `AzureListener` class, to process messages that are received.
 
     ```csharp
         public void OnPushNotificationReceived(Context context, INotificationMessage message)

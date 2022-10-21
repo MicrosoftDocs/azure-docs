@@ -1,17 +1,17 @@
 ---
-title: Using Azure Sentinel with Azure Web Application Firewall 
-description: This article shows you how to use Azure Sentinel with Azure Web Application Firewall (WAF)
+title: Using Microsoft Sentinel with Azure Web Application Firewall 
+description: This article shows you how to use Microsoft Sentinel with Azure Web Application Firewall (WAF)
 services: web-application-firewall
 author: TreMansdoerfer
 ms.service: web-application-firewall
-ms.date: 10/12/2020
+ms.date: 08/16/2022
 ms.author: victorh
 ms.topic: how-to
 ---
 
-# Using Azure Sentinel with Azure Web Application Firewall
+# Using Microsoft Sentinel with Azure Web Application Firewall
 
-Azure Web Application Firewall (WAF) combined with Azure Sentinel can provide security information event management for WAF resources. Azure Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Azure Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces.
+Azure Web Application Firewall (WAF) combined with Microsoft Sentinel can provide security information event management for WAF resources. Microsoft Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Microsoft Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces.
 
 ## WAF log analytics categories
 
@@ -48,33 +48,39 @@ The WAF workbook works for all Azure Front Door, Application Gateway, and CDN WA
 To enable log analytics for each resource, go to your individual Azure Front Door, Application Gateway, or CDN resource:
 
 1. Select **Diagnostic settings**.
-2. Select **+ Add diagnostic setting**. 
-3. In the Diagnostic setting page:
+
+1. Select **+ Add diagnostic setting**. 
+
+1. In the Diagnostic setting page:
    1. Type a name. 
    1. Select **Send to Log Analytics**. 
    1. Choose the log destination workspace. 
    1. Select the log types that you want to analyze:
       1. Application Gateway: ‘ApplicationGatewayAccessLog’ and ‘ApplicationGatewayFirewallLog’
-      1. Azure Front Door: ‘FrontDoorAccessLog’ and ‘FrontDoorFirewallLog’
+      1. Azure Front Door Standard/Premium: ‘FrontDoorAccessLog’ and ‘FrontDoorFirewallLog’
+      1. Azure Front Door classic: ‘FrontdoorAccessLog’ and ‘FrontdoorFirewallLog’
       1. CDN: ‘AzureCdnAccessLog’
    1. Select **Save**.
 
    :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Diagnostic setting":::
 
-4. On the Azure home page, type **Azure Sentinel** in the search bar and select the **Azure Sentinel** resource. 
-2. Select an already active workspace or create a new workspace. 
-3. On the left side panel under **Configuration** select **Data Connectors**.
-4. Search for **Microsoft web application firewall** and select **Microsoft web application firewall (WAF)**. Select **Open connector** page on the bottom right.
+1. On the Azure home page, type *Microsoft Sentinel* in the search bar and select the **Microsoft Sentinel** resource. 
+
+1. Select an already active workspace or create a new workspace. 
+
+1. On the left side panel under **Configuration** select **Data Connectors**.
+
+1. Search for **Azure web application firewall** and select **Azure web application firewall (WAF)**. Select **Open connector** page on the bottom right.
 
    :::image type="content" source="media//waf-sentinel/data-connectors.png" alt-text="Data connectors":::
 
-8. Follow the instructions under **Configuration** for each WAF resource that you want to have log analytic data for if you haven't done so previously.
-6. Once finished configuring individual WAF resources, select the **Next steps** tab. Select one of the recommended workbooks. This workbook will use all log analytic data that was enabled previously. A working WAF workbook should now exist for your WAF resources.
+1. Follow the instructions under **Configuration** for each WAF resource that you want to have log analytic data for if you haven't done so previously.
 
-   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="WAF workbooks":::
+1. Once finished configuring individual WAF resources, select the **Next steps** tab. Select one of the recommended workbooks. This workbook will use all log analytic data that was enabled previously. A working WAF workbook should now exist for your WAF resources.
 
+   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="WAF workbooks" lightbox="media//waf-sentinel/waf-workbooks.png":::
 
 ## Next steps
 
-- [Learn more about Azure Sentinel](../sentinel/overview.md)
+- [Learn more about Microsoft Sentinel](../sentinel/overview.md)
 - [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
