@@ -109,11 +109,9 @@ Here is what the condition looks like in code:
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click **Add** > **Add role assignment**.
+1. Click **Add** > **Add role assignment**. The Add role assignment page opens:
 
 :::image type="content" source="./media/storage-auth-abac-portal/add-role-assignment-menu.png" alt-text="Screenshot of Add > Add role assignment menu." lightbox="./media/storage-auth-abac-portal/add-role-assignment-menu.png":::
-
-    The Add role assignment page opens.
 
 1. On the **Roles** tab, select the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role.
 
