@@ -204,7 +204,8 @@ One the scoring script is created, it's time to create a batch deployment for it
    Then, create the deployment with the following command:
    
    ```azurecli
-   az ml batch-endpoint create -f endpoint.yml
+   DEPLOYMENT_NAME="imagenet-classifier-resnetv2"
+   az ml batch-deployment create -f deployment.yml
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
@@ -232,8 +233,29 @@ One the scoring script is created, it's time to create a batch deployment for it
        logging_level="info",
    )
    ```
+   
+   Then, create the deployment with the following command:
+   
+   ```python
+   ml_client.batch_deployments.begin_create_or_update(deployment)
+   ```
 
-1. At this point, our batch endpoint is ready to be used. 
+1. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   ```bash
+   az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
+   ```
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   ```python
+   endpoint.defaults.deployment_name = deployment.name
+   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ```
+
+1. At this point, our batch endpoint is ready to be used.  
 
 ## Testing out the deployment
 
