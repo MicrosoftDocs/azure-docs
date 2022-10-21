@@ -30,7 +30,7 @@ We recommend that you check the following before you start troubleshooting Micro
 - If you're trying to reregister your server to a vault:
   - Ensure the agent is uninstalled on the server and that it's deleted from the portal.
   - Use the same passphrase that was initially used to register the server.
-  - [Ensure your server is running on TLS 1.2](transport-layer-security.md).
+- [Ensure your server is running on TLS 1.2](transport-layer-security.md).
 - For offline backups, ensure Azure PowerShell 3.7.0 is installed on both the source and the copy computer before you start the backup.
 - If the Backup agent is running on an Azure virtual machine, see [this article](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine).
 
