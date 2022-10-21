@@ -7,9 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
-ms.custom: references_regions
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -17,6 +18,8 @@ ms.custom: references_regions
 <!-- markdownlint-disable MD051 -->
 
 # What's new in Azure Form Recognizer
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
@@ -26,7 +29,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## October 2022
 
-With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
+With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
 
 Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
 
@@ -39,9 +42,10 @@ Training custom neural models now supported in additional regions.
 
 ## September 2022
 
-### Region expansion for training custom neural models 
+### Region expansion for training custom neural models
 
-Training custom neural models is now supported in six additional regions.
+Training custom neural models is now supported in six new regions.
+
 * Australia East
 * Central US
 * East Asia
@@ -49,8 +53,12 @@ Training custom neural models is now supported in six additional regions.
 * UK South
 * West US2
 
+<<<<<<< HEAD
 
 For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
+=======
+For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
+>>>>>>> main
 
 #### Form Recognizer SDK version 4.0.0 GA release
 
@@ -213,7 +221,7 @@ This release includes the following updates:
 
 * **AI quality improvements**
 
-  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices as well as improved processing of digital PDF documents.
+  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices and improved processing of digital PDF documents.
 
   * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
 
