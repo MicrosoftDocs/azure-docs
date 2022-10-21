@@ -373,13 +373,13 @@ We deprecated the following policies to corresponding policies that already exis
 | To be deprecated | Changing to |
 |--|--|
 |`Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'` | `App Service apps should have 'Client Certificates (Incoming client certificates)' enabled` | 
-| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest 'Python version` |
+| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest Python version'` |
 | `CORS should not allow every resource to access your API App` | `App Service apps should not have CORS configured to allow every resource to access your apps` |
 | `Managed identity should be used in your API App` | `App Service apps should use managed identity` |
 | `Remote debugging should be turned off for API Apps` | `App Service apps should have remote debugging turned off` |
 | `Ensure that 'PHP version' is the latest, if used as a part of the API app` | `App Service apps that use PHP should use the latest 'PHP version'`|
 | `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
-| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
+| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version'` |
 | `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
 
 ## June 2022
