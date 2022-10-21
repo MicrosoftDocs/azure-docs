@@ -103,9 +103,13 @@ Example syntax:
 `502,443`: both ports
 
 >`Enter tcp ports to include (delimited by comma or Enter to skip):`
+>
 >`Enter udp ports to include (delimited by comma or Enter to skip):`
+>
 >`Enter tcp ports to exclude (delimited by comma or Enter to skip):`
+>
 >`Enter udp ports to exclude (delimited by comma or Enter to skip):`
+>
 
 In the next step, the filter can be setup for a specific component (advanced troubleshooting).
 In most common use cases, we recommend that you select `all` (Selecting `all` doesn't include the malware detection engine, which isn't supported by this command).
@@ -118,10 +122,15 @@ In the next step, a base capture filter can be setup for the components. For exa
 Select `Y` for all of the following options. All of the filters are added to the baseline after the changes are set. If you make a change, it will overwrite the existing baseline.
 
 >`Would you like to supply a custom base capture filter for the dissector component? [Y/N]:`
+>
 >`Would you like to supply a custom base capture filter for the collector component? [Y/N]:`
+>
 >`Would you like to supply a custom base capture filter for the statistics-collector component? [Y/N]:`
+>
 >`Would you like to supply a custom base capture filter for the rpc-parser component? [Y/N]:`
+>
 >`Would you like to supply a custom base capture filter for the smb-parser component? [Y/N]:`
+>
 
 In the next step, the breadth of the capture filter is set:
 We recommend that you select `internal`.
