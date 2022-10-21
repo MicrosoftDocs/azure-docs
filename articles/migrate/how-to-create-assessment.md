@@ -72,7 +72,7 @@ Run an assessment as follows:
         - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
     - In **VM Series**, specify the Azure VM series that you want to consider.
         - If you're using performance-based assessment, Azure Migrate suggests a value for you.
-        - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
+        - Tweak the settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
     
         **Component** | **Effective utilization** | **Add comfort factor (2.0)**
