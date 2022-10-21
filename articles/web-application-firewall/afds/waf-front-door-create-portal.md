@@ -84,8 +84,8 @@ To disable an individual rule, select the **check box** in front of the rule num
 
 :::image type="content" source="../media/waf-front-door-create-portal/managed-rules.png" alt-text="Screenshot of the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons." lightbox="../media/waf-front-door-create-portal/managed-rules.png":::
 
-    > [!NOTE]
-    > Managed rules are only supported in Front Door Premium tier and Front Door Classic tier policies.
+> [!NOTE]
+> Managed rules are only supported in Front Door Premium tier and Front Door Classic tier policies.
 
 ## Clean up resources
 
