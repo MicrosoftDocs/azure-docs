@@ -2,9 +2,9 @@
 title: 'Tutorial: Access data with managed identity in Java using Service Connector'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Quarkus app, and deploy it to Azure Container Apps.
 ms.devlang: java
-author: shizn
+author: KarlErickson
 ms.topic: tutorial
-ms.author: xshi
+ms.author: karler
 ms.service: container-apps
 ms.date: 09/26/2022
 ---

@@ -4,8 +4,8 @@ description: Secure Azure Database for PostgreSQL connectivity with managed iden
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2022
-author: shizn
-ms.author: xshi
+author: KarlErickson
+ms.author: karler
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
