@@ -43,7 +43,7 @@ pip install azure-ai-textanalytics==5.2.0
 Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
 
 ```python
-# This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_REGION"
+# This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
 language_key = os.environ.get('LANGUAGE_KEY')
 language_endpoint = os.environ.get('LANGUAGE_ENDPOINT')
 
