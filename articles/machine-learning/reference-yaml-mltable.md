@@ -22,7 +22,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 
 > [!Note]
-> `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could just use `uri_file`, `uri_folder` as mentioned in [CLI (v2) data YAML schema](../../includes/reference-yaml-data.md).
+> `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could just use `uri_file`, `uri_folder` as mentioned in [CLI (v2) data YAML schema](https://learn.microsoft.com/azure/machine-learning/reference-yaml-data).
 
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
@@ -116,6 +116,10 @@ transformations:
   - convert_column_types:
       - columns: image_url
         column_type: stream_info
+      - columns: [Trip_Pickup_DateTime, Trip_Dropoff_DateTime]
+        column_type:
+          datetime:
+            formats: ['%Y-%m-%d %H:%M:%S']
 ```
 
 ### Json lines transformations
@@ -125,6 +129,9 @@ Below are the supported transformations that are specific for json lines:
 - `include_path` Boolean to keep path information as column in the MLTable. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
 - `invalid_lines` How to handle lines that are invalid JSON. Supported values are `error` and `drop`. Defaults to `error`.
 - `encoding` Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
+- `convert_column_types` 
+      - `columns`: The column name you want to convert type of.
+      - `column_type`: The type you want to convert the column to, e.g. string, float, int, or datetime with specified formats.
 
 ## MLTable transformations: read_parquet
 ```yaml
