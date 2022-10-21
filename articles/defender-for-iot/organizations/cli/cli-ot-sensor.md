@@ -448,28 +448,27 @@ root@xsense:/# cyberx-xsense-certificate-import
 
 <!--better example with attributes showing and also response?-->
 
-## Update sensor software versions
+## Upgrade sensor software from CLI
 
 In this procedure, you will learn how to update the OT sensor software through the command line interface.
 
 1. Transfer the upgrade file to the sensor (sftp or scp can be used)<br><br>Login as `cyberx_host` user and Transfer the file to  `/opt/sensor/logs/`
  
-1. Login as cyberx user <br>
-Move the file to the location accessible for the upgrade process
+1. Login as cyberx user <br>Move the file to the location accessible for the upgrade process
 ```bash
 cd /var/host-logs/ 
 mv <filename> /var/cyberx/media/device-info/update_agent.tar
 ```
-1. Start the upgrade process:
+1. Start the upgrade process:<br>
 ```bash
 curl -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
 ```
 
-1. Monitoring the upgrade progress has started
+1. Monitoring the upgrade progress has started<br>
 ```bash
 tail -f /var/cyberx/logs/upgrade.log
 ```
-Output will appear similar to the example below
+Output will appear similar to the example below<br>
 
 ```bash
 2022-05-23 15:39:00,632 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Extracting upgrade package from /var/cyberx/media/device-info/update_agent.tar to /var/cyberx/media/device-info/update
@@ -478,12 +477,12 @@ Output will appear similar to the example below
 
 2022-05-23 15:40:03,181 [pool-34-thread-1] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Send upgrade request to os-manager. file location: /var/cyberx/media/device-info/update
 ```
-1. During the upgrade, ssh will disconnect - an indication that it is running.
+1. During the upgrade, ssh will disconnect - an indication that it is running.<br>
 
-1. Monitoring the upgrade process (login as `cyberx_host`)
+1. Monitoring the upgrade process is possible using the following command (login as `cyberx_host`)<br>
 
 ```bash
-Tail -f /opt/sensor/logs/install.log
+tail -f /opt/sensor/logs/install.log
 ```
 
 ## Back up and restore appliance snapshot
