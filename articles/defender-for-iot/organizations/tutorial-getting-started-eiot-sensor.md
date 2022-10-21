@@ -99,7 +99,7 @@ This procedure describes how to prepare your physical appliance or VM to install
     | DNS | TCP/UDP | In/Out | 53  | Address resolution |
 
 
-1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
+1. Make sure that your physical appliance or VM can access the cloud using HTTPS on port 443 to the following Microsoft endpoints:
 
     - **EventHub**: `*.servicebus.windows.net`
     - **Storage**: `*.blob.core.windows.net`
@@ -107,7 +107,7 @@ This procedure describes how to prepare your physical appliance or VM to install
     - **IoT Hub**: `*.azure-devices.net`
 
     > [!TIP]
-    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure domains that are specified above, along with their region.
+    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure endpoints that are specified above, along with their region.
     >
     > The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
@@ -182,7 +182,7 @@ The installation process checks to see if the required Docker version is already
 In the **Sites and sensors** page, Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**. For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
 > [!TIP]
-> If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
+> If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](../../azure-portal/set-preferences.md).
 >
 > If you still don't view your data as expected, [validate your sensor setup](extra-deploy-enterprise-iot.md#validate-your-enterprise-iot-sensor-setup) from the CLI.
 

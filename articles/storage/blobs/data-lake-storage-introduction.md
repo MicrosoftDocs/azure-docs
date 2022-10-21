@@ -4,7 +4,7 @@ description: Read an introduction to Azure Data Lake Storage Gen2. Learn key fea
 author: normesta
 ms.service: storage
 ms.topic: overview
-ms.date: 02/25/2020
+ms.date: 02/23/2022
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
@@ -24,13 +24,13 @@ A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical 
 
 Data Lake Storage Gen2 builds on Blob storage and enhances performance, management, and security in the following ways:
 
-- **Performance** is optimized because you do not need to copy or transform data as a prerequisite for analysis. Compared to the flat namespace on Blob storage, the hierarchical namespace greatly improves the performance of directory management operations, which improves overall job performance.
+- **Performance** is optimized because you don't need to copy or transform data as a prerequisite for analysis. Compared to the flat namespace on Blob storage, the hierarchical namespace greatly improves the performance of directory management operations, which improves overall job performance.
 
 - **Management** is easier because you can organize and manipulate files through directories and subdirectories.
 
 - **Security** is enforceable because you can define POSIX permissions on directories or individual files.
 
-Also, Data Lake Storage Gen2 is very cost effective because it is built on top of the low-cost [Azure Blob Storage](storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
+Also, Data Lake Storage Gen2 is very cost effective because it's built on top of the low-cost [Azure Blob Storage](storage-blobs-introduction.md). The extra features further lower the total cost of ownership for running big data analytics on Azure.
 
 ## Key features of Data Lake Storage Gen2
 
@@ -44,7 +44,7 @@ Also, Data Lake Storage Gen2 is very cost effective because it is built on top o
 
 ### Scalability
 
-Azure Storage is scalable by design whether you access via Data Lake Storage Gen2 or Blob storage interfaces. It is able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
+Azure Storage is scalable by design whether you access via Data Lake Storage Gen2 or Blob storage interfaces. It's able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
 
 ### Cost effectiveness
 
@@ -60,7 +60,7 @@ The following are the equivalent entities, as described by different concepts. U
 
 | Concept                                | Top Level Organization | Lower Level Organization                                            | Data Container |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| Blobs - General purpose object storage | Container              | Virtual directory (SDK only - does not provide atomic manipulation) | Blob           |
+| Blobs - General purpose object storage | Container              | Virtual directory (SDK only - doesn't provide atomic manipulation) | Blob           |
 | Azure Data Lake Storage Gen2 - Analytics Storage          | Container            | Directory                                                           | File           |
 
 ## Supported Blob Storage features

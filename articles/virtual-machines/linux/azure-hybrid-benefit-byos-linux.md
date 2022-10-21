@@ -1,5 +1,5 @@
 ---
-title: Azure Hybrid Benefit for BYOS Linux virtual machines
+title: Azure Hybrid Benefit BYOS to PAYG capability
 description: Learn how Azure Hybrid Benefit can provide updates and support for Linux virtual machines.
 services: virtual-machines
 author: mathapli
@@ -14,9 +14,9 @@ ms.author: mathapli
 ms.custom: kr2b-contr-experiment
 ---
 
-# Explore Azure Hybrid Benefit for bring-your-own-subscription Linux virtual machines
+# Explore Azure Hybrid Benefit bring-your-own-subscription to pay-as-you-go conversion for Linux virtual machines
 
-Azure Hybrid Benefit provides software updates and integrated support directly from Azure for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines. Azure Hybrid Benefit for bring-your-own-subscription (BYOS) virtual machines is a licensing benefit that lets you switch RHEL and SLES BYOS virtual machines generated from custom on-premises images or from Azure Marketplace to pay-as-you-go billing. 
+Azure Hybrid Benefit now provides software updates and integrated support directly from Azure infrastructure for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines. Azure Hybrid Benefit for bring-your-own-subscription (BYOS) virtual machines is a licensing benefit that lets you switch RHEL and SLES BYOS virtual machines generated from custom on-premises images or from Azure Marketplace to pay-as-you-go billing. 
 
 >[!IMPORTANT]
 > To do the reverse and switch from a RHEL pay-as-you-go virtual machine or SLES pay-as-you-go virtual machine to a BYOS virtual machine, see [Explore Azure Hybrid Benefit for pay-as-you-go Linux virtual machines](./azure-hybrid-benefit-linux.md).
@@ -29,9 +29,9 @@ Azure Hybrid Benefit converts BYOS billing to pay-as-you-go, so that you pay onl
 
 ## Which Linux virtual machines qualify for Azure Hybrid Benefit?
 
-Azure Hybrid Benefit for BYOS virtual machines is available to all RHEL and SLES virtual machines that come from a custom image. It's also available to all RHEL and SLES BYOS virtual machines that come from an Azure Marketplace image. 
+Azure Hybrid Benefit BYOS to PAYG capability is available to all RHEL and SLES virtual machines that come from a custom image. It's also available to all RHEL and SLES BYOS virtual machines that come from an Azure Marketplace image. 
 
-Azure dedicated host instances and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you already use Azure Hybrid Benefit with Linux virtual machines. Azure Hybrid Benefit for BYOS virtual machines does not support virtual machine scale sets and reserved instances (RIs).
+Azure dedicated host instances and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you already use Azure Hybrid Benefit with Linux virtual machines. Azure Hybrid Benefit BYOS to PAYG capability does not support virtual machine scale sets and reserved instances (RIs).
 
 ## Get started
 
@@ -187,18 +187,18 @@ After you successfully install the `AHBForSLES` extension, you can use the `az v
 
 ### Red Hat compliance
 
-Customers who use Azure Hybrid Benefit for BYOS virtual machines for RHEL agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offerings.
+Customers who use Azure Hybrid Benefit BYOS to PAYG capability for RHEL agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offerings.
 
 ### SUSE compliance
 
-If you use Azure Hybrid Benefit for BYOS virtual machines for SLES and want more information about moving from SLES pay-as-you-go to BYOS, or moving from SLES BYOS to pay-as-you-go, see [Azure Hybrid Benefit Support](https://aka.ms/suse-ahb) on the SUSE website.
+If you use Azure Hybrid Benefit BYOS to PAYG capability for SLES and want more information about moving from SLES pay-as-you-go to BYOS, or moving from SLES BYOS to pay-as-you-go, see [Azure Hybrid Benefit Support](https://aka.ms/suse-ahb) on the SUSE website.
 
 ## Frequently asked questions
-*Q: What is the licensing cost I pay with Azure Hybrid Benefit for BYOS virtual machines?*
+*Q: What is the licensing cost I pay with Azure Hybrid Benefit BYOS to PAYG capability?*
 
 A: When you start using Azure Hybrid Benefit for BYOS virtual machines, you'll essentially convert the bring-your-own-subscription billing model to a pay-as-you-go billing model. What you pay will be similar to a software subscription cost for pay-as-you-go virtual machines. 
 
-The following table maps the pay-as-you-go options on Azure and links to pricing information to help you understand the cost associated with Azure Hybrid Benefit for BYOS virtual machines. When you go to the pricing pages, keep the Azure Hybrid Benefit for pay-as-you-go filter off.
+The following table maps the pay-as-you-go options on Azure and links to pricing information to help you understand the cost associated with Azure Hybrid Benefit BYOS to PAYG capability. When you go to the pricing pages, keep the Azure Hybrid Benefit for pay-as-you-go filter off.
 
 | License type | Relevant pay-as-you-go virtual machine image and pricing link |
 |---|---|---|   
@@ -218,27 +218,27 @@ A: No, you can't. Trying to enter a license type that incorrectly matches the di
 
 If you accidentally enter the wrong license type, remove the billing by changing the license type to empty. Then update your virtual machine to the correct license type to enable Azure Hybrid Benefit.
 
-*Q: What are the supported versions for RHEL with Azure Hybrid Benefit for BYOS virtual machines?*
+*Q: What are the supported versions for RHEL with Azure Hybrid Benefit BYOS to PAYG capability?*
 
-A: Azure Hybrid Benefit for BYOS virtual machines supports RHEL versions later than 7.4.
+A: Azure Hybrid Benefit BYOS to PAYG capability supports RHEL versions later than 7.4.
 
 *Q: I've uploaded my own RHEL or SLES image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Can I convert the billing on these images from BYOS to pay-as-you-go?*
 
 A: Yes, this capability supports images uploaded from on-premises to Azure. Follow the steps in the [Get started](#get-started) section earlier in this article. 
 
-*Q: Can I use Azure Hybrid Benefit for BYOS virtual machines on RHEL and SLES pay-as-you-go Azure Marketplace virtual machines?*
+*Q: Can I use Azure Hybrid Benefit BYOS to PAYG capability on RHEL and SLES pay-as-you-go Azure Marketplace virtual machines?*
 
 A: No, because these virtual machines are already pay-as-you-go. However, with Azure Hybrid Benefit, you can use the license type of `RHEL_BYOS` for RHEL virtual machines and `SLES_BYOS` for conversions of RHEL and SLES pay-as-you-go Azure Marketplace virtual machines. For more information, see [Explore Azure Hybrid Benefit for pay-as-you-go Linux virtual machines](./azure-hybrid-benefit-linux.md).
 
-*Q: Can I use Azure Hybrid Benefit for BYOS virtual machines on virtual machine scale sets for RHEL and SLES?*
+*Q: Can I use Azure Hybrid Benefit BYOS to PAYG capability on virtual machine scale sets for RHEL and SLES?*
 
-A: No. Hybrid Benefit for BYOS virtual machines isn't currently available for virtual machine scale sets.
+A: No. Azure Hybrid Benefit BYOS to PAYG capability isn't currently available for virtual machine scale sets.
 
-*Q: Can I use Azure Hybrid Benefit for BYOS virtual machines on a virtual machine deployed for SQL Server on RHEL images?*
+*Q: Can I use Azure Hybrid Benefit BYOS to PAYG capability on a virtual machine deployed for SQL Server on RHEL images?*
 
 A: No, you can't. There's no plan for supporting these virtual machines.
 
-*Q: Can I use Azure Hybrid Benefit for BYOS virtual machines on my RHEL for Virtual Datacenters subscription?*
+*Q: Can I use Azure Hybrid Benefit BYOS to PAYG capability on my RHEL for Virtual Datacenters subscription?*
 
 A: No. RHEL for Virtual Datacenters isn't supported on Azure at all, including Azure Hybrid Benefit.  
 

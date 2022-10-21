@@ -88,15 +88,15 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 ### Azure Resource Graph
 
-You can programmatically access relevant Spot VM SKU data through [Azure Resource Graph](/azure/governance/resource-graph/overview). Get pricing history in the last 90 days and eviction rates for the last 28 trailing days to identify SKUs that better meet your specific needs. 
+You can programmatically access relevant Spot VM SKU data through [Azure Resource Graph](../governance/resource-graph/overview.md). Get pricing history in the last 90 days and eviction rates for the last 28 trailing days to identify SKUs that better meet your specific needs. 
 
 Key benefits: 
-- Query Spot eviction rates and the last few months of Spot prices programmatically through ARM or the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal)  
+- Query Spot eviction rates and the last few months of Spot prices programmatically through ARM or the [ARG Explorer in Azure portal](../governance/resource-graph/first-query-portal.md)  
 - Create a custom query to extract the specific data relevant to your scenario with the ability to filter across a variety of parameters, such as SKU and region  
 - Easily compare data across multiple regions and SKUs  
 - Find a different Spot SKU or region with a lower price and/or eviction rate  
 
-Try out the following sample queries for Spot pricing history and eviction rates using the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal). Spot pricing history and eviction rates data are available in the `SpotResources` table. 
+Try out the following sample queries for Spot pricing history and eviction rates using the [ARG Explorer in Azure portal](../governance/resource-graph/first-query-portal.md). Spot pricing history and eviction rates data are available in the `SpotResources` table. 
 
 **Spot pricing history sample query**:
 

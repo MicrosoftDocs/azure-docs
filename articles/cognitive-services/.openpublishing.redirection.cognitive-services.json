@@ -11,6 +11,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/language-service/conversational-language-understanding/concepts/backwards-compatibility.md",
+            "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/migrate-from-luis",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
             "redirect_document_id": false
