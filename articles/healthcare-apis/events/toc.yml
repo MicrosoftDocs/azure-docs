@@ -22,10 +22,10 @@ items:
   - name: Monitor
     expanded: true
     items:
-    - name: Display Events metrics
-      href: events-display-metrics.md 
-    - name: Configure Events diagnostic settings
-      href: events-export-logs-metrics.md
+    - name: Use metrics
+      href: events-use-metrics.md 
+    - name: Enable diagnostic settings
+      href: events-enable-diagnostic-settings.md
   - name: Disable Events and delete workspaces
     href: events-disable-delete-workspace.md 
   - name: Troubleshoot and problem solve
