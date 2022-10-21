@@ -19,16 +19,6 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 
 An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) to be the primary server.
 
-## Azure replication support
-
-[Read replicas](concepts-read-replicas.md) and [logical decoding](concepts-logical.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
-
-The right level of logging can be set using wal_level parameter in the Server Parameter pane. Azure Database for PostgreSQL allows wal_level to take two out of three values:
-
-* **Minimal** - Puts the least information in the WAL. This value is not available on Azure Database for PostgreSQL servers.  
-* **Replica** - More verbose than **Minimal**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This value is the default on most servers.
-* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical replication to work. Read replicas also work at this setting.
-
 > [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
 
@@ -64,7 +54,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 > [!IMPORTANT]
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
 >
-> Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
+> To avoid issues during promotion of replicas always change the following server parameters first on the replicas before doing them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 
 ## Promote replicas
 
@@ -124,33 +114,46 @@ You can also delete the read replica from the **Replication** window by followin
 
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-confirm.png" alt-text="Confirm to delete te replica":::
 
-## Monitor a replica
+[//]: # (## Monitor a replica)
 
-Two metrics are available to monitor read replicas.
+[//]: # ()
+[//]: # (Two metrics are available to monitor read replicas.)
 
-### Max Lag Across Replicas metric
+[//]: # ()
+[//]: # (### Max Lag Across Replicas metric)
 
-The **Max Lag Across Replicas** metric shows the lag in bytes between the primary server and the most-lagging replica.
+[//]: # ()
+[//]: # (The **Max Lag Across Replicas** metric shows the lag in bytes between the primary server and the most-lagging replica.)
 
-1.	In the Azure portal, select the primary Azure Database for PostgreSQL server.
+[//]: # ()
+[//]: # (1.	In the Azure portal, select the primary Azure Database for PostgreSQL server.)
 
-2.	Select **Metrics**. In the **Metrics** window, select **Max Lag Across Replicas**.
+[//]: # ()
+[//]: # (2.	Select **Metrics**. In the **Metrics** window, select **Max Lag Across Replicas**.)
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/select-max-lag.png" alt-text="Monitor the max lag across replicas":::
+[//]: # ()
+[//]: # (    :::image type="content" source="./media/how-to-read-replicas-portal/select-max-lag.png" alt-text="Monitor the max lag across replicas":::)
 
-3.	For your **Aggregation**, select **Max**.
+[//]: # ()
+[//]: # (3.	For your **Aggregation**, select **Max**.)
 
-### Replica Lag metric
+[//]: # ()
+[//]: # (### Replica Lag metric)
 
-The **Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your master, the metric reflects this time lag.
+[//]: # ()
+[//]: # (The **Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your master, the metric reflects this time lag.)
 
-1. In the Azure portal, select the Azure Database for PostgreSQL read replica.
+[//]: # ()
+[//]: # (1. In the Azure portal, select the Azure Database for PostgreSQL read replica.)
 
-2. Select **Metrics**. In the **Metrics** window, select **Replica Lag**.
+[//]: # ()
+[//]: # (2. Select **Metrics**. In the **Metrics** window, select **Replica Lag**.)
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/select-replica-lag.png" alt-text="Monitor the replica lag":::
+[//]: # ()
+[//]: # (   :::image type="content" source="./media/how-to-read-replicas-portal/select-replica-lag.png" alt-text="Monitor the replica lag":::)
 
-3. For your **Aggregation**, select **Max**.
+[//]: # ()
+[//]: # (3. For your **Aggregation**, select **Max**.)
 
 ## Next steps
 
