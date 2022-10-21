@@ -29,12 +29,14 @@ In this article, you can learn:
 ## Prerequisites
 
 * An AKS cluster is up and running in Azure.
+  * If you have not previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-service-provider).
 * Or an Arc Kubernetes cluster is up and running. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
   * If the cluster is an Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kuberenetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
 * The Kubernetes cluster must have minimum of 4 vCPU cores and 8-GB memory.
 * Cluster running behind an outbound proxy server or firewall needs extra [network configurations](./how-to-access-azureml-behind-firewall.md#kubernetes-compute)
 * Install or upgrade Azure CLI to version 2.24.0 or higher.
 * Install or upgrade Azure CLI extension `k8s-extension` to version 1.2.3 or higher.
+  
 
 ## Limitations
 
@@ -60,7 +62,7 @@ You can use AzureML CLI command `k8s-extension create` to deploy AzureML extensi
    |`nodeSelector` | By default, the deployed kubernetes resources are randomly deployed to one or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
    |`installNvidiaDevicePlugin`  | `True` or `False`, default `False`. [NVIDIA Device Plugin](https://github.com/NVIDIA/k8s-device-plugin#nvidia-device-plugin-for-kubernetes) is required for ML workloads on NVIDIA GPU hardware. By default, AzureML extension deployment won't install NVIDIA Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this setting to `True`, to install it, but make sure to fulfill [Prerequisites](https://github.com/NVIDIA/k8s-device-plugin#prerequisites). | Optional |Optional |Optional |
    |`installPromOp`|`True` or `False`, default `True`. AzureML extension needs prometheus operator to manage prometheus. Set to `False` to reuse the existing prometheus operator. For more information about reusing the existing  prometheus operator, refer to [reusing the prometheus operator](./how-to-troubleshoot-kubernetes-extension.md#prometheus-operator)| Optional| Optional |  Optional |
-   |`installVolcano`| `True` or `False`, default `True`. AzureML extension needs volcano scheduler to schedule the job. Set to `False` to reuse existing volcano scheduler. For more information about reusing the existing vocano scheduler, refer to [reusing volcano scheduler](./how-to-troubleshoot-kubernetes-extension.md#volcano-scheduler)   | Optional| N/A |  Optional |
+   |`installVolcano`| `True` or `False`, default `True`. AzureML extension needs volcano scheduler to schedule the job. Set to `False` to reuse existing volcano scheduler. For more information about reusing the existing volcano scheduler, refer to [reusing volcano scheduler](./how-to-troubleshoot-kubernetes-extension.md#volcano-scheduler)   | Optional| N/A |  Optional |
    |`installDcgmExporter`  |`True` or `False`, default `False`. Dcgm-exporter can expose GPU metrics for AzureML workloads, which can be monitored in Azure portal. Set `installDcgmExporter`  to `True` to install dcgm-exporter. But if you want to utilize your own dcgm-exporter, refer to [DCGM exporter](./how-to-troubleshoot-kubernetes-extension.md#dcgm-exporter) |Optional |Optional |Optional |
 
 
