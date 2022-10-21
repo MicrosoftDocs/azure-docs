@@ -61,6 +61,7 @@ We recommend careful consideration of these design patterns for building a susta
 | [Enable cluster and node auto-updates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
 | [Install supported add-ons and extensions](#install-supported-add-ons-and-extensions) | ✔️ | ✔️ |
 | [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
+| [Use spot node pools when possible](#use-spot-node-pools-when-possible) |  | ✔️ |
 | [Match the scalability needs and utilize auto-scaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
 | [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
 | [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
@@ -118,6 +119,12 @@ Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-po
 Containers allow for reducing unnecessary resource allocation and making better use of the resources deployed as they allow for bin packing and require less compute resources than virtual machines.
 
 * Use [Draft](/azure/aks/draft) to simplify application containerization by generating Dockerfiles and Kubernetes manifests.
+
+### Use spot node pools when possible
+
+Spot nodes use Spot VMs and are great for workloads that can handle interruptions, early terminations, or evictions such as batch processing jobs and development and testing environments.
+
+* Use [spot node pools](/azure/aks/spot-node-pool) to take advantage of unused capacity in Azure at a significant cost saving for a more sustainable platform design for your [interruptible workloads](/azure/architecture/guide/spot/spot-eviction).
 
 ### Match the scalability needs and utilize auto-scaling and bursting capabilities
 
