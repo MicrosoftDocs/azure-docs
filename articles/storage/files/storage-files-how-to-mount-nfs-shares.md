@@ -56,11 +56,13 @@ You have now mounted your NFS share.
 
 ## Mount an NFS share using /etc/fstab
 
-If you want the NFS file share to automatically mount every time the Linux server or VM boots, create a record in the **/etc/fstab** file for your Azure file share. Replace <YourStorageAccountName> and <FileShareName> with your information.
+If you want the NFS file share to automatically mount every time the Linux server or VM boots, create a record in the **/etc/fstab** file for your Azure file share. Replace `YourStorageAccountName` and `FileShareName` with your information.
 
 ```bash
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> nfs vers=4,minorversion=1,sec=sys 0 0
 ```
+
+For more information, enter the command `man fstab` from the Linux command line.
 
 ### Validate connectivity
 
