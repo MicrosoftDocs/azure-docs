@@ -16,7 +16,7 @@ ms.date: 10/21/2022
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
+>
 > * Export the certificate for LDAPS authentication
 > * Upload the LDAPS certificate to blob storage and generate a SAS URL
 > * Configure NSX-T DNS for resolution to your Active Directory Domain
