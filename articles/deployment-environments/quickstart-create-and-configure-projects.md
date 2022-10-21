@@ -86,7 +86,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
    :::image type="content" source="./media/quickstart-create-configure-projects/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details in the Add project environment type pane.":::
 
 > [!NOTE]
-> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [granted Owner access to the deployment subscription](how-to-configure-managed-identity.md) configured per environment type.
+> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
 
 ## Give project access to the development team
 
@@ -110,4 +110,4 @@ To configure a project, add a [project environment type](how-to-configure-projec
 In this quickstart, you created a project and granted project access to your development team. To learn about how your development team members can create environments, advance to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create and access environments](quickstart-create-access-environments.md)
+> [Quickstart: Create and access an environment](quickstart-create-access-environments.md)

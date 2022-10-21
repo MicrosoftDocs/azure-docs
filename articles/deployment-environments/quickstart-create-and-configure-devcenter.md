@@ -64,7 +64,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
 
 1. In **Dev centers**, verify that the dev center appears.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-envrionments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
 
 ## Attach an identity to the dev center
 
@@ -85,7 +85,7 @@ To attach a system-assigned managed identity to your dev center:
 
 1. After you create a system-assigned managed identity, assign the Owner role to give the [identity access](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) on the subscriptions that will be used to configure [project environment types](concept-environments-key-concepts.md#project-environment-types).
 
-   Make sure that the identity has [access to the Key Vault secrets](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contain the personal access token (PAT) token to access your repository.
+   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token token to access your repository.
 
 ### Attach an existing user-assigned managed identity
 
@@ -93,26 +93,26 @@ To attach a user-assigned managed identity to your dev center:
 
 1. Complete the steps to attach a [user-assigned managed identity](how-to-configure-managed-identity.md#configure-a-user-assigned-managed-identity-for-a-dev-center).
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot that shows a user-assigned managed identity.":::
+   :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot that shows a user-assigned managed identity.":::
 
 1. After you attach the identity, assign the Owner role to give the [identity access](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) on the subscriptions that will be used to configure [project environment types](how-to-configure-project-environment-types.md). Give the identity Reader access to all subscriptions that a project lives in.
 
-   Make sure that the identity has [access to the Key Vault secrets](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contain the PAT to access the repository.
+   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token to access the repository.
 
 > [!NOTE]
-> The [identity](concept-environments-key-concepts.md#identities) that's attached to the dev center should be granted Owner access to the deployment subscription configured per environment type.
+> The [identity](concept-environments-key-concepts.md#identities) that's attached to the dev center should be assigned the Owner role for access to the deployment subscription for each environment type.
 
-## Attach a catalog to the dev center
+## Add a catalog to the dev center
 
-Next, attach a catalog to your dev center.
+Next, add a catalog to your dev center.
 
 ### Prerequisites
 
-Before you attach a [catalog](concept-environments-key-concepts.md#catalogs), store the PAT as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the secret identifier. Ensure that the [identity](concept-environments-key-concepts.md#identities) that's attached to the dev center has [Get access to the secret](../key-vault/general/assign-access-policy.md).
+Before you add a [catalog](concept-environments-key-concepts.md#catalogs), store the personal access token as a [key vault secret](../key-vault/secrets/quick-create-portal.md) in Azure Key Vault and copy the secret identifier. Ensure that the [identity](concept-environments-key-concepts.md#identities) that's attached to the dev center has [GET access to the secret](../key-vault/general/assign-access-policy.md).
 
-To attach a catalog to your dev center:
+To add a catalog to your dev center:
 
-1. In the [Azure portal](https://portal.azure.com/), go to Azure Deployment Environments.
+1. In the Azure portal, go to Azure Deployment Environments.
 1. In **Dev centers**, select your dev center.
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -126,7 +126,7 @@ To attach a catalog to your dev center:
     |**Git clone URI**|Enter the URI to your GitHub or Azure DevOps repository.|
     |**Branch**|Enter the repository branch that you want to connect.|
     |**Folder path**|Enter the repo path where the [catalog item](concept-environments-key-concepts.md#catalog-items) exists.|
-    |**Secret identifier**|Enter the secret identifier that contains your PAT for the repository.|
+    |**Secret identifier**|Enter the secret identifier that contains your personal access token for the repository.|
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-new-catalog-form.png" alt-text="Screenshot that shows the Add new catalog pane.":::
 
@@ -136,7 +136,7 @@ To attach a catalog to your dev center:
 
 Use an environment type to help you define the different types of environments your development teams can deploy. You can apply different settings for each environment type.
 
-1. In the [Azure portal](https://portal.azure.com/), go to Azure Deployment Environments.
+1. In the Azure portal, go to Azure Deployment Environments.
 1. In **Dev centers**, select your dev center.
 1. In the left menu under **Environment configuration**, select **Environment types**, and then select **Create**.
 1. In **Create environment type**, enter the following information, and then select **Add**.

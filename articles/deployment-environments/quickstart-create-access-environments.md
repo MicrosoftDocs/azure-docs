@@ -129,5 +129,5 @@ To access an environment:
 
 ## Next steps
 
-- Learn how to [configure a catalog](how-to-configure-catalog.md).
-- Learn how to [configure a catalog item](configure-catalog-item.md).
+- Learn how to [add and configure a catalog](how-to-configure-catalog.md).
+- Learn how to [add and configure a catalog item](configure-catalog-item.md).
