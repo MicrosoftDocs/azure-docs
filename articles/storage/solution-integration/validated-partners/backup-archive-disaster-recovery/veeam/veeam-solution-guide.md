@@ -5,7 +5,7 @@ description: This article provides information for using Azure Blob storage with
 
 author: karauten
 ms.author: karauten
-ms.date: 05/12/2021
+ms.date: 10/15/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
@@ -37,7 +37,7 @@ You can protect Exchange Online, SharePoint Online, OneDrive for Business, and T
 
 This diagram provides an overview of these capabilities.
 
-![Veeam to Azure reference architecture diagram.](../media/veeam-architecture.png)
+![Veeam to Azure reference architecture diagram.](../media/veeam-architectures.png)
 
 ## Before you begin
 
@@ -98,6 +98,6 @@ You can continue to use the Veeam solution you know and trust to protect your wo
 
 ### Marketplace offerings
 
-- 	[Deploy Veeam Backup & Replication from the Azure Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/veeam.veeam-backup-replication?tab=overview)
-- 	[Deploy Veeam Backup for Microsoft Azure from the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.azure_backup)
-- 	[Deploy Veeam Backup for Microsoft 365 from the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.office365backup)
+- 	[Deploy Veeam Backup & Replication from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=overview)
+- 	[Deploy Veeam Backup for Microsoft Azure from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.azure_backup)
+- 	[Deploy Veeam Backup for Microsoft 365 from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.office365backup)
