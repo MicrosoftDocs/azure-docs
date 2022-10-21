@@ -207,10 +207,8 @@ Using the CLI, it is possible to create a local alert exclusion rule by entering
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| support | `cyberx-xsense-exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]` |  -h, --help show this help message and exit
-  -n NAME, --name NAME  Rule name<br>  -ts TIMES, --time_span TIMES Excluded time periods (xx:yy-xx:yy, xx:yy-xx:yy)<br>  -dir DIRECTION, --direction DIRECTION Excluded address direction (both | src | dst)<br>  -dev DEVICES, --devices DEVICES Device address and address type (ip-x.x.x.x, mac-xx:xx:xx:xx:xx:xx, subnet:x.x.x.x/x)<br> -a ALERTS, --alerts ALERTS scenario names by hex (0x00000, 0x000001) |
-| cyberx | `cyberx-xsense-exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]` | -h, --help show this help message and exit
-  -n NAME, --name NAME  Rule name<br>  -ts TIMES, --time_span TIMES Excluded time periods (xx:yy-xx:yy, xx:yy-xx:yy)<br>  -dir DIRECTION, --direction DIRECTION Excluded address direction (both | src | dst)<br>  -dev DEVICES, --devices DEVICES Device address and address type (ip-x.x.x.x, mac-xx:xx:xx:xx:xx:xx, subnet:x.x.x.x/x)<br> -a ALERTS, --alerts ALERTS scenario names by hex (0x00000, 0x000001)  |
+| support | `cyberx-xsense-exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]` |  -h, --help show this help message and exit<br> -n NAME, --name NAME  Rule name<br>  -ts TIMES, --time_span TIMES Excluded time periods (xx:yy-xx:yy, xx:yy-xx:yy)<br>  -dir DIRECTION, --direction DIRECTION Excluded address direction (both / src / dst)<br>  -dev DEVICES, --devices DEVICES Device address and address type (ip-x.x.x.x, mac-xx:xx:xx:xx:xx:xx, subnet:x.x.x.x/x)<br> -a ALERTS, --alerts ALERTS scenario names by hex (0x00000, 0x000001) |
+| cyberx | `cyberx-xsense-exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]` | -h, --help show this help message and exit<br> -n NAME, --name NAME  Rule name<br>  -ts TIMES, --time_span TIMES Excluded time periods (xx:yy-xx:yy, xx:yy-xx:yy)<br>  -dir DIRECTION, --direction DIRECTION Excluded address direction (both / src / dst)<br>  -dev DEVICES, --devices DEVICES Device address and address type (ip-x.x.x.x, mac-xx:xx:xx:xx:xx:xx, subnet:x.x.x.x/x)<br> -a ALERTS, --alerts ALERTS scenario names by hex (0x00000, 0x000001)  |
 
 ```bash
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
