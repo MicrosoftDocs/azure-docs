@@ -99,7 +99,7 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
    * In the **Secret Token** field, enter the OAuth bearer token you generated in step #3 and click **Test Connection**.
 
-   * You should see a success notification on the upper­right side of your portal.
+   * You should see a success notification on the upper-right side of your portal.
 
 1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 
