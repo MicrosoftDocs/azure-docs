@@ -36,15 +36,15 @@ To complete the scenario in this quickstart, you need:
 
 1. Under **Azure services**, select **Azure Active Directory** (or use the search box to find and select **Azure Active Directory**).
 
- :::image type="content" source="media/quickstart-add-users-portal/azure-active-directory-service.png" alt-text="Screenshot showing where to select the Azure Active Directory service.":::
+    :::image type="content" source="media/quickstart-add-users-portal/azure-active-directory-service.png" alt-text="Screenshot showing where to select the Azure Active Directory service.":::
 
 1. Under **Manage**, select **Users**.
 
- :::image type="content" source="media/quickstart-add-users-portal/quickstart-users-portal-user.png" alt-text="Screenshot showing where to select the Users option.":::
+    :::image type="content" source="media/quickstart-add-users-portal/quickstart-users-portal-user.png" alt-text="Screenshot showing where to select the Users option.":::
 
-1. Select **New guest user**.
+1. Under **New user** select **Invite external user**.
 
- :::image type="content" source="media/quickstart-add-users-portal/new-guest-user.png" alt-text="Screenshot showing where to select the New guest user option.":::
+    :::image type="content" source="media/quickstart-add-users-portal/new-guest-user.png" alt-text="Screenshot showing where to select the New guest user option.":::
 
 1. On the **New user** page, select **Invite user** and then add the guest user's information.
 
@@ -54,13 +54,13 @@ To complete the scenario in this quickstart, you need:
    - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
    - **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role.
 
- :::image type="content" source="media/quickstart-add-users-portal/invite-user.png" alt-text="Screenshot showing the new user page.":::
+    :::image type="content" source="media/quickstart-add-users-portal/invite-user.png" alt-text="Screenshot showing the new user page.":::
 
 1. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**.
 
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
- :::image type="content" source="media/quickstart-add-users-portal/new-guest-user-directory.png" alt-text="Screenshot showing the new guest user in the directory.":::
+    :::image type="content" source="media/quickstart-add-users-portal/new-guest-user-directory.png" alt-text="Screenshot showing the new guest user in the directory.":::
 
 
 ## Accept the invitation
@@ -71,11 +71,12 @@ Now sign in as the guest user to see the invitation.
 
 1. In your inbox, open the email from "Microsoft Invitations on behalf of Contoso."
 
- ![Screenshot showing the B2B invitation email](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    :::image type="content" source="media/quickstart-add-users-portal/quickstart-users-portal-email-small.png" alt-text="Screenshot showing the B2B invitation email.":::
+
 
 1. In the email body, select **Accept invitation**. A **Review permissions** page opens in the browser.
 
- :::image type="content" source="media/quickstart-add-users-portal/consent-screen.png" alt-text="Screenshot showing the Review permissions page.":::
+    :::image type="content" source="media/quickstart-add-users-portal/consent-screen.png" alt-text="Screenshot showing the Review permissions page.":::
 
 1. Select **Accept**.
 
