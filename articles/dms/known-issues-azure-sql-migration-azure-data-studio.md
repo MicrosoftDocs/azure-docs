@@ -49,9 +49,9 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3634 The operating system returned the error '1450(Insufficient system resources exist to complete the requested service.)`
 
-- **Cause**: One of the symptoms listed in [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) can be the cause.
+- **Cause**: One of the symptoms listed in [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb#symptoms) can be the cause.
 
-- **Recommendation**: See [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb.md#symptoms) for troubleshooting steps.
+- **Recommendation**: See [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](/support/sql/admin/1450-and-665-errors-running-dbcc-checkdb#symptoms) for troubleshooting steps.
 <br/>
 
 - **Message**: `The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' isn't <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.`
