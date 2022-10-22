@@ -90,39 +90,40 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     ```
 
-4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query:
+1. 4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query:
 
-    > [!NOTE]
-    > - Replace &lt;your database name&gt; with the name of the database in Azure SQL Database that has the data_source_table.
-    > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
+   > [!NOTE]
+   > - Replace &lt;your database name&gt; with the name of the database in Azure SQL Database that has the data_source_table.
+   > 
+   > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
+   
+   ```sql
+ALTER DATABASE <your database name>
+SET CHANGE_TRACKING = ON  
+(CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
 
-    ```sql
-    ALTER DATABASE <your database name>
-    SET CHANGE_TRACKING = ON  
-    (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
+ALTER TABLE data_source_table
+ENABLE CHANGE_TRACKING  
+WITH (TRACK_COLUMNS_UPDATED = ON)
+```
+1. 5. Create a new table and store the ChangeTracking_version with a default value by running the following query:
 
-    ALTER TABLE data_source_table
-    ENABLE CHANGE_TRACKING  
-    WITH (TRACK_COLUMNS_UPDATED = ON)
-    ```
-5. Create a new table and store the ChangeTracking_version with a default value by running the following query:
+   ```sql
+create table table_store_ChangeTracking_version
+(
+    TableName varchar(255),
+    SYS_CHANGE_VERSION BIGINT,
+);
 
-    ```sql
-    create table table_store_ChangeTracking_version
-    (
-        TableName varchar(255),
-        SYS_CHANGE_VERSION BIGINT,
-    );
+DECLARE @ChangeTracking_version BIGINT
+SET @ChangeTracking_version = CHANGE_TRACKING_CURRENT_VERSION();  
 
-    DECLARE @ChangeTracking_version BIGINT
-    SET @ChangeTracking_version = CHANGE_TRACKING_CURRENT_VERSION();  
+INSERT INTO table_store_ChangeTracking_version
+VALUES ('data_source_table', @ChangeTracking_version)
+```
 
-    INSERT INTO table_store_ChangeTracking_version
-    VALUES ('data_source_table', @ChangeTracking_version)
-    ```
-
-    > [!NOTE]
-    > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
+   > [!NOTE]
+   > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
 6. Run the following query to create a stored procedure in your database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
 
     ```sql
@@ -147,15 +148,14 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
+1. 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Screenshot that shows the data factory selection in the New pane.":::
-
+    ![](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 
      :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png" alt-text="New data factory page":::
 
-   The name of the Azure Data Factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+1. The name of the Azure Data Factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
    *Data factory name “ADFTutorialDataFactory” is not available*
 3. Select your Azure **subscription** in which you want to create the data factory.
@@ -200,7 +200,6 @@ In this step, you link your Azure Storage Account to the data factory.
     3. Click **Save**.
 
    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png" alt-text="Azure Storage Account settings":::
-
 
 ### Create Azure SQL Database linked service.
 In this step, you link your database to the data factory.
@@ -467,3 +466,4 @@ Advance to the following tutorial to learn about copying new and changed files o
 
 > [!div class="nextstepaction"]
 > [Copy new files by lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+
