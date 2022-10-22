@@ -3,7 +3,7 @@ title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 services: container-service
 ms.topic: article
-ms.date: 10/20/2022
+ms.date: 10/23/2022
 
 ms.custom: contperf-fy21q4
 
@@ -18,7 +18,7 @@ This article shows you how to create a connection to an AKS node.
 
 ## Before you begin
 
-This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. If you use PuTTY Gen to create the key pair, save the key pair in an OpenSSH format rather than the default PuTTy private key format (.ppk file).
+This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. If you forget the SSH key, AKS now supports [updating SSH key on all exitsing nodes][updating SSH key on all exitsing nodes]. If you use PuTTY Gen to create the key pair, save the key pair in an OpenSSH format rather than the default PuTTy private key format (.ppk file).
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -163,6 +163,22 @@ When done, `exit` the SSH session, stop any port forwarding, and then `exit` the
 kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ```
 
+## Update the SSH key on existing AKS cluster
+
+### Prerequisites
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.110 or later CLI extension installed.
+
+AKS now supports updating SSH key on exitsing cluster. 
+
+Use `az aks update` to update new SSH key on all AKS nodes.
+
+```azurecli
+az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value>
+```
+
+> [!IMPORTANT]
+> During this operation, all the nodes of the cluster will be re-imaged and upgraded to fit the new SSH key. 
+
 ## Next steps
 
 If you need more troubleshooting data, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
@@ -175,3 +191,4 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
+[updating SSH key on all exitsing nodes]: node-access.md#Update-the-SSH-key-on-existing-AKS-cluster
