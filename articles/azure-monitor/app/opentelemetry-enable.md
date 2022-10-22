@@ -1322,6 +1322,8 @@ catch(error){
 
 #### [Python](#tab/python)
 
+The OpenTelemetry Python SDK is implemented such that exceptions thrown will automatically be captured and recorded. See below for an example of this.
+
 ```python
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider
@@ -1339,9 +1341,24 @@ trace.get_tracer_provider().add_span_processor(span_processor)
 # Exception events
 try:
     with tracer.start_as_current_span("hello") as span:
+        # This exception will be automatically recorded
         raise Exception("Custom exception message.")
 except Exception:
     print("Exception raised")
+
+```
+
+If you would like to record exceptions manually, you can disable that option when creating the span as show below.
+
+```python
+...
+with tracer.start_as_current_span("hello", record_exception=False) as span:
+    try:
+        raise Exception("Custom exception message.")
+    except Exception as ex:
+        # Manually record exception
+        span.record_exception(ex)
+...
 
 ```
 
