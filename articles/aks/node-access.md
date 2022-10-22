@@ -163,7 +163,7 @@ When done, `exit` the SSH session, stop any port forwarding, and then `exit` the
 kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ```
 
-## Update the SSH key on existing AKS cluster
+## Update the SSH key on existing AKS cluster (public preview)
 
 ### Prerequisites
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.110 or later CLI extension installed.
@@ -191,4 +191,4 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
-[updating SSH key on all exitsing nodes]: node-access.md#Update-the-SSH-key-on-existing-AKS-cluster
+[updating SSH key on all exitsing nodes]: node-access.md#Update-the-SSH-key-on-existing-AKS-cluster-(public-preview)
