@@ -13,7 +13,7 @@ ms.date: 10/21/2022
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. You can replicate from the primary server to up to five replicas.
+The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
 
 Replicas are new servers that you manage similar to regular Azure Database for PostgreSQL servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
@@ -46,6 +46,8 @@ You can have a primary server in any [Azure Database for PostgreSQL region](http
 
 You can always create a read replica in any of the following regions, regardless of where your primary server is located. These are the universal replica regions:
 
+[//]: # (TODO: update the region list)
+
 Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
 ### Paired regions
@@ -54,16 +56,9 @@ In addition to the universal replica regions, you can create a read replica in t
 
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.
 
-There are limitations to consider:
-
-* Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South. 
-   This means that a primary server in West India can create a replica in South India. However, a primary server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
-
 ## Create a replica
 
-When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the primary server. The creation time depends on the amount of data on the primary and the time since the [CHECK!] last weekly full backup. The time can range from a few minutes to several hours.
-
-The read replica feature uses PostgreSQL physical replication, not logical replication. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up.
+When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the primary server. For creation of replicas in the same region snapshot approach is used, therefore the time of creation doesn't depend on the size of data. Geo-replicas are created using base backup of the primary instance, which is then transmitted over the network therefore time of creation might range from minutes to several hours depending on the primary size. 
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 
@@ -71,7 +66,7 @@ If your source PostgreSQL server is encrypted with customer-managed keys, please
 
 ## Connect to a replica
 
-When you create a replica, it doesn't inherit the firewall rules or VNet service endpoint of the primary server. These rules must be set up independently for the replica.
+When you create a replica, it does inherit the firewall rules or VNet service endpoint of the primary server. These rules might be changed during creation of replica as well as in any later point in time.
 
 The replica inherits the admin account from the primary server. All user accounts on the primary server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the primary server.
 
@@ -83,28 +78,38 @@ psql -h myreplica.postgres.database.azure.com -U myadmin postgres
 
 At the prompt, enter the password for the user account.
 
-## Monitor replication
+[//]: # (## Monitor replication)
 
-Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md).
+[//]: # ()
+[//]: # (Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article]&#40;how-to-read-replicas-portal.md&#41;.)
 
-The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replica is connected to the primary and the primary is in streaming replication mode. The lag information does not show details when the replica is in the process of catching up with the primary using the archived logs of the primary in a file-shipping replication mode.
+[//]: # ()
+[//]: # (The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replica is connected to the primary and the primary is in streaming replication mode. The lag information does not show details when the replica is in the process of catching up with the primary using the archived logs of the primary in a file-shipping replication mode.)
 
-The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is applicable and available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:
+[//]: # ()
+[//]: # (The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is applicable and available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:)
 
-```SQL
-SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
-```
+[//]: # ()
+[//]: # (```SQL)
 
-Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.
+[//]: # (SELECT EXTRACT &#40;EPOCH FROM now&#40;&#41; - pg_last_xact_replay_timestamp&#40;&#41;&#41;;)
 
-For additional insight, query the primary server directly to get the replication lag in bytes on all replicas.
+[//]: # (```)
 
-> [!NOTE]
-> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
+[//]: # ()
+[//]: # (Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.)
+
+[//]: # ()
+[//]: # (For additional insight, query the primary server directly to get the replication lag in bytes on all replicas.)
+
+[//]: # ()
+[//]: # (> [!NOTE])
+
+[//]: # (> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.)
 
 ## Promote replicas
 
-You can stop the replication between a primary and a replica at any time. The stop action causes the replica to restart and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the restart process, the replica applies all the pending logs before accepting client connections.
+You can stop the replication between a primary and a replica by promoting one or more replicas at any time. The promote action causes the replica to restart and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the restart process, the replica applies all the pending logs before accepting client connections.
 
 >[!NOTE]
 > Resetting admin password on replica server is currently not supported. Additionally, updating admin password along with promote replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server then update the password on the newly promoted server separately.
@@ -114,18 +119,20 @@ You can stop the replication between a primary and a replica at any time. The st
 - Before you stop replication on a read replica, check for the replication lag to ensure the replica has all the data that you require. 
 - As the read replica has to apply all pending logs before it can be made a standalone server, RTO can be higher for write heavy workloads when the stop replication happens as there could be a significant delay on the replica. Please pay attention to this when planning to promote a replica.
 - The promoted replica server cannot be made into a replica again.
-- If you promote a replica to be the primary server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
+- If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
 
-When you stop replication, the replica loses all links to its previous primary and other replicas.
+When you promote a replica, the replica loses all links to its previous primary and other replicas.
 
-Learn how to [stop replication to a replica](how-to-read-replicas-portal.md).
+Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas).
 
 ## Failover to replica
 
 In the event of a primary server failure, it is **not** automatically failed over to the read replica.
 
-Since replication is asynchronous, there could be a considerable lag between the primary and the replica(s). The amount of lag is influenced by a number of factors such as the type of workload running on the primary server and the latency between the primary and the replica server. In typical cases with nominal write workload, replica lag is expected between a few seconds to few minutes. However, in  cases where the primary runs very heavy write-intensive workload and the replica is not catching up fast enough, the lag can be much higher. You can track the replication lag for each replica using the *Replica Lag* metric. This metric shows the time since the last replayed transaction at the replica. We recommend that you identify the average lag by observing the replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you will be notified to take action.
+Since replication is asynchronous, there could be a considerable lag between the primary and the replica(s). The amount of lag is influenced by a number of factors such as the type of workload running on the primary server and the latency between the primary and the replica server. In typical cases with nominal write workload, replica lag is expected between a few seconds to few minutes. However, in  cases where the primary runs very heavy write-intensive workload and the replica is not catching up fast enough, the lag can be much higher. 
+
+[//]: # (You can track the replication lag for each replica using the *Replica Lag* metric. This metric shows the time since the last replayed transaction at the replica. We recommend that you identify the average lag by observing the replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you will be notified to take action.)
 
 > [!Tip]
 > If you failover to the replica, the lag at the time you delink the replica from the primary will indicate how much data is lost.
