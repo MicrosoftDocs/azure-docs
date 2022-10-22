@@ -1,7 +1,6 @@
 ---
 title: Configure passive geo-replication for Premium Azure Cache for Redis instances
-description: Learn how to replicate your Azure Cache for Redis Premium instances across Azure regions
-# Do we want to change this description because we are talking about more than premium tier @MSFTeegarden
+description: Learn how to use cross-region replication to provide disaster recovery on the Premium tier of Azure Cache for Redis.
 author: flang-msft
 
 ms.service: cache
@@ -15,10 +14,13 @@ ms.author: franlanglois
 
 In this article, you learn how to configure passive geo-replication on a pair of Azure Cache for Redis instances using the Azure portal.
 
-Passive geo-replication links together two Premium Azure Cache for Redis instances and creates an active-passive data replication relationship.
-<!-- @MSFTeegarden - What does this "active-passive replication relationship" mean? -->
+Passive geo-replication links together two Premium tier Azure Cache for Redis instances and creates an _active-passive_ data replication relationship. Active-passive means that there's a pair of caches, primary and secondary, that have their data synchronized. But you can only write to one side of the pair, the primary. The other side of the pair, the secondary cache, is read-only.
 
-These cache instances are typically located in different Azure regions, though that isn't required. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary.
+Compare _active-passive_ to _active-active_, where you can write to either side of the pair, and it will synchronize with the other side.
+
+With passive geo-replication, the cache instances are typically located in different Azure regions, though that isn't required. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary.
+
+Failover is not automatic. For more information and information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary (preview)](#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
 
 > [!NOTE]
 > Geo-replication is designed as a disaster-recovery solution.
@@ -64,8 +66,8 @@ After geo-replication is configured, the following restrictions apply to your li
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
 - You can't delete either linked cache, or the resource group that contains them, until you unlink the caches. For more information, see [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - If the caches are in different regions, network egress costs apply to the data moved across regions. For more information, see [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Automatic failover doesn't occur between the primary and secondary linked cache.  For more information and information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary (preview)](#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
-<!-- Is this trying to say that a person must throw the switch for failover? What kind of failover isn't automatic? @MSFTeegarden -->
+- Failover is not automatic. You must start the failover from the primary to the secondary inked cache.  For more information and information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary (preview)](#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
+
 - Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
 ## Add a geo-replication link
@@ -76,19 +78,19 @@ After geo-replication is configured, the following restrictions apply to your li
 
 1. Select the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#geo-replication-prerequisites) for the secondary cache are met. To filter the caches by region, select the region in the map to display only those caches in the **Compatible caches** list.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link.png" alt-text="Select compatible cache":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link.png" alt-text="Screenshot showing compatible cache for linking for geo-replication.":::
 
     You can also start the linking process or view details about the secondary cache by using the context menu.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png" alt-text="Geo-replication context menu":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png" alt-text="Screenshot showing the Geo-replication context menu.":::
 
 1. Select **Link** to link the two caches together and begin the replication process.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png" alt-text="Link caches":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png" alt-text="Screenshot showing how to link caches for geo-replication.":::
 
 1. You can view the progress of the replication process using **Geo-replication** on the left.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-linking.png" alt-text="Linking status":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-linking.png" alt-text="Screenshot showing the current Linking status.":::
 
     You can also view the linking status on the left, using **Overview**, for both the primary and secondary caches.
 
@@ -96,7 +98,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
     Once the replication process is complete, the **Link status** changes to **Succeeded**.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-successful.png" alt-text="Cache status":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-successful.png" alt-text="Screenshot showing cache linking status as Succeeded.":::
 
     The primary linked cache remains available for use during the linking process. The secondary linked cache isn't available until the linking process completes.
 
@@ -121,7 +123,6 @@ The URLs for the current geo-primary and current geo-secondary cache are provide
 
 With one click, you can trigger a failover from the geo-primary to the geo-secondary.
 
-<!-- image -->
 :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-failover.png" alt-text="asd":::
 
 This causes the following steps to be taken:
@@ -155,7 +156,7 @@ There's no need to run the CLIENT UNPAUSE command as the new geo-primary does re
 
 1. To remove the link between two caches and stop geo-replication, select **Unlink caches** from the **Geo-replication** on the left.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Unlink caches":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Screenshot showing how to unlink caches.":::
 
     When the unlinking process completes, the secondary cache is available for both reads and writes.
 
@@ -260,19 +261,6 @@ Geo-replicated caches and their resource groups can't be deleted while linked un
 ### What region should I use for my secondary linked cache?
 
 In general, it's recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, it's recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
-
-<!-- I want to double-check that this should be removed here and in the question section. -->
-
-<!-- 
-### How does failing over to the secondary linked cache work?
-
-Automatic failover across Azure regions isn't supported for geo-replicated caches. In a disaster-recovery scenario, customers should bring up the entire application stack in a coordinated manner in their backup region. Letting individual application components decide when to switch to their backups on their own can negatively affect performance. 
-
-One of the key benefits of Redis is that it's a very low-latency store. If the customer's main application is in a different region than its cache, the added round-trip time would have a noticeable effect on performance. For this reason, we avoid failing over automatically because of transient availability issues.
-
-To start a customer-initiated failover, first unlink the caches. Then, change your Redis client to use the connection endpoint of the (formerly linked) secondary cache. When the two caches are unlinked, the secondary cache becomes a regular read-write cache again and accepts requests directly from Redis clients.
-
- -->
 
 ### Can I configure a firewall with geo-replication?
 
