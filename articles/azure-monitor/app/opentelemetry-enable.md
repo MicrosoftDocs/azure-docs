@@ -1355,7 +1355,7 @@ If you would like to record exceptions manually, you can disable that option whe
 with tracer.start_as_current_span("hello", record_exception=False) as span:
     try:
         raise Exception("Custom exception message.")
-    except Exception as ex:e
+    except Exception as ex:
         # Manually record exception
         span.record_exception(ex)
 ...
