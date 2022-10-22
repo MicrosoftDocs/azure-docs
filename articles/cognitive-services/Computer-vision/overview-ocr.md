@@ -22,14 +22,14 @@ Optical character recognition (OCR) allows you to extract printed or handwritten
 
 OCR typically refers to the foundational technology focusing on extracting text while delegating the extraction of structure, relationships, key-values, entities, and other document-centric insights to intelligent document processing service like [Form Recognizer](../../applied-ai-services/form-recognizer/overview.md). Form Recognizer includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Form Recognizer Read OCR](../../applied-ai-services/form-recognizer/concept-read.md).
 
-## About Read OCR
-Microsoft's **Read** OCR technology is built on top of multiple deep learning models supported by universal script-based models for global language support. This allows them to extract printed and handwritten text in [several languages](./language-support.md), including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
+## Read OCR engine
+Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). This allows them to extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
 
 [!INCLUDE [read-editions](includes/read-editions.md)]
 
-## How to try OCR
+## How to use OCR
 
-Try out OCR by using Vision Studio.
+Try out OCR by using Vision Studio. Then follow one of the links to the Read edition in the later sections that best meet your requirements.
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
