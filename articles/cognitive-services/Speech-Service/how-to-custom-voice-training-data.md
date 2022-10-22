@@ -16,6 +16,9 @@ ms.author: eur
 
 When you're ready to create a custom Text-to-Speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
+> [!TIP]
+> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [record voice samples to create a custom neural voice](record-custom-voice-samples.md).
+
 ## Types of training data
 
 A voice training dataset includes audio recordings, and a text file with the associated transcriptions. Each audio file should contain a single utterance (a single sentence or a single turn for a dialog system), and be less than 15 seconds long.
@@ -26,16 +29,14 @@ This table lists data types and how each is used to create a custom Text-to-Spee
 
 | Data type | Description | When to use | Additional processing required |
 | --------- | ----------- | ----------- | ------------------------------ |
-| **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
-| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds, at most 1000 audio files), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
-| **Audio only (beta)** | A collection (.zip) of audio files (.wav or .mp3, at most 1000 audio files) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
+| [Individual utterances + matching transcript](#individual-utterances--matching-transcript) | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
+| [Long audio + transcript](#long-audio--transcript-preview) | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds, at most 1000 audio files), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
+| [Audio only (Preview)](#audio-only-preview) | A collection (.zip) of audio files (.wav or .mp3, at most 1000 audio files) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
 > [!NOTE]
 > The maximum number of datasets allowed to be imported per subscription is 500 zip files for standard subscription (S0) users.
->
-> For the two beta options, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
 ## Individual utterances + matching transcript
 
@@ -45,10 +46,7 @@ To produce a good voice model, create the recordings in a quiet room with a high
 
 For data format examples, refer to the sample training set on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/Sample%20Data). The sample training set includes the sample script and the associated audios.
 
-> [!TIP]
-> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [record voice samples to create a custom neural voice](record-custom-voice-samples.md).
-
-### Audio files
+### Audio data for Individual utterances + matching transcript
 
 Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices aren't supported, with the exception of the Chinese-English bi-lingual. Each audio file must have a unique filename with the filename extension .wav.
 
@@ -67,7 +65,7 @@ Follow these guidelines when preparing audio.
 > [!NOTE]
 > The default sampling rate for a custom neural voice is 24,000 Hz. Audio files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
-### Transcripts
+### Transcription data for Individual utterances + matching transcript
 
 The transcription file is a plain text file. Use these guidelines to prepare your transcriptions.
 
@@ -87,14 +85,19 @@ Below is an example of how the transcripts are organized utterance by utterance 
 ```
 It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio. Errors in the transcripts will introduce quality loss during the training.
 
-## Long audio and transcript (beta)
+## Long audio + transcript (Preview)
+
+> [!NOTE]
+> For **Long audio + transcript (Preview)**, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
 In some cases, you may not have segmented audio available. We provide a service (beta) through the Speech Studio to help you segment long audio files and create transcriptions. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
 
 > [!NOTE]
-> The long-audio segmentation service will leverage the batch transcription feature of speech-to-text, which only supports standard subscription (S0) users. During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
+> The long-audio segmentation service will leverage the batch transcription feature of speech-to-text, which only supports standard subscription (S0) users. 
+> 
+> During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
 
-### Audio files
+### Audio data for Long audio + transcript
 
 Follow these guidelines when preparing audio for segmentation.
 
@@ -113,7 +116,7 @@ Follow these guidelines when preparing audio for segmentation.
 
 All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45-second-long, and another audio named ‘queenstory.mp3’, 200-second-long. All .mp3 files will be transformed into the .wav format after processing.
 
-### Transcripts
+### Transcription data for Long audio + transcript
 
 Transcripts must be prepared to the specifications listed in this table. Each audio file must be matched with a transcript.
 
@@ -129,7 +132,10 @@ All transcripts files in this data type should be grouped into a zip file. For e
 
 After your dataset is successfully uploaded, we'll help you segment the audio file into utterances based on the transcript provided. You can check the segmented utterances and the matching transcripts by downloading the dataset. Unique IDs will be assigned to the segmented utterances automatically. It’s important that you make sure the transcripts you provide are 100% accurate. Errors in the transcripts can reduce the accuracy during the audio segmentation and further introduce quality loss in the training phase that comes later.
 
-## Audio only (beta)
+## Audio only (Preview)
+
+> [!NOTE]
+> For **Audio only (Preview)**, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
 If you don't have transcriptions for your audio recordings, use the **Audio only** option to upload your data. Our system can help you segment and transcribe your audio files. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
 
