@@ -137,17 +137,11 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Message to encode** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **Message to encode** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
-   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
-   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
+   | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
+   | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
+   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
 
-   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-consumption.png)
-
-   > [!NOTE]
-   >
-   > If you experience problems when sending signed or encrypted messages, consider trying 
-   > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
-   > about SHA256 formats, so each provider uses their own implementation or format.
+   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-details-consumption.png)
 
 ### [Standard](#tab/standard)
 
@@ -215,10 +209,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    ![Screenshot showing the "Encode to AS2 message" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-message-details-managed-standard.png)
 
-   > [!NOTE]
-   >
-   > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
-   > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
+---
 
 ---
 
