@@ -62,9 +62,9 @@ Visemes vary by language and locale. Each locale has a set of visemes that corre
 |6|`j`, `i`, `ɪ` |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200" alt="The mouth position when viseme ID is 6">|
 |7|`w`, `u`|<img src="media/text-to-speech/viseme-id-7.jpg" width="200" height="200" alt="The mouth position when viseme ID is 7">|
 |8|`o`|<img src="media/text-to-speech/viseme-id-8.jpg" width="200" height="200" alt="The mouth position when viseme ID is 8">|
-|9|Not supported|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200" alt="The mouth position when viseme ID is 9">|
-|10|Not supported|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200" alt="The mouth position when viseme ID is 10">|
-|11|Not supported|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200" alt="The mouth position when viseme ID is 11">|
+|9|`aʊ`|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200" alt="The mouth position when viseme ID is 9">|
+|10|`ɔɪ`|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200" alt="The mouth position when viseme ID is 10">|
+|11|`aɪ`|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200" alt="The mouth position when viseme ID is 11">|
 |12|`h`|<img src="media/text-to-speech/viseme-id-12.jpg" width="200" height="200" alt="The mouth position when viseme ID is 12">|
 |13|`ɹ`|<img src="media/text-to-speech/viseme-id-13.jpg" width="200" height="200" alt="The mouth position when viseme ID is 13">|
 |14|`l`|<img src="media/text-to-speech/viseme-id-14.jpg" width="200" height="200" alt="The mouth position when viseme ID is 14">|
