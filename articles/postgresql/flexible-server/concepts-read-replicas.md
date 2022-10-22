@@ -65,7 +65,7 @@ When you start the create replica workflow, a blank Azure Database for PostgreSQ
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 
-If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
+If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption.md) for additional considerations.
 
 ## Connect to a replica
 
