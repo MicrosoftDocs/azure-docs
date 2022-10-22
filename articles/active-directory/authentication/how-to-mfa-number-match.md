@@ -43,7 +43,7 @@ Number matching is available for the following scenarios. When enabled, all scen
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
-Number matching is available for sign in for Azure Government. It is available for combined registration two weeks after General Availability. Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
+Number matching is available for sign-in for Azure Government. It's available for combined registration two weeks after General Availability. Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
 
 ### Multifactor authentication
 
@@ -163,7 +163,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 In **featureSettings**, you'll need to change the **numberMatchingRequiredState** from **default** to **enabled**. 
 
-The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you don't want to allow passwordless, use **push**. 
+The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you don't want to allow passwordless, use **push**. 
 
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
@@ -354,7 +354,7 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 ## FAQs
 
-### When will my tenant see number matching if I do not use the Azure portal or Graph API to roll out the change?
+### When will my tenant see number matching if I don't use the Azure portal or Graph API to roll out the change?
 
 Number match will be enabled for all users of Microsoft Authenticator app after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
@@ -364,7 +364,7 @@ Yes, currently you can disable number matching. We highly recommend that you ena
 
 ### What about my Apple Watch?
 
-Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you will have to approve notifications on your phone. 
+Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you have to approve notifications on your phone. 
 
 ### What happens if a user runs an older version of Microsoft Authenticator?
 
