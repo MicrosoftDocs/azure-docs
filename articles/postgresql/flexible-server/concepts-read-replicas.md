@@ -157,16 +157,6 @@ When there is a major disaster event such as availability zone-level or regional
 
 This section summarizes considerations about the read replica feature.
 
-### Prerequisites
-
-Read replicas and [logical decoding](concepts-logical.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
-
-The right level of logging can be set using wal_level parameter in the Server Parameter pane. Azure Database for PostgreSQL allows wal_level to take two out of three values:
-
-* **Minimal** - Puts the least information in the WAL. This value is not available on Azure Database for PostgreSQL servers.  
-* **Replica** - More verbose than **Minimal**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This value is the default on most servers.
-* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical replication to work. Read replicas also work at this setting.
-
 ### New replicas
 
 A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
@@ -186,15 +176,8 @@ Scaling vCores or between General Purpose and Memory Optimized:
 * **Scaling up**: First scale up a replica's compute, then scale up the primary. 
 * **Scaling down**: First scale down the primary's compute, then scale down the replica.
 
-### Stopped replicas
-
-If you stop replication between a primary server and a read replica, the replica restarts to apply the change. The stopped replica becomes a standalone server that accepts both reads and writes. The standalone server can't be made into a replica again.
-
-### Deleted primary and standalone servers
-
-When a primary server is deleted, all of its read replicas become standalone servers. The replicas are restarted to reflect this change.
-
 ## Next steps
 
 * Learn how to [create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md).
-* Learn how to [create and manage read replicas in the Azure CLI and REST API](how-to-read-replicas-cli.md).
+
+[//]: # (* Learn how to [create and manage read replicas in the Azure CLI and REST API]&#40;how-to-read-replicas-cli.md&#41;.)
