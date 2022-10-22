@@ -153,7 +153,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
     ![](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 
-     :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png" alt-text="New data factory page":::
+1.   ![](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu1.png)
 
 1. The name of the Azure Data Factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
@@ -165,16 +165,16 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
       - Select **Create new**, and enter the name of a resource group.   
          
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
-4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-6. Select **Pin to dashboard**.     
+1. Select **V2** for the **version**.
+1. Select the **Region** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+1. Select **Next : Git configuration** and setup the repository following the instructions in [Configuration method 4: During factory creation](/azure/data-factory/source-control) or select **Configure Git later** checkbox .
+    ![](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu-git-configuration.png)
+1. Select **Review + create**.     
 7. Click **Create**.      
 8. On the dashboard, you see the following tile with status: **Deploying data factory**.
 
 	:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png" alt-text="deploying data factory tile":::
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
-
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
