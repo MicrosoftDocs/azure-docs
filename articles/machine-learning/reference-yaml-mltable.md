@@ -11,7 +11,7 @@ ms.custom: cliv2, event-tier1-build-2022
 author: xunwan
 ms.author: xunwan
 ms.date: 09/15/2022
-ms.reviewer: s-polly
+ms.reviewer: franksolomon
 ---
 
 # CLI (v2) mltable YAML schema
