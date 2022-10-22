@@ -244,6 +244,39 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 #### [AS2 connector](#tab/consumption/as2)
 
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the **AS2** action, select **New step**.
+
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2 decode**.
+
+1. From the actions list, select the action named **Decode AS2 message**.
+
+   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "Decode AS2 message" action selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-consumption.png)
+
+1. When prompted to create a connection to your integration account, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration Account** | Yes | From the list of available integration accounts, select the account to use. |
+
+   For example:
+
+   ![Screenshot showing Consumption workflow and "Decode AS2 message" connection information.](./media/logic-apps-enterprise-integration-as2/create-decode-as2-connection-consumption.png)
+
+1. When you're done, select **Create**.
+
+1. In the action information box, provide the following information.
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
+   | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
+   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+
+   ![Screenshot showing the "Decode AS2 message" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/decode-as2-details-consumption.png)
+
 ---
 
 ### [Standard](#tab/standard)
