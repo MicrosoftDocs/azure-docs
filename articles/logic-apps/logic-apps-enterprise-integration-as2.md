@@ -80,7 +80,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 ### [Consumption](#tab/consumption)
 
-### [AS2 (v2) connector](#tab/consumption/as2-v2)
+#### [AS2 (v2) connector](#tab/consumption/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -108,7 +108,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
    > about SHA256 formats, so each provider uses their own implementation or format.
 
-### [AS2 connector](#tab/consumption/as2)
+#### [AS2 connector](#tab/consumption/as2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -119,6 +119,19 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 1. From the actions list, select the action named **Encode to AS2 message**.
 
    ![Screenshot showing the Azure portal, designer for Consumption workflow, and "Encode to AS2 message" action selected.](./media/logic-apps-enterprise-integration-as2/select-encode-as2-consumption.png)
+
+1. When prompted to create a connection to your integration account, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration Account** | Yes | From the list of available integration accounts, select the account to use. |
+
+   For example:
+
+   ![Screenshot showing Consumption workflow and "Encode to AS2 message" connection information.](./media/logic-apps-enterprise-integration-as2/create-encode-as2-connection-consumption.png)
+
+1. When you're done, select **Create**.
 
 1. In the action information box, provide the following information.
 
@@ -136,11 +149,9 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
    > about SHA256 formats, so each provider uses their own implementation or format.
 
----
-
 ### [Standard](#tab/standard)
 
-### [AS2 (v2) connector](#tab/standard/as2-v2)
+#### [AS2 (v2) connector](#tab/standard/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -169,7 +180,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
    > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
-### [AS2 connector](#tab/standard/as2)
+#### [AS2 connector](#tab/standard/as2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -186,7 +197,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for the connection |
-   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+   | **Integration Account** | Yes | From the list of available integration accounts, select the account to use. |
 
    For example:
 
@@ -208,8 +219,6 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    >
    > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
    > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
-
----
 
 ---
 
@@ -295,7 +304,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for the connection |
-   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+   | **Integration Account** | Yes | From the list of available integration accounts, select the account to use. |
 
    For example:
 
