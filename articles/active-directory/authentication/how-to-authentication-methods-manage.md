@@ -19,30 +19,24 @@ ms.custom: contperf-fy20q4
 ---
 # How to migrate MFA and SSPR settings to the Authentication methods policy for Azure AD
 
-This topic covers steps to migrate policy settings that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the Authentication methods policy. The migration process lets customers make changes on their own schedule. You can continue using legacy MFA and SSPR policies while you test and consolidate settings in the Authentication methods policy. For more information about how these policies work together, see [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md).
+You can migrate Azure Active Directory (Azure AD) policy settings that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the Authentication methods policy. You can migrate policy settings on your own schedule, and the process is fully reversible. You can continue to use tenant-wide MFA and SSPR policies, while you configure authentication methods more precisely for users and groups in the Authentication methods policy. You can complete the migration whenever you're ready to manage all authentication methods together in the Authentication methods policy. 
 
-You can complete the migration whenever you're ready to manage all authentication methods together in the Authentication methods policy. You can roll back to the legacy MFA and SSPR policies any time you run into problems. 
+For more information about how these policies work together during migration, see [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md).
 
 ## Pre-migration
 
-Migration management Start by conducting an audit of your existing settings for all of the different authentication methods available to users for MFA. If you choose to roll back during migration, you'll want a record of the authentication method settings from each of these policies:
+Start by conducting an audit of your existing settings for all of the different authentication methods available to users for MFA. If you choose to roll back during migration, you'll want a record of the authentication method settings from each of these policies:
 
 - MFA policy
 - Authentication methods policy
-
-
 
 ### MFA policy settings
 
 Document each authentication method that can be used for MFA. Let's say Contoso has the following methods configured for MFA. 
 
-
-
 ### Authentication methods policy settings
 
-For each authentication method listed in the Authentication methods policy, write down which users and groups are included or excluded from the policy. Also write down and configuration parameters that govern how users can authenticate with each method. For example, document if any group is included in the policy for Microsoft Authenticator to receive location in push notifications. 
-
-
+For each authentication method listed in the Authentication methods policy, write down which users and groups are included or excluded from the policy. Also write down any configuration parameters that govern how users can authenticate with each method. For example, document if any group is included in the policy for Microsoft Authenticator to receive location in push notifications. 
 
 ## Update the Authentication methods policy
 
