@@ -23,7 +23,7 @@ When you're ready to create a custom Text-to-Speech voice for your application, 
 
 A voice training dataset includes audio recordings, and a text file with the associated transcriptions. Each audio file should contain a single utterance (a single sentence or a single turn for a dialog system), and be less than 15 seconds long.
 
-In some cases, you may not have the right dataset ready and will want to test the custom neural voice training with available audio files, short or long, with or without transcripts. We provide options (beta) to help you segment your audio into utterances and prepare transcripts using the [Batch Transcription API](batch-transcription.md).
+In some cases, you may not have the right dataset ready and will want to test the custom neural voice training with available audio files, short or long, with or without transcripts. 
 
 This table lists data types and how each is used to create a custom Text-to-Speech voice model.
 
@@ -90,12 +90,12 @@ It’s important that the transcripts are 100% accurate transcriptions of the co
 > [!NOTE]
 > For **Long audio + transcript (Preview)**, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
-In some cases, you may not have segmented audio available. We provide a service (beta) through the Speech Studio to help you segment long audio files and create transcriptions. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
+In some cases, you may not have segmented audio available. The Speech Studio can help you segment long audio files and create transcriptions. The long-audio segmentation service will leverage the [Batch Transcription API](batch-transcription.md) feature of speech-to-text.
+
+During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
 
 > [!NOTE]
-> The long-audio segmentation service will leverage the batch transcription feature of speech-to-text, which only supports standard subscription (S0) users. 
-> 
-> During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
+> This service will be charged toward your speech-to-text subscription usage. The long-audio segmentation service is only supported with standard (S0) Speech resources. 
 
 ### Audio data for Long audio + transcript
 

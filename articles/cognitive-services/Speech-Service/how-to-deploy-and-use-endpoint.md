@@ -49,7 +49,9 @@ The application settings that you use as REST API [request parameters](#request-
 
 ## Use your custom voice
 
-The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. One difference is that the `EndpointId` must be specified to use the custom voice. You can start with the [text-to-speech quickstart](get-started-speech-to-text.md) and then update the code with the `EndpointId`.
+The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. 
+
+One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text-to-speech quickstart](get-started-speech-to-text.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -90,6 +92,16 @@ speech_config.endpoint_id = "YourEndpointId"
 speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
 ```
 ::: zone-end
+
+To use a custom neural voice via [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md#choose-a-voice-for-text-to-speech), specify the model name as the voice name. This example uses the `MyCustomModelName` voice. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="MyCustomModelName">
+        This is the text that is spoken. 
+    </voice>
+</speak>
+```
 
 ## Switch to a new voice model in your product
 

@@ -20,81 +20,67 @@ In this article, you learn how to train a custom neural voice through the Speech
 > [!IMPORTANT]
 > Custom Neural Voice training is currently only available in some regions. After your voice model is trained in a supported region, you can [copy](#copy-your-voice-model-to-another-project) it to a Speech resource in another region as needed. See footnotes in the [regions](regions.md#speech-service) table for more information.
 
-## Choose a training method
-
-If you want to create a voice in the same language of your training data, select **Neural** method. For the **Neural** method, you can select different versions of the training recipe for your model. The versions vary according to the features supported and model training time. Normally new versions are enhanced ones with bugs fixed and new features supported. The latest version is selected by default.
-
-With cross-lingual training (public preview), you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts). Select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. 
-
-With multi-style voice training (preview), you can create a custom neural voice that speaks in multiple styles/emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobook and content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the prebuilt target speaking styles. You can also create up to 10 custom styles by providing style samples as additional training data for the same voice. 
+Training duration varies depending on how much data you're training. It takes about 40 compute hours on average to train a custom neural voice. Standard subscription (S0) users can train four voices simultaneously. If you reach the limit, wait until at least one of your voice models finishes training, and then try again. 
 
 > [!NOTE]
-> Although the total number of hours required per training method will vary, the same unit price applies to each. For more information, see the [Custom Neural training pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Although the total number of hours required per [training method](#choose-a-training-method) will vary, the same unit price applies to each. For more information, see the [Custom Neural training pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+## Choose a training method
+
+After you validate your data files, you can use them to build your Custom Neural Voice model. When you create a custom neural voice, you can choose to train it with one of the following methods:
+
+- [Neural](?tabs=neural): Create a voice in the same language of your training data, select **Neural** method. 
+
+- [Neural - cross lingual](?tabs=crosslingual) (Preview): With cross-lingual training, you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts). Select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. 
+
+- [Neural - multi style](?tabs=multistyle) (Preview): With multi-style voice training, you can create a custom neural voice that speaks in multiple styles/emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobook and content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the prebuilt target speaking styles. You can also create up to 10 custom styles by providing style samples as additional training data for the same voice. 
 
 ## Train your Custom Neural Voice model
 
-To create a custom neural voice, select at least 300 utterances.
+To create a custom neural voice in Speech Studio, follow these steps for one of the following [methods](#choose-a-training-method):
 
-After you validate your data files, you can use them to build your Custom Neural Voice model.
+# [Neural](#tab/neural)
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. On the **Train model** tab, select **Train a new model** to create a voice model with the data you've uploaded.
-1. Select the training method for your model.
-1. Choose the data you want to use for training, and specify a speaker file.
-1. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script, including up to 100 utterances. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
-
-   ```
-   This is the waistline, and it's falling.
-   We have trouble scoring.
-   It was Janet Maslin.
-   ```
-
-   Each paragraph of the utterance results in a separate audio. If you want to combine all sentences into one audio, make them a single paragraph.
-
-   >[!NOTE]
-   >- The test script must be a .txt file, less than 1 MB. Supported encoding formats include ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE.  
-   >- The generated audios are a combination of the uploaded test script and the default test script.
-
-1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
-
-   A common use of the **Description** field is to record the names of the data that you used to create the model.
-
+1. Select **Custom Voice** > Your project name > **Train model** > **Train a new model**. 
+1. Select **Neural** as the [training method](#choose-a-training-method) for your model and then select **Next**. To use other training methods, see [Neural - cross lingual](?tabs=crosslingual) and [Neural - multi style](?tabs=multistyle).
+1. Select a version of the training recipe for your model. The latest version is selected by default. The supported features and training time can vary by version. Normally, the latest version is recommended for the best results. In some cases, you can choose an older version to reduce training time.
+1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in this list.
+1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
+1. Select **Next**.
+1. Optionally, you can check the box next to **Add my own test script** and select test scripts to upload. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script with up to 100 utterances. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
+1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Optionally, enter the **Description** to help you identify the model. A common use of the description  is to record the names of the data that you used to create the model.
+1. Select **Next**.
 1. Review the settings, then select **Submit** to start training the model.
 
-   Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files.
 
-   The **Train model** table displays a new entry that corresponds to this newly created model. 
+# [Neural - cross lingual](#tab/crosslingual)
 
-   When the model is training, you can select **Cancel training** to cancel your voice model. You're not charged for this canceled training.
+Placeholder
 
-   :::image type="content" source="media/custom-voice/cnv-cancel-training.png" alt-text="Screenshot that shows how to cancel training for a model.":::
+# [Neural - multi style](#tab/multistyle)
 
-   The table displays the status: processing, succeeded, failed, and canceled. The status reflects the process of converting your data to a voice model, as shown in this table:
+Placeholder
 
-   | State | Meaning |
-   | ----- | ------- |
-   | Processing | Your voice model is being created. |
-   | Succeeded	| Your voice model has been created and can be deployed. |
-   | Failed | Your voice model has failed in training. The cause of the failure might be, for example, unseen data problems or network issues. |
-   | Canceled | The training for your voice model was canceled. |
+--- 
 
-   Training duration varies depending on how much data you're training. It takes about 40 compute hours on average to train a custom neural voice. 
+The **Train model** table displays a new entry that corresponds to this newly created model. The status reflects the process of converting your data to a voice model, as described in this table:
 
-   > [!NOTE]
-   > Standard subscription (S0) users can train four voices simultaneously. If you reach the limit, wait until at least one of your voice models finishes training, and then try again. 
+| State | Meaning |
+| ----- | ------- |
+| Processing | Your voice model is being created. |
+| Succeeded	| Your voice model has been created and can be deployed. |
+| Failed | Your voice model has failed in training. The cause of the failure might be, for example, unseen data problems or network issues. |
+| Canceled | The training for your voice model was canceled. |
 
-1. After you finish training the model successfully, you can review the model details.
+While the model status is **Processing**, you can select **Cancel training** to cancel your voice model. You're not charged for this canceled training.
 
-After your voice model is successfully built, you can use the generated sample audio files to test it before deploying it for use.
+:::image type="content" source="media/custom-voice/cnv-cancel-training.png" alt-text="Screenshot that shows how to cancel training for a model.":::
 
-The quality of the voice depends on many factors, such as:
+After you finish training the model successfully, you can review the model details and [test the model](#test-your-voice-model). 
 
-- The size of the training data.
-- The quality of the recording.
-- The accuracy of the transcript file.
-- How well the recorded voice in the training data matches the personality of the designed voice for your intended use case.
-
-After the voice is created, you can use the Audio Content Creation tool to fine-tune your deployed voice, with richer voice tuning supports. Sign in to the Audio Content Creation of [Speech Studio]( https://aka.ms/speechstudio/) with your Azure account, and select your created voice from the target language to start tuning experience.
+You can also use the Audio Content Creation tool to fine-tune your deployed voice, with richer voice tuning supports. Sign in to the Audio Content Creation of [Speech Studio]( https://aka.ms/speechstudio/) with your Azure account, and select your created voice from the target language to start tuning experience.
 
 ### Rename your model
 
@@ -108,7 +94,16 @@ Enter the new name on the **Clone voice model** window, then click **Submit**. T
 
 ### Test your voice model
 
-After you've trained your voice model, you can test the model on the model details page. Select **DefaultTests** under **Testing** to listen to the sample audios. The default test samples include 100 sample audios generated automatically during training to help you test the model. In addition to these 100 audios provided by default, your own test script (at most 100 utterances) provided during training are also added to **DefaultTests** set. You're not charged for the testing with **DefaultTests**.
+After your voice model is successfully built, you can use the generated sample audio files to test it before deploying it for use.
+
+The quality of the voice depends on many factors, such as:
+
+- The size of the training data.
+- The quality of the recording.
+- The accuracy of the transcript file.
+- How well the recorded voice in the training data matches the personality of the designed voice for your intended use case.
+
+Select **DefaultTests** under **Testing** to listen to the sample audios. The default test samples include 100 sample audios generated automatically during training to help you test the model. In addition to these 100 audios provided by default, your own test script (at most 100 utterances) provided during training are also added to **DefaultTests** set. You're not charged for the testing with **DefaultTests**.
 
 :::image type="content" source="media/custom-voice/cnv-model-default-test.png" alt-text="Screenshot of selecting DefaultTests under Testing.":::
 
@@ -116,11 +111,30 @@ If you want to upload your own test scripts to further test your model, select *
 
 :::image type="content" source="media/custom-voice/cnv-model-add-testscripts.png" alt-text="Screenshot of adding model test scripts.":::
 
-Before uploading test script, check the [test script requirements](#train-your-custom-neural-voice-model). You'll be charged for the additional testing with the batch synthesis based on the number of billable characters. See [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Before uploading test script, check the [test script requirements](#test-script-requirements). You'll be charged for the additional testing with the batch synthesis based on the number of billable characters. See [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 On **Add test scripts** window, click **Browse for a file** to select your own script, then select **Add** to upload it.
 
 :::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="Screenshot of uploading model test scripts.":::
+
+### Test script requirements
+
+The test script must be a .txt file, less than 1 MB. Supported encoding formats include ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE.  
+
+Unlike the [training transcription files](how-to-custom-voice-training-data.md#transcription-data-for-individual-utterances--matching-transcript), the test script should exclude the utterance ID (filenames of each utterance). Otherwise, these IDs are spoken. 
+
+Here's an example set of utterances in one .txt file:
+
+```text
+This is the waistline, and it's falling.
+We have trouble scoring.
+It was Janet Maslin.
+```
+
+Each paragraph of the utterance results in a separate audio. If you want to combine all sentences into one audio, make them a single paragraph.
+
+>[!NOTE]
+> The generated audio files are a combination of the automatic test scripts and custom test scripts.
 
 ### Update engine version for your voice model
 
