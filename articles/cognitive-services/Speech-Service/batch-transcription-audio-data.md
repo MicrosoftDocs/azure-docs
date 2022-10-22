@@ -200,7 +200,7 @@ Follow these steps to assign the **Storage Blob Data Reader** role to the manage
 1. Select **Managed identity** under **Members** > **Assign access to**.
 1. Assign the managed identity of your Speech resource and then select **Review + assign**.
 
-    :::image type="content" source="media/storage/storage-iam-managed-role.png" alt-text="Screenshot of the managed role assignment review.":::
+    :::image type="content" source="media/storage/storage-identity-access-management-role.png" alt-text="Screenshot of the managed role assignment review.":::
 
 1. After confirming the settings, select **Review + assign**
 
@@ -242,7 +242,7 @@ Follow these steps to generate a SAS URL that you can use for batch transcriptio
 1. Select **+ Container**.
 1. Select **Read** and **List** for **Permissions**.
 
-    :::image type="content" source="media/storage/storage-container-sas.png" alt-text="Screenshot of the container SAS URI permissions.":::
+    :::image type="content" source="media/storage/storage-container-shared-access-signature.png" alt-text="Screenshot of the container SAS URI permissions.":::
 
 1. Enter the start and expiry times for the SAS URI, or leave the defaults.
 1. Select **Generate SAS token and URL**.
