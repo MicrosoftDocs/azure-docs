@@ -9,7 +9,7 @@ ms.custom: template-how-to-pattern
 
 # Migrate apps from Azure Functions version 1.x to version 4.x 
 
-If you're running on version 1.x of the Azure Functions runtime, it's likely because your C# app requires .NET Framework 2.1. Version 4.x of the runtime now lets you run .NET Framework 4.8 apps. At this point, you should consider migrating your version 1.x function apps to run on version 4.x.   
+If you're running on version 1.x of the Azure Functions runtime, it's likely because your C# app requires .NET Framework 2.1. Version 4.x of the runtime now lets you run .NET Framework 4.8 apps. At this point, you should consider migrating your version 1.x function apps to run on version 4.x. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
 Migrating a C# function app from version 1.x to version 4.x of the Functions runtime requires you to make changes to your project code. Many of these changes are a result of changes in the C# language and .NET APIs. 
 
@@ -24,13 +24,22 @@ You can upgrade your project to one of the following versions of .NET, all of wh
 
 <sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md).
 
-This article guides you through how to update your C# function app project to be able to run on one of the supported versions of .NET in Functions version 4.x. Choose the tab that matches your target version of .NET and desired process model.
+## Prepare for migration
 
-Migrating from version 1.x to version 4.x also can affect bindings. If you're migrating a JavaScript app, proceed directly to [Behavior changes after version 1.x](#behavior-changes-after-version-1x). 
+Before you upgrade your app to version 4.x of the Functions runtime, you should do the following tasks:
+
+* Review the list of [behavior changes after version 1.x](#behavior-changes-after-version-1x). Migrating from version 1.x to version 4.x also can affect bindings.
+* Review [Prepare the C# project for migration](#prepare-the-c-project-for-migration) and decide which version of .NET you want to migrate to. Complete the steps to migrate your project to your choosen version of .NET. JavaScript apps generally don't require code changes to migrate. 
+* After migrating your project, fully test the app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
+* Upgrade your function app in Azure to the new version. If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#migrate-using-slots).  
+* Republished your migrated project to the upgraded function app. When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#migrate-without-slots).
+* Consider using a [staging slot](functions-deployment-slots.md) to test and verify your app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#migrate-using-slots).  
 
 ## Prepare the C# project for migration
 
-The following sections describes the updates you must make to your C# project files. The updates shown are ones common to most projects. Your project code may require updates not mentioned in this article, especially when using custom NuGet packages.
+The following sections describes the updates you must make to your C# project files to be able to run on one of the supported versions of .NET in Functions version 4.x. The updates shown are ones common to most projects. Your project code may require updates not mentioned in this article, especially when using custom NuGet packages.
+
+Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
 
 ### .csproj file
 
@@ -438,6 +447,8 @@ In version 4.x, the HTTP trigger template looks like the following example:
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
 ---
+
+
 
 ## Behavior changes after version 1.x
 
