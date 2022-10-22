@@ -145,7 +145,7 @@ Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, 
 
 To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume.
 
-You can then use the following scripts to create your connections.
+You can use the following scripts to create your connections.
 
 To script multi-session configurations, use two files. An XML configuration file includes the information for each volume you'd like to establish connections to, and a script that uses the XML files to create connections.
 
@@ -171,7 +171,7 @@ The following example shows you how to format your XML file for the script, for 
 </Targets>
 ```
 
-Use the following script to create the connections:
+Use the following script to create the connections, to run the script use `.\LoginTarget.ps1 -TargetConfigPath [path to config.xml]`:
 
 ```
 param(
