@@ -147,7 +147,7 @@ Range indexes can be used on scalar values (string or number). The default index
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospatial-intro.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported. To use this index type, set by using the `"kind": "Range"` property when configuring the indexing policy. To learn how to configure spatial indexes, see [Spatial indexing policy examples](how-to-manage-indexing-policy.md#spatial-index)
+Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospatial-intro.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported. To learn how to configure spatial indexes, see [Spatial indexing policy examples](how-to-manage-indexing-policy.md#spatial-index)
 
 ### Composite indexes
 
