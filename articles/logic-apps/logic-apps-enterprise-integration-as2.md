@@ -80,7 +80,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 ### [Consumption](#tab/consumption)
 
-#### [AS2 (v2) connector](#tab/as2-v2)
+### [AS2 (v2) connector](#tab/consumption/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -108,14 +108,39 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
    > about SHA256 formats, so each provider uses their own implementation or format.
 
-#### [AS2 connector](#tab/as2)
+### [AS2 connector](#tab/consumption/as2)
 
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the **AS2** action, select **New step**.
+
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2 encode**.
+
+1. From the actions list, select the action named **Encode to AS2 message**.
+
+   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "Encode to AS2 message" action selected.](./media/logic-apps-enterprise-integration-as2/select-encode-as2-consumption.png)
+
+1. In the action information box, provide the following information.
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Message to encode** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **Message to encode** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
+   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
+
+   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-consumption.png)
+
+   > [!NOTE]
+   >
+   > If you experience problems when sending signed or encrypted messages, consider trying 
+   > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
+   > about SHA256 formats, so each provider uses their own implementation or format.
 
 ---
 
 ### [Standard](#tab/standard)
 
-#### [AS2 (v2) connector](#tab/as2-v2)
+### [AS2 (v2) connector](#tab/standard/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -144,7 +169,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
    > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
-#### [AS2 connector](#tab/as2)
+### [AS2 connector](#tab/standard/as2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -194,7 +219,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 ### [Consumption](#tab/consumption)
 
-#### [AS2 (v2) connector](#tab/as2-v2)
+### [AS2 (v2) connector](#tab/consumption/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -217,7 +242,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    ![Screenshot showing the "AS2 Decode" action with the "Body" and "Headers" outputs entered from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-consumption.png)
 
-#### [AS2 connector](#tab/as2)
+### [AS2 connector](#tab/consumption/as2)
 
 ---
 
@@ -225,7 +250,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 ### [Standard](#tab/standard)
 
-#### [AS2 (v2) connector](#tab/as2-v2)
+### [AS2 (v2) connector](#tab/standard/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -253,7 +278,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
    > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
-#### [AS2 connector](#tab/as2)
+### [AS2 connector](#tab/standard/s2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
