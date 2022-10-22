@@ -80,27 +80,27 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 ### [Consumption](#tab/consumption)
 
+#### [AS2 (v2) connector](#tab/as2-v2)
+
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the AS2 action, select **New step**.
+1. On the designer, under the trigger or action where you want to add the **AS2 (v2)** action, select **New step**.
 
 1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2**.
 
 1. From the actions list, select the action named **AS2 Encode**.
 
-   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-encode-consumption.png)
+   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-v2-encode-consumption.png)
 
-1. After the **AS2 (v2)** operation appears on the designer, provide information for the following properties:
+1. In the action information box, provide the following information.
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Message to encode** | Yes | The message payload |
-   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement |
-   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
+   | **Message to encode** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **Message to encode** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
+   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
 
-   For example, the message payload is the **Body** content output from the Request trigger:
-
-   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-message-encode-details-consumption.png)
+   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-consumption.png)
 
    > [!NOTE]
    >
@@ -108,13 +108,18 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
    > about SHA256 formats, so each provider uses their own implementation or format.
 
+#### [AS2 connector](#tab/as2)
+
+
+---
+
 ### [Standard](#tab/standard)
 
 #### [AS2 (v2) connector](#tab/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
+1. On the designer, under the trigger or action where you want to add the **AS2 (v2)** action, select **Insert a new step** (plus sign), and then select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **as2 encode**.
 
@@ -126,9 +131,9 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Message to encode** | Yes | The message payload |
-   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement |
-   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
+   | **Message to encode** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **Message to encode** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
+   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
 
    For example, the message payload is the **Body** content output from the Request trigger:
 
@@ -143,7 +148,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
+1. On the designer, under the trigger or action where you want to add the **AS2** action, select **Insert a new step** (plus sign), and then select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **as2 encode**.
 
@@ -160,19 +165,17 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    For example:
 
-   ![Screenshot showing the "Encode to AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-encode-connection-managed-standard.png)
+   ![Screenshot showing "Encode to AS2 message" connection information.](./media/logic-apps-enterprise-integration-as2/create-encode-as2-connection-managed-standard.png)
 
 1. When you're done, select **Create**.
 
-1. After the AS2 details pane appears on the designer, provide information for the following properties:
+1. In the action information pane, provide the following information.
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement |
-   | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
-   | **body** | Yes | The message payload |
-
-   For example, the message payload is the **Body** content output from the Request trigger:
+   | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
+   | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
+   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
 
    ![Screenshot showing the "Encode to AS2 message" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-message-details-managed-standard.png)
 
@@ -191,23 +194,64 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 ### [Consumption](#tab/consumption)
 
+#### [AS2 (v2) connector](#tab/as2-v2)
+
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the AS2 action, select **New step**. This example uses the [Request](../connectors/connectors-native-reqres.md) trigger.
+1. On the designer, under the trigger or action where you want to add the **AS2 (v2)** action, select **New step**.
 
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2**. Select the action named **AS2 Decode**.
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2**.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation selected.](media/logic-apps-enterprise-integration-as2/select-as2-decode-consumption.png)
+1. From the actions list, select the action named **AS2 Decode**.
 
-1. In the AS2 operation shape, select the values for the **Message to encode** and the **Message headers** properties from the previous trigger or action outputs.
+   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "AS2 Decode" action selected.](media/logic-apps-enterprise-integration-as2/select-as2-v2-decode-consumption.png)
 
-   In this example, you can select the outputs from the Request trigger.
+1. In the action information box, provide the following information:
 
-   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-message-decode-details-consumption.png)
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **body** | Yes | The body for the message to decode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **Headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Put your cursor in the **Headers** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Headers**. |
+
+   For example:
+
+   ![Screenshot showing the "AS2 Decode" action with the "Body" and "Headers" outputs entered from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-consumption.png)
+
+#### [AS2 connector](#tab/as2)
+
+---
+
+---
 
 ### [Standard](#tab/standard)
 
 #### [AS2 (v2) connector](#tab/as2-v2)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **as2 decode**.
+
+1. From the actions list, select the action named **AS2 Decode**.
+
+   ![Screenshot showing the Azure portal, designer for Standard workflow, and "AS2 Decode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-v2-decode-built-in-standard.png)
+
+1. In the action information pane, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Message to decode** | Yes | The message payload to decode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **Message to decode** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **Message headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Put your cursor in the **Message headers** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Headers**. |
+
+   For example:
+
+   ![Screenshot showing the Standard workflow designer and "AS2 Decode" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-built-in-standard.png)
+
+   > [!NOTE]
+   >
+   > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
+   > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
 #### [AS2 connector](#tab/as2)
 
@@ -215,9 +259,11 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **as2 decode**. Select the action named **Decode AS2 message**.
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **as2 decode**.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-message-managed-standard.png)
+1. From the actions list, select the action named **Decode AS2 message**.
+
+   ![Screenshot showing the Azure portal, designer for Standard workflow, and "Decode AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-message-managed-standard.png)
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -228,15 +274,20 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    For example:
 
-   ![Screenshot showing the "Decode AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-decode-connection-managed-standard.png)
+   ![Screenshot showing "Decode AS2 message" connection information.](./media/logic-apps-enterprise-integration-as2/create-decode-as2-connection-managed-standard.png)
 
 1. When you're done, select **Create**.
 
-1. In the AS2 details pane, select the values for the **Message to encode** and the **Message headers** properties from the previous trigger or action outputs.
+1. In the action information pane, provide the following information:
 
-   In this example, you can select the outputs from the Request trigger.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **body** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **Headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Put your cursor in the **Headers** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Headers**. |
 
-   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/decode-as2-message-details-managed-standard.png)
+   For example:
+
+   ![Screenshot showing the "Decode AS2 message" action with the "Body" and "Headers" outputs entered from the Request trigger.](media/logic-apps-enterprise-integration-as2/decode-as2-message-details-managed-standard.png)
 
 ---
 
