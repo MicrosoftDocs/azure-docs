@@ -31,9 +31,9 @@ After you validate your data files, you can use them to build your Custom Neural
 
 - [Neural](?tabs=neural#train-your-custom-neural-voice-model): Create a voice in the same language of your training data, select **Neural** method. 
 
-- [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) (Preview): With cross-lingual training, you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md#train-your-custom-neural-voice-model?tabs=stt-tts). Select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. 
+- [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) (Preview): Create a secondary language for your voice model to speak a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`. The language of the training data and the target language must both be one of the [languages that are supported](language-support.md?tabs=stt-tts) for cross lingual training. You don't need to prepare training data in the target language, but your test script must be in the target language. 
 
-- [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model) (Preview): With multi-style voice training, you can create a custom neural voice that speaks in multiple styles/emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobook and content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the prebuilt target speaking styles. You can also create up to 10 custom styles by providing style samples as additional training data for the same voice. 
+- [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model) (Preview): Create a custom neural voice that speaks in multiple styles/emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobook and content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the preset target speaking styles. You can also create up to 10 custom styles by providing style samples as additional training data for the same voice. 
 
 ## Train your Custom Neural Voice model
 
@@ -52,15 +52,43 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 1. Optionally, enter the **Description** to help you identify the model. A common use of the description  is to record the names of the data that you used to create the model.
 1. Select **Next**.
-1. Review the settings, then select **Submit** to start training the model.
+1. Review the settings and check the box to accept the terms of use.
+1. Select **Submit** to start training the model.
 
 # [Neural - cross lingual](#tab/crosslingual)
 
-Placeholder
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
+1. Select **Custom Voice** > Your project name > **Train model** > **Train a new model**. 
+1. Select **Neural - cross lingual** (Preview) as the [training method](#choose-a-training-method) for your model. To use other training methods, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) and [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model).
+1. Select the **Target language** that will be the secondary language for your voice model. Only one target language can be selected for a voice model. 
+1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in this list.
+1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
+1. Select **Next**.
+1. Optionally, you can check the box next to **Add my own test script** and select test scripts to upload. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script with up to 100 utterances. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
+1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Optionally, enter the **Description** to help you identify the model. A common use of the description  is to record the names of the data that you used to create the model.
+1. Select **Next**.
+1. Review the settings and check the box to accept the terms of use.
+1. Select **Submit** to start training the model.
 
 # [Neural - multi style](#tab/multistyle)
 
-Placeholder
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
+1. Select **Custom Voice** > Your project name > **Train model** > **Train a new model**. 
+1. Select **Neural - multi style** (Preview) as the [training method](#choose-a-training-method) for your model. To use other training methods, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) and [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model).
+1. Select one or more preset speaking styles to train. 
+1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in this list.
+1. Select **Next**.
+1. Optionally, you can add up to 10 custom speaking styles. Select **Add a custom style** and enter a custom style name of your choice. Select style samples as training data. 
+1. Select **Next**.
+1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
+1. Select **Next**.
+1. Optionally, you can check the box next to **Add my own test script** and select test scripts to upload. Each training generates 100 sample audios for the default style and 20 for each preset style automatically, to help you test the model with a default script. You can also provide your own test script with up to 100 utterances. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
+1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Optionally, enter the **Description** to help you identify the model. A common use of the description  is to record the names of the data that you used to create the model.
+1. Select **Next**.
+1. Review the settings and check the box to accept the terms of use.
+1. Select **Submit** to start training the model.
 
 --- 
 
@@ -79,7 +107,7 @@ While the model status is **Processing**, you can select **Cancel training** to 
 
 After you finish training the model successfully, you can review the model details and [test the model](#test-your-voice-model). 
 
-You can also use the Audio Content Creation tool to fine-tune your deployed voice, with richer voice tuning supports. Sign in to the Audio Content Creation of [Speech Studio]( https://aka.ms/speechstudio/) with your Azure account, and select your created voice from the target language to start tuning experience.
+You can use the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio]( https://speech.microsoft.com/portal/audiocontentcreation) to create audio and fine-tune your deployed voice. If applicable for your voice, one of multiple styles can also be selected.
 
 ### Rename your model
 
