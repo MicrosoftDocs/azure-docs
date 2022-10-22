@@ -25,15 +25,11 @@ You can complete the migration whenever you're ready to manage all authenticatio
 
 ## Pre-migration
 
-Migration management Start by conducting an audit of your existing settings for all of the different authentication methods available to users for MFA and SSPR. If you choose to roll back during migration, you'll want a record of the authentication method settings from each of the following policies:
+Migration management Start by conducting an audit of your existing settings for all of the different authentication methods available to users for MFA. If you choose to roll back during migration, you'll want a record of the authentication method settings from each of these policies:
 
-- SSPR policy
 - MFA policy
 - Authentication methods policy
 
-### SSPR policy settings
-
-Record which users are in scope for SSPR and the authentication methods they can use. Make sure you copy security questions for later use after they are available to manage in the Authentication methods policy. Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
 
 
 ### MFA policy settings
@@ -56,8 +52,13 @@ For example, your MFA policy might allow **Verification code from mobile app or 
 
 ## Migration in progress
 
-AfterStep through the process to remove each authentication method in the legacy policies. One-by-one. start with SSPR, then MFA. Test after each auth method is removed. To test excluded users, try to sign in both as a member of the excluded group and again as a non-member. 
+After you finish adding authentication methods for MFA to the the Authentication methods policy, configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
 
+Step through the process to remove each authentication method in the legacy MFA policy. One-by-one. Start with MFA. Test after each auth method is removed. To test excluded users, try to sign in both as a member of the excluded group and again as a non-member. 
+
+### Audit SSPR policy settings
+
+Record which users are in scope for SSPR and the authentication methods they can use. Make sure you copy security questions for later use after they are available to manage in the Authentication methods policy. Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
 
 ## Migration complete
 Make changes only in Authentication methods policy. 
