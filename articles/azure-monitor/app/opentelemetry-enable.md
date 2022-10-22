@@ -9,7 +9,7 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)
 
-The Azure Monitor OpenTelemetry Exporter is a component that sends traces (and eventually all application telemetry) to Azure Monitor Application Insights. To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+The Azure Monitor OpenTelemetry Exporter is a component that sends traces, and metrics (and eventually all application telemetry) to Azure Monitor Application Insights. To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offerings. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces and metrics to Azure Monitor Application Insights.
 
@@ -35,7 +35,7 @@ Consider whether this preview is right for you. It *enables distributed tracing,
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
  - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
- - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
+ - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
 
 If you require a full-feature experience, use the existing Application Insights [ASP.NET](asp-net.md), or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
@@ -303,7 +303,7 @@ Run your application and open your **Application Insights Resource** tab in the 
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
-As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
+As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You may disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
@@ -1276,8 +1276,8 @@ input()
 
 Select instrumentation libraries automatically support exceptions to Application Insights.
 However, you may want to manually report exceptions beyond what instrumentation libraries report.
-For instance, exceptions caught by your code *aren't* ordinarily not reported, and you may wish to report them
-and thus draw attention to them in relevant experiences including the failures blade and end-to-end transaction view.
+For instance, exceptions caught by your code aren't* ordinarily reported. You may wish to report them
+to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
 #### [.NET](#tab/net)
 
@@ -1606,7 +1606,7 @@ To provide feedback:
 ### [Node.js](#tab/nodejs)
 
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter).
-- To install the NPM package, check for updates, or view release notes, see the [Azure Monitor Exporter NPM Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) page.
+- To install the npm package, check for updates, or view release notes, see the [Azure Monitor Exporter npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry JavaScript GitHub repository](https://github.com/open-telemetry/opentelemetry-js).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
