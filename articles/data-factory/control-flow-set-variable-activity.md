@@ -25,7 +25,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 2. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
 1. Select the Set Variable activity on the canvas if it is not already selected, and its **Variables** tab, to edit its details.
 1. Select the variable for the Name property.
-1. Enter an expression to set the value.  This can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+1. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 ## Type properties
 
 Property | Description | Required
@@ -38,8 +38,7 @@ variableName | Name of the variable that is set by this activity | yes
 
 ## Incrementing a variable
 
-A common scenario involving variables is using a variable as an iterator within an until or foreach activity. In a set variable activity you cannot reference the variable being set in the `value` field. To workaround this limitation, set a temporary variable and then create a second set variable activity. The second set variable activity sets the value of the iterator to the temporary variable. 
-
+A common scenario involving variables is using a variable as an iterator within an until or foreach activity. In a set variable activity, you cannot reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second set variable activity. The second set variable activity sets the value of the iterator to the temporary variable. 
 Below is an example of this pattern:
 ![](media/control-flow-set-variable-activity/increment-variable1.png)
 ``` json
