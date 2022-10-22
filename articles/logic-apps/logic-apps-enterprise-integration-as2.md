@@ -26,9 +26,9 @@ The AS2 connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | **AS2 (v2)** and **AS2** managed connectors (Standard class). For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Consumption** | Integration service environment (ISE) | **AS2 (v2)** and **AS2** managed connectors (Standard class) and **AS2** ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **AS2** managed connector and **AS2 (v2)** built-in connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, not triggers. You can use the original AS2 trigger or a different trigger. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
+| **Consumption** | Multi-tenant Azure Logic Apps | **AS2 (v2)** and **AS2** managed connectors (Standard class). The **AS2 (v2)** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Consumption** | Integration service environment (ISE) | **AS2 (v2)** and **AS2** managed connectors (Standard class) and **AS2** ISE version, which has different message limits than the Standard class.  The **AS2 (v2)** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **AS2 (v2)** built-in connector and **AS2** managed connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, but you can use any trigger that works for your scenario. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
 <a name="as-v2-operations"></a>
 
@@ -102,12 +102,6 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-consumption.png)
 
-   > [!NOTE]
-   >
-   > If you experience problems when sending signed or encrypted messages, consider trying 
-   > different SHA256 algorithm formats. The AS2 specification doesn't provide any information 
-   > about SHA256 formats, so each provider uses their own implementation or format.
-
 #### [AS2 connector](#tab/as2/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
@@ -143,6 +137,8 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-details-consumption.png)
 
+---
+
 ### [Standard](#tab/standard)
 
 #### [AS2 (v2) connector](#tab/as2-v2/standard)
@@ -168,11 +164,6 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    For example, the message payload is the **Body** content output from the Request trigger:
 
    ![Screenshot showing the Standard workflow designer and "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-built-in-standard.png)
-
-   > [!NOTE]
-   >
-   > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
-   > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
 #### [AS2 connector](#tab/as2/standard)
 
@@ -275,6 +266,8 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    ![Screenshot showing the "Decode AS2 message" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/decode-as2-details-consumption.png)
 
+---
+
 ### [Standard](#tab/standard)
 
 #### [AS2 (v2) connector](#tab/as2-v2/standard)
@@ -346,6 +339,12 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 ## Sample
 
 To try deploying a fully operational logic app and sample AS2 (v2) scenario, review the [AS2 (v2) logic app template and scenario](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
+
+## Troubleshoot problems
+
+* Problems when sending signed or encrypted messages
+
+  Consider trying different SHA256 algorithm formats. The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
 ## Next steps
 
