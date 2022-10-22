@@ -20,14 +20,18 @@ In this article, you learn how to train a custom neural voice through the Speech
 > [!IMPORTANT]
 > Custom Neural Voice training is currently only available in some regions. After your voice model is trained in a supported region, you can [copy](#copy-your-voice-model-to-another-project) it to a Speech resource in another region as needed. See footnotes in the [regions](regions.md#speech-service) table for more information.
 
-## Train your Custom Neural Voice model
+## Choose a training method
 
 If you want to create a voice in the same language of your training data, select **Neural** method. For the **Neural** method, you can select different versions of the training recipe for your model. The versions vary according to the features supported and model training time. Normally new versions are enhanced ones with bugs fixed and new features supported. The latest version is selected by default.
 
-You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts).
+With cross-lingual training (public preview), you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts). Select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. 
+
+With multi-style voice training (preview), you can create a custom neural voice that speaks in multiple styles/emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobook and content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the prebuilt target speaking styles. You can also create up to 10 custom styles by providing style samples as additional training data for the same voice. 
 
 > [!NOTE]
 > Although the total number of hours required per training method will vary, the same unit price applies to each. For more information, see the [Custom Neural training pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+## Train your Custom Neural Voice model
 
 To create a custom neural voice, select at least 300 utterances.
 
@@ -89,6 +93,8 @@ The quality of the voice depends on many factors, such as:
 - The quality of the recording.
 - The accuracy of the transcript file.
 - How well the recorded voice in the training data matches the personality of the designed voice for your intended use case.
+
+After the voice is created, you can use the Audio Content Creation tool to fine-tune your deployed voice, with richer voice tuning supports. Sign in to the Audio Content Creation of [Speech Studio]( https://aka.ms/speechstudio/) with your Azure account, and select your created voice from the target language to start tuning experience.
 
 ### Rename your model
 
