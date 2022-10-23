@@ -14,7 +14,7 @@ Defender for Containers lets you scan the container images stored in your Amazon
 
 To enable scanning of vulnerabilities in containers, you have to [connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md) and [enable Defender for Containers](defender-for-containers-enable.md). The agentless scanner, powered by the open-source scanner Trivy, scans your ECR repositories and reports vulnerabilities.
 
-Defender for Containers creates resources in your AWS account in the us-east-1 and eu-central-1 regions, such as an ECS cluster in a dedicated VPC, internet gateway, and an S3 bucket, to create an inventory of the software in your images. The scan then sends only the software inventory to Defender for Cloud. This architecture protects your information privacy and intellectual property, and also keeps the outbound network traffic to a minimum.
+Defender for Containers creates resources in your AWS account to build an inventory of the software in your images. The scan then sends only the software inventory to Defender for Cloud. This architecture protects your information privacy and intellectual property, and also keeps the outbound network traffic to a minimum. Defender for Containers creates an ECS cluster in a dedicated VPC, an internet gateway, and an S3 bucket  in the us-east-1 and eu-central-1 regions to build the software inventory.
 
 Defender for Cloud filters and classifies findings from the software inventory that the scanner creates. Images without vulnerabilities are marked as healthy and Defender for Cloud doesn't send notifications about healthy images to keep you from getting unwanted informational alerts.
 
@@ -29,7 +29,7 @@ The triggers for an image scan are:
 Before you can scan your ECR images:
 
 - [Connect your AWS account to Defender for Cloud and enable Defender for Containers](quickstart-onboard-aws.md)
-- You must have at least one free VPC in the `us-east-1` and `eu-central-1` regions.
+- You must have at least one free VPC in the `us-east-1` and `eu-central-1` regions to host the AWS resources that build the software inventory.
 
 > [!NOTE]
 > - Images that have at least one layer over 2GB are not scanned.
@@ -53,7 +53,7 @@ To enable vulnerability assessment:
 
     :::image type="content" source="media/defender-for-containers-va-ecr/aws-containers-enable-va.png" alt-text="Screenshot of the toggle to turn on vulnerability assessment for ECR images.":::
 
-1. Select **Next: Configure access**.
+1. Select **Save** > **Next: Configure access**.
 
 1. Download the CloudFormation template.
     
