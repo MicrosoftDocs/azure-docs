@@ -56,11 +56,16 @@ View and manage your IoT devices in the [Microsoft 365 Defender portal](https://
 
 Select **View all IoT devices** to jump to the Defender for Endpoint **Device inventory** page.
 
-To control the devices discovered by Defender for Endpoint, modify the device discovery level using tags and exclusions in the **Settings** > **Device discovery** area. For more information, see [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
+For more information, see [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
 
 > [!TIP]
-> For a combined view of all OT and IoT devices, you can also view detected devices in [Defender for IoT in the Azure portal](how-to-manage-device-inventory-for-organizations.md). 
+> To control the devices discovered by Defender for Endpoint, modify the device discovery options in the Defender for Endpoint **Settings** > **Device discovery** area.
 >
+> Select whether to discover devices using passive listening only, or both passive listening and smart, active device probing, and whether to run the discovery process on all devices, or specific devices only.
+>
+> For more information, see [Configure device discovery](/microsoft-365/security/defender-endpoint/configure-device-discovery).
+>
+
 
 ## View related alerts, recommendations, and vulnerabilities
 
@@ -92,9 +97,11 @@ After you cancel your plan, the integration stops and you'll no longer get added
 
 ## Next steps
 
-After onboarding a Enterprise IoT plan, you'll also be able to view detected devices in Defender for IoT in the Azure portal. For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+After onboarding a Enterprise IoT plan, you can also view detected IoT devices, together with OT network devices, in Defender for IoT in the Azure portal. For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
-To gain more visibility into additional IoT segments of your corporate network, not otherwise covered by Defender for Endpoint, set up an Enterprise IoT network sensor (Public preview). Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Defender for Endpoint or Defender for IoT.
+To gain more visibility into additional IoT segments of your corporate network, not otherwise covered by Defender for Endpoint, set up an Enterprise IoT network sensor (Public preview). 
+
+Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Defender for Endpoint or Defender for IoT.
 
 For more information, see [Enhance device discovery with an Enterprise IoT network sensor](eiot-sensor.md).
 

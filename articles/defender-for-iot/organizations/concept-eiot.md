@@ -62,7 +62,7 @@ For more information, see [Enhance device discovery with a Enterprise IoT networ
 
 The following table provides a comparison of the increased security features available for IoT devices as you use Defender for Endpoint, add an Enterprise IoT plan, or an extra Enterprise IoT network sensor.
 
-|Security feature  |Defender for Endpoint only  |Defender for Endpoint and <br> Enterprise IoT plan  |Defender for Endpoint, <br>Enterprise IoT plan, <br>and Enterprise IoT network sensors (Public preview) |
+|Security feature  |[Defender for Endpoint only](/microsoft-365/security/defender-endpoint/device-discovery)  |[Defender for Endpoint and <br> Enterprise IoT plan](eiot-mde.md)  |[Defender for Endpoint, <br>Enterprise IoT plan, <br>and Enterprise IoT network sensors](eiot-sensor.md) (Public preview) |
 |---------|---------|---------|---------|
 |Initial device discovery     |   ✓      |      ✓   |      ✓   |
 |Full device discovery     |         |         |    ✓     |
