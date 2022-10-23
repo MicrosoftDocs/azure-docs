@@ -32,6 +32,7 @@ Before you can scan your ECR images:
 > [!NOTE]
 > - Images that have at least one layer over 2GB are not scanned.
 > - Public repositories and manifest lists are not supported.
+> - Images in the AWS management account aren't scanned because we can't create resources in the management account.
 
 ## Enable vulnerability assessment
 
