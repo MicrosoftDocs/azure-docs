@@ -1,5 +1,5 @@
 ---
-title: Enhance device discovery with an Enterprise IoT network sensor - Microsoft Defender for IoT
+title: Enhance device discovery with an Microsoft Defender for IoT Enterprise IoT network sensor
 description: Learn how to register an Enterprise IoT network sensor in Defender for IoT for additional device visibility not covered by Defender for Endpoint.
 ms.topic: tutorial
 ms.date: 10/19/2022
@@ -145,7 +145,7 @@ This brings you to the sensor setup process in the Azure portal. For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
-1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-the-sensor-software).
+1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-sensor-software).
 
 ## Install sensor software
 

@@ -1,11 +1,11 @@
 ---
-title: Enhance device discovery with an Enterprise IoT network sensor - Microsoft Defender for IoT
+title: Secure Enterprise IoT devices from Microsoft 365 with Microsoft Defender for Endpoint and Microsoft Defender for IoT
 description: Learn how to start integrating between Microsoft Defender for IoT and Microsoft Defender for Endpoint.
 ms.topic: tutorial
 ms.date: 10/19/2022
 ---
 
-# Onboard with Microsoft Defender for IoT
+# Secure Enterprise IoT devices from Microsoft 365 with Microsoft Defender for Endpoint and Microsoft Defender for IoT
 
 <!--these include files don't work [!INCLUDE [Microsoft 365 Defender rebranding](/microsoft-365/security/includes/microsoft-defender.md)]-->
 
