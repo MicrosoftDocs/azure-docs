@@ -90,7 +90,7 @@ This section describes how to manage log alerts using the cross-platform [Azure 
 
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
-1. Use these options of the `az monitor metrics alert` CLI command in this table:
+1. Use these options of the `az monitor scheduled-query alert` CLI command in this table:
 
     
     |What you want to do|CLI command  |
