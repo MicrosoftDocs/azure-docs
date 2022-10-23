@@ -340,7 +340,7 @@ items:
         href: logs/query-optimization.md
       - name: Functions
         href: logs/functions.md
-      - name: KQL machine learning
+      - name: Detect and analyze anomalies
         href: logs/machine-learning-azure-monitor-log-analytics.md
       - name: Parse text data
         href: logs/parse-text.md
