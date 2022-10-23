@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 10/20/2022
+ms.date: 10/23/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -24,7 +24,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 **Estimated date for change: November 2023**
 
-The following recommendation is set to be deprecated [`Lambda functions should have a dead-letter queue configured`](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-fsbp-controls.html#fsbp-lambda-4).
+The following recommendation is set to be deprecated [`Lambda functions should have a dead-letter queue configured`](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/AwsRecommendationDetailsBlade/assessmentKey/dcf10b98-798f-4734-9afd-800916bf1e65/showSecurityCenterCommandBar~/false).
 
 ## Next steps
 
