@@ -55,14 +55,14 @@ This section describes how to manage metric alert rules using the cross-platform
 1. Use these options of the `az monitor metrics alert` CLI command in this table:
 
     
-|What you want to do|CLI command  |
-|---------|---------|
-|View all the metric alerts in a resource group|`az monitor metrics alert list -g {ResourceGroup}`|
-|See the details of a particular metric alert rule|`az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}`|
-|     |`az monitor metrics alert show --ids {RuleResourceId}`|
-|Disable a metric alert rule|`az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false`|
-|Delete a metric alert rule|`az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false<br>`|
-|Learn more about the command|`az monitor metrics alert --help`|
+    |What you want to do|CLI command  |
+    |---------|---------|
+    |View all the metric alerts in a resource group|`az monitor metrics alert list -g {ResourceGroup}`|
+    |See the details of a metric alert rule|`az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}`|
+    |     |`az monitor metrics alert show --ids {RuleResourceId}`|
+    |Disable a metric alert rule|`az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false`|
+    |Delete a metric alert rule|`az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}`|
+    |Learn more about the command|`az monitor metrics alert --help`|
 
 ## Manage metric alert rules with PowerShell
 
@@ -90,41 +90,17 @@ This section describes how to manage log alerts using the cross-platform [Azure 
 
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
+1. Use these options of the `az monitor metrics alert` CLI command in this table:
 
-You can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing log alerts.
-
-```azurecli
-az monitor scheduled-query --help
-```
-
-### View all the log alert rules in a resource group
-
-```azurecli
-az monitor scheduled-query list -g {ResourceGroup}
-```
-
-### See the details of a log alert rule
-
-Use the name or the resource ID of the rule in the following command:
-
-```azurecli
-az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}
-```
-```azurecli
-az monitor scheduled-query show --ids {RuleResourceId}
-```
-
-### Disable a log alert rule
-
-```azurecli
-az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled true
-```
-
-### Delete a log alert rule
-
-```azurecli
-az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}
-```
+    
+    |What you want to do|CLI command  |
+    |---------|---------|
+    |View all the log alert rules in a resource group|`az monitor scheduled-query list -g {ResourceGroup}`|
+    |See the details of a log alert rule|`az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}`|
+    |     |`az monitor scheduled-query show --ids {RuleResourceId}`|
+    |Disable a log alert rule|`az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled true`|
+    |Delete a log alert rule|`az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}`|
+    |Learn more about the command|`az monitor scheduled-query --help`|
 
 ### Manage log alert rules using the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md)
 
@@ -139,6 +115,10 @@ az deployment group create \
 
 A 201 response is returned on successful creation. 200 is returned on successful updates.
 
+## Manage log alert rules with PowerShell
+
+Log alert rules have this dedicated PowerShell cmdlet:
+- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): Creates a new log alert rule or updates an exising log alert rule.
 ## Manage activity log alert rules using PowerShell
 
 Activity log alerts have these dedicated PowerShell cmdlets:

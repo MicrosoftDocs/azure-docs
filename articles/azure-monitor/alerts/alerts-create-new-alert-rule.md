@@ -282,6 +282,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     ### [Log alert](#tab/log)
 
     To create a log alert rule that monitors count of system event errors:
+
     ```azurecli
     az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > a(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
     ```
@@ -299,11 +300,10 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
     ---
-
 ## Create a new alert rule using PowerShell
 
 - To create a metric alert rule using PowerShell, use this cmdlet: [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
-- To create a log alert rule using PowerShell, use this cmdlet: [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule?)
+- To create a log alert rule using PowerShell, use this cmdlet: [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule)
 - To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 
 ## Create an activity log alert rule from the Activity log pane
