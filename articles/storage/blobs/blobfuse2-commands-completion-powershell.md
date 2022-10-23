@@ -11,7 +11,7 @@ ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# BlobFuse2 completion powershell command (preview)
+# blobfuse2 completion powershell (preview)
 
 Use the `blobfuse2 completion powershell` command to generate the autocompletion script for BlobFuse2 for PowerShell.
 
