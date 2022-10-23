@@ -174,12 +174,9 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 8. On the dashboard, you see the following tile with status: **Deploying data factory**.
 
 	:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png" alt-text="deploying data factory tile":::
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
-
-10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+1. After the creation is complete, you see the **Data Factory** page as shown in the image.
+1. Select **Launch studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
-
-    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Screenshot that shows the Manage button.":::
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and your database in Azure SQL Database.
@@ -187,9 +184,8 @@ You create linked services in a data factory to link your data stores and comput
 ### Create Azure Storage linked service.
 In this step, you link your Azure Storage Account to the data factory.
 
-1. Click **Connections**, and click **+ New**.
-
-   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png" alt-text="New connection button":::
+1. Navigate to **Linked services** in **Connections** under **Manage** tab and click **+ New** or click on **Create linked service** button .
+   ![](media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
 2. In the **New Linked Service** window, select **Azure Blob Storage**, and click **Continue**.
 
    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png" alt-text="Select Azure Blob Storage":::
