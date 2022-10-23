@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/19/2022
 ---
 
-# Enhance device discovery with an Enterprise IoT network sensor (Public preview)
+# Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)
 
 <!--these include files don't work [!INCLUDE [Microsoft 365 Defender rebranding](/microsoft-365/security/includes/microsoft-defender.md)]-->
 
@@ -18,13 +18,16 @@ ms.date: 10/19/2022
 
 > Want to experience Microsoft Defender for Endpoint? [Sign up for a free trial.](https://signup.microsoft.com/create-account/signup?products=7f379fee-c4f9-4278-b0a1-e4c8c2fcdf7e&ru=https://aka.ms/MDEp2OpenTrial?ocid=docs-wdatp-enablesiem-abovefoldlink)
 
-Microsoft Defender for Endpoint's integration with Microsoft Defender for IoT extends your device discovery using Defender for IoT's agentless monitoring features. Integrate Defender for Endpoint and Defender for IoT to secure the enterprise IoT devices in your network, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras.
+This article describes how to register an Enterprise IoT network sensor in Microsoft Defender for IoT.
 
-This article describes how to register an Enterprise IoT network sensor in Microsoft Defender for IoT, to extend your network visibility even further, to IoT segments in your corporate network not otherwise covered by Microsoft Defender for Endpoint.
+**If you're a Defender for Endpoint customer** with an Enterprise IoT plan for Defender for IoT, adding an Enterprise IoT network sensor extends your network visibilty to IoT segments in your corporate network not otherwise covered by Microsoft Defender for Endpoint.
 
 For example, devices that reside outside of the subnets where managed endpoints reside, that are blocked by a NAT, or are in a completely different network, cannot be discovered by Defender for Endpoint, but can be discovered by an Enterprise IoT network sensor. An Enterprise IoT network sensor also provides specific classifications for devices that are classified as *unknown* by Defender for Endpoint.
 
-Customers that have set up an Enterprise IoT network sensor can see all discovered devices in the **Device inventory** in either Defender for Endpoint or Defender for IoT.
+Customers that have set up an Enterprise IoT network sensor can see all discovered devices in the **Device inventory** in either Defender for Endpoint or Defender for IoT. You'll also get extra security value from more alerts, vulnerabilities, and recommendations in Defender for Endpoint for the newly discovered devices.
+
+**If you're a Defender for IoT customer** working solely in the Azure portal, an Enterprise IoT network sensor provides extra device visibility to Enterprise IoT devices, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras, which may not be covered by your OT network sensors.
+
 
 For more information, see [Secure Enterprise IoT network resources with Defender for Endpoint and Defender for IoT](concept-eiot.md).
 
@@ -35,22 +38,24 @@ For more information, see [Secure Enterprise IoT network resources with Defender
 
 Before you start adding a sensor:
 
-- Make sure that you've [onboarded to Defender for IoT from Defender for Endpoint](eiot-mde.md).
+- To view Defender for IoT data in Defender for Endpoint, including devices, alerts, recommendations, and vulnerabilities, you must be [onboard to Defender for IoT from Defender for Endpoint](eiot-mde.md).
+
+    If you only want to view data in the Azure portal, an Enterprise IoT plan is not required. You can also onboard to Defender for IoT from Defender for Endpoint after registering your network sensor to bring extra device visibility and security value to your organization.
 
 - Make sure you can access the Azure portal as a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) user.
 
-You'll also need a physical appliance or a virtual machine (VM) to use as your network sensor. Make sure that your machine has the following specifications:
+- Allocate a physical appliance or a virtual machine (VM) to use as your network sensor. Make sure that your machine has the following specifications:
 
-| Tier | Requirements |
-|--|--|
-| **Minimum** | To support up to 1 Gbps of data: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
-| **Recommended** | To support up to 15 Gbps of data: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
+    | Tier | Requirements |
+    |--|--|
+    | **Minimum** | To support up to 1 Gbps of data: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
+    | **Recommended** | To support up to 15 Gbps of data: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
 
-Your machine must also have:
+    Your machine must also have:
 
-- The [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+    - The [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
 
-- Network adapters, at least one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
+    - Network adapters, at least one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
 
 ## Prepare a physical appliance or VM
 
@@ -256,6 +261,7 @@ If you want to cancel your Enterprise IoT plan and stop the integration with Def
 
 - To cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 - To cancel a plan for both OT and Enterprise IoT networks together, use the [**Pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
+
 
 ## Next steps
 
