@@ -152,7 +152,7 @@ The steps you follow for your project depends on whether you're using [Entity Fr
     ```csharp
     var conn = (System.Data.SqlClient.SqlConnection)Database.Connection;
     var credential = new Azure.Identity.DefaultAzureCredential();
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://database.windows.net/.default" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://database.windows.net/.default" }), System.Threading.CancellationToken.None);
     conn.AccessToken = token.Token;
     ```
     
