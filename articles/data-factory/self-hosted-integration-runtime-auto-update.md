@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
-ms.date: 08/18/2022
+ms.date: 10/23/2022
 ---
 
 # Self-hosted integration runtime auto-update and expire notification
@@ -40,7 +40,7 @@ You can use this [PowerShell command](/powershell/module/az.datafactory/get-azda
 > If you have multiple self-hosted integration runtime nodes, there is no downtime during auto-update. The auto-update happens in one node first while others are working on tasks. When the first node finishes the update, it will take over the remain tasks when other nodes are updating. If you only have one self-hosted integration runtime, then it has some downtime during the auto-update.
 
 ## Auto-update version vs latest version
-To ensure the stability of self-hosted integration runtime, although we release two versions, we will only push one version every month. So sometimes you will find that the auto-update version is the previous version of the actual latest version. If you want to get the latest version, you can go to [download center](https://www.microsoft.com/download/details.aspx?id=39717). Additionally, auto-update to a version is managed one. You cannot change it. If you want to upgrade to latest version, you have to do it manually. 
+To ensure the stability of self-hosted integration runtime, although we release two versions, we will only push one version every month. So sometimes you will find that the auto-update version is the previous version of the actual latest version. If you want to get the latest version, you can go to [download center](https://www.microsoft.com/download/details.aspx?id=39717) and do so manually. Additionally, **auto-update** to a new version is managed internally. You cannot change it.
 
 The self-hosted integration runtime **Auto update** page in ADF portal shows the newer version if current version is old. When your self-hosted integration runtime is online, this version is auto-update version and will automatically update your self-hosted integration runtime in the scheduled time. But if your self-hosted integration runtime is offline, the page only shows the latest version.
 
