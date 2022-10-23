@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/28/2022
+ms.date: 10/24/2022
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
