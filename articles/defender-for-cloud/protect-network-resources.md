@@ -35,7 +35,7 @@ To open the Network map:
 
 1. Select **Network map**.
 
-:::image type="content" source="media/protect-network-resources/workload-protection-network-map.png" alt-text="screen shot showing selection of network map from workload protection." lightbox="media/protect-network-resources/workload-protection-network-map.png":::
+:::image type="content" source="media/protect-network-resources/workload-protection-network-map.png" alt-text="Screenshot showing selection of network map from workload protection." lightbox="media/protect-network-resources/workload-protection-network-map.png":::
 
 1. Select the **Layers** menu choose **Topology**.
  
