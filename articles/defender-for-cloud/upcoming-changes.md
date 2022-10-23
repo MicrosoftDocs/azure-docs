@@ -18,9 +18,9 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Deprecation of AWS recommendation](#deprecation-of-aws-recommendation) | November 2023 |
+| [Deprecation of AWS Lambda recommendation](#deprecation-of-aws-lambda-recommendation) | November 2023 |
 
-### Deprecation of AWS recommendation
+### Deprecation of AWS Lambda recommendation
 
 **Estimated date for change: November 2023**
 
