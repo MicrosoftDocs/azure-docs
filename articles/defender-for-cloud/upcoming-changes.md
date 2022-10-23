@@ -18,7 +18,13 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| None | None |
+| Deprecation of AWS recommendation Lambda | November 2023 |
+
+### Deprecation of AWS recommendation Lambda 
+
+**Estimated date for change: November 2023**
+
+The following recommendation is set to be deprecated [`Lambda functions should have a dead-letter queue configured`](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-fsbp-controls.html#fsbp-lambda-4).
 
 ## Next steps
 
