@@ -163,12 +163,11 @@ Defender for Cloud will immediately start scanning your AWS resources and you'll
 
 ## Understanding CloudFormation
 
-As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFormation template is generated. This CloudFormation template will create all the required resources so Microsoft Defender for Cloud can connect to the AWS account.
+As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFormation template is generated. This CloudFormation template creates all the required resources so Microsoft Defender for Cloud can connect to the AWS account.
 
 You use the template to create a stack from the s3 bucket to create the accounts. 
 
 Amazon S3 URL can be used if you already have an S3 bucket - an S3 bucket is like a storage account which will be created automatically for a user, or a user can provide their own storage account if they have one.
-
 
 ### AWS CloudFormation deployment 
 
@@ -179,8 +178,9 @@ When deploying it the Stack creation wizard suggests two options from which you 
 
 - **Amazon S3 URL**: 
 With this option you can upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. 
+
 - **Update a template file**: 
-With this option AWS will automatically create an S3 bucket in which the CloudFormation template will be saved. Please note that with this automation the S3 bucket will be created with a security misconfiguration which will result in a security recommendation “S3 buckets should require requests to use Secure Socket Layer”. This recommendation can be fixed by applying the following policy:
+With this option AWS automatically creates an S3 bucket in which the CloudFormation template will be saved. Please note that with this automation the S3 bucket will be created with a security misconfiguration which will result in a security recommendation “S3 buckets should require requests to use Secure Socket Layer”. This recommendation can be fixed by applying the following policy:
 ```bash
 {
   "Id": "ExamplePolicy",
