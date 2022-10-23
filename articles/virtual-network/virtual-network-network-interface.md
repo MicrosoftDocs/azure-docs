@@ -246,7 +246,7 @@ Use [az network nic list](/cli/azure/network/nic#az-network-nic-list) to view ne
 az network nic list 
 ```
 
-Use [az network nic show](/azure/network/nic#az-network-nic-show) to view the settings for a network interface.
+Use [az network nic show](/cli/azure/network/nic#az-network-nic-show) to view the settings for a network interface.
 
 ```azurecli
 az network nic show --name myNIC --resource-group myResourceGroup
