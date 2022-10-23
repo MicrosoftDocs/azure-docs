@@ -26,18 +26,25 @@ Enterprise IoT devices include Voice over Internet Protocol (VoIP) devices, prin
 
 While Microsoft 365 P2 customers can already view discovered IoT devices in the Defender for Endpoint [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview), onboarding an Enterprise IoT plan provides extra security value with alerts, recommendations and vulnerabilities for discovered IoT devices.
 
+Use our [Onboard with Microsoft Defender for IoT](eiot-mde.md) tutorial to get started seeing this extra security value in your environments
+
 For more information, see:
 
-- [Onboard with Microsoft Defender for IoT](eiot-mde.md)
 - [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses).
 
 ## Extended device visibility in the Azure portal
 
-Customers onboarded to Enterprise IoT can also view detected IoT devices in the Azure portal. View your devices in Azure's Defender for IoT's [Device inventory](how-to-manage-device-inventory-for-organizations.md) for a single, integrated security solution across all your IoT and Operational Technology (OT) infrastructure.
+In addition to viewing IoT devices in Defender for Endpoint's **Device inventory**, customers onboarded to Enterprise IoT can also view detected IoT devices in the Azure portal. Viewing IoT devices in the Azure portal is especially helpful when you're also using Defender for IoT to view and manage Operational Technology (OT) network devices.
 
-To discover extra devices not covered by Defender for Endpoint, Microsoft 365 P2 customers can also install the Enterprise IoT network sensor, currently in **Public Preview**. The Enterprise IoT network sensor provides visibility into IoT segments of the corporate network that aren't covered by Defender for Endpoint, such as:
+View your devices in Azure's Defender for IoT's **Device inventory** for a single, continuous, and integrated security solution across all your OT and Enterprise IoT devices.
+
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+
+## Enhanced device discovery with Defender for IoT network sensors (Public preview)
+
+To discover extra devices not covered by Defender for Endpoint, Microsoft 365 P2 and Defender for IoT customers can also install the Enterprise IoT network sensor. The Enterprise IoT network sensor provides visibility into IoT segments of the corporate network that aren't covered by Defender for Endpoint, such as:
 
 - Devices that reside outside of the subnets where managed endpoints reside
 - Devices that are blocked by a NAT
@@ -46,9 +53,25 @@ To discover extra devices not covered by Defender for Endpoint, Microsoft 365 P2
 An Enterprise IoT network sensor also provides specific classifications for devices that are classified as *unknown* by Defender for Endpoint.
 
 > [!NOTE]
-> Deploying a network sensor is *not* a prerequisite for integrating Defender for Endpoint and Defender for IoT.
+> Deploying a network sensor is optional and is *not* a prerequisite for integrating Defender for Endpoint and Defender for IoT.
 
 For more information, see [Enhance device discovery with a Enterprise IoT network sensor](eiot-sensor.md).
+
+
+## IoT security feature comparison summary
+
+The following table provides a comparison of the increased security features available for IoT devices as you use Defender for Endpoint, add an Enterprise IoT plan, or an extra Enterprise IoT network sensor.
+
+|Security feature  |Defender for Endpoint only  |Defender for Endpoint and <br> Enterprise IoT plan  |Defender for Endpoint, <br>Enterprise IoT plan, <br>and Enterprise IoT network sensors (Public preview) |
+|---------|---------|---------|---------|
+|Initial device discovery     |   ✓      |      ✓   |      ✓   |
+|Full device discovery     |         |         |    ✓     |
+|Security recommendations     |         |   ✓      |    ✓     |
+|Vulnerabilities     |         |    ✓     |    ✓     |
+|Basic IT and IoT device alerts     |  ✓       |        ✓ | ✓        |
+|IoT-focused alerts     |         |   ✓      |       ✓  |
+|IoT hunting and custom detections     |         |      ✓   |      ✓   |
+|Response <!--do we include this? when is this getting added?-->     |   ✓      |     ✓    |    ✓     |
 
 ## Next steps
 
