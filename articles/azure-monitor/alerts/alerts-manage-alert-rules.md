@@ -55,14 +55,14 @@ This section describes how to manage metric alert rules using the cross-platform
 1. Use these options of the `az monitor metrics alert` CLI command in this table:
 
     
-|Description  |CLI command  |
+|What you want to do|CLI command  |
 |---------|---------|
-|View all the metric alerts in a resource group|```azurecli<br>az monitor metrics alert list -g {ResourceGroup}<br>```|
-|See the details of a particular metric alert rule|```azurecli<br>az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}<br>```         |
-|     |```azurecli<br>az monitor metrics alert show --ids {RuleResourceId}<br>``         |
-|Disable a metric alert rule|```azurecli<br>az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false<br>```|
-|Delete a metric alert rule|```azurecli<br>az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false<br>```|
-|Learn more about the command|```azurecli<br>az monitor metrics alert --help<br>``|
+|View all the metric alerts in a resource group|`az monitor metrics alert list -g {ResourceGroup}`|
+|See the details of a particular metric alert rule|`az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}`|
+|     |`az monitor metrics alert show --ids {RuleResourceId}`|
+|Disable a metric alert rule|`az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false`|
+|Delete a metric alert rule|`az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false<br>`|
+|Learn more about the command|`az monitor metrics alert --help`|
 
 ## Manage metric alert rules with PowerShell
 

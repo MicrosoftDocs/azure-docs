@@ -303,7 +303,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 ## Create a new alert rule using PowerShell
 
 - To create a metric alert rule using PowerShell, use this cmdlet: [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
-- To create a log alert rule using PowerShell, use this cmdlet: [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule?view=azps-9.0.1)
+- To create a log alert rule using PowerShell, use this cmdlet: [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule?)
 - To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 
 ## Create an activity log alert rule from the Activity log pane
