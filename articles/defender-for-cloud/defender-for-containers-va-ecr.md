@@ -12,9 +12,11 @@ ms.custom: ignite-2022
 
 Defender for Containers lets you scan the container images stored in your Amazon AWS Elastic Container Registry (ECR) as part of the protections provided within Microsoft Defender for Cloud.
 
-To enable scanning of vulnerabilities in containers, you have to [connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md) and [enable Defender for Containers](defender-for-containers-enable.md). The agentless scanner, powered by the open-source scanner Trivy, scans your ECR repositories and reports vulnerabilities. Defender for Containers creates resources in your AWS account, such as an ECS cluster in a dedicated VPC, internet gateway and an S3 bucket, so that images stay within your account for privacy and intellectual property protection. Resources are created in two AWS regions: us-east-1 and eu-central-1.
+To enable scanning of vulnerabilities in containers, you have to [connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md) and [enable Defender for Containers](defender-for-containers-enable.md). The agentless scanner, powered by the open-source scanner Trivy, scans your ECR repositories and reports vulnerabilities.
 
-Defender for Cloud filters and classifies findings from the scanner. Images without vulnerabilities are marked as healthy and Defender for Cloud doesn't send notifications about healthy images to keep you from getting unwanted informational alerts.
+Defender for Containers creates resources in your AWS account in the us-east-1 and eu-central-1 regions, such as an ECS cluster in a dedicated VPC, internet gateway, and an S3 bucket, to create an inventory of the software in your images. The scan then sends only the software inventory to Defender for Cloud. This architecture protects your information privacy and intellectual property, and also keeps the outbound network traffic to a minimum.
+
+Defender for Cloud filters and classifies findings from the software inventory that the scanner creates. Images without vulnerabilities are marked as healthy and Defender for Cloud doesn't send notifications about healthy images to keep you from getting unwanted informational alerts.
 
 The triggers for an image scan are:
 
@@ -27,7 +29,7 @@ The triggers for an image scan are:
 Before you can scan your ECR images:
 
 - [Connect your AWS account to Defender for Cloud and enable Defender for Containers](quickstart-onboard-aws.md)
-- You must have at least one free VPC in us-east-1 and eu-central-1.
+- You must have at least one free VPC in the `us-east-1` and `eu-central-1` regions.
 
 > [!NOTE]
 > - Images that have at least one layer over 2GB are not scanned.
