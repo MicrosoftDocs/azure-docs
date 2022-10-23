@@ -10,7 +10,7 @@ ms.custom: ignite-2022
 
 # Use Defender for Containers to scan your Azure Container Registry images for vulnerabilities
 
-This page explains how to use Defender for Containers to scan the container images stored in your Azure Resource Manager-based Azure Container Registry, as part of the protections provided within Microsoft Defender for Cloud.
+This article explains how to use Defender for Containers to scan the container images stored in your Azure Resource Manager-based Azure Container Registry, as part of the protections provided within Microsoft Defender for Cloud.
 
 To enable scanning of vulnerabilities in containers, you have to [enable Defender for Containers](defender-for-containers-enable.md). When the scanner, powered by Qualys, reports vulnerabilities, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
@@ -30,43 +30,37 @@ The triggers for an image scan are:
 
   - (Preview) Continuous scan for running images. This scan is performed every seven days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
     
-    > [!NOTE] 
-    > **Windows containers**: There is no Defender agent for Windows containers, the Defender agent is deployed to a Linux node running in the cluster, to retrieve the running container inventory for your Windows nodes.
-    >
-    > Images that aren't pulled from ACR for deployment in AKS won't be checked and will appear under the **Not applicable** tab.
-    >
-    > Images that have been deleted from their ACR registry, but are still running, won't be reported on only 30 days after their last scan occurred in ACR.
+When a scan is triggered, findings are available as Defender for Cloud recommendations from 2 minutes up to 15 minutes after the scan is complete.
 
-This scan typically completes within 2 minutes, but it might take up to 40 minutes.
+Also, check out the ability scan container images for vulnerabilities as the images are built in your CI/CD GitHub workflows. Learn more in [Defender for DevOps](defender-for-devops-introduction.md).
 
-Also, check out the ability scan container images for vulnerabilities as the images are built in your CI/CD GitHub workflows. Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-containers-cicd.md).
+## Prerequisites
 
-## Identify vulnerabilities in images in Azure container registries
+Before you can scan your ACR images:
 
-To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
-
-1. [Enable Defender for Containers](defender-for-containers-enable.md) for your subscription. Defender for Containers is now ready to scan images in your registries.
+- [Enable Defender for Containers](defender-for-containers-enable.md) for your subscription. Defender for Containers is now ready to scan images in your registries.
 
     >[!NOTE]
     > This feature is charged per image.
 
-    When a scan is triggered, findings are available as Defender for Cloud recommendations from 2 minutes up to 15 minutes after the scan is complete.
+- If you want to find vulnerabilities in images stored in other container registries, you can import the images into ACR and scan them.
 
-1. [View and remediate findings as explained below](#view-and-remediate-findings).
-
-## Identify vulnerabilities in images in other container registries
-
-If you want to find vulnerabilities in images stored in other container registries, you can import the images into ACR and scan them.
-
-You can also [scan images in Amazon AWS Elastic Container Registry](defender-for-containers-va-ecr.md) directly from the Azure portal.
-
-1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry. When the import completes, the imported images are scanned by the built-in vulnerability assessment solution.
+    Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry. When the import completes, the imported images are scanned by the built-in vulnerability assessment solution.
 
     Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md)
 
     When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Defender for Cloud recommendations.
 
-1. [View and remediate findings as explained below](#view-and-remediate-findings).
+    You can also [scan images in Amazon AWS Elastic Container Registry](defender-for-containers-va-ecr.md) directly from the Azure portal.
+
+> [!NOTE] 
+> - **Windows containers**: There is no Defender agent for Windows containers. The Defender agent is deployed to a Linux node running in the cluster, to retrieve the running container inventory for your Windows nodes.
+> - Images that aren't pulled from ACR for deployment in AKS won't be checked and will appear under the **Not applicable** tab.
+> - Images that have been deleted from their ACR registry, but are still running, won't be reported on only 30 days after their last scan occurred in ACR.
+> - Vulnerability assessment doesn't support:
+>   - Super-minimalist images, such as [Docker scratch](https://hub.docker.com/_/scratch/) images
+>   - "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.
+>   - Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)
 
 ## View and remediate findings
 
