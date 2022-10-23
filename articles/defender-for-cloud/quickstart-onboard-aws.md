@@ -171,7 +171,7 @@ Amazon S3 URL can be used if you already have an S3 bucket - an S3 bucket is lik
 
 ### AWS CloudFormation deployment 
 
-The CloudFormation should be deployed using Stack (and StackSet in case of management account).
+The CloudFormation template should be deployed using Stack (and StackSet in case of management account).
 When deploying it the Stack creation wizard suggests two options from which you can choose:
 
 :::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="screen shot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
