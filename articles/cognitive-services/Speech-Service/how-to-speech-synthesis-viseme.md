@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 10/23/2022
 ms.author: yulili
 ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: references_regions
@@ -243,7 +243,7 @@ Here's an example of the viseme output.
 
 # [2D SVG](#tab/2dsvg)
 
-The SVG output is a xml string that contains the animation.
+The SVG output is an xml string that contains the animation.
 Render the SVG animation along with the synthesized speech to see the mouth movement.
 
 ```xml

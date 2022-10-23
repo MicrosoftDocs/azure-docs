@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 07/30/2022
+ms.date: 10/21/2022
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -423,7 +423,7 @@ The following tables list the values for the number of artifacts limited to each
 | Assemblies | 10 | 25 | 1,000 |
 | Certificates | 25 | 2 | 1,000 |
 | Batch configurations | 5 | 1 | 50 |
-||||
+| RosettaNet partner interface process (PIP) | 10 | 1 | 500 |
 
 <a name="artifact-capacity-limits"></a>
 
