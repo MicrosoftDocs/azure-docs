@@ -14,7 +14,7 @@ ms.service: microsoft-sentinel
 
 Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all Microsoft 365 Defender incidents and alerts into Microsoft Sentinel, and keeps the incidents synchronized between both portals. Microsoft 365 Defender incidents include all their alerts, entities, and other relevant information, and they group together, and are enriched by, alerts from Microsoft 365 Defender's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Defender for Cloud Apps**, as well as alerts from other services such as **Microsoft Purview Data Loss Prevention (DLP)** and **Azure Active Directory Identity Protection (AADIP)**.
 
-The connector also lets you stream **advanced hunting** events from *all* of the above components into Microsoft Sentinel, allowing you to copy those Defender components' advanced hunting queries into Microsoft Sentinel, enrich Sentinel alerts with the Defender components' raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
+The connector also lets you stream **advanced hunting** events from *all* of the above Defender components into Microsoft Sentinel, allowing you to copy those Defender components' advanced hunting queries into Microsoft Sentinel, enrich Sentinel alerts with the Defender components' raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
 
 For more information about incident integration and advanced hunting event collection, see [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
@@ -110,7 +110,7 @@ Verify that you've satisfied the [prerequisites](#prerequisites-for-active-direc
        | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Security events that occur post-delivery, after Microsoft 365 has delivered the emails to the recipient mailbox |
        | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table)** | Information about URLs on emails |
 
-       # [Defender for Identity (New!)](#tab/MDI)
+       # [Defender for Identity](#tab/MDI)
 
        | Table name | Events type |
        |-|-|
@@ -119,13 +119,13 @@ Verify that you've satisfied the [prerequisites](#prerequisites-for-active-direc
        | **[IdentityLogonEvents](/microsoft-365/security/defender/advanced-hunting-identitylogonevents-table)** | Authentication activities made through your on-premises Active Directory, as captured by Microsoft Defender for Identity <br><br>Authentication activities related to Microsoft online services, as captured by Microsoft Defender for Cloud Apps |
        | **[IdentityQueryEvents](/microsoft-365/security/defender/advanced-hunting-identityqueryevents-table)** | Information about queries performed against Active Directory objects such as users, groups, devices, and domains |
 
-       # [Defender for Cloud Apps (New!)](#tab/MDCA)
+       # [Defender for Cloud Apps](#tab/MDCA)
 
        | Table name | Events type |
        |-|-|
        | **[CloudAppEvents](/microsoft-365/security/defender/advanced-hunting-cloudappevents-table)** | Information about activities in various cloud apps and services covered by Microsoft Defender for Cloud Apps |
 
-       # [Defender alerts (New!)](#tab/MDA)
+       # [Defender alerts](#tab/MDA)
 
        | Table name | Events type |
        |-|-|
@@ -179,7 +179,7 @@ In the **Next steps** tab, you’ll find some useful workbooks, sample queries, 
 
 ## Next steps
 
-In this document, you learned how to integrate Microsoft 365 Defender incidents, and advanced hunting event data from Microsoft Defender for Endpoint and Defender for Office 365, into Microsoft Sentinel, using the Microsoft 365 Defender connector. To learn more about Microsoft Sentinel, see the following articles:
+In this document, you learned how to integrate Microsoft 365 Defender incidents, and advanced hunting event data from Microsoft Defender component services, into Microsoft Sentinel, using the Microsoft 365 Defender connector. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).

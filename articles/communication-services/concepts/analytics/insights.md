@@ -117,8 +117,7 @@ The **SMS** tab displays the operations and results for SMS usage through an Azu
 :::image type="content" source="media\workbooks\sms.png" alt-text="SMS tab":::
 
 The **Email** tab displays delivery status, email size, and email count:
-:::image type="content" source="media\workbooks\azure-communication-services-insights-email.png" alt-text="Email tab":::
-[Screenshot displays email count, size and email delivery status level that illustrate email insights]
+:::image type="content" source="media\workbooks\azure-communication-services-insights-email.png" alt-text="Screenshot displays email count, size and email delivery status level that illustrate email insights":::
 
 ## Editing dashboards
 

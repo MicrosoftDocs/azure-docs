@@ -14,15 +14,26 @@ ms.date: 09/12/2022
 ms.author: pafarley
 ---
 
-# Reading text (preview)
+# Computer Vision v4.0 Read OCR (preview)
 
-Version 4.0 of Image Analysis offers the ability to extract text from images. Contextual information like line number and position is also returned. Text reading is also available through the [OCR service](overview-ocr.md), but the latest model version is available through Image Analysis. This version is optimized for image inputs as opposed to documents.
+The new Computer Vision v4.0 Image Analysis REST API preview offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 
 [!INCLUDE [read-editions](./includes/read-editions.md)]
 
-## Reading text example
+## Use the V4.0 REST API preview
 
-The following JSON response illustrates what the Analyze API returns when reading text in the given image.
+The text extraction feature is part of the [v4.0 Analyze Image REST API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
+
+For an example, copy the following command into a text editor and replace the `<key>` with your API key and optionally, your API endpoint URL. Then open a command prompt window and run the command.
+
+```bash
+    curl.exe -H "Ocp-Apim-Subscription-Key: <key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Read&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
+    
+```
+
+## Text extraction output
+
+The following JSON response illustrates what the v4.0 Analyze Image API returns when extracting text from the given image.
 
 ![Photo of a sticky note with writing on it.](./Images/handwritten-note.jpg)
 
@@ -263,10 +274,6 @@ The following JSON response illustrates what the Analyze API returns when readin
 }
 ```
 
-## Use the API
-
-The text reading feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Read` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
-
 ## Next steps
 
-Follow the [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to read text from an image using the Analyze API.
+Follow the v4.0 REST API sections in the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Analyze API.

@@ -196,6 +196,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    Then, create the deployment with the following command:
    
    ```bash
+   DEPLOYMENT_NAME="classifier-xgboost-mlflow"
    az ml batch-endpoint create -f endpoint.yml
    ```
    
@@ -225,7 +226,22 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    > [!NOTE]
    > `scoring_script` and `environment` auto generation only supports `pyfunc` model flavor. To use a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
 
-6. At this point, our batch endpoint is ready to be used. 
+6. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   ```bash
+   az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
+   ```
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   ```python
+   endpoint.defaults.deployment_name = deployment.name
+   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ```
+
+7. At this point, our batch endpoint is ready to be used. 
 
 ## Testing out the deployment
 
