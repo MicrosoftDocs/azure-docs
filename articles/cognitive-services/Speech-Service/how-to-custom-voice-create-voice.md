@@ -43,14 +43,14 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
 1. Select **Custom Voice** > Your project name > **Train model** > **Train a new model**. 
-1. Select **Neural** as the [training method](#choose-a-training-method) for your model and then select **Next**. To use other training methods, see [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) and [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model).
+1. Select **Neural** as the [training method](#choose-a-training-method) for your model and then select **Next**. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) or [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model).
     :::image type="content" source="media/custom-voice/cnv-train-neural.png" alt-text="Screenshot that shows how to select neural training.":::
 1. Select a version of the training recipe for your model. The latest version is selected by default. The supported features and training time can vary by version. Normally, the latest version is recommended for the best results. In some cases, you can choose an older version to reduce training time.
-1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in this list.
+1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in the list.
 1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
 1. Select **Next**.
 1. Optionally, you can check the box next to **Add my own test script** and select test scripts to upload. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script with up to 100 utterances. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
-1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Enter a **Name** and **Description** to help you identify the model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 1. Optionally, enter the **Description** to help you identify the model. A common use of the description  is to record the names of the data that you used to create the model.
 1. Select **Next**.
 1. Review the settings and check the box to accept the terms of use.
@@ -60,14 +60,14 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
 1. Select **Custom Voice** > Your project name > **Train model** > **Train a new model**. 
-1. Select **Neural - cross lingual** (Preview) as the [training method](#choose-a-training-method) for your model. To use other training methods, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) and [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model).
+1. Select **Neural - cross lingual** (Preview) as the [training method](#choose-a-training-method) for your model. To use a different training method, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) or [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model).
     :::image type="content" source="media/custom-voice/cnv-train-neural-cross-lingual.png" alt-text="Screenshot that shows how to select neural cross lingual training.":::
 1. Select the **Target language** that will be the secondary language for your voice model. Only one target language can be selected for a voice model. 
-1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in this list.
+1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in the list.
 1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
 1. Select **Next**.
 1. Optionally, you can check the box next to **Add my own test script** and select test scripts to upload. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script with up to 100 utterances. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
-1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Enter a **Name** and **Description** to help you identify the model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 1. Optionally, enter the **Description** to help you identify the model. A common use of the description  is to record the names of the data that you used to create the model.
 1. Select **Next**.
 1. Review the settings and check the box to accept the terms of use.
@@ -77,17 +77,17 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
 1. Select **Custom Voice** > Your project name > **Train model** > **Train a new model**. 
-1. Select **Neural - multi style** (Preview) as the [training method](#choose-a-training-method) for your model. To use other training methods, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) and [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model).
+1. Select **Neural - multi style** (Preview) as the [training method](#choose-a-training-method) for your model. To use a different training method, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) or [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model).
     :::image type="content" source="media/custom-voice/cnv-train-neural-multi-style.png" alt-text="Screenshot that shows how to select neural multi style training.":::
 1. Select one or more preset speaking styles to train. 
-1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in this list.
+1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in the list.
 1. Select **Next**.
 1. Optionally, you can add up to 10 custom speaking styles. Select **Add a custom style** and enter a custom style name of your choice. Select style samples as training data. 
 1. Select **Next**.
 1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
 1. Select **Next**.
 1. Optionally, you can check the box next to **Add my own test script** and select test scripts to upload. Each training generates 100 sample audios for the default style and 20 for each preset style automatically, to help you test the model with a default script. You can also provide your own test script with up to 100 utterances. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
-1. Enter a **Name** and **Description** to help you identify this model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Enter a **Name** and **Description** to help you identify the model. Choose a name carefully. The model name will be used as the voice name in your [speech synthesis request](how-to-deploy-and-use-endpoint.md#use-your-custom-voice) via the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 1. Optionally, enter the **Description** to help you identify the model. A common use of the description  is to record the names of the data that you used to create the model.
 1. Select **Next**.
 1. Review the settings and check the box to accept the terms of use.
@@ -118,7 +118,7 @@ If you want to rename the model you built, you can select **Clone model** to cre
 
 :::image type="content" source="media/custom-voice/cnv-clone-model.png" alt-text="Screenshot of selecting the Clone model button.":::
 
-Enter the new name on the **Clone voice model** window, then click **Submit**. The text 'Neural' will be automatically added as a suffix to your new model name.
+Enter the new name on the **Clone voice model** window, then select **Submit**. The text 'Neural' will be automatically added as a suffix to your new model name.
 
 :::image type="content" source="media/custom-voice/cnv-clone-model-rename.png" alt-text="Screenshot of cloning a model with a new name.":::
 
@@ -143,7 +143,7 @@ If you want to upload your own test scripts to further test your model, select *
 
 Before uploading test script, check the [test script requirements](#test-script-requirements). You'll be charged for the additional testing with the batch synthesis based on the number of billable characters. See [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-On **Add test scripts** window, click **Browse for a file** to select your own script, then select **Add** to upload it.
+On **Add test scripts** window, select **Browse for a file** to select your own script, then select **Add** to upload it.
 
 :::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="Screenshot of uploading model test scripts.":::
 
@@ -174,19 +174,19 @@ When a new engine is available, you're prompted to update your neural voice mode
 
 :::image type="content" source="media/custom-voice/cnv-engine-update-prompt.png" alt-text="Screenshot of displaying engine update message." lightbox="media/custom-voice/cnv-engine-update-prompt.png":::
 
-Go to the model details page, click **Update** at the top to display **Update** window.
+Go to the model details page, select **Update** at the top to display **Update** window.
 
 :::image type="content" source="media/custom-voice/cnv-engine-update.png" alt-text="Screenshot of selecting Update menu at the top of page." lightbox="media/custom-voice/cnv-engine-update.png":::
 
-Then click **Update** to update your model to the latest engine version.
+Then select **Update** to update your model to the latest engine version.
 
 :::image type="content" source="media/custom-voice/cnv-engine-update-done.png" alt-text="Screenshot of selecting Update button to update engine.":::
 
-You're not charged for engine update. The previous versions are still kept. You can check all engine versions for this model from **Engine version** drop-down list, or remove one if you don't need it anymore. 
+You're not charged for engine update. The previous versions are still kept. You can check all engine versions for the model from **Engine version** drop-down list, or remove one if you don't need it anymore. 
 
 :::image type="content" source="media/custom-voice/cnv-engine-version.png" alt-text="Screenshot of displaying Engine version drop-down list.":::
 
-The updated version is automatically set as default. But you can change the default version by selecting a version from the drop-down list and clicking **Set as default**.
+The updated version is automatically set as default. But you can change the default version by selecting a version from the drop-down list and selecting **Set as default**.
 
 :::image type="content" source="media/custom-voice/cnv-engine-set-default.png" alt-text="Screenshot that shows how to set a version as default.":::
 
