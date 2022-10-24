@@ -78,13 +78,16 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. In the Power BI Azure AD tenant, validate the following app registration settings:
    1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
+   
    2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+   
    3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+   
    3. Under **Authentication**:
       1. **Supported account types** > **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected.
       2. **Implicit grant and hybrid flows** > **ID tokens (used for implicit and hybrid flows)** is selected.
@@ -118,13 +121,16 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. In the Power BI Azure AD tenant, validate the following app registration settings:
    1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
+   
    2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+   
    3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+   
    3. Under **Authentication**:
       1. **Supported account types** > **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected.
       2. **Implicit grant and hybrid flows** > **ID tokens (used for implicit and hybrid flows)** is selected.
