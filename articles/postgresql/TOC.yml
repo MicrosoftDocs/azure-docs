@@ -529,7 +529,7 @@
         - name: Read replicas
           href: flexible-server/concepts-read-replicas.md
           displayName: replication, read replica
-        - name: Logical decoding and logical replication
+        - name: Logical replication and logical decoding
           href: flexible-server/concepts-logical.md
           displayName: logical decoding, logical replication
     - name: Azure Advisor recommendations
