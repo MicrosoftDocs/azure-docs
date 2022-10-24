@@ -30,7 +30,7 @@ Azure Load Testing Preview collects detailed resource metrics to help you identi
 
 Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
 
-When the application you're load testing is hosted on Azure App Service, you can get additional insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics.md).
+When the application you're load testing is hosted on Azure App Service, you can get extra insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics.md).
 
 To view the App Service diagnostics information for your application under load test:
 
@@ -58,7 +58,7 @@ To view the App Service diagnostics information for your application under load 
 
     :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-high-cpu.png" alt-text="Screenshot that shows the App Service diagnostics CPU usage report.":::
 
-    The following screenshots shows the **Web App Slow** report, which gives details and recommendations about application performance.
+    The following screenshot shows the **Web App Slow** report, which gives details and recommendations about application performance.
 
     :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-web-app-slow.png" alt-text="Screenshot that shows the App Service diagnostics slow application report.":::
 
