@@ -122,6 +122,7 @@ In the following samples, replace example parameter names such as *myResourceGro
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+---
 
 ## Expand a disk partition and filesystem
 > [!NOTE]
