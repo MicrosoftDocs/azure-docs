@@ -260,9 +260,8 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
-   | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
-   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **body** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **Headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Put your cursor in the **Headers** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Headers**. |
 
    ![Screenshot showing the "Decode AS2 message" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/decode-as2-details-consumption.png)
 
@@ -292,11 +291,6 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
    For example:
 
    ![Screenshot showing the Standard workflow designer and "AS2 Decode" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-built-in-standard.png)
-
-   > [!NOTE]
-   >
-   > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
-   > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
 #### [AS2 connector](#tab/as2/standard)
 
