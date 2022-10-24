@@ -34,7 +34,7 @@ Azure IoT Edge supports the following device architectures:
 
 For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-ext"
 
 When using the Visual Studio Code IoT Edge extension, you can also launch and debug your module code in the IoT Edge Simulator.
 
@@ -52,7 +52,7 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 - [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-ext"
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
@@ -203,7 +203,7 @@ After solution creation, there are four items within the solution:
 
 ::: zone-end
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-ext"
 
 Use Visual Studio Code and the Azure IoT Tools. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
 
@@ -247,7 +247,7 @@ There are four items within the solution:
 
 The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.4. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio Code to match.
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-ext"
 
 1. Select **View** > **Command Palette**.
 1. In the command palette, enter and run the command **Azure IoT Edge: Set default IoT Edge runtime version**.
@@ -285,7 +285,7 @@ To add more modules to your solution, change to *module* directory.
 cd modules
 ```
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-ext"
 
 Run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette. You can also right-click the **modules** folder or the `deployment.debug.template.json` file in the Visual Studio Code Explorer view and then select **Add IoT Edge Module**.
 
@@ -409,7 +409,7 @@ The sample modules are designed so that you can build the solution, push it to y
 
 When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-ext"
 
 ## Debug without a container using IoT Edge simulator
 
@@ -579,7 +579,7 @@ In Visual Studio Code, open *deployment.debug.template.json* deployment manifest
     
 ::: zone-end
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-ext"
 
 1. In the Visual Studio Code command palette, run the command **Azure IoT Edge: Build and Push IoT Edge solution**.
 1. Select the `deployment.debug.template.json` file for your solution.

@@ -1,12 +1,13 @@
 ---
 title: Develop and debug Azure IoT Edge modules in Visual Studio
-description: Use Visual Studio to develop an IoT Edge module and push it from your IoT Hub to an IoT device, as configured by a deployment manifest.
+description: Use Visual Studio to develop a custom IoT Edge module and deploy to an IoT device.
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/21/2022
+ms.date: 10/24/2022
 ms.topic: conceptual
 ms.service: iot-edge
+zone_pivot_groups: iotedge-dev
 ---
 # Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge
 
@@ -34,6 +35,8 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C++** workloads in your Visual Studio 2022 installation. Alternatively, you can [Modify Visual Studio 2022](/visualstudio/install/modify-visual-studio?view=vs-2022&preserve-view=true) to add the required workloads, if Visual Studio is already installed on your machine.
 
+::: zone pivot="iotedge-dev-ext"
+
 * Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
 
     * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
@@ -47,8 +50,6 @@ This article assumes that you use a machine running Windows as your development 
     
       After the update is complete, select **Close** and restart Visual Studio.
 
-* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
-
 * Set up your local development environment to debug, run, and test your IoT Edge solution by installing the [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (3.5/3.6/3.7/3.8) and Pip](https://www.python.org/) and then install the **iotedgehubdev** package by running the following command in your terminal.
 
    ```cmd
@@ -59,6 +60,8 @@ This article assumes that you use a machine running Windows as your development 
     >Make sure your Azure IoT EdgeHub Dev Tool version is greater than 0.3.0. You'll need to have a pre-existing IoT Edge device in the Azure portal and have your connection string ready during setup.
 
    You may need to restart Visual Studio to complete the installation.
+
+::: zone-end
 
 * Install the **Vcpkg** library manager
 
@@ -73,6 +76,8 @@ This article assumes that you use a machine running Windows as your development 
   vcpkg.exe install azure-iot-sdk-c:x64-windows
   vcpkg.exe --triplet x64-windows integrate install
   ```
+
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
 
 * Create an instance of [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
 
@@ -136,7 +141,7 @@ If you open this deployment template, you see that the two runtime modules, **ed
 
 ### Set IoT Edge runtime version
 
-The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.2. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio to match.
+The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.4. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio to match.
 
 1. In the Solution Explorer, right-click the name of your main project and select **Set IoT Edge runtime version**.
 
@@ -153,6 +158,8 @@ When you add a new module, it comes with default code that is ready to be built 
 The default solution is built so that the simulated data from the **SimulatedTemperatureSensor** module is routed to your module, which takes the input and then sends it to IoT Hub.
 
 When you're ready to customize the module template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
+
+::: zone pivot="iotedge-dev-ext"
 
 ## Set up the iotedgehubdev testing tool
 
@@ -176,6 +183,8 @@ To initialize the tool in Visual Studio:
 
 > [!NOTE]
 > You need to follow these steps only once on your development computer as the results are automatically applied to all subsequent Azure IoT Edge solutions. This procedure can be followed again if you need to change to a different connection string.
+
+::: zone-end
 
 ## Build and debug a single module
 
