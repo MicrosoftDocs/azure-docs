@@ -53,7 +53,7 @@ ms.reviewer: mmcc
 
 ## Export and data analysis
 * [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
-* [Stream Analytics](./export-power-bi.md)
+* [Power BI for workspace-based resources](../logs/log-powerbi.md)
 
 ## Unsupported SDKs
 Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when using the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.

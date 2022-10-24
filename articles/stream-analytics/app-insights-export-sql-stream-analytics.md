@@ -243,7 +243,6 @@ FROM [dbo].[PageViewsTable]
 ```
 
 ## Next steps
-* [Export to Power BI using Stream Analytics](../azure-monitor/app/export-power-bi.md)
 * [detailed data model reference for the property types and values.](../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../azure-monitor/app/export-telemetry.md)
 

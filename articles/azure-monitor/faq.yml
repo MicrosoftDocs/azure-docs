@@ -563,7 +563,7 @@ sections:
           
           You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it's moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
           
-          You can [use Power BI](app/export-power-bi.md) to display your request telemetry on a map.
+          You can [use Power BI](logs/log-powerbi.md) to display your request telemetry on a map if you've [migrated to a workspace-based resource](app/convert-classic-resource.md).
           
       - question: How long is data retained in the portal? Is it secure?
         answer: |

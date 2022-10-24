@@ -41,4 +41,4 @@ To create a funnel:
   * [Retention](usage-retention.md)
   * [Workbooks](../visualize/workbooks-overview.md)
   * [Add user context](./usage-overview.md)
-  * [Export to Power BI](./export-power-bi.md)
+  * [Export to Power BI](../logs/log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md)
