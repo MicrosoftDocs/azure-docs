@@ -29,7 +29,8 @@ landingContent:
         links:
           - text: HPE ProLiant DL20/DL20 Plus (4SFF)
             url: hpe-proliant-dl20-plus-enterprise.md
-
+          - text: Dell Edge 5200 (Rugged MIL-STD-810G)
+            url: dell-edge-5200.md
 
   # Card
   - title: Production line
@@ -38,8 +39,6 @@ landingContent:
         links:
           - text: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-plus-smb.md
-          - text: Dell Edge 5200 (Rugged MIL-STD-810G)
-            url: dell-edge-5200.md
           - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-8106)
             url: ys-techsystems-ys-fit2.md
 

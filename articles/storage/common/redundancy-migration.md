@@ -132,13 +132,15 @@ There are two ways to initiate a conversion:
 #### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer initiated conversion is currently in preview and available in all public ZRS regions except for the following:
+> Customer-initiated conversion is currently in preview and available in all public ZRS regions except for the following:
 >
 > - (Europe) West Europe
 > - (Europe) UK South
 > - (North America) Canada Central
 > - (North America) East US
 > - (North America) East US 2
+>
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify **CustomerInitiatedMigration** as the feature name.
 >
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

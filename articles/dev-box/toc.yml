@@ -40,8 +40,12 @@
       href: how-to-manage-dev-box-pools.md
     - name: Manage network connections
       href: how-to-manage-network-connection.md
+    - name: Microsoft Dev Box CLI
+      href: how-to-install-dev-box-cli.md  
 - name: Reference
   items:
+    - name: Azure CLI
+      href: cli-reference-subset.md
     - name: REST API
       href: https://aka.ms/dev-box/restapidocs
 - name: Resources

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 10/12/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -36,23 +36,21 @@ Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 ### Before invitation redemption
 
-B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Issuer** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the **Invitation accepted** property in the invited user’s Azure AD portal profile will be set to **No** and querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
+B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Identities** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the invited user’s profile will show an **External user state** of **PendingAcceptance**. Querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
 
 ![Screenshot of user profile before redemption.](media/user-properties/before-redemption.png)
 
 ### After invitation redemption
 
-After the B2B collaboration user accepts the invitation, the **Issuer** property is updated based on the user’s identity provider.
+After the B2B collaboration user accepts the invitation, the **Identities** property is updated based on the user’s identity provider.
 
-If the B2B collaboration user is using credentials from another Azure AD organization, the **Issuer** is **External Azure AD**.
+- If the B2B collaboration user is using a Microsoft account or credentials from another external identity provider, **Identities** reflects the identity provider, for example **Microsoft Account**, **google.com**, or **facebook.com**.
 
-![Screenshot of user profile after redemption.](media/user-properties/after-redemption-state-1.png)
+   ![Screenshot of user profile after redemption.](media/user-properties/after-redemption-state-1.png)
 
-If the B2B collaboration user is using a Microsoft account or credentials from another external identity provider, the **Issuer** reflects the identity provider, for example **Microsoft Account**, **google.com**, or **facebook.com**.
+- If the B2B collaboration user is using credentials from another Azure AD organization, **Identities** is **External Azure AD**.
 
-![Screenshot of user profile showing an external identity provider.](media/user-properties/after-redemption-state-2.png)
-
-For external users who are using internal credentials, the **Issuer** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
+- For external users who are using internal credentials, the **Identities** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
 
 ## Key properties of the Azure AD B2B collaboration user
 
@@ -71,14 +69,14 @@ This property indicates the relationship of the user to the host tenancy. This p
 > [!NOTE]
 > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
 
-### Issuer
+### Identities
 
-This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting issuer in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
+This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
 
 > [!NOTE]
-> Issuer and UserType are independent properties. A value of issuer does not imply a particular value for UserType
+> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
 
-Issuer property value | Sign-in state
+Identities property value | Sign-in state
 --------------------- | -------------------------
 External Azure AD | This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization.
 Microsoft account |  This user is homed in a Microsoft account and authenticates by using a Microsoft account.
@@ -87,7 +85,7 @@ google.com | This user has a Gmail account and has signed up by using self-servi
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
 mail | This user has an email address that doesn't match with verified Azure AD or SAML/WS-Fed domains, and isn't a Gmail address or a Microsoft account.
 phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and isn't a Gmail address or Microsoft account.
-{issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the issuer field is clicked.
+{issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
 ### Directory synced
 
@@ -99,6 +97,11 @@ Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azu
 
 ## Filter for guest users in the directory
 
+In the **Users** list, you can use **Add filter** to display only the guest users in your directory.
+
+![Screenshot showing how to add a User type filter for guests.](media/user-properties/add-guest-filter.png)
+
+
 ![Screenshot showing the filter for guest users.](media/user-properties/filter-guest-users.png)
 
 ## Convert UserType
@@ -108,6 +111,8 @@ It's possible to convert UserType from Member to Guest and vice-versa by editing
 ## Guest user permissions
 
 Guest users have [default restricted directory permissions](../fundamentals/users-default-permissions.md). They can manage their own profile, change their own password, and retrieve some information about other users, groups, and apps. However, they can't read all directory information. 
+
+B2B guest users are not supported in Microsoft Teams shared channels. For access to shared channels see [B2B direct connect.](b2b-direct-connect-overview.md)
 
 There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md) article.
 

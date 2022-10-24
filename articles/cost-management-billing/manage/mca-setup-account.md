@@ -45,10 +45,9 @@ Before you start the setup, we recommend you do the following actions:
 
 ## Access required to complete the setup
 
-To complete the setup, you need the following access:
+To complete the setup, you need both of these roles:
 
-- Owner of the billing account that was created when the Microsoft Customer Agreement was signed. To learn more about billing accounts, see [Your billing account](../understand/mca-overview.md#your-billing-account).  
-— And —
+- Owner of the billing account that was created when the Microsoft Customer Agreement was signed. To learn more about billing accounts, see [Your billing account](../understand/mca-overview.md#your-billing-account).
 - Enterprise administrator on the enrollment that is renewed.
 
 ### Start migration and get permission needed to complete setup

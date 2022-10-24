@@ -1,15 +1,18 @@
 ---
 title: Create a no-code voice assistant in Azure Percept Studio
 description: Learn how to create and deploy a no-code speech solution to your Azure Percept DK
-author: nkhuyent
+author: yvonne-dq
 ms.author: nbabar
 ms.service: azure-percept
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Create a no-code voice assistant in Azure Percept Studio
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 
 In this tutorial, you will create a voice assistant from a template to use with your Azure Percept DK and Azure Percept Audio. The voice assistant demo runs within [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) and contains a selection of voice-controlled virtual objects. To control an object, say your keyword, which is a word or short phrase that wakes your device, followed by a command. Each template responds to a set of specific commands.
 

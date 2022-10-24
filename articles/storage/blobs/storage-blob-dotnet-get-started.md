@@ -80,7 +80,7 @@ public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient,
 You can also create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using a connection string. 
 
 ```csharp
-    BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 ```
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).

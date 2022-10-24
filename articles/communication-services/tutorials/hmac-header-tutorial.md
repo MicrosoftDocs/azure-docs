@@ -1,7 +1,7 @@
 ---
-title: Learn how to sign an HTTP request with C#
+title: Learn how to sign an HTTP request with HMAC
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to sign an HTTP request for Azure Communication Services via C#.
+description: Learn how to sign an HTTP request for Azure Communication Services using HMAC.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
