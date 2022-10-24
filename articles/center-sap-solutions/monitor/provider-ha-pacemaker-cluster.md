@@ -21,7 +21,7 @@ This content applies to both Azure Monitor for SAP solutions and Azure Monitor f
 ## Prerequisites
 
 - An Azure subscription. 
-- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
+- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](quickstart-portal.md) or the [quickstart for PowerShell](quickstart-powershell.md).
 
 ## Install HA agent
 
@@ -70,4 +70,4 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Monitor for SAP solutions provider types](azure-monitor-providers.md)
+> [Learn about Azure Monitor for SAP solutions provider types](providers.md)

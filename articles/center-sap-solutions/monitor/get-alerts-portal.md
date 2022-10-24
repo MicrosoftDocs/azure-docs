@@ -63,4 +63,4 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
 Learn more about Azure Monitor for SAP solutions.
 
 > [!div class="nextstepaction"]
-> [Monitor SAP on Azure](monitor-sap-on-azure.md)
+> [Monitor SAP on Azure](about-azure-monitor-sap-solutions.md)

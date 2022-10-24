@@ -63,4 +63,4 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Learn more about Azure Monitor for SAP solutions.
 
 > [!div class="nextstepaction"]
-> [Configure Azure Monitor for SAP solutions Providers](configure-netweaver-azure-monitor-sap-solutions.md)
+> [Configure Azure Monitor for SAP solutions Providers](provider-netweaver.md)
