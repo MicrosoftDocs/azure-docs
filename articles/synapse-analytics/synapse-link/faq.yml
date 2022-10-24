@@ -60,7 +60,7 @@ sections:
       - question: |
           Do I need to clean up data in the landing zone?
         answer: |
-          No. There is a background thread that removes committed files after around 24 hours as long as the link is continuously running. In case the link is paused (coming soon) the cleanup process is also paused until it is resumed. When the link is stopped then the entire landing zone folder is removed.
+          No. There is a background thread that removes committed files after around 24 hours as long as the link is continuously running. When the link is stopped then the entire landing zone folder is removed.
       - question: |
           Where is my landing zone located?
         answer: |
