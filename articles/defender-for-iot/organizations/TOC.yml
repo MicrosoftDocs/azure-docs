@@ -317,9 +317,9 @@
     items:
     - name: Overview
       href: cli/cli-overview.md
-    - name: Manage individual OT network sensors
+    - name: OT sensor appliance management
       href: cli/cli-ot-sensor.md
-    - name: Configure individual OT network sensors
+    - name: OT sensor network monitoring
       href: cli/cli-ot-sensor-configuration.md
     - name: Manage an on-premises management console
       href: cli/cli-management.md

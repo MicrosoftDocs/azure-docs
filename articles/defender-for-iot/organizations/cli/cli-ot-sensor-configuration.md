@@ -8,6 +8,7 @@ ms.topic: reference
 # Advanced CLI reference: OT sensor network monitoring
 
 ## Trigger test alert
+
 With the following command, you can test connectivity and alert forwarding from the sensor to management products such as the Azure portal, on-premises management console, or third-party SIEM.
 
 |User  |Command  |Full command syntax   |
@@ -21,18 +22,21 @@ Test Alert was successfully triggered.
 ```
 
 ## Apply ingress traffic filters (capture filter)
+
 For advanced network scenarios, administrators can use the capture filter to eliminate network traffic that doesn't need to be monitored. Filtering traffic can be accomplished using include or exclude lists. 
 
 > [!NOTE]
 >This command doesn't support the malware detection engine.
 
 ### Create a new capture-filter
+
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 | support | `network capture-filter` | No attributes |
 | cyberx | `cyberx-xsense-capture-filter [-h] [-i INCLUDE] [-x EXCLUDE] [-etp EXCLUDE_TCP_PORT] [-eup EXCLUDE_UDP_PORT] [-itp INCLUDE_TCP_PORT] [-iup INCLUDE_UDP_PORT] [-vlan INCLUDE_VLAN_IDS] -p PROGRAM [-o BASE_HORIZON] [-s BASE_TRAFFIC_MONITOR] [-c BASE_COLLECTOR] -m MODE [-S]` |   -h, --help            show this help message and exit<br>  -i INCLUDE, --include INCLUDE File that contains the devices and subnet masks we want to include<br>  -x EXCLUDE, --exclude EXCLUDE File that contains the channels and subnet masks we want to exclude<br>  -etp EXCLUDE_TCP_PORT, --exclude-tcp-port EXCLUDE_TCP_PORT Exclude traffic on this ports delimited by comma, no spaces<br>  -eup EXCLUDE_UDP_PORT, --exclude-udp-port EXCLUDE_UDP_PORT Exclude traffic on this ports delimited by comma, no spaces<br>  -itp INCLUDE_TCP_PORT, --include-tcp-port INCLUDE_TCP_PORT Exclude traffic on this ports delimited by comma, no spaces<br>  -iup INCLUDE_UDP_PORT, --include-udp-port INCLUDE_UDP_PORT Exclude traffic on this ports delimited by comma, no spaces<br>   -vlan INCLUDE_VLAN_IDS, --include-vlan-ids INCLUDE_VLAN_IDS Include specified vlan ids delimited by comma, no spaces <br>   -p PROGRAM, --program PROGRAM The programs we work with [traffic-monitor|collector|horizon] delimited by comma, no spaces, or [all]<br> -o BASE_HORIZON, --base-horizon BASE_HORIZON The basic capture filter (the default is "")<br>  -s BASE_TRAFFIC_MONITOR, --base-traffic-monitor BASE_TRAFFIC_MONITOR The basic capture filter (the default is "")<br>  -c BASE_COLLECTOR, --base-collector BASE_COLLECTOR The basic capture filter (the default is "")<br>  -m MODE, --mode MODE  Valid only for the --include list. Assume A and B are in the included set and X isn't so "-m  internal" allows only [A B] and "-m all-connected" also allows [A X] [B X]<br>  -S, --from-shell replace special chars when receiving args from shell cli |
 
 For example, the full CLI prompt for the support user will be described:
+
 ```bash
 root@xsense: network capture-filter
 Would you like to supply devices and subnet masks you wish to include in the capture filter? [y/N]: n
@@ -67,22 +71,24 @@ root@xsense:
 ```
 
 After you enter the command, you'll be prompted with the following question:
->`Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
+
+`Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
 
 Select `Y` to open a nano file where you can add a device, channel, port, and subset according to the following syntax:
-```bash
+
 | Attribute | Description |
 |--|--|
 | 1.1.1.1 | Includes all of the traffic for this device. |
 | 1.1.1.1,2.2.2.2 | Includes all of the traffic for this channel. |
 | 1.1.1,2.2.2 | Includes all of the traffic for this subnet. |
-```
+
 Separate arguments by dropping a row.
+
 When you include a device, channel, or subnet, the sensor processes all the valid traffic for that argument, including ports and traffic that wouldn't usually be processed.
 
 You'll then be asked the following question:
 
->`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
+`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
 Select `Y` to open a nano file where you can add a device, channel, port, and subsets according to the following syntax:
 
@@ -95,10 +101,13 @@ Select `Y` to open a nano file where you can add a device, channel, port, and su
 | 1.1.1,2.2.2 | Excludes all the traffic for between subnets. |
 
 Separate arguments by dropping a row.
+
 When you exclude a device, channel, or subnet, the sensor will exclude all the valid traffic for that argument.
 
 Next, filters can include or exclude UDP and TCP ports for all the traffic.
+
 Example syntax:
+
 `502`: single port
 `502,443`: both ports
 
@@ -147,6 +156,7 @@ For example, for a subnet such as 1.1.1:
 ### Viewing capture filters on the appliance components
 
 You can view filters in ```/var/cyberx/properties/cybershark.properties```:
+
 - **statistics-collector**: `bpf_filter property` in ```/var/cyberx/properties/net.stats.collector.properties```
 - **dissector**: `override.capture_filter` property in ```/var/cyberx/properties/cybershark.properties```
 - **rpc-parser**: `override.capture_filter` property in ```/var/cyberx/properties/rpc-parser.properties```
@@ -159,6 +169,7 @@ You can view filters in ```/var/cyberx/properties/cybershark.properties```:
 | cyberx | `nano /var/cyberx/properties/cybershark.properties` | No attributes |
 
 ### Resetting all capture filters
+
 The default capture filter configuration can be restored by entering the following command:
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -188,6 +199,7 @@ root@xsense:/#
 
 ## Local alert suppression
 ### Show alert suppression rules
+
 If you wish to see a list of exclusion rules that are already in place, enter the following command:
 
 |User  |Command  |Full command syntax   |
@@ -196,6 +208,7 @@ If you wish to see a list of exclusion rules that are already in place, enter th
 | cyberx | `cyberx-xsense-exclusion-rule-list` | No attributes |
 
 For example, for the support user:
+
 ```bash
 root@xsense: alerts exclusion-rule-list
 starting "/usr/local/bin/cyberx-xsense-exclusion-rule-list"
@@ -203,6 +216,7 @@ root@xsense:
 ```
 
 ### Create new alert suppression rule
+
 Using the CLI, it is possible to create a local alert exclusion rule by entering the following command:
 
 |User  |Command  |Full command syntax   |
@@ -227,6 +241,7 @@ There are a number of attributes that can be used with the alert exclusion rules
 | [-a ALERTS] | The name of the alert that the rule will exclude:<br />`0x00000`<br />`0x000001` |
 
 ### Append/Edit an alert suppression rule
+
 In the CLI, enter the following command to append local alert exclusion rules:
 
 
@@ -239,6 +254,7 @@ As explained in the section Create local alert exclusion rules, these attributes
 
 
 ### Remove (Delete) an alert suppression rule
+
 The following command can be used to remove an existing alert exclusion rule:
 
 ```bash
