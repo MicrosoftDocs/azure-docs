@@ -29,6 +29,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
+- [IoT device entity page (Preview)](#iot-device-entity-page-preview)
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
@@ -65,6 +66,15 @@ You can fine-tune the new capability by editing the [SAP_Dynamic_Audit_Log_Monit
 Learn more:
 - [Learn about the new feature (blog)](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog)
 - [Use the new rule for anomaly detection](sap/configure-audit-log-rules.md#anomaly-detection)
+
+### IoT device entity page (Preview)
+
+OT/IoT devices, including Programmable Logic Controllers (PLCs), Human-Machine Interfaces (HMIs), engineering workstations, network devices, and more, are becoming increasingly prevalent in organizations. Often, these devices are used as entry points for attacks, but they can also be used by attackers to move laterally.
+For SOCs, monitoring IoT/OT networks presents a number of challenges, including the lack of visibility for security teams into their OT networks, the lack of experience among SOC analysts in managing OT incidents, and the lack of communication between OT teams and SOC teams.
+ 
+The new [IoT device entity page](entity-pages.md) is designed to help the SOC investigate incidents that involve IoT/OT devices in their environment, by providing the full OT/IoT context through Microsoft Defender for IoT to Sentinel. This enables SOC teams to detect and respond more quickly across all domains to the entire attack timeline.
+
+Learn more about [investigating IoT device entities in Microsoft Sentinel](iot-advanced-threat-monitoring.md).
 
 ## September 2022
 
