@@ -175,7 +175,7 @@ Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview)
 
 Every service tracks different usage attributes of the resources you've deployed. Each of these usage attributes is tracked via a "meter" in your cost data. Meters are grouped into categories and include other metadata to help you understand the charges. We’re testing new columns in the Resources and Services views in the cost analysis preview for Microsoft Customer Agreement. You may see a single Product column instead of the Service, Tier, and Meter columns.
 
-You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Note this preview is only applicable for Microsoft Customer Agreement accounts.
+**The Product column is available by default in the cost analysis preview for Microsoft Customer Agreement accounts.**
 
 
 <a name="recommendationinsights"></a>
@@ -184,7 +184,7 @@ You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/
 
 Cost insights surface important details about your subscriptions, like potential anomalies or top cost contributors. To support your cost optimization goals, cost insights now include the total cost savings available from Azure Advisor for your subscription.
 
-You can enable cost savings insights for subscriptions from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
+**Cost savings insights are available by default for all subscriptions in the cost analysis preview.**
 
 
 <a name="resourceessentials"></a>
@@ -202,7 +202,7 @@ The view cost link is enabled by default in the [Azure preview portal](https://p
 
 Learn about new and updated features or other announcements directly from within the Cost Management experience in the Azure portal. You can also follow along using the [Cost Management updates on the Azure blog](https://aka.ms/costmgmt/blog).
 
-What's new can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
+**What's new is available by default from the [Cost Management overview](https://aka.ms/costmgmt/whatsnew) in the Azure portal.
 
 
 <a name="onlyinconfig"></a>
