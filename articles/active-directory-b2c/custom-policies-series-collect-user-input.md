@@ -91,14 +91,14 @@ Declare additional claims alongside *objectId* and *message*:
 
   We've declared three Claim Types, *givenName*, *surname*, and *displayName*. These declarations include `DataType`, `UserInputType` and `DisplayName` elements: 
 
-- **DataType** specifies the data type of the value that the claims holds. Learn more about the data types tha the [DataType elements supports](claimsschema.md#datatype).  
+- **DataType** specifies the data type of the value that the claims hold. Learn more about the data types that the [DataType elements supports](claimsschema.md#datatype).  
 - **UserInputType** specifies the UI control that appears on the user interface if you want to collect the value of the claim from the user. Learn more about the user [input types that Azure AD B2C supports](claimsschema.md#userinputtype).   
 - **DisplayName** specifies the label for the UI control that appears on the user interface if you want to collect the value of the claim from the user.
 
 
 ## Step 2 - Define Claims Transformations 
 
-A [ClaimsTransformation](claimstransformations.md) contains a function that you use to convert a given claim into another one. For instance, you can change a string claim from lower case to upper case. Leant more about [Claims transformations supported by Azure AD B2C](claimstransformations.md#claims-transformations-reference). 
+A [ClaimsTransformation](claimstransformations.md) contains a function that you use to convert a given claim into another one. For instance, you can change a string claim from lower case to upper case. Learn more about [Claims transformations supported by Azure AD B2C](claimstransformations.md#claims-transformations-reference). 
 
 1. In the `ContosoCustomPolicy.XML` file, add a `<ClaimsTransformations>` element as a child of the `BuildingBlocks` section. 
     ```xml
@@ -146,7 +146,7 @@ A [ClaimsTransformation](claimstransformations.md) contains a function that you 
     ```
 
     We've configured three claims transformations: 
-    - *GenerateRandomObjectIdTransformation* generates a random string as specified by the *CreateRandomString* method. The *objectId* claims is updated with the generated string as specified by the `OutputClaim` element. 
+    - *GenerateRandomObjectIdTransformation* generates a random string as specified by the *CreateRandomString* method. The *objectId* claim is updated with the generated string as specified by the `OutputClaim` element. 
         
     - *CreateDisplayNameTransformation* concatenates *givenName* and *surname* to form *displayName*. 
     
@@ -170,9 +170,9 @@ To add content definition, add the following code in `BuildingBlocks` section of
 
 ## Step 4 - Configure Technical Profiles  
 
-In a custom policy, a [TechnicalProfile](technicalprofiles.md) is the element that implements functionality. Now that you've defined Claims and Claims Transformations, you need Technical Profiles to execute your definitions. A technical profile are declared inside the `ClaimsProvider` elements.
+In a custom policy, a [TechnicalProfile](technicalprofiles.md) is the element that implements functionality. Now that you've defined Claims and Claims Transformations, you need Technical Profiles to execute your definitions. A technical profile is declared inside the `ClaimsProvider` elements.
 
-Azure AD B2C provides a set of technical profiles. Each technical profile performs a specific role. For instance, you use a [REST technical profile](restful-technical-profile.md) to make an HTTP call to a service endpoint. You can use A claims transformation technical profile to execute operation you define in a Claims Transformation. Learn more about the [types of technical profiles](technicalprofiles.md) that Azure AD B2C custom policies provide.
+Azure AD B2C provides a set of technical profiles. Each technical profile performs a specific role. For instance, you use a [REST technical profile](restful-technical-profile.md) to make an HTTP call to a service endpoint. You can use a claims transformation technical profile to execute the operation you define in a Claims Transformation. Learn more about the [types of technical profiles](technicalprofiles.md) that Azure AD B2C custom policies provide.
 
 ### Set values for your claims 
  
