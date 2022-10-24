@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/24/2022
 
 ms.author: mimart
 author: msmimart
@@ -187,7 +187,7 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
 4. On the **New SAML/WS-Fed IdP** page, enter the following:
    - **Display name** - Enter a name to help you identify the partner's IdP.
    - **Identity provider protocol** - Select **SAML** or **WS-Fed**.
-   - **Domain name of federating IdP** - Enter your partner’s IdP target domain name for federation. During this initial configuration, enter just one domain  name. You'll be able to add more domains later.
+   - **Domain name of federating IdP** - Enter your partner’s IdP target domain name for federation. During this initial configuration, enter just one domain name. You'll be able to add more domains later.
 
     ![Screenshot showing the new SAML or WS-Fed IdP page.](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
