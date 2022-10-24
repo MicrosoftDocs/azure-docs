@@ -17,8 +17,8 @@ Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **
 > [!NOTE]
 > Support in App Service environments (ASE) V2 and V3 is in preview. For App Service environments:
 > 
-> - Backups can be restored to a target app within the ASE itself, not in another ASE.
-> - Backups can be restored to a target app in another App Service plan in the ASE.
+> - Automatic backups can be restored to a target app within the ASE itself, not in another ASE.
+> - Custom backups can be restored to a target app in another ASE, such as from a V2 ASE to a V3 ASE.
 > - Backups can be restored to target app of the same OS platform as the source app.
 
 ## Automatic vs custom backups
