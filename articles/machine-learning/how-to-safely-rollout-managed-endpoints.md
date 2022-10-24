@@ -336,7 +336,10 @@ Also note the following behavior:
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
 
 # [Azure CLI](#tab/azure-cli)
+You can confirm that the specific percentage of the traffic was sent to 'green' deployment by seeing the logs from the deployment:
 
+```azurecli
+az ml online-deployment get-logs --name blue --endpoint $ENDPOINT_NAME
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="reset_mirror_traffic" :::
