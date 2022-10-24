@@ -42,13 +42,13 @@ You can configure an existing Azure IR to change its location using the Set-AzDa
 ### Create an Azure IR via UI
 Use the following steps to create an Azure IR using UI.
 
-1. 1. On the home page for the service, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page for the service, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
        # [Azure Data Factory](#tab/data-factory)
        :::image type="content" source="media/create-azure-integration-runtime/get-started-page-manage-button.png" alt-text="Screenshot showing the home page Manage button." :::
        # [Azure Synapse](#tab/synapse-analytics)
 
-       :::image type="content" source="media/create-azure-integration-runtime/get-started-page-manage-button-synapse.png" alt-text="Screenshot showing the home page Manage button.":::
+       :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="Screenshot showing the home page Manage button.":::
        ---
        
 2. Select **Integration runtimes** on the left pane, and then select **+New**.
