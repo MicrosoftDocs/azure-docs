@@ -80,6 +80,9 @@ az aks create -n $clusterName -g $resourceGroup -l $location \
 
 ### Option 2: Assign IP addresses from an overlay network
 
+> [!NOTE]
+> Azure CNI Overlay networking currently requires the `Microsoft.ContainerService/AzureOverlayPreview` feature and may be available only in certain regions. Please see [Azure CNI Overlay networking](./azure-cni-overlay.md) for more information.
+
 Run these commands to create a resource group and VNet with a single subnet:
 
 ```azurecli-interactive
