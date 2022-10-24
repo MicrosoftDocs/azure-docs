@@ -5,7 +5,7 @@ author: jonburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: quickstart
-ms.date: 07/09/2022
+ms.date: 10/24/2022
 ms.author: xupzhou
 ---
 
