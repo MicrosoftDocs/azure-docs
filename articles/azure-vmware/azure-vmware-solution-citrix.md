@@ -4,7 +4,6 @@ description: Learn how to deploy VMware Citrix on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 10/24/2022
-ms.custom: ignite-fall-2021
 ms.custom: engagement-fy23
 ---
 
