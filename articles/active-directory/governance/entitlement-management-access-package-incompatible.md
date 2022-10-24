@@ -106,7 +106,7 @@ Follow these steps to view the list of users who have assignments to two access 
 
 1.  In the table, if there is a non-zero value in the Additional access column for the second access package, then that indicates there are one or more users with assignments.
 
-    ![an access package marked as incompatible with existing access assignments](./media/entitlement-management-access-package-incompatible/incompatible-ap.png)
+    ![Screenshot of an access package marked as incompatible with existing access assignments.](./media/entitlement-management-access-package-incompatible/incompatible-ap.png)
 
 1.  Select that count to view the list of incompatible assignments.
 
