@@ -5,8 +5,7 @@ description: Learn about the different models that are available in Azure OpenAI
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 06/24/2022
-ms.custom: event-tier1-build-2022
-ms.custom: references_regions
+ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: ChrisHMSFT
 ms.author: chrhoder
