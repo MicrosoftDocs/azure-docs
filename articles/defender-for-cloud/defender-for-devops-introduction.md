@@ -4,6 +4,7 @@ description: Learn about the benefits and features of Microsoft Defender for
 ms.date: 10/24/2022
 ms.topic: overview
 ms.custom: ignite-2022
+ms.custom: references_regions
 ---
 
 # Overview of Defender for DevOps
@@ -30,7 +31,7 @@ Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps sec
 | Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 | Regions: | Central US |
 | Source Code Management | [Azure DevOps](https://ms.portal.azure.com/#home) |
-| Systems | [Github](https://github.com/) | 
+| Systems | [GitHub](https://github.com/) | 
 | Required permissions: | <br> **Azure account** - with permissions to sign into Azure portal. <br> **Contributor** - on the relevant Azure subscription. <br> **Organization Administrator** - in GitHub. <br> **Security Admin role** - in Defender for Cloud. |
 
 ## Manage your DevOps environments in Defender for Cloud
