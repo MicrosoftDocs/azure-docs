@@ -143,7 +143,7 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 
 ## Longer run duration
 
-Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps, with the following exceptions:
+Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps, with the following limitations:
 
 + Platform upgrades can trigger a managed shutdown and halt the function execution.
 + Platform outages can cause an unhandled shutdown and halt the function execution.
