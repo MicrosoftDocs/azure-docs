@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 This article describes Virtual WAN guidelines and requirements for allocating client address spaces.
 
-## Background 
+## Background
 
 Point-to-site VPN gateways in the Virtual WAN hub are deployed with one or more highly-available gateway instances. Each instance of a point-to-site VPN gateway can support up to 10,000 concurrent connections.
 
@@ -24,7 +24,7 @@ When a user connects to Virtual WAN, the connection is automatically load-balanc
 
 For instance, if a scale unit of 100 is chosen, 5 gateway instances are deployed. This deployment can support 50,000 concurrent connections and **at least** 5 distinct address pools must be specified.
 
-# Address pools and multi-pool/user groups
+## Address pools and multi-pool/user groups
 
 > [!NOTE] 
 > There is no minimum scale unit required for the multi-pool/user group feature as long as sufficient address pools are allocated as described below.
