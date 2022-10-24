@@ -45,7 +45,7 @@ The secret will be returned with `\n` in place of newline:
 "This is\nmy multi-line\nsecret"
 ```
 
-The `\n` above is a `\` and `n` character, not the newline character.
+The `\n` above is a `\` and `n` character, not the newline character. Quotes `"` are included in the string.
 
 ## Set the secret using Azure Powershell
 
@@ -74,7 +74,7 @@ The secret will be returned with `\n` in place of newline:
 "This is\nmy multi-line\nsecret"
 ```
 
-The `\n` above is a `\` and `n` character, not the newline character.
+The `\n` above is a `\` and `n` character, not the newline character. Quotes `"` are included in the string.
 
 ## Next steps
 
