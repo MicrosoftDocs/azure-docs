@@ -26,7 +26,7 @@ To use Azure App Configuration with the Python provider instead of the SDK, go t
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+9. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key                      | Value                             |
     |--------------------------|-----------------------------------|
@@ -34,7 +34,7 @@ To use Azure App Configuration with the Python provider instead of the SDK, go t
 
     Leave **Label** and **Content Type** empty for now.
 
-1. Select **Apply**.
+10. Select **Apply**.
 
 ## Setting up the Python app
 

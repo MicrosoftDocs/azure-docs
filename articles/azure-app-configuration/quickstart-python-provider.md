@@ -26,7 +26,7 @@ The Python App Configuration provider is a library running on top of the Python 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+9. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key          | Value           |
     |--------------|-----------------|
@@ -36,7 +36,7 @@ The Python App Configuration provider is a library running on top of the Python 
 
     Leave **Label** and **Content Type** empty.
 
-8. Select **Apply**.
+10. Select **Apply**.
 
 ## Set up the Python app
 
