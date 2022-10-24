@@ -162,15 +162,15 @@ The first time you authorize the Microsoft Security application, you are given t
 
 **To change the default account**:
 
-1. [Sign in](https://app.vssps.visualstudio.com/profile/view) and select the same tenant you are using in Azure from the dropdown menu.
+1. [Sign in](https://app.vssps.visualstudio.com/profile/view) and select the same tenant you use in Azure from the dropdown menu.
 
-1. Create a new connector.
+1. Add a new [Azure DevOps repository](quickstart-onboard-devops.md).
 
 1. Authorize the account. If the pop up appears, ensure it shows the correct tenant.
 
 If this process does not fix your issue, you should revoke Microsoft Security DevOps's permission from all tenants in Azure DevOps and repeat the above steps. You should then be able to see the authorization pop up again when authorizing the connector.
 
-:::image type="content" source="./media/troubleshooting-guide/authorization-revoke.png" alt-text="Screenshot of the authorization page used to revoke the permission of the Microsoft Security application.":::
+:::image type="content" source="./media/troubleshooting-guide/authorization-revoke.png" alt-text="Screenshot of the authorization page used to revoke the permission of the Microsoft Security application." lightbox="media/troubleshooting-guide/authorization-revoke.png":::
 
 ## Contacting Microsoft Support
 
