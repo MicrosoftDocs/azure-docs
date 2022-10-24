@@ -10,9 +10,9 @@ ms.date: 09/30/2022
 
 # CloudEvents extension for Azure Web PubSub event listener with AMQP protocol
 
-The Azure Web PubSub Service describes client events as [CloudEvents](https://github.com/cloudevents/spec/tree/v1.0.2). CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms and systems. 
+The Azure Web PubSub Service describes client events as [CloudEvents](https://github.com/cloudevents/spec/tree/v1.0.2). CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms and systems.
 
-The Web PubSub service uses  [CloudEvents AMQP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/amqp-protocol-binding.md) as an event listener to map CloudEvents to AMQP messages ([Advanced Message Queueing Protocol](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)).  
+The event listeners of the service listen to client events. Event Hubs is currently the only supported event listener endpoint, whose primary protocol is AMQP ([Advanced Message Queueing Protocol](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)). The Web PubSub service uses [CloudEvents AMQP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/amqp-protocol-binding.md) to map CloudEvents to AMQP messages.
 
 The data sent from service to server is always in CloudEvents `binary` format.
 
@@ -102,7 +102,7 @@ Message body is what the client sends.
 - `content-type`: `application/octet-stream` for binary frame; `application/json` for JSON frame; `text/plain` for text frame; `application/x-protobuf` for Protobuf frame;
 - `cloudEvents:type`: `azure.webpubsub.user.<event_name>`
 
-The following cases show how to send events with different data content types and the corresponding Event Hubs message bodies.
+The following cases show how to send events with different data content types and the corresponding AMQP message bodies.
 
 #### Case 1: send event with text data:
 ```json
