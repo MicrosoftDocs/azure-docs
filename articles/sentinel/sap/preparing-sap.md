@@ -12,7 +12,7 @@ ms.date: 04/07/2022
 This article shows you how to deploy SAP Change Requests (CRs), which prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
 
 > [!IMPORTANT]
-> - This article presents a [**step-by-step guide**](#deploy-change-requests) to deploying the relevant CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
+> - This article presents a [**step-by-step guide**](#deploy-crs) to deploying the relevant CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
 > - Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
 
 ## Required and optional CRs
