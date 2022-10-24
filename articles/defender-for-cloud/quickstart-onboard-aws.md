@@ -169,7 +169,7 @@ As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFor
 
 ### AWS CloudFormation deployment 
 
-The CloudFormation template should be deployed using Stack (and StackSet in case of management account).
+The CloudFormation template should be deployed using Stack (or StackSet if you have a management account).
 
 When deploying the CloudFormation template, the Stack creation wizard offers the following options:
 
