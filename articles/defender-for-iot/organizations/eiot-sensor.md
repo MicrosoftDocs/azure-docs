@@ -196,7 +196,6 @@ View all your detected devices, including both those detected by Defender for En
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
-<!--do we want to say anything about calculating and editing committed devices here? isn't this when it becomes relevant, b/c we have extra devices now?-->
 
 ## Edit the number of committed devices
 
