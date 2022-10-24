@@ -552,10 +552,16 @@
               href: how-to-use-batch-endpoint-sdk-v2.md
             - name: Batch endpoints in studio
               href: how-to-use-batch-endpoints-studio.md
-            - name: Use REST to deploy a model as a batch endpoint
-              href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
+            - name: Accessing data from batch endpoints jobs
+              href: batch-inference/how-to-access-data-batch-endpoints-jobs.md
+            - name: Security
+              items:
+                - name: Authentication on batch endpoints
+                  href: batch-inference/how-to-authenticate-batch-endpoint.md
+                - name: Network isolation in batch endpoints
+                  href: batch-inference/how-to-secure-batch-endpoint.md
             - name: Scenarios
               items:
                 - name: Using low priority VMs in batch deployments
@@ -572,6 +578,8 @@
                   href: batch-inference/how-to-use-batch-azure-data-factory.md
                 - name: Invoking batch endpoints from Event Grid events in storage
                   href: batch-inference/how-to-use-event-grid-batch.md
+                - name: Use REST to deploy a model as a batch endpoint
+                  href: how-to-deploy-batch-with-rest.md
         - name: Deploying MLflow models
           items:
             - name: Deploy MLflow models
