@@ -213,6 +213,9 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 
 Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically. For more details on about Cluster Auto-Upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
+> [!NOTE]
+> To ensure proper functionality, use a maintenance window of four hours or more.
+
 ## Next steps
 
 - To get started with upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]

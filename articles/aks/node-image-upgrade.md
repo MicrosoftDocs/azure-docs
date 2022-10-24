@@ -1,4 +1,4 @@
----
+--
 title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 ms.service: container-service
@@ -131,12 +131,11 @@ If you'd like to increase the speed of upgrades, use the `--max-surge` value to 
 The following command sets the max surge value for performing a node image upgrade:
 
 ```azurecli
-az aks nodepool upgrade \
+az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --max-surge 33% \
-    --node-image-only \
     --no-wait
 ```
 
