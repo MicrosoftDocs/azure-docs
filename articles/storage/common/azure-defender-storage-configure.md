@@ -40,7 +40,7 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-|Protected storage types:|[Blob Storage](./blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](./files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](./blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
+|Protected storage types:|[Blob Storage](../blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
 |Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
 ## Set up Microsoft Defender for Storage for the per-account pricing plan
@@ -67,81 +67,150 @@ To enable Microsoft Defender for Storage at the subscription level with the per-
 
 Microsoft Defender for Storage is now enabled for this storage account.
 
-### [Bicep template](#tab/template)
+### [Bicep template](#tab/bicep-template)
 
-To enable Microsoft Defender for Storage at the subscription level using [Bicep](../azure-resource-manager/bicep/):
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
-Add the following to your Bicep template: 
-
-Bicep 
-
-```Bicep
-resource symbolicname 'Microsoft.Security/pricings@2022-03-01' = { 
-
-  name: 'StorageAccounts' 
-
-  properties: { 
-
-    pricingTier: 'Standard' 
-
-    subPlan: 'PerStorageAccount' 
-
-  } 
-
+```bicep
+resource symbolicname 'Microsoft.Security/pricings@2022-03-01' = {
+  name: 'StorageAccounts'
+  properties: {
+    pricingTier: 'Standard'
+    subPlan: 'PerStorageAccount'
+  }
 }
 ```
 
 To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
 
-Learn more about the [Bicep template AzAPI reference](../templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
+Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
-### [Azure Policy](#tab/azure-policy)
+### [ARM template](#tab/arm-template)
 
-Use an Azure Policy to enable Microsoft Defender for Cloud across storage accounts under a specific subscription or resource group.
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using an ARM template, add this JSON snippet to the resources section of your ARM template: 
 
-1. Launch the Azure **Policy - Definitions** page.
-1. Search for the **Azure Defender for Storage should be enabled** policy, then select the policy to view the policy definition page.
-
-    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-definitions.png" alt-text="Locate built-in policy to enable Microsoft Defender for Storage for your storage accounts." lightbox="media/azure-defender-storage-configure/storage-defender-policy-definitions.png":::
-
-1. Select the **Assign** button for the built-in policy, then specify an Azure subscription. You can also optionally specify a  resource group to further scope the policy assignment.
-
-    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-assignment.png" alt-text="Select subscription and optionally resource group to scope the policy assignment." lightbox="media/azure-defender-storage-configure/storage-defender-policy-assignment.png":::
-
-1. Select **Review + create** to review the policy definition and then create it with the specified scope.
-
-### [PowerShell](#tab/azure-powershell)
-
-To enable Microsoft Defender for Storage for a storage account via PowerShell, first make sure you have installed the [Az.Security](https://www.powershellgallery.com/packages/Az.Security) module. Next, call the [Enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) command. Remember to replace values in angle brackets with your own values:
-
-```azurepowershell
-Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
+```json
+{
+  "type": "Microsoft.Security/pricings",
+  "apiVersion": "2022-03-01",
+  "name": "StorageAccounts",
+  "properties": {
+    "pricingTier": "Standard",
+    "subPlan": "PerStorageAccount"
+  }
+}
 ```
 
-To check the Microsoft Defender for Storage setting for a storage account via PowerShell, call the [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection) command. Remember to replace values in angle brackets with your own values:
+> [!TIP]
+> You can use the Get and List API requests to see all of the Defender for Cloud plans that are enabled for the subscription.
 
-```azurepowershell
-Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
+To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property. 
+
+Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
+
+### [Terraform template](#tab/terraform-template)
+
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using an Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value: 
+
+```terraform
+resource "azapi_resource" "symbolicname" {
+  type = "Microsoft.Security/pricings@2022-03-01"
+  name = "StorageAccounts"
+  parent_id = "<subscriptionId>"
+  body = jsonencode({
+    properties = {
+      pricingTier = "Standard" 
+      subPlan = "PerStorageAccount" 
+    } 
+  })
+} 
 ```
+
+> [!TIP]
+> You can use the Get and List API requests to see all of the Defender for Cloud plans that are enabled for the subscription.
+
+To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property. 
+
+Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
+
+### [PowerShell](#tab/powershell)
+
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using PowerShell: 
+
+1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps.md).
+1. Use the Connect-AzAccount cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps.md).
+1. Use these commands to register your subscription to the Microsoft Defender for Cloud Resource Provider:
+
+    ```powershell
+    Set-AzContext -Subscription <subscriptionId> 
+    Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
+    ```
+
+    Replace `<subscriptionId>` with your subscription ID.
+
+1. Enable Microsoft Defender for Storage for your subscription with the Set-AzSecurityPricing cmdlet: 
+
+    ```powershell
+    Set-AzSecurityPricing -Name "StorageAccounts" -PricingTier "Standard" -subPlan "PerStorageAccount"
+    ``` 
+
+> [!TIP]
+> You can use the GetAzSecurityPricing (Az_Security) to see all of the Defender for Cloud plans that are enabled for the subscription.
+
+To disable the plan, set the `-PricingTier` property value to `Free` and remove the `subPlan` parameter. 
+
+Learn more about the [using PowerShell with Microsoft Defender for Cloud](../../defender-for-cloud/powershell-onboarding.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable Microsoft Defender for Storage for a storage account via Azure CLI, call the [az security atp storage update](/cli/azure/security/atp/storage#az-security-atp-storage-update) command. Remember to replace values in angle brackets with your own values:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using Azure CLI: 
 
-```azurecli
-az security atp storage update \
-    --resource-group <resource-group> \
-    --storage-account <storage-account> \
-    --is-enabled true
-```
+1. If you don't have it already, [install the Azure CLI](/cli/azure/install-azure-cli).
+1. Use the `az login` command to sign in to your Azure account. Learn more about [signing in to Azure with Azure CLI](/cli/azure/authenticate-azure-cli).
+1. Use these commands to set the subscription ID and name:
 
-To check the Microsoft Defender for Storage setting for a storage account via Azure CLI, call the [az security atp storage show](/cli/azure/security/atp/storage#az-security-atp-storage-show) command. Remember to replace values in angle brackets with your own values:
+    ```cli
+    az account set --subscription "<subscriptionId or name>" 
+    ```
 
-```azurecli
-az security atp storage show \
-    --resource-group <resource-group> \
-    --storage-account <storage-account>
-```
+    Replace `<subscriptionId>` with your subscription ID.
+
+1. Enable Microsoft Defender for Storage for your subscription with the `az security pricing create` command: 
+
+    ```cli
+    az security pricing create -n StorageAccounts --tier "standard" --subPlan "PerStorageAccount" 
+    ``` 
+
+> [!TIP]
+> You can use the `az security pricing show` command to see all of the Defender for Cloud plans that are enabled for the subscription.
+
+To disable the plan, set the `-tier` property value to `free` and remove the `subPlan` parameter. 
+
+Learn more about the [az security pricing](/cli/azure/security/pricing.md#az-security-pricing-create) command.
+
+### [REST API](#tab/rest-api)
+
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using the Microsoft Defender for Cloud REST API, create a PUT request with this endpoint and body: 
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2022-03-01 
+
+{
+"properties": {
+    "pricingTier": "Standard"
+    "subPlan": "PerStorageAccount"
+}
+}
+``` 
+
+Replace `{subscriptionId}` with your subscription ID.
+
+> [!TIP]
+> You can use the Get and List API requests to see all of the Defender for Cloud plans that are enabled for the subscription.
+
+To disable the plan, set the `-pricingTier` property value to `Free` and remove the `subPlan` parameter. 
+
+Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update.md) in HTTP, Java, Go and JavaScript.
 
 ---
 
@@ -209,7 +278,7 @@ Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable Microsoft Defender for Storage for a storage account via Azure CLI, call the [az security atp storage update](/cli/azure/security/atp/storage#az-security-atp-storage-update) command. Remember to replace values in angle brackets with your own values:
+To enable Microsoft Defender for Storage for a storage account via Azure CLI, call the [az security atp storage update](/cli/azure/security/atp/storage.md#az-security-atp-storage-update) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az security atp storage update \
@@ -218,7 +287,7 @@ az security atp storage update \
     --is-enabled true
 ```
 
-To check the Microsoft Defender for Storage setting for a storage account via Azure CLI, call the [az security atp storage show](/cli/azure/security/atp/storage#az-security-atp-storage-show) command. Remember to replace values in angle brackets with your own values:
+To check the Microsoft Defender for Storage setting for a storage account via Azure CLI, call the [az security atp storage show](/cli/azure/security/atp/storage.md#az-security-atp-storage-show) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az security atp storage show \
@@ -256,4 +325,4 @@ Alerts are generated by unusual and potentially harmful attempts to access or ex
 
 - [Introduction to Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md)
 - [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
-- [Logs in Azure Storage accounts](/rest/api/storageservices/About-Storage-Analytics-Logging)
+- [Logs in Azure Storage accounts](/rest/api/storageservices/About-Storage-Analytics-Logging.md)
