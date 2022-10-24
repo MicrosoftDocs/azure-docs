@@ -7,7 +7,7 @@ ms.date: 02/14/2022
 ---
 # How to catalog big data in Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 

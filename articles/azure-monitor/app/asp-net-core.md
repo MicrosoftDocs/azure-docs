@@ -738,6 +738,10 @@ This limitation isn't applicable from version [2.15.0](https://www.nuget.org/pac
 
 This SDK requires `HttpContext`. Therefore, it doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
 
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Open-source SDK
 
 * [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet).

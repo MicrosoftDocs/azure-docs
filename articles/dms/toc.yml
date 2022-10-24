@@ -111,9 +111,9 @@
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
   - name: Migrate MongoDB
     items: 
-    - name: to Azure Cosmos DB Mongo API (offline)
+    - name: to Azure Cosmos DB for MongoDB (offline)
       href: tutorial-mongodb-cosmos-db.md
-    - name: to Azure Cosmos DB Mongo API (online)
+    - name: to Azure Cosmos DB for MongoDB (online)
       href: tutorial-mongodb-cosmos-db-online.md  
 
 
@@ -174,24 +174,30 @@
       href: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
   - name: Troubleshooting and known issues
     items:
-    - name: Troubleshoot
-      items: 
-      - name: Common errors
-        href: known-issues-troubleshooting-dms.md
-      - name: Source database connectivity 
-        href: known-issues-troubleshooting-dms-source-connectivity.md
-    - name: Known issues
-      items: 
-      - name: Using hybrid mode
-        href: known-issues-dms-hybrid-mode.md
-    - name: Known migration issues
-      items:     
-      - name: SQL Managed Instance
-        href: known-issues-azure-sql-db-managed-instance-online.md
-      - name: PostgreSQL to Azure DB for PostgreSQL
-        href: known-issues-azure-postgresql-online.md
-      - name: MongoDB to Azure Cosmos DB API for MongoDB
-        href: known-issues-mongo-cosmos-db.md
+    - name: Azure SQL Migration extension for Azure Data Studio
+      items:
+      - name: Known issues, limitations and troubleshooting
+        href: known-issues-azure-sql-migration-azure-data-studio.md
+    - name: Database Migration Service
+      items:
+      - name: Troubleshoot
+        items: 
+        - name: Common errors
+          href: known-issues-troubleshooting-dms.md
+        - name: Source database connectivity 
+          href: known-issues-troubleshooting-dms-source-connectivity.md
+      - name: Known issues
+        items: 
+        - name: Using hybrid mode
+          href: known-issues-dms-hybrid-mode.md
+      - name: Known migration issues
+        items:     
+        - name: SQL Managed Instance
+          href: known-issues-azure-sql-db-managed-instance-online.md
+        - name: PostgreSQL to Azure DB for PostgreSQL
+          href: known-issues-azure-postgresql-online.md
+        - name: MongoDB to Azure Cosmos DB for MongoDB
+          href: known-issues-mongo-cosmos-db.md
 
   - name: Videos
     items:

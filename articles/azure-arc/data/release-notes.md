@@ -16,6 +16,37 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## October 11, 2022
+
+### Image tag
+
+`v1.12.0_2022-10-11`
+
+For complete release version information, see [Version log](version-log.md#october-11-2022).
+
+New for this release: 
+- Arc data controller
+  - Updates to TelemetryRouter implementation to include inbound and outbound TelemetryCollector layers alongside Kafka as a persistent buffer
+  - AD connector will now be upgraded when data controller is upgraded
+
+- Arc-enabled SQL managed instance
+  - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](reprovision-replica.md).
+  - Edit Active Directory settings from the Azure portal
+
+- `arcdata` Azure CLI extension
+  - Columns for release information added to the following commands: `az sql mi-arc list` this makes it easy to see what instance may need to be updated.
+  - Alternately you can run `az arcdata dc list-upgrades'
+  - New command to list AD Connectors `az arcdata ad-connector list --k8s-namespace <namespace> --use-k8s`
+  - Az CLI Polling for AD Connector create/update/delete: This feature changes the default behavior of `az arcdata ad-connector create/update/delete` to hang and wait until the operation finishes. To override this behavior, the user has to use the `--no-wait` flag when invoking the command. 
+
+Deprecation and breaking changes notices:
+
+The following properties in the Arc SQL Managed Instance status will be deprecated/moved in the _next_ release:
+- `status.logSearchDashboard`: use `status.endpoints.logSearchDashboard` instead.
+- `status.metricsDashboard`: use `status.endpoints.metricsDashboard` instead.
+- `status.primaryEndpoint`: use `status.endpoints.primary` instead.
+- `status.readyReplicas`: uses `status.roles.sql.readyReplicas` instead.
+
 ## September 13, 2022
 
 ### Image tag
