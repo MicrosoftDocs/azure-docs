@@ -91,7 +91,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
     >[!IMPORTANT]
     > Transparent logos are supported with the square logo image. The color palette used in the transparent logo could conflict with backgrounds (such as, white, light grey, dark grey, and black backgrounds) used within Microsoft 365 apps and services that consume the square logo image. Solid color backgrounds may need to be used to ensure the square image logo is rendered correctly in all situations.
         
-    - **Show option to remain signed in** You can choose to let your users remain signed in to Azure AD until explicitly signing out. If you uncheck this option, users must sign in each time the browser is closed and reopened. This feature is covered in detail in the [Learn about the 'Stay signed in?' prompt](#learn-about-the-stay-signed-in-prompt) section of this article.
+    - **Show option to remain signed in** You can choose to let your users remain signed in to Azure AD until explicitly signing out. If you uncheck this option, users must sign in each time the browser is closed and reopened. This feature is covered in detail in the [Learn about the 'stay signed in prompt'](#learn-about-the-stay-signed-in-prompt) section of this article.
 
 3. After you've finished adding your branding, select **Save** in the upper-left corner of the configuration panel.
 
@@ -116,7 +116,7 @@ We recommend adding **Sign-in page text** in the selected language.
 
 If custom branding has been added to your tenant, you can edit the details already provided. Refer to the details and descriptions of each setting in the [Add custom branding](#customize-the-default-sign-in-experience) section of this article.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
 
 1. Go to **Azure Active Directory** > **Company branding**.
 
