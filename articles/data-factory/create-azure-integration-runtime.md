@@ -67,7 +67,7 @@ Use the following steps to create an Azure IR using UI.
     ---
 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
-   :::image type="content" source="media/create-azure-integration-runtime/Integration-runtime-setup.png" alt-text="Screenshot showing the Azure self-hosted integration runtime option."::: 
+   :::image type="content" source="media/create-azure-integration-runtime/integration-runtime-setup.png" alt-text="Screenshot showing the Azure self-hosted integration runtime option."::: 
 1. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
    :::image type="content" source="media/create-azure-integration-runtime/new-azure-integration-runtime.png" alt-text="Screenshot that shows create an Azure integration runtime.":::
 1. Enter a name for your Azure IR, and select **Create**.
