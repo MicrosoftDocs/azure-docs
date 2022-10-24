@@ -41,6 +41,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/pytorch-enterprise/pte-overview.md",
+            "redirect_url": "https://aka.ms/PTELandingPage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/pytorch-enterprise/support-boundaries.md",
+            "redirect_url": "https://aka.ms/PTELandingPage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
