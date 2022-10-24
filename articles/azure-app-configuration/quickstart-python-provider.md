@@ -13,7 +13,7 @@ ms.author: malev
 ---
 # Quickstart: Create a Python app with Azure App Configuration Python provider
 
-In this quickstart, you will use the Python provider for Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration Python provider client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider).
+In this quickstart, you will use the Python provider for Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration Python provider client library](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider).
 
 The Python App Configuration provider is a library running on top of the Python SDK helping Python developers easily consume the App Configuration service for the configuration settings, like a dictionary.
 
@@ -96,7 +96,7 @@ The Python App Configuration provider is a library running on top of the Python 
     ```
 
 > [!NOTE]
-> The code snippets in this quickstart will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration).
+> The code snippets in this quickstart will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
 
 ## Configure your App Configuration connection string
 
@@ -278,4 +278,4 @@ In this quickstart, you created a new App Configuration store and learned how to
 For additional code samples, visit:
 
 > [!div class="nextstepaction"]
-> [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/samples)
+> [Azure App Configuration Python provider](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider)
