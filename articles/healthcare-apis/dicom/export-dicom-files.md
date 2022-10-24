@@ -25,15 +25,15 @@ The first step to export data from the DICOM service is to enable a system manag
 
 1. In the Azure portal, browse to the DICOM service that you want to export from and select **Identity**.
 
-:::image type="content" source="media/dicom-export-identity.png" alt-text="Screenshot showing selection of Identity view.](media/dicom-export-identity.png":::
+:::image type="content" source="media/dicom-export-identity.png" alt-text="Screenshot showing selection of Identity view." lightbox="media/dicom-export-identity.png":::
 
 2. Set the **Status** option to **On**, and then select **Save**. 
 
-[![Screenshot of system assigned identity toggle.](media/dicom-export-enable-system-identity.png)](media/dicom-export-enable-system-identity.png#lightbox)
+:::image type="content" source="media/dicom-export-enable-system-identity.png" alt-text="Screenshot of system assigned identity toggle." lightbox="media/dicom-export-enable-system-identity.png":::
 
 3. Select **Yes** in the confirmation dialog that appears.  
 
-[![Screenshot of dialog confirming enabling system identity.](media/dicom-export-confirm-enable.png)](media/dicom-export-confirm-enable.png#lightbox)
+:::image type="content" source="media/dicom-export-confirm-enable.png" alt-text="Screenshot of dialog confirming enabling system identity." lightbox="Screenshot of dialog confirming enabling system identity.":::
 
 It will take a few minutes to create the system managed identity.  When the system identity has been enabled, an **Object (principal) ID** will be displayed.
 
@@ -43,14 +43,15 @@ The system managed identity will need **Storage Blob Data Contributor** permissi
 
 1. Under **Permissions** select **Azure role assignments**.
 
-[![Screenshot of Azure role assignments button on Identity view.](media/dicom-export-azure-role-assignments.png)](media/dicom-export-azure-role-assignments.png#lightbox)
+:::image type="content" source="media/dicom-export-azure-role-assignments.png" alt-text="Screenshot of Azure role assignments button on Identity view." lightbox="media/dicom-export-azure-role-assignments.png":::
+
 
 2. Select **Add role assignment**.  On the **Add role assignment** panel, make the following selections: 
     * Under **Scope**, select **Storage**.
     * Under  **Resource**, select the destination storage account for the export operation.
     * Under **Role**, select **Storage Blob Data Contributor**. 
 
- [![Screenshot of Add Role Assignment panel.](media/dicom-export-add-role-assignment.png)](media/dicom-export-add-role-assignment.png#lightbox)
+:::image type="content" source="media/dicom-export-add-role-assignment.png" alt-text="Screenshot of Add Role Assignment panel." lightbox="media/dicom-export-add-role-assignment.png":::
 
 3. Select **Save** to add the permission to the system managed identity.
 
