@@ -42,22 +42,15 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 
 You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas in its paired region or any other global region of Azure. Currently [special Azure regions](https://learn.microsoft.com/en-us/azure/virtual-machines/regions#special-azure-regions) are not supported.
+You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](https://learn.microsoft.com/en-us/azure/virtual-machines/regions#special-azure-regions) are not supported.
 
+[//]: # TODO(### Paired regions)
 
-### Universal replica regions
+[//]: # ()
+[//]: # (In addition to the universal replica regions, you can create a read replica in the Azure paired region of your primary server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article]&#40;../../availability-zones/cross-region-replication-azure.md&#41;.)
 
-You can always create a read replica in any of the following regions, regardless of where your primary server is located. These are the universal replica regions:
-
-[//]: # (TODO: update the region list)
-
-Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
-
-### Paired regions
-
-In addition to the universal replica regions, you can create a read replica in the Azure paired region of your primary server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../../availability-zones/cross-region-replication-azure.md).
-
-If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.
+[//]: # ()
+[//]: # (If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.)
 
 ## Create a replica
 
