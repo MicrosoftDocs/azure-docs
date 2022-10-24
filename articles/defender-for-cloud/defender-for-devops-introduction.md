@@ -1,20 +1,20 @@
 ---
 title: Microsoft Defender for DevOps - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for
-ms.date: 10/23/2022
+ms.date: 10/24/2022
 ms.topic: overview
 ms.custom: ignite-2022
 ---
 
 # Overview of Defender for DevOps
 
-Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources. Defender for DevOps a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
+Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
 
-:::image type="content" source="media/defender-for-devops-introduction/graph.png" alt-text="Conceptual image that shows the benefits of Defender for DevOps .":::
+:::image type="content" source="media/defender-for-devops-introduction/graph.png" alt-text="Conceptual image that shows the benefits of Defender for DevOps.":::
 
 Defender for DevOps uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, such as GitHub and Azure DevOps. Findings from Defender for DevOps can then be correlated with other contextual cloud security insights to prioritize remediation in code. Key capabilities in Defender for DevOps include: 
 
-- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of pre-production application code which includes findings from code, secret, and open-source dependency vulnerability scans. They can configure their DevOps resources across multi-pipeline and multicloud environments in a single view.
+- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of pre-production application code, which includes findings from code, secret, and open-source dependency vulnerability scans. They can configure their DevOps resources across multi-pipeline and multicloud environments in a single view.
 
 - **Strengthen cloud resource configurations throughout the development lifecycle**: You can enable security of Infrastructure as Code (IaC) templates and container images to minimize cloud misconfigurations reaching production environments, allowing security administrators to focus on any critical evolving threats.
 
@@ -31,25 +31,15 @@ Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps sec
 | Regions: | Central US |
 | Source Code Management | [Azure DevOps](https://ms.portal.azure.com/#home) |
 | Systems | [Github](https://github.com/) | 
-| Required permissions: | <br> **Azure account** - with permissions to sign into Azure portal. <br> - **Contributor** - on the relevant Azure subscription. <br> **Organization Administrator** - in GitHub. <br> - **Security Admin role** - in Defender for Cloud. |
-
-## Benefits of Defender for DevOps 
-
-**REMOVE THIS SECTION?????**
-
-Defender for DevOps gives Security Operators the ability to see how their organizations' code and development management systems work, without interfering with their developers. Security Operators can implement security operations and controls at every stage of the development lifecycle to make DevSecOps easier to achieve.
-
-Defender for DevOps grants developers the ability to scan code, infrastructure as code, credentials, and containers, to make the process easier for developers to find and remediate security issues.
-
-Defender for DevOps gives security teams the ability to set, evaluate, and enforce security policies and address risks before they are deployed to the cloud. Security teams gain visibility into their organizations' engineering systems, including security risks and pre-production security debt across multiple development environments and cloud applications.
+| Required permissions: | <br> **Azure account** - with permissions to sign into Azure portal. <br> **Contributor** - on the relevant Azure subscription. <br> **Organization Administrator** - in GitHub. <br> **Security Admin role** - in Defender for Cloud. |
 
 ## Manage your DevOps environments in Defender for Cloud
 
-Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of discovered issues that may exist within them through the [Defender for Devops console](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
+Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of discovered issues that may exist within them through the [Defender for DevOps console](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
 
 :::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for DevOps dashboard." lightbox="media/defender-for-devops-introduction/devops-dashboard.png":::
 
-Here, you can [add Github](quickstart-onboard-github.md) and [Azure DevOps](quickstart-onboard-devops.md) environments, customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and [configure your pull request annotations](tutorial-enable-pull-request-annotations.md).
+Here, you can [add GitHub](quickstart-onboard-github.md) and [Azure DevOps](quickstart-onboard-devops.md) environments, customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and [configure your pull request annotations](tutorial-enable-pull-request-annotations.md).
 
 ### Understanding your DevOps security
 
@@ -58,7 +48,7 @@ Here, you can [add Github](quickstart-onboard-github.md) and [Azure DevOps](quic
 |Page section| Description |
 |--|--|
 | :::image type="content" source="media/defender-for-devops-introduction/number-vulnerabilities.png" alt-text="Screenshot of the vulnerabilities section of the page."::: | Shows the total number of vulnerabilities found by Defender for DevOps. You can organize the results by severity level. |
-| :::image type="content" source="media/defender-for-devops-introduction/number-findings.png" alt-text="Screenshot of the findings section and the associated recommendations."::: | Presents the total number of findings by scan type and the associated recommendations for any onboarded resources. Selecting a result takes you to correspondingrecommendations. |
+| :::image type="content" source="media/defender-for-devops-introduction/number-findings.png" alt-text="Screenshot of the findings section and the associated recommendations."::: | Presents the total number of findings by scan type and the associated recommendations for any onboarded resources. Selecting a result takes you to corresponding recommendations. |
 | :::image type="content" source="media/defender-for-devops-introduction/connectors-section.png" alt-text="Screenshot of the connectors section."::: | Provides visibility into the number of connectors and repositories that have been onboarded by an environment. |
 
 ### Review your findings
@@ -73,7 +63,7 @@ On this part of the screen you see:
 
 - **Pull request annotation status** -  Shows whether PR annotations are enabled for the repository. 
     - `On` - PR annotations are enabled.
-    - `Off` - PR annotations are not enabled.
+    - `Off` - PR annotations aren't enabled.
     - `NA` - Defender for Cloud doesn't have information about enablement. 
     
     > [!NOTE]
