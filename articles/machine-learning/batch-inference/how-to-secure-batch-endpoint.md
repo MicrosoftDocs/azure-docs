@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Network isolation in batch endpoints
 
-When deploying a machine learning model to a batch endpoint, you can secure the communication with using private networks. This article explains the requirements to use batch endpoint in an environment secured by private networks.
+When deploying a machine learning model to a batch endpoint, you can secure their communication using private networks. This article explains the requirements to use batch endpoint in an environment secured by private networks.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ All the batch endpoints created inside of secure workspace are deployed as priva
 > [!IMPORTANT]
 > When working on a private link-enabled workspaces, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Please use the Azure ML CLI v2 instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](../how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-scoring-job).
 
-The following diagram shows how the networking looks like for batch endpoints:
+The following diagram shows how the networking looks like for batch endpoints when deployed in a private workspace:
 
 :::image type="content" source="./media/how-to-secure-batch-endpoint/batch-vnet-peering.png" alt-text="Diagram that shows the high level architecture of a secure Azure Machine Learning workspace deployment.":::
 
@@ -43,9 +43,9 @@ Azure Machine Learning batch deployments run on compute clusters. To secure batc
     > [!TIP]
     > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, you get a load balancer with a public IP to accept the inbound access from Azure batch service and Azure Machine Learning service. You need to configure User Defined Routing (UDR) if you use a firewall. If created without a public IP, you get a private link service to accept the inbound access from Azure batch service and Azure Machine Learning service without a public IP.
 
-1. Extra NSG may be required depending on your case. Please see [Limitations for Azure Machine Learning compute cluster](../how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1)
+1. Extra NSG may be required depending on your case. Please see [Limitations for Azure Machine Learning compute cluster](../how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1).
 
-For more details about how to configure compute clusters networking read [Secure an Azure Machine Learning training environment with virtual networks](../how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1)
+For more details about how to configure compute clusters networking read [Secure an Azure Machine Learning training environment with virtual networks](../how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1).
 
 ## Using two-networks architecture
 
