@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 10/24/2022
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -90,6 +90,9 @@ The following status messages can be shown for **Dynamic rule processing** statu
 - **Update complete**: Processing has completed and all applicable updates have been made.
 - **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
 - **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
+
+>[!NOTE]
+>In this screen you may also choose to **Pause processing**. Previously, this option was only available through the modification of the membershipRuleProcessingState property.
 
 The following status messages can be shown for **Last membership change** status:
 
