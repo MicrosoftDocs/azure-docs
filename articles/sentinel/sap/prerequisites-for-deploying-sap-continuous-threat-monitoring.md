@@ -92,7 +92,7 @@ To enable the SAP data connector to retrieve certain information from your SAP s
 
 ### Create and configure a role
 
-To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by deploying CR **NPLK900271** or by loading the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file.. 
+To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by deploying CR **NPLK900271** or by loading the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. 
 
 > [!NOTE]
 > Alternatively, you can create a role that has minimal permissions by deploying change request *NPLK900268*, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file.

@@ -29,6 +29,7 @@ This article discusses the installation of the following CRs:
 1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process.
 
     For the following example, the following details are assumed:
+
         - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
         - **SID:** `A4H`
         - **System number:** `00`
@@ -69,7 +70,7 @@ To deploy the CRs, follow the steps outlined below. The steps below may differ a
 
 1. Sign in to the SAP system using SSH.
 
-1. Transfer the CR files to the SAP system. Learn more about [the CRs described in this article](#required-and-optional-crs). 
+1. Transfer the CR files to the SAP system. Learn more about [the CRs in this step](#required-and-optional-crs). 
 
     Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:
 
@@ -240,8 +241,8 @@ The following table lists the ABAP authorizations required to ensure that SAP lo
 The required authorizations are listed here by log type. Only the authorizations listed for the types of logs you plan to ingest into Microsoft Sentinel are required.
 
 > [!TIP]
-> To create a role with all the required authorizations, deploy the SAP **NPLK900271** CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
-> Alternatively, you can create a role that has minimal permissions by deploying the **NPLK900268** CR, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
+> To create a role with all the required authorizations, deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
+> Alternatively, you can create a role that has minimal permissions by deploying the *NPLK900268* CR, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |
