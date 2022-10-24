@@ -18,7 +18,7 @@ If you deployment contains multiple sites, we recommend upgrading a single packe
 
 ## Prerequisites
 
-- Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally. <!-- Should we include this advice, so they have a healthy state to roll back to in case there are issues post-upgrade? -->
+- Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## View the current packet core version
@@ -41,27 +41,28 @@ To check which version your packet core instance is currently running, and wheth
     :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource overview." lightbox="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png":::
     <!-- TODO: update screenshot with new upgrade warning UI -->
 
-## Upgrade the packet core instance
-
-### Plan for your upgrade
+## Plan for your upgrade
 
 We recommend upgrading your packet core instance during a maintenance window or a period of low traffic to minimize the impact of the upgrade on your service.
 
 A typical upgrade takes around 60 minutes if you have a high-bandwidth connection to Azure. On a limited 1 Mbps connection, this can increase to <><!-- TODO: add estimated time --> minutes. In addition to this time, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
 
-- Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, you'll need to upgrade ASE first.
+- Refer to the release notes for the current version of packet core and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, you'll need to upgrade ASE first.
   - If you're upgrading from a packet core version that the current version of ASE supports, you can upgrade ASE and packet core independently.
   - If you're upgrading from a packet core version that isn't supported by the current version of ASE, it's possible that packet core won't operate normally with the new ASE version. In this case, we recommend planning a maintenance window that allows you time to fully upgrade both ASE and packet core. Refer to [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update) for how long the ASE upgrade will take.
 - Review [Restore backed up deployment information](#restore-backed-up-deployment-information) and [Verify upgrade](#verify-upgrade) for the post-upgrade steps you'll need to follow to ensure your deployment is fully operational. Make sure your upgrade plan allows sufficient time for these steps. <!-- Can we be more helpful here and estimate how long these should take? -->
 
+## Upgrade the packet core instance
+
 ### Back up deployment information
 
-The following information will be lost over an upgrade:
+The following list contains data that will get lost over a packet core upgrade. Back up any information you'd like to preserve; after the upgrade, you can use this information to reconfigure your packet core instance.
 
-1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), note down the current password and keep it in a secure location.
-2. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), note down the current password and keep it in a secure location.
-3. If you have customized packet core dashboards, your changes won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed up copy of your dashboards.
+1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
+2. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
+3. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed up copy of your dashboards.
 4. If you have data that you directly entered into the packet core instance during installation, this will be lost over upgrade. Note down your relevant packet core configuration and save it in a secure location. <!-- TODO: clarify what data this could be -->
+5. Gather a list of your devices and sessions. After the upgrade, you'll need to re-register your devices and recreate any sessions.
 
 ### Upgrade ASE
 
@@ -94,16 +95,16 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
 2. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
 3. If you have backed up packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
-4. If you have backed up packet core configuration, follow <><!-- TODO: link to relevant procedure, potentially Modify packet core --> to restore it.
-5. Re-register your devices and recreate any sessions<!-- TODO: add link or provide instructions -->.
+4. If you have backed up packet core configuration, follow <><!-- TODO: link to relevant procedure --> to restore it.
+5. Re-register your devices and recreate any sessions.
 
 ### Verify upgrade
 
 Once the upgrade completes, check if your deployment is operating normally.
 
-1. Select **Go to resource group**, and then select the **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
-2. Test registered devices and sessions. <!-- Should we be more specific here? -->
-3. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally. <!-- Should we be more specific here? -->
+1. Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version). Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
+2. Test some registered devices and sessions.
+3. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 
 ## Rollback
 
@@ -117,7 +118,7 @@ Note that any configuration you set while your packet core instance was running 
 
 ## Next steps
 
-Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
+Use Log Analytics or the packet core dashboards to monitor your packet core instance.
 
 - [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
 - [Packet core dashboards](packet-core-dashboards.md)
