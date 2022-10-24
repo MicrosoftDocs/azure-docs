@@ -32,7 +32,7 @@ To learn about the Azure role requirements to create a data factory, refer to [A
 
 A quick creation experience provided in the Azure Data Factory Studio to enable users to create a data factory within seconds. More advanced creation options are available in Azure portal.
 
-### Simple creation in the Azure Data Factory Studio
+### Quick creation in the Azure Data Factory Studio
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure Data Factory Studio](https://adf.azure.com) and choose the **Create a new data factory** radio button.
