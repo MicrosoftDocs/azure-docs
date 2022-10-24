@@ -31,7 +31,7 @@ DPS supports four allocation policies:
 * **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md). Can't be set as the DPS instance default policy.
 
 > [!NOTE]
-> The preceding list shows the names of the allocation policies as they appear in the Azure portal. When setting the allocation policy using the DPS REST API, Azure CLI, and DPS service SDKs, they are referred to as follows: **hashed**, **geolatency**, **static**, **custom**.
+> The preceding list shows the names of the allocation policies as they appear in the Azure portal. When setting the allocation policy using the DPS REST API, Azure CLI, and DPS service SDKs, they are referred to as follows: **hashed**, **geolatency**, **static**, and **custom**.
 
 There are two settings on a linked IoT hub that control how it participates in allocation:
 
@@ -63,14 +63,6 @@ The default allocation policy for the DPS instance is used when an allocation po
 > [!NOTE]
 > If you set *Static configuration* as the default allocation policy for a DPS instance, a linked IoT hub *must* be specified in enrollments that rely on the default policy.
 
-### Use the Azure CLI to set the default allocation policy
-
-Use the [az iot dps update](/cli/azure/iot/dps#az-iot-dps-update) Azure CLI command to set the default allocation policy for the DPS instance. You use `--set properties.allocationPolicy` to specify the policy. For example, the following command sets the allocation policy to *Evenly weighted distribution* (the default):
-
-```azurecli
-az iot dps update --name MyExampleDps --set properties.allocationPolicy=hashed
-```
-
 ### Use the Azure portal to the set default allocation policy
 
 To set the default allocation policy for the DPS instance in the Azure portal:
@@ -80,6 +72,14 @@ To set the default allocation policy for the DPS instance in the Azure portal:
 2. Select the button for the allocation policy you want to set: **Lowest latency**, **Evenly weighted distribution**, or **Static configuration**. (Custom allocation isn't supported for the default allocation policy.)
 
 3. Select **Save**.
+
+### Use the Azure CLI to set the default allocation policy
+
+Use the [az iot dps update](/cli/azure/iot/dps#az-iot-dps-update) Azure CLI command to set the default allocation policy for the DPS instance. You use `--set properties.allocationPolicy` to specify the policy. For example, the following command sets the allocation policy to *Evenly weighted distribution* (the default):
+
+```azurecli
+az iot dps update --name MyExampleDps --set properties.allocationPolicy=hashed
+```
 
 DPS also supports setting the default allocation policy using the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
 
@@ -94,22 +94,6 @@ In either case, the following conditions apply:
 * For *Static configuration*, the enrollment *must* specify a single IoT hub from the list of linked IoT hubs.
 
 For both individual enrollments and enrollment groups, you can specify an allocation policy and the linked IoT hubs to apply it to when you create or update an enrollment.
-
-### Use the Azure CLI to manage enrollment allocation policy and IoT hubs
-
-Use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create), [az iot dps enrollment update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-update), [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-create), [az iot dps enrollment-group update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-update)  Azure CLI commands to create or update individual enrollments or enrollment groups.
-
-For example, the following command creates a symmetric key enrollment group that defaults to using the default allocation policy set on the DPS instance and all the IoT hubs linked to the DPS instance:
-
-```azurecli
-az iot dps enrollment-group create --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup 
-```
-
-The following command updates the same enrollment group to use the *Lowest latency* allocation policy with IoT hubs named *MyExampleHub* and *MyExampleHub-2*:
-
-```azurecli
-az iot dps enrollment-group update --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup --allocation-policy geolatency --iot-hubs "MyExampleHub.azure-devices.net MyExampleHub-2.azure-devices.net"
-```
 
 ### Use the Azure portal to manage enrollment allocation policy and IoT hubs
 
@@ -134,6 +118,22 @@ To set allocation policy and select IoT hubs on an enrollment in the Azure porta
     * Optionally, you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance and make it available in the list of IoT hubs that can be selected. For details about linking an IoT hub, see [Link an IoT Hub](how-to-manage-linked-iot-hubs.md#use-the-azure-portal-to-link-an-iot-hub).
 
 1. Set any other properties needed for the enrollment and then save your settings.
+
+### Use the Azure CLI to manage enrollment allocation policy and IoT hubs
+
+Use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create), [az iot dps enrollment update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-update), [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-create), [az iot dps enrollment-group update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-update)  Azure CLI commands to create or update individual enrollments or enrollment groups.
+
+For example, the following command creates a symmetric key enrollment group that defaults to using the default allocation policy set on the DPS instance and all the IoT hubs linked to the DPS instance:
+
+```azurecli
+az iot dps enrollment-group create --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup 
+```
+
+The following command updates the same enrollment group to use the *Lowest latency* allocation policy with IoT hubs named *MyExampleHub* and *MyExampleHub-2*:
+
+```azurecli
+az iot dps enrollment-group update --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup --allocation-policy geolatency --iot-hubs "MyExampleHub.azure-devices.net MyExampleHub-2.azure-devices.net"
+```
 
 DPS also supports setting allocation policy and selected IoT hubs on the enrollment using the [Create or Update individual enrollment](/rest/api/iot-dps/service/individual-enrollment/create-or-update) and [Create or Update enrollment group](/rest/api/iot-dps/service/enrollment-group/create-or-update) REST APIs, and the [DPS service SDKs](libraries-sdks.md#service-sdks).
 
