@@ -33,7 +33,7 @@ The first step to export data from the DICOM service is to enable a system manag
 
 3. Select **Yes** in the confirmation dialog that appears.  
 
-:::image type="content" source="media/dicom-export-confirm-enable.png" alt-text="Screenshot of dialog confirming enabling system identity." lightbox="Screenshot of dialog confirming enabling system identity.":::
+:::image type="content" source="media/dicom-export-confirm-enable.png" alt-text="Screenshot of dialog confirming enabling system identity." lightbox="media/dicom-export-confirm-enable.png":::
 
 It will take a few minutes to create the system managed identity.  When the system identity has been enabled, an **Object (principal) ID** will be displayed.
 
