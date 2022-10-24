@@ -145,7 +145,7 @@ sections:
       - question: |
           Can I configure Azure CDN behind my Front Door profile or vice versa?
         answer:  |
-          Azure Front Door and Azure CDN can't be configured together because both services utilizes the same Azure edge sites when responding to requests. 
+          Azure Front Door and Azure CDN can't be configured together because both services utilize the same Azure edge sites when responding to requests. 
 
       - question: |
           Which network service tags does Front Door support?
@@ -170,7 +170,7 @@ sections:
       - question: | 
           How does Front Door handle ‘domain fronting’ behavior? 
         answer: |
-          As of April 29, 2022, Microsoft has made a change to the behavior of Azure Front Door Standard/Premium/(classic) and Azure CDN from Microsoft (classic) in alignment with its commitment to stop allowing domain fronting behavior on its platform.  Once blocking domain fronting is enabled, AFD and CDN resources will block any HTTP request that exhibit this behavior.
+          As of April 29, 2022, Microsoft has made a change to the behavior of Azure Front Door Standard/Premium/(classic) and Azure CDN from Microsoft (classic) in alignment with its commitment to stop allowing domain fronting behavior on its platform.  Once blocking domain fronting is enabled, AFD and CDN resources will block any HTTP request that exhibits this behavior.
           If this behavior is enabled for your resource, requests where Host header in HTTP/HTTPS requests doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
           
           If you wish to block domain fronting for any existing Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources or for new Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources, please create a support request and provide your subscription and 
@@ -204,7 +204,7 @@ sections:
       - question: |
           What is the retention policy on the diagnostics logs?
         answer: |
-          Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. For more information, see [Azure Front Door Diagnostics](front-door-diagnostics.md).
+          Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hubs or Azure Monitor logs. For more information, see [Azure Front Door Diagnostics](front-door-diagnostics.md).
           
       - question: |
           How do I get audit logs for Azure Front Door?
