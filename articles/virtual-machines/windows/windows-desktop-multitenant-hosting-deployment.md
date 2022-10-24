@@ -67,10 +67,10 @@ win11-22h2-pron      Windows-11 MicrosoftWindowsDesktop westus
 
 ```
 
-For more information on available images see [Find and use Azure Marketplace VM images with Azure PowerShell](./cli-ps-findimage.md)
+For more information on available images, see [Find and use Azure Marketplace VM images with Azure PowerShell](./cli-ps-findimage.md)
 
 ## Uploading Windows 11 VHD to Azure
-If you are uploading a generalized Windows 11 VHD,  note Windows 11 does not have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
+If you're uploading a generalized Windows 11 VHD,  note Windows 11 doesn't have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
 
 ```powershell
 Net user <username> /active:yes
@@ -91,7 +91,7 @@ For more information:
 
 
 ## Deploying Windows 11 with Multitenant Hosting Rights
-Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzVhd` cmdlet as follows:
+Make sure you've [installed and configured the latest Azure PowerShell](/powershell/azure/). Once you've prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzVhd` cmdlet as follows:
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -100,7 +100,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 
 
 **Deploy using Azure Resource Manager Template Deployment**
-Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
+Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md). Once you've your VHD uploaded to Azure, edit your Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 ```json
 "properties": {
     "licenseType": "Windows_Client",
@@ -110,13 +110,14 @@ Within your Resource Manager templates, an additional parameter for `licenseType
 ```
 
 **Deploy via PowerShell**
-When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a VM using `New-AzVM` and specify the licensing type as follows:
+When deploying your Windows Server VM via PowerShell, you've an another parameter for `-LicenseType`. Once you've your VHD uploaded to Azure, you create a VM using `New-AzVM` and specify the licensing type as follows:
+
 ```powershell
 New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## Verify your VM is utilizing the licensing benefit
-Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzVM` as follows:
+Once you've deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzVM` as follows:
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
@@ -138,7 +139,7 @@ LicenseType              :
 ```
 
 ## Additional Information about joining Azure Active Directory
-Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join Azure Active Directory. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
+Azure provisions all Windows VMs with built-in administrator account, which can't be used to join Azure Active Directory. For example, *Settings > Account > Access Work or School > + Connect* won't work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 11](/windows/deployment/vda-subscription-activation)
