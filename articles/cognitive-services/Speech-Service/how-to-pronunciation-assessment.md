@@ -34,7 +34,7 @@ You can get pronunciation assessment scores for:
 > 
 > Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
 >
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=stt-tts) and [available regions](regions.md#speech-service).
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
 
 ## Configuration parameters
