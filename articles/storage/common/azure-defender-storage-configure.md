@@ -32,7 +32,7 @@ Analyzed transactions of Azure Blob Storage include operation types such as `G
 
 **Defender for Storage doesn't access the Storage account data and has no impact on its performance.**
 
-Learn more about the [benefits, features, and limitations of Defender for Storage](https://docs.microsoft.com/azure/defender-for-cloud/defender-for-storage-introduction). You can also learn more about Defender for Storage in the [Defender for Storage episode](episode-thirteen.md) of the Defender for Cloud in the Field video series.
+Learn more about the [benefits, features, and limitations of Defender for Storage](../defender-for-cloud/defender-for-storage-introduction). You can also learn more about Defender for Storage in the [Defender for Storage episode](../defender-for-cloud/episode-thirteen.md) of the Defender for Cloud in the Field video series.
 
 ## Availability
 
@@ -43,11 +43,12 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 |Protected storage types:|[Blob Storage](../storage/blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../storage/files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 
-## [**Per-transaction plan (Legacy)**](#tab/per-transaction-plan)
-
 ## Set up Microsoft Defender for Storage for the per-transaction pricing plan
 
-You can configure Microsoft Defender for Storage in any of several ways, described in the following sections.
+> [!NOTE]
+> You can only enable the per-account pricing plan at the subscription level.
+
+With the Defender for Storage per-account pricing plan, you can configure Microsoft Defender for Storage on your subscriptions in several ways. When the plan is enabled at the subscription level, Microsoft Defender for Storage is automatically enabled for all your existing and new storage accounts created under that subscription. 
 
 ### [Microsoft Defender for Cloud](#tab/azure-security-center)
 
@@ -127,8 +128,6 @@ az security atp storage show \
 ```
 
 ---
-
-## [**Per-account plan (New)**](#tab/per-account-plan)
 
 ## Set up Microsoft Defender for Storage for the per-account pricing plan
 
