@@ -7,24 +7,16 @@ ms.date: 10/19/2022
 
 # Enable Enterprise IoT security in Defender for Endpoint
 
-<!--these include files don't work [!INCLUDE [Microsoft 365 Defender rebranding](/microsoft-365/security/includes/microsoft-defender.md)]-->
-
-**Applies to:**
-
-- [Microsoft Defender for Endpoint P2](https://go.microsoft.com/fwlink/?linkid=2154037)
-- [Microsoft 365 Defender](https://go.microsoft.com/fwlink/?linkid=2118804)
-
-<!--these include files don't work [!INCLUDE[Prerelease information](/microsoft-365/security/includes/prerelease.md)]-->
-
-> Want to experience Microsoft Defender for Endpoint? [Sign up for a free trial.](https://signup.microsoft.com/create-account/signup?products=7f379fee-c4f9-4278-b0a1-e4c8c2fcdf7e&ru=https://aka.ms/MDEp2OpenTrial?ocid=docs-wdatp-enablesiem-abovefoldlink)
-
-This article describes how Microsoft Defender for Endpoint customers can add an Enterprise IoT plan in Microsoft 365 Defender, providing extra security value for IoT devices. 
+This article describes how Microsoft Defender for Endpoint customers can add an Enterprise IoT plan in Microsoft 365 Defender, providing extra security value for IoT devices.
 
 Adding an Enterprise IoT plan to Microsoft 365 Defender integrates Defender for Endpoint with Microsoft Defender for IoT, and provides extra security value like alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your network, like printers, cameras, and smart TVs.
 
 ## Prerequisites
 
 Before starting this quickstart, read through [Secure IoT devices in the enterprise](concept-eiot.md) to understand more about the integration between Defender for Endpoint and Defender for IoT.
+
+p2 license
+iot devices in your network
 
 To add an Enterprise IoT plan in Microsoft 365 Defender, you must have the following roles:
 

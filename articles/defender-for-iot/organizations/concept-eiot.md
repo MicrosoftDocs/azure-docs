@@ -5,28 +5,20 @@ ms.topic: conceptual
 ms.date: 10/19/2022
 ---
 
-# Secure IoT devices in the enterprise
-
-<!--these include files don't work [!INCLUDE [Microsoft 365 Defender rebranding](/microsoft-365/security/includes/microsoft-defender.md)]-->
-
-**Applies to:**
-
-- [Microsoft Defender for Endpoint P2](https://go.microsoft.com/fwlink/?linkid=2154037)
-- [Microsoft 365 Defender](https://go.microsoft.com/fwlink/?linkid=2118804)
-
-<!--these include files don't work--[!INCLUDE[Prerelease information](/microsoft-365/security/includes/prerelease.md)]-->
-
-> Want to experience Microsoft Defender for Endpoint? [Sign up for a free trial.](https://signup.microsoft.com/create-account/signup?products=7f379fee-c4f9-4278-b0a1-e4c8c2fcdf7e&ru=https://aka.ms/MDEp2OpenTrial?ocid=docs-wdatp-enablesiem-abovefoldlink)
+# Securing IoT devices in the enterprise
 
 The number of IoT devices continues to grow exponentially across enterprise networks, such as the printers, Voice over Internet Protocol (VoIP) devices, smart TVs, and conferencing systems scattered around many office buildings.
 
 While the number of IoT devices continues to grow, they often lack the security safeguards that are common on managed endpoints like laptops and mobile phones. To bad actors, these un-managed devices can be used as a point of entry for lateral movement or evasion, and too often, the use of such tactics leads to the exfiltration of sensitive information.
 
-[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) seamlessly integrates with [Microsoft Defender for IoT](/azure/defender-for-iot/organizations/) to provide both device discovery for all IoT devices in your network, and also security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
+[Microsoft Defender for IoT](/azure/defender-for-iot/organizations/) seamlessly integrates with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both device discovery for all IoT devices in your network, and also security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
 
-## Extra security value in Microsoft 365 Defender
+<!-- 3 options: MDE only, MDE + sensor, sensor only. support matrix - requirements in for each option and what you get from each option. possibly support matrix in a sep page? rayne to send examples. architecture diagram - from nimrod. -->
 
-Microsoft Defender for Endpoint customers can add an Enterprise IoT price plan to get extra security value for their IoT devices, including including alerts, recommendations, and vulnerabilities for IoT devices. These extra security benefits are added directly in Microsoft 365 Defender, providing a single portal for all enterprise IoT security monitoring.
+## Security value in Microsoft 365 Defender
+
+<!--on top of existing device discovery for endpoints like computers, etc, were adding security value like recs etc. work with sinead to discuss how to add links to other places into here - to view alerts, recs etc, add the integration-->
+Microsoft Defender for Endpoint customers can add the Enterprise IoT integration <!--what would someome search for-->to get extra security value for their IoT devices, including including alerts, recommendations, and vulnerabilities for IoT devices. These extra security benefits are added directly in Microsoft 365 Defender, providing a single portal for all enterprise IoT security monitoring.
 
 For example, you might use the added security recommendations to open a single IT ticket to patch vulnerable applications on both servers and printers. Or, you might request that the network team add firewall rules that apply for both workstations and cameras communicating with a suspicious IP address.
 
@@ -38,7 +30,7 @@ For more information, see:
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses).
 
-## Enhanced support with Defender for IoT network sensors (Public preview)
+## Support with Defender for IoT network sensors (Public preview)
 
 IT networks can be complex, and Defender for Endpoint agents may not give you full visibilty for all IoT devices. For example, if you have a VLAN dedicated to VOIP devices with no other endpoints, Defender for Endpoint may not be able to discover devices on that VLAN.
 

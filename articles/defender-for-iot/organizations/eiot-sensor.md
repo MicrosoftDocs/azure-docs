@@ -7,17 +7,6 @@ ms.date: 10/19/2022
 
 # Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)
 
-<!--these include files don't work [!INCLUDE [Microsoft 365 Defender rebranding](/microsoft-365/security/includes/microsoft-defender.md)]-->
-
-**Applies to:**
-
-- [Microsoft Defender for Endpoint P2](https://go.microsoft.com/fwlink/?linkid=2154037)
-- [Microsoft 365 Defender](https://go.microsoft.com/fwlink/?linkid=2118804)
-
-<!--these include files don't work [!INCLUDE[Prerelease information](/microsoft-365/security/includes/prerelease.md)]-->
-
-> Want to experience Microsoft Defender for Endpoint? [Sign up for a free trial.](https://signup.microsoft.com/create-account/signup?products=7f379fee-c4f9-4278-b0a1-e4c8c2fcdf7e&ru=https://aka.ms/MDEp2OpenTrial?ocid=docs-wdatp-enablesiem-abovefoldlink)
-
 This article describes how to register an Enterprise IoT network sensor in Microsoft Defender for IoT.
 
 **If you're a Defender for Endpoint customer** with an Enterprise IoT plan for Defender for IoT, adding an Enterprise IoT network sensor extends your network visibilty to IoT segments in your corporate network not otherwise covered by Microsoft Defender for Endpoint.
