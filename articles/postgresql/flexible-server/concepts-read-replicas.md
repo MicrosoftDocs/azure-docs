@@ -73,7 +73,7 @@ When you create a replica, it does inherit the firewall rules or VNet service en
 
 The replica inherits the admin account from the primary server. All user accounts on the primary server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the primary server.
 
-You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **my replica** with the admin username **myadmin**, you can connect to the replica by using psql:
+You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using psql:
 
 ```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin postgres
@@ -112,7 +112,7 @@ At the prompt, enter the password for the user account.
 
 ## Promote replicas
 
-You can stop the replication between a primary and a replica by promoting one or more replicas at any time. The promote action causes the replica to restart and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the restart process, the replica applies all the pending logs before accepting client connections.
+You can stop the replication between a primary and a replica by promoting one or more replicas at any time. The promote action causes the replica to apply all the pending logs and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the promote process, the replica applies all the pending logs before accepting client connections.
 
 >[!NOTE]
 > Resetting admin password on replica server is currently not supported. Additionally, updating admin password along with promote replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server then update the password on the newly promoted server separately.
@@ -124,6 +124,9 @@ You can stop the replication between a primary and a replica by promoting one or
 - The promoted replica server cannot be made into a replica again.
 - If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
+- During the create, delete and promote operations of replica, primary server will be in upgrading state.
+- **Power operations**: You can perform power operations (start/stop) on replica but primary server should be stopped before stopping read replicas and primary server should be started before starting the replicas.
+- If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
 
@@ -143,7 +146,7 @@ Since replication is asynchronous, there could be a considerable lag between the
 Once you have decided you want to failover to a replica,
 
 1. Promote replica<br/>
-   This step is necessary to make the replica server to become a standalone server and be able to accept writes. As part of this process, the replica server will restart and be delinked from the primary. Once you initiate promotion, the backend process typically takes few minutes to apply any residual logs that were not yet applied and to open the database as a read-writeable server. See the [Promote replicas](#promote-replicas) section of this article to understand the implications of this action.
+   This step is necessary to make the replica server to become a standalone server and be able to accept writes. As part of this process, the replica server will be delinked from the primary. Once you initiate promotion, the backend process typically takes few minutes to apply any residual logs that were not yet applied and to open the database as a read-writeable server. See the [Promote replicas](#promote-replicas) section of this article to understand the implications of this action.
 
 2. Point your application to the (former) replica<br/>
    Each server has a unique connection string. Update your application connection string to point to the (former) replica instead of the primary.
@@ -166,11 +169,7 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 
 ### Replica configuration
 
-During creation the following settings can be changed: 
-* Storage size: can only be increased. 
-* Firewall rules: all operations are allowed
-
-Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, backup retention period, server parameters, authentication method, firewall rules etc.
+During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
 
 ### Scaling
 
