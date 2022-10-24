@@ -44,7 +44,7 @@ You can create a read replica in a different region from your primary server. Cr
 
 You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](https://learn.microsoft.com/en-us/azure/virtual-machines/regions#special-azure-regions) are not supported.
 
-[//]: # TODO(### Paired regions)
+[//]: # (### Paired regions)
 
 [//]: # ()
 [//]: # (In addition to the universal replica regions, you can create a read replica in the Azure paired region of your primary server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article]&#40;../../availability-zones/cross-region-replication-azure.md&#41;.)
