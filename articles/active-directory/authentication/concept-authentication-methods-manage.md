@@ -98,6 +98,7 @@ All tenants are set to Pre-migration by default. At any time, you can change to 
 
 ## Next steps
 
+- [How to migrate MFA and SSPR policy settings to the Authentication methods policy](how-to-authentication-methods-manage.md)
 - [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
 - [How Azure AD Multi-Factor Authentication works](concept-mfa-howitworks.md)
 - [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview)

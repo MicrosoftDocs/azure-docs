@@ -77,5 +77,15 @@ The following screenshot shows the updated Authentication methods policy for Con
 
 ## Migration complete
 
-Make changes only in Authentication methods policy. 
+After update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
+
+When you determine that SSPR works as expected and you no longer need the legacy SSPR policy, you can change the migration process to **Migration Complete**. In this mode, Azure AD ignores the legacy MFA and SSPR policies for authentication and only follows the Authentication methods policy. Any changes made to the legacy policies are ignored if **Migration Complete** is set.
+
+## Next steps
+
+- [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md)
+- [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
+- [How Azure AD Multi-Factor Authentication works](concept-mfa-howitworks.md)
+- [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview)
+
 
