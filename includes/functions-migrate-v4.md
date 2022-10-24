@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 10/23/2022
+ms.author: glenga
+---
 
 ## Upgrade your function app in Azure
 
