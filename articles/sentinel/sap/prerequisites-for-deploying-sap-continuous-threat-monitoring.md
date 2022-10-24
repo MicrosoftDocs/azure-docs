@@ -62,35 +62,16 @@ To successfully deploy the Microsoft Sentinel Solution for SAP, you must meet th
 | **SAP system details** | Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate (This option requires additional configuration steps) |
 
-## SAP environment validation steps 
-
-### Deploy SAP notes
-
-Ensure the following SAP notes are deployed in your SAP system, according to its version:
+## SAP environment validation steps
 
 > [!NOTE]
 >
-> Step-by-step instructions for deploying a CR and assigning the required role are available in the [**Deploying SAP CRs and configuring authorization**](preparing-sap.md) guide. Determine which CRs need to be deployed, retrieve the required CRs from the links in the tables below, and proceed to the step-by-step guide.
+> Step-by-step instructions for deploying a CR and assigning the required role are available in the [**Deploying SAP CRs and configuring authorization**](preparing-sap.md) guide. Determine which CRs need to be deployed, retrieve the relevant CRs from the links in the tables below, and proceed to the step-by-step guide.
 
-| SAP BASIS versions | Required note |
-| --- | --- |
-| - 750 SP01 to SP12<br>- 751 SP01 to SP06<br>- 752 SP01 to SP03 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
-| - 700 to 702<br>- 710 to 711<br>- 730<br>- 731<br>- 740<br>- 750 | [2173545: CD: CHANGEDOCUMENT_READ_ALL](https://launchpad.support.sap.com/#/notes/2173545)* |
-| - 700 to 702<br>- 710 to 711<br>- 730<br>- 731<br>- 740<br>- 750 to 752 | [2502336 - CD: RSSCD100 - read only from archive, not from database](https://launchpad.support.sap.com/#/notes/2502336)* |
-| | * An SAP account is required to access SAP notes |
+- [Create and configure a role (required)](#create-and-configure-a-role-required)
+- [Retrieve additional information from SAP (optional)](#retrieve-additional-information-from-sap-optional)
 
-### Retrieve additional information from SAP
-
-To enable the SAP data connector to retrieve certain information from your SAP system, you must deploy additional CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR):
-- **SAP BASIS 7.5 SP12 and above**: Client IP Address information from security audit log
-- **ANY SAP BASIS version**: DB Table logs
-
-| SAP BASIS versions | Recommended CR |
-| --- | --- |
-| - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) |
-| - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) |
-
-### Create and configure a role
+### Create and configure a role (required)
 
 To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by deploying CR **NPLK900271** or by loading the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. 
 
@@ -102,7 +83,26 @@ Experienced SAP administrators may choose to create the role manually and assign
 
 | SAP BASIS versions | Sample CR |
 | --- | --- |
-| Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) |
+| Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) | 
+
+### Retrieve additional information from SAP (optional)
+
+To enable the SAP data connector to retrieve certain information from your SAP system, you must deploy additional CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR):
+- **SAP BASIS 7.5 SP12 and above**: Client IP Address information from security audit log
+- **ANY SAP BASIS version**: DB Table logs
+
+| SAP BASIS versions | Recommended CR |
+| --- | --- |
+| - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) |
+| - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) |
+
+#### Deploy SAP notes (optional)
+
+If you choose to retrieve additional information with the CRs in this section, ensure that the following SAP note is deployed in your SAP system, according to its version:
+
+| SAP BASIS versions | Notes |
+| --- | --- |
+| - 750 SP01 to SP12<br>- 751 SP01 to SP06<br>- 752 SP01 to SP03 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
 
 ## Next steps
 
