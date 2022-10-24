@@ -18,7 +18,7 @@ In this tutorial, you learn how to delete a network function and a device in Azu
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to the **Azure Network Manager - Devices** resource in which you have deployed a network function. Under **Network Function**, select the function that you want to delete.
+1. Go to the **Azure Network Manager - Devices** resource in which you've deployed a network function. Under **Network Function**, select the function that you want to delete.
  
    ![Screenshot that shows how to select a network function.](media/delete-functions/select-network-function.png)
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to delete a network function and a device in Azu
 
 1. You might encounter a "Failed to delete resource" error while you're deleting the network function.
 
-   > ![Screenshot that shows an error for failure to delete a resource.](media/delete-functions/failed-to-delete.png)
+   ![Screenshot that shows an error for failure to delete a resource.](media/delete-functions/failed-to-delete.png)
    
    If so, use the search box in the Azure portal to search for the managed application that the error mentioned. When the managed application appears under **Resources**, select it.
  
@@ -43,6 +43,6 @@ In this tutorial, you learn how to delete a network function and a device in Azu
 > [!IMPORTANT] 
 > Ensure that all the network functions deployed within Azure Network Function Manager are deleted before you delete a device.
 
-Go to the **Azure Network Manager - Devices** resource in which you have deleted a network function, and then select **Delete**.
+Go to the **Azure Network Manager - Devices** resource in which you've deleted a network function, and then select **Delete**.
  
 ![Screenshot that shows the button for deleting a device.](media/delete-functions/delete-network-function-manager.png)
