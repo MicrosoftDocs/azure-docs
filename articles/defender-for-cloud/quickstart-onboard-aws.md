@@ -182,7 +182,6 @@ When deploying the CloudFormation template, the Stack creation wizard offers the
 - **Amazon S3 URL** - Enter a previously created S3 URL. AWS will automatically create a S3 bucket in which the CloudFormation template will be saved.
 
    This automated S3 bucket will be created with a security misconfiguration which will result in the security recommendation `S3 buckets should require requests to use Secure Socket Layer`. This recommendation can be fixed by applying the following policy:
-With this option AWS automatically creates an S3 bucket in which the CloudFormation template will be saved. Please note that with this automation the S3 bucket will be created with a security misconfiguration which will result in a security recommendation “S3 buckets should require requests to use Secure Socket Layer”. This recommendation can be fixed by applying the following policy:
 ```bash
 {
   "Id": "ExamplePolicy",
