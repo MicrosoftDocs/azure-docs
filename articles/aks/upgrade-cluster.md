@@ -13,6 +13,9 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
+> [!NOTE]
+> Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
+
 ## Before you begin
 
 ### [Azure CLI](#tab/azure-cli)
@@ -271,3 +274,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md
+[release-tracker]: release-tracker.md
