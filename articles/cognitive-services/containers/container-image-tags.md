@@ -134,6 +134,17 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 
 
 # [Latest version](#tab/current)
+Release note for `3.7.0-amd64`:
+
+**Features**
+* Security upgrade.
+
+| Image Tags                    | Notes | Digest                                                                   |
+|-------------------------------|:------|:-------------------------------------------------------------------------|
+| `latest`                      |       | `sha256:551113f7df4840bde91bbe3d9902af5a09153462ca450490347547d95ab1c08e`|
+| `3.7.0-amd64`                 |       | `sha256:551113f7df4840bde91bbe3d9902af5a09153462ca450490347547d95ab1c08e`|
+
+# [Previous version](#tab/previous)
 Release note for `3.6.0-amd64`:
 
 **Features**
@@ -144,7 +155,6 @@ Release note for `3.6.0-amd64`:
 | `latest`                      |       | `sha256:9a1ef0bcb5616ff9d1c70551d4634acae50ff4f7ed04b0ad514a75f2e6fa1241`|
 | `3.6.0-amd64`                 |       | `sha256:9a1ef0bcb5616ff9d1c70551d4634acae50ff4f7ed04b0ad514a75f2e6fa1241`|
 
-# [Previous version](#tab/previous)
 Release note for `3.5.0-amd64`:
 
 **Features**
@@ -431,7 +441,7 @@ This container has the following locales available.
 | `zh-cn`| Container image with the `zh-CN` locale. | `sha256:5691c41fedfb89d7738afabd5624aad43cf8c427c4de1608e7381674fdcb88a2` |
 | `zh-cn-sichuan`| Container image with the `zh-CN-sichuan` locale. | `sha256:192a125987d397018734c57f952e68df04d7fd550cfb6ae9434f200b7bd44d13` |
 | `zh-hk`| Container image with the `zh-HK` locale. | `sha256:f3f8b50f982c19f31eea553ed92ebfb6c7e333a4d2fa55c81a1c8b680afd6101` |
-| `zh-tw`| Container image with the `zh-TW` locale. | `sha256:20245c6b1b4da4a393e6d0aaa3c1a013f03de69eec351d9b7e5fe9d542c1f098` |
+| `zh-tw`| Container image with the `zh-` locale. | `sha256:20245c6b1b4da4a393e6d0aaa3c1a013f03de69eec351d9b7e5fe9d542c1f098` |
 
 # [Previous version](#tab/previous)
 
