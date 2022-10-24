@@ -24,7 +24,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 In this step, you'll navigate to the **Packet Core Control Plane** resource representing your packet core instance and start modifying it.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
