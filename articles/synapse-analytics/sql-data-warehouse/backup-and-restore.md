@@ -44,12 +44,13 @@ This feature enables you to manually trigger snapshots to create restore points 
 > [!NOTE]
 > If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8).
 
-> [!NOTE]> In case you are looking for a Long-Term Backup (LTR) concept
-> 1. Create a new user-defined restore point or you can use one of the automatic generated restore points.
+> [!NOTE]
+> In case you're looking for a Long-Term Backup (LTR) concept:
+> 1. Create a new user-defined restore point, or you can use one of the automatically generated restore points.
 > 2. Restore from the newly created restore point to a new data warehouse.
-> 3. Once you have restored, you have the dedicated SQL pool online Pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Synapse storage rate. 
+> 3. After you have restored, you have the dedicated SQL pool online. Pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Synapse storage rate. 
 > 
-> If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
+> If you need an active copy of the restored data warehouse, you can resume, which should take only a few minutes.
 
 ### Restore point retention
 
