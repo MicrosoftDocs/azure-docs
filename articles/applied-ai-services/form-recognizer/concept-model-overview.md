@@ -24,7 +24,7 @@ Azure Form Recognizer includes several machine-learning based document processin
 | --- | --- |
 |**Document analysis models**||
 | [Read OCR](#read-ocr) | Extract print and handwritten text including words, locations, and detected languages.|
-| [Layout analysis](#layout-analysis)  | Extract text and results from document layout analysis.|
+| [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
 | [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
@@ -53,7 +53,7 @@ The Read API analyzes and extracts ext lines, words, their locations, detected l
 
 [:::image type="icon" source="media/studio/layout.png":::](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-The Layout analysis model analyzes and extracts text, tables, selection marks, and structure information from documents.
+The Layout analysis model analyzes and extracts text, tables, selection marks, and other structure elements like titles, section headings, page headers, page footers, and more.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
@@ -170,7 +170,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ## Model data extraction
 
-| **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Paragraph roles** | **Key-Value pairs** | **Fields** |
+| **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |  
 | [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
