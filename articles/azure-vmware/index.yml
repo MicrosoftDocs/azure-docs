@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure VMware Solution documentation
-summary: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
+summary: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure.
 
 metadata:
   title: Azure VMware Solution documentation 
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: suzizuber
   ms.author: v-szuber 
-  ms.date: 08/22/2022 
+  ms.date: 10/17/2022 
 
 
 # card 1
@@ -109,8 +109,10 @@ landingContent:
         links:
         - text: Access and identity
           url: concepts-identity.md
-        - text: Configure identity source for vCenter
+        - text: Configure identity source for vCenter Server
           url: configure-identity-source-vcenter.md
+        - text: Configure identity source for NSX-T Data Center
+          url: configure-external-identity-source-nsx-t.md
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
 
@@ -136,8 +138,8 @@ landingContent:
             url: configure-dns-azure-vmware-solution.md
           - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
-          - text: Enable public internet access
-            url: enable-public-internet-access.md
+          - text: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
+            url: enable-public-ip-nsx-edge.md
           - text: Configure a site-to-site VPN in vWAN
             url: configure-site-to-site-vpn-gateway.md
           - text: Configure Windows Server Failover Cluster
@@ -146,8 +148,8 @@ landingContent:
             url: connect-multiple-private-clouds-same-region.md  
           - text: Configure storage policies
             url: configure-storage-policy.md
-          - text: Create placement policy 
-            url: create-placement-policy.md          
+          - text: Create placement policy
+            url: create-placement-policy.md
 
 # card 5
   - title: Azure native integration
@@ -164,15 +166,15 @@ landingContent:
             url: deploy-traffic-manager-balance-workloads.md
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
-          - text: Attach disk pools to Azure VMware Solution hosts
-            url: attach-disk-pools-to-azure-vmware-solution-hosts.md
+          - text: Configure customer-managed key encryption at rest
+            url: configure-customer-managed-keys.md
           - text: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
             url: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
           - text: Attach Azure NetApp Files to Azure VMware Solution VMs
             url: netapp-files-with-azure-vmware-solution.md
 
 # card 6 == backup and restore
-  - title: Backup with Azure Backup Server
+  - title: Protect with Azure Backup Server and third party solutions
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -198,7 +200,7 @@ landingContent:
             url: configure-hcx-network-extension.md
           - text: Configure HCX network extension high availability
             url: configure-hcx-network-extension-high-availability.md
-          - text: Configure vRealize Operations
+          - text: Configure VMware vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md

@@ -1,29 +1,21 @@
 ---
-title: How to use the BlobFuse2 mount command to mount a blob storage container as a file system in Linux, or to display and manage existing mount points (preview). | Microsoft Docs
+title: How to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points (preview). | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how to use the BlobFuse2 mount command to mount a blob storage container as a file system in Linux, or to display and manage existing mount points (preview).
+description: Learn how to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points (preview).
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 10/17/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
 # How to use the BlobFuse2 mount command (preview)
 
-Use the `blobfuse2 mount` command to mount a blob storage container as a file system in Linux, or to display existing mount points.
+Use the `blobfuse2 mount` command to mount a Blob Storage container as a file system in Linux, or to display existing mount points.
 
-> [!IMPORTANT]
-> BlobFuse2 is the next generation of BlobFuse and is currently in preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> If you need to use BlobFuse in a production environment, BlobFuse v1 is generally available (GA). For information about the GA version, see:
->
-> - [The BlobFuse v1 setup documentation](storage-how-to-mount-container-linux.md)
-> - [The BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Command Syntax
 
@@ -49,7 +41,7 @@ The supported subcommands for `blobfuse2 mount` are:
 
 | Command | Description |
 |--|--|
-| [all](blobfuse2-commands-mount-all.md)   | Mounts all Azure blob containers in a specified storage account |
+| [all](blobfuse2-commands-mount-all.md)   | Mounts all blob containers in a specified storage account |
 | [list](blobfuse2-commands-mount-list.md) | Lists all BlobFuse2 mount points |
 
 Select one of the command links in the table above to view the documentation for the individual subcommands, including the arguments and flags they support.
@@ -95,7 +87,7 @@ The following flags apply only to command `blobfuse2 mount`:
 > [!NOTE]
 > The following examples assume you have already created a configuration file in the current directory.
 
-1. Mount an individual Azure blob storage container to a new directory using the settings from a configuration file, and with foreground mode disabled:
+1. Mount an individual Azure Blob Storage container to a new directory using the settings from a configuration file, and with foreground mode disabled:
 
     ```bash
     ~$ mkdir bf2a
@@ -105,7 +97,7 @@ The following flags apply only to command `blobfuse2 mount`:
     1 : /home/<user>/bf2a
     ```
 
-1. Mount all blob storage containers in the storage account specified in the configuration file to the path specified in the command. (Each container will be a subdirectory under the directory specified):
+1. Mount all Blob Storage containers in the storage account specified in the configuration file to the path specified in the command. (Each container will be a subdirectory under the directory specified):
 
     ```bash
     ~$ mkdir bf2all
@@ -118,7 +110,7 @@ The following flags apply only to command `blobfuse2 mount`:
     2 : /home/<user>/bf2all/blobfuse2b
     ```
 
-1. Mount a fast storage device, then mount a blob storage container specifying the path to the mounted disk as the BlobFuse2 file caching location:
+1. Mount a fast storage device, then mount a Blob Storage container specifying the path to the mounted disk as the BlobFuse2 file caching location:
 
     ```bash
     ~$ sudo mkdir /mnt/resource/blobfuse2tmp -p
@@ -130,13 +122,13 @@ The following flags apply only to command `blobfuse2 mount`:
     1 : /home/<user>/bf2a/blobfuse2a
     ```
 
-1. Mount a blob storage container in read-only mode and skipping the automatic BlobFuse2 version check:
+1. Mount a Blob Storage container in read-only mode and skipping the automatic BlobFuse2 version check:
 
     ```bash
     blobfuse2 mount ./mount_dir --config-file=./config.yaml --read-only --disable-version-check=true
     ```
 
-1. Mount a blob storage container using an existing configuration file, but override the container name (mounting another container in the same storage account):
+1. Mount a Blob Storage container using an existing configuration file, but override the container name (mounting another container in the same storage account):
 
     ```bash
     blobfuse2 mount ./mount_dir2 --config-file=./config.yaml --container-name=container2

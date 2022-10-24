@@ -27,6 +27,8 @@ You can create a schedule on a daily, weekly or hourly cadence as per your requi
 Update management center (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see the [Maintenance control documentation](/azure/virtual-machines/maintenance-control). 
 Start using [scheduled patching](scheduled-patching.md) to create and save recurring deployment schedules.
 
+> [!NOTE]
+> Patch orchestration set to Azure-orchestrated is a pre-condition to enable schedule patching on Azure VM. For more information, see the [list of prerequisites](../update-center/scheduled-patching.md#prerequisites-for-scheduled-patching)
 
 ## Automatic VM Guest patching in Azure
 

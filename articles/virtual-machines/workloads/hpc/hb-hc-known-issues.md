@@ -16,9 +16,6 @@ author: mamccrea
 
 This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
-## Memory Capacity on Standard_HB120rs_v2
-As of the week of December 6, 2021 we've temporarily reducing the amount of memory (RAM) exposed to the Standard_HB120rs_v2 VM size, otherwise known as [HBv2](../../hbv2-series.md). We've reducing the memory footprint to 432 GB from its current value of 456 GB (a 5.2% reduction). This reduction is temporary and the full memory capacity should be restored in early 2022. We've made this change to ensure to address an issue that can result in long VM deployment times or VM deployments for which not all devices function correctly. The reduction in memory capacity doesn't affect VM performance. 
-
 ## Cache topology on Standard_HB120rs_v3
 `lstopo` displays incorrect cache topology on the Standard_HB120rs_v3 VM size. It may display that there’s only 32 MB L3 per NUMA. However in practice, there is indeed 120 MB L3 per NUMA as expected since the same 480 MB of L3 to the entire VM is available as with the other constrained-core HBv3 VM sizes. This is a cosmetic error in displaying the correct value, which should not impact workloads.
 
@@ -33,7 +30,7 @@ If it is necessary to use the incompatible OFED, a solution is to use the **Cano
 
 [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md), [HBv3](../../hbv3-series.md), [NDv2](../../ndv2-series.md) and [NDv4](../../nda100-v4-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when running jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0). This may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X). 
 
-The simplest solution currently is to use the latest HPC-X on the CentOS-HPC VM images where we rename the IB/AN interfaces accordingly or to run the [script](https://github.com/Azure/azhpc-images/blob/master/common/install_azure_persistent_rdma_naming.sh) to rename the InfiniBand interface.
+The simplest solution currently is to use the latest HPC-X on the CentOS-HPC VM images where we rename the InfiniBand and Accelerated Networking interfaces accordingly or to run the [script](https://github.com/Azure/azhpc-images/blob/master/common/install_azure_persistent_rdma_naming.sh) to rename the InfiniBand interface.
 
 More details on this are available on this [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) with instructions on how to address any observed issues.
 

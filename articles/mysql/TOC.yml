@@ -187,6 +187,8 @@
           href: flexible-server/how-to-restart-stop-start-server-cli.md
       - name: Move Servers between regions
         href: flexible-server/how-to-move-regions.md
+      - name: Major version upgrade
+        href: flexible-server/how-to-upgrade.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)
@@ -297,6 +299,9 @@
   - name: Single Server documentation
     href: single-server/index.yml
     displayName: single server
+  - name: What's happening to Single Server?
+    href: single-server/whats-happening-to-mysql-single-server.md
+    displayName: What's happening to Single Server?
   - name: Overview
     items:
     - name: What is Single Server?
@@ -523,7 +528,6 @@
         items:
         - name: Azure Pipelines
           href: single-server/azure-pipelines-mysql-deploy.md
-
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal
@@ -671,15 +675,21 @@
       href: single-server/sample-scripts-java-connection-pooling.md
 - name: Migration
   items:
+  - name: FAQ
+    href: ../dms/faq-mysql-single-to-flex.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Choose the right tools for migration to Azure Database for MySQL
-    href: single-server/how-to-decide-on-right-migration-tools.md
+    href: migrate/how-to-decide-on-right-migration-tools.md
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+  - name: Migrate MySQL - Single Server to Flexible Server offline using DMS
+    href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
+  - name: Migrate MySQL - Single Server to Flexible Server online using DMS
+    href: ../dms/tutorial-mysql-azure-single-to-flex-online-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate data with mysqldump or phpmyadmin
     href: single-server/concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
   - name: Migrate large databases to Azure Database for MySQL using mydumper/myloader
-    href: single-server/concepts-migrate-mydumper-myloader.md
+    href: migrate/concepts-migrate-mydumper-myloader.md
     displayName: migrate, mydumper/myloader
   - name: Migrate data with dbForge Studio for MySQL
     href: single-server/concepts-migrate-dbforge-studio-for-mysql.md
@@ -694,7 +704,7 @@
     href: single-server/how-to-migrate-rds-mysql-data-in-replication.md
     displayName: migrate, rds, data-in replication
   - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
-    href: single-server/how-to-migrate-single-flexible-minimum-downtime.md
+    href: migrate/how-to-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
   - name: Minimal downtime migration with DMS
     href: single-server/how-to-migrate-online.md

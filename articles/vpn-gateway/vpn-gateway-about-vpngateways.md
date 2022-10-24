@@ -6,7 +6,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 01/12/2022
+ms.date: 10/17/2022
 ms.author: cherylmc
 ms.custom: contperf-fy21q1, e2e-hybrid
 ---
@@ -57,6 +57,7 @@ When you create a virtual network gateway, you specify the gateway SKU that you 
 
 * For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see the [VPN Gateway Settings - Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
 * For Legacy SKU information, see [Working with Legacy SKUs](vpn-gateway-about-skus-legacy.md).
+* The Basic SKU does not support IPv6.
 
 ### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
