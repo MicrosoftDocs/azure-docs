@@ -23,14 +23,14 @@ Azure Form Recognizer includes several machine-learning based document processin
 | **Model**   | **Description**   |
 | --- | --- |
 |**Document analysis models**||
-| [Read OCR](#read) | Extract print and handwritten text including words, locations, and detected languages.|
-| [Layout analysis](#layout)  | Extract text and results from document layout analysis.|
+| [Read OCR](#read-ocr) | Extract print and handwritten text including words, locations, and detected languages.|
+| [Layout analysis](#layout-analysis)  | Extract text and results from document layout analysis.|
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
 | [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
 | [Invoice](#invoice)  | Automate invoice processing for English and Spanish invoices. |
 | [Receipt](#receipt)  | Extract receipt data from English receipts.|
-| [ID document](#id-document)  | Extract identity (ID) fields from US driver licenses and international passports. |
+| [Identity (ID) document](#identity-id-document)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
 | [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
