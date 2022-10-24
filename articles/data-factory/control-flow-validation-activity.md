@@ -22,7 +22,7 @@ You can use a Validation in a pipeline to ensure the pipeline only continues exe
 To use a Validation activity in a pipeline, complete the following steps:
 
 1. Search for _Validation_ in the pipeline Activities pane, and drag a Validation activity to the pipeline canvas.
-1. Select the new Validation activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+2. Select the new Validation activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
 
 :::image type="content" source="media/control-flow-validation-activity/validation-activity.png" alt-text="Screenshot shows the UI for a Validation activity.":::
 
