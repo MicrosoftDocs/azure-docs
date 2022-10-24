@@ -14,7 +14,7 @@ ms.custom: contperf-fy21q4
 
 Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes. You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To connect to the AKS nodes, you use `kubectl debug` or the private IP address. 
 
-What's more, AKS now supports [updating SSH key on all existing nodepools][updating SSH key on all exitsing nodepools]
+What's more, AKS now supports [updating SSH key on all existing nodepools][updating SSH key]
 
 This article shows you how to create a connection to an AKS node and update SSH key on existing AKS cluster.
 
@@ -191,4 +191,5 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
-[updating SSH key on all existing nodepools]: node-access.md#Update-the-SSH-key-on-existing-AKS-cluster-(public-preview)
+[updating SSH key]: #update-the-ssh-key-on-existing-aks-cluster-public-preview
+                                              
