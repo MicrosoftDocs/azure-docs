@@ -164,9 +164,9 @@ The first time you authorize the Microsoft Security application, you are given t
 
 1. [Sign in](https://app.vssps.visualstudio.com/profile/view) and select the same tenant you use in Azure from the dropdown menu.
 
-1. Add a new [Azure DevOps repository](quickstart-onboard-devops.md).
+1. Create a new connector.
 
-1. Authorize the account. If the pop up appears, ensure it shows the correct tenant.
+1. During the authorization process, when the pop up page appears, ensure it shows the correct tenant.
 
 If this process does not fix your issue, you should revoke Microsoft Security DevOps's permission from all tenants in Azure DevOps and repeat the above steps. You should then be able to see the authorization pop up again when authorizing the connector.
 
