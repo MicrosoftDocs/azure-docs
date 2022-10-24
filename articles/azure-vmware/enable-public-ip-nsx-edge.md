@@ -47,7 +47,7 @@ The architecture shows Internet access to and from your Azure VMware Solution pr
 
 ## Configure a Public IP in the Azure portal
 
-1. Log into the Azure portal.
+1. Log in to the Azure portal.
 1. Search for and select Azure VMware Solution.
 1. Select the Azure VMware Solution private cloud.
 1. In the left navigation, under **Workload Networking**, select **Internet connectivity**.
