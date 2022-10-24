@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api
-ms.date: 10/07/2022
+ms.date: 10/20/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -216,8 +216,6 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for Java. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
-
-:::image type="content" source="./media/storage-quickstart-blobs-java/defaultazurecredential-flow-java.png" alt-text="A diagram of the credential flow.":::
 
 For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
@@ -434,9 +432,11 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean-up process, check your *data* folder for the two files. You can open them and observe that they're identical.
+Before you begin the cleanup process, check your *data* folder for the two files. You can compare them and observe that they're identical.
 
-After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
+## Clean up resources
+
+After you've verified the files and finished testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
 
 ## Next steps
 
