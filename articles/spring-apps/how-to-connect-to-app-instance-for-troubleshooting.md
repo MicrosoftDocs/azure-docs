@@ -30,13 +30,14 @@ To specify another deployment of the app:
 az spring app connect -s <Your_Service_instance> -g <Resource_group> -n <App_name> -d green
 ```
 
-Occasionally, you may want switch to some other shell:
+By default, it will be launched with `/bin/sh` bundled in the base image of the container. You can switch to another bundled shell `/bin/bash` by:
 ```
 az spring app connect -s <Your_Service_instance> -g <Resource_group> -n <App_name> --shell-cmd /bin/bash
 ```
+Also, if your app is deployed with a custom image and custom shells, you can specify the shell with `--shell-cmd` as well.
 
-## Troubleshooting Example
-After connecting, you can start to perform the troubleshooting. For example, check the status of the heap memory and GC:
+## Troubleshooting
+After connecting successfully, you can start to perform the troubleshooting. For example, check the status of the heap memory and GC:
 
 Find the pid of the java process, which is usually `1`:
 ```
@@ -50,8 +51,13 @@ jstat -gc 1
 ```
 ![jstat-result](./media/how-to-connect-to-app-instance-for-troubleshooting/jstat-result.png)
 
+## Disconnect
+
+When the troubleshooting is done, you can disconnect from the app instance by running `exit` or pressing `Ctrl+d` simply.
+
 ## Pre-installed tools
-All the JDK-bundled tools such as: `jps`, `jcmd`, `jstat` and etc.
+
+The pre-installed tools includes some common tools as the following:
 
 * lsof - list open files
 * top - display system summary information and current utilization
@@ -62,6 +68,17 @@ All the JDK-bundled tools such as: `jps`, `jcmd`, `jstat` and etc.
 * nc - arbitrary TCP and UDP connections and listens
 * wget - The non-interactive network downloader
 * df - free of disk space
+
+As well as the JDK-bundled tools such as: `jps`, `jcmd`, `jstat` and etc.
+
+The available tools depends on the tier of your service and deployment type of the application: 
+
+| Tier | Deployment Type | Common tools | JDK tools | Notes |
+| -- | -- | -- | -- | -- |
+| Basic / Standard tier | Source code / Jar | Y | Y | |
+| Basic / Standard tier | Custom Image | N | N | Up to your installed toolset |
+| Enterprise Tier | Build Serivce | Y | Y (for java workloads only) | |
+| Enterprise Tier | Custom Image | N | N | Up to your installed toolset |
 
 
 ## Limitations
