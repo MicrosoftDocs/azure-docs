@@ -17,7 +17,7 @@ ms.author: anfdocs
 ---
 # Break file locks on an Azure NetApp Files volume
 
-Azure Netapp Files provide the capabilities to break file locks on NFS and SMB volumes.
+Azure Netapp Files allows you to break file locks on NFS and SMB volumes.
 
 You can break file locks for all files in a volume or limit the breaking to a files in a specified client. Breaking file locks may be disruptive.  
 
