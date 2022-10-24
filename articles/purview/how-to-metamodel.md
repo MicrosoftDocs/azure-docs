@@ -36,7 +36,7 @@ introduction.
 
 1. To create a new asset type, select **New asset type** and add a name, description, and attributes.
 
-    :::image type="content" source="./media/how-to-metamodel/create-and-modify-metamodel-asset-types-inline.png" alt-text="Screenshot of the asset types page in the Microsoft Purview Data Map, with the buttons in steps 1 through 3 highlighted." border="true" lightbox="create-and-modify-metamodel-asset-types.png":::
+    :::image type="content" source="./media/how-to-metamodel/create-and-modify-metamodel-asset-types-inline.png" alt-text="Screenshot of the asset types page in the Microsoft Purview Data Map, with the buttons in steps 1 through 3 highlighted.":::
 
 1. To define a relationship between two asset types, select **New relationship type**.  
 
@@ -60,7 +60,7 @@ introduction.
 
 1. There will be no integration with collections when private preview opens, so all assets created via the metamodel canvas will be listed under the data catalog.
 
-        :::image type="content" source="./media/how-to-metamodel/assets-page.png" alt-text="Screenshot of the business assets page." border="true":::
+    :::image type="content" source="./media/how-to-metamodel/assets-page.png" alt-text="Screenshot of the business assets page." border="true":::
 
 1. To create a new asset, select **New asset**, select the asset type from the drop-down menu, give it a name, description, and complete any required attributes. Select **Create** to save your new asset.
 
