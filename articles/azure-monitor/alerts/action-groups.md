@@ -197,7 +197,7 @@ You might have a limited number of Azure app actions per action group.
 
 ### Email
 
-Ensure that your email filtering is configured appropriately. Emails are sent from the following email addresses:
+Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:
  
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
