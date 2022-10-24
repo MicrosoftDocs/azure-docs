@@ -55,7 +55,7 @@ In order to use Azure Communication Services chat as a channel in Azure Bot Serv
    
    :::image type="content" source="./media/create-azure-bot.png" alt-text="Create Azure Bot":::
 
-   4. Finally create an Azure Bot resource. You might use an existing Microsoft app ID or use a new one created automatically. 
+   4. Finally create an Azure Bot resource. You might use an existing Microsoft app ID or use a new one created automatically. Here we have chosen multitenant bot but if you wish to use single tenant or managed identity bots refer to [confiugring single tenant and managed identity bots](#support-for-single-tenant-and-managed-identity-bots).
    
    :::image type="content" source="./media/smaller-provision-azure-bot.png" alt-text="Provision Azure Bot" lightbox="./media/provision-azure-bot.png":::
 
@@ -108,7 +108,8 @@ The final step would be to deploy the bot logic to the Web App we created. As we
 
    1. To use the samples, clone this GitHub repository using Git.
      ``` 
-     git clone https://github.com/Microsoft/BotBuilder-Samples.gitcd BotBuilder-Samples
+     git clone https://github.com/Microsoft/BotBuilder-Samples.git
+     cd BotBuilder-Samples
      ```
    2. Open the project located here [Echo bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot) in Visual Studio.
 
@@ -130,17 +131,19 @@ The final step would be to deploy the bot logic to the Web App we created. As we
    
    :::image type="content" source="./media/select-app-service.png" alt-text="Select App Service":::
 
-   6. Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment.
+   6. Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to to complete the profile and then `Publish` to start the deployment..
    
    :::image type="content" source="./media/smaller-deployment-config.png" alt-text="Deployment config" lightbox="./media/deployment-config.png":::
 
 ## Step 2 - Get an Azure Communication Services Resource
 Now that you got the bot part sorted out, we'll need to get an Azure Communication Services resource, which we would use for configuring the Azure Communication Services channel.
-1. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). 
+1. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
+
 2. Create a Azure Communication Services User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable Azure Communication Services Chat Channel
-With the Azure Communication Services resource, we can configure the Azure Communication Services channel in Azure Bot to bind an Azure Communication Services User ID with a bot. Note that currently, only the allowlisted Azure account will be able to see Azure Communication Services - Chat channel.
+With the Azure Communication Services resource, we can configure the Azure Communication Services channel in Azure Bot to assign an Azure Communication Services User ID to a bot.
+
 1. Go to your Bot Services resource on Azure portal. Navigate to `Channels` blade and click on `Azure Communications Services - Chat` channel from the list provided. 
  
    :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="DemoApp Launch Acs Chat" lightbox="./media/demoapp-launch-acs-chat.png":::
@@ -269,6 +272,13 @@ chatClient.on("chatMessageReceived", (e) => {
 });
 ```
 
+### Clean up the chat thread
+
+Delete the thread when finished.
+
+```csharp
+chatClient.DeleteChatThread(threadId);
+```
 
 ### Deploy the C# chat application
 If you would like to deploy the chat application, you can follow these steps:
@@ -499,12 +509,6 @@ Sometimes it may be necessary to handoff the chat thread from a bot to a human a
 ### Bot is not able to be added as a participant
 
 - Please verify that bot's ACS Id is being used correctly while sending a request to add bot to a chat thread.
-
-## Upcoming features in GA (General Availability)
-
-- Support for some more activities like Command activity and Invoke activity.
-- Support for more bot activity fields in both user to bot and bot to user directions.
-- EUDB compliance.
 
 ## Next steps
 
