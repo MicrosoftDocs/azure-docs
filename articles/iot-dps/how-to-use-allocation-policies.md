@@ -24,11 +24,14 @@ DPS supports four allocation policies:
 
 * **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they're equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. *Evenly weighted distribution* is the default allocation policy for a DPS instance. If you're provisioning devices to only one IoT hub, we recommend using this policy.
 
-* **Lowest latency**: devices are provisioned to the IoT hub with the lowest latency to the device. If multiple IoT hubs would provide the lowest latency, DPS hashes devices across those hubs.
+* **Lowest latency**: devices are provisioned to the IoT hub with the lowest latency to the device. If multiple IoT hubs would provide the lowest latency, DPS hashes devices across those hubs based on their configured allocation weight.
 
 * **Static configuration**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
 
 * **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md). Can't be set as the DPS instance default policy.
+
+> [!NOTE]
+> The preceding list shows the names of the allocation policies as they appear in the Azure portal. When setting the allocation policy using the DPS REST API, Azure CLI, and DPS service SDKs, they are referred to as follows: **hashed**, **geolatency**, **static**, **custom**.
 
 There are two settings on a linked IoT hub that control how it participates in allocation:
 

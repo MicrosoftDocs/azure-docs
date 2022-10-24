@@ -11,7 +11,7 @@ services: iot-dps
 
 # How to reprovision devices
 
-During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. This topic is written to assist solution operators configuring reprovisioning policies.
+During the lifecycle of an IoT solution, it's common to move devices between IoT hubs. This topic is written to assist solution operators configuring reprovisioning policies.
 
 For more a more detailed overview of reprovisioning scenarios, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
 
@@ -27,9 +27,9 @@ The following steps configure the allocation policy for a device's enrollment:
 
 3. Under **Select how you want to assign devices to hubs**, select one of the following allocation policies:
 
-    * **Lowest latency**: This policy assigns devices to the linked IoT Hub that will result in the lowest latency communications between device and IoT Hub. This option enables the device to communicate with the closest IoT hub based on location.
+    * **Lowest latency**: This policy assigns devices to the IoT Hub that will result in the lowest latency communications between device and IoT Hub. This option enables the device to communicate with the closest IoT hub based on location.
 
-    * **Evenly weighted distribution**: This policy distributes devices across the linked IoT Hubs based on the allocation weight assigned to each linked IoT hub. This policy allows you to load balance devices across a group of linked hubs based on the allocation weights set on those hubs. If you are provisioning devices to only one IoT Hub, we recommend this setting. This setting is the default.
+    * **Evenly weighted distribution**: This policy distributes devices across the IoT Hubs based on the allocation weight configured on each linked IoT hub. IoT hubs with a higher allocation weight are more likely to be assigned. If you're provisioning devices to only one IoT Hub, we recommend this setting. This setting is the default.
 
     * **Static configuration**: This policy requires a desired IoT Hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single specific IoT hub that you want to assign devices to.
 
@@ -37,9 +37,9 @@ The following steps configure the allocation policy for a device's enrollment:
 
 4. Under **Select the IoT hubs this group can be assigned to**, select the linked IoT hubs that you want included with your allocation policy. Optionally, add a new linked Iot hub using the **Link a new IoT Hub** button.
 
-    * With the **Lowest latency** allocation policy, the hubs you select will be included in the latency evaluation to determine the closest hub for device assignment.
+    * With the **Lowest latency** allocation policy, the IoT hubs you select will be included in the latency evaluation to determine the closest hub for device assignment.
 
-    * With the **Evenly weighted distribution** allocation policy, devices will be load balanced across the hubs you select based on their configured allocation weights.
+    * With the **Evenly weighted distribution** allocation policy, devices will be hashed across the IoT hubs you select based on their configured allocation weights.
 
     * With the **Static configuration** allocation policy, select the IoT hub you want devices assigned to.
 
