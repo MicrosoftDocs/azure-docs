@@ -10,9 +10,9 @@ ms.author: lwainstein
 
 # Stream CEF logs with the AMA connector
 
-This article describes how to use the **CEF over AMA** connector to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
+This article describes how to use the **Common Event Format (CEF) via AMA** connector to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
 
-The connector uses the Azure Monitor Agent (AMA), which supports Data Collection Rules (DCRs) in the cloud. With DCRs, you can filter the logs before upload, for quicker upload, efficient analysis, and querying.
+The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
 
 The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. [Learn more about the connector](#how-collection-works-with-the-windows-dns-events-via-ama-connector).
 
@@ -27,16 +27,18 @@ Many network, security appliances, and devices send their logs in the CEF format
 
 If your appliance or system sends logs over Syslog using CEF, the integration with Microsoft Sentinel allows you to easily run analytics and queries across the data.
 
-CEF over Syslog normalizes the data, making it more immediately useful for analysis with Microsoft Sentinel. Microsoft Sentinel also allows you to ingest unparsed Syslog events, and to analyze them with query time parsing. 
+CEF normalizes the data, making it more immediately useful for analysis with Microsoft Sentinel. Microsoft Sentinel also allows you to ingest unparsed Syslog events, and to analyze them with query time parsing. 
 
-### How collection works with the Windows DNS Events via AMA connector
+### How collection works with the Common Event Format (CEF) via AMA connector
+
+:::image type="content" source="media/connect-cef-ama/cef-forwarder-diagram.png" alt-text="Diagram showing the CEF log forwarding procedure." border="false":::
 
 1. Your organization sets up a log forwarder (Linux VM), if one doesn't already exist. The forwarder can be on-premises or cloud-based.
 1. Your organization uploads CEF logs from your source devices to the forwarder.
 1. The AMA connector installed on the log forwarder collects and parses the logs. 
 1. The connector streams the events to the Microsoft Sentinel workspace to be further analyzed. 
 
-## Set up the CEF over AMA connector
+## Set up the Common Event Format (CEF) via AMA connector
 
 ### Prerequisites
 
@@ -46,7 +48,7 @@ Before you begin, verify that you have:
 - A defined Microsoft Sentinel workspace.
 - A Linux machine to collect logs.
     - The Linux machine must have Python 2.7 or 3 installed on the Linux machine. Use the ``python --version`` or ``python3 --version`` command to check.
-- Either the `syslog` or `rsyslog` service enabled.
+- Either the `syslog-ng` or `rsyslog` daemon enabled.
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
     - Windows servers installed on physical machines
     - Windows servers installed on on-premises virtual machines
@@ -54,21 +56,16 @@ Before you begin, verify that you have:
 
 ### Configure a log forwarder
 
-To ingest Syslog and CEF logs into Microsoft Sentinel, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud.
+To ingest Syslog and CEF logs into Microsoft Sentinel, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. This machine must have Azure Arc installed (see the [prerequisites](#prerequisites)).
 
 This machine has two components that take part in this process:
 
 - A Syslog daemon, either `rsyslog` or `syslog-ng`, which collects the logs.
 - The AMA, which forwards the logs to Microsoft Sentinel.
 
-When you set up the connector and the DCR, you [run a script](#run-the-installation-script) on the Linux machine, which performs the following tasks:
+When you set up the connector and the DCR, you [run a script](#run-the-installation-script) on the Linux machine, which configures the built-in Linux Syslog daemon (`rsyslog.d`/`syslog-ng`) to listen for Syslog messages from your security solutions on TCP/UDP port 514.
 
-- Installs the AMA and configures it to: 
-    - listen for CEF messages from the built-in Linux Syslog daemon on TCP port 25226
-    - send the messages securely over TLS to your Microsoft Sentinel workspace, where they are parsed and enriched
-- Configures the built-in Linux Syslog daemon (`rsyslog.d`/`syslog-ng`) to: 
-    - listen for Syslog messages from your security solutions on TCP port 514
-    - forward only the messages it identifies as CEF to the Log Analytics agent on localhost using Unix domain socket (UDS) port [TBD - is this relevant or should we remove altogether?]
+The DCR installs the AMA to collect and parse the logs.
 
 #### Log forwarder - security considerations
 
@@ -95,12 +92,16 @@ You can set up the connector in two ways:
 ##### Open the connector page and create the DCR
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
-1. In the **Data connectors** blade, in the search bar, type *CEF*.
+1. Select **Data connectors**, and in the search bar, type *CEF*.
 1. Select the **CEF over AMA (Preview)** connector.
 1. Below the connector description, select **Open connector page**.
 1. In the **Configuration** area, select **Add data collection rule**. 
-
-The DCR name, subscription, and resource group are automatically set based on the workspace name, the current subscription, and the resource group the connector was selected from.
+1. Select the **Basics** tab: 
+    - Type a DCR name
+    - Select your subscription
+    - Select the resource group where your collector is defined 
+    - Fill in the region where you want your DCR to be saved
+    - In the **Platform Type**, select **Linux**.
 
 [SCREENSHOT TBD]
 
@@ -118,7 +119,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 ##### Select the data source type and create the DCR
 
 > [!NOTE]
-> Select at least one facility and a minimum log level for the facility. You edit this list at a later stage to align with CEF, after you have the DCR template.
+> Select at least one facility and a minimum log level for the facility.
 
 1. Select the **Collect** tab and select **Linux syslog** as the data source type.
 1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with lower severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_WARNING**, **LOG_NOTICE**, **LOG_INFO**, and **LOG_DEBUG** levels.
@@ -131,20 +132,26 @@ Select the machines on which you want to install the AMA. These machines are VMs
 ##### Run the installation script
 
 1.	Log in to the Linux forwarder machine, where you want the AMA to be installed.
-1.	[Edit the DCR stream](#request-body).
 1.	Run this command to launch the installation script:
  
 ```python
 sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
 ```
-The installation script configures the `rsyslog` or `syslog` daemon to use the required protocol and restarts the daemon.
+The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.
 
 > [!NOTE] 
-> To avoid full disk scenarios where the agent can't function, we recommend that you set the `syslog` or `rsyslog` configuration not to store unneeded logs.
+> To avoid full disk scenarios where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs.
 
 ### Set up the connector with the API
 
-You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).  
+You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).
+
+Run this command to launch the installation script:
+ 
+```python
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+```
+The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.  
 
 #### Request URL and header  
 
@@ -169,44 +176,32 @@ Edit the template:
                     "streams": [
                         "Microsoft-CommonSecurityLog"
                     ],
+
                     "facilityNames": [
                         "*"
                     ],
                     "logLevels": [ "*"
                     ],
                     "name": "sysLogsDataSource-1688419672"
+                    }
+                ]
+            },
+            "destinations": { 
+                "logAnalytics": [
+                {
+                    "workspaceResourceId": "/subscriptions/{Your-Subscription-
+Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{SentinelWorkspaceName}", "workspaceId": "f746b3d7-5b3b-485e-b268-88bc2ca88bad",
+"name": "la-140366483"
                 }
             ]
         },
-        "destinations": { 
-            "logAnalytics": [
-            "logLevels": [ 
-                "Warning", 
-                "Error", 
-                "Critical", 
-                "Alert", 
-                "Emergency"
-            ],
-            "name": "sysLogsDataSource-1688419672"
-            }
-        ]
-    },
-    "destinations": { 
-        "logAnalytics": [ 
-            {
-                "workspaceResourceId": "/subscriptions/{Your-Subscription-
-Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{SentinelWorkspaceName}", "workspaceId": "f746b3d7-5b3b-485e-b268-88bc2ca88bad",
-"name": "la-140366483"
-            }
-        ]
-    },
-    "dataFlows": [
+        "dataFlows": [
             {
                 "streams": [
                     "Microsoft-CommonSecurityLog"
                 ],
                 "destinations": [ 
-                "la-140366483"
+                    "la-140366483"
                 ]
             }
         ],
@@ -269,7 +264,7 @@ This example collects events for:
         "syslog": [
             {
                 "streams": [ 
-                    "Microsoft-Syslog"
+                    "Microsoft-CommonSecurityLog"
             ],
                 "facilityNames": [ 
                     "authpriv", 
@@ -287,7 +282,7 @@ This example collects events for:
                 "name": "sysLogsDataSource--1469397783"
         },
         {
-                "streams": [ "Microsoft-Syslog"
+                "streams": [ "Microsoft-CommonSecurityLog"
             ],
                 "facilityNames": [ 
                     "daemon"
@@ -304,7 +299,7 @@ This example collects events for:
         },
         {
                 "streams": [ 
-                    "Microsoft-Syslog"
+                    "Microsoft-CommonSecurityLog"
             ],
                 "facilityNames": [ 
                     "kern",
@@ -321,7 +316,7 @@ This example collects events for:
         },
         {
                 "streams": [ 
-                    "Microsoft-Syslog"
+                    "Microsoft-CommonSecurityLog"
             ],
                 "facilityNames": [ 
                     "mail",
@@ -337,14 +332,21 @@ This example collects events for:
 ```
 ### Test the connector
 
-1. To validate that the `rsyslog` service is listening on the UDP port and that the AMA is listening, run this command:
+1. To validate that the `syslog-ng` daemon is listening on the UDP port and that the AMA is listening, run this command:
 
     ```
     netstat -lnptv
     ```
 
-    You should see the `rsyslog` or `syslog` daemon listening on port 514, and the AMA listening on port 28130 listed under `mdsd` (`azuremonitoringagnet`).
-1. To capture messages sent from a logger or a connected device, run this command:
+    You should see the `rsyslog` or `syslog-ng` daemon listening on port 514. 
+
+1. To verify that the is AMA listening on port 28130, run the following command:
+
+    ```
+    sudo service azuremonitoragent status
+    ```
+
+1. To capture messages sent from a logger or a connected device, run this command in the background:
 
     ```
     tcpdump -I any port 514 -A vv &

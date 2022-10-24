@@ -27,19 +27,19 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2022
 
-- [CEF via AMA connector (Preview)](#cef-via-ama-connecter-preview)
+- [Common Event Format (CEF) via AMA](#common-event-format-cef-via-ama-preview)
 
-### CEF via AMA connecter (Preview)
+### Common Event Format (CEF) via AMA (Preview)
 
-The [CEF over AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
+The [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs over CEF from multiple on-premises appliances to Microsoft Sentinel via the Azure Monitor Agent (AMA). 
 
-The connector uses the Azure Monitor Agent (AMA), which supports Data Collection Rules (DCRs) in the cloud. With DCRs, you can filter the logs before upload, for quicker upload, efficient analysis, and querying.
+The AMA supports Data Collection Rules (DCRs), which you can use to filter the logs before ingestion, for quicker upload, efficient analysis, and querying.
 
 Here are some benefits of using AMA for CEF log collection:
 
-- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
+- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). 
 - AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
-- AMA supports filtering of the data. The data is filtered on the Linux machine and before the data is uploaded, which saves time and resources.
+- AMA is Syslog RFC compliant, a faster and a more resilient and reliant agent, more secure with lower footprint on the installed machine.
 
 ## September 2022
 
