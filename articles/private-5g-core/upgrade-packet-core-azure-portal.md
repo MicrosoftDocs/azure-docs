@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
 
-If you deployment contains multiple sites, we recommend upgrading a single packet core instance first to ensure the upgrade is successful before upgrading the remaining instances.
+If your deployment contains multiple sites, we recommend upgrading a single packet core instance first to ensure the upgrade is successful before upgrading the remaining instances.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ If you deployment contains multiple sites, we recommend upgrading a single packe
 
 ## View the current packet core version
 
-To check which version your packet core instance is currently running, and whether there is a newer version available:
+To check which version your packet core instance is currently running, and whether there's a newer version available:
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
@@ -60,7 +60,7 @@ The following list contains data that will get lost over a packet core upgrade. 
 
 1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
 2. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
-3. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed up copy of your dashboards.
+3. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
 4. If you have data that you directly entered into the packet core instance during installation, this will be lost over upgrade. Note down your relevant packet core configuration and save it in a secure location. <!-- TODO: clarify what data this could be -->
 5. Gather a list of your devices and sessions. After the upgrade, you'll need to re-register your devices and recreate any sessions.
 
@@ -94,8 +94,8 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 
 1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
 2. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
-3. If you have backed up packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
-4. If you have backed up packet core configuration, follow <><!-- TODO: link to relevant procedure --> to restore it.
+3. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
+4. If you backed up any packet core configuration, follow <><!-- TODO: link to relevant procedure --> to restore it.
 5. Re-register your devices and recreate any sessions.
 
 ### Verify upgrade
@@ -110,7 +110,7 @@ Once the upgrade completes, check if your deployment is operating normally.
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the previous version.
 
-Note that any configuration you set while your packet core instance was running a newer versions will be lost if you roll back to a version that does not support this configuration. Check the release notes for information on when new features were introduced.
+Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the release notes for information on when new features were introduced.
 
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
 2. Navigate to the **Packet Core Control Plane** resource that you want to roll back as described in [View the current packet core version](#view-the-current-packet-core-version).
