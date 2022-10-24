@@ -143,4 +143,4 @@ Remove-AzResourceGroup -Name myResourceGroup
 Learn more about Azure Monitor for SAP solutions.
 
 > [!div class="nextstepaction"]
-> [Monitor SAP on Azure](monitor-sap-on-azure.md)
+> [Monitor SAP on Azure](about-azure-monitor-sap-solutions.md)

@@ -23,7 +23,7 @@ There are currently two versions of this product, *Azure Monitor for SAP solutio
 
 You can use Azure Monitor for SAP solutions to collect data from Azure infrastructure and databases in one central location. Then, you can visually correlate the data for faster troubleshooting.
 
-To monitor different components of an SAP landscape (such as Azure VMs, high-availability clusters, SAP HANA databases, SAP NetWeaver, etc.), add the corresponding *[provider](./azure-monitor-providers.md)*. For more information, see [how to deploy Azure Monitor for SAP solutions through the Azure portal](azure-monitor-sap-quickstart.md).
+To monitor different components of an SAP landscape (such as Azure VMs, high-availability clusters, SAP HANA databases, SAP NetWeaver, etc.), add the corresponding *[provider](./providers.md)*. For more information, see [how to deploy Azure Monitor for SAP solutions through the Azure portal](quickstart-portal.md).
 
 The following table provides a quick comparison of the Azure Monitor for SAP solutions (classic) and Azure Monitor for SAP solutions. 
 
@@ -187,7 +187,7 @@ Azure Monitor for SAP solutions doesn't support metrics.
 
 ### Analyze logs
 
-Azure Monitor for SAP solutions doesn't support resource logs or activity logs. For a list of the tables used by Azure Monitor Logs that can be queried by Log Analytics, see [the data reference for monitoring SAP on Azure](monitor-sap-on-azure-reference.md#azure-monitor-logs-tables). 
+Azure Monitor for SAP solutions doesn't support resource logs or activity logs. For a list of the tables used by Azure Monitor Logs that can be queried by Log Analytics, see [the data reference for monitoring SAP on Azure](data-reference.md#azure-monitor-logs-tables). 
 
 ### Make Kusto queries
 
@@ -204,14 +204,14 @@ custom log name
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. You can then identify and address issues in your system before your customers notice them.
 
-You can configure alerts in Azure Monitor for SAP solutions from the Azure portal. For more information, see [how to configure alerts in Azure Monitor for SAP solutions with the Azure portal](azure-monitor-alerts-portal.md).
+You can configure alerts in Azure Monitor for SAP solutions from the Azure portal. For more information, see [how to configure alerts in Azure Monitor for SAP solutions with the Azure portal](get-alerts-portal.md).
 
 ### How can you create Azure Monitor for SAP solutions resources?
 
 You have several options to deploy Azure Monitor for SAP solutions and configure providers:
 
-- [Deploy Azure Monitor for SAP solutions directly from the Azure portal](azure-monitor-sap-quickstart.md)
-- [Deploy Azure Monitor for SAP solutions with Azure PowerShell](azure-monitor-sap-quickstart-powershell.md)
+- [Deploy Azure Monitor for SAP solutions directly from the Azure portal](quickstart-portal.md)
+- [Deploy Azure Monitor for SAP solutions with Azure PowerShell](quickstart-powershell.md)
 - [Deploy Azure Monitor for SAP solutions (classic) using the Azure Command-Line Interface (Azure CLI)](https://github.com/Azure/azure-hanaonazure-cli-extension#sapmonitor).
 
 ## What is the pricing?
@@ -235,5 +235,5 @@ You can enable data sharing with Microsoft when you create Azure Monitor for SAP
 
 ## Next steps
 
-- For a list of custom logs relevant to Azure Monitor for SAP solutions and information on related data types, see [Monitor SAP on Azure data reference](monitor-sap-on-azure-reference.md).
-- For information on providers available for Azure Monitor for SAP solutions, see [Azure Monitor for SAP solutions providers](azure-monitor-providers.md).
+- For a list of custom logs relevant to Azure Monitor for SAP solutions and information on related data types, see [Monitor SAP on Azure data reference](data-reference.md).
+- For information on providers available for Azure Monitor for SAP solutions, see [Azure Monitor for SAP solutions providers](providers.md).

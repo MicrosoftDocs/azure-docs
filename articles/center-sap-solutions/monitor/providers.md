@@ -179,4 +179,4 @@ You can configure one or more IBM Db2 providers. The following data is available
 Learn how to deploy Azure Monitor for SAP solutions from the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Monitor for SAP solutions by using the Azure portal](./azure-monitor-sap-quickstart.md)
+> [Deploy Azure Monitor for SAP solutions by using the Azure portal](./quickstart-portal.md)

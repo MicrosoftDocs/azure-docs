@@ -203,5 +203,5 @@ Add outbound security rules:
     
 ## Next steps
 
-- [Quickstart: set up Azure Monitor for SAP solutions through the Azure portal](azure-monitor-sap-quickstart.md)
-- [Quickstart: set up Azure Monitor for SAP solutions with PowerShell](azure-monitor-sap-quickstart-powershell.md)
+- [Quickstart: set up Azure Monitor for SAP solutions through the Azure portal](quickstart-portal.md)
+- [Quickstart: set up Azure Monitor for SAP solutions with PowerShell](quickstart-powershell.md)

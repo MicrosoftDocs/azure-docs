@@ -57,4 +57,4 @@ items:
   - name: SAP on Azure Deployment Automation Framework
     href: ../virtual-machines/workloads/sap/automation-deployment-framework.md
   - name: Azure Monitor for SAP solutions
-    href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md
+    href: ../virtual-machines/workloads/sap/about-azure-monitor-sap-solutions.md

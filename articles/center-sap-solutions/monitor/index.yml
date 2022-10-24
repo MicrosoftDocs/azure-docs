@@ -17,56 +17,56 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Monitor for SAP solutions?
-            url: monitor-sap-on-azure.md
+            url: about-azure-monitor-sap-solutions.md
           - text: Frequently asked questions (FAQ)
-            url: azure-monitor-faq.yml
+            url: faq.yml
           
   - title: Concepts
     linkLists:
       - linkListType: concept
         links: 
           - text: Providers in Azure Monitor for SAP solutions 
-            url: azure-monitor-providers.md
+            url: providers.md
 
   - title: Quickstarts
     linkLists:
       - linkListType: quickstart
         links:
           - text: Get started with Azure Monitor for SAP solutions - Azure portal
-            url: azure-monitor-sap-quickstart.md
+            url: quickstart-portal.md
           - text: Get started with Azure Monitor for SAP solutions - PowerShell
-            url: azure-monitor-sap-quickstart-powershell.md
+            url: quickstart-powershell.md
 
   - title: How-to guides
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Set up network for Azure Monitor for SAP solutions
-            url: create-network-azure-monitor-sap-solutions.md
+            url: set-up-network.md
           - text: Configure Azure Monitor for SAP solutions alerts in Azure portal
-            url: azure-monitor-alerts-portal.md
+            url: get-alerts-portal.md
 
   - title: Configure providers
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Configure NetWeaver
-            url: configure-netweaver-azure-monitor-sap-solutions.md
+            url: provider-netweaver.md
           - text: Configure SAP HANA
-            url: configure-hana-azure-monitor-sap-solutions.md
+            url: provider-hana.md
           - text: Configure Microsoft SQL Server
-            url: configure-sql-server-azure-monitor-sap-solutions.md
+            url: provider-sql-server.md
           - text: Configure High-availability cluster (Pacemaker)
-            url: configure-ha-cluster-azure-monitor-sap-solutions.md
+            url: provider-ha-pacemaker-cluster.md
           - text: Configure OS (Linux)
-            url: configure-linux-os-azure-monitor-sap-solutions.md
+            url: provider-linux.md
           - text: Configure IBM Db2
-            url: configure-db-2-azure-monitor-sap-solutions.md
+            url: provider-ibm-db2
 
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
           - text: Azure Monitor for SAP solutions reference
-            url: monitor-sap-on-azure-reference.md
+            url: data-reference.md
         
