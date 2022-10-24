@@ -6,6 +6,7 @@ ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 06/24/2022
 ms.custom: event-tier1-build-2022
+ms.custom: references_regions
 manager: nitinme
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -168,7 +169,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
-\*Models available by request only. Please open a support reuqest
+\*Models available by request only. Please open a support request.
 
 ### Codex Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
