@@ -18,11 +18,20 @@ ms.reviewer: franksolomon
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+`MLTable` is a way to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
+
+The ideal scenarios to use mltable are:
+
+- The schema of your data is complex and/or changes frequently.
+- You only need a subset of data (for example: a sample of rows or files, specific columns, etc).
+- AutoML jobs requiring tabular data.
+If your scenario does not fit the above then it is likely that [URIs](reference-yaml-data.md) are a more suitable type.
+
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/MLTable.schema.json.
 
 
 > [!Note]
-> `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could just use `uri_file`, `uri_folder` as mentioned in [CLI (v2) data YAML schema](/reference-yaml-data.md).
+> If you just want to create an data asset for a job or you want to write your own parsing logic in python you could just use `uri_file`, `uri_folder` as mentioned in [CLI (v2) data YAML schema](reference-yaml-data.md).
 
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
@@ -38,7 +47,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/sdk/assets/data). And please find examples below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/assets/data). And please find examples below.
 
 ## MLTable paths: file
 ```yaml
@@ -72,9 +81,9 @@ These are transforms that all mltable-artifact files support:
 - `take_random_sample`: Takes a random sample of the table where each record has a *probability* of being selected. The user can also include a *seed*.
 - `drop_columns`: Drops the specified columns from the table. This transform supports regex so that users can drop columns matching a particular pattern.
 - `keep_columns`: Keeps only the specified columns in the table. This transform supports regex so that users can keep columns matching a particular pattern.
-- `convert_column_types` 
-      - `columns`: The column name you want to convert type of.
-      - `column_type`: The type you want to convert the column to, e.g. string, float, int, or datetime with specified formats.
+- `convert_column_types`
+  - `columns`: The column name you want to convert type of.
+  - `column_type`: The type you want to convert the column to, e.g. string, float, int, or datetime with specified formats.
 
 ## MLTable transformations: read_delimited
 
