@@ -114,7 +114,8 @@ If you don't have access to install the extension, you must request access from 
 
 The pipeline will run for a few minutes and save the results.
 
-[!Note] Please ensure SARIF SAST Scans Tab extension is installed on the Azure DevOps organization to ensure the generated analysis results will be displayed automatically under the "Scans" tab.
+> [!Note] 
+> Install the SARIF SAST Scans Tab extension on the Azure DevOps organization in order to ensure that the generated analysis results will be displayed automatically under the Scans tab.
 
 ## Learn more
 
