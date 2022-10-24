@@ -5,7 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 10/23/2022
+ms.date: 10/24/2022
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
 
