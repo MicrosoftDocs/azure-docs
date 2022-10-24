@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume from 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 10/24/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -65,8 +65,8 @@ By default, no network access is allowed to any volumes in a volume group. Addin
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your SAN and select **Volume groups**.
-1. Select a volume group and select **Modify**.
-1. Add an existing virtual network and select **Save**.
+1. Select a volume group and select **Create**.
+1. Add an existing virtual network and subnet and select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 
