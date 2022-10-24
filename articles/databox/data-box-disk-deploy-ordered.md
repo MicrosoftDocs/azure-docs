@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/07/2022
+ms.date: 10/21/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -105,7 +105,7 @@ Take the following steps to order Data Box Disk.
     
     ![Screenshot of Data Box Disk encryption type](media/data-box-disk-deploy-ordered/dbd-encryption.png)
 
-    Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.
+    Configuring a customer-managed key for your Azure Data Box Disk is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.
 
     A customer-managed key doesn't affect how data on the device is encrypted. The key is only used to encrypt the device unlock passkey.
 
