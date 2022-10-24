@@ -27,9 +27,6 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Multiple Kubernetes services cannot use the same host port with different protocols (e.g. TCP or UDP) ([Cilium issue #14287](https://github.com/cilium/cilium/issues/14287)).
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
 
-> [!NOTE]
-> - Azure CNI Powered by Cilium is currently only available in the following regions: TODO
-
 ## Before you begin
 
 1. [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
