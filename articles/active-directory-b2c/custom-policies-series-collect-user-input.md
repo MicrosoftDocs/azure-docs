@@ -47,7 +47,7 @@ In this article, you'll learn how to write a custom policy that collects user in
 
 Declare additional claims alongside *objectId* and *message*: 
 
-1. In VS Code, open the file `ContosoCustomPolicy.XML`. 
+1. In VS Code, open the `ContosoCustomPolicy.XML` file. 
 
 1. In the `ClaimsSchema` section, add the following [ClaimType](claimsschema.md) declarations: 
 
