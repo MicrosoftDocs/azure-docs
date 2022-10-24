@@ -313,7 +313,7 @@ The following command mirrors 10% of the traffic to the `green` deployment:
 The following command mirrors 10% of the traffic to the `green` deployment:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=new_deployment_traffic)]
-
+You can test mirror traffic by invoking the endpoint several times:
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=several_tests_to_mirror_traffic)]
 
 ---
