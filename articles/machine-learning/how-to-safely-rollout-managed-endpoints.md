@@ -297,7 +297,7 @@ Though `green` has 0% of traffic allocated, you can still invoke the endpoint an
 ## Test the deployment with mirrored traffic (preview)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the blue deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors.
+Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the `blue` deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors.
 
 > [!WARNING]
 > Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
@@ -307,17 +307,21 @@ Once you've tested your `green` deployment, you can copy (or 'mirror') a percent
 The following command mirrors 10% of the traffic to the `green` deployment:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_with_mirror_traffic" :::
+
 You can test mirror traffic by invoking the endpoint several times:
 
 ```azurecli
 for i in {1..20} ; do
     az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
 done
+```
+
 # [Python](#tab/python)
 
 The following command mirrors 10% of the traffic to the `green` deployment:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=new_deployment_traffic)]
+
 You can test mirror traffic by invoking the endpoint several times:
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=several_tests_to_mirror_traffic)]
 
@@ -336,21 +340,25 @@ Also note the following behavior:
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
 
 # [Azure CLI](#tab/azure-cli)
-You can confirm that the specific percentage of the traffic was sent to 'green' deployment by seeing the logs from the deployment:
+You can confirm that the specific percentage of the traffic was sent to the `green` deployment by seeing the logs from the deployment:
 
 ```azurecli
 az ml online-deployment get-logs --name blue --endpoint $ENDPOINT_NAME
+```
+
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="reset_mirror_traffic" :::
 
 # [Python](#tab/python)
-You can confirm that the specific percentage of the traffic was sent to 'green' deployment by seeing the logs from the deployment:
+You can confirm that the specific percentage of the traffic was sent to the `green` deployment by seeing the logs from the deployment:
 
 ```python
 ml_client.online_deployments.get_logs(
     name="green", endpoint_name=online_endpoint_name, lines=50
-)```
+)
+```
+
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=disable_traffic_mirroring)]
