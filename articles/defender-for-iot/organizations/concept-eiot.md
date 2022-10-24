@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/19/2022
 ---
 
-# Enterprise IoT device security with Defender for Endpoint and Defender for IoT
+# Secure IoT devices in the enterprise
 
 <!--these include files don't work [!INCLUDE [Microsoft 365 Defender rebranding](/microsoft-365/security/includes/microsoft-defender.md)]-->
 
