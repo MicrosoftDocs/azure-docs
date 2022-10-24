@@ -128,6 +128,8 @@
       href: howto-connect.md
     - name: Ingest data
       items:
+        - name: Azure Blob Storage (ABS)
+          href: howto-ingest-azure-blob-storage.md
         - name: Azure Stream Analytics (ASA)
           href: howto-ingest-azure-stream-analytics.md
         - name: Azure Data Factory (ADF)

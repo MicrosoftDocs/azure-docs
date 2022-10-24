@@ -17,7 +17,7 @@ This article describes the required configurations and components to enable SAP 
 
 The article puts emphasis on end-to-end user mapping between the known Azure AD identity in Power Query and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation.
 
-The focus of the described configuration is on the [Azure API Management](/azure/api-management/), [SAP Gateway](https://help.sap.com/viewer/product/SAP_GATEWAY), [SAP OAuth 2.0 Server with AS ABAP](https://help.sap.com/docs/SAP_NETWEAVER_750/e815bb97839a4d83be6c4fca48ee5777/0b899f00477b4034b83aa31764361852.html), and OData sources, but the concepts used apply to any web-based resource.
+The focus of the described configuration is on the [Azure API Management](../../../api-management/index.yml), [SAP Gateway](https://help.sap.com/viewer/product/SAP_GATEWAY), [SAP OAuth 2.0 Server with AS ABAP](https://help.sap.com/docs/SAP_NETWEAVER_750/e815bb97839a4d83be6c4fca48ee5777/0b899f00477b4034b83aa31764361852.html), and OData sources, but the concepts used apply to any web-based resource.
 
 > [!IMPORTANT]
 > Note: SAP Principal Propagation ensures user-mapping to the licensed named SAP user. For any SAP license related questions please contact your SAP representative.
@@ -38,28 +38,28 @@ Integrations between SAP products and the Microsoft 365 portfolio range from cus
 
 -   [Export from SAP List Viewer (ALV) to Microsoft Excel](https://help.sap.com/docs/ABAP_PLATFORM_NEW/b1c834a22d05483b8a75710743b5ff26/4ec38f8788d22b90e10000000a42189d.html)
 
-The mechanism described in this article uses the standard built-in OData capabilities of Power Query and puts emphasis for SAP landscapes deployed on Azure. Address on-premises landscapes with the Azure API Management [self-hosted Gateway](/azure/api-management/self-hosted-gateway-overview).
+The mechanism described in this article uses the standard built-in OData capabilities of Power Query and puts emphasis for SAP landscapes deployed on Azure. Address on-premises landscapes with the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
-For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query-what-is-power-query#where-can-you-use-power-query).
+For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
 
 ## Setup considerations
 
 End users have a choice between local desktop or web-based clients (for instance Excel or Power BI). The client execution environment needs to be considered for the network path between the client application and the target SAP workload. Network access solutions such as VPN aren't in scope for apps like Excel for the web.
 
-[Azure API Management](/services/api-management/) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2)
-or [external](/azure/api-management/api-management-using-with-vnet?tabs=stv2)). `Internal` refers to instances that are fully restricted to a private virtual network whereas `external` retains public access to Azure API Management. On-premises installations require a hybrid deployment to apply the approach as is using the Azure API Management [self-hosted Gateway](/azure/api-management/self-hosted-gateway-overview).
+[Azure API Management](/azure/api-management/) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](../../../api-management/api-management-using-with-internal-vnet.md?tabs=stv2)
+or [external](../../../api-management/api-management-using-with-vnet.md?tabs=stv2)). `Internal` refers to instances that are fully restricted to a private virtual network whereas `external` retains public access to Azure API Management. On-premises installations require a hybrid deployment to apply the approach as is using the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
-Power Query requires matching API service URL and Azure AD application ID URL. Configure a [custom domain for Azure API Management](/azure/api-management/configure-custom-domain) to meet the requirement.
+Power Query requires matching API service URL and Azure AD application ID URL. Configure a [custom domain for Azure API Management](../../../api-management/configure-custom-domain.md) to meet the requirement.
 
 [SAP Gateway](https://help.sap.com/docs/SAP_GATEWAY) needs to be configured to expose the desired target OData services. Discover and activate available services via SAP transaction code `/IWFND/MAINT_SERVICE`. For more information, see SAP's [OData configuration](https://help.sap.com/docs/SAP_GATEWAY).
 
 ## Azure API Management custom domain configuration
 
-See below the screenshot of an example configuration in API Management using a custom domain called `api.custom-apim.domain.com` with a managed certificate and [Azure App Service Domain](/azure/app-service/manage-custom-dns-buy-domain). For more domain certificate options, see the Azure API Management [documentation](/azure/api-management/configure-custom-domain?tabs=managed).
+See below the screenshot of an example configuration in API Management using a custom domain called `api.custom-apim.domain.com` with a managed certificate and [Azure App Service Domain](../../../app-service/manage-custom-dns-buy-domain.md). For more domain certificate options, see the Azure API Management [documentation](../../../api-management/configure-custom-domain.md?tabs=managed).
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/apim-custom-domain-configuration.png" alt-text="Screenshot that shows the custom domain configuration in Azure API Management.":::
 
-Complete the setup of your custom domain as per the domain requirements. For more information, see the [custom domain documentation](/azure/api-management/configure-custom-domain?tabs=managed#set-a-custom-domain-name---portal). To prove domain name ownership and grant access to the certificate, add those DNS records to your Azure App Service Domain `custom-apim.domain.com` as below:
+Complete the setup of your custom domain as per the domain requirements. For more information, see the [custom domain documentation](../../../api-management/configure-custom-domain.md?tabs=managed#set-a-custom-domain-name---portal). To prove domain name ownership and grant access to the certificate, add those DNS records to your Azure App Service Domain `custom-apim.domain.com` as below:
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/apim-custom-domain-setup.png" alt-text="Screenshot that shows custom domain mapping to Azure API Management domain.":::
 
@@ -98,11 +98,11 @@ In addition to the support of the **Organizational Account login flow**, the pol
 ```
 
 > [!NOTE]
-> For more information about secure SAP access from the Internet and SAP perimeter network design, see this [guide](/azure/architecture/guide/sap/sap-internet-inbound-outbound#network-design). Regarding securing SAP APIs with Azure, see this [article](/azure/virtual-machines/workloads/sap/expose-sap-process-orchestration-on-azure).
+> For more information about secure SAP access from the Internet and SAP perimeter network design, see this [guide](/azure/architecture/guide/sap/sap-internet-inbound-outbound#network-design). Regarding securing SAP APIs with Azure, see this [article](./expose-sap-process-orchestration-on-azure.md).
 
 ## SAP OData authentication via Power Query on Excel Desktop
 
-With the given configuration, the built-in authentication mechanism of Power Query becomes available to the exposed OData APIs. Add a new OData source to the Excel sheet via the Data ribbon (Get Data -\> From Other Sources -\> From OData Feed). Maintain your target service URL. Below example uses the SAP Gateway demo service **GWSAMPLE_BASIC**. Discover or activate it using SAP transaction `/IWFND/MAINT_SERVICE`. Finally add it to Azure API Management using the [official OData import guide](/azure/api-management/sap-api).
+With the given configuration, the built-in authentication mechanism of Power Query becomes available to the exposed OData APIs. Add a new OData source to the Excel sheet via the Data ribbon (Get Data -\> From Other Sources -\> From OData Feed). Maintain your target service URL. Below example uses the SAP Gateway demo service **GWSAMPLE_BASIC**. Discover or activate it using SAP transaction `/IWFND/MAINT_SERVICE`. Finally add it to Azure API Management using the [official OData import guide](../../../api-management/sap-api.md).
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/odata-url-retrieve-from-apim.png" alt-text="Screenshot that shows how to discover the OData URL within Azure API Management.":::
 
@@ -110,7 +110,7 @@ Retrieve the Base URL and insert in your target application. Below example shows
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/excel-odata-feed.png" alt-text="Screenshot that shows the OData configuration wizard in Excel Desktop.":::
 
-Switch the login method to **Organizational account** and click Sign in. Supply the Azure AD account that is mapped to the named SAP user on the SAP Gateway using SAP Principal Propagation. For more information about the configuration, see [this Microsoft tutorial](/azure/active-directory/saas-apps/sap-netweaver-tutorial#configure-sap-netweaver-for-oauth). Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md).
+Switch the login method to **Organizational account** and click Sign in. Supply the Azure AD account that is mapped to the named SAP user on the SAP Gateway using SAP Principal Propagation. For more information about the configuration, see [this Microsoft tutorial](../../../active-directory/saas-apps/sap-netweaver-tutorial.md#configure-sap-netweaver-for-oauth). Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md).
 
 Continue to choose at which level the authentication settings should be applied by Power Query on Excel. Below example shows a setting that would apply to all OData services hosted on the target SAP system (not only to the sample service GWSAMPLE_BASIC).
 
@@ -124,14 +124,14 @@ Continue to choose at which level the authentication settings should be applied 
 
 ## Configure SAP Principal Propagation with Azure API Management
 
-Use [this](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) second Azure API Management policy for SAP to complete the configuration for SAP Principal Propagation on the middle layer. For more information about the configuration of the SAP Gateway backend, see [this Microsoft tutorial](/azure/active-directory/saas-apps/sap-netweaver-tutorial#configure-sap-netweaver-for-oauth).
+Use [this](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) second Azure API Management policy for SAP to complete the configuration for SAP Principal Propagation on the middle layer. For more information about the configuration of the SAP Gateway backend, see [this Microsoft tutorial](../../../active-directory/saas-apps/sap-netweaver-tutorial.md#configure-sap-netweaver-for-oauth).
 
 > [!NOTE]
 > Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md).
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/app-registration-dependencies.png" alt-text="Diagram that shows the Azure Active Directory app registrations involved in this article.":::
 
-The policy relies on an established SSO setup between Azure AD and SAP Gateway (use [SAP NetWeaver from the Azure AD gallery](/azure/active-directory/saas-apps/sap-netweaver-tutorial#adding-sap-netweaver-from-the-gallery)). See below an example with the demo user Adele Vance. User mapping between Azure AD and the SAP system happens based on the user principal name (UPN) as the unique user identifier.
+The policy relies on an established SSO setup between Azure AD and SAP Gateway (use [SAP NetWeaver from the Azure AD gallery](../../../active-directory/saas-apps/sap-netweaver-tutorial.md#adding-sap-netweaver-from-the-gallery)). See below an example with the demo user Adele Vance. User mapping between Azure AD and the SAP system happens based on the user principal name (UPN) as the unique user identifier.
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/aad-user-config-for-sso.png" alt-text="Screenshot that shows the UPN of the demo user in Azure Active Directory.":::
 
@@ -145,7 +145,7 @@ According to this configuration **named SAP users** will be mapped to the respec
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/sap-su01-config.png" alt-text="Screenshot of named SAP user in transaction SU01 with mapped email address.":::
 
- For more information about the required [SAP OAuth 2.0 Server with AS ABAP](https://help.sap.com/docs/SAP_NETWEAVER_750/e815bb97839a4d83be6c4fca48ee5777/0b899f00477b4034b83aa31764361852.html) configuration, see this [Microsoft](/azure/active-directory/saas-apps/sap-netweaver-tutorial#configure-sap-netweaver-for-oauth) tutorial about SSO with SAP NetWeaver using OAuth.
+ For more information about the required [SAP OAuth 2.0 Server with AS ABAP](https://help.sap.com/docs/SAP_NETWEAVER_750/e815bb97839a4d83be6c4fca48ee5777/0b899f00477b4034b83aa31764361852.html) configuration, see this [Microsoft](../../../active-directory/saas-apps/sap-netweaver-tutorial.md#configure-sap-netweaver-for-oauth) tutorial about SSO with SAP NetWeaver using OAuth.
 
 Using the described Azure API Management policies **any** Power Query enabled Microsoft product may call SAP hosted OData services, while
 honoring the SAP named user mapping.
@@ -154,21 +154,34 @@ honoring the SAP named user mapping.
 
 ## SAP OData access via other Power Query enabled applications and services
 
-Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query enabled Microsoft product. For more information which products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), [Excel for the web](https://www.office.com/launch/excel), [Azure Data Factory](/azure/data-factory/control-flow-power-query-activity), [Azure Synapse Analytics Pipelines](/azure/data-factory/control-flow-power-query-activity), [Power Automate](/flow/) and [Dynamics 365](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
+Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query enabled Microsoft product. For more information which products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), [Excel for the web](https://www.office.com/launch/excel), [Azure Data Factory](../../../data-factory/control-flow-power-query-activity.md), [Azure Synapse Analytics Pipelines](../../../data-factory/control-flow-power-query-activity.md), [Power Automate](/flow/) and [Dynamics 365](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
+
+## Tackle SAP write-back scenarios with Power Automate
+
+The described approach is also applicable to write-back scenarios. For example, you can use [Power Automate](/flow/) to update a business partner in SAP using OData with the [http-enabled connectors](/training/modules/http-connectors/) (alternatively use [RFCs or BAPIs](/connectors/saperp/)). See below an example of a [Power BI service](/power-bi/fundamentals/power-bi-service-overview) dashboard that is connected to Power Automate through [value-based alerts](/power-bi/create-reports/service-set-data-alerts) and a [button](/power-bi/create-reports/power-bi-automate-visual?tabs=powerbi-desktop) (highlighted on the screenshot). Learn more about triggering flows from Power BI reports on the [Power Automate documentation](/power-automate/trigger-flow-powerbi-report).
+
+:::image type="content" source="media/expose-sap-odata-to-power-query/powerbi-flow-enabled-dashboard.png" alt-text="Screenshot that shows the flow-enabled Power BI service dashboard.":::
+
+The highlighted button triggers a flow that forwards the OData PATCH request to the SAP Gateway to change the business partner role.
+
+> [!NOTE]
+> Use the Azure API Management [policy for SAP](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) to handle the authentication, refresh tokens, [CSRF tokens](https://blogs.sap.com/2021/06/04/how-does-csrf-token-work-sap-gateway/) and overall caching of tokens outside of the flow.
+
+:::image type="content" source="media/expose-sap-odata-to-power-query/power-automate-powerbi-button-flow.png" alt-text="Screenshot that shows the flow on Power Automate requesting the business partner change on the SAP back end.":::
 
 ## Next steps
 
 [Learn from where you can use Power Query](/power-query/power-query-what-is-power-query#where-can-you-use-power-query)
 
-[Work with SAP OData APIs in Azure API Management](/azure/api-management/sap-api)
+[Work with SAP OData APIs in Azure API Management](../../../api-management/sap-api.md)
 
-[Configure Azure API Management for SAP APIs](/azure/api-management/sap-api)
+[Configure Azure API Management for SAP APIs](../../../api-management/sap-api.md)
 
 [Tutorial: Analyze sales data from Excel and an OData feed](/power-bi/connect-data/desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed)
 
 [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
 
-[Integrate API Management in an internal virtual network with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+[Integrate API Management in an internal virtual network with Application Gateway](../../../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
 [Understand Azure Application Gateway and Web Application Firewall for SAP](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
 
