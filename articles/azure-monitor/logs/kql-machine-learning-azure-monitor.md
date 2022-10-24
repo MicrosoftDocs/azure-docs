@@ -1,5 +1,5 @@
 ---
-title: Analyze log data with machine learning in Azure Monitor Log Analytics
+title: Detect and analyze anomalies with KQL in Azure Monitor
 description: Learn how to use KQL machine learning tools for time series analysis and anomaly detection in Azure Monitor Log Analytics. 
 ms.service: azure-monitor
 ms.topic: tutorial 

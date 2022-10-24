@@ -341,7 +341,7 @@ items:
       - name: Functions
         href: logs/functions.md
       - name: Detect and analyze anomalies
-        href: logs/machine-learning-azure-monitor-log-analytics.md
+        href: logs/kql-machine-learning-azure-monitor.md
       - name: Parse text data
         href: logs/parse-text.md
       - name: Computer groups
