@@ -37,7 +37,7 @@ The workflow will work in the following way:
 
 ## Authenticating against batch endpoints
 
-Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
+Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
 We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario. 
 
@@ -252,7 +252,7 @@ We want to trigger the Logic App each time a new file is created in a given fold
    :::image type="content" source="./media/how-to-use-event-grid-batch/invoke.png" alt-text="Screenshot of the invoke activity of the Logic App.":::
    
    > [!NOTE]
-   > Notice that this last action will trigger the batch deployment job, but it will not wait for its completion. Logic Apps are not designed for long-running applications. If you need to wait for the job to complete, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
+   > Notice that this last action will trigger the batch deployment job, but it will not wait for its completion. AzureLogic Apps is not designed for long-running applications. If you need to wait for the job to complete, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
 
 1. Click on __Save__.
 
