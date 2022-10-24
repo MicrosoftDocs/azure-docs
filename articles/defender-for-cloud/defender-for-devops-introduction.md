@@ -11,8 +11,6 @@ ms.custom: references_regions
 
 Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
 
-:::image type="content" source="media/defender-for-devops-introduction/graph.png" alt-text="Conceptual image that shows the benefits of Defender for DevOps.":::
-
 Defender for DevOps uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, such as GitHub and Azure DevOps. Findings from Defender for DevOps can then be correlated with other contextual cloud security insights to prioritize remediation in code. Key capabilities in Defender for DevOps include: 
 
 - **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of pre-production application code, which includes findings from code, secret, and open-source dependency vulnerability scans. They can configure their DevOps resources across multi-pipeline and multicloud environments in a single view.
