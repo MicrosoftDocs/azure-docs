@@ -61,3 +61,7 @@ sections:
           Do I need to clean up data in the landing zone?
         answer: |
           No. There is a background thread that removes committed files after around 24 hours as long as the link is continuously running. In case the link is paused (coming soon) the cleanup process is also paused until it is resumed. When the link is stopped then the entire landing zone folder is removed.
+      - question: |
+          Where is my landing zone located?
+        answer: |
+          For Azure SQL Database, the landing zone is fully managed and is located in the same region as your target Azure Synapse Analytics workspace. For SQL Server 2022, the landing zone is customer-managed and can be located where you like.
