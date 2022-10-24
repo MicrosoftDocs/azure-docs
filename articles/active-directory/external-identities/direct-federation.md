@@ -60,31 +60,40 @@ You can also give guest users a direct link to an application or resource by inc
 
 ## Frequently asked questions
 
-### Can I set up SAML/WS-Fed IdP federation with Azure AD verified domains?
+**Can I set up SAML/WS-Fed IdP federation with Azure AD verified domains?**
+
 No, we block SAML/WS-Fed IdP federation for Azure AD verified domains in favor of native Azure AD managed domain capabilities. If you try to set up SAML/WS-Fed IdP federation with a domain that is DNS-verified in Azure AD, you'll see an error.
 
-### Can I set up SAML/WS-Fed IdP federation with a domain for which an unmanaged (email-verified) tenant exists? 
+**Can I set up SAML/WS-Fed IdP federation with a domain for which an unmanaged (email-verified) tenant exists?**
+ 
 Yes, you can set up SAML/WS-Fed IdP federation with domains that aren't DNS-verified in Azure AD, including unmanaged (email-verified or "viral") Azure AD tenants. Such tenants are created when a user redeems a B2B invitation or performs self-service sign-up for Azure AD using a domain that doesn’t currently exist. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../enterprise-users/domains-admin-takeover.md), you can set up federation with that domain.
 
-### How many federation relationships can I create?
+**How many federation relationships can I create?**
+
 Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](/powershell/module/msonline/set-msoldomainfederationsettings) and SAML/WS-Fed IdP federations.
 
-### Can I set up federation with multiple domains from the same tenant?
+**Can I set up federation with multiple domains from the same tenant?**
+
 Yes, we now support SAML/WS-Fed IdP federation with multiple domains from the same tenant.
 
-### Do I need to renew the signing certificate when it expires?
+**Do I need to renew the signing certificate when it expires?**
+
 If you specify the metadata URL in the IdP settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time, or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 
-### If SAML/WS-Fed IdP federation and email one-time passcode authentication are both enabled, which method takes precedence?
+**If SAML/WS-Fed IdP federation and email one-time passcode authentication are both enabled, which method takes precedence?**
+
 When SAML/WS-Fed IdP federation is established with a partner organization, it takes precedence over email one-time passcode authentication for new guest users from that organization. If a guest user redeemed an invitation using one-time passcode authentication before you set up SAML/WS-Fed IdP federation, they'll continue to use one-time passcode authentication.
 
-### Does SAML/WS-Fed IdP federation address sign-in issues due to a partially synced tenancy?
+**Does SAML/WS-Fed IdP federation address sign-in issues due to a partially synced tenancy?**
+
 No, the [email one-time passcode](one-time-passcode.md) feature should be used in this scenario. A “partially synced tenancy” refers to a partner Azure AD tenant where on-premises user identities aren't fully synced to the cloud. A guest whose identity doesn’t yet exist in the cloud but who tries to redeem your B2B invitation won’t be able to sign in. The one-time passcode feature would allow this guest to sign in. The SAML/WS-Fed IdP federation feature addresses scenarios where the guest has their own IdP-managed organizational account, but the organization has no Azure AD presence at all.
 
-### Once SAML/WS-Fed IdP federation is configured with an organization, does each guest need to be sent and redeem an individual invitation?
+**Once SAML/WS-Fed IdP federation is configured with an organization, does each guest need to be sent and redeem an individual invitation?**
+
 Setting up SAML/WS-Fed IdP federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. You can update a guest user’s authentication method by [resetting their redemption status](reset-redemption-status.md).
 
-### Is there a way to send a signed request to the SAML identity provider?
+**Is there a way to send a signed request to the SAML identity provider?**
+
 Currently, the Azure AD SAML/WS-Fed federation feature doesn't support sending a signed authentication token to the SAML identity provider.
 
 ## Step 1: Determine if the partner needs to update their DNS text records
