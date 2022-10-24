@@ -4,6 +4,7 @@ description: Learn how to protect your Azure VMware Solution VMs with Azure's na
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 10/18/2022
+ms.custom: engagement-fy23
 ---
 
 # Integrate Microsoft Defender for Cloud with Azure VMware Solution 
