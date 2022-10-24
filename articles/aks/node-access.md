@@ -12,13 +12,15 @@ ms.custom: contperf-fy21q4
 
 # Connect to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
 
-Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes. You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To connect to the AKS nodes, you use `kubectl debug` or the private IP address.
+Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes. You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To connect to the AKS nodes, you use `kubectl debug` or the private IP address. 
 
-This article shows you how to create a connection to an AKS node.
+What's more, AKS now supports [updating SSH key on all exitsing nodepools][updating SSH key on all exitsing nodepools]
+
+This article shows you how to create a connection to an AKS node and update SSH key on existing AKS cluster.
 
 ## Before you begin
 
-This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. If you forget the SSH key, AKS now supports [updating SSH key on all exitsing nodes][updating SSH key on all exitsing nodes]. If you use PuTTY Gen to create the key pair, save the key pair in an OpenSSH format rather than the default PuTTy private key format (.ppk file).
+This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. If you use PuTTY Gen to create the key pair, save the key pair in an OpenSSH format rather than the default PuTTy private key format (.ppk file).
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -166,18 +168,16 @@ kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ## Update the SSH key on existing AKS cluster (public preview)
 
 ### Prerequisites
-* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.110 or later CLI extension installed.
+* [Azure CLI][install-azure-cli] and the `aks-preview` 0.5.111 or later CLI extension installed.
 
-AKS now supports updating SSH key on exitsing cluster. 
-
-Use `az aks update` to update new SSH key on all AKS nodes.
+Use `az aks update` to update new SSH key on AKS cluster. Note that the SSH key of all nodepools will be updated.
 
 ```azurecli
 az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value>
 ```
 
 > [!IMPORTANT]
-> During this operation, all the nodes of the cluster will be re-imaged and upgraded to fit the new SSH key. 
+> During this operation, all VMSS instances will be upgraded and re-imaged to fit the new SSH key. 
 
 ## Next steps
 
@@ -191,4 +191,4 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
-[updating SSH key on all exitsing nodes]: node-access.md#Update-the-SSH-key-on-existing-AKS-cluster-(public-preview)
+[updating SSH key on all exitsing nodepools]: node-access.md#Update-the-SSH-key-on-existing-AKS-cluster-(public-preview)
