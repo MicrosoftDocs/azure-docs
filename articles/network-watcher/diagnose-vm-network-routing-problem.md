@@ -102,7 +102,7 @@ Azure automatically creates routes to default destinations. You may create custo
 
     When you ran the test using 13.107.21.200 in [Use next hop](#use-next-hop), the route with the address prefix 0.0.0.0/0 was used to route traffic to the address since no other route includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
 
-    When you ran the test using 172.31.0.100, however, the result informed you that there was no next hop type. As you can see in the previous picture, though there is a default route to the 172.16.0.0/12 prefix, which includes the 172.31.0.100 address, the **NEXT HOP TYPE** is **None**. Azure creates a default route to 172.16.0.0/12 but doesn't specify a next hop type until there is a reason to. If, for example, you added the 172.16.0.0/12 address range to the address space of the virtual network, Azure changes the **NEXT HOP TYPE** to **Virtual network** for the route. A check would then show the **Virtual network** as the **NEXT HOP TYPE**.
+    However, when you ran the test using 172.31.0.100, the result informed you that there was no next hop type. As you can see in the previous picture, though there is a default route to the 172.16.0.0/12 prefix, which includes the 172.31.0.100 address, the **NEXT HOP TYPE** is **None**. Azure creates a default route to 172.16.0.0/12 but doesn't specify a next hop type until there is a reason to. If, for example, you added the 172.16.0.0/12 address range to the address space of the virtual network, Azure changes the **NEXT HOP TYPE** to **Virtual network** for the route. A check would then show **Virtual network** as the **NEXT HOP TYPE**.
 
 ## Clean up resources
 

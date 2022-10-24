@@ -5,9 +5,9 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: petrodeg
-ms.author:  petrodeg
-ms.reviewer: larryfr
+author: shohei1029
+ms.author:  shnagata
+ms.reviewer: mopeakande
 ms.date: 04/12/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
@@ -45,7 +45,7 @@ Local deployment is deploying a model to a local Docker environment. Local deplo
 
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. 
 
-# [Azure CLI](#tab/cli)
+## [Azure CLI](#tab/cli)
 
 To use local deployment, add `--local` to the appropriate CLI command:
 
@@ -53,7 +53,7 @@ To use local deployment, add `--local` to the appropriate CLI command:
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
 
-# [Python SDK](#tab/python)
+## [Python SDK](#tab/python)
 
 To use local deployment, add  `local=True` parameter in the command:
 
@@ -61,7 +61,7 @@ To use local deployment, add  `local=True` parameter in the command:
 ml_client.begin_create_or_update(online_deployment, local=True)
 ```
 
-* `ml_client` and `online_deployment` are instances for `MLClient` class and `ManagedOnlineDeployment` class, respectively.
+* `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
 
 ---
 
@@ -70,7 +70,9 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
+
+
 
 ## Conda installation
  
@@ -178,11 +180,27 @@ Below is a list of common deployment errors that are reported as part of the dep
 
 ### ERROR: ImageBuildFailure
 
-This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location is returned as part of the error. For example, 'The build log is available in the workspace blob store "storage-account-name" under the path "/azureml/ImageLogs/your-image-id/build.log"'. In this case, "azureml" is the name of the blob container in the storage account.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, "The build log is available in the workspace blob store '[storage-account-name]' under the path '/azureml/ImageLogs/your-image-id/build.log'". In this case, "azureml" is the name of the blob container in the storage account.
 
-If no obvious error is found in the build log, and the last line is `Installing pip dependencies: ...working...`, then the error may be caused by a dependency. Pinning version dependencies in your conda file could fix this problem.
+Below is a list of common image build failure scenarios:
 
-We also recommend using a [local deployment](#deploy-locally) to test and debug your models locally before deploying in the cloud.
+* [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
+* [Generic or unknown failure](#generic-image-build-failure)
+
+#### Container registry authorization failure
+
+If the error message mentions `"container registry authorization failure"`, that means the container registry could not be accessed with the current credentials.
+This can be caused by desynchronization of a workspace resource's keys and it takes some time to automatically synchronize.
+However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
+
+Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network has been set up properly.
+
+#### Generic image build failure
+
+As stated above, you can check the build log for more information on the failure.
+If no obvious error is found in the build log and the last line is `Installing pip dependencies: ...working...`, then the error may be caused by a dependency. Pinning version dependencies in your conda file can fix this problem.
+
+We also recommend [deploying locally](#deploy-locally) to test and debug your models locally before deploying to the cloud.
 
 ### ERROR: OutOfQuota
 
@@ -231,13 +249,13 @@ If your container could not start, this means scoring could not happen. It might
 
 To get the exact reason for an error, run: 
 
-# [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-# [Python SDK](#tab/python)
+#### [Python SDK](#tab/python)
 
 ```python
 ml_client.online_deployments.get_logs(
@@ -295,13 +313,13 @@ Make sure the model is registered to the same workspace as the deployment. Use t
 
 - For example: 
   
-  # [Azure CLI](#tab/cli)
+  #### [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml model show --name <model-name> --version <version>
   ```
  
-  # [Python SDK](#tab/python)
+  #### [Python SDK](#tab/python)
 
   ```python
   ml_client.models.get(name="<model-name>", version=<version>)
@@ -321,13 +339,13 @@ You can also check if the blobs are present in the workspace storage account.
   
 - If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
-  # [Azure CLI](#tab/cli)
+  #### [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
   ```
 
-  # [Python SDK](#tab/python)
+  #### [Python SDK](#tab/python)
 
   ```python
   ml_client.online_deployments.get_logs(
@@ -429,10 +447,10 @@ When you access online endpoints with REST requests, the returned status codes a
 | --- | --- | --- |
 | 200 | OK | Your model executed successfully, within your latency bound. |
 | 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
-| 404 | Not found | Your URL isn't correct. |
+| 404 | Not found | The endpoint doesn't have any valid deployment with positive weight. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum `max_concurrent_requests_per_instance` * `instance_count` / `request_process_time (in seconds)` requests per second. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-calculate-instance-count). |
+| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` / `request_process_time (in seconds)` requests per second. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-calculate-instance-count). |
 | 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
@@ -441,7 +459,7 @@ To increase the number of instances, you could calculate the required replicas f
 ```python
 from math import ceil
 # target requests per second
-target_qps = 20
+target_rps = 20
 # time to process the request (in seconds)
 request_process_time = 10
 # Maximum concurrent requests per instance
@@ -449,7 +467,7 @@ max_concurrent_requests_per_instance = 1
 # The target CPU usage of the model container. 70% in this example
 target_utilization = .7
 
-concurrent_requests = target_qps * request_process_time / target_utilization
+concurrent_requests = target_rps * request_process_time / target_utilization
 
 # Number of instance count
 instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance)

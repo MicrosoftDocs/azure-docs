@@ -64,7 +64,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**All supported OT sensor software versions**: <br>- [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal-public-preview)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks-public-preview)<br><br> **All OT sensor software versions 22.x**: [Updates for Azure cloud connection firewall rules](#updates-for-azure-cloud-connection-firewall-rules-public-preview) <br><br>**Sensor software version 22.2.7**: <br> - Bug fixes and stability improvements <br> **Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>**Microsoft Sentinel integration**: <br>- [Investigation enhancements with IoT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub)|
+|**OT networks**     |**All supported OT sensor software versions**: <br>- [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal-public-preview)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks-public-preview)<br><br> **All OT sensor software versions 22.x**: [Updates for Azure cloud connection firewall rules](#updates-for-azure-cloud-connection-firewall-rules-public-preview) <br><br>**Sensor software version 22.2.7**: <br> - Bug fixes and stability improvements <br><br> **Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>**Microsoft Sentinel integration**: <br>- [Investigation enhancements with IoT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub)|
 
 ### Security recommendations for OT networks (Public preview)
 
@@ -148,7 +148,7 @@ You can also now hunt for vulnerable devices on the Microsoft Sentinel **Entity 
 
 :::image type="content" source="media/release-notes/entity-behavior-iot-devices-alerts.png" alt-text="Screenshot of the Entity behavior page in Microsoft Sentinel.":::
 
-For more information, see [Investigate further with IoT device entities](https://review.learn.microsoft.com/en-us/azure/sentinel/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) and [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
+For more information, see [Investigate further with IoT device entities](../../sentinel/iot-advanced-threat-monitoring.md#investigate-further-with-iot-device-entities) and [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
 
 ### Updates to the Microsoft Defender for IoT solution in Microsoft Sentinel's content hub
 
@@ -178,7 +178,7 @@ Updates in this version of the solution include:
 
     - **Automation for incidents with sensitive devices**:  Use the *AD4IoT-AutoTriageIncident* playbook to automatically update an incident's severity based on the devices involved in the incident, and their sensitivity level or importance to your organization. For example, any incident involving a sensitive device can be automatically escalated to a higher severity level.
 
-For more information, see [Investigate Microsoft Defender for IoT incidents with Microsoft Sentinel](/azure/sentinel/iot-advanced-threat-monitoring?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json).
+For more information, see [Investigate Microsoft Defender for IoT incidents with Microsoft Sentinel](../../sentinel/iot-advanced-threat-monitoring.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json).
 
 ## August 2022
 
@@ -273,7 +273,7 @@ Now you can add any of the following parameters to your query to fine tune your 
 - “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**.
 - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
-For more information, see [Management console APIs - Version 3](references-work-with-defender-for-iot-apis.md#version-3).
+For more information, see [devicecves (Get device CVEs)](api/management-integration-apis.md#devicecves-get-device-cves).
 
 ### OT appliance hardware profile updates
 
@@ -767,6 +767,91 @@ This new functionality is available on the following alerts:
 - Port Scan Detected alerts, based on activity of the source device (generated by the Anomaly engine)
 - Malware alerts, based on activity of the source device. (generated by the Malware engine). 
 - Suspicion of Denial of Service Attack alerts, based on activity of the destination device (generated by the Malware engine)
+
+## November 2021
+
+**Sensor software version**: 10.5.3
+
+The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
+
+- The on-premises management console, has a new ServiceNow integration API. For more information, see [Integration API reference for on-premises management consoles (Public preview)](api/management-integration-apis.md).
+
+- Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
+
+- As part of our automated maintenance, archived alerts that are over 90 days old will now be automatically deleted.
+
+- Many enhancements have been made to the exporting of alert metadata based on customer feedback.
+
+## October 2021
+
+**Sensor software version**: 10.5.2
+
+The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
+
+- [PLC operating mode detections (Public Preview)](#plc-operating-mode-detections-public-preview)
+
+- [PCAP API](#pcap-api)
+
+- [On-premises Management Console Audit](#on-premises-management-console-audit)
+
+- [Webhook Extended](#webhook-extended)
+
+- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases)
+
+### PLC operating mode detections (Public Preview)
+
+Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+
+This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the effects of such risks.
+This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
+
+#### What is an unsecure mode?
+
+If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*.
+
+#### Visibility and risk assessment
+
+- Use the Device Inventory to view the PLC state of organizational PLCs, and contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
+
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing PLC operating mode.":::
+
+- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.
+
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing PLC information.":::
+
+- View all network PLC Run and Key State statuses by creating a Data Mining with PLC operating mode information.
+
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing PLC option.":::
+
+- Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and additional information you can use to mitigate unsecure PLC risks.
+
+### PCAP API
+
+The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself.
+
+### On-premises Management Console audit
+
+Audit logs for the on-premises management console can now be exported to facilitate investigations into what changes were made, and by who.
+
+### Webhook extended
+
+Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert and adds the following information to the report:
+
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+### Unicode support for certificate passphrases
+
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
 
 ## Next steps
 

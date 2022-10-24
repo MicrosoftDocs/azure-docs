@@ -20,7 +20,7 @@ ms.custom: aaddev, has-adal-ref
 
 Single sign-on (SSO) provides a more seamless experience by reducing the number of times your users are asked for their credentials. Users enter their credentials once, and the established session can be reused by other applications on the device without further prompting.
 
-Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js allows the usage of the session cookie for SSO between the browser tabs opened for one or several applications.
+Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. These two mechanisms (i.e. Azure AD session cookie and MSAL cache) are independent of each other, but works together to provide SSO behavior.
 
 ## SSO between browser tabs for the same app
 
@@ -39,18 +39,18 @@ const config = {
 const msalInstance = new msal.PublicClientApplication(config);
 ```
 
+In this case, application instances in different browser tabs make use of the same MSAL cache, thus sharing the authentication state between them. You can also use MSAL events for updating application instances when a user logs in from another browser tab or window. For more information, see: [Syncing logged in state across tabs and windows](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/events.md#syncing-logged-in-state-across-tabs-and-windows)
+
 ## SSO between different apps
 
-When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain.
-
-MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Azure AD, then the user is prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` method.
+When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. In particular, MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Azure AD, then the user is prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` method.
 
 ### With user hint
 
-To improve performance and ensure that the authorization server will look for the correct account session. You can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
+To improve performance and ensure that the authorization server will look for the correct account session, you can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
 
 - Session ID `sid` (which can be retrieved from `idTokenClaims` of an `account` object)
-- `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token)
+- `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token) (if your app is authenticating users with B2C, see: [Configure B2C user-flows to emit username in ID tokens](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/FAQ.md#why-is-getaccountbyusername-returning-null-even-though-im-signed-in) )
 - `account` (which can be retrieved from using one the [account methods](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis))
 
 #### Using a session ID
@@ -175,21 +175,21 @@ For better performance and to help avoid issues, set the `redirectUri` to a blan
 
 ### Third-party cookies
 
-`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Azure AD. This won't work in browsers that block third-party cookies such as safari, and will lead to an interaction error:
+`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Azure AD. This won't work in browsers that block third-party cookies such as Safari, and will lead to an interaction error:
 
 ```txt
 InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD
 ```
 
-To resolve the error, the user must create an interactive authentication request using the `loginPopup()` or `loginRedirect()`.
+To resolve the error, the user must create an interactive authentication request using the `loginPopup()` or `loginRedirect()`. In some cases, the prompt value **none** can be used together with an interactive MSAL.js method to achieve SSO. See [Interactive requests with prompt=none](msal-js-prompt-behavior.md#interactive-requests-with-promptnone) for more. If you already have the user's sign-in information, you can pass either the `loginHint` or `sid` optional parameters to sign-in a specific account.
 
-Additionally, the request object is required when using the **silent** methods. If you already have the user's sign-in information, you can pass either the `loginHint` or `sid` optional parameters to sign-in a specific account.
+## Negating SSO with prompt=login
 
-## SSO in ADAL.js to MSAL.js update
+If you like Azure AD to prompt the user for entering their credentials despite there being an active session with the authorization server, you can use the **login** prompt parameter in requests with MSAL.js. See [MSAL.js prompt behavior](msal-js-prompt-behavior.md) for more.
 
-MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and to avoid prompting your users to sign in again, the library reads the ID token representing user’s session in ADAL.js cache, and seamlessly signs in the user in MSAL.js.
+## Sharing authentication state between ADAL.js and MSAL.js
 
-To take advantage of the SSO behavior when updating from ADAL.js, you'll need to ensure the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
+MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and share authentication state between apps, the library reads the ID token representing user’s session in ADAL.js cache. To take advantage of this when migrating from ADAL.js, you'll need to ensure that the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
 
 ```javascript
 
@@ -214,12 +214,10 @@ const config = {
 const msalInstance = new msal.PublicClientApplication(config);
 ```
 
-Once the `cacheLocation` is configured, MSAL.js can read the cached state of the authenticated user in ADAL.js and use that to provide SSO in MSAL.js.
-
 ## Next steps
 
 For more information about SSO, see:
 
-- [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md)
+- [MSAL.js prompt behavior](msal-js-prompt-behavior.md)
 - [Optional token claims](active-directory-optional-claims.md)
 - [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
