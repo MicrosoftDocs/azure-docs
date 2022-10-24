@@ -3,7 +3,7 @@ title: Azure Virtual Desktop environment - Azure
 description: Learn about the basic elements of a Azure Virtual Desktop environment, like host pools and app groups.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/18/2022
+ms.date: 10/24/2022
 ms.author: helohr
 manager: femila
 ---
@@ -34,7 +34,7 @@ An app group can be one of two types:
 - RemoteApp, where users access the RemoteApps you individually select and publish to the app group 
 - Desktop, where users access the full desktop.
  
-Each host pool has a preferred app group that dictates whether users see RemoteApp or Desktops in their feed. By default, Azure Virtual Desktop automatically creates a Desktop app group named "Desktop Application Group" whenever you create a host pool. This Desktop app group's preferred app group type is automatically set to **Desktop**. You can remove this app group at any time. If you want your users to only see RemoteApps in their feed, you should set the **Preferred App Group Type** value to **RemoteApp**. You can't create another Desktop app group in the host pool while a Desktop app group exists.
+Each host pool has a preferred app group that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop app group named "Desktop Application Group" whenever you create a host pool and sets the host pool's preferred app group type to **Desktop**. You can remove the Desktop app group at any time. If you want your users to only see RemoteApps in their feed, you should set the **Preferred App Group Type** value to **RemoteApp**. You can't create another Desktop app group in the host pool while a Desktop app group exists.
 
 You must create a RemoteApp app group to publish RemoteApp apps. You can create multiple RemoteApp app groups to accommodate different worker scenarios. Different RemoteApp app groups can also contain overlapping RemoteApps. To publish resources to users, you must assign them to app groups.
 
