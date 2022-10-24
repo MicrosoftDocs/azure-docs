@@ -2,11 +2,11 @@
 title: Azure Monitor overview
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
 ms.topic: overview
+ms.custom: ignite-2022
 author: rboucher
 ms.author: robb
 ms.date: 09/01/2022
 ms.reviewer: robb
-
 ---
 
 # Azure Monitor overview
@@ -32,7 +32,7 @@ The following diagram gives a high-level view of Azure Monitor.
 - On the left are the [sources of monitoring data](data-sources.md) that populate these [data stores](data-platform.md). 
 - On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and integration such as streaming to external systems.
 
-:::image type="content" source="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg":::
+:::image type="content" source="media/overview/azure-monitor-overview-2022_10_15-add-prometheus-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-2022_10_15-add-prometheus-opt.svg":::
 
 The following video uses an earlier version of the preceding diagram, but its explanations are still relevant.  
 

@@ -7,23 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/10/2022
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: sehan
-author: dem108
-ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
+author: shohei1029
+ms.author:  shnagata
+ms.reviewer: mopeakande
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 ms.devlang: azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [online endpoints](concept-endpoints.md#what-are-online-endpoints).
 

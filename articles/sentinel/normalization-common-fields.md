@@ -98,7 +98,7 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | Vendor | Products |
 | ------ | -------- | 
 | AWS | - CloudTrail<br> - VPC | 
-| Cisco | - ASA<br> - Umbrella |
+| Cisco | - ASA<br> - Umbrella<br> - IOS |
 | Corelight | Zeek | 
 | GCP | Cloud DNS | 
 | Infoblox | NIOS | 

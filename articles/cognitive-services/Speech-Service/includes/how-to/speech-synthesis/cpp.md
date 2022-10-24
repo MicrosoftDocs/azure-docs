@@ -205,6 +205,7 @@ std::string getEnvironmentVariable(const char* name);
 
 int main()
 {
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     auto speechKey = getEnvironmentVariable("SPEECH_KEY");
     auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
 
