@@ -40,7 +40,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Module - Intro to Azure Arc-enabled Kubernetes
-            url: /learn/modules/intro-to-arc-enabled-kubernetes
+            url: /training/modules/intro-to-arc-enabled-kubernetes
 
   - title: Deploy configurations using GitOps
     linkLists:

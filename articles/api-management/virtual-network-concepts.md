@@ -81,15 +81,29 @@ The following are virtual network resource requirements for API Management. Some
 
 ### Subnet size
 
-The minimum size of the subnet in which API Management can be deployed is /29, which gives three usable IP addresses. Each extra scale [unit](api-management-capacity.md) of API Management requires two more IP addresses. The minimum size requirement is based on the following considerations:
+The minimum size of the subnet in which API Management can be deployed is /29, which provides three usable IP addresses. Each extra scale [unit](api-management-capacity.md) of API Management requires two more IP addresses. The minimum size requirement is based on the following considerations:
 
-* Azure reserves some IP addresses within each subnet that can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance. Three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+* Azure reserves five IP addresses within each subnet that can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance. Three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
 * In addition to the IP addresses used by the Azure VNet infrastructure, each API Management instance in the subnet uses:
-    * Two IP addresses per unit of Premium SKU, or 
+    * Two IP addresses per unit of Basic, Standard, or Premium SKU, or 
     * One IP address for the Developer SKU. 
 
 * When deploying into an [internal VNet](./api-management-using-with-internal-vnet.md), the instance requires an extra IP address for the internal load balancer.
+
+#### Examples
+
+* For Basic, Standard, or Premium SKUs:  
+
+  * **/29 subnet**: 8 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 0 remaining IP addresses left for scale-out units.  
+  
+  * **/28 subnet**: 16 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 8 remaining IP addresses left for four scale-out units (2 IP addresses/scale-out unit) for a total of five units. **This subnet efficiently maximizes Basic and Standard SKU scale-out limits.**  
+  
+  * **/27 subnet**: 32 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 24 remaining IP addresses left for twelve scale-out units (2 IP addresses/scale-out unit) for a total of thirteen units. **This subnet efficiently maximizes the soft-limit Premium SKU scale-out limit.**  
+  
+  * **/26 subnet**: 64 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 56 remaining IP addresses left for twenty-eight scale-out units (2 IP addresses/scale-out unit) for a total of twenty-nine units. It is possible, with an Azure Support ticket, to scale the Premium SKU past twelve units. If you foresee such high demand, consider the /26 subnet.  
+  
+  * **/25 subnet**: 128 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 120 remaining IP addresses left for sixty scale-out units (2 IP addresses/scale-out unit) for a total of sixty-one units. This is an extremely large, theoretical number of scale-out units. 
 
 ### Routing
 

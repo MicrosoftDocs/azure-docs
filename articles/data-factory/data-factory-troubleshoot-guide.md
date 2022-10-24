@@ -1000,7 +1000,7 @@ The following table applies to Azure Batch.
 
 ### SSL error when linked service using HDInsight ESP cluster
 
-- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.'`
 
 - **Cause**: The issue is most likely related with System Trust Store.
 
@@ -1028,7 +1028,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Cause**: The execution output is greater than 4 MB in size but the maximum supported output response payload size is 4 MB.
 
-- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](https://docs.microsoft.com/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
+- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
 
 ### Error Code: 2002
 
@@ -1064,7 +1064,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ### Error code: 2108
 
-- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url:<URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime`
+- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url: <URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime'`
 
 - **Cause**: Unable to reach the URL provided. This can occur because there was a network connection issue, the URL was unresolvable, or a localhost URL was being used on an Azure integration runtime.
 

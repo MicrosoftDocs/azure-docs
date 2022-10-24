@@ -47,7 +47,7 @@ You'll need:
    ws = Workspace.from_config()
    ```
 
-- Some pre-existing data. This article briefly shows the use of an [Azure blob container](/azure/storage/blobs/storage-blobs-overview).
+- Some pre-existing data. This article briefly shows the use of an [Azure blob container](../../storage/blobs/storage-blobs-overview.md).
 
 - Optional: An existing machine learning pipeline, such as the one described in [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
@@ -227,17 +227,27 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 If you'd like to make your `OutputFileDatasetConfig` available for longer than the duration of your experiment, register it to your workspace to share and reuse across experiments.
 
 ```python
-step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
-                                                         description = 'files from step1`)
+step1_output_ds = step1_output_data.register_on_complete(
+    name='processed_data', 
+    description = 'files from step1'
+)
 ```
 
 ## Delete `OutputFileDatasetConfig` contents when no longer needed
 
 Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
-* Programmatically delete intermediate data at the end of a pipeline job, when it is no longer needed
-* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](/azure/storage/blobs/lifecycle-management-overview)) 
-* Regularly review and delete no-longer-needed data
+> [!CAUTION]
+> Only delete intermediate data after 30 days from the last change date of the data. Deleting the data earlier could cause the pipeline run to fail because the pipeline will assume the intermediate data exists within 30 day period for reuse.
+
+* Programmatically delete intermediate data at the end of a pipeline job, when it is no longer needed. 
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../../storage/blobs/lifecycle-management-overview.md)). This policy can only be set to a workspace's non-default datastore. Use `OutputFileDatasetConfig` to export intermediate data to another datastore that isn't the default.
+  ```Python
+  # Get adls gen 2 datastore already registered with the workspace
+  datastore = workspace.datastores['my_adlsgen2']
+  step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=(datastore, "mypath/{run-id}/{output-name}")).as_upload()
+  ```
+* Regularly review and delete no-longer-needed data.
 
 For more information, see [Plan and manage costs for Azure Machine Learning](../concept-plan-manage-cost.md).
 

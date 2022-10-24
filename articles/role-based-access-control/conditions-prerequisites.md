@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 10/19/2022
 ms.author: rolyon
 
 #Customer intent: 
@@ -42,6 +42,16 @@ When using Azure CLI to add or update conditions, you must use the following ver
 
 - [Azure CLI 2.18 or later](/cli/azure/install-azure-cli)
 
+## REST API
+
+When using the REST API to add or update conditions, you must use the following versions:
+
+- `2020-03-01-preview` or later
+- `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
+- `2022-04-01` is the first stable version
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ## Permissions
 
 Just like role assignments, to add or update conditions, you must be signed in to Azure with a user that has the `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner).
@@ -61,5 +71,5 @@ For more information about custom security attributes, see:
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
 - [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)

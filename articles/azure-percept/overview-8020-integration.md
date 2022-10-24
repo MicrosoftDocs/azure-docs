@@ -1,15 +1,17 @@
 ---
 title: Azure Percept DK 80/20 integration
 description: Learn more about how Azure Percept DK integrates with the 80/20 railing system.
-author: nkhuyent
+author: yvonne-dq
 ms.author: danoneil
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 10/06/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Azure Percept DK 80/20 integration
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 The Azure Percept DK and Audio Accessory were designed to integrate with the [80/20 T-slot aluminum building system](https://8020.net/).
 
@@ -36,7 +38,4 @@ your local 80/20 distributor: https://8020.net/distributorlookup/
 | Arm Mounts      | ![Arm Mount Image](./media/overview-8020-integration-images/arm-mount.png) | [ ![Clamp Bracket Image](./media/overview-8020-integration-images/azure-percept-8020-clamp-bracket-mini.png) ](./media/overview-8020-integration-images/azure-percept-8020-clamp-bracket.png#lightbox)    
 
 
-## Next steps
 
-> [!div class="nextstepaction"]
-> [Buy an Azure Percept DK from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

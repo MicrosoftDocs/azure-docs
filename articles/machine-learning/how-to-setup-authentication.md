@@ -8,18 +8,20 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 07/18/2022
+ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
+
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 	
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-setup-authentication.md)
 > * [v2 (current version)](how-to-setup-authentication.md)
 
-Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2 (preview). Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
+Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
 * __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
@@ -38,11 +40,6 @@ Azure AD Conditional Access can be used to further control or restrict access to
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
 * [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
 
-    > [!IMPORTANT]
-    > SDK v2 is currently in public preview.
-    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Azure Active Directory
@@ -52,6 +49,61 @@ All the authentication workflows for your workspace rely on Azure Active Directo
 For more on Azure AD, see [What is Azure Active Directory authentication](..//active-directory/authentication/overview-authentication.md).
 
 Once you've created the Azure AD accounts, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md) for information on granting them access to the workspace and other operations in Azure Machine Learning.
+
+## Use interactive authentication
+
+# [Python SDK v2](#tab/sdk)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+Interactive authentication uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). Most examples use `DefaultAzureCredential` to access your credentials. When a token is needed, it requests one using multiple identities (`EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`, `AzurePowerShellCredential`) in turn, stopping when one provides a token. For more information, see the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class reference.
+
+The following is an example of using `DefaultAzureCredential` to authenticate. If authentication using `DefaultAzureCredential` fails, a fallback of authenticating through your web browser is used instead.
+
+```python
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+
+try:
+    credential = DefaultAzureCredential()
+    # Check if given credential can get token successfully.
+    credential.get_token("https://management.azure.com/.default")
+except Exception as ex:
+    # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
+    # This will open a browser page for
+    credential = InteractiveBrowserCredential()
+```
+
+After the credential object has been created, the [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) class is used to connect to the workspace. For example, the following code uses the `from_config()` method to load connection information:
+
+```python
+try:
+    ml_client = MLClient.from_config(credential=credential)
+except Exception as ex:
+    # NOTE: Update following workspace information to contain
+    #       your subscription ID, resource group name, and workspace name
+    client_config = {
+        "subscription_id": "<SUBSCRIPTION_ID>",
+        "resource_group": "<RESOURCE_GROUP>",
+        "workspace_name": "<AZUREML_WORKSPACE_NAME>",
+    }
+
+    # write and reload from config file
+    import json, os
+
+    config_path = "../.azureml/config.json"
+    os.makedirs(os.path.dirname(config_path), exist_ok=True)
+    with open(config_path, "w") as fo:
+        fo.write(json.dumps(client_config))
+    ml_client = MLClient.from_config(credential=credential, path=config_path)
+
+print(ml_client)
+```
+
+# [Azure CLI](#tab/cli)
+
+When using the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+
+---
 
 ## Configure a service principal
 
@@ -147,62 +199,6 @@ The easiest way to create an SP and grant access to your workspace is by using t
 ### Managed identity with compute cluster
 
 For more information, see [Set up managed identity for compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
-
-
-## Use interactive authentication
-
-# [Python SDK v2](#tab/sdk)
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-Interactive authentication uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). Most examples use `DefaultAzureCredential` to access your credentials. When a token is needed, it requests one using multiple identities (`EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`, `AzurePowerShellCredential`) in turn, stopping when one provides a token. For more information, see the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class reference.
-
-The following is an example of using `DefaultAzureCredential` to authenticate. If authentication using `DefaultAzureCredential` fails, a fallback of authenticating through your web browser is used instead.
-
-```python
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
-
-try:
-    credential = DefaultAzureCredential()
-    # Check if given credential can get token successfully.
-    credential.get_token("https://management.azure.com/.default")
-except Exception as ex:
-    # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
-    # This will open a browser page for
-    credential = InteractiveBrowserCredential()
-```
-
-After the credential object has been created, the [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) class is used to connect to the workspace. For example, the following code uses the `from_config()` method to load connection information:
-
-```python
-try:
-    ml_client = MLClient.from_config(credential=credential)
-except Exception as ex:
-    # NOTE: Update following workspace information to contain
-    #       your subscription ID, resource group name, and workspace name
-    client_config = {
-        "subscription_id": "<SUBSCRIPTION_ID>",
-        "resource_group": "<RESOURCE_GROUP>",
-        "workspace_name": "<AZUREML_WORKSPACE_NAME>",
-    }
-
-    # write and reload from config file
-    import json, os
-
-    config_path = "../.azureml/config.json"
-    os.makedirs(os.path.dirname(config_path), exist_ok=True)
-    with open(config_path, "w") as fo:
-        fo.write(json.dumps(client_config))
-    ml_client = MLClient.from_config(credential=credential, path=config_path)
-
-print(ml_client)
-```
-
-# [Azure CLI](#tab/cli)
-
-When using the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
-
----
 
 <a id="service-principal-authentication"></a>
 

@@ -30,8 +30,8 @@ The Azure portal guides you through creating a deployment manifest and pushing t
 ### Select your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-1. Select **IoT Edge** from the menu.
-1. Click on the ID of the target device from the list of devices.
+1. Select **Devices** under the **Device management** menu.
+1. Select the target IoT Edge device from the list.
 1. Select **Set Modules**.
 
 ### Configure a deployment manifest
@@ -152,7 +152,7 @@ Review your deployment information, then select **Create**.
 
 ### Verify your deployment
 
-After you create the deployment, you return to the **IoT Edge** page of your IoT hub.
+After you create the deployment, you return to the **Devices** page of your IoT hub.
 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
 1. In the device details, verify that the blob storage module is listed as both **Specified in deployment** and **Reported by device**.
@@ -281,7 +281,7 @@ This process is described in [Configure an IoT Edge device to communicate throug
 
 In addition, a blob storage module also requires the HTTPS_PROXY setting in the manifest deployment file. You can directly edit the deployment manifest file, or use the Azure portal.
 
-1. Navigate to your Iot hub in the Azure portal and select **IoT Edge** from the left pane menu.
+1. Navigate to your IoT Hub in the Azure portal and select **Devices** under the **Device management** menu
 
 1. Select the device with the module to configure.
 

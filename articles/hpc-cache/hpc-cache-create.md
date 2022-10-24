@@ -1,11 +1,11 @@
 ---
 title: Create an Azure HPC Cache
 description: How to create an Azure HPC Cache instance
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/26/2022
-ms.author: rohogue 
+ms.date: 10/03/2022
+ms.author: v-erinkelly 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -37,19 +37,30 @@ In **Service Details**, set the cache name and these other attributes:
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
 
-## Set cache capacity
-<!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text -->
+## Choose cache type and capacity
+<!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text - also check for cross-reference from add storage article -->
 
-On the **Cache** page, you must set the capacity of your cache. The values set here determine how quickly your cache can service client requests and how much data it can hold.
+On the **Cache** page, specify the type and size of cache to create. These values determine your cache's capabilities, including:
 
-Capacity also affects the cache's cost, and how many storage targets it can support.
+* How quickly the cache can service client requests
+* How much data the cache can hold
+* Whether or not the cache supports read/write caching mode
+* How many storage targets it can have
+* The cache's cost
 
-Cache capacity is a combination of two values:
+First, choose the type of cache you want. Options include:
 
-* The maximum data transfer rate for the cache (throughput), in GB/second
-* The amount of storage allocated for cached data, in TB
+* **Read-write standard caching** - A flexible, general-purpose cache
+* **Read-only caching** - A high-throughput cache designed to minimize latency for file access
 
-![Screenshot of cache sizing page in the Azure portal.](media/hpc-cache-create-capacity.png)
+Read more about these cache type options below in [Choose the cache type for your needs](#choose-the-cache-type-for-your-needs).
+
+Second, select the cache's capacity. Cache capacity is a combination of two values:
+
+* **Maximum throughput** - The data transfer rate for the cache, in GB/second
+* **Cache size** - The amount of storage allocated for cached data, in TB
+
+![Screenshot of cache attributes page in the Azure portal. Fields for Cache type, Maximum throughput, and Cache size are filled in.](media/create-cache-type-and-capacity.png)
 
 ### Understand throughput and cache size
 
@@ -63,33 +74,33 @@ Azure HPC Cache manages which files are cached and pre-loaded to maximize cache 
 
 Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
 
-Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value available for your throughput size, or choose one of the high-throughput read-only configurations. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value available for your throughput size, or choose the high-throughput read-only configuration. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 If you need help sizing your cache correctly, contact Microsoft Service and Support.
 
 ### Choose the cache type for your needs
 
-When you choose your cache capacity, you might notice that some throughput values have fixed cache sizes, and others let you select from multiple cache size options. This is because there are two different styles of cache infrastructure:
+When you choose your cache capacity, you might notice that some cache types have one fixed cache size, and others let you select from multiple cache size options for each throughput value. This is because they use different styles of cache infrastructure.
 
-* Standard caches - listed under **Read-write caching** in the throughput menu
+* Standard caches - Cache type **Read-write caching**
 
   With standard caches, you can choose from several cache size values. These caches can be configured for read-only or for read and write caching.
 
-* High-throughput caches - listed under **Read-only caching** in the throughput menu
+* High-throughput caches - Cache type **Read-only caching**
 
-  The high-throughput configurations have set cache sizes because they're preconfigured with NVME disks. They're designed to optimize file read access only.
+  The high-throughput read-only caches are preconfigured with only one cache size option per throughput value. They're designed to optimize file read access only.
 
-![Screenshot of maximum throughput menu in the portal. There are several size options under the heading "Read-write caching" and several under the heading "Read-only".](media/rw-ro-cache-sizing.png)
+![Screenshot of the Cache tab in the HPC Cache creation workflow. The Cache type field is filled with Read-write standard caching, and the Maximum throughput field is filled with Up to 4 GB/s. The Cache size menu is expanded and shows several selectable size options: 6 TB, 12 TB, and 24 TB.](media/cache-size-options.png)
 
 This table explains some important differences between the two options.
 
-| Attribute | Standard cache | High-throughput cache |
+| Attribute | Standard cache | Read-only high-throughput cache |
 |--|--|--|
-| Throughput menu category |"Read-write caching"| "Read-only caching"|
+| Cache type |"Read-write standard caching"| "Read-only caching"|
 | Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec |
 | Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
 | Maximum number of storage targets | [10 or 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) depending on cache size selection | 20 |
-| Compatible storage target types | Azure blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage <br/>NFS-enabled blob storage is in preview for this combination |
+| Compatible storage target types | Azure Blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage <br/>NFS-enabled blob storage is in preview for this combination |
 | Caching styles | Read caching or read-write caching | Read caching only |
 | Cache can be stopped to save cost when not needed | Yes | No |
 

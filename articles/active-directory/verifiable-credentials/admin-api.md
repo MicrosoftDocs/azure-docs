@@ -968,9 +968,9 @@ example:
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`url`| string (url) | url of the logo (optional if image is specified) |
+|`uri`| string (uri) | uri of the logo (optional if image is specified) |
 |`description` | string | the description of the logo |
-|`image` | string | the base-64 encoded image (optional if url is specified) |
+|`image` | string | the base-64 encoded image (optional if uri is specified) |
 
 #### displayConsent type
 

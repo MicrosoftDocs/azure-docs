@@ -100,16 +100,36 @@ class Program
 
 # [C++](#tab/cpp)
 
-For more information, see <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
+For more information, see <a href="/cpp/c-runtime-library/reference/getenv-s-wgetenv-s" target="_blank">`getenv_s`</a> and <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv`</a>.
 
 ```cpp
+#include <iostream> 
 #include <stdlib.h>
+
+std::string GetEnvironmentVariable(const char* name);
 
 int main()
 {
     // Get the named env var, and assign it to the value variable
-    auto value =
-        getenv("ENVIRONMENT_VARIABLE_KEY");
+    auto value = GetEnvironmentVariable("ENVIRONMENT_VARIABLE_KEY");
+}
+
+std::string GetEnvironmentVariable(const char* name)
+{
+#if defined(_MSC_VER)
+    size_t requiredSize = 0;
+    (void)getenv_s(&requiredSize, nullptr, 0, name);
+    if (requiredSize == 0)
+    {
+        return "";
+    }
+    auto buffer = std::make_unique<char[]>(requiredSize);
+    (void)getenv_s(&requiredSize, buffer.get(), requiredSize, name);
+    return buffer.get();
+#else
+    auto value = getenv(name);
+    return value ? value : "";
+#endif
 }
 ```
 

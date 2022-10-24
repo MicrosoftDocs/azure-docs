@@ -3,7 +3,7 @@ title: Azure Virtual Desktop host pool load-balancing - Azure
 description: Learn about host pool load-balancing algorithms for a Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 09/19/2022
 ms.author: helohr
 manager: femila
 ---
@@ -12,7 +12,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
 
-Azure Virtual Desktop supports two load-balancing algorithms. Each algorithm determines which session host will host a user's session when they connect to a resource in a host pool.
+Azure Virtual Desktop supports two load-balancing algorithms. Each algorithm determines which session host will host a user's session when they connect to a resource in a pooled host pool. The information in this article only applies to pooled host pools.
 
 The following load-balancing algorithms are available in Azure Virtual Desktop:
 

@@ -21,7 +21,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. Make sure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. The current tutorial is to create Synapse link for SQL in public network. The assumption is that you have checked "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace. If you want to configure Synapse link for Azure SQL Database with network security, please also refer to [Configure Synapse link for Azure SQL Database with network security](connect-synapse-link-sql-database-vnet.md).
 
 * For DTU-based provisioning, make sure your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
 
@@ -178,7 +178,6 @@ You can stop the Azure Synapse Link connection in Synapse Studio as follows:
    > [!NOTE]
    > If you restart a link connection after stopping it, it will start from a full initial load from your source database followed by incremental change feeds.
 
-
 ## Next steps
 
 If you are using a different type of database, see how to:
@@ -186,3 +185,4 @@ If you are using a different type of database, see how to:
 * [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)
+* [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/sql/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity.md#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)

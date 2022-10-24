@@ -50,8 +50,8 @@
     href: /java/api/overview/azure/data-confidentialledger-readme
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Pricing
     href: https://azure.microsoft.com/pricing
   - name: Region availability
@@ -62,4 +62,3 @@
     href: https://azure.microsoft.com/status/
   - name: Service updates
     href: https://azure.microsoft.com/updates/
-

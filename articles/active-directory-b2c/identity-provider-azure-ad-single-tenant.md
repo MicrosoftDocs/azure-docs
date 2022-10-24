@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 10/11/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -45,10 +45,12 @@ As of November 2020, new application registrations show up as unverified in the 
 To enable sign-in for users with an Azure AD account from a specific Azure AD organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
-1. Under **Azure services**, select **App registrations** or search for and select **App registrations**.
-1. Select **New registration**.
+1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso):
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure Active Directory**. 
+1. In the left menu, under **Manage**, select **App registrations**.
+1. Select **+ New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
 1. Accept the default selection of **Accounts in this organizational directory only (Default Directory only - Single tenant)** for this application.
 1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
@@ -69,9 +71,12 @@ To enable sign-in for users with an Azure AD account from a specific Azure AD or
 
 If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using your organizational Azure AD tenant. Search for and select **Azure Active Directory**.
-1. From the **Manage** section, select **App registrations**.
-1. Select the application you want to configure optional claims for in the list.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your organizational Azure AD tenant. Or if you're already signed in, make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso):
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**. 
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the left menu, under **Manage**, select **App registrations**.
+1. Select the application you want to configure optional claims for in the list, such as `Azure AD B2C App`. 
 1. From the **Manage** section, select **Token configuration**.
 1. Select **Add optional claim**.
 1. For the **Token type**, select **ID**.
