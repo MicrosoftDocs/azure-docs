@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/24/2022
 ms.custom: cosmos-db-video, ignite-2022
 adobe-target: true
 ---
@@ -99,6 +99,12 @@ The Azure Cosmos DB API for Table stores data in key/value format. If you're cur
 Applications written for Azure Table storage can migrate to the API for Table with little code changes and take advantage of premium capabilities. To learn more, see [API for Table](table/introduction.md) article.
 
 ## API for PostgreSQL
+
+[Azure Cosmos DB for PostgreSQL](postgresql/introduction.md) is a managed service for running PostgreSQL at any scale, with the [Citus open source](https://github.com/citusdata/citus) superpower of distributed tables. It stores data either on a single node, or distributed in a multi-node configuration.
+
+Azure Cosmos DB for PostgreSQL is built on native PostgreSQL--rather than a PostgreSQL fork--and lets you choose any major database versions supported by the PostgreSQL community. It's ideal for starting on a single-node database with rich indexing, geospatial capabilities, and JSONB support. Later, if your performance needs grow, you can add nodes to the cluster with zero downtime.
+
+If you’re looking for a managed open source relational database with high performance and geo-replication, Azure Cosmos DB for PostgreSQL is the recommended choice.
 
 ## Capacity planning when migrating data
 
