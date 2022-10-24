@@ -307,7 +307,12 @@ Once you've tested your `green` deployment, you can copy (or 'mirror') a percent
 The following command mirrors 10% of the traffic to the `green` deployment:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_with_mirror_traffic" :::
+You can test mirror traffic by invoking the endpoint several times:
 
+```azurecli
+for i in {1..20} ; do
+    az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
+done
 # [Python](#tab/python)
 
 The following command mirrors 10% of the traffic to the `green` deployment:
