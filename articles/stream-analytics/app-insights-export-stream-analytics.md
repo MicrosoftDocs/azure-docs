@@ -14,7 +14,7 @@ ms.author: ebnkruma
 In this example, we'll create an adaptor that takes data from Application Insights using continuous export, renames and processes some of the fields, and pipes it into Power BI.
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 > [!IMPORTANT]
 > Continuous export will be deprecated on February 29, 2024 and is only supported for classic Application Insights resources. Azure Stream Analytics does not support reading from AppInsights with diagnostic settings.
