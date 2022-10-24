@@ -118,7 +118,7 @@ A 201 response is returned on successful creation. 200 is returned on successful
 ## Manage log alert rules with PowerShell
 
 Log alert rules have this dedicated PowerShell cmdlet:
-- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): Creates a new log alert rule or updates an exising log alert rule.
+- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): Creates a new log alert rule or updates an existing log alert rule.
 ## Manage activity log alert rules using PowerShell
 
 Activity log alerts have these dedicated PowerShell cmdlets:
