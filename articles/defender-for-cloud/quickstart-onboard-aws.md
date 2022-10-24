@@ -178,7 +178,6 @@ When deploying the CloudFormation template, the Stack creation wizard offers the
 - **Amazon S3 URL** - Create a new S3 bucket where a template will be auto-generated for you.
 
 - **Upload a template file** -Here you can upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations.
-With this option you can upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. 
 
 - **Amazon S3 URL** - Enter a previously created S3 URL. AWS will automatically create a S3 bucket in which the CloudFormation template will be saved.
 
