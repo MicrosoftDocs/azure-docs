@@ -16,6 +16,8 @@
       href: whats-new-azure-monitor.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
+    - name: WebRTC Redirector Service
+      href: whats-new-webrtc.md
     - name: Remote Desktop clients
       items:
       - name: Windows (Desktop)
@@ -147,6 +149,8 @@
     href: tag-virtual-desktop-resources.md
   - name: Fair Share technologies
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+  - name: Supported features for Teams
+    href: teams-supported-features.md
 - name: How-to guides
   items:
   - name: Migrate your deployment
@@ -333,6 +337,8 @@
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
+  - name: Session host statuses and health checks
+    href: troubleshoot-statuses-checks.md
   - name: Management issues
     href: troubleshoot-management-issues.md
   - name: Azure Virtual Desktop PowerShell
@@ -361,6 +367,8 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection (preview)
     href: troubleshoot-multimedia-redirection.md
+  - name: Teams on Azure Virtual Desktop
+    href: troubleshoot-teams.md
 - name: Reference
   items:
   - name: Azure CLI

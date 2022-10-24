@@ -54,7 +54,9 @@
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
     - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
+      href: tutorial-create-notebook.md
+    - name: Deploy app on AKS cluster using Bicep
+      href: tutorial-deploy-app-bicep-aks.md
 - name: Samples
   items:
     - name: .NET
@@ -67,6 +69,8 @@
       href: samples-nodejs.md
     - name: Python
       href: samples-python.md
+    - name: Go
+      href: samples-go.md
     - name: PowerShell
       href: powershell-samples.md
     - name: Azure CLI
@@ -594,6 +598,8 @@
               href: best-practice-java.md
             - name: Performance tips for Java SDK v4
               href: performance-tips-java-sdk-v4.md
+            - name: Connection Configurations for Java SDK v4
+              href: tune-connection-configurations-java-sdk-v4.md
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2

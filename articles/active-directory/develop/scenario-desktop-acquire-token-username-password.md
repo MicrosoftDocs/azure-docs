@@ -254,7 +254,7 @@ For more information on all the modifiers that can be applied to `AcquireTokenBy
 
 # [Java](#tab/java)
 
-The following extract is from the [MSAL Java code samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
+The following extract is from the [MSAL Java code samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/msal4j-sdk/src/samples/public-client/UsernamePasswordFlow.java).
 
 ```java
  PublicClientApplication pca = PublicClientApplication.builder(clientId)

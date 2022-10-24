@@ -1,5 +1,5 @@
 ---
-title: Back-end health and diagnostic logs
+title: Backend health and diagnostic logs
 titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
 services: application-gateway
@@ -11,11 +11,11 @@ ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
-# Back-end health and diagnostic logs for Application Gateway
+# Backend health and diagnostic logs for Application Gateway
 
 You can monitor Azure Application Gateway resources in the following ways:
 
-* [Back-end health](#back-end-health): Application Gateway provides the capability to monitor the health of the servers in the back-end pools through the Azure portal and through PowerShell. You can also find the health of the back-end pools through the performance diagnostic logs.
+* [Backend health](#backend-health): Application Gateway provides the capability to monitor the health of the servers in the backend pools through the Azure portal and through PowerShell. You can also find the health of the backend pools through the performance diagnostic logs.
 
 * [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
@@ -23,36 +23,36 @@ You can monitor Azure Application Gateway resources in the following ways:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Back-end health
+## Backend health
 
-Application Gateway provides the capability to monitor the health of individual members of the back-end pools through the portal, PowerShell, and the command-line interface (CLI). You can also find an aggregated health summary of back-end pools through the performance diagnostic logs.
+Application Gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and the command-line interface (CLI). You can also find an aggregated health summary of backend pools through the performance diagnostic logs.
 
-The back-end health report reflects the output of the Application Gateway health probe to the back-end instances. When probing is successful and the back end can receive traffic, it's considered healthy. Otherwise, it's considered unhealthy.
+The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the back end can receive traffic, it's considered healthy. Otherwise, it's considered unhealthy.
 
 > [!IMPORTANT]
-> If there is a network security group (NSG) on an Application Gateway subnet, open port ranges 65503-65534 for v1 SKUs, and 65200-65535 for v2 SKUs on the Application Gateway subnet for inbound traffic. This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
+> If there is a network security group (NSG) on an Application Gateway subnet, open port ranges 65503-65534 for v1 SKUs, and 65200-65535 for v2 SKUs on the Application Gateway subnet for inbound traffic. This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, won't be able to initiate any changes on those endpoints.
 
 
-### View back-end health through the portal
+### View backend health through the portal
 
-In the portal, back-end health is provided automatically. In an existing application gateway, select **Monitoring** > **Backend health**.
+In the portal, backend health is provided automatically. In an existing application gateway, select **Monitoring** > **Backend health**.
 
-Each member in the back-end pool is listed on this page (whether it's a NIC, IP, or FQDN). Back-end pool name, port, back-end HTTP settings name, and health status are shown. Valid values for health status are **Healthy**, **Unhealthy**, and **Unknown**.
+Each member in the backend pool is listed on this page (whether it's a NIC, IP, or FQDN). Backend pool name, port, backend HTTP settings name, and health status are shown. Valid values for health status are **Healthy**, **Unhealthy**, and **Unknown**.
 
 > [!NOTE]
-> If you see a back-end health status of **Unknown**, ensure that access to the back end is not blocked by an NSG rule, a user-defined route (UDR), or a custom DNS in the virtual network.
+> If you see a backend health status of **Unknown**, ensure that access to the back end is not blocked by an NSG rule, a user-defined route (UDR), or a custom DNS in the virtual network.
 
-![Back-end health][10]
+![Backend health][10]
 
-### View back-end health through PowerShell
+### View backend health through PowerShell
 
-The following PowerShell code shows how to view back-end health by using the `Get-AzApplicationGatewayBackendHealth` cmdlet:
+The following PowerShell code shows how to view backend health by using the `Get-AzApplicationGatewayBackendHealth` cmdlet:
 
 ```powershell
 Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### View back-end health through Azure CLI
+### View backend health through Azure CLI
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
@@ -93,7 +93,7 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 
 * **Activity log**: You can use [Azure activity logs](../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
-* **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data.
+* **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data.
 * **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds. 
 
 > [!NOTE]
@@ -164,14 +164,14 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |clientPort     | Originating port for the request.       |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|RequestQuery     | **Server-Routed**: Backend pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the backend servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
 |UserAgent     | User agent from the HTTP request header.        |
 |httpStatus     | HTTP status code returned to the client from Application Gateway.       |
 |httpVersion     | HTTP version of the request.        |
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the back-end pools used TLS/SSL. Valid values are on and off.|
+|sslEnabled| Whether communication to the backend pools used TLS/SSL. Valid values are on and off.|
 |host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
 |originalHost| The hostname with which the request was received by the Application Gateway from the client.|
 
@@ -218,7 +218,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |WAFEvaluationTime| Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
 |WAFMode| Value can be either Detection or Prevention |
 |transactionId| Unique identifier to correlate the request received from the client |
-|sslEnabled| Whether communication to the back-end pools used TLS. Valid values are on and off.|
+|sslEnabled| Whether communication to the backend pools used TLS. Valid values are on and off.|
 |sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
 |sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
 |serverRouted| The backend server that application gateway routes the request to.|
@@ -281,8 +281,8 @@ The performance log is generated only if you have enabled it on each Application
 |Value  |Description  |
 |---------|---------|
 |instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there is one row per instance.        |
-|healthyHostCount     | Number of healthy hosts in the back-end pool.        |
-|unHealthyHostCount     | Number of unhealthy hosts in the back-end pool.        |
+|healthyHostCount     | Number of healthy hosts in the backend pool.        |
+|unHealthyHostCount     | Number of unhealthy hosts in the backend pool.        |
 |requestCount     | Number of requests served.        |
 |latency | Average latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
 |failedRequestCount| Number of failed requests.|
@@ -381,7 +381,7 @@ You can view and analyze activity log data by using any of the following methods
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
+> If you're familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 >
 >
 
