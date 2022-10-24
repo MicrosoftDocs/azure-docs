@@ -22,7 +22,7 @@ Azure Netapp Files allows you to break file locks on NFS and SMB volumes.
 You can break file locks for all files in a volume or limit the breaking to a files in a specified client. Breaking file locks may be disruptive.  
 
 > [!NOTE]
-> File locking is only supported over NFSv4.1. For more information about file locking in NFSv4.1, refer to [How does Azure NetApp Files support NFSv4.1 file-locking?](faq-nfs.md#how-does-azure-netapp-files-support-nfsv41-file-locking).
+> File locking is only supported over NFSv4.1. For more information about file locking in NFSv4.1, refer to [How does Azure NetApp Files support NFSv4.1 file-locking?](faq-nfs.md#how-does-azure-netapp-files-support-nfsv41-file-locking)
 
 ## Break file locks
 
