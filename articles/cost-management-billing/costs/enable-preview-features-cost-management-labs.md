@@ -166,7 +166,16 @@ Charts are enabled on the [Try preview](https://aka.ms/costmgmt/trypreview) page
 
 Show the forecast for the current period at the top of the cost analysis preview.
 
-Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
+The Forecast KPI can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
+
+
+<a name="cav3delta"></a>
+
+## Compare cost with previous period in the cost analysis preview
+
+Show the percentage difference in cost compared to the previous period at the top of the cost analysis preview. When your view is showing 3 months or less, the difference is calculated as the cost from the start of the period through yesterday compared to the the same days from the previous period. If showing more than 3 months, the date range uses the first month through last month. If the current day or month are not included, the entire period is compared to the previous period.
+
+The previous period delta can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
 
 
 <a name="productscolumn"></a>
