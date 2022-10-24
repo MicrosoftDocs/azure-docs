@@ -165,7 +165,6 @@ Defender for Cloud will immediately start scanning your AWS resources and you'll
 
 As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFormation template is generated. This CloudFormation template creates all the required resources so Microsoft Defender for Cloud can connect to the AWS account.
 
-You use the template to create a stack from the s3 bucket to create the accounts. 
 
 
 ### AWS CloudFormation deployment 
