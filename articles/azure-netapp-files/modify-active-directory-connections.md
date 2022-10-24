@@ -5,7 +5,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/22/2022
+ms.date: 10/24/2022
 ms.author: anfdocs
 ---
 
@@ -34,6 +34,8 @@ Once you have [created an Active Directory connection](create-active-directory-c
 | Allow local NFS users with LDAP | If enabled, this option will manage access for local users and LDAP users. | Yes | This option will allow access to local users. It is not recommended and, if enabled, should only be used for a limited time and later disabled. | If enabled, this option will allow access to local users and LDAP users. If access is needed for only LDAP users, this option must be disabled. |
 | LDAP over TLS | If enabled, LDAP over TLS will be configured to support secure LDAP communication to active directory. | Yes | None | If LDAP over TLS is enabled and if the server root CA certificate is already present in the database, then LDAP traffic is secured using the CA certificate. If a new certificate is passed in, that certificate will be installed. |
 | Server root CA Certificate | When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64-encoded Active Directory Certificate Service's self-signed root CA certificate. | Yes | None* | LDAP traffic secured with new certificate only if LDAP over TLS is enabled |
+| LDAP search scope | See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) | Yes | ? | ? |
+| Preferred server for LDAP client | You can designate up to two AD servers for the LDAP to attempt connection with first. See [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md#ad-ds-ldap-discovery) | Yes | None | Potentially impede a timeout when the LDAP client seeks to connect to the AD server. | 
 | Backup policy users | You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | None* | The specified accounts will be allowed to change the NTFS permissions at the file or folder level. |
 | Administrators | Specify users or groups that will be given administrator privileges on the volume | Yes | None | User account will receive administrator privileges |
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |

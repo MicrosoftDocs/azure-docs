@@ -19,6 +19,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+* [Preferred Active Directory server for LDAP](create-active-directory-connections.md#preferred-server-ldap) (Preview)
+
+    <!-- Date pending. Content pending PM -->
+
 ## October 2022
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview) 

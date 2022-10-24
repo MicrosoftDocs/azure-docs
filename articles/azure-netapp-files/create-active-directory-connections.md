@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 10/25/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -168,6 +168,10 @@ Several features of Azure NetApp Files require that you have an Active Directory
         ![Screenshot of the LDAP search scope field, showing a checked box.](../media/azure-netapp-files/ldap-search-scope-checked.png)
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
+
+    * <a name="preferred-server-ldap"></a> **Preferred server for LDAP client**
+
+        The **Preferred server for LDAP client** option allows you to submit the IP addresses of up to two AD servers as a comma-separated list. Rather than sequentially contacting all of the discovered AD services for a domain, the LDAP client will contact the specified servers first. 
 
     * <a name="backup-policy-users"></a> **Backup policy users**
         This option grants addition security privileges to AD DS domain users or groups that require elevated backup privileges to support backup, restore, and migration workflows in Azure NetApp Files. The specified AD DS user accounts or groups will have elevated NTFS permissions at the file or folder level.
