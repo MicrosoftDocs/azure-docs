@@ -175,7 +175,9 @@ When deploying the CloudFormation template, the Stack creation wizard offers the
 
 :::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="screen shot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
 
-- **Amazon S3 URL**: 
+- **Amazon S3 URL** - Create a new S3 bucket where a template will be auto-generated for you.
+
+- **Upload a template file** -Here you can upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations.
 With this option you can upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. 
 
 - **Update a template file**: 
