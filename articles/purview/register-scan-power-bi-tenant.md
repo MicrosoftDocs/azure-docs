@@ -100,13 +100,16 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
+   
    2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+   
    3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+    
     3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. If delegated authentication is used, validate Power BI admin user settings to make sure:
@@ -156,13 +159,16 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
+   
    2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+   
    3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
+   
    3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. Review network configuration and validate if:
