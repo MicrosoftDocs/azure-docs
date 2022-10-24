@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api
-ms.date: 10/20/2022
+ms.date: 10/24/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
