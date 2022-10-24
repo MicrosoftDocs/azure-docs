@@ -36,7 +36,21 @@ For more information, see:
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses).
 
-## Extended device visibility in the Azure portal
+
+## Enhanced support with Defender for IoT network sensors (Public preview)
+
+To discover extra devices not covered by Defender for Endpoint, Microsoft 365 P2 and Defender for IoT customers can also install the Enterprise IoT network sensor. The Enterprise IoT network sensor provides visibility into IoT segments of the corporate network that may not be covered by Defender for Endpoint, such as if you have a VLAN dedicated to VOIP phones. 
+
+> [!NOTE]
+> Deploying a network sensor is optional and is *not* a prerequisite for integrating Defender for Endpoint and Defender for IoT.
+
+For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor](eiot-sensor.md).
+
+<!--add supported protocols in the FAQ, similar to MDE. xref between them.-->
+<!--relelvant to add comparison between OT sensor? more important we need to explain when to use the OT sensor and when to use the EIoT sensor.-->
+<!--we can mention that the sensor is "low touch", is updated automatically, and we don't need to maintain it. they're completely transparent.-->
+
+### Shared device visibility in the Azure portal
 
 In addition to viewing IoT devices in Microsoft 365 Defender's **Device inventory**, customers onboarded to Enterprise IoT can also view detected IoT devices in the Azure portal. Viewing IoT devices in the Azure portal is especially helpful when you're also using Defender for IoT to view and manage Operational Technology (OT) network devices.
 
@@ -44,29 +58,9 @@ View your devices in Azure's Defender for IoT's **Device inventory** for a singl
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
-## Enhanced support with Defender for IoT network sensors (Public preview)
-
-To discover extra devices not covered by Defender for Endpoint, Microsoft 365 P2 and Defender for IoT customers can also install the Enterprise IoT network sensor. The Enterprise IoT network sensor provides visibility into IoT segments of the corporate network that aren't covered by Defender for Endpoint, such as:
-
-- Devices that reside outside of the subnets where managed endpoints reside
-- Devices that are blocked by a NAT
-- Devices in a completely different network
-
-An Enterprise IoT network sensor also provides:
-
-- Specific classifications for devices that are classified as *unknown* by Defender for Endpoint
-- Extra security content in Microsoft 365 Defender for newly discovered devices, including extra recommendations, vulnerabilities, and IoT-focused alerts
-
-> [!NOTE]
-> Deploying a network sensor is optional and is *not* a prerequisite for integrating Defender for Endpoint and Defender for IoT.
-
-For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor](eiot-sensor.md).
-
-<!--do we want to talk about supported protocols? do we want to compare it to the OT sensor to say we have no / minimal management options and it's a collector only?-->
-<!--how do you update versions on the EIoT sensor? do we want to mention that we do it automatically?-->
-
-
 ## IoT security feature comparison summary
+
+<!--nimrod says this isn't relevant for docs here--> 
 
 The following table provides a comparison of the increased security features available for IoT devices as you use Microsoft 365 Defender, add an Enterprise IoT plan, or an extra Enterprise IoT network sensor.
 
@@ -80,8 +74,8 @@ Use the links to find more information about each feature in the Microsoft 365 D
 |**Vulnerabilities**    |    -     |    [Microsoft 365 only](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)    |    [Microsoft 365 only](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)    |
 |**Basic alerts**      |  [Microsoft 365 only](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)      |     [Microsoft 365 only](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)  | [Microsoft 365 only](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)        |
 |**IoT-focused device alerts**     |    -     |   [Microsoft 365 only](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)      |     [Microsoft 365 only](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)  |
-|**IoT hunting and custom detections** <!--what does this mean? where can users find this?-->     |    -     |      [Microsoft 365 only]   |     [Microsoft 365 only]   |
-|**Response** <br>[Microsoft 365 only]<!--do we include this? when is this getting added? what to xref to-->     |   [Microsoft 365 only]      |    [Microsoft 365 only]    |    [Microsoft 365 only]     |
+|**IoT hunting and custom detections** <!--what does this mean? where can users find this? advanced hunting blade in mde-->     |    -     |      [Microsoft 365 only]   |     [Microsoft 365 only]   |
+|**Response** <br>[Microsoft 365 only]<!--do we include this? when is this getting added? what to xref to. this is the default response in MDE. this is "contain device".-->     |   [Microsoft 365 only]      |    [Microsoft 365 only]    |    [Microsoft 365 only]     |
 
 ## Next steps
 
