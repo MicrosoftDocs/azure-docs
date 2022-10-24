@@ -41,6 +41,9 @@ items:
     - name: Monitor SAP system in Azure portal
       href: monitor-portal.md
 
+- name: Azure Monitor for SAP solutions
+  href: ./monitor/toc.yml
+
 - name: Reference
   items:
   - name: REST API
