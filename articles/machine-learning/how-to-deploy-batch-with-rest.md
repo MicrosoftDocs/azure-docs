@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: dem108
-ms.author: sehan
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.date: 05/24/2022
-ms.reviewer: larryfr
 ms.custom: devplatv2, event-tier1-build-2022, ignite-2022
 ---
 

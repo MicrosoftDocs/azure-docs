@@ -29,15 +29,15 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
+- [IoT device entity page (Preview)](#iot-device-entity-page-preview)
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
-As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) will be integrating [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between two levels of integration:
+As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) will be integrating [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between three levels of integration:
 
-- **Selective alerts** (default) includes only alerts chosen by Microsoft security researchers, mostly of Medium and High severities.
-- **All alerts** includes all AADIP alerts of any severity.
-
-This integration can't be disabled.
+- **Show high-impact alerts only (Default)** includes only alerts about known malicious or highly suspicious activities that might require attention. These alerts are  chosen by Microsoft security researchers and are mostly of Medium and High severities.
+- **Show all alerts** includes all AADIP alerts, including activity that might not be unwanted or malicious.
+- **Turn off all alerts** disables any AADIP alerts from appearing in your Microsoft 365 Defender incidents.
 
 Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
 
@@ -45,9 +45,9 @@ Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 36
 
     | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
     | - | - | - |
-    | **1** | Keep the default AADIP integration of **Selective alerts**. | Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
-    | **2** | Choose the **All alerts** AADIP integration. | Create automation rules to automatically close incidents with unwanted alerts.<br><br>Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
-    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose either option for AADIP integration. | Create automation rules to close all incidents where <br>- the *incident provider* is `Microsoft 365 Defender` and <br>- the *alert provider* is `Azure Active Directory Identity Protection`. <br><br>Leave enabled those [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **1** | Keep the default AADIP integration of **Show high-impact alerts only**. | Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **2** | Choose the **Show all alerts** AADIP integration. | Create automation rules to automatically close incidents with unwanted alerts.<br><br>Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose the **Turn off all alerts** option for AADIP integration. | Leave enabled those [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
 
 - If you don't have your [AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
 
@@ -66,6 +66,15 @@ You can fine-tune the new capability by editing the [SAP_Dynamic_Audit_Log_Monit
 Learn more:
 - [Learn about the new feature (blog)](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog)
 - [Use the new rule for anomaly detection](sap/configure-audit-log-rules.md#anomaly-detection)
+
+### IoT device entity page (Preview)
+
+OT/IoT devices, including Programmable Logic Controllers (PLCs), Human-Machine Interfaces (HMIs), engineering workstations, network devices, and more, are becoming increasingly prevalent in organizations. Often, these devices are used as entry points for attacks, but they can also be used by attackers to move laterally.
+For SOCs, monitoring IoT/OT networks presents a number of challenges, including the lack of visibility for security teams into their OT networks, the lack of experience among SOC analysts in managing OT incidents, and the lack of communication between OT teams and SOC teams.
+ 
+The new [IoT device entity page](entity-pages.md) is designed to help the SOC investigate incidents that involve IoT/OT devices in their environment, by providing the full OT/IoT context through Microsoft Defender for IoT to Sentinel. This enables SOC teams to detect and respond more quickly across all domains to the entire attack timeline.
+
+Learn more about [investigating IoT device entities in Microsoft Sentinel](iot-advanced-threat-monitoring.md).
 
 ## September 2022
 
