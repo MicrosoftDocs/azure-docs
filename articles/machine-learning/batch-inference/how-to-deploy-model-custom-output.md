@@ -80,7 +80,7 @@ We need to create a scoring script that can read the input data provided by the 
 3. Appends the predictions to a `pandas.DataFrame` along with the input data.
 4. Writes the data in a file named as the input file, but in `parquet` format.
 
-__batch_driver.py__
+__batch_driver_parquet.py__
 
 ```python
 import os
@@ -113,7 +113,7 @@ def run(mini_batch):
      return mini_batch
 ```
 
-Remarks:
+__Remarks:__
 * Notice how the environment variable `AZUREML_BI_OUTPUT_PATH` is used to get access to the output path of the deployment job. 
 * The `init()` function is populating a global variable called `output_path` that can be used later to know where to write.
 * The `run` method returns a list of the processed files. It is required for the `run` function to return a `list` or a `pandas.DataFrame` object.
