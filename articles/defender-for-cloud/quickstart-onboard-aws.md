@@ -167,7 +167,6 @@ As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFor
 
 You use the template to create a stack from the s3 bucket to create the accounts. 
 
-Amazon S3 URL can be used if you already have an S3 bucket - an S3 bucket is like a storage account which will be created automatically for a user, or a user can provide their own storage account if they have one.
 
 ### AWS CloudFormation deployment 
 
