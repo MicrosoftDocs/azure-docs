@@ -19,8 +19,8 @@ When deploying a machine learning model to a batch endpoint, you can secure the 
 
 ## Prerequisites
 
-* A secure Azure Machine Learning workspace. For more details about how to achieve it read [Create a secure workspace](../tutorial-create-secure-workspace).
-* Ensure blob, file, queue, and table private endpoints are configured for the storage accounts as explained at [Secure Azure storage accounts](../how-to-secure-workspace-vnet?tabs=pe%2Ccli#secure-azure-storage-accounts). Batch deployments requires all the 4 to properly work.
+* A secure Azure Machine Learning workspace. For more details about how to achieve it read [Create a secure workspace](../tutorial-create-secure-workspace.md).
+* Ensure blob, file, queue, and table private endpoints are configured for the storage accounts as explained at [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Batch deployments require all the 4 to properly work.
 
 ## Securing batch endpoints
 
@@ -37,7 +37,7 @@ The following diagram shows how the networking looks like for batch endpoints:
 
 Azure Machine Learning batch deployments run on compute clusters. To secure batch deployment jobs, those compute clusters have to be deployed in a virtual network too.
 
-1. Create an Azure Machine Learning [computer cluster in the virtual network](../how-to-secure-training-vnet#compute-cluster).
+1. Create an Azure Machine Learning [computer cluster in the virtual network](../how-to-secure-training-vnet.md#compute-cluster).
 1. If your compute instance uses a public IP address, you must [Allow inbound communication](../how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources.
     
     > [!TIP]
@@ -45,7 +45,7 @@ Azure Machine Learning batch deployments run on compute clusters. To secure batc
 
 1. Extra NSG may be required depending on your case. Please see [Limitations for Azure Machine Learning compute cluster](../how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1)
 
-For more details about how to configure compute clusters networking read [Secure an Azure Machine Learning training environment with virtual networks](../how-to-secure-training-vnet.md?#azure-machine-learning-compute-clusterinstance-1)
+For more details about how to configure compute clusters networking read [Secure an Azure Machine Learning training environment with virtual networks](../how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1)
 
 ## Using two-networks architecture
 
@@ -60,7 +60,7 @@ The following diagram shows the high level design:
 Have the following considerations when using such architecture:
 
 * Put the second set of private endpoints in a different resource group and hence in different private DNS zones. This prevents a name resolution conflict between the set of IPs used for the workload and the ones used by the client VNets.
-* For your storage accounts, add 4 private endpoints in each VNet for blob, file, queue, and table as explained at [Secure Azure storage accounts](../how-to-secure-workspace-vnet?tabs=pe%2Ccli#secure-azure-storage-accounts).
+* For your storage accounts, add 4 private endpoints in each VNet for blob, file, queue, and table as explained at [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
 
 ## Recommended read

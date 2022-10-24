@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Authentication on batch endpoints
 
-Batch endpoints support Azure Active Directory authentication, or `aad_token`. That mean that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforce at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
+Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforces at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
 
 ## Prerequisites
 
@@ -83,7 +83,8 @@ job = ml_client.batch_endpoints.invoke(
 
 # [Azure ML studio](#tab/studio)
 
-When using studio, jobs are always started using the identity of the user in the portal.
+Jobs are always started using the identity of the user in the portal in studio.
+
 ---
 
 ### Running jobs using a service principal
