@@ -14,8 +14,6 @@ services: azure-maps
 
 The Azure Maps Creator [wayfinding service][wayfinding service] allows you to navigate from place to place anywhere within your indoor map. The service utilizes stairs and elevators to navigate between floors and provides guidance to help you navigate around physical obstructions. This article describes how to generate a path from a starting point to a destination point in a sample indoor map.
 
-Creator wayfinding is powered by [Havok][havok].
-
 ## Prerequisites
 
 - Understanding of [Creator concepts](creator-indoor-maps.md).
@@ -181,4 +179,3 @@ The wayfinding service calculates the path through specific intervening points. 
 [how to manage access to creator services]: how-to-manage-creator.md#access-to-creator-services
 [check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [wayfinding service]: creator-indoor-maps.md#wayfinding-preview
-[havok]: https://www.havok.com/

@@ -229,6 +229,8 @@ An application can use a feature stateset to dynamically render features in a fa
 
 The [Wayfinding service][wayfind] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset][routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the required width of openings and navigating between levels.
 
+Creator wayfinding is powered by [Havok][havok].
+
 #### Wayfinding paths
 
 When a [wayfinding path][wayfinding path] is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg, as are any stairs or elevators used to move between floors.
@@ -316,3 +318,4 @@ The following example shows how to update a dataset, create a new tileset, and d
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 [structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
+[havok]: https://www.havok.com/
