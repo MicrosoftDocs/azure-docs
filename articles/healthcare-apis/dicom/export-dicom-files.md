@@ -27,11 +27,11 @@ The first step to export data from the DICOM service is to enable a system manag
 
 [![Select Identity](media/dicom-export-identity.png)](media/dicom-export-identity.png#lightbox)
 
-2. Set the **Status** option to **On**, and then click **Save**. 
+2. Set the **Status** option to **On**, and then select **Save**. 
 
 [![Enable System Identity](media/dicom-export-enable-system-identity.png)](media/dicom-export-enable-system-identity.png#lightbox)
 
-3. Select **Yes** in the confirmation diaglog that appears.  
+3. Select **Yes** in the confirmation dialog that appears.  
 
 [![Confirm Enable System Identity](media/dicom-export-confirm-enable.png)](media/dicom-export-confirm-enable.png#lightbox)
 
@@ -52,7 +52,7 @@ The system managed identity will need **Storage Blob Data Contributor** permissi
 
  [![Add Role Assignment](media/dicom-export-add-role-assignment.png)](media/dicom-export-add-role-assignment.png#lightbox)
 
-3. Click **Save** to add the permission to the system managed identity.
+3. Select **Save** to add the permission to the system managed identity.
 
 ## Use the export API
 
@@ -62,7 +62,7 @@ The export API exposes one `POST` endpoint for exporting data.
 POST <dicom-service-url>/<version>/export
 ```
 
-Given a *source*, the set of data to be exported, and a *destination*, the location to which data will be exported, the endpoint returns a reference to the newly-started long-running export operation. The duration of this operation depends on the volume of data to be exported.  See [Operation Status](#operation-status) below for more details about monitoring progress of export operations.  
+Given a *source*, the set of data to be exported, and a *destination*, the location to which data will be exported, the endpoint returns a reference to a new, long-running export operation. The duration of this operation depends on the volume of data to be exported.  See [Operation Status](#operation-status) below for more details about monitoring progress of export operations.  
 
 Any errors encountered while attempting to export will be recorded in an error log.  See [Errors](#errors) below for details.
 
@@ -106,7 +106,7 @@ The connection to the Azure Blob storage account can be specified with either a 
 | `BlobContainerName`  | No       | `""`    | The name of a blob container. Only required when `ConnectionString` is specified. |
 | `BlobContainerUri`   | No       | `""`    | The complete URI for the blob container. |
 | `ConnectionString`   | No       | `""`    | The [Azure Storage connection string](../../storage/common/storage-configure-connection-string.md) that must minimally include information for blob storage. |
-| `UseManagedIdentity` | Yes      | `false` | An required flag indicating whether managed identity should be used to authenticate to the blob container. |
+| `UseManagedIdentity` | Yes      | `false` | A required flag indicating whether managed identity should be used to authenticate to the blob container. |
 
 ### Example
 
@@ -142,7 +142,7 @@ Content-Type: application/json
 
 ## Response
 
-Upon successfully starting an export operation, the export API returns a `202` status code. The body of the response contains a reference to the operation, while the value of the `Location` header is the URL for the export operation's status (the same as `href` in the body).
+The export API returns a `202` status code when an export operation is started successfully. The body of the response contains a reference to the operation, while the value of the `Location` header is the URL for the export operation's status (the same as `href` in the body).
 
 Inside of the destination container, the DCM files can be found with the following path format: `<operation id>/results/<study>/<series>/<sop instance>.dcm`
 
