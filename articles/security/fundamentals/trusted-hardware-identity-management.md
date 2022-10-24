@@ -17,6 +17,8 @@ The Trusted Hardware Identity Management (THIM) service handles cache management
 
 THIM defines the Azure security baseline for Azure Confidential computing (ACC) nodes and caches collateral from TEE providers. The cached information can be further used by attestation services and ACC nodes in validating TEEs. View the image below to see the interactions between an attestation service or node, THIM, and an enclave host.
 
+:::image type="content" source="./media/thim.png" alt-text="Diagram illustrating the interacts an attestation service or node, THIM, and an enclave host":::
+
 ## Frequently Asked Questions
 
 The next update date of the Azure-internal caching service API used by Azure Attestation seems to be out of date. Is this still in operation and can it be used?
@@ -28,9 +30,9 @@ Open Enclave SDK does not look at nextUpdate date and will pass attestation, so 
 What is Azure DCAP Library? Azure Data Center Attestation Primitives (DCAP), a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the THIM Service. Fetching collateral directly from the THIM service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. The current recommended version of the DCAP library is 1.11.2.
 
 Where can I download the latest DCAP packages?
-- Ubuntu 20.04: https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11.2_amd64.deb
-- Ubuntu 18.04: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11.2_amd64.deb
-- Windows: https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.11.2
+- Ubuntu 20.04: <https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11.2_amd64.deb>
+- Ubuntu 18.04: <https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11.2_amd64.deb>
+- Windows: <https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.11.2>
 
 Why are there different baselines between THIM and Intel?
 
