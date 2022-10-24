@@ -156,9 +156,9 @@ spec:
 > [!NOTE]
 > The telemetry router currently supports indirect mode only.
 
-Once you have your cluster and Azure CLI setup correctly, to deploy the telemetry router, you must create the *DataController* custom resource. Then, set the `enableOpenTelemetry` flag on its spec to `true`.  This flag is a temporary feature flag that must be enabled.
+After setting up your cluster and Azure CLI, to deploy the telemetry router you must first create the *DataController* custom resource. Then, set the `enableOpenTelemetry` flag on its spec to `true`.  This flag is a temporary feature flag that must be enabled.
 
-To set the feature flag, follow the [normal configuration profile instructions](create-custom-configuration-template.md). After you have created your configuration profile, add the monitoring property with the `enableOpenTelemetry` flag set to `true`. You can do set the feature flag by running the following commands in the az CLI:
+To set the feature flag, follow the [normal configuration profile instructions](create-custom-configuration-template.md). After you've created your configuration profile, add the monitoring property with the `enableOpenTelemetry` flag set to `true`. You can do set the feature flag by running the following commands in the az CLI:
 
 ```bash
 az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring={}"
@@ -175,7 +175,7 @@ spec:
 
 Then deploy the data controller as normal in the [Deployment Instructions](create-data-controller-indirect-cli.md?tabs=linux)
 
-When the data controller is deployed, it also deploys a default TelemetryRouter custom resource as part of the data controller creation. Note that the controller pod will only be marked ready when both custom resources have finished deploying. Use the following command to verify that the TelemetryRouter exists:
+When the data controller is deployed, it also deploys a default TelemetryRouter custom resource as part of the data controller creation. The controller pod will only be marked ready when both custom resources have finished deploying. Use the following command to verify that the TelemetryRouter exists:
 
 ```bash
 kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
@@ -206,7 +206,7 @@ apiVersion: arcdata.microsoft.com/v1beta2
       - certificateName: cluster-ca-certificate
 ```
 
-We are exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two OtelCollector custom resources are created. You can see the index, service endpoint, and certificates it is using to do so.  This telemetry router is provided as an example of the deployment, so you can see how to export to your own monitoring solutions.
+We're exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two OtelCollector custom resources are created. You can see the index, service endpoint, and certificates it's using to do so.  This telemetry router is provided as an example of the deployment, so you can see how to export to your own monitoring solutions.
 
 You can run the following commands to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
 
