@@ -141,7 +141,7 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * Cross-region IPv6 frontend IP configurations aren't supported. 
 
-* UDP traffic is not supported on Cross-region Load Balancer. 
+* UDP traffic isn't supported on Cross-region Load Balancer. 
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
