@@ -32,3 +32,7 @@ You can break file locks for all files in a volume or limit the breaking to a fi
     :::image type="content" source="../media/azure-netapp-files/break-file-locks.png" alt-text="Screenshot of break file locks portal" lightbox="../media/azure-netapp-files/break-file-locks.png":::
 
 1. Confirm you understand that breaking file locks may be disruptive.
+
+## Next steps
+* [NFS FAQs for Azure NetApp Files](faq-nfs.md)
+* [SMB FAQs for Azure NetApp Files](faq-smb.md)
