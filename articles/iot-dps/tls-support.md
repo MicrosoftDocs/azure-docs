@@ -5,21 +5,25 @@
  author: kgremban
  ms.service: iot-dps
  ms.topic: conceptual
- ms.date: 09/14/2020
+ ms.date: 09/15/2022
  ms.author: kgremban
 ---
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)
 
-DPS uses [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) to secure connections from IoT devices. 
+DPS uses [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) to secure connections from IoT devices.
 
 Current TLS protocol versions supported by DPS are:
 
 * TLS 1.2
 
-## Restrict connections to TLS 1.2
+## Restrict connections to a minimum TLS version
 
-For added security, it is advised to configure your DPS instances to *only* allow device client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers).
+You can configure your DPS instances to *only* allow device client connections that use a minimum TLS version or greater.
+
+> [!IMPORTANT]
+>
+> Currently, DPS only supports TLS 1.2, so there is no need to specify the minimum TLS version when you create a DPS instance. This feature is provided for future expansion.
 
 To do this, provision a new DPS resource setting the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's DPS resource specification. The following example template JSON specifies the `minTlsVersion` property for a new DPS instance.
 
@@ -45,7 +49,7 @@ To do this, provision a new DPS resource setting the `minTlsVersion` property to
 }
 ```
 
-You can deploy the template with the following Azure CLI command. 
+You can deploy the template with the following Azure CLI command.
 
 ```azurecli
 az deployment group create -g <your resource group name> --template-file template.json
@@ -53,7 +57,7 @@ az deployment group create -g <your resource group name> --template-file templat
 
 For more information on creating DPS resources with Resource Manager templates, see, [Set up DPS with an Azure Resource Manager template](quick-setup-auto-provision-rm.md).
 
-The DPS resource created using this configuration will refuse devices that attempt to connect using TLS versions 1.0 and 1.1. Similarly, the TLS handshake will be refused if the device client's HELLO message does not list any of the [recommended ciphers](#recommended-ciphers).
+The DPS resource created using this configuration will refuse devices that attempt to connect using TLS versions 1.0 and 1.1.
 
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your DPS resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
@@ -63,8 +67,7 @@ The DPS resource created using this configuration will refuse devices that attem
 
 ## Recommended ciphers
 
-DPS instances that are configured to accept only TLS 1.2 will also enforce the use of the following cipher suites:
-
+DPS instances enforce the use of the following recommended and legacy cipher suites:
 
 | Recommended TLS 1.2 cipher suites |
 | :--- |

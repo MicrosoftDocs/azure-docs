@@ -10,18 +10,44 @@ ms.reviewer: mmcc
 
 # Upgrading from Application Insights Java 2.x SDK
 
-If you're already using Application Insights Java 2.x SDK in your application, you can keep using it.
-The Application Insights Java 3.x agent will detect it,
-and capture and correlate any custom telemetry you're sending via the 2.x SDK,
-while suppressing any auto-collection performed by the 2.x SDK to prevent duplicate telemetry.
+There are typically no code changes when upgrading to 3.x. The 3.x SDK dependencies are just no-op API versions of the
+2.x SDK dependencies, but when used along with the 3.x Java agent, the 3.x Java agent provides the implementation
+for them, and your custom instrumentation will be correlated with all the new
+auto-instrumentation which is provided by the 3.x Java agent.
 
-If you were using Application Insights 2.x agent, you need to remove the `-javaagent:` JVM arg
-that was pointing to the 2.x agent.
+## Step 1: Update dependencies
+
+| 2.x dependency | Action | Remarks                                                                                                                                                                                     |
+|----------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `applicationinsights-core` | Update the version to `3.4.2` or later |                                                                                                                                                                                             |
+| `applicationinsights-web` | Update the version to `3.4.2` or later, and remove the Application Insights web filter your `web.xml` file. |                                                                                                                                                                                             |
+| `applicationinsights-web-auto` | Replace with `3.4.2` or later of `applicationinsights-web` |                                                                                                                                                                                             |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | No longer needed since Log4j 1.2 is auto-instrumented in the 3.x Java agent.                                                                                                                |
+| `applicationinsights-logging-log4j2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | No longer needed since Log4j 2 is auto-instrumented in the 3.x Java agent.                                                                                                                  |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your logback configuration. | No longer needed since Logback is auto-instrumented in the 3.x Java agent.                                                                                                                  |
+| `applicationinsights-spring-boot-starter` | Replace with `3.4.2` or later of `applicationinsights-web` | The cloud role name will no longer default to `spring.application.name`, see the [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name. |
+
+## Step 2: Add the 3.x Java agent
+
+Add the 3.x Java agent to your JVM command-line args, for example
+
+```
+-javaagent:path/to/applicationinsights-agent-3.4.2.jar
+```
+
+If you were using the Application Insights 2.x Java agent, just replace your existing `-javaagent:...` with the above.
+
+> [!Note] 
+> If you were using the spring-boot-starter and if you prefer, there is an alternative to using the Java agent. See [3.x Spring Boot](./java-spring-boot.md).
+
+## Step 3: Configure your Application Insights connection string
+
+See [configuring the connection string](./java-standalone-config.md#connection-string).
+
+## Additional notes
 
 The rest of this document describes limitations and changes that you may encounter
 when upgrading from 2.x to 3.x, as well as some workarounds that you may find helpful.
-
-
 
 ## TelemetryInitializers and TelemetryProcessors
 
@@ -38,12 +64,12 @@ This use case is supported in Application Insights Java 3.x using [Instrumentati
 
 ## Operation names
 
-In the Application Insights Java 2.x SDK, in some cases, the operation names contained the full path, e.g.
+In the Application Insights Java 2.x SDK, in some cases, the operation names contained the full path, for example
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Screenshot showing operation names with full path":::
 
 Operation names in Application Insights Java 3.x have changed to generally provide a better aggregated view
-in the Application Insights Portal U/X, e.g.
+in the Application Insights Portal U/X, for example
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-parameterized.png" alt-text="Screenshot showing operation names parameterized":::
 
@@ -56,7 +82,7 @@ The snippet below configures 3 telemetry processors that combine to replicate th
 The telemetry processors perform the following actions (in order):
 
 1. The first telemetry processor is an attribute processor (has type `attribute`),
-   which means it applies to all telemetry which has attributes
+   which means it applies to all telemetry that has attributes
    (currently `requests` and `dependencies`, but soon also `traces`).
 
    It will match any telemetry that has attributes named `http.method` and `http.url`.
@@ -126,21 +152,3 @@ The telemetry processors perform the following actions (in order):
   }
 }
 ```
-
-## 2.x SDK logging appenders
-
-Application Insights Java 3.x [auto-collects logging](./java-standalone-config.md#auto-collected-logging)
-without the need for configuring any logging appenders.
-If you are using 2.x SDK logging appenders, those can be removed,
-as they will be suppressed by the Application Insights Java 3.x anyways.
-
-## 2.x SDK spring boot starter
-
-There is no Application Insights Java 3.x spring boot starter.
-3.x setup and configuration follows the same [simple steps](./java-in-process-agent.md#get-started)
-whether you are using spring boot or not.
-
-When upgrading from the Application Insights Java 2.x SDK spring boot starter,
-note that the cloud role name will no longer default to `spring.application.name`.
-See the [3.x configuration docs](./java-standalone-config.md#cloud-role-name)
-for setting the cloud role name in 3.x via json config or environment variable.

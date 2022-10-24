@@ -6,6 +6,7 @@ description: Export the enriched content created by a skillset by mapping its ou
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/14/2022
 ---
@@ -30,11 +31,11 @@ In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definitio
 
 Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as text translation or key phrase extraction. During indexer execution, AI-generated information exists in memory only. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
-Output field mappings can also be used to retrieve specific nodes in a source document's complex type. If you don't need the full complex structure, you can [flatten individual nodes in a nested data structures](#flattening-information-from-complex-types), and then use an output field mapping to send the output to a string collection in your search index.
+Output field mappings can also be used to retrieve specific nodes in a source document's complex type. For example, you might want just "FullName/LastName" in a multi-part "FullName" property. When you don't need the full complex structure, you can [flatten individual nodes in a nested data structures](#flattening-information-from-complex-types), and then use an output field mapping to send the output to a string collection in your search index.
 
 Output field mappings apply to:
 
-+ Content that's created by skills or extracted by an indexer. The source field is a node in an enriched document residing in memory.
++ In-memory content that's created by skills or extracted by an indexer. The source field is a node in an enriched document tree.
 
 + Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
@@ -140,7 +141,7 @@ If your source data is composed of nested or hierarchical JSON, you can't use fi
 
 This section walks you through an import process that produces a one-to-one reflection of a complex document on both the source and target sides. Next, it uses the same source document to illustrate the retrieval and flattening of individual nodes into string collections.
 
-Here's an example of a document in Cosmos DB with nested JSON:
+Here's an example of a document in Azure Cosmos DB with nested JSON:
 
 ```json
 {
@@ -216,7 +217,7 @@ Here's a sample indexer definition that executes the import (notice there are no
 }
 ```
 
-The result is the following sample search document, similar to the original in Cosmos DB.
+The result is the following sample search document, similar to the original in Azure Cosmos DB.
 
 ```json
 {

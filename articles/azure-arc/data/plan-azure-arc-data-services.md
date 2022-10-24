@@ -26,6 +26,12 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
    The details in this article will guide your plan.
 
 1. [Install client tools](install-client-tools.md).
+
+1. Register the Microsoft.AzureArcData provider for the subscription where the Azure Arc-enabled data services will be deployed, as follows:
+   ```console
+   az provider register --namespace Microsoft.AzureArcData
+   ```  
+
 1. Access a Kubernetes cluster.
 
    For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. To create a cluster, follow the instructions at [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) to walk through the entire process.
@@ -62,6 +68,7 @@ Verify that:
    kubectl cluster-info
    ```  
 - You have an Azure subscription that resources such as an Azure Arc data controller, Azure Arc-enabled SQL managed instance, or Azure Arc-enabled PostgreSQL server will be projected and billed to.
+- The Microsoft.AzureArcData provider is registered for the subscription where the Azure Arc-enabled data services will be deployed.
 
 After you're prepared the infrastructure, deploy Azure Arc-enabled data services in the following way:
 1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster.
@@ -85,6 +92,7 @@ You can deploy Azure Arc-enabled data services on various types of Kubernetes cl
 > [!IMPORTANT]
 > * The minimum supported version of Kubernetes is v1.21. For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
 > * The minimum supported version of OCP is 4.8.
+>     * OCP 4.11 is not supported.
 > * If you're using Azure Kubernetes Service, your cluster's worker node virtual machine (VM) size should be at least Standard_D8s_v3 and use Premium Disks. 
 > * The cluster should not span multiple availability zones. 
 > * For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).

@@ -1,13 +1,13 @@
 ---
 title: Set up AutoML for computer vision 
 titleSuffix: Azure Machine Learning
-description: Set up Azure Machine Learning automated ML to train computer vision models  with the CLI v2 and Python SDK v2 (preview).
+description: Set up Azure Machine Learning automated ML to train computer vision models  with the CLI v2 and Python SDK v2.
 services: machine-learning
 author: swatig007
 ms.author: swatig
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 07/13/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
@@ -20,10 +20,8 @@ ms.date: 07/13/2022
 > * [v1](v1/how-to-auto-train-image-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2 (preview).
+In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
 
 Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md).
 
@@ -42,7 +40,7 @@ Automated ML supports model training for computer vision tasks like image classi
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* The Azure Machine Learning Python SDK v2 (preview) installed.
+* The Azure Machine Learning Python SDK v2 installed.
 
     To install the SDK you can either,  
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
@@ -56,10 +54,7 @@ Automated ML supports model training for computer vision tasks like image classi
        ```python
        pip install azure-ai-ml
        ```
-  
-    > [!NOTE]
-    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
-
+   
 ---
 
 ## Select your task type
@@ -110,7 +105,7 @@ If your training data is in a different format (like, pascal VOC or COCO), you c
 > The training data needs to have at least 10 images in order to be able to submit an AutoML run. 
 
 > [!Warning]
-> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. As of now, the UI doesn't recognize the StreamInfo datatype, which is the datatype used for image URLs in JSONL format.  
+> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. 
 
 
 ### JSONL schema samples
@@ -125,7 +120,7 @@ Field| Description
 
 The following is a sample JSONL file for image classification:
 
-```python
+```json
 {
       "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
@@ -150,7 +145,7 @@ The following is a sample JSONL file for image classification:
 
   The following code is a sample JSONL file for object detection:
 
-  ```python
+  ```json
   {
       "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
@@ -194,7 +189,7 @@ The following is a sample JSONL file for image classification:
 
 Once your data is in JSONL format, you can create training and validation `MLTable` as shown below.
 
-:::code language="yaml" source="~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
+:::code language="yaml" source="~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
 
 Automated ML doesn't impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There's no minimum number of images or labels. However, we recommend starting with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
@@ -202,9 +197,9 @@ Automated ML doesn't impose any constraints on training or validation data size 
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Training data is a required parameter and is passed in using the `training` key of the data section. You can optionally specify another MLtable as a validation data with the `validation` key. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
+Training data is a required parameter and is passed in using the `training_data` key. You can optionally specify another MLtable as a validation data with the `validation_data` key. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
 
-Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key in the data section. For example,
+Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key. For example,
 
 ```yaml
 target_column_name: label
@@ -222,7 +217,7 @@ validation_data:
 
 You can create data inputs from training and validation MLTable from your local directory or cloud storage with the following code:
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load)]
 
 Training data is a required parameter and is passed in using the `training_data` parameter of the task specific `automl` type function. You can optionally specify another MLTable as a validation data with the `validation_data` parameter. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
 
@@ -241,6 +236,9 @@ image_object_detection_job = automl.image_object_detection(
 ## Compute to run experiment
 
 Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
+
+> [!NOTE]
+> If you are using a [compute instance](concept-compute-instance.md) as your compute target, please make sure that multiple AutoML jobs are not run at the same time. Also, please make sure that `max_concurrent_trials` is set to 1 in your [job limits](#job-limits).
 
 The compute target is passed in using the `compute` parameter. For example:
 
@@ -303,23 +301,23 @@ Before doing a large sweep to search for the optimal models and hyperparameters,
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name key in image_model section. For example,
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name key in training_parameters section. For example,
 
 ```yaml
-image_model:
-    model_name: "yolov5"
+training_parameters:
+    model_name: yolov5
 ```
 # [Python SDK](#tab/python)
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name parameter in  set_image_model method of the task specific `automl` job. For example,
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name parameter in  set_training_parameters method of the task specific `automl` job. For example,
 
 ```python
-image_object_detection_job.set_image_model(model_name="yolov5")
+image_object_detection_job.set_training_parameters(model_name="yolov5")
 ```
 ---
-Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
+Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to [sweep over the hyperparameters](./how-to-auto-train-image-models.md#sweeping-hyperparameters-for-your-model) for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
 
 ### Primary metric
 
@@ -330,23 +328,32 @@ The primary metric used for model optimization and hyperparameter tuning depends
 * `mean_average_precision` for IMAGE_OBJECT_DETECTION
 * `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
     
-### Experiment budget
+### Job Limits
 
-You can optionally specify the maximum time budget for your AutoML Vision training job using the `timeout` parameter in the `limits` - the amount of time in minutes before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days). For example,
+You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example.
+
+Parameter | Detail
+-----|----
+`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. default value is 1.
+`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency. default value is 1.
+`timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
+
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits:
-  timeout: 60
+  timeout_minutes: 60
+  max_trials: 10
+  max_concurrent_trials: 2
 ```
 
 # [Python SDK](#tab/python)
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
 
 ---
 
@@ -354,6 +361,46 @@ limits:
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
 With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+search_space:
+  - model_name:
+      type: choice
+      values: [yolov5]
+    learning_rate:
+      type: uniform
+      min_value: 0.0001
+      max_value: 0.01
+    model_size:
+      type: choice
+      values: [small, medium]
+
+  - model_name:
+      type: choice
+      values: [fasterrcnn_resnet50_fpn]
+    learning_rate:
+      type: uniform
+      min_value: 0.0001
+      max_value: 0.001
+    optimizer:
+      type: choice
+      values: [sgd, adam, adamw]
+    min_size:
+      type: choice
+      values: [600, 800]
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
+
+---
 
 ### Define the parameter search space
 
@@ -374,7 +421,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 |[Bayesian Sampling](how-to-tune-hyperparameters.md#bayesian-sampling)| `bayesian` |
     
 > [!NOTE]
-> Currently only random sampling supports conditional hyperparameter spaces.
+> Currently only random and grid sampling support conditional hyperparameter spaces.
 
 ### Early termination policies
 
@@ -389,16 +436,9 @@ You can automatically end poorly performing runs with an early termination polic
 
 Learn more about [how to configure the early termination policy for your hyperparameter sweep](how-to-tune-hyperparameters.md#early-termination).
 
-### Resources for the sweep
-
-You can control the resources spent on your hyperparameter sweep by specifying the `max_trials` and the `max_concurrent_trials` for the sweep.
 > [!NOTE]
 > For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
 
-Parameter | Detail
------|----
-`max_trials` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
-`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
 You can configure all the sweep related parameters as shown in the example below.
 
@@ -408,9 +448,6 @@ You can configure all the sweep related parameters as shown in the example below
 
 ```yaml
 sweep:
-  limits:
-    max_trials: 10
-    max_concurrent_trials: 2
   sampling_algorithm: random
   early_termination:
     type: bandit
@@ -423,7 +460,7 @@ sweep:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
 
 ---
 
@@ -437,7 +474,7 @@ You can pass fixed settings or parameters that don't change during the parameter
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
-image_model:
+training_parameters:
   early_stopping: True
   evaluation_frequency: 1
 ```
@@ -447,7 +484,7 @@ image_model:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
  
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=pass-arguments)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=pass-arguments)]
 
 
 ---
@@ -466,7 +503,7 @@ You can pass the run ID that you want to load the checkpoint from.
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
-image_model:
+training_parameters:
   checkpoint_run_id : "target_checkpoint_run_id"
 ```
 
@@ -496,7 +533,7 @@ mlflow_parent_run = mlflow_client.get_run(automl_job.name)
 target_checkpoint_run_id = mlflow_parent_run.data.tags["automl_best_child_run_id"]
 ```
 
-To pass a checkpoint via the run ID, you need to use the `checkpoint_run_id` parameter in `set_image_model` function.
+To pass a checkpoint via the run ID, you need to use the `checkpoint_run_id` parameter in `set_training_parameters` function.
 
 ```python
 image_object_detection_job = automl.image_object_detection(
@@ -505,11 +542,11 @@ image_object_detection_job = automl.image_object_detection(
     training_data=my_training_data_input,
     validation_data=my_validation_data_input,
     target_column_name="label",
-    primary_metric="mean_average_precision",
+    primary_metric=ObjectDetectionPrimaryMetrics.MEAN_AVERAGE_PRECISION,
     tags={"my_custom_tag": "My custom value"},
 )
 
-image_object_detection_job.set_image_model(checkpoint_run_id=target_checkpoint_run_id)
+image_object_detection_job.set_training_parameters(checkpoint_run_id=target_checkpoint_run_id)
 
 automl_image_job_incremental = ml_client.jobs.create_or_update(
     image_object_detection_job
@@ -539,7 +576,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
 When you've configured your AutoML Job to the desired settings, you can submit the job.
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
 ---
 
 ## Outputs and evaluation metrics
@@ -569,11 +606,11 @@ CLI example not available, please use Python SDK.
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
 ---
 
 ### register the model
@@ -591,7 +628,7 @@ Register the model either using the azureml path or your locally downloaded path
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 ---
 
 After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](how-to-deploy-managed-online-endpoint-sdk-v2.md)
@@ -612,7 +649,7 @@ auth_mode: key
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
 
 ---
 
@@ -632,7 +669,7 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
 ---
 
 ### Configure online deployment
@@ -668,7 +705,7 @@ readiness_probe:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
 ---
 
 
@@ -688,7 +725,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
 ---
 
 ### update traffic:
@@ -706,7 +743,7 @@ az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fri
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
 ---
 
 
@@ -722,7 +759,7 @@ this is how your review page looks like. we can select instance type, instance c
 
 ### Update inference settings
 
-In the previous step, we downloaded a file `mlflow-model/artifacts/settings.json` from the best model. which can be used to update the inference settings before registering the model. Although its's recommended to use the same parameters as training for best performance.
+In the previous step, we downloaded a file `mlflow-model/artifacts/settings.json` from the best model. which can be used to update the inference settings before registering the model. Although it's recommended to use the same parameters as training for best performance.
 
 Each of the tasks (and some models) has a set of parameters. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
 
@@ -740,9 +777,78 @@ If you want to use tiling, and want to control tiling behavior, the following pa
 ###  Test the deployment
 Please check this [Test the deployment](./tutorial-auto-train-image-models.md#test-the-deployment) section to test the deployment and visualize the detections from the model.
 
+## Large datasets
+
+If you're using AutoML to train on large datasets, there are some experimental settings that may be useful.
+
+> [!IMPORTANT]
+> These settings are currently in public preview. They are provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### Multi-GPU and multi-node training
+
+By default, each model trains on a single VM. If training a model is taking too much time, using VMs that contain multiple GPUs may help. The time to train a model on large datasets should decrease in roughly linear proportion to the number of GPUs used. (For instance, a model should train roughly twice as fast on a VM with two GPUs as on a VM with one GPU.) If the time to train a model is still high on a VM with multiple GPUs, you can increase the number of VMs used to train each model. Similar to multi-GPU training, the time to train a model on large datasets should also decrease in roughly linear proportion to the number of VMs used. When training a model across multiple VMs, be sure to use a compute SKU that supports [InfiniBand](how-to-train-distributed-gpu.md#infiniband) for best results. You can configure the number of VMs used to train a single model by setting the `node_count_per_trial` property of the AutoML job.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+properties:
+  node_count_per_trial: "2"
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+Multi-node training is supported for all tasks. The `node_count_per_trial` property can be specified using the task-specific `automl` functions. For instance, for object detection:
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(
+    ...,
+    properties={"node_count_per_trial": 2}
+)
+```
+---
+
+### Streaming image files from storage
+
+By default, all image files are downloaded to disk prior to model training. If the size of the image files is greater than available disk space, the run will fail. Instead of downloading all images to disk, you can select to stream image files from Azure storage as they're needed during training. Image files are streamed from Azure storage directly to system memory, bypassing disk. At the same time, as many files as possible from storage are cached on disk to minimize the number of requests to storage.
+
+> [!NOTE]
+> If streaming is enabled, ensure the Azure storage account is located in the same region as compute to minimize cost and latency.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+training_parameters:
+  advanced_settings: >
+    {"stream_image_files": true}
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"stream_image_files": true}'
+)
+```
+---
+
 
 ## Example notebooks
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
 
 
 
@@ -757,10 +863,10 @@ Review detailed code examples and use cases in the [azureml-examples repository 
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). 
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs). 
 
 ---
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 * [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

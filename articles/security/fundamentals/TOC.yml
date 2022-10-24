@@ -123,6 +123,8 @@
     href: antimalware-code-samples.md
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
+  - name: Automatic VM guest patching
+    href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ffundamentals%2ftoc.json
   - name: Best practices - IaaS workloads
     href: iaas.md
   - name: Azure Marketplace images

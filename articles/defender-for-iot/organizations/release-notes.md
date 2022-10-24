@@ -35,12 +35,15 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 > - Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation. To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
 >
 > - When updating your sensor software version, make sure to also update your on-premises management console to the same version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+> - When updating your sensor software version, make sure to also update your on-premises management console. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ## Versions 22.2.x
 
 
 |Version  |Release date  |Supported until  |Updates  |
 |---------|---------|---------|---------|
+|**22.2.7**     |  10/2022       |    04/2023     |   Minor stability improvements      |
+|**22.2.6**     |  09/2022       |    04/2023     |  Minor stability improvements      |
 |**22.2.5**     |  08/2022       |    04/2023     |   Minor stability improvements      |
 |**22.2.4**     |     07/2022    |   04/2023      |  New features   |
 |**22.2.3**     |   07/2022      |  04/2023       | New features      |
@@ -52,6 +55,14 @@ To update to 22.2.x versions:
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
+### 22.2.7
+
+**Release date**: 10/2022
+
+**Supported until**: 04/2023
+
+This version includes bug fixes for stability improvements.
+
 ### 22.2.6
 
 **Release date**: 09/2022
@@ -60,7 +71,8 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 This version includes the following new updates and fixes:
 
--
+- Bug fixes and stability improvements
+- Enhancements to the device type classification algorithm
 
 ### 22.2.5
 
@@ -183,8 +195,7 @@ To update your software to the latest version available, first update to version
 
 This version includes the following new updates and fixes:
 
-- TBD, not listed in what's new
-
+- REMOVING - as per Belle, not a priority. Wasn't listed in the what's new at all.
 
 ### 10.5.4
 
@@ -224,6 +235,7 @@ This version includes the following new updates and fixes:
 - [On-premises Management Console Audit](release-notes-archive.md#on-premises-management-console-audit)
 - [Webhook Extended](release-notes-archive.md#webhook-extended)
 - [Unicode support for certificate passphrases](release-notes-archive.md#unicode-support-for-certificate-passphrases)
+
 
 ## Next steps
 

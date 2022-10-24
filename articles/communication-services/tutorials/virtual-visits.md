@@ -75,7 +75,7 @@ And then make sure "Add online meeting" is enabled.
 
 
 ### Step 2 – Sample Builder
-Use the Sample Builder to customize the consumer experience. You can reach the Sampler Builder using this [link](https://aka.ms/acs-sample-builder), or navigating to the page within the Azure Communication Services resource in the Azure portal. Step through the Sample Builder wizard and select Industry template, then configure if Chat or Screen Sharing should be enabled. Change themes and text to you match your application. You can preview your configuration live from the page in both Desktop and Mobile browser form-factors.
+Use the Sample Builder to customize the consumer experience. You can reach the Sampler Builder using this [link](https://aka.ms/acs-sample-builder) or navigating to the page within the Azure Communication Services resource in the Azure portal. Step through the Sample Builder wizard: select Industry template, configure the call experience (Chat or Screen Sharing availability), change themes and text to match your application style and get valuable feedback through post-call survey options. You can preview your configuration live from the page in both Desktop and Mobile browser form-factors.
 
 [ ![Screenshot of Sample builder start page.](./media/virtual-visits/sample-builder-themes.png)](./media/virtual-visits/sample-builder-themes.png#lightbox)
 
@@ -104,9 +104,7 @@ Opening the App Service’s URL and navigating to `https://<YOUR URL>/VISIT` all
 
 ### Step 5 - Set deployed app URL in Bookings 
 
-Copy your application url into your calendar Business information setting by going to https://outlook.office.com/bookings/businessinformation.
-
-![Screenshot of final view of bookings business information.](./media/virtual-visits/bookings-acs-app-integration-url.png)
+Enter the application url followed by "/visit" in the "Deployed App URL" field in https://outlook.office.com/bookings/businessinformation.
 
 ## Going to production
 The Sample Builder gives you the basics of a Microsoft 365 and Azure virtual visit: consumer scheduling via Bookings, consumer joins via custom app, and the provider joins via Teams. However, there are several things to consider as you take this scenario to production.

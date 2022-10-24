@@ -6,10 +6,9 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 09/13/2022
-
-ms.author: gasinh
-author: gargi-sinha
+ms.date: 09/27/2022
+ms.author: billmath
+author: billmath
 manager: amycolannino
 ms.reviewer: jsimmons, andresc
 ms.collection: M365-identity-device-management
@@ -169,12 +168,12 @@ Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
 
 **Known Issues**
 
-Your organization may use [MAM app protection policies](https://docs.microsoft.com/mem/intune/apps/app-protection-policy) to protect corporate data in apps on end users' devices.
+Your organization may use [MAM app protection policies](https://learn.microsoft.com/mem/intune/apps/app-protection-policy) to protect corporate data in apps on end users' devices.
 MAM app protection policies are currently not resiliant to UPN changes. UPN changes can break the connection between existing MAM enrollments and active users in MAM integrated applications, resulting in undefined behavior. This could leave data in an unprotected state.
 
 **Work Around**
 
-IT admins should [issue a selective wipe](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe) to impacted users following UPN changes. This will force impacted end users to reauthenticate and reenroll with their new UPNs.
+IT admins should [issue a selective wipe](https://learn.microsoft.com/mem/intune/apps/apps-selective-wipe) to impacted users following UPN changes. This will force impacted end users to reauthenticate and reenroll with their new UPNs.
 
 ## Microsoft Authenticator known issues and workarounds
 
@@ -258,6 +257,20 @@ To remove references to old UPNs, users must [reset the security key and re-regi
 OneDrive users are known to experience issues after UPN changes. 
 For more information, see
 [How UPN changes affect the OneDrive URL and OneDrive features](/onedrive/upn-changes).
+
+
+## Teams Meeting Notes known issues and workarounds 
+
+Teams Meeting Notes is a feature that allows users to take notes during their Teams meeting. This support document describes the feature in detail: [Take meeting notes in Teams](https://support.microsoft.com/office/take-meeting-notes-in-teams-3eadf032-0ef8-4d60-9e21-0691d317d103).  
+
+**Known issues** <br>
+When a user’s UPN changes, the meeting notes created under the old UPN are no longer accessible by that user or any other user via Microsoft Teams or the Meeting Notes URL.   
+
+**Workaround**<br>
+After the UPN change, users can recover the meeting notes they lost access to by downloading them from OneDrive (navigate to My Files -> Microsoft Teams Data -> Wiki). New meeting notes created after the UPN change are not affected and should behave as normal.  
+
+
+
 
 ## Next steps
 

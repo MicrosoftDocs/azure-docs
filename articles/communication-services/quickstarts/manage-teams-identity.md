@@ -53,7 +53,7 @@ The following application settings influence the experience:
 
 For more detailed information, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md#register-an-application). 
 
-When the application is registered, you'll see an identifier in the overview. This identifier, *Application (client) ID*, is used in the next steps.
+When the application is registered, you'll see an [identifier in the overview](../concepts/troubleshooting-info.md#getting-application-id). This identifier, *Application (client) ID*, is used in the next steps.
 
 ### Step 2: Allow public client flows
 
@@ -89,7 +89,7 @@ If you want to check roles in Azure portal, see [List Azure role assignments](..
 
 To construct an Administrator consent URL, the Fabrikam Azure AD Administrator does the following steps:
 
-1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam tenant ID, and replaces {Application_ID} with the Contoso Application ID.
+1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#getting-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../concepts/troubleshooting-info.md#getting-application-id).
 1. The Administrator logs in and grants permissions on behalf of the organization.
 
 The service principal of the Contoso application in the Fabrikam tenant is created if consent is granted. The Fabrikam Administrator can review the consent in Azure AD by doing the following steps:
@@ -170,5 +170,7 @@ Learn about the following concepts:
 
 - [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
+- [Single-tenant and multi-tenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)
+- [Create and manage Communication access tokens for Teams users in a single-page application (SPA)](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/manage-teams-identity-spa)
 
 

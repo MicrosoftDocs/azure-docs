@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
 title: Azure Center for SAP solutions documentation (preview)
-summary:  Azure Center for SAP solutions (ACSS) is a service to make SAP a top-level workload in Azure.
+summary:  Azure Center for SAP solutions is a service to make SAP a top-level workload in Azure.
 metadata:
   title: Azure Center for SAP solutions
-  description: Learn about Azure Center for SAP solutions (ACSS). This offering makes SAP a top-level workload in Azure.
+  description: Learn about Azure Center for SAP solutions. This offering makes SAP a top-level workload in Azure.
   ms.service: azure-center-sap-solutions
   ms.topic: landing-page
   author: lauradolan
   ms.author: ladolan
-  ms.date: 07/19/2022
+  ms.date: 10/19/2022
 
 landingContent:
   - title: About Azure Center for SAP solutions
@@ -29,7 +29,7 @@ landingContent:
             url: prepare-network.md
           - text: Deploy S/4HANA infrastructure
             url: deploy-s4hana.md
-          - text: Install SAP software in ACSS
+          - text: Install SAP software in Azure Center for SAP solutions
             url: install-software.md
           - text: Register existing SAP system
             url: register-existing-system.md
@@ -44,6 +44,8 @@ landingContent:
             url: manage-virtual-instance.md
           - text: Get quality checks and insights
             url: get-quality-checks-insights.md
+          - text: View cost analysis for SAP system
+            url: view-cost-analysis.md
 
   - title: Monitor
     linkLists:
