@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Authentication on batch endpoints
 
-Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforces at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
+Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
 
 ## Prerequisites
 
