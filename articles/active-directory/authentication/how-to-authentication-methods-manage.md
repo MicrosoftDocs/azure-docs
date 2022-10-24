@@ -30,7 +30,7 @@ Start by conducting an audit of your existing settings for every authentication 
 - MFA policy
 - Authentication methods policy
 
-The next sections walk through an example of the policy migration. We'll review settings in each policy  
+In the next sections, we'll walk through an example of the policy migration. We'll review settings in each legacy policy and update the Authentication methods policy. As we proceed, we'll change the migration options to prevent policy misconfiguration and minimize errors during sign-in and SSPR.   
 
 ### MFA policy settings
 
