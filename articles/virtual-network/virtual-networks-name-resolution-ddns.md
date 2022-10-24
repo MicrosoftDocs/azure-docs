@@ -1,5 +1,5 @@
 ---
-title: Using dynamic DNS to register hostnames in Azure | Microsoft Docs
+title: Using dynamic DNS to register hostnames in own DNS server | Microsoft Docs
 description: Learn how to setup dynamic DNS to register hostnames in your own DNS servers.
 services: dns
 documentationcenter: na
