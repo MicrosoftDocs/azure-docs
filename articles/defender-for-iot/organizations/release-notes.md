@@ -187,19 +187,6 @@ This version includes the following new updates and fixes:
 
 To update your software to the latest version available, first update to version 22.1.7, and then update again to the latest 22.2.x version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-<<<<<<< HEAD
-### 10.5.5
-
-**Release date**: 12/2021
-
-**Supported until**: 09/2022
-
-This version includes the following new updates and fixes:
-
-- REMOVING - as per Belle, not a priority. Wasn't listed in the what's new at all.
-
-=======
->>>>>>> e5f1bcdd4c245bd980850fd86f14204af5b9af52
 ### 10.5.4
 
 **Release date**: 12/2021
