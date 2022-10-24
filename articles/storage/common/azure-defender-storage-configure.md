@@ -50,34 +50,50 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 
 With the Defender for Storage per-account pricing plan, you can configure Microsoft Defender for Storage on your subscriptions in several ways. When the plan is enabled at the subscription level, Microsoft Defender for Storage is automatically enabled for all your existing and new storage accounts created under that subscription. 
 
-### [Microsoft Defender for Cloud](#tab/azure-security-center)
+### [Azure Portal](#tab/azure-portal)
 
-Microsoft Defender for Storage is built into Microsoft Defender for Cloud. When you enable Microsoft Defender for Cloud's enhanced security features on your subscription, Microsoft Defender for Storage is automatically enabled for all of your storage accounts. To enable or disable Defender for Storage for individual storage accounts under a specific subscription:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using the Azure Portal:
 
-1. Launch **Microsoft Defender for Cloud** in the [Azure portal](https://portal.azure.com).
-1. From Defender for Cloud's main menu, select **Environment settings**.
-1. Select the subscription for which you want to enable or disable Microsoft Defender for Cloud.
-1. Select **Enable all Microsoft Defender plans** to enable Microsoft Defender for Cloud in the subscription.
-1. Under **Select Microsoft Defender plans by resource type**, locate the **Storage** row, and select **Enabled** in the **Plan** column.
-1. Save your changes.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+1. Select the subscription that you want to enable Defender for Storage for.
+1. To enable Defender for Storage either:
+
+    - Select **Enable all Microsoft Defender plans** to enable Microsoft Defender for Cloud in the subscription.
+    - For Microsoft Defender for Storage, select **On** to turn on Defender for Storage, and select **Save**.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Microsoft Defender for Storage.":::
 
-Microsoft Defender for Storage is now enabled for all storage accounts in this subscription.
-
-### [Portal](#tab/azure-portal)
-
-1. Launch the [Azure portal](https://portal.azure.com/).
-1. Navigate to your storage account. Under **Security + networking**, select **Security**.
-1. Select **Enable Microsoft Defender for Storage**.
-
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable a storage account for Microsoft Defender for Storage.":::
-
 Microsoft Defender for Storage is now enabled for this storage account.
 
-### [Template](#tab/template)
+### [Bicep template](#tab/template)
 
-Use an Azure Resource Manager template to deploy an Azure Storage account with Microsoft Defender for Storage enabled. For more information, see [Storage account with advanced threat protection](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/).
+To enable Microsoft Defender for Storage at the subscription level using [Bicep](../azure-resource-manager/bicep/):
+
+Add the following to your Bicep template: 
+
+Bicep 
+
+```Bicep
+resource symbolicname 'Microsoft.Security/pricings@2022-03-01' = { 
+
+  name: 'StorageAccounts' 
+
+  properties: { 
+
+    pricingTier: 'Standard' 
+
+    subPlan: 'PerStorageAccount' 
+
+  } 
+
+}
+```
+
+To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
+
+Learn more about the [Bicep template AzAPI reference](../templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
 ### [Azure Policy](#tab/azure-policy)
 
@@ -129,7 +145,7 @@ az security atp storage show \
 
 ---
 
-## Set up Microsoft Defender for Storage for the per-account pricing plan
+## Set up Microsoft Defender for Storage for the per-transaction pricing plan
 
 You can configure Microsoft Defender for Storage in any of several ways, described in the following sections.
 
@@ -148,7 +164,7 @@ Microsoft Defender for Storage is built into Microsoft Defender for Cloud. When 
 
 Microsoft Defender for Storage is now enabled for all storage accounts in this subscription.
 
-### [Portal](#tab/azure-portal)
+### [Azure Portal](#tab/azure-portal)
 
 1. Launch the [Azure portal](https://portal.azure.com/).
 1. Navigate to your storage account. Under **Security + networking**, select **Security**.
