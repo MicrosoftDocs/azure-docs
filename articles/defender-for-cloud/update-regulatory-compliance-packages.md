@@ -3,6 +3,7 @@ title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
 ms.date: 10/24/2022
+ms.custom: ignite-2022
 ---
 # Customize the set of standards in your regulatory compliance dashboard
 
@@ -23,26 +24,30 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 ## What regulatory compliance standards are available in Defender for Cloud?
 
-By default, every Azure subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
+By default, every Azure subscription has the **Microsoft cloud security benchmark** assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
 
 Available regulatory standards:
 
-- PCI-DSS v3.2.1:2018
+- PCI-DSS v3.2.1
 - SOC TSP
-- NIST SP 800-53 R4
-- NIST SP 800 171 R2
-- UK OFFICIAL and UK NHS
-- Canada Federal PBMM
-- Azure CIS 1.1.0
-- HIPAA/HITRUST
-- SWIFT CSP CSCF v2020
 - ISO 27001:2013
-- New Zealand ISM Restricted
-- CMMC Level 3
+- Azure CIS 1.1.0
 - Azure CIS 1.3.0
+- Azure CIS 1.4.0
+- NIST SP 800-53 R4
 - NIST SP 800-53 R5
+- NIST SP 800 171 R2
+- CMMC Level 3
 - FedRAMP H
 - FedRAMP M
+- HIPAA/HITRUST
+- SWIFT CSP CSCF v2020
+- UK OFFICIAL and UK NHS
+- Canada Federal PBMM
+- New Zealand ISM Restricted
+- New Zealand ISM Restricted v3.5
+- Australian Government ISM Protected
+- RMIT Malaysia
 
 **AWS**: There are three benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 Users that have one Defender bundle enabled cab enable CIS and PCI as well (same as regulatory compliance for Azure).
@@ -161,6 +166,6 @@ In this article, you learned how to **add compliance standards** to monitor your
 
 For related material, see the following pages:
 
-- [Azure Security Benchmark](/security/benchmark/azure/introduction)
+- [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 - [Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
 - [Working with security policies](tutorial-security-policy.md)

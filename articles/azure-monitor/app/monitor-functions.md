@@ -14,6 +14,8 @@ Application Insights collects log, performance, and error data, and automaticall
 
 The required Application Insights instrumentation is built into Azure Functions. The only thing you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can set it manually. For more information read more about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd).
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Distributed tracing for Java applications (public preview)
@@ -61,6 +63,8 @@ APPLICATIONINSIGHTS_ENABLE_AGENT: true
   Insights Java Auto-instrumentation Agent, you can upload the agent manually:
    
   Please follow this [instruction](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Distributed tracing for Python Function apps
 
