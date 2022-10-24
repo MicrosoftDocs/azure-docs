@@ -3,7 +3,7 @@ title: Understand Device Update for IoT Hub authentication and authorization | M
 description: Understand how Device Update for IoT Hub uses Azure RBAC to provide authentication and authorization for users and service APIs.
 author: vimeht
 ms.author: vimeht
-ms.date: 2/11/2021
+ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
@@ -43,6 +43,11 @@ Below actions will be blocked with upcoming release, if these permissions are no
 4. Click **Next**. For **Assign access to**, select **User, group, or service principal**. Click **+ Select Members**, search for '**Azure Device Update**'
 5. Click **Next** -> **Review + Assign**
 
+To validate that you've set permissions correctly:
+1. Go to the **IoT Hub** connected to your Device Update Instance. Click **Access Control(IAM)**
+2. Click **Check access**
+3. Select **User, group, or service principal** and search for '**Azure Device Update**'
+4. After clicking on '**Azure Device Update**', verify that the **IoT Hub Data Contributor** role is listed under **Role assignments**
 
 ## Authenticate to Device Update REST APIs
 
