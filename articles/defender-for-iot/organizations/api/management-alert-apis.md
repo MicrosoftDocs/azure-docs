@@ -257,7 +257,7 @@ The maintenance windows that define with the `maintenanceWindow` API appear in t
 
 
 > [!IMPORTANT]
-> This API is supported for maintenance purposes only and for a limited time period, and is not meant to be used instead of [alert exclusion rules](/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time, temporary maintenance operations only.
+> This API is supported for maintenance purposes only and for a limited time period, and is not meant to be used instead of [alert exclusion rules](../how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules). Use this API for one-time, temporary maintenance operations only.
 
 **URI**: `/external/v1/maintenanceWindow`
 

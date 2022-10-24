@@ -2,11 +2,11 @@
 title: 'Tutorial: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure application gateway'
 description: Use this tutorial to learn how to enable the Ingress Controller add-on for your new AKS cluster with a new application gateway instance.
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/15/2022
-ms.author: caya
+ms.author: greglin
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 

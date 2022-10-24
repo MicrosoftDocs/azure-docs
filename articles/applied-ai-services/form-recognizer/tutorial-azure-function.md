@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
   * [**Azure Functions extension**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Once it's installed, you should see the Azure logo in the left-navigation pane.
 
-  * [**Azure Functions Core Tools**](/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash) version 3.x (Version 4.x isn't supported for this project).
+  * [**Azure Functions Core Tools**](../../azure-functions/functions-run-local.md?tabs=v3%2cwindows%2ccsharp%2cportal%2cbash) version 3.x (Version 4.x isn't supported for this project).
 
   * [**Python Extension**](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio code. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 
