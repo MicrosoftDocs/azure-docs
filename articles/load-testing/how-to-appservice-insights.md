@@ -26,43 +26,47 @@ Azure Load Testing Preview collects detailed resource metrics to help you identi
 - An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 - An Azure App Service workload that you're running a load test against and that you've added to the app components to monitor during the load test.
 
-## Get more insights when you test an App Service workload  
+## Use App Service diagnostics for your load test
 
-In this section, you use [App Service diagnostics](/azure/app-service/overview-diagnostics.md) to get more insights from load testing an Azure App Service workload.
+Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
 
-1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
+When the application you're load testing is hosted on Azure App Service, you can get additional insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics.md).
 
-1. On the left pane, select **Tests** to view the list of tests, and then select your test.
+To view the App Service diagnostics information for your application under load test:
 
-1. On the test runs page, select **Configure**, and then select **App Components** to add or remove Azure resources to monitor during the load test.
+1. Go to the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/how-to-appservice-insights/configure-app-components.png" alt-text="Screenshot that shows the 'Configure' and 'App Components' buttons for configuring the load test.":::  
+1. Add your App Service resource to the load test app components. Follow the steps in [monitor server-side metrics](./how-to-monitor-server-side-metrics.md) to add your app service.
 
-1. Select the **Monitoring** tab, and then add your app service to the list of app components to monitor.
+    :::image type="content" source="media/how-to-appservice-insights/test-monitoring-app-service.png" alt-text="Screenshot of the Monitoring tab when editing a load test in the Azure portal, highlighting the App Service resource.":::
 
-    :::image type="content" source="media/how-to-appservice-insights/test-monitoring-app-service.png" alt-text="Screenshot of the 'Edit test' pane for selecting and app service resource to monitor.":::  
-
-1. Select **Run** to execute the load test.
+1. Select **Run** to run the load test.
 
     After the test finishes, you'll notice a section about App Service on the test result dashboard.
 
-1. Select the **here** link in the App Service message.
+    :::image type="content" source="media/how-to-appservice-insights/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal.":::
 
-    :::image type="content" source="media/how-to-appservice-insights/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the test result dashboard.":::
+1. Select the hyperlink in the App Service message to view the App Service diagnostics information.
 
-    Your Azure App Service **Availability and Performance** page opens, which displays your App Service diagnostics.
+    App Service diagnostics enables you to view in-depth information and dashboard about the performance, resource usage, and stability of your app service.
+
+    In the screenshot, you notice that there are concerns about the CPU usage, app performance, and failed requests.
 
     :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-overview.png" alt-text="Screenshot that shows the App Service diagnostics overview page, with a list of interactive reports on the left pane.":::
 
-1. On the left pane, select any of the various interactive reports that are available in App Service diagnostics.
+    On the left pane, you can drill deeper into specific issues by selecting one the diagnostics reports. For example, the following screenshot shows the **High CPU Analysis** report.
 
     :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-high-cpu.png" alt-text="Screenshot that shows the App Service diagnostics CPU usage report.":::
 
-    > [!IMPORTANT]
+    The following screenshots shows the **Web App Slow** report, which gives details and recommendations about application performance.
+
+    :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-web-app-slow.png" alt-text="Screenshot that shows the App Service diagnostics slow application report.":::
+
+    > [!NOTE]
     > It can take up to 45 minutes for the insights data to be displayed on this page.
 
 ## Next steps
 
-- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
 - Learn how to [parameterize a load test with secrets and environment variables](./how-to-parameterize-load-tests.md).
+- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
 - Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
