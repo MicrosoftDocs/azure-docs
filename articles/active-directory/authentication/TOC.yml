@@ -58,6 +58,8 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
+    - name: Default enablement 
+      href: concept-authentication-default-enablement.md
     - name: Prompts and session lifetime
       href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
     - name: Data residency
