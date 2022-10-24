@@ -242,7 +242,11 @@ To create and run a new scan by using the Azure runtime, perform the following s
 
 1. If your key vault isn't connected to Microsoft Purview yet, you need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account).
    
-1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. Take note of the client ID (app ID).
+1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. 
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant-app-registration.png" alt-text="Screenshot how to create App in AAD for cross tenant.":::
+ 
+3. Take note of the client ID (app ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot that shows how to create a service principle.":::
   
@@ -315,7 +319,11 @@ To create and run a new scan by using the Azure runtime, perform the following s
 
 To create and run a new scan by using the self-hosted integration runtime, perform the following steps:
 
-1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. Take note of the client ID (app ID).
+1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. 
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant-app-registration.png" alt-text="Screenshot how to create App in AAD for cross tenant.":::
+ 
+2. Take note of the client ID (app ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot that shows how to create a service principle.":::
   
@@ -324,7 +332,7 @@ To create and run a new scan by using the self-hosted integration runtime, perfo
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-api-permissions.png" alt-text="Screenshot of delegated permissions for Power BI and Microsoft Graph.":::
 
 1. From the Azure AD dashboard, select the newly created application, and then select **Authentication**. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
