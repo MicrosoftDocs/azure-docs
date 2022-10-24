@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -78,7 +78,10 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. In the Power BI Azure AD tenant, validate the following app registration settings:
    1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
-   2. Under **API permissions**, the following APIs are set up with **read** for **delegated permissions** and **grant admin consent for the tenant**:
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      2. Microsoft Graph openid
+      3. Microsoft Graph User.Read
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
@@ -115,7 +118,10 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. In the Power BI Azure AD tenant, validate the following app registration settings:
    1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
-   2. Under **API permissions**, the following APIs are set up with **read** for **delegated permissions** and **grant admin consent for the tenant**:
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      2. Microsoft Graph openid
+      3. Microsoft Graph User.Read
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
@@ -313,9 +319,8 @@ To create and run a new scan by using the self-hosted integration runtime, perfo
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot that shows how to create a service principle.":::
   
-1. From the Azure AD dashboard, select the newly created application, and then select **App permissions**. Assign the application the following delegated permissions, and grant admin consent for the tenant:
+1. From the Azure AD dashboard, select the newly created application, and then select **App permissions**. Assign the application the following delegated permissions:
 
-   - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
