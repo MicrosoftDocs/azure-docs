@@ -256,7 +256,7 @@ To create and run a new scan by using the Azure runtime, perform the following s
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions on Power BI and Microsoft Graph.":::
 
 1. From the Azure AD dashboard, select the newly created application, and then select **Authentication**. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
@@ -332,7 +332,7 @@ To create and run a new scan by using the self-hosted integration runtime, perfo
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-api-permissions.png" alt-text="Screenshot of delegated permissions for Power BI and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-api-permissions.png" alt-text="Screenshot of delegated permissions on Microsoft Graph.":::
 
 1. From the Azure AD dashboard, select the newly created application, and then select **Authentication**. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
