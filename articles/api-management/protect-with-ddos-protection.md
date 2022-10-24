@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 10/24/2022
 ms.author: danlep
 ---
 # Defend your Azure API Management instance against DDoS attacks
@@ -21,7 +21,7 @@ Enabling Azure DDoS Protection for API Management is currently available only fo
 
 Currently, Azure DDoS Protection can't be enabled for the following API Management configurations:
 
-* Instances that aren't VNet injected
+* Instances that aren't VNet-injected
 * Instances deployed in a VNet in [internal mode](api-management-using-with-internal-vnet.md)
 * Instances configured with a [private endpoint](private-endpoint.md)
 
