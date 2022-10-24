@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN (preview), a service that enables 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/24/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
@@ -128,7 +128,9 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [Portal](#tab/azure-portal)
 
-Currently, you must use either the Azure PowerShell module or Azure CLI to manage virtual network rules for a volume group.
+1. Navigate to your SAN and select **Volume groups**.
+1. Select a volume group and select **Create**.
+1. Add an existing virtual network and subnet and select **Save**.
 
 ### [PowerShell](#tab/azure-powershell)
 
