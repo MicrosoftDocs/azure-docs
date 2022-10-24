@@ -45,19 +45,23 @@ Use the following steps to create an Azure IR using UI.
 1. On the home page for the service, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
        # [Azure Data Factory](#tab/data-factory)
+
        :::image type="content" source="media/create-azure-integration-runtime/get-started-page-manage-button.png" alt-text="Screenshot showing the home page Manage button." :::
+
        # [Azure Synapse](#tab/synapse-analytics)
 
        :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="Screenshot showing the home page Manage button.":::
+
        ---
        
-2. Select **Integration runtimes** on the left pane, and then select **+New**.
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
     # [Azure Data Factory](#tab/data-factory)
     
     :::image type="content" source="media/create-azure-integration-runtime/manage-new-integration-runtime.png" alt-text="Screenshot that highlights integration runtimes in the left pane and the +New button.":::
 
     # [Azure Synapse](#tab/synapse-analytics)
+
     :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot that highlights integration runtimes in the left pane and the +New button.":::
     
     ---
