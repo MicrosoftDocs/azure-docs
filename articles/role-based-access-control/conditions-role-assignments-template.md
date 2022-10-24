@@ -1,5 +1,5 @@
 ---
-title: Add Azure role assignment conditions using Azure Resource Manager templates (Preview) - Azure ABAC
+title: Add Azure role assignment conditions using Azure Resource Manager templates - Azure ABAC
 description: Learn how to add attribute-based access control (ABAC) conditions in Azure role assignments using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -8,16 +8,11 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/19/2022
+ms.date: 10/24/2022
 ms.author: rolyon
 ---
 
-# Add Azure role assignment conditions using Azure Resource Manager templates (Preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Add Azure role assignment conditions using Azure Resource Manager templates
 
 An [Azure role assignment condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add conditions for your role assignments using Azure Resource Manager templates.
 
@@ -98,6 +93,6 @@ az deployment group create --resource-group example-group --template-file rbac-t
 
 ## Next steps
 
-- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
-- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
+- [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)
 - [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md)
