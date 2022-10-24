@@ -36,7 +36,7 @@ Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VM
 
     A. Not at this time. However, Citrix workloads on Microsoft Azure support GPU if that use case is important to you.
 
-- Q. Is Azure VMware Solution supported with on-prem Citrix deployments or LTSR?  
+- Q. Is Azure VMware Solution supported with on-premesis Citrix deployments or LTSR?  
 
     A. No.  Azure VMware Solution is only supported with the Citrix Virtual Apps and Desktops service offerings.  
 
