@@ -101,7 +101,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
 - **Square logo (light theme)**: Select a square PNG or JPG image file of your logo to be used in browsers that are using a light color theme. This logo is used to represent your organization on the Azure AD web interface and in Windows.
 
-- **Square logo (dark theme)** Select a square PNG or JPG image file of your logo to be used in browsers that are using a dark color theme. This logo is used to represent your organization on the Azure AD web interface and in Windows. If your logo looks good on light and dark backgrounds there's no need to add a dark theme logo.
+- **Square logo (dark theme)** Select a square PNG or JPG image file of your logo to be used in browsers that are using a dark color theme. This logo is used to represent your organization on the Azure AD web interface and in Windows. If your logo looks good on light and dark backgrounds, there's no need to add a dark theme logo.
 
 - **Username hint text**: Enter hint text for the username input field on the sign-in page. If guests use the same sign-in page, we don't recommend using hint text here.
 
@@ -130,7 +130,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
 All of the available options appear in one list so you can review everything you've customized or left at the default setting. When you're done, select the **Create** button. 
 
-Once your default sign-in experience is created, select the **Edit** button to make any changes. You can't delete a default sign-in experience after it is created, but you can remove all custom settings.
+Once your default sign-in experience is created, select the **Edit** button to make any changes. You can't delete a default sign-in experience after it's created, but you can remove all custom settings.
 
 ## Customize the sign-in experience by browser language
 
@@ -146,4 +146,4 @@ The process for customizing the experience is the same as the [default sign-in e
 
 - [Learn more about default user permissions in Azure AD](../fundamentals/users-default-permissions.md)
 
-- [Manage the 'stay signed in' prompt](active-directory-users-profile-azure-portal.md#configure-the-stay-signed-in-prompt)
+- [Manage the 'stay signed in' prompt](active-directory-users-profile-azure-portal.md#learn-about-the-stay-signed-in-prompt)

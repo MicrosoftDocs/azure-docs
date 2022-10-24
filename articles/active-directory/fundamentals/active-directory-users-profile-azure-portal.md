@@ -60,7 +60,7 @@ There are six categories of profile details you may be able to edit.
 
 - **Settings:** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
 
-- **On-premises:** Accounts synced from Windows Server Active Directory include additional values not applicable to Azure AD accounts.
+- **On-premises:** Accounts synced from Windows Server Active Directory include other values not applicable to Azure AD accounts.
 
     >[!Note]
     >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
@@ -88,7 +88,12 @@ KMSI is only available on the default custom branding. It can't be added to lang
 
 ![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/customize-branding/kmsi-workflow.png)
 
-See the [License requirements](#license-requirements) section for using the KMSI service.
+Configuring the 'keep me signed in' (KMSI) option requires one of the following licenses:
+
+- Azure AD Premium 1
+- Azure AD Premium 2
+- Office 365 (for Office apps)
+- Microsoft 365
 
 ### Troubleshoot 'Stay signed in?' issues
 
