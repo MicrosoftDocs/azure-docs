@@ -398,7 +398,7 @@
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage, storage, Azure-native security, automated response, alerts, security, hash reputation analysis
       href: defender-for-storage-introduction.md
     - name: Enable Defender for Storage
-      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json#set-up-microsoft-defender-for-cloud
+      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
     - name: Exclude a storage account
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-exclude.md
