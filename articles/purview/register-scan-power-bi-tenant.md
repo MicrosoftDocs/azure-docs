@@ -324,7 +324,7 @@ To create and run a new scan, do the following:
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-api-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
     
 1. Under **Advanced settings**, enable **Allow Public client flows**.
 
