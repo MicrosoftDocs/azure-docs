@@ -1,7 +1,7 @@
 ---
 title: "Customize outputs in batch deployments"
 titleSuffix: Azure Machine Learning
-description: Learn how authentication works on Batch Endpoints.
+description: Learn how create deployments that generate custom outputs and files.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
