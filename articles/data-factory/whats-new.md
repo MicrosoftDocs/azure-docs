@@ -59,7 +59,7 @@ DELETE method in the Web activity now supports sending a body with HTTP request 
 
 ### Video summary
 
-> [!VIDEO https://www.youtube.com/watch?v=Bh_VA8n-SL8&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=7]
+> [!VIDEO https://www.youtube.com/embed?v=Bh_VA8n-SL8&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=7]
 
 
 ## August 2022
