@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/23/2022
+ms.date: 10/24/2022
 ---
 
 # Validation activity in Azure Data Factory and Synapse Analytics pipelines
@@ -23,6 +23,8 @@ To use a Validation activity in a pipeline, complete the following steps:
 
 1. Search for _Validation_ in the pipeline Activities pane, and drag a Validation activity to the pipeline canvas.
 1. Select the new Validation activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+:::image type="content" source="media/control-flow-validation-activity/validation-activity.png" alt-text="Screenshot shows the UI for a Validation activity.":::
 
 1. Select a dataset, or define a new one by selecting the New button.  For file based datasets like the delimited text example above, you can select either a specific file, or a folder.  When a folder is selected, the Validation activity allows you to ignore validation of the existence of child items in the folder, or require whether child items exist or not.
 1. The output of the Validation activity can be used as an input to any other activities, and referenced within those activities for any of their properties using dynamic expressions.
