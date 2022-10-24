@@ -83,7 +83,7 @@ The request body consists of the export source and destination.
     "destination": {
         "type": "azureblob",
         "settings": {
-            "setting3": "<value>"
+            "setting": "<value>"
         }
     }
 }
@@ -99,13 +99,11 @@ The only setting is the list of identifiers to export.
 
 ### Destination Settings
 
-The connection to the Azure Blob storage account can be specified with either a `ConnectionString` and `BlobContainerName` or a `BlobContainerUri`. One of these settings is required.
+The connection to the Azure Blob storage account is specified with a `BlobContainerUri`. 
 
 | Property             | Required | Default | Description |
 | :------------------- | :------- | :------ | :---------- |
-| `BlobContainerName`  | No       | `""`    | The name of a blob container. Only required when `ConnectionString` is specified. |
 | `BlobContainerUri`   | No       | `""`    | The complete URI for the blob container. |
-| `ConnectionString`   | No       | `""`    | The [Azure Storage connection string](../../storage/common/storage-configure-connection-string.md) that must minimally include information for blob storage. |
 | `UseManagedIdentity` | Yes      | `false` | A required flag indicating whether managed identity should be used to authenticate to the blob container. |
 
 ### Example
@@ -151,12 +149,12 @@ HTTP/1.1 202 Accepted
 Content-Type: application/json
 {
     "id": "df1ff476b83a4a3eaf11b1eac2e5ac56",
-    "href": "<dicom-service-url>/<version>/operations/df1ff476b83a4a3eaf11b1eac2e5ac56"
+    "href": "https://example-dicom.dicom.azurehealthcareapis.com/v1/operations/df1ff476b83a4a3eaf11b1eac2e5ac56"
 }
 ```
 
 ### Operation Status
-The above `href` URL can be polled for the current status of the export operation until completion. A terminal state is signified by a `200` status instead of `202`.
+The above `href` URL can be polled for the current status of the export operation until completion. Once the job has reached a terminal state, the API will return a 200 status code instead of 202, and the value of its status property will be updated accordingly.
 
 ```http
 HTTP/1.1 200 OK
@@ -177,11 +175,11 @@ Content-Type: application/json
 
 ## Errors
 
-If there are any errors when exporting a DICOM file (that was determined not to be a problem with the client), then the file is skipped and its corresponding error is logged. This error log is also exported alongside the DICOM files and can be reviewed by the caller. The error log can be found at `<export blob container uri>/<operation ID>/errors.log`.
+If there are any user errors when exporting a DICOM file, then the file is skipped and its corresponding error is logged. This error log is also exported alongside the DICOM files and can be reviewed by the caller. The error log can be found at `<export blob container uri>/<operation ID>/errors.log`.
 
 ### Format
 
-Each line of the error log is a JSON object with the following properties. Note that a given error identifier may appear multiple times in the log as each update to the log is processed *at least once*.
+Each line of the error log is a JSON object with the following properties. A given error identifier may appear multiple times in the log as each update to the log is processed *at least once*.
 
 | Property     | Description |
 | ------------ | ----------- |
