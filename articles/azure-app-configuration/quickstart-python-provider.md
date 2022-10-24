@@ -190,12 +190,14 @@ The sample code snippets in this section show how to perform common operations w
 > [!NOTE]
 > The App Configuration client library refers to a key-value object as `ConfigurationSetting`. Therefore, in this article, the **key-values** in App Configuration store will be referred to as **configuration settings**.
 
- - [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
- - [Get a configuration setting](#get-a-configuration-setting)
- - [Add a configuration setting](#add-a-configuration-setting)
- - [Get a list of configuration settings](#get-a-list-of-configuration-settings)
- - [Update a configuration setting](#update-a-configuration-setting)
- - [Delete a configuration setting](#delete-a-configuration-setting)
+Learn below how to:
+
+- [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
+- [Get a configuration setting](#get-a-configuration-setting)
+- [Add a configuration setting](#add-a-configuration-setting)
+- [Get a list of configuration settings](#get-a-list-of-configuration-settings)
+- [Update a configuration setting](#update-a-configuration-setting)
+- [Delete a configuration setting](#delete-a-configuration-setting)
 
 ### Connect to an App Configuration store
 
