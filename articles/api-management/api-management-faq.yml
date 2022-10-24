@@ -8,7 +8,7 @@ metadata:
   
   ms.service: api-management
   ms.topic: faq
-  ms.date: 10/20/2022
+  ms.date: 10/24/2022
   ms.author: danlep 
   ms.custom: engagement-fy23,fasttrack-edit
 title: Azure API Management FAQs
@@ -40,7 +40,7 @@ sections:
           * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
           * Use IP filtering on your back-end service. In all tiers of API Management except the Consumption tier, the IP address of the gateway remains constant. For more information, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md).
           * Connect your API Management instance to an [Azure virtual network](virtual-network-concepts.md).
-          * Configure OAuth 2.0 authorization. For more information, see [Authentication and authorization in API Managmenet]        
+          * Configure OAuth 2.0 authorization. For more information, see [Authentication and authorization in API Managment](authentication-authorization-overview.md).        
 
       - question: |
           How do I copy my API Management service instance to a new instance?
@@ -48,8 +48,8 @@ sections:
           You have several options, including:
           
           * Use the [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) functionality in API Management.
-          * Create your own backup and restore feature by using the [API Management REST API](/rest/api/apimanagement/). Use the REST API to save and restore the entities from the service instance that you want.
-          * Download the service configuration by using Git, and then upload it to a new instance. For more information, see [How to save and configure your API Management service configuration by using Git](api-management-configuration-repository-git.md).
+          * Create your own backup and restore feature by using the [API Management REST API](/rest/api/apimanagement/) to save and restore the entities from the service instance that you want.
+          * Download the service configuration by using [Git](api-management-configuration-repository-git.md), and then upload it to a new instance.
       
       - question: |
           Can I move an API Management instance from one subscription to another?
@@ -61,10 +61,10 @@ sections:
         answer: |
           Yes, you can manage API Management programmatically by using a variety of tools, including:
           
-          * The [API Management REST API](/rest/api/apimanagement/).
-          * Azure client SDKs for [.NET](/dotnet/api/overview/azure/apimanagement), [JavaScript](/javascript/api/overview/azure/api-management), [Java](/java/api/overview/azure/api-management), and other languages.
+          * The [API Management REST API](/rest/api/apimanagement/)
+          * Azure client SDKs for [.NET](/dotnet/api/overview/azure/apimanagement), [JavaScript](/javascript/api/overview/azure/api-management), [Java](/java/api/overview/azure/api-management), and other languages
           * [Azure PowerShell](/powershell/module/az.apimanagement/) and [Azure CLI](/cli/azure/apim)
-          * [Azure Resource Manager](/azure/templates/microsoft.apimanagement/allversions) and Bicep templates. See example [quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?Page=2&term=api+management)
+          * [Azure Resource Manager](/azure/templates/microsoft.apimanagement/allversions) and Bicep templates. See example [quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?Page=2&term=api+management).
           * [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
 
       - question: |
@@ -86,7 +86,7 @@ sections:
           * Host the same APIs on different instances.
           
       - question: |
-          Does API Management only support REST APIs?
+          Does API Management only support REST API backends?
         answer: |
           API Management supports REST APIs as well as passthrough to [SOAP](import-soap-api.md), [WebSocket](websocket-api.md), and [GraphQL](graphql-api.md) APIs. API Management also supports [synthetic GraphQL](graphql-schema-resolve-api.md) APIs.
 
@@ -95,7 +95,7 @@ sections:
       - question: |
           Are there restrictions on importing my API?
         answer: |
-          See [API import restrictions and known issues](api-management-api-import-restrictions.md) for Open API(Swagger), WSDL and WADL formats.
+          See [API import restrictions and known issues](api-management-api-import-restrictions.md) for Open API (Swagger), WSDL, and WADL formats.
                     
       - question: |
           Can I use CI/CD for API development?
@@ -122,14 +122,14 @@ sections:
       - question: |
           Does API Management provide a web application firewall (WAF)?
         answer: |
-          While API Management doesn't include a WAF component, hile API Management doesn’t have a built-in WAF component, deploying a WAF upstream (in front) of the API Management instance is strongly recommended. For example, use [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) or [Azure Front Door](front-door-api-management.md).
+          While API Management doesn't include a WAF component, deploying a WAF upstream (in front) of the API Management instance is recommended. For example, use [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) or [Azure Front Door](front-door-api-management.md).
       - question: |
           What are the differences between the managed gateway and the self-hosted gateway?
         answer: |
-          Learn more in [API gateway in API Management](api-management-gateways-overview.md) and the [Self-hosted gateway overview](self-hosted-gateway-overview.md).
+          For information, see [API gateway in API Management](api-management-gateways-overview.md) and the [Self-hosted gateway overview](self-hosted-gateway-overview.md).
 
       - question: |
           How does API Management handle trailing slashes when calling backend services?
         answer: |
-          Historically and by convention a URL ending with a trailing slash is treated as a directory, for example `https://contoso.com/sample/` whereas the same URL without the trailing slash `https://contoso.com/sample` would indicate a file. This isn't mandated; some systems consider those two URLs unique, while others consider them the same. API Management doesn’t make a distinction thus a single operation `resource` will accept either `resource` or `resource/`. However, the distinction may matter to the backend host. Some web servers will automatically redirect a URL not ending with a trailing slash, to the same URL ending in a trailing slash. As API Management is the client to the backend (server), an automatic redirect isn't always desirable. If needed, create a [Rewrite URL policy](api-management-transformation-policies.md#RewriteURL) to ensure a trailing slash is always added to the outbound backend call.
+          Historically and by convention a URL ending with a trailing slash is treated as a directory, for example `https://contoso.com/sample/` whereas the same URL without the trailing slash `https://contoso.com/sample` would indicate a file. This isn't mandated; some systems consider those two URLs unique, others consider them the same. API Management doesn’t make a distinction, thus a single operation `resource` will accept either `resource` or `resource/`. However, the distinction may matter to the backend host. Some web servers will automatically redirect a URL not ending with a trailing slash, to the same URL ending in a trailing slash. As API Management is the client to the backend (server), an automatic redirect isn't always desirable. If needed, create a [Rewrite URL policy](api-management-transformation-policies.md#RewriteURL) to ensure a trailing slash is always added to the outbound backend call.
  
