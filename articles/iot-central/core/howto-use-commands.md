@@ -206,10 +206,6 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 1. Completes the long-running operation.
 1. Uses a reported property with the same name as the command to tell IoT Central that the command completed.
 
-The following screenshot shows how the command response displays in the IoT Central UI when it receives the 202 response code:
-
-:::image type="content" source="media/howto-use-commands/long-running-start.png" alt-text="Screenshot that shows immediate response from device":::
-
 The following screenshot shows the IoT Central UI when it receives the property update that indicates the command is complete:
 
 :::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished":::

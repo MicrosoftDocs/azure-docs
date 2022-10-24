@@ -282,7 +282,7 @@ To configure alerts:
 
 2. Create new alert rule
     
-    1.  Configure alert condition
+    1.  Configure alert condition (Note: to avoid noisy alerts, we recommend configuring alerts with the Aggregation type set to Average, looking back on a 5 minute window of data, and with a threshold of 95%)
     
     2.  (Optional) Add action group for automated repair
     

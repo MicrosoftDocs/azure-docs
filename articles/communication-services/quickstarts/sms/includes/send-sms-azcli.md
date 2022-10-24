@@ -59,42 +59,6 @@ az account set --subscription "<yourSubcriptionId>"
 
 You need to replace `<yourSubscriptionId>` with your actual subscription ID, which you can find in the Subscriptions section in Azure portal.
 
-## Operations
-
-## Send a 1:1 SMS message
-
-To send an SMS message to a list of recipients, call the `send-sms` method from the sms module with a single recipient phone number. 
-
-```azurecli-interactive
-az communication sms send-sms --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
-```
-
-Make these replacements in the code:
-
-- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
-- Replace `<toPhoneNumber>` with a phone number that you'd like to send a message to.
-- Replace `<yourConnectionString>` with your connection string.
-
-> [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
-
-## Send a 1:N SMS message
-
-To send an SMS message to a single recipient, call the `send-sms` method from the sms module with multiple recipient phone numbers. 
-
-```azurecli-interactive
-az communication sms send-sms --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber1>" "<toPhoneNumber2>" "<toPhoneNumber3>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
-```
-
-Make these replacements in the code:
-
-- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
-- Replace `<toPhoneNumberN>` with the N'th phone number that you'd like to send a message to.
-- Replace `<yourConnectionString>` with your connection string.
-
-> [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
-
 ### (Optional) Use Azure CLI sms operations without passing in a connection string
 
 You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI sms operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
@@ -130,3 +94,39 @@ export AZURE_COMMUNICATION_CONNECTION_STRING="<yourConnectionString>"
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 ---
+
+## Operations
+
+## Send a 1:1 SMS message
+
+To send an SMS message to a list of recipients, call the `send` method from the sms module with a single recipient phone number. 
+
+```azurecli-interactive
+az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
+```
+
+Make these replacements in the code:
+
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<toPhoneNumber>` with a phone number that you'd like to send a message to.
+- Replace `<yourConnectionString>` with your connection string.
+
+> [!WARNING]
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
+
+## Send a 1:N SMS message
+
+To send an SMS message to a single recipient, call the `send` method from the sms module with multiple recipient phone numbers. 
+
+```azurecli-interactive
+az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber1>" "<toPhoneNumber2>" "<toPhoneNumber3>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
+```
+
+Make these replacements in the code:
+
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<toPhoneNumberN>` with the N'th phone number that you'd like to send a message to.
+- Replace `<yourConnectionString>` with your connection string.
+
+> [!WARNING]
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.

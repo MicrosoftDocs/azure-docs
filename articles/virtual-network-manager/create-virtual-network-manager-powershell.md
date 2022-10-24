@@ -212,19 +212,19 @@ $virtualnetworkC | Set-AzVirtualNetwork
 > [!NOTE]
 > It is recommended to scope all of your conditionals to only scan for type `Microsoft.Network/virtualNetwork` for efficiency.
 
-```azurepowershell-interactive
-$conditionalMembership = '{ 
-    "allof":[
-        { 
-        "field": "type", 
-        "equals": "Microsoft.Network/virtualNetwork" 
-        }
-        { 
-        "field": "name", 
-        "contains": "VNet" 
-        } 
-    ] 
-}' 
+ ```azurepowershell-interactive
+ $conditionalMembership = '{ 
+     "allof":[
+         { 
+         "field": "type", 
+         "equals": "Microsoft.Network/virtualNetwork" 
+         }
+         { 
+         "field": "name", 
+         "contains": "VNet" 
+         } 
+     ] 
+ }' 
 ```
         
 1. Create the Azure Policy definition using the conditional statement defined in the last step using New-AzPolicyDefinition.
@@ -232,23 +232,23 @@ $conditionalMembership = '{
 > [!IMPORTANT]
 > Policy resources must have a scope unique name. It is recommended to use a consistent hash of the network group. Below is an approach using the ARM Templates uniqueString() implementation.
    
-```azurepowershell-interactive
-    function Get-UniqueString ([string]$id, $length=13)
-    {
-    $hashArray = (new-object System.Security.Cryptography.SHA512Managed).ComputeHash($id.ToCharArray())
-    -join ($hashArray[1..$length] | ForEach-Object { [char]($_ % 26 + [byte][char]'a') })
-    }
-```
+ ```azurepowershell-interactive
+     function Get-UniqueString ([string]$id, $length=13)
+     {
+     $hashArray = (new-object System.Security.Cryptography.SHA512Managed).ComputeHash($id.ToCharArray())
+     -join ($hashArray[1..$length] | ForEach-Object { [char]($_ % 26 + [byte][char]'a') })
+     }
+ ```
 
-```azurepowershell-interactive
-$defn = @{
-    Name = Get-UniqueString $networkgroup.Id
-    Mode = 'Microsoft.Network.Data'
-    Policy = $conditionalMembership
-}
-    
-$policyDefinition = New-AzPolicyDefinition $defn
-```
+ ```azurepowershell-interactive
+ $defn = @{
+     Name = Get-UniqueString $networkgroup.Id
+     Mode = 'Microsoft.Network.Data'
+     Policy = $conditionalMembership
+ }
+
+ $policyDefinition = New-AzPolicyDefinition @defn
+ ```
    
 1. Assign the policy definition at a scope within your network managers scope for it to begin taking effect.
 
@@ -258,7 +258,7 @@ $policyDefinition = New-AzPolicyDefinition $defn
         PolicyDefinition  = $policyDefinition
     }
     
-    $policyAssignment = New-AzPolicyAssignment $assgn
+    $policyAssignment = New-AzPolicyAssignment @assgn
     ```
         
 ## Create a configuration

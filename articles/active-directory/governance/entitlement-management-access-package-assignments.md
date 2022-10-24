@@ -4,7 +4,7 @@ description: Learn how to view, add, and remove assignments for an access packag
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

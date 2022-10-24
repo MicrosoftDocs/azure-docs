@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
 
-# Visualizations for Change Analysis in Azure Monitor (preview)
+# Visualizations for Change Analysis in Azure Monitor
 
 Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application might have caused the issues. You can view the Change Analysis data through several channels: 
 
@@ -57,9 +57,7 @@ You can view change data via the **Web App Down** and **Application Crashes** de
 - The change types over time.
 - Details on those changes. 
 
-By default, the graph displays changes from within the past 24 hours help with immediate problems.
-
-:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view.":::   
+By default, the graph displays changes from within the past 24 hours help with immediate problems.   
 
 ### Diagnose and solve problems tool for Virtual Machines
 
@@ -92,8 +90,8 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 
 1. From within your resource, select **Activity Log** from the side menu.
 1. Select a change from the list.
-1. Select the **Change history (Preview)** tab. 
-1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history (Preview)** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
+1. Select the **Change history** tab. 
+1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
 1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
    - Changes from other sources will be available after ~4 hours after subscription is onboard.
 

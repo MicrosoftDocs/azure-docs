@@ -28,7 +28,7 @@ class Program
 {
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     }
 }
 ```
@@ -67,7 +67,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromMic(speechConfig);
     }
 }
@@ -99,7 +99,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromFile(speechConfig);
     }
 }
@@ -142,7 +142,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromStream(speechConfig);
     }
 }
@@ -258,16 +258,6 @@ Task.WaitAny(new[] { stopRecognition.Task });
 // await recognizer.StopContinuousRecognitionAsync();
 ```
 
-### Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`EnableDictation`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation) method on [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig):
-
-```csharp
-speechConfig.EnableDictation();
-```
-
 ## Change the source language
 
 A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to Italian. In your code, find your [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance and add this line directly below it:
@@ -276,7 +266,7 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.SpeechRecognitionLanguage = "it-IT";
 ```
 
-The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 
 ## Use a custom endpoint
@@ -320,11 +310,11 @@ speechConfig.SetProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "2000")
 **Example:** a recorded presenter's speech is fast enough that several sentences in a row get combined, with big recognition results only arriving once or twice per minute. In this case, setting the segmentation silence timeout to a lower value like 300ms could help:
 
 ```csharp
-speechConfig.setProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "300");
+speechConfig.SetProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "300");
 ```
 
 **Example:** a single-shot recognition asking a speaker to find and read a serial number ends too quickly while the number is being found. In this case, a longer initial silence timeout like 10000ms could help:
 
 ```csharp
-speechConfig.setProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "10000");
+speechConfig.SetProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "10000");
 ```

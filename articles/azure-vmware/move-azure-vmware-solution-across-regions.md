@@ -89,7 +89,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 - VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
 
 >[!TIP]
->You can use [Azure Resource Mover](../resource-mover/move-region-within-resource-group.md?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json) to verify and migrate the list of supported resources to move across regions, which are dependent on Azure VMware Solution.
+>You can use [Azure Resource Mover](../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json) to verify and migrate the list of supported resources to move across regions, which are dependent on Azure VMware Solution.
 
 ### Locate the source ExpressRoute circuit ID
 

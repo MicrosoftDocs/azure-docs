@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 09/22/2021
+ms.date: 8/29/2022
 ---
 
 # Partner Center submission API onboarding

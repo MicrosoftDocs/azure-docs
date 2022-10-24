@@ -4,7 +4,7 @@ description: Overview and scenarios of the connected registry feature of Azure C
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 10/21/2021
+ms.date: 10/11/2022
 ms.custom: references_regions, ignite-fall-2021
 ---
 

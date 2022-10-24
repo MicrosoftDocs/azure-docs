@@ -4,7 +4,7 @@ description: Learn how to bind an Azure Database for MySQL instance to your appl
 author: karlerickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/04/2019
+ms.date: 09/26/2022
 ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
@@ -22,22 +22,24 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 ## Prerequisites
 
-* A deployed Azure Spring Apps instance
-* An Azure Database for MySQL account
-* Azure CLI
-
-If you don't have a deployed Azure Spring Apps instance, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md) to deploy your first Spring app.
+* An application deployed to Azure Spring Apps. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
+* An Azure Database for PostgreSQL Flexible Server instance.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
 
 ## Prepare your Java project
 
 1. In your project's *pom.xml* file, add the following dependency:
 
-    ```xml
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-data-jpa</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
+   </dependency>
+   ```
 
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
 
@@ -46,6 +48,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
 ## Bind your app to the Azure Database for MySQL instance
 
 #### [Service Binding](#tab/Service-Binding)
+
 1. Note the admin username and password of your Azure Database for MySQL account.
 
 1. Connect to the server, create a database named **testdb** from a MySQL client, and then create a new non-admin account.
@@ -60,12 +63,28 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
 
 1. To ensure that the service binding is correct, select the binding name, and then verify its detail. The `property` field should look like this:
 
-    ```properties
-    spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
-    spring.datasource.username=admin@some-server
-    spring.datasource.password=abc******
-    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
-    ```
+   ```properties
+   spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+   spring.datasource.username=admin@some-server
+   spring.datasource.password=abc******
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+   ```
+
+#### [Passwordless connection using a managed identity](#tab/Passwordless)
+
+Configure your Spring app to connect to a MySQL Database Flexible Server with a system-assigned managed identity by using the `az spring connection create` command, as shown in the following example.
+
+```azurecli
+az spring connection create mysql-flexible \
+    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+    --app $APP_NAME \
+    --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $MYSQL_RESOURCE_GROUP \
+    --server $MYSQL_SERVER_NAME \
+    --database $DATABASE_NAME \
+    --system-assigned-identity
+```
 
 #### [Terraform](#tab/Terraform)
 
@@ -153,8 +172,10 @@ resource "azurerm_spring_cloud_app" "example" {
 resource "azurerm_spring_cloud_java_deployment" "example" {
   name                = "default"
   spring_cloud_app_id = azurerm_spring_cloud_app.example.id
-  cpu                 = 2
-  memory_in_gb        = 4
+  quota {
+    cpu    = "2"
+    memory = "4Gi"
+  }
   instance_count      = 2
   jvm_options         = "-XX:+PrintGC"
   runtime_version     = "Java_11"

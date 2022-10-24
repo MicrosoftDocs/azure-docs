@@ -4,7 +4,7 @@ description: Learn how to change request settings for an access package in Azure
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

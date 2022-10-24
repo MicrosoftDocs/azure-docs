@@ -46,15 +46,21 @@
       - name: Multiple NICs
         href: how-to-configure-multiple-nics.md
       - name: VM on a DMZ
-        href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md   
+        href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
     - name: Configure nested virtualization for Windows VMs
       href: nested-virtualization.md
     - name: Access TPM secrets
       href: how-to-access-dtpm.md
     - name: GPU acceleration
       href: gpu-acceleration.md
+    - name: Shared folders
+      href: how-to-share-windows-folder-to-vm.md
+    - name: Connect a USB device
+      href: how-to-connect-usb-devices.md
   - name: Develop and debugging
     href: tutorial-develop-for-linux-on-windows.md
+  - name: Create a hierarchy of IoT Edge devices
+    href: tutorial-nested-iot-edge-for-linux-on-windows.md
   - name: Troubleshoot
     items:
     - name: Diagnose virtual machine
@@ -105,7 +111,7 @@
       - name: C#
         href: tutorial-csharp-module-windows.md
   - name: Deploy Azure services as modules
-    items: 
+    items:
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
     - name: Find averages with Azure Stream Analytics
@@ -201,7 +207,7 @@
         - name: X.509 certificate attestation
           href: how-to-provision-devices-at-scale-linux-x509.md
         - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-tpm.md    
+          href: how-to-provision-devices-at-scale-linux-tpm.md
         - name: Symmetric key attestation
           href: how-to-provision-devices-at-scale-linux-symmetric.md
     - name: Windows containers on Windows hosts
@@ -226,6 +232,9 @@
       href: how-to-manage-device-certificates.md
     - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
+    - name: Deploy IoT Edge VM using a Bicep file
+      displayname: ARM,template,resource manager
+      href: how-to-install-iot-edge-ubuntuvm-bicep.md
     - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
   - name: Develop custom modules
@@ -377,11 +386,11 @@
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
     - name: Node.js
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure-Samples/azure-iot-samples-java
     - name: Python
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
     - name: iOS Platform

@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for direct EA 
 description: This article explains how enterprise administrators of direct Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/08/2022
+ms.date: 08/29/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -134,6 +134,9 @@ If you don’t change the PO number, then the same PO number is used for all upc
 The EA admin receives an invoice notification email after the end of billing period to update PO number. You can update the PO number up to seven days after receiving email notification.
 
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
+
+Check out the [Manage purchase order number in the Azure portal](https://www.youtube.com/watch?v=26aanfQfjaY) video.
+>[!VIDEO https://www.youtube.com/embed/26aanfQfjaY]
 
 To update the PO number for a billing account:
 

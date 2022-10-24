@@ -10,6 +10,8 @@ ms.date: 08/20/2022
 
 # Call logic apps from Power Automate and Power Apps
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 To call your logic apps from Microsoft Power Automate and Microsoft Power Apps, you can export your logic apps as connectors. When you expose a logic app as a custom connector in a Power Automate or Power Apps environment, you can then call your logic app from flows there.
 
 If you want to migrate your flow from Power Automate or Power to Logic Apps instead, see [Export flows from Power Automate and deploy to Azure Logic Apps](export-from-microsoft-flow-logic-app-template.md).
@@ -32,7 +34,11 @@ If you want to migrate your flow from Power Automate or Power to Logic Apps inst
 
 * A Power Automate or Power Apps license.
 
-* A logic app with a request trigger to export.
+* A Consumption logic app workflow with a request trigger to export.
+
+  > [!NOTE]
+  >
+  > The Export capability is available only for Consumption logic app workflows in multi-tenant Azure Logic Apps.
 
 * A flow in Power Automate or Power Apps from which you want to call your logic app.
 

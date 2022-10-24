@@ -4,7 +4,7 @@ description: Learn the high-level steps you should follow for common scenarios i
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

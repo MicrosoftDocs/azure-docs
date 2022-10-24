@@ -267,10 +267,10 @@ Configure and prepare your operating system by doing the following:
      10.23.1.207 hana-s2-db3-hsr
     ```
 
-1. **[A]** Prepare the operating system for running SAP HANA. For more information, see SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the Azure NetApp Files configuration settings.  
+1. **[A]** Prepare the operating system for running SAP HANA. For more information, see SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the Azure NetApp Files configuration settings.  
 
     <pre><code>
-    vi /etc/sysctl.d/netapp-hana.conf
+    vi /etc/sysctl.d/91-NetApp-HANA.conf
     # Add the following entries in the configuration file
     net.core.rmem_max = 16777216
     net.core.wmem_max = 16777216

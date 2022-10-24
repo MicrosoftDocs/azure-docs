@@ -22,6 +22,18 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### iOS 16 introduced bugs when putting browser in the background during a call
+The iOS 16 release has introduced a bug that can stop the ACS audio\video call when using Safari mobile browser. Apple is aware of this issue and are looking for a fix on their side. The impact could be that an ACS call might stop working during a call and the only resolution to get it working again is to have the end customer restart their phone. 
+
+To reproduce this bug:
+-	Have a user using an iPhone running iOS 16
+-	Join ACS call (with audio only or with audio and video) using Safari iOS mobile browser
+-	If during a call someone puts the Safari browser in the background and views YouTube OR receives a FaceTime\phone call while connected via a Bluetooth device
+
+Results:
+- After a few minutes of this situation, the incoming and outgoing video may stop working.
+- The only way to get ACS calling to work again is to have the end user restart their phone.
+
 ### Chrome M98 - regression 
 
 Chrome version 98 introduced a regression with anormal generation of video keyframes that impacts resolution of a sent video stream negatively for majority (70%+) of users.

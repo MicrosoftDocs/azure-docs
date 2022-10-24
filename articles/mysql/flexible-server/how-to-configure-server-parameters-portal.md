@@ -51,26 +51,6 @@ If the server parameter you want to update is non-modifiable, you can optionally
 
 ## Working with the time zone parameter
 
-### Populating the time zone tables
-
-The time zone tables on your server can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
-
-> [!NOTE]
-> If you are running the `mysql.az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
-
-```sql
-CALL mysql.az_load_timezone();
-```
-
-> [!IMPORTANT]
->You should restart the server to ensure the time zone tables are properly populated.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
-
-To view available time zone values, run the following command:
-
-```sql
-SELECT name FROM mysql.time_zone_name;
-```
-
 ### Setting the global level time zone
 
 The global level time zone can be set from the **Server parameters** page in the Azure portal. The below sets the global time zone to the value "US/Pacific".
@@ -86,6 +66,10 @@ SET time_zone = 'US/Pacific';
 ```
 
 Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
+
+>[!Note]
+> To change time zone at session level, Server parameter time_zone has to be updated globally to required timezone at least once, in order to update the [mysql.time_zone_name](https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html) table.
+
 
 ## Next steps
 

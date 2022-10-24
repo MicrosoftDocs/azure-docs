@@ -23,7 +23,7 @@ In this article, you'll create a virtual machine in Azure with the Azure portal.
 
 In this section, you'll create a dual-stack virtual network for the virtual machine.
 
-1. Sign-in to the [Azure portal](https://https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 

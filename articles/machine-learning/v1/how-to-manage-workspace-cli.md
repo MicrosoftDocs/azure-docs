@@ -15,10 +15,9 @@ ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
 
 # Manage Azure Machine Learning workspaces using Azure CLI extension v1
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-manage-workspace-cli.md)
 > * [v2 (current version)](../how-to-manage-workspace-cli.md)
 
@@ -95,7 +94,7 @@ For more information on working with resource groups, see [az group](/cli/azure/
 
 ## Create a workspace
 
-When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](../concept-workspace.md#resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
+When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](../concept-workspace.md#associated-resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
 
 > [!IMPORTANT]
 > When attaching your own storage account, make sure that it meets the following criteria:
@@ -105,7 +104,7 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 > * Hierarchical Namespace (ADLS Gen 2) is disabled
 > These requirements are only for the _default_ storage account used by the workspace.
 >
-> When attaching Azure container registry, you must have the [admin account](/azure/container-registry/container-registry-authentication#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
+> When attaching Azure container registry, you must have the [admin account](../../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
 # [Create with new resources](#tab/createnewresources)
 

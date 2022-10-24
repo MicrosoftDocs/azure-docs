@@ -181,7 +181,7 @@ The `useTrackEvent` Hook is used to track any custom event that an application m
 -   Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook).
 -   Name for the event.
 -   Event data object that encapsulates the changes that has to be tracked.
--   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. Default value is set to `true`.
+-   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. Default value is set to `true` to mimic more closely the way the non-hook version works. With `useEffect` hooks, the effect is triggered on each value update _including_ the initial setting of the value, thereby starting the tracking too early causing potentially unwanted events to be tracked.
 
 ```javascript
 import React, { useState, useEffect } from "react";

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 08/30/2022
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -42,6 +42,7 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
+    Aggregation metrics (for example, min, max) are not supported for percentage volume consumed size.
 - *Volume Allocated Size*   
     The provisioned size of a volume
 - *Volume Quota Size*    

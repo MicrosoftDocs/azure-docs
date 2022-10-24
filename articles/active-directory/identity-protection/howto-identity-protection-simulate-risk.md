@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,7 @@ This article provides you with steps for simulating the following risk detection
 - Atypical travel (difficult)
 - Leaked credentials in GitHub for workload identities (moderate)
 
-Other risk detections cannot be simulated in a secure manner.
+Other risk detections can't be simulated in a secure manner.
 
 More information about each risk detection can be found in the article, What is risk for [user](concept-identity-protection-risks.md) and [workload identity](concept-workload-identity-risk.md).
 
@@ -38,7 +38,7 @@ More information about each risk detection can be found in the article, What is 
 Completing the following procedure requires you to use:
 
 - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) to simulate anonymous IP addresses. You might need to use a virtual machine if your organization restricts using the Tor browser.
-- A test account that is not yet registered for Azure AD Multi-Factor Authentication.
+- A test account that isn't yet registered for Azure AD multifactor authentication.
 
 **To simulate a sign-in from an anonymous IP, perform the following steps**:
 
@@ -49,7 +49,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ## Unfamiliar sign-in properties
 
-To simulate unfamiliar locations, you have to sign in from a location and device your test account has not signed in from before.
+To simulate unfamiliar locations, you have to sign in from a location and device your test account hasn't signed in from before.
 
 The procedure below uses a newly created:
 
@@ -59,7 +59,7 @@ The procedure below uses a newly created:
 Completing the following procedure requires you to use a user account that has:
 
 - At least a 30-day sign-in history.
-- Azure AD Multi-Factor Authentication enabled.
+- Azure AD multifactor authentication enabled.
 
 **To simulate a sign-in from an unfamiliar location, perform the following steps**:
 
@@ -70,7 +70,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ## Atypical travel
 
-Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there is a chance that the following steps will not lead to a risk detection. You might want to replicate these steps for multiple Azure AD accounts to simulate this detection.
+Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there's a chance that the following steps won't lead to a risk detection. You might want to replicate these steps for multiple Azure AD accounts to simulate this detection.
 
 **To simulate an atypical travel risk detection, perform the following steps**:
 
@@ -89,8 +89,8 @@ This risk detection indicates that the application's valid credentials have been
 **To simulate Leaked Credentials in GitHub for Workload Identities, perform the following steps**:
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Browse to **Azure Active Directory** > **App registrations**.
-3. Select **New registration** to register a new application or reuse an exsiting stale application.
-4. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and click **Add**. Record the secret's value for later use for your GitHub Commit.
+3. Select **New registration** to register a new application or reuse an existing stale application.
+4. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and select **Add**. Record the secret's value for later use for your GitHub Commit.
 
    > [!Note]
    > **You can not retrieve the secret again after you leave this page**.
@@ -104,7 +104,7 @@ This risk detection indicates that the application's valid credentials have been
      "AadTenantDomain": "XXXX.onmicrosoft.com",
      "AadTenantId": "99d4947b-XXX-XXXX-9ace-abceab54bcd4",
    ```
-7. In about 8 hours, you will be able to view a leaked credentail detection under **Azure Active Directory** > **Security** > **Risk Detection** > **Workload identity detections** where the additional info will contain your the URL of your GitHub commit.
+7. In about 8 hours, you'll be able to view a leaked credential detection under **Azure Active Directory** > **Security** > **Risk Detection** > **Workload identity detections** where the additional info will contain the URL of your GitHub commit.
 
 ## Testing risk policies
 
@@ -132,7 +132,7 @@ To test a user risk security policy, perform the following steps:
 
 ### Sign-in risk security policy
 
-To test a sign in risk policy, perform the following steps:
+To test a sign-in risk policy, perform the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.

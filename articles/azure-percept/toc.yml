@@ -1,11 +1,16 @@
 - name: Azure Percept documentation
   href: index.yml
 
+- name: Retirement of Azure Percept DK
+  items:
+    - name: Retirement of Azure Percept DK
+      href: retirement-of-azure-percept-dk.md   
+      
 - name: Azure Percept DK Overview
   items:
     - name: Azure Percept overview
       href: overview-azure-percept.md   
-    - name: Azure Percept Studio overview v1
+    - name: Azure Percept Studio overview
       href: overview-azure-percept-studio.md   
     - name: Azure Percept DK and Vision device overview
       href: overview-azure-percept-dk.md   
@@ -14,18 +19,6 @@
     - name: Azure Percept Vision AI module
       href: azureeyemodule-overview.md   
       
- 
-- name: Azure Percept Overview
-  items:
-    - name: Azure Percept on Azure Stack HCI overview
-      href: ./hci/azure-percept-on-azure-stack-hci-overview.md
-    - name: Azure Percept Studio overview
-      href: ./studio/azure-percept-studio-overview.md
-    - name: Azure Percept for DeepStream overview
-      href: ./deepstream/azure-percept-for-deepstream-overview.md
-    - name: Azure Percept Open-Source Project overview
-      href: ./open-source/azure-percept-open-source-project-overview.md
-   
 
 - name: Azure Percept DK Quickstarts
   items:

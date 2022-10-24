@@ -135,6 +135,12 @@
       href: concept-soft-delete.md
     - name: Geo-replication 
       href: concept-geo-replication.md
+    - name: Reliability
+      items:
+        - name: Availability zone support
+          href: ../availability-zones/migrate-app-configuration.md
+        - name: Resiliency and disaster recovery
+          href: concept-disaster-recovery.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
@@ -151,10 +157,6 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
-    - name: High availability
-      items:
-        - name: Resiliency and disaster recovery
-          href: concept-disaster-recovery.md
 - name: How-to guides
   items:
     - name: Use labels for per-environment configuration
@@ -165,7 +167,7 @@
       href: howto-leverage-json-content-type.md
     - name: Use Event Grid for data change notifications
       href: howto-app-configuration-event.md
-    - name: Backup configuration store automatically
+    - name: Back up configuration stores automatically
       href: howto-backup-config-store.md
     - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
@@ -173,7 +175,7 @@
       href: howto-convert-to-the-new-spring-boot.md
     - name: Move a resource between Azure regions 
       href: howto-move-resource-between-regions.md
-    - name: Recover App Configuration stores
+    - name: Recover or purge deleted App Configuration stores
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
     - name: Enable geo-replication (Preview)
       href: howto-geo-replication.md
@@ -191,6 +193,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Java Spring provider
           href: https://go.microsoft.com/fwlink/?linkid=2180917
+        - name: Python provider
+          href: https://pypi.org/project/azure-appconfiguration-provider/
         - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Azure SDK for Java
@@ -205,6 +209,8 @@
           href: /dotnet/api/microsoft.featuremanagement
         - name: .NET built-in feature filters
           href: /dotnet/api/microsoft.featuremanagement.featurefilters
+        - name: Java Spring
+          href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Control plane
       items:
         - name: REST API
@@ -265,7 +271,7 @@
                 href: ./rest-api-postman.md
         - name: Azure CLI
           href: /cli/azure/appconfig
-    - name: Bicep & ARM template
+    - name: Deployment
       href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions

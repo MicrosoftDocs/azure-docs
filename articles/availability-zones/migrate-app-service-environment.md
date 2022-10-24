@@ -19,12 +19,12 @@ This guide describes how to migrate an App Service Environment from non-availabi
 
 Azure App Service Environment can be deployed across [Availability Zones (AZ)](../availability-zones/az-overview.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
-When you configure to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across all three zones in the selected region. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
+When you configure to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across all three zones in the selected region. This means that the minimum App Service Plan instance count will always be three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
 
 ## Prerequisites
 
 - You configure availability zones when you create your App Service Environment.
-  - All App Service plans created in that App Service Environment will automatically be zone redundant.
+  - All App Service plans created in that App Service Environment will need a minimum of 3 instances and those will automatically be zone redundant.
 - You can only specify availability zones when creating a **new** App Service Environment. A pre-existing App Service Environment can't be converted to use availability zones.
 - Availability zones are only supported in a [subset of regions](../app-service/environment/overview.md#regions).
 

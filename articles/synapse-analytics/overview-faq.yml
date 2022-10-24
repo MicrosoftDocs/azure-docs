@@ -6,8 +6,8 @@ metadata:
   ms.service: synapse-analytics
   ms.topic: faq
   ms.subservice: overview
-  ms.custom: event-tier1-build-2022
-  ms.date: 05/24/2022
+  ms.custom: event-tier1-build-2022, ignite-2022
+  ms.date: 08/24/2022
   ms.author: saveenr
   ms.reviewer: sngun, wiassaf
 title: Azure Synapse Analytics frequently asked questions
@@ -53,7 +53,7 @@ sections:
           - Serverless SQL pools - you have monitoring and cost management controls that let you cap spending at a daily, weekly, and monthly level. [See Cost management for serverless SQL pool](./sql/data-processed.md) for more information. 
           
           - Serverless Spark pools - you can restrict who can create Spark pools with Synapse RBAC roles.  
-          
+
       - question: |
           Will Synapse workspace support folder organization of objects and granularity at GA?
         answer: |
@@ -67,7 +67,7 @@ sections:
       - question: |
           Is Azure Synapse Link to Azure Cosmos DB generally available?
         answer: |
-          Azure Synapse Analytics currently supports Azure Synapse Link from Azure Cosmos DB to Synapse Apache Spark and serverless SQL pool. Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Cosmos DB](../cosmos-db/synapse-link.md).
+          Azure Synapse Analytics currently supports Azure Synapse Link from Azure Cosmos DB to Synapse Apache Spark and serverless SQL pool. Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md).
 
       - question: |
           Is Azure Synapse Link to SQL Server 2022 generally available?
@@ -92,7 +92,7 @@ sections:
       - question: |
           What is Auto Compaction?
         answer: |
-          Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](/azure/databricks/delta/optimizations/auto-optimize).
+          Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](/azure/databricks/optimizations/auto-optimize).
 
   - name: Pipelines
     questions:
@@ -181,6 +181,12 @@ sections:
       
   - name: Dedicated SQL Pools
     questions:
+        
+      - question: |
+          What is the difference between dedicated SQL pools (SQL DW) and dedicated SQL pools in Azure Synapse workspaces?
+        answer: |
+          Dedicated SQL pools (formerly SQL DW) are an Azure Platform-as-a-Service (PaaS) enterprise data warehousing platform. You can query existing dedicated SQL pools (formerly SQL DW) and also create new dedicated SQL pools in your Azure Synapse workspace. Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to a standalone dedicated SQL pool (formerly SQL DW), and vice versa. For more information, see [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/msft-docs-what-s-the-difference-between-synapse-formerly-sql-dw/ba-p/3597772). To enable Azure Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW), refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse/workspace-connected-create.md). 
+
       - question: |
           What are the functional differences between dedicated SQL pools and serverless pools?
         answer: |

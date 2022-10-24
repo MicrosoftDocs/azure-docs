@@ -9,7 +9,7 @@ ms.custom:
 ms.topic: conceptual
 ms.author: deeikele
 author: deeikele
-ms.date: 08/25/2022
+ms.date: 10/24/2022
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.
 ---
 

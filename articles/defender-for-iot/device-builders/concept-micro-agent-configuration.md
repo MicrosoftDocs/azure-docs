@@ -1,6 +1,6 @@
 ---
 title: Micro agent configurations (Preview)
-description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
+description: The collector sends all current data immediately after any configuration change is made. The configuration changes are then applied.
 ms.date: 05/03/2022
 ms.topic: conceptual
 ---

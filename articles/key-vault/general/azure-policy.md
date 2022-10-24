@@ -265,4 +265,4 @@ If the compliance results show up as "Not Started" it may be due to the followin
 - [Logging and frequently asked questions for Azure policy for key vault](../general/troubleshoot-azure-policy-for-key-vault.md)
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
-- Learn about [Azure Security Benchmark guidance on Key vault](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)
+- Learn about [Microsoft cloud securiy benchmark on Key vault](/security/benchmark/azure/baselines/key-vault-security-baseline)

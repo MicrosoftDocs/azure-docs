@@ -5,7 +5,7 @@ description: Learn how to set up an Azure AD tenant for P2S Azure AD authenticat
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 09/06/2022
 ms.author: cherylmc
 
 ---
@@ -70,7 +70,7 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
      :::image type="content" source="./media/openvpn-create-azure-ad-tenant/configuration.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Azure Active Directory settings.":::
 
      > [!NOTE]
-     > Make sure you include a trailing slash at the end of the `AadIssuerUri` **Issuer** value. Otherwise, the connection may fail.
+     > Make sure you include a trailing slash at the end of the **Issuer** value. Otherwise, the connection may fail.
      >
 
 1. Save your changes.
@@ -87,4 +87,4 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
 
 ## Next steps
 
-* [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+[Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).

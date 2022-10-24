@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.3.0 (Azure Government)
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.3.0 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/17/2022
+ms.date: 10/12/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -33,22 +33,22 @@ initiative definition.
 > definitions for this compliance standard may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Azure%20Government/Regulatory%20Compliance/CISv1_3_0.json).
 
-## Identity and Access Management
+## 1 Identity and Access Management
 
 ### Ensure that multi-factor authentication is enabled for all privileged users
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 1.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[MFA should be enabled accounts with write permissions on your subscription](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9297c21d-2ed6-4474-b48f-163f75654ce3) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with write privileges to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableMFAForWritePermissions_Audit.json) |
+|[MFA should be enabled for accounts with write permissions on your subscription](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9297c21d-2ed6-4474-b48f-163f75654ce3) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with write privileges to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableMFAForWritePermissions_Audit.json) |
 |[MFA should be enabled on accounts with owner permissions on your subscription](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa633080-8b72-40c4-a2d7-d00c03e80bed) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with owner permissions to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableMFAForOwnerPermissions_Audit.json) |
 
 ### Ensure that multi-factor authentication is enabled for all non-privileged users
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 1.2
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -57,7 +57,7 @@ initiative definition.
 ### Ensure guest users are reviewed on a monthly basis
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 1.3
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -65,12 +65,12 @@ initiative definition.
 |[External accounts with read permissions should be removed from your subscription](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f76cf89-fbf2-47fd-a3f4-b891fa780b60) |External accounts with read privileges should be removed from your subscription in order to prevent unmonitored access. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_RemoveExternalAccountsReadPermissions_Audit.json) |
 |[External accounts with write permissions should be removed from your subscription](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5c607a2e-c700-4744-8254-d77e7c9eb5e4) |External accounts with write privileges should be removed from your subscription in order to prevent unmonitored access. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_RemoveExternalAccountsWritePermissions_Audit.json) |
 
-## Security Center
+## 2 Security Center
 
 ### Ensure that Azure Defender is set to On for Servers
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -79,7 +79,7 @@ initiative definition.
 ### Ensure that 'Automatic provisioning of monitoring agent' is set to 'On'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.11
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -88,7 +88,7 @@ initiative definition.
 ### Ensure 'Additional email addresses' is configured with a security contact email
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.13
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -97,7 +97,7 @@ initiative definition.
 ### Ensure that 'Notify about alerts with the following severity' is set to 'High'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.14
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -106,7 +106,7 @@ initiative definition.
 ### Ensure that Azure Defender is set to On for Azure SQL database servers
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.3
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ initiative definition.
 ### Ensure that Azure Defender is set to On for Storage
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -124,7 +124,7 @@ initiative definition.
 ### Ensure that Azure Defender is set to On for Kubernetes
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.6
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -133,18 +133,18 @@ initiative definition.
 ### Ensure that Azure Defender is set to On for Container Registries
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.7
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Microsoft Defender for Containers should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c988dd6-ade4-430f-a608-2a3e5b0a6d38) |Microsoft Defender for Containers provides hardening, vulnerability assessment and run-time protections for your Azure, hybrid, and multi-cloud Kubernetes environments. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainers_Audit.json) |
 
-## Storage Accounts
+## 3 Storage Accounts
 
 ### Ensure that 'Secure transfer required' is set to 'Enabled'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 3.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -153,7 +153,7 @@ initiative definition.
 ### Ensure default network access rule for Storage Accounts is set to deny
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 3.6
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -163,7 +163,7 @@ initiative definition.
 ### Ensure 'Trusted Microsoft Services' is enabled for Storage Account access
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 3.7
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -172,18 +172,18 @@ initiative definition.
 ### Ensure storage for critical data are encrypted with Customer Managed Key
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 3.9
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Storage accounts should use customer-managed key for encryption](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fac406b-40ca-413b-bf8e-0bf964659c25) |Secure your blob and file storage account with greater flexibility using customer-managed keys. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Using customer-managed keys provides additional capabilities to control rotation of the key encryption key or cryptographically erase data. |Audit, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountCustomerManagedKeyEnabled_Audit.json) |
 
-## Database Services
+## 4 Database Services
 
 ### Ensure that 'Auditing' is set to 'On'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.1.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -192,7 +192,7 @@ initiative definition.
 ### Ensure that 'Data encryption' is set to 'On' on a SQL Database
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.1.2
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ initiative definition.
 ### Ensure that 'Auditing' Retention is 'greater than 90 days'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.1.3
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -210,7 +210,7 @@ initiative definition.
 ### Ensure that Advanced Threat Protection (ATP) on a SQL server is set to 'Enabled'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.2.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -220,7 +220,7 @@ initiative definition.
 ### Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.2.2
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -230,7 +230,7 @@ initiative definition.
 ### Ensure that VA setting Send scan reports to is configured for a SQL server
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.2.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -239,7 +239,7 @@ initiative definition.
 ### Ensure 'Enforce SSL connection' is set to 'ENABLED' for PostgreSQL Database Server
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.3.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -248,7 +248,7 @@ initiative definition.
 ### Ensure 'Enforce SSL connection' is set to 'ENABLED' for MySQL Database Server
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.3.2
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -257,7 +257,7 @@ initiative definition.
 ### Ensure server parameter 'log_checkpoints' is set to 'ON' for PostgreSQL Database Server
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.3.3
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -266,7 +266,7 @@ initiative definition.
 ### Ensure server parameter 'log_connections' is set to 'ON' for PostgreSQL Database Server
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.3.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -275,7 +275,7 @@ initiative definition.
 ### Ensure server parameter 'log_disconnections' is set to 'ON' for PostgreSQL Database Server
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.3.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ initiative definition.
 ### Ensure server parameter 'connection_throttling' is set to 'ON' for PostgreSQL Database Server
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.3.6
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ initiative definition.
 ### Ensure that Azure Active Directory Admin is configured
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -302,28 +302,28 @@ initiative definition.
 ### Ensure SQL server's TDE protector is encrypted with Customer-managed key
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL managed instances should use customer-managed keys to encrypt data at rest](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac01ad65-10e5-46df-bdd9-6b0cad13e1d2) |Implementing Transparent Data Encryption (TDE) with your own key provides you with increased transparency and control over the TDE Protector, increased security with an HSM-backed external service, and promotion of separation of duties. This recommendation applies to organizations with a related compliance requirement. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureServerTDEisEncryptedWithYourOwnKey_Deny.json) |
 |[SQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a370ff3-6cab-4e85-8995-295fd854c5b8) |Implementing Transparent Data Encryption (TDE) with your own key provides increased transparency and control over the TDE Protector, increased security with an HSM-backed external service, and promotion of separation of duties. This recommendation applies to organizations with a related compliance requirement. |Audit, Deny, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_EnsureServerTDEisEncryptedWithYourOwnKey_Deny.json) |
 
-## Logging and Monitoring
+## 5 Logging and Monitoring
 
 ### Ensure the storage account containing the container with activity logs is encrypted with BYOK (Use Your Own Key)
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.1.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Storage account containing the container with activity logs must be encrypted with BYOK](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |This policy audits if the Storage account containing the container with activity logs is encrypted with BYOK. The policy works only if the storage account lies on the same subscription as activity logs by design. More information on Azure Storage encryption at rest can be found here [https://aka.ms/azurestoragebyok](../../../storage/common/customer-managed-keys-configure-key-vault.md).  |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
+|[Storage account containing the container with activity logs must be encrypted with BYOK](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |This policy audits if the Storage account containing the container with activity logs is encrypted with BYOK. The policy works only if the storage account lies on the same subscription as activity logs by design. More information on Azure Storage encryption at rest can be found here [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok).  |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 
 ### Ensure that logging for Azure KeyVault is 'Enabled'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.1.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -332,7 +332,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Create Policy Assignment
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -341,7 +341,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Delete Policy Assignment
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.2
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -350,7 +350,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Create or Update Network Security Group
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.3
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -359,7 +359,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Delete Network Security Group
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -368,7 +368,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Create or Update Network Security Group Rule
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -377,7 +377,7 @@ initiative definition.
 ### Ensure that activity log alert exists for the Delete Network Security Group Rule
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.6
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -386,7 +386,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Create or Update Security Solution
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.7
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Delete Security Solution
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.8
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -404,7 +404,7 @@ initiative definition.
 ### Ensure that Activity Log Alert exists for Create or Update or Delete SQL Server Firewall Rule
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.9
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,7 +413,7 @@ initiative definition.
 ### Ensure that Diagnostic Logs are enabled for all services which support it.
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.3
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -429,23 +429,23 @@ initiative definition.
 |[Resource logs in Service Bus should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 |[Resource logs in Virtual Machine Scale Sets should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |It is recommended to enable Logs so that activity trail can be recreated when investigations are required in the event of an incident or a compromise. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json) |
 
-## Networking
+## 6 Networking
 
 ### Ensure that Network Watcher is 'Enabled'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 6.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Network Watcher should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. It is required to have a network watcher resource group to be created in every region where a virtual network is present. An alert is enabled if a network watcher resource group is not available in a particular region. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
-## Virtual Machines
+## 7 Virtual Machines
 
 ### Ensure Virtual Machines are utilizing Managed Disks
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 7.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -454,16 +454,16 @@ initiative definition.
 ### Ensure that 'OS and Data' disks are encrypted with CMK
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 7.2
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys. Temp disks, data caches and data flowing between compute and storage aren't encrypted. Disregard this recommendation if: 1. using encryption-at-host, or 2. server-side encryption on Managed Disks meets your security requirements. Learn more in: Server-side encryption of Azure Disk Storage: [https://aka.ms/disksse,](https://aka.ms/disksse,) Different disk encryption offerings: [https://aka.ms/diskencryptioncomparison](../../../virtual-machines/disk-encryption-overview.md#comparison) |AuditIfNotExists, Disabled |[2.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys. Temp disks, data caches and data flowing between compute and storage aren't encrypted. Disregard this recommendation if: 1. using encryption-at-host, or 2. server-side encryption on Managed Disks meets your security requirements. Learn more in: Server-side encryption of Azure Disk Storage: [https://aka.ms/disksse,](https://aka.ms/disksse,) Different disk encryption offerings: [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) |AuditIfNotExists, Disabled |[2.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### Ensure that only approved extensions are installed
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 7.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -472,7 +472,7 @@ initiative definition.
 ### Ensure that the latest OS Patches for all Virtual Machines are applied
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 7.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -481,18 +481,18 @@ initiative definition.
 ### Ensure that the endpoint protection for all Virtual Machines is installed
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 7.6
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
-## Other Security Considerations
+## 8 Other Security Considerations
 
 ### Ensure the key vault is recoverable
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 8.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -501,18 +501,18 @@ initiative definition.
 ### Enable role-based access control (RBAC) within Azure Kubernetes Services
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 8.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Role-Based Access Control (RBAC) should be used on Kubernetes Services](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |To provide granular filtering on the actions that users can perform, use Role-Based Access Control (RBAC) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies. |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
 
-## App Service
+## 9 AppService
 
 ### Ensure App Service Authentication is set on Azure App Service
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.1
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -522,7 +522,7 @@ initiative definition.
 ### Ensure FTP deployments are disabled
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.10
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -532,16 +532,16 @@ initiative definition.
 ### Ensure web app redirects all HTTP traffic to HTTPS in Azure App Service
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.2
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[App Service apps should only be accessible over HTTPS](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4af4a39-4135-47fb-b175-47fbdf85311d) |Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceWebapp_AuditHTTP_Audit.json) |
+|[App Service apps should only be accessible over HTTPS](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4af4a39-4135-47fb-b175-47fbdf85311d) |Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. |Audit, Disabled, Deny |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceWebapp_AuditHTTP_Audit.json) |
 
 ### Ensure web app is using the latest version of TLS encryption
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.3
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -551,17 +551,17 @@ initiative definition.
 ### Ensure the web app has 'Client Certificates (Incoming client certificates)' set to 'On'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.4
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[App Service apps should have 'Client Certificates (Incoming client certificates)' enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5bb220d9-2698-4ee4-8404-b9c30c9df609) |Client certificates allow for the app to request a certificate for incoming requests. Only clients that have a valid certificate will be able to reach the app. |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_ClientCert.json) |
-|[Function apps should have 'Client Certificates (Incoming client certificates)' enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feaebaea7-8013-4ceb-9d14-7eb32271373c) |Client certificates allow for the app to request a certificate for incoming requests. Only clients with valid certificates will be able to reach the app. |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_ClientCert.json) |
+|[App Service apps should have 'Client Certificates (Incoming client certificates)' enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5bb220d9-2698-4ee4-8404-b9c30c9df609) |Client certificates allow for the app to request a certificate for incoming requests. Only clients that have a valid certificate will be able to reach the app. |Audit, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_ClientCert.json) |
+|[Function apps should have 'Client Certificates (Incoming client certificates)' enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feaebaea7-8013-4ceb-9d14-7eb32271373c) |Client certificates allow for the app to request a certificate for incoming requests. Only clients with valid certificates will be able to reach the app. |Audit, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_ClientCert.json) |
 
 ### Ensure that Register with Azure Active Directory is enabled on App Service
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.5
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -571,7 +571,7 @@ initiative definition.
 ### Ensure that 'PHP version' is the latest, if used to run the web app
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.6
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -580,7 +580,7 @@ initiative definition.
 ### Ensure that 'Python version' is the latest, if used to run the web app
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.7
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -590,7 +590,7 @@ initiative definition.
 ### Ensure that 'Java version' is the latest, if used to run the web app
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.8
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -600,7 +600,7 @@ initiative definition.
 ### Ensure that 'HTTP Version' is the latest, if used to run the web app
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 9.9
-**Ownership**: Customer
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

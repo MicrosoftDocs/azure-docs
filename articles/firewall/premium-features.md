@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 10/12/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -71,7 +71,7 @@ The Azure Firewall signatures/rulesets include:
 - Over 58,000 rules in over 50 categories.
     - The categories include malware command and control, phishing, trojans, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
 - 20 to 40+ new rules are released each day.
-- Low false positive rating by using state-of-the-art malware sandbox and global sensor network feedback loop.
+- Low false positive rating by using state-of-the-art malware detection techniques such as global sensor network feedback loop.
 
 IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
@@ -99,7 +99,7 @@ IDPS signature rules have the following properties:
 |Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
 |Mode      |Indicates if the signature is active or not, and whether firewall will drop or alert upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature isn't enabled on your firewall.<br>- **Alert**: You'll receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You'll receive alerts and suspicious traffic will be blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures won't be blocked even though IDPS mode is set to “Alert and Deny”. Customers may override this by customizing these specific signatures to “Alert and Deny” mode. <br><br> Note: IDPS alerts are available in the portal via network rule log query.|
 |Severity      |Each signature has an associated severity level that indicates the probability that the signature is an actual attack.<br>- **Low**: An abnormal event is one that doesn't normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High**: The attack signatures indicate that an attack of a severe nature is being launched. There's little probability that the packets have a legitimate purpose.|
-|Direction      |The traffic direction for which the signature is applied.<br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined in Azure private IP range (according to IANA RFC 1918).<br>- **Outbound**: Signature is applied only on traffic sent from Azure private IP range (according to IANA RFC 1918) to the Internet.<br>- **Bidirectional**: Signature is always applied on any traffic direction.|
+|Direction      |The traffic direction for which the signature is applied.<br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined to your [configured private IP address range](firewall-preview.md#idps-private-ip-ranges-preview).<br>- **Outbound**: Signature is applied only on traffic sent from your [configured private IP address range](firewall-preview.md#idps-private-ip-ranges-preview) to the Internet.<br>- **Bidirectional**: Signature is always applied on any traffic direction.|
 |Group      |The group name that the signature belongs to.|
 |Description      |Structured from the following three parts:<br>- **Category name**: The category name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE. The ID is listed here.|
 |Protocol     |The protocol associated with this signature.|

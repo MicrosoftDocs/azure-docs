@@ -206,6 +206,8 @@ items:
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+      - name: Troubleshoot Spark job failures
+        href: spark/apache-spark-handle-livy-error.md
     - name: Move workspace to new region
       href: how-to-move-workspace-from-one-region-to-another.md
     - name: Move workspace to another tenant
@@ -598,6 +600,10 @@ items:
         href: /azure/azure-sql/database/connect-query-python?context=/azure/synapse-analytics/context/context
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
+    - name: Troubleshoot serverless SQL pools
+      items:
+      - name: Troubleshoot serverless SQL pools
+        href: sql/resources-self-help-sql-on-demand.md        
 - name: Data Explorer
   items:
   - name: Overview
@@ -630,7 +636,7 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
       - name: Event Hub
         items:
-          - name: Event Hub data connection
+          - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
@@ -644,7 +650,7 @@ items:
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
       - name: Event Grid
         items:
-          - name: Event Hub data connection
+          - name: Event Grid data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md
@@ -754,10 +760,10 @@ items:
         href: ./spark/apache-spark-data-visualization.md
       - name: Connect to Spark with IntelliJ plug-in
         href: ./spark/intellij-tool-synapse.md
-      - name: Connect to Spark pools with VSCode
-        href: ./spark/vscode-tool-synapse.md
     - name: Explore languages
       items:
+      - name: R for Apache Spark
+        href: ./spark/apache-spark-r-language.md
       - name: .NET for Apache Spark
         href: ./spark/spark-dotnet.md
     - name: Security
@@ -822,17 +828,17 @@ items:
       href: /powerapps/maker/data-platform/export-to-data-lake?context=/azure/synapse-analytics/context/context
   - name: Quickstarts
     items:
-    - name: Connect to Synapse Link for Cosmos DB
+    - name: Connect to Synapse Link for Azure Cosmos DB
       href: quickstart-connect-synapse-link-cosmos-db.md
   - name: Concepts
     items:
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       items:
       - name: Analytical Store Overview
         href: ../cosmos-db/analytical-store-introduction.md?context=/azure/synapse-analytics/context/context
       - name: Synapse Link supported features
         href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
-      - name: Cosmos DB FAQ
+      - name: Azure Cosmos DB FAQ
         href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?context=/azure/synapse-analytics/context/context
       - name: Synapse Link use cases
         href: ../cosmos-db/synapse-link-use-cases.md?context=/azure/synapse-analytics/context/context
@@ -860,11 +866,11 @@ items:
   #   items:  
   - name: How-to guides
     items:
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       items:
       - name: Configure Synapse Link
         href: ../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context
-      - name: Connect to Azure Synapse Link for Cosmos DB
+      - name: Connect to Azure Synapse Link for Azure Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Synapse Link and integrated Power BI
         href: ../cosmos-db/integrated-power-bi-synapse-link.md?context=/azure/synapse-analytics/context/context
@@ -882,12 +888,16 @@ items:
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-database.md
+      - name: Configure Synapse Link with managed virtual network
+        href: ./synapse-link/connect-synapse-link-sql-database-vnet.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: SQL Server 2022
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-server-2022.md
+      - name: Configure Synapse Link with managed virtual network
+        href: ./synapse-link/connect-synapse-link-sql-server-2022-vnet.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: Dataverse
@@ -983,6 +993,8 @@ items:
         href: ../data-factory/connector-amazon-simple-storage-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon S3 Compatible Storage
         href: ../data-factory/connector-amazon-s3-compatible-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: AppFigures
+        href: ../data-factory/connector-appfigures.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Asana
         href: ../data-factory/connector-asana.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Avro format
@@ -991,9 +1003,9 @@ items:
         href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&tabs=synapse-analytics
       - name: Azure Cognitive Search
         href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Azure Cosmos DB SQL API
+      - name: Azure Cosmos DB for NoSQL
         href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Azure Cosmos DB's API for MongoDB
+      - name: Azure Cosmos DB for MongoDB
         href: ../data-factory/connector-azure-cosmos-db-mongodb-api.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Data Explorer
         href: ../data-factory/connector-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
@@ -1059,6 +1071,8 @@ items:
         href: ../data-factory/connector-google-bigquery.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Google Cloud Storage
         href: ../data-factory/connector-google-cloud-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Google Sheets
+        href: ../data-factory/connector-google-sheets.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Greenplum
         href: ../data-factory/connector-greenplum.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: HBase
@@ -1415,6 +1429,8 @@ items:
           href: ../data-factory/connector-troubleshoot-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: REST
           href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
+          href: ../data-factory/connector-troubleshoot-sap.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics          
         - name: SharePoint Online list
           href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Snowflake
@@ -1453,6 +1469,8 @@ items:
       href: ./spark/apache-spark-machine-learning-training.md
     - name: Deep learning 
       href: ./machine-learning/concept-deep-learning.md
+    - name:  SynapseML library
+      href: ./machine-learning/synapse-machine-learning-library.md
   - name: Tutorials
     items:
     - name: Data access and preparation
@@ -1548,6 +1566,8 @@ items:
         href: ./guidance/proof-of-concept-playbook-dedicated-sql-pool.md
       - name: Data lake exploration with serverless SQL pool
         href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
+      - name: Big data analytics with Data Explorer pool
+        href: ./guidance/proof-of-concept-playbook-data-explorer-pool.md
       - name: Big data analytics with Apache Spark pool
         href: ./guidance/proof-of-concept-playbook-spark-pool.md
     - name: Synapse implementation success methodology
@@ -1701,10 +1721,6 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-synapse/
   - name: Support
     href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?context=/azure/synapse-analytics/context/context
-  - name: Customer self-help
-    items:
-    - name: serverless SQL pool
-      href: sql/resources-self-help-sql-on-demand.md
   - name: Partners
     items:
     - name: Business intelligence
