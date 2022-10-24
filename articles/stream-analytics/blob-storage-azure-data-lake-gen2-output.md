@@ -70,7 +70,7 @@ To receive exactly once delivery for your Blob storage or ADLS Gen2 account, you
 
 ### Regions Availability
 
-The feature is currently supported in West Central US, Japan East, Canada Central, Korea Central, North Europe and South India.
+The feature is currently supported in West Central US, Japan East, Canada Central, Korea Central, North Europe, and South India.
 
 ## Blob output files
 
