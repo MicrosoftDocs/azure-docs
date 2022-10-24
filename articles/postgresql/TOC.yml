@@ -486,6 +486,8 @@
       href: flexible-server/concepts-security.md
     - name: Azure AD Authentication
       href: flexible-server/concepts-azure-ad-authentication.md
+    - name: Compliance
+      href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
@@ -529,7 +531,13 @@
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
-      href: flexible-server/concepts-logical.md
+      items:
+        - name: Read replicas
+          href: flexible-server/concepts-read-replicas.md
+          displayName: replication, read replica
+        - name: Logical replication and logical decoding
+          href: flexible-server/concepts-logical.md
+          displayName: logical decoding, logical replication
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
@@ -646,6 +654,11 @@
         href: flexible-server/how-to-manage-high-availability-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-configure-high-availability-cli.md
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-read-replicas-portal.md
+        displayName: replica
     - name: Monitor
       items:
       - name: Create alerts on metrics using portal

@@ -26,6 +26,11 @@
             "redirect_document_id":  false
         },
         {
+            "source_path_from_root": "/articles/storage/elastic-san/elastic-san-connect.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-connect-windows",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
@@ -29232,6 +29237,11 @@
         {
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/pytorch-enterprise/index.yml",
+            "redirect_url": "/azure/databricks/machine-learning/train-model/pytorch",
             "redirect_document_id": false
         },
         {
