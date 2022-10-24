@@ -7,17 +7,12 @@
     href: overview.md
   - name: What's new?
     items:
-<<<<<<< HEAD
       - name: Whats new in Defender for IoT
         href: whats-new.md
       - name: OT monitoring software release notes
         href: release-notes.md
-=======
-    - name: Whats new in Defender for IoT
-      href: release-notes.md
-    - name: Microsoft Sentinel solution release notes
-      href: release-notes-sentinel.md
->>>>>>> 87e70a0f967e36fca486bd5433de465e5ecf56eb
+      - name: Microsoft Sentinel solution release notes
+        href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
   items:
