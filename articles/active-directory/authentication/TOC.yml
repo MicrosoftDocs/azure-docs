@@ -28,7 +28,7 @@
       href: concept-authentication-methods.md
     - name: Manage 
       href: concept-authentication-methods-manage.md
-    - name: Microsoft Authenticator
+    - name: Microsoft Authenticator app
       href: concept-authentication-authenticator-app.md
     - name: OATH tokens
       href: concept-authentication-oath-tokens.md
@@ -84,10 +84,8 @@
     href: concept-resilient-controls.md
 - name: How-to guides
   items:
-  - name: Manage
-    items:
-    - name: Manage authentication methods
-      href: how-to-authentication-methods-manage.md
+  - name: Manage authentication methods
+    href: how-to-authentication-methods-manage.md      
   - name: Passwordless
     items: 
       - name: Deploying passwordless

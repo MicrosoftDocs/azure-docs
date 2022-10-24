@@ -90,7 +90,7 @@ Use the following command to check if your virtual network has any locks.
 az lock list --resource-group $VNET_RG --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
 ```
 
-Delete any locks using the following command.
+Delete any exisiting locks using the following command.
 
 ```azurecli
 az lock delete --resource-group jordan-rg --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
@@ -220,6 +220,8 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 ## 5. Confirm there are no locks on the virtual network
 
 Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+
+For details on how to check if your subscription or resource group has locks, see [Configure locks](../../azure-resource-manager/management/lock-resources.md#configure-locks).
 
 :::image type="content" source="./media/migration/vnet-locks.png" alt-text="Screenshot that shows where to find and remove virtual network locks.":::
 
