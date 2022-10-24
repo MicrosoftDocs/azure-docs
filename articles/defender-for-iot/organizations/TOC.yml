@@ -16,6 +16,8 @@
   items:
   - name: Get started with Defender for IoT
     href: getting-started.md
+  - name: Enable Enterprise IoT security in Defender for Endpoint
+    href: eiot-mde.md
 - name: Tutorials
   expanded: false
   items:
@@ -23,8 +25,7 @@
     href: tutorial-onboarding.md
   - name: Set up Enterprise IoT network security
     items:
-    - name: Monitor Enterprise IoT from Defender for Endpoint
-      href: eiot-mde.md
+
     - name: Enhance Enterprise IoT security with a network sensor
       href: eiot-sensor.md
   - name: Integrate with Microsoft Sentinel

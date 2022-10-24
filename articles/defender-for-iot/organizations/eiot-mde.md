@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/19/2022
 ---
 
-# Secure Enterprise IoT devices from Microsoft 365 with Microsoft Defender for Endpoint and Microsoft Defender for IoT
+# Enable Enterprise IoT security in Defender for Endpoint
 
 <!--these include files don't work [!INCLUDE [Microsoft 365 Defender rebranding](/microsoft-365/security/includes/microsoft-defender.md)]-->
 
@@ -18,17 +18,17 @@ ms.date: 10/19/2022
 
 > Want to experience Microsoft Defender for Endpoint? [Sign up for a free trial.](https://signup.microsoft.com/create-account/signup?products=7f379fee-c4f9-4278-b0a1-e4c8c2fcdf7e&ru=https://aka.ms/MDEp2OpenTrial?ocid=docs-wdatp-enablesiem-abovefoldlink)
 
-This article describes how to onboard to Microsoft Defender for IoT from Microsoft Defender for Endpoint, providing extra security value in Defender for Endpoint and extending device discovery in Defender for IoT.
+This article describes how Microsoft Defender for Endpoint customers can add an Enterprise IoT plan in Microsoft 365 Defender, providing extra security value for IoT devices. 
 
-Together, Defender for Endpoint and Defender for IoT provide security monitoring for enterprise IoT devices in your network, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras.
-
-For more information, see [Secure Enterprise IoT network resources with Defender for Endpoint and Defender for IoT](concept-eiot.md).
+Adding an Enterprise IoT plan to Microsoft 365 Defender integrates Defender for Endpoint with Microsoft Defender for IoT, and provides extra security value like alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your network, like printers, cameras, and smart TVs.
 
 ## Prerequisites
 
-To modify settings for your Defender for Endpoint integration, the user must have the following roles:
+Before starting this quickstart, read through [Secure IoT devices in the enterprise](concept-eiot.md) to understand more about the integration between Defender for Endpoint and Defender for IoT.
 
-- **In Azure Active Directory**, [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Tenant
+To add an Enterprise IoT plan in Microsoft 365 Defender, you must have the following roles:
+
+- **In Azure Active Directory**, [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant
 
 - **In Azure RBAC**, [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration
 
@@ -51,6 +51,26 @@ For example:
 <!--remove this procedure, jump straight to security value-->
 <!--1. conceptual. be careful with the sensor - also include the agnostic story. 2. onboarding / offboarding in mde, finding security value, 3. how to register and network sensor and shared inventory.-->
 
+## View added security value in Microsoft 365 Defender
+
+This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft 365 Defender.
+
+1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Assets** \> **Devices** to open the **Device inventory** page.
+
+1. Select the **IoT devices** tab and select a specific device **IP** to drill down for more details. For example:
+
+    :::image type="content" source="media/enterprise-iot/select-a-device.png" alt-text="Screenshot of the IoT devices tab in Microsoft 365 Defender.":::
+
+1. On the device details page, explore the following tabs to view data added by the Enterprise IoT plan for your device:
+
+    - On the **Alerts** tab, check for any alerts triggered by the device.
+
+    - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
+
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
+
+
+<!-->
 ## View detected IoT devices
 
 View and manage your IoT devices in the [Microsoft 365 Defender portal](https://security.microsoft.com/).
@@ -74,33 +94,7 @@ For more information, see [Device inventory](/microsoft-365/security/defender-en
 >
 > For more information, see [Configure device discovery](/microsoft-365/security/defender-endpoint/configure-device-discovery).
 >
-
-## View related alerts, recommendations, and vulnerabilities
-
-This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device, starting in the Microsoft 365 Defender **Device inventory** page.
-
-1. On the **Device inventory** page, select a device **IP** to drill down for more details about the selected device. For example:
-
-    - Use the **Device summary** and **Overview** tabs to understand basic device details, like classification and device software
-
-    - Use the **Alerts** tab to view all alerts triggered by the device.
-
-    - Use the **Timeline** tab to show communication between the IoT device and managed endpoints, for more context when investigating alerts.
-
-    - Use the **Security recommendations** tab to view recommendations for the device for proactively reducing risk and maintaining a smaller attack surface.
-
-    - Use the **Discovered vulnerabilities** tab to see any known CVEs associated with the device, helping you decide whether to patch, remove, or contain the device.
-
-1. View view newly detected data and security assessments from other locations in Microsoft 365 Defender. For example, from the left-hand navigation pane:
-
-    1. Select **Endpoints > Recommendations** to view all current recommendations for your organization. Filter the grid by selecting to view only devices that are **Not onboarded**, to focus in on recommendations for all devices that aren't endpoints.
-
-        For more information, see [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
-
-
-    1. Select **Incidents & alerts > alerts** to view aggregated alerts across your network, including IoT-focused alerts for your IoT devices. For more information, see [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
-
-    1. Select **Endpoints > Weaknesses** to view aggregated vulnerabilities across your network. For more information, see [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses).
+-->
 
 ## Cancel your Defender for IoT plan
 
@@ -120,13 +114,13 @@ After you cancel your plan, the integration stops and you'll no longer get added
 > If you've registered an Enterprise IoT network sensor (Public preview), data collected by the sensor, such as extra devices, remains in your Microsoft 365 Defender instance. Make sure to manually delete data from Microsoft 365 Defender as needed. <!-- what data? is this only if we've included a sensor? what if you're switching subscriptions or changing payment? should you delete data? how can you do this? maybe let's move this to the sensor page?-->
 
 <!--If you have an EIoT sensor, device data is also collected by MDE. If you remove a plan, remember to remove it from MDE too. And then remove the sensor. Need to find s
-If you are a Microsoft Defender for IoT customer and also have a subscription to Microsoft Defender for Endpoint, the data collected by Microsoft Defender for IoT will automatically populate in your Microsoft Defender for Endpoint instance as well. Customers who want to delete their data from Defender for IoT must also delete their data from Defender for Endpoint.
+If you are a Microsoft Defender for IoT customer and also have a subscription to Microsoft Defender for Endpoint, the data collected by Microsoft Defender for IoT will automatically populate in your Microsoft Defender for Endpoint instance as well. Customers who want to delete their data from Defender for IoT must also delete their data from Defender for Endpoint.-->
 
 ## Next steps
 
 After onboarding a Enterprise IoT plan, you can also view detected IoT devices, together with OT network devices, in Defender for IoT in the Azure portal. For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
-To gain more visibility into additional IoT segments of your corporate network, not otherwise covered by Defender for Endpoint, set up an Enterprise IoT network sensor (Public preview).
+To gain more visibility into additional IoT segments of your corporate network, not otherwise covered by Defender for Endpoint, set up an Enterprise IoT network sensor (Public preview). 
 
 Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Microsoft 365 Defender or Defender for IoT in the Azure portal.
 
