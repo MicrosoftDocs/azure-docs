@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 # Use pronunciation assessment
 
-In this article, you'll learn how to evaluate pronunciation with the Speech-to-Text capability through the Speech SDK. It is charged as standard Speech to Text [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). To [get pronunciation assessment results](#get-pronunciation-assessment-results), you'll apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
+In this article, you'll learn how to evaluate pronunciation with the Speech-to-Text capability through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you'll apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 ::: zone pivot="programming-language-go"
 > [!NOTE]
@@ -30,9 +30,12 @@ You can get pronunciation assessment scores for:
 - Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
 > [!NOTE]
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=stt-tts) and [available regions](regions.md#speech-service).
->
 > The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
+> 
+> Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+>
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=stt-tts) and [available regions](regions.md#speech-service).
+
 
 ## Configuration parameters
 
