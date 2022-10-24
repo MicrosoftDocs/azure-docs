@@ -55,9 +55,9 @@ Add an Enterprise IoT sensor from Defender for IoT in the Azure portal. For more
 
 ### Shared device visibility in the Azure portal
 
-In addition to viewing newly discovered devices in the Microsoft 365 Defender **Device inventory** page, deploying an Enterprise IoT network sensor also displays discovered devices in the Defender for IoT **Device inventory** page, in the Azure portal. This view is especially helpful when you are also managing Operational Technology (OT) devices, monitored by OT network sensors with Defender for IoT. <!--do we view EIoT devices discovered by MDE here too?-->
+In addition to viewing newly discovered devices in the Microsoft 365 Defender **Device inventory** page, deploying an Enterprise IoT network sensor also displays discovered devices in the Defender for IoT **Device inventory** page in the Azure portal. This view is especially helpful when you are also managing Operational Technology (OT) devices, monitored by OT network sensors with Defender for IoT.
 
-An Enterprise IoT network sensor provides a single, continuous, and integrated security solution across all your OT and Enterprise IoT devices.
+If you deploy an Enterprise IoT network sensor without adding an Enterprise IoT plan in Microsoft 365 Defender, you'll see devices detected by the sensor only, and only in the Azure portal. Adding the Enterprise IoT network sensor together with an Enterprise IoT plan in Microsoft 365 Defender provides full visibility for all detected devices. You'll be able to view devices detected by the Enterprise IoT network sensor and Defender for Endpoint agents, in both Microsoft 365 Defender and Defender for IoT **Device inventory** pages.
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
