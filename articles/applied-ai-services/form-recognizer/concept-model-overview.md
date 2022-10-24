@@ -33,8 +33,8 @@ Azure Form Recognizer includes several machine-learning based document processin
 | [Identity (ID) document](#identity-id-document)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
-| [Custom](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
-| [Composed](#composed-custom-model) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
+| [Custom models](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+| [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 ### Read OCR
 
@@ -157,7 +157,7 @@ Version v3.0 custom model supports signature detection in custom forms (template
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
 
-#### Composed custom model
+#### Composed models
 
 A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. You can assign up to 100 trained custom models to a single composed model.
 
