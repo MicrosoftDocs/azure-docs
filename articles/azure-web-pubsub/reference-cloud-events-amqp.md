@@ -10,15 +10,17 @@ ms.date: 09/30/2022
 
 # CloudEvents extension for Azure Web PubSub event listener with AMQP protocol
 
-Web PubSub Service describes client events as [CloudEvents](https://github.com/cloudevents/spec/tree/v1.0.2). CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms and systems. As for event listener with [Advanced Message Queueing Protocol](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)(abbreviated as AMQP), such as Event Hubs, Web PubSub service uses [CloudEvents AMQP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/amqp-protocol-binding.md) to map CloudEvents to AMQP messages.
+The Azure Web PubSub Service describes client events as [CloudEvents](https://github.com/cloudevents/spec/tree/v1.0.2). CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms and systems. 
 
-The data sending from service to server is always in CloudEvents `binary` format.
+The Web PubSub service uses  [CloudEvents AMQP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/amqp-protocol-binding.md) as an event listener to map CloudEvents to AMQP messages ([Advanced Message Queueing Protocol](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)).  
+
+The data sent from service to server is always in CloudEvents `binary` format.
 
 ## Web PubSub CloudEvents attribute extension
 
 <a name="extension"></a>
 
-This extension defines attributes used by Web PubSub for every event it produces.
+This extension defines the attributes used by Web PubSub for each event it produces.
 
 The following table contains attributes mapping to the  [standard properties](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#type-properties) section of an AMQP message.
 
@@ -49,7 +51,7 @@ The "\*" following the attribute name indicates the attribute is present only wh
 ## Events
 <a name="events"></a>
 
-This chapter shows the AMQP message body and the attribute values that depend on the client event type. Attributes whose values don't depend on client event type are omitted here.
+This section shows the AMQP message body with the attribute values that depend on a specific client event type. Attribute values that don't depend on a client event type are omitted.
 
 - System `connect` event: Not supported by event listeners.
 - [System `connected` event](#connected)
@@ -79,7 +81,7 @@ The message body is always empty JSON.
 - `cloudEvents:type`: `azure.webpubsub.sys.disconnected`
 - `cloudEvents:eventname`: `disconnected`
 
-The message body contains the reason why the client disconnects.
+The message body contains the reason the client disconnected.
 
 ```json
 {"reason":"{Reason}"}
