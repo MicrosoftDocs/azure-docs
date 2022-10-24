@@ -1,5 +1,5 @@
 ---
-title:  Export DICOM files 
+title:  Export DICOM files using the export API of the DICOM service
 description: This how-to guide explains how to export DICOM files to an Azure Blob Storage account
 author: mmitrik
 ms.service: healthcare-apis
@@ -25,15 +25,15 @@ The first step to export data from the DICOM service is to enable a system manag
 
 1. In the Azure portal, browse to the DICOM service that you want to export from and select **Identity**.
 
-[![Select Identity](media/dicom-export-identity.png)](media/dicom-export-identity.png#lightbox)
+:::image type="content" source="media/dicom-export-identity.png" alt-text="Screenshot showing selection of Identity view.](media/dicom-export-identity.png":::
 
 2. Set the **Status** option to **On**, and then select **Save**. 
 
-[![Enable System Identity](media/dicom-export-enable-system-identity.png)](media/dicom-export-enable-system-identity.png#lightbox)
+[![Screenshot of system assigned identity toggle.](media/dicom-export-enable-system-identity.png)](media/dicom-export-enable-system-identity.png#lightbox)
 
 3. Select **Yes** in the confirmation dialog that appears.  
 
-[![Confirm Enable System Identity](media/dicom-export-confirm-enable.png)](media/dicom-export-confirm-enable.png#lightbox)
+[![Screenshot of dialog confirming enabling system identity.](media/dicom-export-confirm-enable.png)](media/dicom-export-confirm-enable.png#lightbox)
 
 It will take a few minutes to create the system managed identity.  When the system identity has been enabled, an **Object (principal) ID** will be displayed.
 
@@ -43,14 +43,14 @@ The system managed identity will need **Storage Blob Data Contributor** permissi
 
 1. Under **Permissions** select **Azure role assignments**.
 
-[![Azure Role Assignments](media/dicom-export-azure-role-assignments.png)](media/dicom-export-azure-role-assignments.png#lightbox)
+[![Screenshot of Azure role assignments button on Identity view.](media/dicom-export-azure-role-assignments.png)](media/dicom-export-azure-role-assignments.png#lightbox)
 
 2. Select **Add role assignment**.  On the **Add role assignment** panel, make the following selections: 
     * Under **Scope**, select **Storage**.
     * Under  **Resource**, select the destination storage account for the export operation.
     * Under **Role**, select **Storage Blob Data Contributor**. 
 
- [![Add Role Assignment](media/dicom-export-add-role-assignment.png)](media/dicom-export-add-role-assignment.png#lightbox)
+ [![Screenshot of Add Role Assignment panel.](media/dicom-export-add-role-assignment.png)](media/dicom-export-add-role-assignment.png#lightbox)
 
 3. Select **Save** to add the permission to the system managed identity.
 
@@ -89,7 +89,7 @@ The request body consists of the export source and destination.
 }
 ```
 
-### Source Settings
+### Source settings
 
 The only setting is the list of identifiers to export.
 
@@ -153,7 +153,7 @@ Content-Type: application/json
 }
 ```
 
-### Operation Status
+### Operation status
 The above `href` URL can be polled for the current status of the export operation until completion. Once the job has reached a terminal state, the API will return a 200 status code instead of 202, and the value of its status property will be updated accordingly.
 
 ```http
