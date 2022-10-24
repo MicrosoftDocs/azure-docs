@@ -171,7 +171,8 @@ You use the template to create a stack from the s3 bucket to create the accounts
 ### AWS CloudFormation deployment 
 
 The CloudFormation template should be deployed using Stack (and StackSet in case of management account).
-When deploying it the Stack creation wizard suggests two options from which you can choose:
+
+When deploying the CloudFormation template, the Stack creation wizard offers the following options:
 
 :::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="screen shot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
 
