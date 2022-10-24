@@ -80,11 +80,11 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 Select the tab for either Consumption or Standard logic app workflows:
 
-### [Consumption](#tab/consumption)
+## [Consumption](#tab/consumption)
 
 Select the tab for either the **AS2 (v2)** or **AS2** connector:
 
-#### [AS2 (v2) connector](#tab/as2-v2/consumption)
+### [AS2 (v2) connector](#tab/as2-v2/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -210,9 +210,9 @@ Select the tab for either the **AS2 (v2)** or **AS2** connector:
 
 Select the tab for either Consumption or Standard logic app workflows:
 
-# [Consumption](#tab/consumption)
+## [Consumption](#tab/consumption)
 
-## [AS2 (v2) connector](#tab/as2-v2/consumption)
+### [AS2 (v2) connector](#tab/as2-v2/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -235,7 +235,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
    ![Screenshot showing the "AS2 Decode" action with the "Body" and "Headers" outputs entered from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-consumption.png)
 
-## [AS2 connector](#tab/as2/consumption)
+### [AS2 connector](#tab/as2/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -269,9 +269,9 @@ Select the tab for either Consumption or Standard logic app workflows:
 
    ![Screenshot showing the "Decode AS2 message" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/decode-as2-details-consumption.png)
 
-# [Standard](#tab/standard)
+## [Standard](#tab/standard)
 
-## [AS2 (v2) connector](#tab/as2-v2/standard)
+### [AS2 (v2) connector](#tab/as2-v2/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -294,7 +294,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
    ![Screenshot showing the Standard workflow designer and "AS2 Decode" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-built-in-standard.png)
 
-## [AS2 connector](#tab/as2/standard)
+### [AS2 connector](#tab/as2/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
