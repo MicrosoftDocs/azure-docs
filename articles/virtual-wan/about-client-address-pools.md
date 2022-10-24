@@ -27,7 +27,7 @@ For instance, if a scale unit of 100 is chosen, 5 gateway instances are deployed
 # Address pools and multi-pool/user groups
 
 > [!NOTE] 
-> You can use the multi-pool/user groups on a Gateway with **any**  scale unit, as long as sufficient address pools are allocated as described below.
+> There is no minimum scale unit required for the multi-pool/user group feature as long as sufficient address pools are allocated as described below.
 
 When a gateway is configured with the [multi-pool/user group feature](user-groups-about.md), multiple connection configurations are installed on the same Point-to-site VPN Gateway. Users from any group can connect to any gateway instance, meaning each connection configuration needs to have at least one address pool for every backend gateway instance.
 
@@ -45,7 +45,7 @@ The following table summarizes the available scale unit choices for Point-to-sit
 
 | Scale unit | Gateway Instances| Maximum supported clients | Minimum number of address pools per connection configuration|
 |--- |--- |--- | --- |
-1-20| 1| 500-10000 | 1| 
+1-20| 1| 500-10000 | 1|
 | 40 | 2| 20000 | 2 |
 | 60 |  3|30000 | 3 |
 | 80 | 4| 40000 | 4 |
