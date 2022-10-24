@@ -103,7 +103,8 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Provide a name for your Azure Synapse Link connection, and select the number of cores for the [link connection compute](sql-database-synapse-link.md#link-connection). These cores will be used for the movement of data from the source to the target.
 
    > [!NOTE]
-   > We recommend starting low and increasing as needed.
+   > * The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the source Azure SQL Database configuration or the target dedicated SQL pool confiruation.
+   > * We recommend starting low and increasing as needed.
 
 1. Select **OK**.
 
