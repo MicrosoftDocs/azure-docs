@@ -1,5 +1,5 @@
 ---
-title: Write your first custom policy - Hello World! 
+title: Write your first Azure AD B2C custom policy - Hello World! 
 titleSuffix: Azure AD B2C
 description: Learn how to write your first custom policy. A custom that shows of returns Hello World message. 
 services: active-directory-b2c
@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 12/30/2022
+ms.date: 30/12/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Write your first custom policy - Hello World! 
+# Write your first Azure AD B2C custom policy - Hello World! 
 
 In your applications, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use custom policies. 
 
@@ -256,7 +256,7 @@ After you upload the file, Azure AD B2C adds the prefix `B2C_1A_`, so the names 
 1. For **Select application** on the overview page of the custom policy, select the web application such as *webapp1* that you previously registered. Make sure that the **Select reply URL** value is set to`https://jwt.ms`.
 1. Select **Run now** button.
 
-After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JSON snippet: 
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JWT token snippet: 
 
 ```json
     {

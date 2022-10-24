@@ -40,7 +40,7 @@ In this article, you'll learn how to write a custom policy that collects user in
 - [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
-- Complete the steps in [Write your first custom policy - Hello World!](custom-policies-series-hello-world.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
+- Complete the steps in [Write your first Azure AD B2C custom policy - Hello World!](custom-policies-series-hello-world.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
 
 ## Step 1 - Declare Claims
@@ -217,7 +217,7 @@ You generate the *displayName* claim from *givenName* and *surname*, so you've t
     ```xml
         <ClaimsProvider>
         
-            <DisplayName>Technical Profiles to collect user's first and last name </DisplayName>
+            <DisplayName>Technical Profiles to collect user's details </DisplayName>
         </ClaimsProvider>
     ```
 
@@ -434,7 +434,7 @@ After you complete [step 6](#step-6---update-relying-party), the `ContosoCustomP
         </ClaimsProvider>
 
         <ClaimsProvider>
-            <DisplayName>Technical Profiles to collect user's first and last name</DisplayName>
+            <DisplayName>Technical Profiles to collect user's details</DisplayName>
             <TechnicalProfiles>
                 <TechnicalProfile Id="UserInformationCollector">
                     <DisplayName>Collect User Input Technical Profile</DisplayName>
@@ -508,7 +508,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
     :::image type="content" source="media/custom-policies-series-collect-user-input/screenshot-of-accepting-user-inputs-in-custom-policy.png" alt-text="screenshot of accepting user inputs in custom policy.":::
 
-After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JSON snippet: 
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JWT token snippet: 
 
 ```json
     {

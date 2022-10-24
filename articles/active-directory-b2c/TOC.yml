@@ -494,6 +494,10 @@
       href: custom-policies-series-hello-world.md
     - name: Collect user input using custom policy
       href: custom-policies-series-collect-user-input.md
+    - name: Validate user input custom policy
+      href: custom-policies-series-validate-user-input.md 
+    - name: Create branching in user journeys
+      href: custom-policies-series-branch-in-user-journey-using-pre-conditions.md
     - name: Install XML extensions
       href: custom-policies-series-install-xml-extensions.md
   - name: Identity verification and proofing
