@@ -77,25 +77,25 @@ After geo-replication is configured, the following restrictions apply to your li
 
 1. To link two caches together for geo-replication, fist select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from **Geo-replication** on the left.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-menu.png" alt-text="Add link":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-menu.png" alt-text="Screenshot showing the cache's Geo-replication menu.":::
 
 1. Select the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#prerequisites) for the secondary cache are met. To filter the caches by region, select the region in the map to display only those caches in the **Compatible caches** list.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link.png" alt-text="Geo-replication compatible caches":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link.png" alt-text="Screenshot showing compatible caches for linking with geo-replication.":::
 
     You can also start the linking process or view details about the secondary cache by using the context menu.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png" alt-text="Geo-replication context menu":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png" alt-text="Screenshot showing the Geo-replication context menu.":::
 
 1. Select **Link** to link the two caches together and begin the replication process.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png" alt-text="Link caches":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png" alt-text="Screenshot showing how to link caches for geo-replication.":::
 
 ### Verify
 
 1. You can view the progress of the replication process using **Geo-replication** on the left.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-linking.png" alt-text="Linking status":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-linking.png" alt-text="Screenshot showing the current Linking status.":::
 
     You can also view the linking status on the left, using **Overview**, for both the primary and secondary caches.
 
@@ -103,7 +103,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
     Once the replication process is complete, the **Link status** changes to **Succeeded**.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-successful.png" alt-text="Cache status":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-successful.png" alt-text="Screenshot showing cache linking status as Succeeded.":::
 
     The primary linked cache remains available for use during the linking process. The secondary linked cache isn't available until the linking process completes.
 
@@ -113,7 +113,7 @@ Once your new cache in the targeted region is populated with all necessary data,
 
 1. To remove the link between two caches and stop geo-replication, select **Unlink caches** from the **Geo-replication** on the left.
 
-    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Unlink caches":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Screenshot showing how to unlink caches.":::
 
     When the unlinking process completes, the secondary cache is available for both reads and writes.
 
