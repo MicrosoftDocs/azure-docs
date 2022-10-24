@@ -66,9 +66,9 @@ introduction.
 
     :::image type="content" source="./media/how-to-metamodel/select-new-asset.png" alt-text="Screenshot of the business assets page with the new asset button highlighted." border="true":::
 
-    :::image type="content" source="./media/how-to-metamodel/create-new-asset.png" alt-text="Screenshot of the new asset page with a name and description added and create button higlighted." border="true":::
+    :::image type="content" source="./media/how-to-metamodel/create-new-asset.png" alt-text="Screenshot of the new asset page with a name and description added and create button highlighted." border="true":::
 
-1. To establish a relationship between two assets, go to the asset detail page and select **Edit > Related,** and the relationship you’d like to populate.
+1. To establish a relationship between two assets, go to the asset detail page and select **Edit > Related**, and the relationship you’d like to populate.
 
     :::image type="content" source="./media/how-to-metamodel/select-edit.png" alt-text="Screenshot of an asset page with the edit button highlighted." border="true":::
 
@@ -80,7 +80,7 @@ introduction.
 
 1. Save your changes. You can see the relationships you established in the asset overview.
 
-1. In the **Related** tab of the asset youu can also explore a visual representation of related assets.
+1. In the **Related** tab of the asset you can also explore a visual representation of related assets.
 
     :::image type="content" source="./media/how-to-metamodel/visualize-related-assets.png" alt-text="Screenshot of the related tab of a business asset." border="true":::
 
