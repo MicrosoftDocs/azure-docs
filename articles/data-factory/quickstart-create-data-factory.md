@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/09/2022
-ms.author: jburchel
+ms.author: xupzhou
 ---
 
 # Quickstart: Create a data factory by using the Azure portal
@@ -30,7 +30,7 @@ To learn about the Azure role requirements to create a data factory, refer to [A
 
 ## Create a data factory
 
-A simple creation experience provided in the Azure Data Factory Studio to enable users to create a data factory within seconds. More advanced creation options are available in Azure portal.
+A quick creation experience provided in the Azure Data Factory Studio to enable users to create a data factory within seconds. More advanced creation options are available in Azure portal.
 
 ### Simple creation in the Azure Data Factory Studio
 
@@ -74,9 +74,9 @@ A simple creation experience provided in the Azure Data Factory Studio to enable
 
 1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
-1. Select **Open** on the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
+1. Select **Launch Studio** to open Azure Data Factory Studio to start the Azure Data Factory user interface (UI) application on a separate browser tab.
    
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile highlighted.":::
+   :::image type="content" source="./media/quickstart-create-data-factory/azure-data-factory-launch-studio.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile highlighted.":::
    
    > [!NOTE]
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
