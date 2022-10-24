@@ -14,15 +14,15 @@ ms.date: 09/12/2022
 ms.author: pafarley
 ---
 
-# Computer Vision v4.0 Read OCR (preview)
+# Image Analysis v4.0 Read OCR (preview)
 
-The new Computer Vision v4.0 Image Analysis REST API preview offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
+The new Computer Vision Image Analysis v4.0 REST API preview offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 
 [!INCLUDE [read-editions](./includes/read-editions.md)]
 
-## Use the V4.0 REST API preview
+## Use the v4.0 REST API preview
 
-The text extraction feature is part of the [v4.0 Analyze Image REST API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
+The text extraction feature is part of the [Image Analysis v4.0 REST API preview](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
 
 For an example, copy the following command into a text editor and replace the `<key>` with your API key and optionally, your API endpoint URL. Then open a command prompt window and run the command.
 
@@ -33,213 +33,578 @@ For an example, copy the following command into a text editor and replace the `<
 
 ## Text extraction output
 
-The following JSON response illustrates what the v4.0 Analyze Image API returns when extracting text from the given image.
+The following JSON response illustrates what the Image Analysis v4.0 API returns when extracting text from the given image.
 
 ![Photo of a sticky note with writing on it.](./Images/handwritten-note.jpg)
 
 ```json
 {
-    "metadata":
-    {
+    "modelVersion": "2022-10-12-preview",
+    "metadata": {
         "width": 1000,
         "height": 945
     },
-    "readResult":
-    {
+    "tagsResult": {
+        "values": [
+            {
+                "name": "text",
+                "confidence": 0.9992657899856567
+            },
+            {
+                "name": "post-it note",
+                "confidence": 0.9879658818244934
+            },
+            {
+                "name": "handwriting",
+                "confidence": 0.9730166792869568
+            },
+            {
+                "name": "rectangle",
+                "confidence": 0.8658561706542969
+            },
+            {
+                "name": "paper product",
+                "confidence": 0.8561886548995972
+            },
+            {
+                "name": "purple",
+                "confidence": 0.596200168132782
+            }
+        ]
+    },
+    "readResult": {
         "stringIndexType": "TextElements",
         "content": "You must be the change you\nWish to see in the world !\nEverything has its beauty , but\nnot everyone sees it !",
-        "pages":
-        [
+        "pages": [
             {
-                "height": 945,
-                "width": 1000,
+                "height": 945.0,
+                "width": 1000.0,
                 "angle": -1.099,
                 "pageNumber": 1,
-                "words":
-                [
+                "words": [
                     {
                         "content": "You",
-                        "boundingBox": [253,268,301,267,304,318,256,318],
+                        "boundingBox": [
+                            253.0,
+                            268.0,
+                            301.0,
+                            267.0,
+                            304.0,
+                            318.0,
+                            256.0,
+                            318.0
+                        ],
                         "confidence": 0.998,
-                        "span": {"offset":0,"length":3}
+                        "span": {
+                            "offset": 0,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "must",
-                        "boundingBox": [310,266,376,265,378,316,313,317],
+                        "boundingBox": [
+                            310.0,
+                            266.0,
+                            376.0,
+                            265.0,
+                            378.0,
+                            316.0,
+                            313.0,
+                            317.0
+                        ],
                         "confidence": 0.988,
-                        "span": {"offset":4,"length":4}
+                        "span": {
+                            "offset": 4,
+                            "length": 4
+                        }
                     },
                     {
                         "content": "be",
-                        "boundingBox": [385,264,426,264,428,314,388,316],
+                        "boundingBox": [
+                            385.0,
+                            264.0,
+                            426.0,
+                            264.0,
+                            428.0,
+                            314.0,
+                            388.0,
+                            316.0
+                        ],
                         "confidence": 0.928,
-                        "span": {"offset":9,"length":2}
+                        "span": {
+                            "offset": 9,
+                            "length": 2
+                        }
                     },
                     {
                         "content": "the",
-                        "boundingBox": [435,263,494,263,496,311,437,314],
+                        "boundingBox": [
+                            435.0,
+                            263.0,
+                            494.0,
+                            263.0,
+                            496.0,
+                            311.0,
+                            437.0,
+                            314.0
+                        ],
                         "confidence": 0.997,
-                        "span": {"offset":12,"length":3}
+                        "span": {
+                            "offset": 12,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "change",
-                        "boundingBox": [503,263,600,262,602,306,506,311],
+                        "boundingBox": [
+                            503.0,
+                            263.0,
+                            600.0,
+                            262.0,
+                            602.0,
+                            306.0,
+                            506.0,
+                            311.0
+                        ],
                         "confidence": 0.995,
-                        "span": {"offset":16,"length":6}
+                        "span": {
+                            "offset": 16,
+                            "length": 6
+                        }
                     },
                     {
                         "content": "you",
-                        "boundingBox": [609,262,665,263,666,302,611,305],
+                        "boundingBox": [
+                            609.0,
+                            262.0,
+                            665.0,
+                            263.0,
+                            666.0,
+                            302.0,
+                            611.0,
+                            305.0
+                        ],
                         "confidence": 0.998,
-                        "span": {"offset":23,"length":3}
+                        "span": {
+                            "offset": 23,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "Wish",
-                        "boundingBox": [327,348,391,343,392,380,328,382],
+                        "boundingBox": [
+                            327.0,
+                            348.0,
+                            391.0,
+                            343.0,
+                            392.0,
+                            380.0,
+                            328.0,
+                            382.0
+                        ],
                         "confidence": 0.98,
-                        "span": {"offset":27,"length":4}
+                        "span": {
+                            "offset": 27,
+                            "length": 4
+                        }
                     },
                     {
                         "content": "to",
-                        "boundingBox": [406,342,438,340,439,378,407,379],
+                        "boundingBox": [
+                            406.0,
+                            342.0,
+                            438.0,
+                            340.0,
+                            439.0,
+                            378.0,
+                            407.0,
+                            379.0
+                        ],
                         "confidence": 0.997,
-                        "span": {"offset":32,"length":2}
+                        "span": {
+                            "offset": 32,
+                            "length": 2
+                        }
                     },
                     {
                         "content": "see",
-                        "boundingBox": [446,340,492,337,494,376,447,378],
+                        "boundingBox": [
+                            446.0,
+                            340.0,
+                            492.0,
+                            337.0,
+                            494.0,
+                            376.0,
+                            447.0,
+                            378.0
+                        ],
                         "confidence": 0.998,
-                        "span": {"offset":35,"length":3}
+                        "span": {
+                            "offset": 35,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "in",
-                        "boundingBox": [500,337,527,336,529,375,501,376],
+                        "boundingBox": [
+                            500.0,
+                            337.0,
+                            527.0,
+                            336.0,
+                            529.0,
+                            375.0,
+                            501.0,
+                            376.0
+                        ],
                         "confidence": 0.983,
-                        "span": {"offset":39,"length":2}
+                        "span": {
+                            "offset": 39,
+                            "length": 2
+                        }
                     },
                     {
                         "content": "the",
-                        "boundingBox": [534,336,588,334,590,373,536,375],
+                        "boundingBox": [
+                            534.0,
+                            336.0,
+                            588.0,
+                            334.0,
+                            590.0,
+                            373.0,
+                            536.0,
+                            375.0
+                        ],
                         "confidence": 0.993,
-                        "span": {"offset":42,"length":3}
+                        "span": {
+                            "offset": 42,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "world",
-                        "boundingBox": [599,334,655,333,658,371,601,373],
+                        "boundingBox": [
+                            599.0,
+                            334.0,
+                            655.0,
+                            333.0,
+                            658.0,
+                            371.0,
+                            601.0,
+                            373.0
+                        ],
                         "confidence": 0.998,
-                        "span": {"offset":46,"length":5}
+                        "span": {
+                            "offset": 46,
+                            "length": 5
+                        }
                     },
                     {
                         "content": "!",
-                        "boundingBox": [663,333,687,333,690,370,666,371],
+                        "boundingBox": [
+                            663.0,
+                            333.0,
+                            687.0,
+                            333.0,
+                            690.0,
+                            370.0,
+                            666.0,
+                            371.0
+                        ],
                         "confidence": 0.915,
-                        "span": {"offset":52,"length":1}
+                        "span": {
+                            "offset": 52,
+                            "length": 1
+                        }
                     },
                     {
                         "content": "Everything",
-                        "boundingBox": [255,446,371,441,372,490,256,494],
+                        "boundingBox": [
+                            255.0,
+                            446.0,
+                            371.0,
+                            441.0,
+                            372.0,
+                            490.0,
+                            256.0,
+                            494.0
+                        ],
                         "confidence": 0.97,
-                        "span": {"offset":54,"length":10}
+                        "span": {
+                            "offset": 54,
+                            "length": 10
+                        }
                     },
                     {
                         "content": "has",
-                        "boundingBox": [380,441,421,440,421,488,381,489],
+                        "boundingBox": [
+                            380.0,
+                            441.0,
+                            421.0,
+                            440.0,
+                            421.0,
+                            488.0,
+                            381.0,
+                            489.0
+                        ],
                         "confidence": 0.793,
-                        "span": {"offset":65,"length":3}
+                        "span": {
+                            "offset": 65,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "its",
-                        "boundingBox": [430,440,471,439,471,487,431,488],
+                        "boundingBox": [
+                            430.0,
+                            440.0,
+                            471.0,
+                            439.0,
+                            471.0,
+                            487.0,
+                            431.0,
+                            488.0
+                        ],
                         "confidence": 0.998,
-                        "span": {"offset":69,"length":3}
+                        "span": {
+                            "offset": 69,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "beauty",
-                        "boundingBox": [480,439,552,439,552,485,481,487],
+                        "boundingBox": [
+                            480.0,
+                            439.0,
+                            552.0,
+                            439.0,
+                            552.0,
+                            485.0,
+                            481.0,
+                            487.0
+                        ],
                         "confidence": 0.296,
-                        "span": {"offset":73,"length":6}
+                        "span": {
+                            "offset": 73,
+                            "length": 6
+                        }
                     },
                     {
                         "content": ",",
-                        "boundingBox": [561,439,571,439,571,485,562,485],
+                        "boundingBox": [
+                            561.0,
+                            439.0,
+                            571.0,
+                            439.0,
+                            571.0,
+                            485.0,
+                            562.0,
+                            485.0
+                        ],
                         "confidence": 0.742,
-                        "span": {"offset":80,"length":1}
+                        "span": {
+                            "offset": 80,
+                            "length": 1
+                        }
                     },
                     {
                         "content": "but",
-                        "boundingBox": [580,439,636,439,636,485,580,485],
+                        "boundingBox": [
+                            580.0,
+                            439.0,
+                            636.0,
+                            439.0,
+                            636.0,
+                            485.0,
+                            580.0,
+                            485.0
+                        ],
                         "confidence": 0.885,
-                        "span": {"offset":82,"length":3}
+                        "span": {
+                            "offset": 82,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "not",
-                        "boundingBox": [364,516,412,512,413,546,366,549],
+                        "boundingBox": [
+                            364.0,
+                            516.0,
+                            412.0,
+                            512.0,
+                            413.0,
+                            546.0,
+                            366.0,
+                            549.0
+                        ],
                         "confidence": 0.994,
-                        "span": {"offset":86,"length":3}
+                        "span": {
+                            "offset": 86,
+                            "length": 3
+                        }
                     },
                     {
                         "content": "everyone",
-                        "boundingBox": [422,511,520,504,521,540,423,545],
+                        "boundingBox": [
+                            422.0,
+                            511.0,
+                            520.0,
+                            504.0,
+                            521.0,
+                            540.0,
+                            423.0,
+                            545.0
+                        ],
                         "confidence": 0.993,
-                        "span": {"offset":90,"length":8}
+                        "span": {
+                            "offset": 90,
+                            "length": 8
+                        }
                     },
                     {
                         "content": "sees",
-                        "boundingBox": [530,503,586,500,588,538,531,540],
+                        "boundingBox": [
+                            530.0,
+                            503.0,
+                            586.0,
+                            500.0,
+                            588.0,
+                            538.0,
+                            531.0,
+                            540.0
+                        ],
                         "confidence": 0.988,
-                        "span": {"offset":99,"length":4}
+                        "span": {
+                            "offset": 99,
+                            "length": 4
+                        }
                     },
                     {
                         "content": "it",
-                        "boundingBox": [596,500,627,498,628,536,598,537],
+                        "boundingBox": [
+                            596.0,
+                            500.0,
+                            627.0,
+                            498.0,
+                            628.0,
+                            536.0,
+                            598.0,
+                            537.0
+                        ],
                         "confidence": 0.998,
-                        "span": {"offset":104,"length":2}
+                        "span": {
+                            "offset": 104,
+                            "length": 2
+                        }
                     },
                     {
                         "content": "!",
-                        "boundingBox": [634,498,657,497,659,536,635,536],
+                        "boundingBox": [
+                            634.0,
+                            498.0,
+                            657.0,
+                            497.0,
+                            659.0,
+                            536.0,
+                            635.0,
+                            536.0
+                        ],
                         "confidence": 0.994,
-                        "span": {"offset":107,"length":1}
+                        "span": {
+                            "offset": 107,
+                            "length": 1
+                        }
                     }
                 ],
-                "spans":
-                [
+                "spans": [
                     {
                         "offset": 0,
                         "length": 108
                     }
                 ],
-                "lines":
-                [
+                "lines": [
                     {
                         "content": "You must be the change you",
-                        "boundingBox": [253,267,670,262,671,307,254,318],
-                        "spans": [{"offset":0,"length":26}]
+                        "boundingBox": [
+                            253.0,
+                            267.0,
+                            670.0,
+                            262.0,
+                            671.0,
+                            307.0,
+                            254.0,
+                            318.0
+                        ],
+                        "spans": [
+                            {
+                                "offset": 0,
+                                "length": 26
+                            }
+                        ]
                     },
                     {
                         "content": "Wish to see in the world !",
-                        "boundingBox": [326,343,691,332,693,369,327,382],
-                        "spans": [{"offset":27,"length":26}]
+                        "boundingBox": [
+                            326.0,
+                            343.0,
+                            691.0,
+                            332.0,
+                            693.0,
+                            369.0,
+                            327.0,
+                            382.0
+                        ],
+                        "spans": [
+                            {
+                                "offset": 27,
+                                "length": 26
+                            }
+                        ]
                     },
                     {
                         "content": "Everything has its beauty , but",
-                        "boundingBox": [254,443,640,438,641,485,255,493],
-                        "spans": [{"offset":54,"length":31}]
+                        "boundingBox": [
+                            254.0,
+                            443.0,
+                            640.0,
+                            438.0,
+                            641.0,
+                            485.0,
+                            255.0,
+                            493.0
+                        ],
+                        "spans": [
+                            {
+                                "offset": 54,
+                                "length": 31
+                            }
+                        ]
                     },
                     {
                         "content": "not everyone sees it !",
-                        "boundingBox": [364,512,658,496,660,534,365,549],
-                        "spans": [{"offset":86,"length":22}]
+                        "boundingBox": [
+                            364.0,
+                            512.0,
+                            658.0,
+                            496.0,
+                            660.0,
+                            534.0,
+                            365.0,
+                            549.0
+                        ],
+                        "spans": [
+                            {
+                                "offset": 86,
+                                "length": 22
+                            }
+                        ]
                     }
                 ]
             }
         ],
-        "styles":
-        [
+        "styles": [
             {
                 "isHandwritten": true,
-                "spans":
-                [
+                "spans": [
                     {
                         "offset": 0,
                         "length": 26
@@ -249,19 +614,17 @@ The following JSON response illustrates what the v4.0 Analyze Image API returns 
             },
             {
                 "isHandwritten": true,
-                "spans":
-                [
+                "spans": [
                     {
                         "offset": 27,
                         "length": 58
                     }
                 ],
-                "confidence": 1
+                "confidence": 1.0
             },
             {
                 "isHandwritten": true,
-                "spans":
-                [
+                "spans": [
                     {
                         "offset": 86,
                         "length": 22
@@ -269,11 +632,12 @@ The following JSON response illustrates what the v4.0 Analyze Image API returns 
                 ],
                 "confidence": 0.9
             }
-        ]
+        ],
+        "modelVersion": "2022-04-30"
     }
 }
 ```
 
 ## Next steps
 
-Follow the v4.0 REST API sections in the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Analyze API.
+Follow the Version 4.0 REST API sections in the [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Image Analysis 4.0 API.
