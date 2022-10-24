@@ -909,6 +909,7 @@
     ".openpublishing.redirection.azure-productivity.json",
     ".openpublishing.redirection.azure-australia.json",
     ".openpublishing.redirection.iot-hub-device-update.json",
+    ".openpublishing.redirection.sap.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
