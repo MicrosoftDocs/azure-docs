@@ -96,7 +96,7 @@ If your source server is configured with geo-redundant backup, you can restore t
 
 By default, the backups for the restored server are configured with geo-redundant backup. If you don't want geo-redundant backup, you can select **Configure Server** and then clear the **Restore to paired region** checkbox.
 
-If the source server is configured with *private access*, you can restore only to another virtual network in the remote region. You can either choose an existing virtual network or create a new virtual network and restore your server into that.  
+If the source server is configured with *private access*, you can restore only to another virtual network in the remote region. You can either choose an existing virtual network or create a new virtual network and restore your server into that network.  
 
 ## Next steps
 
