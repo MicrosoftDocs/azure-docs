@@ -2,7 +2,7 @@
 title: Xamarin Android code configuration and troubleshooting (MSAL.NET)
 description: Learn about considerations for using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2020
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about special requirements for using Xamarin Android and MSAL.NET.
@@ -70,7 +70,7 @@ protected override void OnActivityResult(int requestCode,
 }
 ```
 
-## Update the Android manifest for System WebView support 
+## Update the Android manifest for System WebView support
 
 To support System WebView, the *AndroidManifest.xml* file should contain the following values:
 
@@ -133,7 +133,7 @@ Xamarin.Forms 4.3.x generates code that sets the `package` attribute to `com.com
 
 ## Android 11 support
 
-To use the system browser and brokered authentication in Android 11, you must first declare these packages, so they are visible to the app. Apps that target Android 10 (API 29) and earlier can query the OS for a list of packages that are available on the device at any given time. To support privacy and security, Android 11 reduces package visibility to a default list of OS packages and the packages that are specified in the app's *AndroidManifest.xml* file. 
+To use the system browser and brokered authentication in Android 11, you must first declare these packages, so they are visible to the app. Apps that target Android 10 (API 29) and earlier can query the OS for a list of packages that are available on the device at any given time. To support privacy and security, Android 11 reduces package visibility to a default list of OS packages and the packages that are specified in the app's *AndroidManifest.xml* file.
 
 To enable the application to authenticate by using both the system browser and the broker, add the following section to *AndroidManifest.xml*:
 
@@ -157,54 +157,54 @@ To enable the application to authenticate by using both the system browser and t
     <action android:name="android.support.customtabs.action.CustomTabsService" />
   </intent>
 </queries>
-``` 
+```
 
-Replace `{Package Name}` with the application package name. 
+Replace `{Package Name}` with the application package name.
 
 Your updated manifest, which now includes support for the system browser and brokered authentication, should look similar to this example:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.XamarinDev">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<application android:theme="@android:style/Theme.NoTitleBar">
-		<activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
-			</intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="msauth" android:host="com.companyname.XamarinDev" android:path="/Fc4l/5I4mMvLnF+l+XopDuQ2gEM=" />
-			</intent-filter>
-		</activity>
-	</application>
-	<!-- Required for API Level 30 to make sure we can detect browsers and other apps we want to
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="msauth" android:host="com.companyname.XamarinDev" android:path="/Fc4l/5I4mMvLnF+l+XopDuQ2gEM=" />
+            </intent-filter>
+        </activity>
+    </application>
+    <!-- Required for API Level 30 to make sure we can detect browsers and other apps we want to
      be able to talk to.-->
-	<!--https://developer.android.com/training/basics/intents/package-visibility-use-cases-->
-	<queries>
-		<package android:name="com.azure.authenticator" />
-		<package android:name="com.companyname.xamarindev" />
-		<package android:name="com.microsoft.windowsintune.companyportal" />
-		<!-- Required for API Level 30 to make sure we can detect browsers
+    <!--https://developer.android.com/training/basics/intents/package-visibility-use-cases-->
+    <queries>
+        <package android:name="com.azure.authenticator" />
+        <package android:name="com.companyname.xamarindev" />
+        <package android:name="com.microsoft.windowsintune.companyportal" />
+        <!-- Required for API Level 30 to make sure we can detect browsers
         (that don't support custom tabs) -->
-		<intent>
-			<action android:name="android.intent.action.VIEW" />
-			<category android:name="android.intent.category.BROWSABLE" />
-			<data android:scheme="https" />
-		</intent>
-		<!-- Required for API Level 30 to make sure we can detect browsers that support custom tabs -->
-		<!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
-		<intent>
-			<action android:name="android.support.customtabs.action.CustomTabsService" />
-		</intent>
-	</queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <!-- Required for API Level 30 to make sure we can detect browsers that support custom tabs -->
+        <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
 </manifest>
 ```
 

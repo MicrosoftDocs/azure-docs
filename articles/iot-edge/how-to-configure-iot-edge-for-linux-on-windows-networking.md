@@ -50,7 +50,7 @@ EFLOW-Ext      External
 To use a specific virtual switch(**internal** or **external**), make sure you specify the correct parameters: `-vSwitchName` and `vSwitchType`. For example, if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, then in an elevated PowerShell session use the following command:
 
 ```powershell
-Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext"
+Deploy-Eflow -vSwitchType "External" -vSwitchName "EFLOW-Ext"
 ```
 
 
@@ -70,7 +70,7 @@ By default, if no **static IP** address is set up, the EFLOW VM will try to allo
 If you're using a **static IP**, you'll have to specify three parameters during EFLOW deployment: `-ip4Address`, `ip4GatewayAddress` and `ip4PrefixLength`. If one parameter is missing or incorrect, the EFLOW VM installation will fail to allocate an IP address and installation will fail. For more information about EFLOW VM deployment, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow). For example, if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, and a static IP configuration, with an IP address equal to **192.168.0.2**, gateway IP address equal to **192.168.0.1** and IP prefix length equal to **24**, then in an elevated PowerShell session use the following command:
 
 ```powershell
-Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext" -ip4Address "192.168.0.2" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
+Deploy-Eflow -vSwitchType "External" -vSwitchName "EFLOW-Ext" -ip4Address "192.168.0.2" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
 ```
 
 >[!TIP]

@@ -3,14 +3,14 @@ title: Overview of reverse DNS in Azure - Azure DNS
 description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: rohinkoul
+author: greg-lindsay
 manager: KumuD
 ms.service: dns
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Overview of reverse DNS and support in Azure

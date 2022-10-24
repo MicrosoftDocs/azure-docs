@@ -106,7 +106,7 @@ In the example above, start with the table name SecurityEvent and add piped elem
 
 1. Add a filter in the query to only show event ID 4688.
 
-1. Add a filter in the query on the CommandLine to contain only instances of cscript.exe.
+1. Add a filter in the query on the command line to contain only instances of cscript.exe.
 
 1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
 
@@ -128,7 +128,7 @@ During the hunting and investigation process, you may come across query results 
 
 - Investigate a single bookmarked finding by selecting the bookmark and then clicking **Investigate** in the details pane to open the investigation experience. You can also directly select a listed entity to view that entity’s corresponding entity page.
 
-    You can also create an incident from one or more bookmarks or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
+    You can also create an incident from one or more bookmarks, or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
 
 For more information, see [Use bookmarks in hunting](bookmarks.md).
 
@@ -148,7 +148,7 @@ For more information, see:
 - [The Infosec Jupyter Book](https://infosecjupyterbook.com)
 - [Real Python tutorials](https://realpython.com)
 
-The following table describes some methods of using Juypter notebooks to help your processes in Microsoft Sentinel:
+The following table describes some methods of using Jupyter notebooks to help your processes in Microsoft Sentinel:
 
 |Method  |Description  |
 |---------|---------|
