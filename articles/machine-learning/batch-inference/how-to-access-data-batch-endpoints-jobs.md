@@ -139,7 +139,7 @@ We're going to first upload some data to the default data store in the Azure Mac
 Follow these steps to run a batch endpoint job using data stored in a registered data asset in Azure Machine Learning:
 
 > [!WARNING]
-> Data assets of type Table (`MLTable`) are not supported by the moment, but it will be enabled soon.
+> Data assets of type Table (`MLTable`) isn't currently supported.
 
 1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset.
 
