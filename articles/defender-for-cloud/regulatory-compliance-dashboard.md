@@ -2,8 +2,7 @@
 title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
 description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
 ms.topic: tutorial
-ms.date: 10/25/2022
-ms.custom: ignite-2022
+ms.date: 10/24/2022
 ---
 # Tutorial: Improve your regulatory compliance
 
@@ -30,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To step through the features covered in this tutorial:
 
 - [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role does not. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
@@ -59,7 +58,48 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 
 You can use the information in the regulatory compliance dashboard to investigate any issues that may be affecting your compliance posture.
 
-1. Select any of the failing assessments that appear in the dashboard to view the details for that recommendation. Each recommendation includes a set of remediation steps to resolve the issue.
+**To investigate your compliance issues**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Regulatory compliance**.
+
+1. Select a regulatory compliance standard.
+
+1. Select a compliance control to expand it.
+
+1. Select **Control details**.
+
+    :::image type="content" source="media/regulatory-compliance-dashboard/control-detail.png" alt-text="Screenshot that shows you where to navigate to select control details on the screen.":::
+
+    - Select **Overview** to see the specific information about the Control you selected.
+    - Select **Your Actions** to see a detailed view of automated and manual actions you need to take to improve your compliance posture.
+    - Select **Microsoft Actions** to see all the actions Microsoft took to ensure compliance with the selected standard.  
+
+1. Under **Your Actions**, you can select a down arrow to view more details and resolve the recommendation for that resource.
+
+    :::image type="content" source="media/regulatory-compliance-dashboard/down-arrow.png" alt-text="Screenshot that shows you where the down arrow is on the screen.":::
+
+    For more information about how to apply recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md).
+
+    > [!NOTE]
+    > Assessments run approximately every 12 hours, so you will see the impact on your compliance data only after the next run of the relevant assessment.
+
+## Remediate an automated assessment
+
+The regulatory compliance has both automated and manual assessments that may need to be remediated. Using the information in the regulatory compliance dashboard, improve your compliance posture by resolving recommendations directly within the dashboard.
+
+**To remediate an automated assessment**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Regulatory compliance**.
+
+1. Select a regulatory compliance standard.
+
+1. Select a compliance control to expand it.
+
+1.  Select any of the failing assessments that appear in the dashboard to view the details for that recommendation. Each recommendation includes a set of remediation steps to resolve the issue.
 
 1. Select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS 1.1.0** standard, select the recommendation **Disk encryption should be applied on virtual machines**.
 
@@ -71,7 +111,7 @@ You can use the information in the regulatory compliance dashboard to investigat
 
     For more information about how to apply recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md).
 
-1.  After you take action to resolve recommendations, you'll see your compliance score improves on the compliance dashboard.
+1.  After you take action to resolve recommendations, you'll see the result in the compliance dashboard report because your compliance score improves.
 
     > [!NOTE]
     > Assessments run approximately every 12 hours, so you will see the impact on your compliance data only after the next run of the relevant assessment.
@@ -116,7 +156,7 @@ The regulatory compliance has automated and manual assessments that may need to 
 
     :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports using tabs and filters.":::
 
-    For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present with the certificate. 
+    For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present the certificate. 
 
     > [!NOTE]
     > When you download one of these certification reports, you'll be shown the following privacy notice:
@@ -189,7 +229,6 @@ The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by 
 Since we’ve released the Microsoft cloud security benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
 
 ### What standards are supported in the compliance dashboard?
-
 By default, the regulatory compliance dashboard shows you the Azure Security Benchmark. The Azure Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Azure Security Benchmark introduction](../security/benchmarks/introduction.md).
 
 To track your compliance with any other standard, you'll need to explicitly add them to your dashboard.
@@ -221,7 +260,9 @@ More standards will be added to the dashboard and included in the information on
 
 For each compliance standard in the dashboard, there's a list of the standard's controls. For the applicable controls, you can view the details of passing and failing assessments.
 
-Some controls are grayed out. These controls don't have any Defender for Cloud assessments associated with them. Some may be procedure or process-related, and so can't be verified by Defender for Cloud. Some don't have any automated policies or assessments implemented yet, but will have in the future. Some controls may be the platform's responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
+Some controls are grayed out. These controls don't have any Defender for Cloud assessments associated with them. Some may be procedure or process-related, and so can't be verified by Defender for Cloud. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls may be the platform's responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
+
+### How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?
 
 To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
 
@@ -230,7 +271,7 @@ To customize the regulatory compliance dashboard, and focus only on the standard
 After you take action to resolve recommendations, wait 12 hours to see the changes to your compliance data. Assessments are run approximately every 12 hours, so you'll see the effect on your compliance data only after the assessments run.
 
 ### What permissions do I need to access the compliance dashboard?
-To view compliance data, you need to have at least **Reader** access to the policy compliance data as well; Security Reader alone won’t suffice. If you're a Global Reader on the subscription that will be enough too.
+To view compliance data, you need to have at least **Reader** access to the policy compliance data as well; so Security Reader alone won’t suffice. If you're a global reader on the subscription, that will be enough too.
 
 The minimum set of roles for accessing the dashboard and managing standards is **Resource Policy Contributor** and **Security Admin**.
 
@@ -247,6 +288,7 @@ To use the regulatory compliance dashboard, Defender for Cloud must be enabled a
 On the main dashboard, you can see a report of passing and failing controls for (1) the 'top 4' lowest compliance standards in the dashboard. To see all the passing/failing controls status, select (2) **Show all _x_** (where x is the number of standards you're tracking). A context plane displays the compliance status for every one of your tracked standards.
 
 :::image type="content" source="media/regulatory-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Summary section of the regulatory compliance dashboard.":::
+
 
 ### How can I download a report with compliance data in a format other than PDF?
 
@@ -267,19 +309,14 @@ For other policies, you can create an exemption directly in the policy itself, b
 
 If you've got *any* of the Microsoft Defender plan enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
 
-<<<<<<< HEAD
-### How do I know which benchmark or standard to use?
 
+### How do I know which benchmark or standard to use?
 [Azure Security Benchmark](/security/benchmark/azure/introduction) (ASB) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) and [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB is a comprehensive benchmark, and is designed to recommend the most up-to-date security capabilities of a wide range of Azure services. We recommend ASB to customers who want to maximize their security posture and align their compliance status with industry standards.
 
 The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by an independent entity – Center for Internet Security (CIS) – and contains recommendations on a subset of core Azure services. We work with CIS to try to ensure that their recommendations are up to date with the latest enhancements in Azure, but they do sometimes fall behind and become outdated. Nonetheless, some customers like to use this objective, third-party assessment from CIS as their initial and primary security baseline.
 
 Since we’ve released the Azure Security Benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
-=======
-### How do I remediate a manual assessment?
 
-By selecting attest, you'll have the ability to demonstrate compliance with this control. Learn how to [remediate a manual assessment](#remediate-a-manual-assessment).
->>>>>>> 569bbba799e923b203e2e28bb2306d06aab2d344
 
 ## Next steps
 
@@ -293,10 +330,5 @@ The regulatory compliance dashboard can greatly simplify the compliance process,
 
 To learn more, see these related pages:
 
-<<<<<<< HEAD
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard.
 - [Managing security recommendations in Defender for Cloud](review-security-recommendations.md) - Learn how to use recommendations in Defender for Cloud to help protect your Azure resources.
-=======
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard. 
-- [Managing security recommendations in Defender for Cloud](review-security-recommendations.md) - Learn how to use recommendations in Defender for Cloud to help protect your Azure resources.
->>>>>>> 569bbba799e923b203e2e28bb2306d06aab2d344
