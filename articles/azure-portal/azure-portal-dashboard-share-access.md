@@ -13,7 +13,7 @@ After configuring a dashboard, you can publish it and share it with other users 
 > [!TIP]
 > Within a dashboard, individual tiles enforce their own access control requirements based on the resources they display. You can share any dashboard broadly, even though some data on specific tiles might not be visible to all users.
 
-## Access control for dashboards
+## Understand access control for dashboards
 
 From an access control perspective, dashboards are no different from other resources, such as virtual machines or storage accounts. Published dashboards are implemented as Azure resources. Each dashboard exists as a manageable item contained in a resource group within your subscription.
 
