@@ -189,3 +189,4 @@ Learn more about:
 
 - [Log queries in Azure Monitor](log-query-overview.md).
 - [How to use Kusto queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
+- [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/)
