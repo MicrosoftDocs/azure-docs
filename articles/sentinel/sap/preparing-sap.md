@@ -26,16 +26,14 @@ This article discusses the installation of the following CRs:
 
 ## Prerequisites
 
-1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process.
+1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process. For the following example, the following details are assumed:
 
-    For the following example, the following details are assumed:
-
-        - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
-        - **SID:** `A4H`
-        - **System number:** `00`
-        - **Client number:** `001`
-        - **IP address:** `192.168.136.4`
-        - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
+    - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
+    - **SID:** `A4H`
+    - **System number:** `00`
+    - **Client number:** `001`
+    - **IP address:** `192.168.136.4`
+    - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
 2. Make sure you've installed the SAP notes required for the deployment of the Microsoft Sentinel Solution for SAP. Review the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) for the list of SAP notes.
 
 ## Deployment milestones
