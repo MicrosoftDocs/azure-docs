@@ -18,7 +18,7 @@ Premium plan hosting provides the following benefits to your functions:
 
 * Avoid cold starts with warm instances.
 * Virtual network connectivity.
-* Supports [longer runtime durations](#longer-run-duration)
+* Supports [longer runtime durations](#longer-run-duration).
 * [Choice of Premium instance sizes](#available-instance-skus).
 * More predictable pricing, compared with the Consumption plan.
 * High-density app allocation for plans with multiple function apps.
@@ -235,7 +235,7 @@ For example, a JavaScript function app is constrained by the default memory limi
 
 And for plans with more than 4GB memory, ensure the Bitness Platform Setting is set to `64 Bit` under [General Settings](../app-service/configure-common.md#configure-general-settings).
 
-## Region max scale out
+## Region max scale-out
 
 Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration.
 
