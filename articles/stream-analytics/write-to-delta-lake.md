@@ -87,7 +87,7 @@ At the failure of schema conversion, the job behavior will follow the [output da
 
 ## Regions Availability
 
-The feature is currently supported in West Central US, Japan East and Canada Central. 
+The feature is currently supported in West Central US, Japan East, Canada Central, Korea Central, North Europe and South India.
 
 ## Next steps
 
