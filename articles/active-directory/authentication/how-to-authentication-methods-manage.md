@@ -17,7 +17,7 @@ ms.custom: contperf-fy20q4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how I can manage them.
 ---
-# How to migrate MFA and SSPR settings to the Authentication methods policy for Azure AD
+# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD
 
 You can migrate Azure Active Directory (Azure AD) policy settings that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the Authentication methods policy. You can migrate policy settings on your own schedule, and the process is fully reversible. You can continue to use tenant-wide MFA and SSPR policies, while you configure authentication methods more precisely for users and groups in the Authentication methods policy. You can complete the migration whenever you're ready to manage all authentication methods together in the Authentication methods policy. 
 
@@ -25,35 +25,57 @@ For more information about how these policies work together during migration, se
 
 ## Pre-migration
 
-Start by conducting an audit of your existing settings for all of the different authentication methods available to users for MFA. If you choose to roll back during migration, you'll want a record of the authentication method settings from each of these policies:
+Start by conducting an audit of your existing settings for every authentication method available to users. If you roll back during migration, you'll want a record of the authentication method settings from each of these policies:
 
 - MFA policy
 - Authentication methods policy
 
+The next sections walk through an example of the policy migration. We'll review settings in each policy  
+
 ### MFA policy settings
 
-Document each authentication method that can be used for MFA. Let's say Contoso has the following methods configured for MFA. 
+Let's say Contoso has the following methods configured for MFA. Document each authentication method that can be used for MFA. These settings are tenant-wide, so there's no need for user or group information.  
 
 ### Authentication methods policy settings
 
-For each authentication method listed in the Authentication methods policy, write down which users and groups are included or excluded from the policy. Also write down any configuration parameters that govern how users can authenticate with each method. For example, document if any group is included in the policy for Microsoft Authenticator to receive location in push notifications. 
+In the Authentication methods policy, you'll want to write down which users and groups are included or excluded from the policy for every authentication method. Also write down any configuration parameters that govern how users can authenticate with each method. For example, document if any group is included in the policy for Microsoft Authenticator to receive location in push notifications. 
 
-## Update the Authentication methods policy
+<!--- Any report they can use?--->
 
-Make sure the Authentication methods policy reflects all settings from every policy in your audit. You might need to adjust some settings to account for differences between the policies. 
+In our example, Contoso has the following groups set for each method.
 
-For example, your MFA policy might allow **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. You'll need to adjust the Authentication methods policy as you wish for each method.  
+## Add MFA policy settings to the Authentication methods policy
+
+After you audit settings, update Authentication methods policy to reflects all settings from your audit. You might need to adjust some settings to account for differences between the policies. 
+
+For example, the Contoso MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. In this case, Contoso needs to adjust the Authentication methods policy accordingly for each method.  
+
+At this point, you can also configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
+
+Let's look at the updated Authentication methods policy for Contoso after legacy MFA policy settings are migrated. 
 
 ## Migration in progress
 
-After you finish adding authentication methods for MFA to the the Authentication methods policy, configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
+Now that you've updated the Authentication methods policy, go through the legacy MFA policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. You can test excluded users by trying to sign in both as a member of the excluded group and again as a non-member. 
 
-Step through the process to remove each authentication method in the legacy MFA policy. One-by-one. Start with MFA. Test after each auth method is removed. To test excluded users, try to sign in both as a member of the excluded group and again as a non-member. 
+When you determine that authentication works as expected and you no longer need the legacy MFA policy, you can change the migration process to **Migration in Progress**. In this mode, Azure AD ignores the legacy MFA policy for authentication and only follows the Authentication methods policy. The legacy SSPR policy still applies for users who are in scope for SSPR. But any changes made to the legacy MFA policy are ignored if **Migration in Progress** is set.
+
+<!--- what if you change legacy MFA policy while **Migration in Progress** is set and then roll back to Pre-migration?--->
 
 ### Audit SSPR policy settings
 
-Record which users are in scope for SSPR and the authentication methods they can use. Make sure you copy security questions for later use after they are available to manage in the Authentication methods policy. Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
+For the next step in the migration, record which users are in scope for SSPR and the authentication methods they can use. Make sure you copy security questions for later use after they are available to manage in the Authentication methods policy. Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
+
+
+## Add SSPR policy settings to the Authentication methods policy
+
+After you audit settings, update Authentication methods policy to reflects all settings from your audit. You might need to adjust some settings to account for differences between the policies. 
+
+For example, **Mobile phone** in the legacy SSPR policy enables both voice call and SMS as available options. But in the the Authentication methods policy, **SMS** and **Phone call** are separate authentication methods.  
+
+The following screenshot shows the updated Authentication methods policy for Contoso after legacy SSPR policy settings are migrated.
 
 ## Migration complete
+
 Make changes only in Authentication methods policy. 
 
