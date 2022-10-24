@@ -31,10 +31,7 @@ Before you can scan your ECR images:
 - [Connect your AWS account to Defender for Cloud and enable Defender for Containers](quickstart-onboard-aws.md)
 - You must have at least one free VPC in the `us-east-1` and `eu-central-1` regions to host the AWS resources that build the software inventory.
 
-> [!NOTE]
-> - Images that have at least one layer over 2GB are not scanned.
-> - Public repositories and manifest lists are not supported.
-> - Images in the AWS management account aren't scanned because we can't create resources in the management account.
+For a list of the types of images not supported by Microsoft Defender for Containers, see [Availability](supported-machines-endpoint-solutions-clouds-containers.md?tabs=aws-eks#images).
 
 ## Enable vulnerability assessment
 

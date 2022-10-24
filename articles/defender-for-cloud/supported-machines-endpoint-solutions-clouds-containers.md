@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 08/10/2022
+ms.date: 10/24/2022
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -41,8 +41,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Aspect | Details |
 |--|--|
-| Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available. |
-| OS Packages | **Supported** <br> • Alpine Linux 3.12-3.15 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6,6,7,8 <br> • Amazon Linux 1,2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11,12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
+| Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available.<br><br>**Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
+| OS Packages | **Supported** <br> • Alpine Linux 3.12-3.15 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6, 7, 8 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11, 12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
 | Language specific packages (Preview) <br><br> (**Only supported for Linux images**) | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
 ### Kubernetes distributions and configurations
@@ -88,7 +88,17 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Additional information
+## Additional environment information
+
+### Images
+
+| Aspect | Details |
+|--|--|
+| Registries and images | 
+**Unsupported**
+<br> • Images that have at least one layer over 2 GB
+<br> • Public repositories and manifest lists
+<br> • Images in the AWS management account aren't scanned so that we don't create resources in the management account. |
 
 ### Kubernetes distributions and configurations
 

@@ -3,7 +3,7 @@ title: Identify vulnerabilities in Azure Container Registry with Microsoft Defen
 description: Learn how to use Defender for Containers to scan images in your Azure Container Registry to find vulnerabilities.
 author: bmansheim
 ms.author: benmansheim
-ms.date: 09/11/2022
+ms.date: 10/24/2022
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -49,18 +49,9 @@ Before you can scan your ACR images:
 
     Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md)
 
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Defender for Cloud recommendations.
-
     You can also [scan images in Amazon AWS Elastic Container Registry](defender-for-containers-va-ecr.md) directly from the Azure portal.
 
-> [!NOTE] 
-> - **Windows containers**: There is no Defender agent for Windows containers. The Defender agent is deployed to a Linux node running in the cluster, to retrieve the running container inventory for your Windows nodes.
-> - Images that aren't pulled from ACR for deployment in AKS won't be checked and will appear under the **Not applicable** tab.
-> - Images that have been deleted from their ACR registry, but are still running, won't be reported on only 30 days after their last scan occurred in ACR.
-> - Vulnerability assessment doesn't support:
->   - Super-minimalist images, such as [Docker scratch](https://hub.docker.com/_/scratch/) images
->   - "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.
->   - Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)
+For a list of the types of images and container registries supported by Microsoft Defender for Containers, see [Availability](supported-machines-endpoint-solutions-clouds-containers.md?tabs=azure-aks#registries-and-images).
 
 ## View and remediate findings
 
@@ -166,10 +157,6 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 ### Can I get the scan results via REST API?
 
 Yes. The results are under [Sub-Assessments REST API](/rest/api/defenderforcloud/sub-assessments/list). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
-
-### What registry types are scanned? What types are billed?
-
-For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](supported-machines-endpoint-solutions-clouds-containers.md#additional-information). Defender for Containers doesn't scan unsupported registries that you connect to your Azure subscription.
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 
