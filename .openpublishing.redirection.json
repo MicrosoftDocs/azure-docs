@@ -41,6 +41,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/pytorch-enterprise/pte-overview.md",
+            "redirect_url": "https://aka.ms/PTELandingPage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/pytorch-enterprise/support-boundaries.md",
+            "redirect_url": "https://aka.ms/PTELandingPage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
@@ -9559,6 +9569,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-vmware/enable-public-internet-access.md",
+            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
             "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
             "redirect_document_id": false
@@ -9615,7 +9630,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
-            "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
+            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
             "redirect_document_id": false
         },
         {
@@ -29217,6 +29232,11 @@
         {
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/pytorch-enterprise/index.yml",
+            "redirect_url": "/azure/databricks/machine-learning/train-model/pytorch",
             "redirect_document_id": false
         },
         {
