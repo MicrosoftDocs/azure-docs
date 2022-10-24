@@ -102,13 +102,13 @@ Use any of the following deployment checklists during the setup or for troublesh
    1. App registration exists in your Azure Active Directory tenant.
    
    2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
-      1. Microsoft Graph openid
-      2. Microsoft Graph User.Read
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
    
    3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
     
     3. Under **Authentication**, **Allow public client flows** is enabled.
 
@@ -161,13 +161,13 @@ Use any of the following deployment checklists during the setup or for troublesh
    1. App registration exists in your Azure Active Directory tenant.
    
    2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
-      1. Microsoft Graph openid
-      2. Microsoft Graph User.Read
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
    
    3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
    
    3. Under **Authentication**, **Allow public client flows** is enabled.
 
@@ -319,7 +319,7 @@ To create and run a new scan, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in AAD.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in Azure AD.":::
 
 2. Take note of Client ID(App ID).
   
@@ -417,7 +417,7 @@ To create and run a new scan, do the following:
    
 1. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. 
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in AAD.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in Azure AD.":::
 
 2. Take note of Client ID(App ID).
 
