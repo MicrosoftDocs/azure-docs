@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/17/2022
+ms.date: 10/17/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -1308,7 +1308,7 @@ Applications that support the SCIM profile described in this article can be conn
 
 **To connect an application that supports SCIM:**
 
-1. Sign in to the [Azure AD portal](https://aad.portal.azure.com). You can get access a free trial for Azure AD with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
+1. Sign in to the [Azure AD portal](https://aad.portal.azure.com). You can get access a free trial for Azure AD with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/microsoft-365/dev-program))
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select **+ New application** > **+ Create your own application**.
 1. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
