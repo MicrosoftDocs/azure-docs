@@ -5,12 +5,16 @@ ms.author: nickoman
 author: nickomang
 services: container-service
 ms.topic: article
-ms.date: 09/09/2022
+ms.date: 09/26/2022
 ---
 
 # Use ImageCleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
 
-It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which ImageCleaner can mitigate via automatic image identification and removal.
+It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which ImageCleaner can mitigate via automatic image identification and removal. 
+
+> [!NOTE]
+> ImageCleaner is a feature based on [Eraser](https://github.com/Azure/eraser). 
+> On an AKS cluster, the feature name and property name is `ImageCleaner` while the relevant ImageCleaner pods' names contain `Eraser`.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -89,6 +93,9 @@ In addition to choosing between manual and automatic mode, there are several opt
 |--disable-image-cleaner|Disable the ImageCleaner feature for an AKS cluster|Yes, unless enable is specified|
 |--image-cleaner-interval-hours|This parameter determines the interval time (in hours) ImageCleaner will use to run. The default value is one week, the minimum value is 24 hours and the maximum is three months.|No|
 
+> [!NOTE]
+> After disabling ImageCleaner, the old configuration still exists. This means that if you enable the feature again without explicitly passing configuration, the existing value will be used rather than the default.
+
 ## Enable ImageCleaner on your AKS cluster
 
 To create a new AKS cluster using the default interval, use [az aks create][az-aks-create]:
@@ -112,6 +119,7 @@ az aks update -g MyResourceGroup -n MyManagedCluster \
   --image-cleaner-interval-hours 48
 ```
 
+After the feature is enabled, the `eraser-controller-manager-xxx` pod and `collector-aks-xxx` pod will be deployed.
 Based on your configuration, ImageCleaner will generate an `ImageList` containing non-running and vulnerable images at the desired interval. ImageCleaner will automatically remove these images from cluster nodes.
 
 ## Manually remove images
@@ -134,7 +142,7 @@ And apply it to the cluster:
 kubectl apply -f image-list.yml
 ```
 
-A job will trigger which causes ImageCleaner to remove the desired images from all nodes.
+A job named `eraser-aks-xxx`will be triggerred which causes ImageCleaner to remove the desired images from all nodes.
 
 ## Disable ImageCleaner
 

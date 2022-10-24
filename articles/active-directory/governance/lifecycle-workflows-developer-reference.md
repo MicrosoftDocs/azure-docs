@@ -64,7 +64,7 @@ Lets examine the tasks section of a sample workflow.
 ```
 
 
-This task uses 1b555e50-7f65-41d5-b514-5894a026d10d, which is the taskDefinitionID for [Generate Temporary Access Password and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-password-and-send-via-email-to-users-manager).  This is a pre-defined task created by Microsoft and will send a user's manager an email that contains a temporary access pass.  This task requires the following more arguments.
+This task uses 1b555e50-7f65-41d5-b514-5894a026d10d, which is the taskDefinitionID for [Generate Temporary Access Pass and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-pass-and-send-via-email-to-users-manager).  This is a pre-defined task created by Microsoft and will send a user's manager an email that contains a temporary access pass.  This task requires the following more arguments.
 
 |Parameter |Definition  |
 |---------|---------|

@@ -5,7 +5,7 @@ description: This article gives you a high-level understanding of the resources 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.author: balapv
 author: balapv
@@ -14,7 +14,7 @@ ms.date: 04/29/2022
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
-# How Azure Machine Learning works: resources and assets (v2)
+# How Azure Machine Learning works: resources and assets
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -68,7 +68,7 @@ ws_basic = Workspace(
 ml_client.workspaces.begin_create(ws_basic) # use MLClient to connect to the subscription and resource group and create workspace
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/resources/workspace/workspace.ipynb) shows more ways to create an Azure ML workspace using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/workspace/workspace.ipynb) shows more ways to create an Azure ML workspace using SDK v2.
 
 ---
 
@@ -113,7 +113,7 @@ cluster_basic = AmlCompute(
 ml_client.begin_create_or_update(cluster_basic)
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/resources/compute/compute.ipynb) shows more ways to create compute using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/compute/compute.ipynb) shows more ways to create compute using SDK v2.
 
 ---
 
@@ -157,7 +157,7 @@ blob_datastore1 = AzureBlobDatastore(
 ml_client.create_or_update(blob_datastore1)
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/resources/datastores/datastore.ipynb) shows more ways to create datastores using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/datastores/datastore.ipynb) shows more ways to create datastores using SDK v2.
 
 ---
 
@@ -250,7 +250,7 @@ my_env = Environment(
 ml_client.environments.create_or_update(my_env) # use the MLClient to connect to workspace and create/register the environment
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
 
 ---
 
@@ -279,5 +279,4 @@ An Azure Machine Learning [component](concept-component.md) is a self-contained 
 ## Next steps
 
 * [How to migrate from v1 to v2](how-to-migrate-from-v1.md)
-* [Train models with the CLI (v2)](how-to-train-cli.md)
-* [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-sdk.md)
+* [Train models with the v2 CLI and SDK](how-to-train-model.md)

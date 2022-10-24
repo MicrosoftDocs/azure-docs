@@ -10,7 +10,6 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: mimart
-ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
 ---

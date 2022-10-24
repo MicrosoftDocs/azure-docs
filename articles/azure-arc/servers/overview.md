@@ -11,7 +11,7 @@ Azure Arc-enabled servers lets you manage Windows and Linux physical servers and
 
 When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
-To connect hybrid machines, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
+To connect hybrid machines to Azure, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
 
 * Proactively monitor the OS and workloads running on the machine
 * Manage it using Automation runbooks or solutions like Update Management

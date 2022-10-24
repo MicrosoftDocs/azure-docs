@@ -33,7 +33,7 @@ Version 2022-05-31 of the data plane API lets you manage the following resources
 
 The preview devices API also lets you [query telemetry and property values from your devices](howto-query-with-rest-api.md), [manage jobs](howto-manage-jobs-with-rest-api.md), and [manage data exports](howto-manage-data-export-with-rest-api.md).
 
-To get started with the data plane APIs, see [Explore the IoT Central APIs](/learn/modules/manage-iot-central-apps-with-rest-api/).
+To get started with the data plane APIs, see [Explore the IoT Central APIs](/training/modules/manage-iot-central-apps-with-rest-api/).
 
 ## Control plane operations
 
@@ -41,4 +41,4 @@ Version 2021-06-01 of the control plane API lets you manage the IoT Central appl
 
 ## Next steps
 
-Now that you have an overview of Azure IoT Central and are familiar with the capabilities of the IoT Central REST API, the suggested next step is to complete the [Explore the IoT Central APIs](/learn/modules/manage-iot-central-apps-with-rest-api/) Learn module.
+Now that you have an overview of Azure IoT Central and are familiar with the capabilities of the IoT Central REST API, the suggested next step is to complete the [Explore the IoT Central APIs](/training/modules/manage-iot-central-apps-with-rest-api/) Learn module.

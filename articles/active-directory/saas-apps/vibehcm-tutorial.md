@@ -44,6 +44,8 @@ To configure the integration of Vibe HCM into Azure AD, you need to add Vibe HCM
 1. In the **Add from the gallery** section, type **Vibe HCM** in the search box.
 1. Select **Vibe HCM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Vibe HCM
 
 Configure and test Azure AD SSO with Vibe HCM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Vibe HCM.

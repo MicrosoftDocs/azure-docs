@@ -1,21 +1,21 @@
 ---
 title: Deploy a Node.js web app using MongoDB to Azure
-description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Cosmos DB. 
+description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Azure Cosmos DB.
 ms.topic: tutorial
 ms.date: 09/06/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: javascript
-ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devx-track-azurecli, devdivchpfy22
+ms.custom: [scenarios:getting-started, languages:javascript, devx-track-js, devx-track-azurecli, devdivchpfy22, ignite-2022]
 ---
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a MongoDB database (using [Azure Cosmos DB with MongoDB API](../cosmos-db/mongodb/mongodb-introduction.md)). When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb/mongodb-introduction.md) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/app-diagram.png" alt-text="A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB." lightbox="./media/tutorial-nodejs-mongodb-app/app-diagram-large.png":::
 
-This article assumes you're already familiar with [Node.js development](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
+This article assumes you're already familiar with [Node.js development](/training/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
 ## Sample application
 
@@ -32,9 +32,9 @@ If you want to run the application locally, do the following:
 * Start the application using `npm start`.
 * To view the app, browse to `http://localhost:3000`.
 
-## 1. Create App Service and Cosmos DB
+## 1. Create App Service and Azure Cosmos DB
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB API for MongoDB that's. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB for MongoDB. For the creation process, you'll specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
 * The **Region** to run the app physically in the world.
@@ -63,7 +63,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Name* &rarr; **msdocs-expressjs-mongodb-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
         1. *Runtime stack* &rarr; **Node 16 LTS**.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. **Cosmos DB API for MongoDB** is selected by default as the database engine. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
+        1. **Azure Cosmos DB for MongoDB** is selected by default as the database engine. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -80,8 +80,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
         - **Private endpoint** &rarr; Access endpoint for the database resource in the virtual network.
         - **Network interface** &rarr; Represents a private IP address for the private endpoint.
-        - **Cosmos DB API for MongoDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
-        - **Private DNS zone** &rarr; Enables DNS resolution of the Cosmos DB server in the virtual network.
+        - **Azure Cosmos DB for MongoDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
+        - **Private DNS zone** &rarr; Enables DNS resolution of the Azure Cosmos DB server in the virtual network.
         
     :::column-end:::
     :::column:::
@@ -250,7 +250,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
+        **Step 2.** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png":::
@@ -340,7 +340,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to the Cosmos DB server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-cosmos-db-server-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How do I connect to the Azure Cosmos DB server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-azure-cosmos-db-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
 
@@ -349,15 +349,15 @@ When you're finished, you can delete all of the resources from your Azure subscr
 Pricing for the create resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The Cosmos DB server is create in a single region and can be distributed to other regions. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+- The Azure Cosmos DB server is created in a single region and can be distributed to other regions. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
-#### How do I connect to the Cosmos DB server that's secured behind the virtual network with other tools?
+#### How do I connect to the Azure Cosmos DB server that's secured behind the virtual network with other tools?
 
-- For basic access from a commmand-line tool, you can run `mongosh` from the app's SSH terminal. The app's container doesn't come with `mongosh`, so you must [install it manually](https://www.mongodb.com/docs/mongodb-shell/install/). Remember that the installed client doesn't persist across app restarts.
+- For basic access from a command-line tool, you can run `mongosh` from the app's SSH terminal. The app's container doesn't come with `mongosh`, so you must [install it manually](https://www.mongodb.com/docs/mongodb-shell/install/). Remember that the installed client doesn't persist across app restarts.
 - To connect from a MongoDB GUI client, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
-- To connect from the Mongo shell from the Cosmos DB management page in the portal, your machine must also be within the virtual network. You could instead open the Cosmos DB server's firewall for your local machine's IP address, but it increases the attack surface for your configuration.
+- To connect from the MongoDB shell from the Azure Cosmos DB management page in the portal, your machine must also be within the virtual network. You could instead open the Azure Cosmos DB server's firewall for your local machine's IP address, but it increases the attack surface for your configuration.
 
 #### How does local app development work with GitHub Actions?
 

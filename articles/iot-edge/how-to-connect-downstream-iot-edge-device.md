@@ -58,17 +58,17 @@ In the Azure portal, you can manage the parent/child relationship when you creat
 When you create a new IoT Edge device, you have the option of choosing parent and children devices from the list of existing IoT Edge devices in that hub.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. Select **IoT Edge** from the navigation menu.
-1. Select **Add an IoT Edge device**.
+1. Select **Devices** under the **Device management** menu.
+1. Select **Add device** then check the **IoT Edge Device** checkbox.
 1. Along with setting the device ID and authentication settings, you can **Set a parent device** or **Choose child devices**.
 1. Choose the device or devices that you want as a parent or child.
 
 You can also create or manage parent/child relationships for existing devices.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. Select **IoT Edge** from the navigation menu.
-1. Select the device you want to manage from the list of **IoT Edge devices**.
-1. Select **Set a parent device** or **Manage child devices**.
+1. Select **Devices** in the **Device management** menu.
+1. Select the **IoT Edge device** you want to manage from the list.
+1. Select the **Set a parent device** *gear* icon or **Manage child devices**.
 1. Add or remove any parent or child devices.
 
 # [Azure CLI](#tab/azure-cli)
@@ -264,6 +264,15 @@ You should already have IoT Edge installed on your device. If not, follow the st
     sudo iotedge check --verbose
     ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 ### Verify parent configuration
 
 The *hostname* must be a qualified domain name (FQDN) or the IP address of the IoT Edge device because IoT Edge uses this value in the server certificate when downstream devices connect. The values must match or you'll get *IP address mismatch* error.
@@ -425,6 +434,15 @@ You should already have IoT Edge installed on your device. If not, follow the st
     >[!TIP]
     >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 ### Verify connectivity from child to parent
 
 01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the child device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
@@ -509,8 +527,8 @@ The API proxy module was designed to be customized to handle most common gateway
 # [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. Select **IoT Edge** from the navigation menu.
-1. Select the top layer device that you're configuring from the list of **IoT Edge devices**.
+1. Select **Devices** under the **Device management** menu.
+1. Select the top layer IoT Edge device that you're configuring from the list.
 1. Select **Set modules**.
 1. In the **IoT Edge modules** section, select **Add** then choose **Marketplace module**.
 1. Search for and select the **IoT Edge API Proxy** module.
@@ -741,8 +759,8 @@ The **API proxy module** is required for routing all communications between the 
 The API proxy module was designed to be customized to handle most common gateway scenarios. This article briefly touches on the steps to set up the modules in a basic configuration. Refer to [Configure the API proxy module for your gateway hierarchy scenario](how-to-configure-api-proxy-module.md) for more detailed information and examples.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. Select **IoT Edge** from the navigation menu.
-1. Select the lower layer device that you're configuring from the list of **IoT Edge devices**.
+1. Select **Devices** under the **Device management** menu.
+1. Select the lower layer IoT Edge device that you're configuring from the list.
 1. Select **Set modules**.
 1. In the **IoT Edge modules** section, select **Add** then choose **Marketplace module**.
 1. Search for and select the **IoT Edge API Proxy** module.

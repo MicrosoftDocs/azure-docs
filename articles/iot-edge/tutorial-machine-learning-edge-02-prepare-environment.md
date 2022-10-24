@@ -8,6 +8,7 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Set up an environment for machine learning on IoT Edge
 

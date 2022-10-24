@@ -3,18 +3,18 @@ title: Concept - Integrate an Azure VMware Solution deployment in a hub and spok
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 10/26/2020
+ms.date: 10/20/2022
 ---
 
 # Integrate Azure VMware Solution in a hub and spoke architecture
 
-This article provides recommendations for integrating an Azure VMware Solution deployment in an existing or a new [Hub and Spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/#hub-spoke-network-topology) on Azure. 
+This article provides recommendations for integrating an Azure VMware Solution deployment in an existing or a new [Hub and Spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/#hub-spoke-network-topology) on Azure.
 
 
 The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
 * Native Azure using IaaS or PaaS services
-* Azure VMware Solution 
+* Azure VMware Solution
 * vSphere on-premises
 
 ## Architecture
@@ -38,17 +38,17 @@ The architecture has the following main components:
 
 - **ExpressRoute gateway:** Enables the communication between Azure VMware Solution private cloud, shared services on Hub virtual network, and workloads running on Spoke virtual networks.
 
-- **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only. 
+- **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only.
 
 
-- **S2S VPN considerations:** For Azure VMware Solution production deployments, Azure S2S VPN isn't supported due to network requirements for VMware HCX. However, you can use it for a PoC deployment.
+- **S2S VPN considerations:** Connectivity to Azure VMware Solution private cloud using Azure S2S VPN is supported as long as it meets the [minimum network requirements](https://docs.vmware.com/en/VMware-HCX/4.4/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) for VMware HCX.
 
 
 - **Hub virtual network:** Acts as the central point of connectivity to your on-premises network and Azure VMware Solution private cloud.
 
 - **Spoke virtual network**
 
-    - **IaaS Spoke:** Hosts Azure IaaS based workloads, including VM availability sets and virtual machine scale sets, and the corresponding network components.
+    - **IaaS Spoke:** Hosts Azure IaaS based workloads, including VM availability sets and Virtual Machine Scale Sets, and the corresponding network components.
 
     - **PaaS Spoke:** Hosts Azure PaaS services using private addressing thanks to [Private Endpoint](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
 

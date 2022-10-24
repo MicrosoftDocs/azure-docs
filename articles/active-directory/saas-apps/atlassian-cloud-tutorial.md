@@ -49,6 +49,8 @@ To configure the integration of Atlassian Cloud into Azure AD, you need to add A
 1. In the **Add from the gallery** section, type **Atlassian Cloud** in the search box.
 1. Select **Atlassian Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
 
 ## Configure and test Azure AD SSO
@@ -107,9 +109,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Single Sign-On](./media/atlassian-cloud-tutorial/configure.png)
    
-   b. Copy **Azure AD Identifier** value from Azure portal, paste it in the **Identity Provider Entity ID** textbox in Atlassian.
+   b. Copy **Login URL** value from Azure portal, paste it in the **Identity Provider SSO URL** textbox in Atlassian.
    
-   c. Copy **Login URL** value from Azure portal, paste it in the **Identity Provider SSO URL** textbox in Atlassian.
+   c. Copy **Azure AD Identifier** value from Azure portal, paste it in the **Identity Provider Entity ID** textbox in Atlassian.
 
    ![Identity Provider SSO URL](./media/atlassian-cloud-tutorial/configuration-azure.png)
 
