@@ -210,11 +210,11 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
    
    a. Select the link in the **Domains** column.
 
-   ![Screenshot showing the SAML/WS-Fed identity provider add domain button.](media/direct-federation/new-saml-wsfed-idp-add-domain.png)
+   ![Screenshot showing the link for adding domains to the SAML/WS-Fed identity provider.](media/direct-federation/new-saml-wsfed-idp-add-domain.png)
 
    b. Next to **Domain name of federating IdP**, type the domain name, and then select **Add**. Repeat for each domain you want to add. When you're finished, select **Done**.
    
-   ![Screenshot showing the SAML/WS-Fed identity provider add domain button.](media/direct-federation/add-domain.png)
+   ![Screenshot showing the Add button in the domain details pane.](media/direct-federation/add-domain.png)
    
 ### To configure federation using the Microsoft Graph API
 
