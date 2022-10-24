@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure Private 5G Core
+title: What's new in Azure Private 5G Core?
 description: Discover what's new in Azure Private 5G Core
 author: b-branco
 ms.author: biancabranco
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/24/2022
 ---
 
-# What's new in Azure Private 5G Core
+# What's new in Azure Private 5G Core?
 
 Azure Automation receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
@@ -26,9 +26,13 @@ This page is updated monthly<!-- TODO: update with agreed frequency -->, so revi
 
 ### Packet core 2210
 
+**Type:** New release
+
 See the Azure Private 5G Core 2210 release notes. <!-- TODO: add link -->
 
 ### CMK and managed identity
+
+**Type:** New feature
 
 Feature description here...
 
