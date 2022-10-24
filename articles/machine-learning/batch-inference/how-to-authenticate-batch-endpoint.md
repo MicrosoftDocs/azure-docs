@@ -178,3 +178,7 @@ job = ml_client.batch_endpoints.invoke(
 You can't run jobs using a managed identity from studio.
 
 ---
+
+## Next steps
+
+* [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)
