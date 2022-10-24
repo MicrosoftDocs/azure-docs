@@ -65,3 +65,8 @@ sections:
           Where is my landing zone located?
         answer: |
           For Azure SQL Database, the landing zone is fully managed and is located in the same region as your target Azure Synapse Analytics workspace. For SQL Server 2022, the landing zone is customer-managed and can be located where you like.
+      - question: |
+          What type of encryption is applied to the landing zone?
+        answer: |
+          For Azure SQL Database, the landing zone is fully managed and is encrypted with the same key as the target Azure Synapse Analytics workspace - either platform-managed or customer-managed. For SQL Server 2022, the landing zone is customer-managed and can be encrypted with either a platform-managed key or a customer-managed key.
+
