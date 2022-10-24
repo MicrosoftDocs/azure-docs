@@ -149,7 +149,7 @@ Consider the following recommendations when you select logic apps for export:
 
    The export tool downloads your project to your selected folder location, expands the project in Visual Studio Code, and deploys any managed connections, if you selected that option.
 
-   ![Screenshot showing the 'Export status` section with export progress.](media/export-from-ise-to-standard-logic-app/export-status.png)
+   ![Screenshot showing the 'Export status' section with export progress.](media/export-from-ise-to-standard-logic-app/export-status.png)
 
 1. After this process completes, Visual Studio Code opens a new workspace. You can now safely close the export window.
 

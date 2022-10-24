@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: dem108
 ms.author: sehan
-ms.reviewer: mopeakande
-ms.date: 10/14/2022
+ms.reviewer: larryfr
+ms.date: 04/29/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 ---
