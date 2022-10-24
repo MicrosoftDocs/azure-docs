@@ -66,7 +66,10 @@ Custom rules can have match rules and rate control rules.
 
 You can configure the following custom match rules:
 
-- *IP allowlist and blocklist*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
+- *IP allowlist and blocklist*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. IP list rules use the RemoteAddress IP contained in the X-Forwarded-For request header and not the SocketAddress that the WAF sees. IP lists can be configured to either block or allow requests where the RemoteAddresss IP matches an IP in the list.
+
+> [!WARNING]
+> CDN WAF IP list custom rules can be bypassed by spoofing the X-Forwarded-For request header. To avoid this, you should use the Azure Front Door standard or premium WAFs that support IP rules using the SocketAddress IP that the WAF sees. For more information, see [Configure an IP restriction rule with a Web Application Firewall for Azure Front Door](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-configure-ip-restriction) for details.
 
 - *Geographic based access control*: You can control access to your web applications based on the country code that's associated with a client's IP address.
 
