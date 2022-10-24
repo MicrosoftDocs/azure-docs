@@ -57,6 +57,10 @@ DELETE method in the Web activity now supports sending a body with HTTP request 
 - Native UI support of parameterization added for 6 additional linked services – SAP ODP, ODBC, Microsoft Access, Informix, Snowflake, and DB2 [Learn more](parameterize-linked-services.md?tabs=data-factory#supported-linked-service-types)
 - Pipeline designer enhancements added in Studio Preview experience – users can view workflow inside pipeline objects like For Each, If Then, etc..  [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/azure-data-factory-updated-pipeline-designer/ba-p/3618755)
 
+### Video summary
+
+> [!VIDEO https://www.youtube.com/watch?v=Bh_VA8n-SL8&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=7]
+
 
 ## August 2022
 
