@@ -14,7 +14,7 @@ ms.custom: "seodec18, mvc"
 
 Containers are becoming the preferred way to package, deploy, and manage cloud applications. Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service.
 
-Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend [Azure Kubernetes Service (AKS)](../aks/index.yml).
+Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend [Azure Kubernetes Service (AKS)](../aks/index.yml). We recommend reading through the [considerations and limitations](#considerations) and the [FAQs](./container-instances-faq.yml) to understand the best practices when deployinng container instances.
 
 ## Fast startup times
 
@@ -72,6 +72,29 @@ Azure Container Instances supports scheduling of [multi-container groups](contai
 ## Virtual network deployment
 
 Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). When deployed into a subnet within your virtual network, container instances can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
+
+## Considerations
+
+There are default limits that require quota increases. Not all quota increases may be approved: [Service quotas and region availability - Azure Container Instances | Microsoft Learn](./container-instances-quotas.md)
+
+Different regions have different default limits, so you should consider the limits in your region: [Resource availability by region - Azure Container Instances | Microsoft Learn](./container-instances-region-availability.md)
+
+If your container group stops working, we suggest trying to restart your container, checking your application code, or your local network configuration before opening a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+Container Images cannot be larger than 15 GB, any images above this size may cause unexpected behavior: [How large can my container image be?](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-faq#how-large-can-my-container-image-be-)
+
+Some Windows Server base images are no longer compatible with Azure Container Instances:  
+[What Windows base OS images are supported?](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported-)
+
+If a container group restarts, the container group’s IP may change. We advise against using a hard coded IP address in your scenario. If you need a static public IP address, use Application Gateway: [Static IP address for container group - Azure Container Instances | Microsoft Learn](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-application-gateway)
+
+There are ports that are reserved for service functionality. We advise you not to use these ports since this will lead to unexpected behavior: [Does the ACI service reserve ports for service functionality?](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-faq#does-the-aci-service-reserve-ports-for-service-functionality-)
+
+ If you’re having trouble deploying or running your container, first check the [Troubleshooting Guide](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-troubleshooting) for common mistakes and issues 
+
+Your container groups may restart due to platform maintenance events. These maintenance events are done to ensure the continuous improvement of the underlying infrastructure: [Container had an isolated restart without explicit user input](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-troubleshooting#container-had-an-isolated-restart-without-explicit-user-input)
+
+ACI does not allow [privileged container operations](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-troubleshooting#cannot-connect-to-underlying-docker-api-or-run-privileged-containers). We advise you to not depend on using the root directory for your scenario 
 
 ## Next steps
 
