@@ -21,7 +21,7 @@ The following sections provide details about how to connect your Provance produc
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-definition.md#add-it-service-management-connector).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-definition.md#install-it-service-management-connector).
 - Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../../app-service/configure-authentication-provider-aad.md).
 
 - User role:  Administrator.

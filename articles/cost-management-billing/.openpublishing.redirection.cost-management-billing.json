@@ -1076,6 +1076,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cost-management-billing/costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cost-management/use-reports.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/use-reports",
             "redirect_document_id": true

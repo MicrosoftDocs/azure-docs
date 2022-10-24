@@ -83,8 +83,8 @@ items:
     href: ../policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/modules/intro-to-azure-virtual-network-nat/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/modules/intro-to-azure-virtual-network-nat/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

@@ -44,9 +44,9 @@ You can achieve the direct line of sight connectivity required to use RDP Shortp
 
 To use RDP Shortpath for managed networks, you must enable a UDP listener on your session hosts. By default, port **3390** is used, although you can use a different port.
 
-The following diagram gives a high-level overview of the RDP Shortpath network connection:
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for managed networks and session hosts joined to an Active Directory domain.
 
-:::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections." lightbox="media/rdp-shortpath-connections.svg":::
+:::image type="content" source="media/rdp-shortpath-managed-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.svg":::
 
 ### Connection sequence
 
@@ -82,6 +82,10 @@ There are four primary components used to establish the RDP Shortpath data flow 
 
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
+
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks and session hosts joined to Azure Active Directory (Azure AD).
+
+:::image type="content" source="media/rdp-shortpath-public-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath-public-networks.svg":::
 
 ### Network Address Translation and firewalls
 
@@ -131,7 +135,7 @@ As RDP Shortpath uses UDP to establish a data flow, if a firewall on your networ
 If your users are in a scenario where RDP Shortpath for both managed network and public networks is available to them, then the first algorithm found will be used. Whichever connection gets established first is what the user will use for that session.
 
 > [!NOTE]
-> RDP Shortpath doesn't support Symmetric NAT, which is the mapping of a single private source *IP:Port* to a unique public destination *IP:Port*. This is because RDP Shortpath needs to reuse the same external port (or NAT binding) used in the initial connection. Where multiple paths are used, for example a highly available firewall pair, external port reuse cannot be guaranteed. For more information about NAT with Azure virtual networks, see [Source Network Address Translation with virtual networks](../virtual-network/nat-gateway/nat-gateway-resource.md#source-network-address-translation).
+> RDP Shortpath doesn't support Symmetric NAT, which is the mapping of a single private source *IP:Port* to a unique public destination *IP:Port*. This is because RDP Shortpath needs to reuse the same external port (or NAT binding) used in the initial connection. Where multiple paths are used, for example a highly available firewall pair, external port reuse cannot be guaranteed. Azure Firewall and Azure NAT Gateway use Symmetric NAT. For more information about NAT with Azure virtual networks, see [Source Network Address Translation with virtual networks](../virtual-network/nat-gateway/nat-gateway-resource.md#source-network-address-translation).
 
 #### Session host virtual network
 

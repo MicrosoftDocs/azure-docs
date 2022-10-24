@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 09/30/2022
 ms.author: victorh
 ---
 
@@ -38,6 +38,8 @@ In order to identify a specific AVD Host Pool as "Source" in the tables below, [
 
 Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/safe-url-list.md), these are the ***mandatory*** rules to allow outbound access to the control plane and core dependent services: 
 
+# [Azure cloud](#tab/azure)
+
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.com |
@@ -50,6 +52,20 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | wvdportalstorageblob.blob.core.windows.net |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | oneocsp.microsoft.com |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | www.microsoft.com |
+
+# [Azure for US Government](#tab/azure-for-us-government)
+
+| Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
+| --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.us |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | WindowsVirtualDesktop, AzureMonitor |
+|Rule Name|IP Address or Group|IP Group or VNet or Subnet IP Address|TCP|443|FQDN|gcs.monitoring.core.usgovcloudapi.net|
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | kms.core.usgovcloudapi.net|
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | mrsglobalstugviffx.blob.core.usgovcloudapi.net |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | wvdportalstorageblob.blob.core.usgovcloudapi.net |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | ocsp.msocsp.com |
 
 > [!NOTE]
 > Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 10/06/2022
 
 ms.author: mimart
 author: msmimart
@@ -15,13 +15,13 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory (Azure AD) identity provider for External Identities
+# Add Azure Active Directory (Azure AD) as an identity provider for External Identities
 
 Azure Active Directory is available as an identity provider option for B2B collaboration by default. If an external guest user has an Azure AD account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Azure AD account.
 
 ## Guest sign-in using Azure Active Directory accounts
 
-Azure Active Directory is available in the list of External Identities identity providers by default. No further configuration is needed to allow guest users to sign in with their Azure AD account using either the invitation flow or a self-service sign-up user flow.
+Azure Active Directory is available in the list of External Identities identity providers by default. No further configuration is needed to allow guest users to sign in with their Azure AD account using either the invitation flow or a [self-service sign-up user flow](self-service-sign-up-overview.md).
 
 ![Azure AD account in the identity providers list](media/azure-ad-account/azure-ad-account-identity-provider.png)
 
@@ -38,7 +38,7 @@ Azure AD account is an identity provider option for your self-service sign-up us
 ![Azure AD account in a self-service sign-up user flow](media/azure-ad-account/azure-ad-account-user-flow.png)
 
 ## Verifying the application's publisher domain
-As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../develop/publisher-verification-overview.md) about this change.) Note that for Azure AD user flows, the publisher’s domain appears only when using a [Microsoft account](microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, do the following:
+As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md), ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../develop/publisher-verification-overview.md) about this change.) For Azure AD user flows, the publisher’s domain appears only when using a [Microsoft account](microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, follow these steps:
 
 1. [Verify your company identity using your Microsoft Partner Network (MPN) account](/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
 1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:

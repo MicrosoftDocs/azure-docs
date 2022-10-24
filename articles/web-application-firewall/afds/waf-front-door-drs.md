@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 08/28/2022
+ms.date: 10/05/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -39,6 +39,8 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 ### Microsoft Threat Intelligence Collection rules
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+
+Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection. For example, rule ID 942440, *SQL Comment Sequence Detected.*, has been disabled, and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
 
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
@@ -220,7 +222,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -264,7 +266,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -423,7 +425,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |931120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Shellshock (CVE-2014-6271)|
@@ -460,7 +462,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|IE XSS Filters - Attack Detected.|
 |941200|IE XSS Filters - Attack Detected.|
-|941210|IE XSS Filters - Attack Detected.|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) found.|
 |941220|IE XSS Filters - Attack Detected.|
 |941230|IE XSS Filters - Attack Detected.|
 |941240|IE XSS Filters - Attack Detected.|
@@ -606,7 +608,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -643,7 +645,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
