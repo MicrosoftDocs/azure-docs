@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 08/03/2022
+ms.date: 10/24/2022
 ---
 # NFS FAQs for Azure NetApp Files
 
@@ -49,6 +49,8 @@ Per RFC 3530, Azure NetApp Files defines a single lease period for all state hel
 For example, if a client mounting a volume becomes unresponsive or crashes beyond the timeouts, the locks will be released. The client can renew its lease explicitly or implicitly by performing operations such as reading a file.   
 
 A grace period defines a period of special processing in which clients can try to reclaim their locking state during a server recovery. The default timeout for the leases is 30 seconds with a grace period of 45 seconds. After that time, the client's lease will be released. 
+
+Azure NetApp Files also supports [breaking file locks](break-file-locks.md).
 
 ## Oracle dNFS
 

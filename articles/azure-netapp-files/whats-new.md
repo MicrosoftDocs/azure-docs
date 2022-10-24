@@ -12,12 +12,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/20/2022
+ms.date: 10/24/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+* [Break file locks]() (Preview)
+    
+    Azure NetApp Files enables you to break file locks on NFS and SMB volumes. 
+    You do not need to register this feature to break file locks. 
 
 ## October 2022
 
