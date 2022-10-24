@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop environment - Azure
-description: Learn about the basic elements of a Azure Virtual Desktop environment, like host pools and app groups.
+description: Learn about the basic elements of an Azure Virtual Desktop environment, like host pools and app groups.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/24/2022
@@ -61,7 +61,7 @@ A workspace is a logical grouping of application groups in Azure Virtual Desktop
 
 ## End users
 
-After you've assigned users to their app groups, they can connect to a Azure Virtual Desktop deployment with any of the Azure Virtual Desktop clients.
+After you've assigned users to their app groups, they can connect to an Azure Virtual Desktop deployment with any of the Azure Virtual Desktop clients.
 
 ## User sessions
 
