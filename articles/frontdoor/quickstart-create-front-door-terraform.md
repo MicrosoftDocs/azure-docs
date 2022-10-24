@@ -5,7 +5,7 @@ services: front-door
 documentationcenter: 
 author: johndowns
 ms.author: jodowns
-ms.date: 10/18/2022
+ms.date: 10/25/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
