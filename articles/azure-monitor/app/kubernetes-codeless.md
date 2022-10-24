@@ -15,6 +15,8 @@ ms.reviewer: abinetabate
 ## Application monitoring without instrumenting the code
 Currently, only Java lets you enable application monitoring without instrumenting the code. To monitor applications in other languages use the SDKs. 
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 ## Java
 Once enabled, the Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.
 

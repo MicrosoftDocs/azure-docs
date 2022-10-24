@@ -44,6 +44,14 @@ For a more structured approach, follow a Learn module for Image Analysis.
 
 You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to get started.
 
+### Extract text from images (preview)
+
+Version 4.0 preview of Image Analysis offers the ability to extract text from images. Compared with the async Computer Vision 3.2 GA Read, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation. [Extract text from images](concept-ocr.md)
+
+
+### Detect people in images (preview)
+
+Version 4.0 preview of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
 
 ### Tag visual features
 
@@ -105,14 +113,6 @@ Analyze the contents of an image to return the coordinates of the *area of inter
 ### Moderate content in images
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
-
-### Read text in images (preview)
-
-Version 4.0 of Image Analysis offers the ability to extract text from images. Contextual information like line number and position is also returned. Text reading is also available through the main [OCR service](overview-ocr.md), but in Image Analysis this feature is optimized for image inputs as opposed to documents. [Reading text in images](concept-ocr.md)
-
-### Detect people in images (preview)
-
-Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
 
 ## Image requirements
 

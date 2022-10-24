@@ -33,18 +33,18 @@ In this tutorial:
 > [!NOTE]
 > The tutorial uses early released versions of notation and notation plugins.  
 
-1. Install notation with plugin support from the [release version](https://github.com/notaryproject/notation/releases/)
+1. Install notation 0.11.0-alpha.4 with plugin support on a Linux environment. You can also download the package for other environments from the [release page](https://github.com/notaryproject/notation/releases/tag/v0.11.0-alpha.4).
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v0.9.0-alpha.1/notation_0.9.0-alpha.1_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v0.11.0-alpha.4/notation_0.11.0-alpha.4_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the notation cli to the desired bin directory in your PATH
     cp ./notation /usr/local/bin
     ```
 
-2. Install the notation Azure Key Vault plugin for remote signing and verification
+2. Install the notation Azure Key Vault plugin for remote signing and verification.
 
     > [!NOTE]
     > The plugin directory varies depending upon the operating system being used.  The directory path below assumes Ubuntu.
@@ -56,13 +56,13 @@ In this tutorial:
     
     # Download the plugin
     curl -Lo notation-azure-kv.tar.gz \
-        https://github.com/Azure/notation-azure-kv/releases/download/v0.3.1-alpha.1/notation-azure-kv_0.3.1-alpha.1_Linux_amd64.tar.gz
+        https://github.com/Azure/notation-azure-kv/releases/download/v0.4.0-alpha.4/notation-azure-kv_0.4.0-alpha.4_Linux_amd64.tar.gz
     
     # Extract to the plugin directory
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv notation-azure-kv
     ```
 
-3. List the available plugins and verify that the plugin is available
+3. List the available plugins and verify that the plugin is available.
 
     ```bash
     notation plugin ls
@@ -73,7 +73,7 @@ In this tutorial:
 > [!NOTE]
 > For easy execution of commands in the tutorial, provide values for the Azure resources to match the existing ACR and AKV resources.
 
-1. Configure AKV resource names
+1. Configure AKV resource names.
 
     ```bash
     # Name of the existing Azure Key Vault used to store the signing keys
@@ -84,7 +84,7 @@ In this tutorial:
     CERT_PATH=./${KEY_NAME}.pem
     ```
 
-2. Configure ACR and image resource names
+2. Configure ACR and image resource names.
 
     ```bash
     # Name of the existing registry example: myregistry.azurecr.io
@@ -106,7 +106,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 
 ### Create a self-signed certificate (Azure CLI)
 
-1. Create a certificate policy file
+1. Create a certificate policy file.
 
     Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts.
 
@@ -128,32 +128,32 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     EOF
     ```
 
-1. Create the certificate
+1. Create the certificate.
 
     ```azure-cli
     az keyvault certificate create -n $KEY_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
-1. Get the Key ID for the certificate
+1. Get the Key ID for the certificate.
 
     ```bash
     KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
     ```
-4. Download public certificate
+4. Download public certificate.
 
     ```bash
     CERT_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'id' -o tsv)
     az keyvault certificate download --file $CERT_PATH --id $CERT_ID --encoding PEM
     ```
 
-5. Add the Key ID to the keys and certs
+5. Add the Key ID to the keys and certs.
 
     ```bash
     notation key add --name $KEY_NAME --plugin azure-kv --id $KEY_ID
     notation cert add --name $KEY_NAME $CERT_PATH
     ```
 
-6. List the keys and certs to confirm
+6. List the keys and certs to confirm.
 
     ```bash
     notation key ls
@@ -162,13 +162,13 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 
 ## Build and sign a container image
 
-1. Build and push a new image with ACR Tasks
+1. Build and push a new image with ACR Tasks.
 
     ```azure-cli
     az acr build -r $ACR_NAME -t $IMAGE $IMAGE_SOURCE
     ```
 
-2. Authenticate with your individual Azure AD identity to use an ACR token
+2. Authenticate with your individual Azure AD identity to use an ACR token.
 
     ```azure-cli
     export USER_NAME="00000000-0000-0000-0000-000000000000"
@@ -176,17 +176,25 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     export NOTATION_PASSWORD=$PASSWORD
     ```
 
-3. Sign the container image
+3. Choose [COSE](https://datatracker.ietf.org/doc/html/rfc8152) or JWS signature envelope to sign the container image.
 
+   - Sign the container image with the COSE signature envelope:
+ 
+    ```bash
+    notation sign --envelope-type cose --key $KEY_NAME $IMAGE
+    ```
+    
+   - Sign the container image with the default JWS signature envelope:
+   
     ```bash
     notation sign --key $KEY_NAME $IMAGE
     ```
-
+    
 ## View the graph of artifacts with the ORAS CLI
 
-ACR support for ORAS artifacts enables a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI
+ACR support for ORAS artifacts enables a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI.
 
-1. Signed images can be view with the ORAS CLI
+1. Signed images can be view with the ORAS CLI.
 
     ```bash
     oras login -u $USER_NAME -p $PASSWORD $REGISTRY
@@ -195,7 +203,7 @@ ACR support for ORAS artifacts enables a linked graph of supply chain artifacts 
 
 ## View the graph of artifacts with the Azure CLI
 
-1. List the manifest details for the container image
+1. List the manifest details for the container image.
 
     ```azure-cli
     az acr manifest show-metadata $IMAGE -o jsonc
@@ -248,4 +256,4 @@ notation verify $IMAGE
 
 ## Next steps
 
-[Enforce policy to only deploy signed container images to Azure Kubernetes Service (AKS) utilizing **ratify** and **gatekeeper**.](https://github.com/Azure/notation-azure-kv/blob/main/docs/nv2-sign-verify-aks.md)
+See [Enforce policy to only deploy signed container images to Azure Kubernetes Service (AKS) utilizing **ratify** and **gatekeeper**.](https://github.com/Azure/notation-azure-kv/blob/main/docs/nv2-sign-verify-aks.md)
