@@ -173,7 +173,7 @@ The wayfinding service calculates the path through specific intervening points. 
 
 [dataset]: creator-indoor-maps.md#datasets
 [tileset]: creator-indoor-maps.md#tilesets
-[routeset]: creator-indoor-maps.md#routeset
+[routeset]: /rest/api/maps/v20220901preview/routeset
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [wayfinding API]: /rest/api/maps/v20220901preview/wayfinding
 [how to manage access to creator services]: how-to-manage-creator.md#access-to-creator-services
