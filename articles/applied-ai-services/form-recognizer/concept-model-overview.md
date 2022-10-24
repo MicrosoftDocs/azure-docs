@@ -33,7 +33,7 @@ Azure Form Recognizer includes several machine-learning based document processin
 | [Identity (ID) document](#identity-id-document)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
-| [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+| [Custom](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
 | [Composed](#composed-custom-model) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 ### Read OCR
