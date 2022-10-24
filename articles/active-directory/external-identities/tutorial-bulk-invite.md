@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 02/16/2022
+ms.date: 10/24/2022
 
 ms.author: mimart
 author: msmimart
