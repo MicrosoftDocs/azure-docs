@@ -206,6 +206,8 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 ## Decode AS2 messages
 
+Select the tab for either Consumption or Standard logic app workflows:
+
 ## [Consumption](#tab/consumption)
 
 ### [AS2 (v2) connector](#tab/consumption/as2-v2)
@@ -267,7 +269,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 ## [Standard](#tab/standard)
 
-### [AS2 (v2) connector](#tab/standard/as2-v2/)
+### [AS2 (v2) connector](#tab/standard/as2-v2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
