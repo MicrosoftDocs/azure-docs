@@ -28,13 +28,25 @@ For more information about how these policies work together during migration, se
 Start by conducting an audit of your existing settings for every authentication method available to users. If you roll back during migration, you'll want a record of the authentication method settings from each of these policies:
 
 - MFA policy
+- SSPR policy
 - Authentication methods policy
 
-In the next sections, we'll walk through an example of the policy migration. We'll review settings in each legacy policy and update the Authentication methods policy. As we proceed, we'll change the migration options to prevent policy misconfiguration and minimize errors during sign-in and SSPR.   
+In the next sections, we'll walk through an example of the policy migration. We'll review settings in each legacy policy and update the Authentication methods policy. As we proceed, we'll change the migration options to prevent policy misconfiguration and minimize errors during sign-in and SSPR. 
 
 ### MFA policy settings
 
 Let's say Contoso has the following methods configured for MFA. Document each authentication method that can be used for MFA. These settings are tenant-wide, so there's no need for user or group information.  
+
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of multifactor authentication policy.":::
+
+### SSPR policy settings
+
+For the next step in the migration, record which users are in scope for SSPR and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you copy them for later use when they become available. 
+
+Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
+
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset-methods.png" alt-text="Screenshot of legacy SSPR policy.":::
+
 
 ### Authentication methods policy settings
 
@@ -44,42 +56,42 @@ In the Authentication methods policy, you'll want to write down which users and 
 
 In our example, Contoso has the following groups set for each method.
 
-## Add MFA policy settings to the Authentication methods policy
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
-After you audit settings, update Authentication methods policy to reflects all settings from your audit. You might need to adjust some settings to account for differences between the policies. 
 
-For example, the Contoso MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. In this case, Contoso needs to adjust the Authentication methods policy accordingly for each method.  
+## Add MFA and SSPR policy settings to the Authentication methods policy
+
+After you audit settings, update Authentication methods policy to reflects all settings from your audit. This task can be done by an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).  
+
+You might need to adjust some settings to account for differences between the policies. For example, the Contoso MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. In this case, Contoso needs to adjust the Authentication methods policy accordingly for each method.  
+
+In the legacy SSPR policy, **Mobile phone** enables both voice call and SMS as available options. But in the Authentication methods policy, **SMS** and **Phone call** are separately managed methods. 
 
 At this point, you can also configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
 
 Let's look at the updated Authentication methods policy for Contoso after legacy MFA policy settings are migrated. 
 
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of the updated Authentication methods policy.":::
+
 ## Migration in progress
 
-Now that you've updated the Authentication methods policy, go through the legacy MFA policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. You can test excluded users by trying to sign in both as a member of the excluded group and again as a non-member. 
+Now that you've updated the Authentication methods policy, go through the legacy MFA and SSPR policies and remove each authentication method one-by-one. Test and validate the changes for each method at a time. You can test excluded users by trying to sign in both as a member of the excluded group and again as a non-member. 
 
-When you determine that authentication works as expected and you no longer need the legacy MFA policy, you can change the migration process to **Migration in Progress**. In this mode, Azure AD ignores the legacy MFA policy for authentication and only follows the Authentication methods policy. The legacy SSPR policy still applies for users who are in scope for SSPR. But any changes made to the legacy MFA policy are ignored if **Migration in Progress** is set.
+When you determine that authentication and SSPR work as expected, you can change the migration process to **Migration in Progress**. In this mode, Azure AD uses the Authentication methods policy for sign-in and SSPR, but still respects changes made to the legacy MFA and SSPR policies. 
+
+For example, let's suppose SMS is disabled in the Authentication methods policy but an admin enables **Text message to phone** in the legacy MFA policy. In that case, users will be able to register and use SMS for sign-in after they enter their username and password. 
 
 <!--- what if you change legacy MFA policy while **Migration in Progress** is set and then roll back to Pre-migration?--->
 
-### Audit SSPR policy settings
-
-For the next step in the migration, record which users are in scope for SSPR and the authentication methods they can use. Make sure you copy security questions for later use after they are available to manage in the Authentication methods policy. Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
-
-
-## Add SSPR policy settings to the Authentication methods policy
-
-After you audit settings, update Authentication methods policy to reflects all settings from your audit. You might need to adjust some settings to account for differences between the policies. 
-
-For example, **Mobile phone** in the legacy SSPR policy enables both voice call and SMS as available options. But in the the Authentication methods policy, **SMS** and **Phone call** are separate authentication methods.  
-
-The following screenshot shows the updated Authentication methods policy for Contoso after legacy SSPR policy settings are migrated.
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
 ## Migration complete
 
 After update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
 
 When you determine that SSPR works as expected and you no longer need the legacy SSPR policy, you can change the migration process to **Migration Complete**. In this mode, Azure AD ignores the legacy MFA and SSPR policies for authentication and only follows the Authentication methods policy. Any changes made to the legacy policies are ignored if **Migration Complete** is set.
+
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/migration-complete.png" alt-text="Screenshot of Migration complete.":::
 
 ## Next steps
 
