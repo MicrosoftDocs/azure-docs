@@ -1,12 +1,12 @@
 ---
 title: How to enable the MedTech service diagnostic settings - Azure Health Data Services
-description: This article explains how to configure the MedTech service diagnostic settings.
+description: This article explains how to enable the MedTech service diagnostic settings.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 10/24/2022
 ms.author: jasteppe
 ---
 
@@ -31,7 +31,9 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
 
    :::image type="content" source="media/iot-diagnostic-settings/add-diagnostic-settings.png" alt-text="Screenshot of select the + Add diagnostic setting." lightbox="media/iot-diagnostic-settings/add-diagnostic-settings.png"::: 
 
-5. The **+ Add diagnostic setting** page will open, requiring configuration inputs from you.   
+5. The **+ Add diagnostic setting** page will open, requiring configuration inputs from you. 
+
+   :::image type="content" source="media/iot-diagnostic-settings/select-all-logs-and-metrics.png" alt-text="Screenshot of diagnostic setting and required fields." lightbox="media/iot-diagnostic-settings/select-all-logs-and-metrics.png":::   
 
    1. Enter a display name in the **Diagnostic setting name** box. For this example, we'll name it **MedTech_service_All_Logs_and_Metrics**. You'll enter a display name of your own choosing.  
    
@@ -57,8 +59,6 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
       |Azure Monitor partner integrations|Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you're already using one of the partners.|
 
    5. Select the **Save** option to save your diagnostic setting selections.
-   
-      :::image type="content" source="media/iot-diagnostic-settings/select-all-logs-and-metrics.png" alt-text="Screenshot of diagnostic setting and required fields." lightbox="media/iot-diagnostic-settings/select-all-logs-and-metrics.png"::: 
 
 6. Once you've selected the **Save** option, the page will display a message that the diagnostic setting for your MedTech service has been saved successfully.
 
@@ -87,5 +87,5 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
 
 To view the frequently asked questions (FAQs) about the MedTech service, see
 
->[!div class="nextstepaction"]
->[MedTech service FAQs](iot-connector-faqs.md)
+> [!div class="nextstepaction"]
+> [MedTech service FAQs](iot-connector-faqs.md)
