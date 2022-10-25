@@ -20,7 +20,7 @@ This article describes the information that you should gather before you open a 
 
 1. Run the following log collection tool, in addition to the details in KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-  - [OMS Linux Agent Log Collector](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
+      - [OMS Linux Agent Log Collector](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
  
 1. Compress the contents of the **/var/opt/microsoft/omsagent/run/automationworker/** folder, and send the compressed file to Azure Support.
  
@@ -50,7 +50,7 @@ This article describes the information that you should gather before you open a 
    2. Select the Automation account that you are troubleshooting, and note the name.
    3. Select **Jobs**.
 
-      :::image type="content" source="/media/collect-data-microsoft-azure-automation-case/select-jobs.png" alt-text="Screenshot showing to select jobs menu from automation account.":::
+      :::image type="content" source="./media/collect-data-microsoft-azure-automation-case/select-jobs.png" alt-text="Screenshot showing to select jobs menu from automation account.":::
 
    4. Choose the job that you are troubleshooting.
    5. In the Job Summary pane, check for the GUID value in **Job ID**.
