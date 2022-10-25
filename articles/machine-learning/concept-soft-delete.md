@@ -83,22 +83,21 @@ Recently deleted workspaces can be managed from the Azure portal.
 
 ### Configure soft delete retention period
 
-The default retention period is 14 days, but can be set to a value between 1 and 14 days to meet data residency or other compliance requirements. 
+The default retention period is 14 days, but can be set to a value between 1 and 14 days to meet data residency or other compliance requirements. To set the retention period from the [Azure portal](https://portal.azure.com), select the workspace and then select properties.
 
 > [!TIP]
 > CLI and SDK operations will fail if a value is provided outside of the 1-14 day range.
 
-
+:::image type="content" source="./media/concept-soft-delete/soft-delete-manage-set-retention-period.png" alt-text="Screenshot of the soft-delete retention period in the portal.":::
 
 ### Delete a workspace
 
-The default behavior when deleting a non-CMK workspace is soft-deleted. Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first.
+The default behavior when deleting a non-CMK workspace is soft-deleted. Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal.
 
 > [!TIP]
 > Deletion of dependent resources is only possible in combination with permanently deleting a workspace, and fails in case a workspace is not permanently deleted to allow for best changes of recovering workspace data.
 
-
-Check the 'permanently delete' flag at time of workspace deletion.
+:::image type="content" source="./media/concept-soft-delete/soft-delete-permanently-delete.png" alt-text="Screenshot of the delete workspace form in the portal.":::
 
 ### List and recover soft-deleted workspaces
 
