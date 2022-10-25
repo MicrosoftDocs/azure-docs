@@ -29235,7 +29235,6 @@
             "redirect_document_id": false
         },
         {
-<<<<<<< HEAD
             "source_path_from_root": "/articles/availability-zones/index.md",
             "redirect_url": "/azure/reliablity/index.md",
             "redirect_document_id": false
