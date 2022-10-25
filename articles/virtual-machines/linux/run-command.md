@@ -1,6 +1,6 @@
 ---
 title: Run scripts in a Linux VM in Azure using action Run Commands
-description: This topic describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
+description: This article describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
@@ -32,7 +32,7 @@ The following restrictions apply when you're using Run Command:
 * The minimum time to run a script is about 20 seconds.
 * Scripts run by default as an elevated user on Linux.
 * You can run one script at a time.
-* Scripts that prompt for information (interactive mode) are not supported.
+* Scripts that prompt for information (interactive mode) aren't supported.
 * You can't cancel a running script.
 * The maximum time a script can run is 90 minutes. After that, the script will time out.
 * Outbound connectivity from the VM is required to return the results of the script.
@@ -42,7 +42,7 @@ The following restrictions apply when you're using Run Command:
 
 ## Available commands
 
-This table shows the list of commands available for Linux VMs. You can use the **RunShellScript** command to run any custom script that you want. When you're using the Azure CLI or PowerShell to run a command, the value that you provide for the `--command-id` or `-CommandId` parameter must be one of the following listed values. When you specify a value that is not an available command, you receive this error:
+This table shows the list of commands available for Linux VMs. You can use the **RunShellScript** command to run any custom script that you want. When you're using the Azure CLI or PowerShell to run a command, the value that you provide for the `--command-id` or `-CommandId` parameter must be one of the following listed values. When you specify a value that isn't an available command, you receive this error:
 
 ```error
 The entity was not found in this Azure location
