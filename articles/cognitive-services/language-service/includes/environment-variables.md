@@ -36,7 +36,7 @@ setx LANGUAGE_ENDPOINT your-endpoint
 
 After you add the environment variables, you may need to restart any running programs that will need to read the environment variables, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
 
-#### [Linux](#tab/linux)
+#### [Linux/macOS](#tab/linux-mac)
 
 ```bash
 export LANGUAGE_KEY=your-key
@@ -46,25 +46,11 @@ export LANGUAGE_KEY=your-key
 export LANGUAGE_ENDPOINT=your-endpoint
 ```
 
-After you add the environment variables, run `source ~/.bashrc` from your console window to make the changes effective.
+**If you're using Linux**: After you add the environment variables, run `source ~/.bashrc` from your console window to make the changes effective.
 
-#### [macOS](#tab/macos)
+**If youre using MacOS**: After you add the environment variables, run `source ~/.bash_profile` from your console window to make the changes effective.
 
-##### Bash
-
-Edit your `.bash_profile`, and add the environment variables:
-
-```bash
-export LANGUAGE_KEY=your-key
-```
-
-```bash
-export LANGUAGE_ENDPOINT=your-endpoint
-```
-
-After you add the environment variables, run `source ~/.bash_profile` from your console window to make the changes effective.
-
-##### Xcode
+#### Xcode
 
 For iOS and macOS development, you set the environment variables in Xcode. For example, follow these steps to set the environment variable in Xcode 13.4.1.
 
