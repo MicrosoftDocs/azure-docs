@@ -127,6 +127,9 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
         - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
         - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256  
 
+> [!Note]  
+> Different Windows versions support different TLS cipher suites and priority order. Refer article [TLS Cipher Suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel) for the corresponding Windows version and the supported cipher suites and default order in which they are chosen by the Microsoft Schannel Provider.
+
 - If **GetNextJob completed with status: -2134347764** is logged, the server is unable to communicate with the Azure File Sync service due to an expired or deleted certificate.  
     - Run the following PowerShell command on the server to reset the certificate used for authentication:
     ```powershell
