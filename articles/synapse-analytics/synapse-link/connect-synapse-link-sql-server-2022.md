@@ -196,10 +196,10 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 ## Start the Azure Synapse Link connection
 
-1. Select **Start**, and then wait a few minutes for the data to be replicated.
+Select **Start**, and then wait a few minutes for the data to be replicated.
 
-   > [!NOTE]
-   > A link connection will start from a full initial load from your source database, followed by incremental change feeds via the change feed feature in SQL Server 2022. For more information, see [Azure Synapse Link for SQL change feed](/sql/sql-server/synapse-link/synapse-link-sql-server-change-feed).
+> [!NOTE]
+> A link connection will start from a full initial load from your source database, followed by incremental change feeds via the change feed feature in SQL Server 2022. For more information, see [Azure Synapse Link for SQL change feed](/sql/sql-server/synapse-link/synapse-link-sql-server-change-feed).
 
 ## Monitor Azure Synapse Link for SQL Server 2022
 
