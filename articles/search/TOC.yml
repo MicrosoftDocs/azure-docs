@@ -144,7 +144,7 @@
     - name: Relevance scoring
       href: index-similarity-and-scoring.md
     - name: Semantic ranking
-      href: semantic-ranking.md
+      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
