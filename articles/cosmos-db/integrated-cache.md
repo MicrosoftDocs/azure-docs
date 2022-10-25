@@ -21,7 +21,7 @@ An integrated cache is automatically configured within the dedicated gateway. Th
 * An item cache for point reads 
 * A query cache for queries
 
-The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
+The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it's a point read or query.
 
 > [!NOTE]
 > Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
@@ -29,7 +29,7 @@ cosmoscachefeedback@microsoft.com
 
 ## Workloads that benefit from the integrated cache
 
-The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, is not the main benefit of the integrated cache because Azure Cosmos DB is already fast without caching.
+The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, isn't the main benefit of the integrated cache because Azure Cosmos DB is already fast without caching.
 
 Point reads and queries that hit the integrated cache will have an RU charge of 0. Cache hits will have a much lower per-operation cost than reads from the backend database.
 
@@ -40,9 +40,9 @@ Workloads that fit the following characteristics should evaluate if the integrat
 -	Many repeated high RU queries
 -	Hot partition key for reads
 
-The biggest factor in expected savings is the degree to which reads repeat themselves. If your workload consistently executes the same point reads or queries within a short period of time, it is a great candidate for the integrated cache. When using the integrated cache for repeated reads, you only use RU's for the first read. Subsequent reads routed through the same dedicated gateway node (within the `MaxIntegratedCacheStaleness` window and if the data hasn't been evicted) won't use throughput.
+The biggest factor in expected savings is the degree to which reads repeat themselves. If your workload consistently executes the same point reads or queries within a short period of time, it's a great candidate for the integrated cache. When using the integrated cache for repeated reads, you only use RUs for the first read. Subsequent reads routed through the same dedicated gateway node (within the `MaxIntegratedCacheStaleness` window and if the data hasn't been evicted) won't use throughput.
 
-Some workloads should not consider the integrated cache, including:
+Some workloads shouldn't consider the integrated cache, including:
 
 -	Write-heavy workloads
 -  Rarely repeated point reads or queries
@@ -68,7 +68,7 @@ The query cache can be used to cache queries. The query cache transforms a query
 
 ### Populating the query cache
 
-- If the cache does not have a result for that query (cache miss), the query is sent to the backend. After the query is run, the cache will store the results for that query
+- If the cache doesn't have a result for that query (cache miss), the query is sent to the backend. After the query is run, the cache will store the results for that query
 
 ### Query cache eviction
 
@@ -107,10 +107,10 @@ This is an improvement from how most caches work and allows the following additi
 
 - You can set different staleness requirements for each point read or query
 - Different clients, even if they run the same point read or query, can configure different `MaxIntegratedCacheStaleness` values
-- If you wanted to modify read consistency when using cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency
+- If you wanted to modify read consistency for cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency
 
 > [!NOTE]
-> When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes.
+> The minimum `MaxIntegratedCacheStaleness` value is 0 and the maximum value is 10 years. When not explicitly configured, the `MaxIntegratedCacheStaleness` defaults to 5 minutes.
 
 To better understand the `MaxIntegratedCacheStaleness` parameter, consider the following example:
 
@@ -128,7 +128,7 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 
 ## Metrics
 
-When using the integrated cache, it is helpful to monitor some key metrics. The integrated cache metrics include:
+It's helpful to monitor some key metrics for the integrated cache. These metrics include:
 
 - `DedicatedGatewayCPUUsage` - CPU usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes.
 - `DedicatedGatewayAverageCPUUsage` - (Deprecated) Average CPU usage across all dedicated gateway nodes.
@@ -136,7 +136,7 @@ When using the integrated cache, it is helpful to monitor some key metrics. The 
 - `DedicatedGatewayMemoryUsage` - Memory usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes. 
 - `DedicatedGatewayAverageMemoryUsage` - (Deprecated) Average memory usage across all dedicated gateway nodes.
 - `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway nodes.
-- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted from the integrated cache due to LRU across all dedicated gateway nodes. This value does not include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
+- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted from the integrated cache due to LRU across all dedicated gateway nodes. This value doesn't include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
 - `IntegratedCacheItemExpirationCount` - The average number of items that are evicted from the integrated cache due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes. 
 - `IntegratedCacheQueryExpirationCount` - The average number of queries that are evicted from the integrated cache due to cached queries exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes.
 - `IntegratedCacheItemHitRate` – The proportion of point reads that used the integrated cache (out of all point reads routed through the dedicated gateway with session or eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
@@ -144,7 +144,7 @@ When using the integrated cache, it is helpful to monitor some key metrics. The 
 
 All existing metrics are available, by default, from the **Metrics** blade (not Metrics classic):
 
-   :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="Screenshot of the Azure Portal that shows the location of integrated cache metrics." border="false":::
+   :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="Screenshot of the Azure portal that shows the location of integrated cache metrics." border="false":::
 
 Metrics are either an average, maximum, or sum across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the aggregated value across all five nodes. It isn't possible to determine the metric values for each individual node.
 
@@ -154,21 +154,21 @@ The below examples show how to debug some common scenarios:
 
 ### I can’t tell if my application is using the dedicated gateway
 
-Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you won't see an error message but the `DedicatedGatewayRequests` will be zero.
+Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you won't see an error message, but the `DedicatedGatewayRequests` will be zero.
 
 ### I can’t tell if my requests are hitting the integrated cache
 
-Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, [connecting with gateway mode](nosql/sdk-connection-modes.md), and [have set session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
+Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests aren't hitting the integrated cache. Check that you're using the dedicated gateway connection string, [connecting with gateway mode](nosql/sdk-connection-modes.md), and [have set session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
 
 ### I want to understand if my dedicated gateway is too small
 
-Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If these values are high (for example, above 0.7-0.8), this is a good sign that the dedicated gateway is large enough.
+Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. High values (for example, above 0.7-0.8) are a good sign that the dedicated gateway is large enough.
 
 If the `IntegratedCacheItemHitRate` or `IntegratedCacheQueryHitRate`is low, look at the `IntegratedCacheEvictedEntriesSize`. If the `IntegratedCacheEvictedEntriesSize` is high, it may mean that a larger dedicated gateway size would be beneficial. You can experiment by increasing the dedicated gateway size and comparing the new `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If a larger dedicated gateway doesn't improve the `IntegratedCacheItemHitRate` or `IntegratedCacheQueryHitRate`, it's possible that reads simply don't repeat themselves enough for the integrated cache to be impactful.
 
 ### I want to understand if my dedicated gateway is too large
 
-It is more difficult to measure if a dedicated gateway is too large than it is to measure if a dedicated gateway is too small. In general, you should start small and slowly increase the dedicated gateway size until the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate` stop improving. In some cases, only one of the two cache hit metrics will be important, not both. For example, if your workload is primarily queries, rather than point reads, the `IntegratedCacheQueryHitRate` is much more important than the `IntegratedCacheItemHitRate`.
+It's more difficult to measure if a dedicated gateway is too large than it is to measure if a dedicated gateway is too small. In general, you should start small and slowly increase the dedicated gateway size until the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate` stop improving. In some cases, only one of the two cache hit metrics will be important, not both. For example, if your workload is primarily queries, rather than point reads, the `IntegratedCacheQueryHitRate` is much more important than the `IntegratedCacheItemHitRate`.
 
 If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheStaleness`, rather than LRU, your cache might be larger than required. If `IntegratedCacheItemExpirationCount` and `IntegratedCacheQueryExpirationCount` combined are nearly as large as `IntegratedCacheEvictedEntriesSize`, you can experiment with a smaller dedicated gateway size and compare performance.
 
