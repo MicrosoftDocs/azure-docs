@@ -634,6 +634,14 @@ Here's an example for including the [Flux image-reflector and image-automation c
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
 ```
 
+### Using Kubelet identity as authentication method for Azure Kubernetes Clusters
+
+When working with Azure Kubernetes clusters, one of the authentication options to use is kubelet identity. In order to let Flux use this, add a parameter --config useKubeletIdentity=true at the time of Flux extension installation.
+
+```console
+az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
+```
+
 ### Red Hat OpenShift onboarding guidance
 
 Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster prior to onboarding of the `microsoft.flux` extension.
