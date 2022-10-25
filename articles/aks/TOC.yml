@@ -374,6 +374,8 @@
           href: api-server-vnet-integration.md
         - name: Bring your own CNI
           href: use-byo-cni.md
+        - name: Use Azure CNI Powered by Cilium (Preview)
+          href: azure-cni-powered-by-cilium.md
         - name: Create an internal load balancer
           href: internal-lb.md
         - name: Use a Standard Load Balancer
