@@ -32,7 +32,7 @@ Single sign-on is available on session hosts using the following operating syste
 
 You can enable SSO for connections to Azure Active Directory (AD)-joined VMs. You can also use SSO to access Hybrid Azure AD-joined VMs, but only after creating a Kerberos Server object. Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services.
 
-You can use the [Windows Desktop client](user-documentation/connect-windows-7-10.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD. You can also have a single sign-on experience when using the [web client](user-documentation/connect-web.md).
+You can use the [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD. You can also have a single sign-on experience when using the [web client](users/connect-web.md).
 
 SSO is currently supported in the Azure Public cloud.
 
@@ -52,6 +52,6 @@ When enabling single sign-on, you'll currently be prompted to authenticate to Az
 ## Next steps
 
 - Check out [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview) to learn how to enable passwordless authentication.
-- If you're accessing Azure Virtual Desktop from our Windows Desktop client, see [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md).
-- If you're accessing Azure Virtual Desktop from our web client, see [Connect with the web client](./user-documentation/connect-web.md).
+- If you're accessing Azure Virtual Desktop from our Windows Desktop client, see [Connect with the Windows Desktop client](./users/connect-windows.md).
+- If you're accessing Azure Virtual Desktop from our web client, see [Connect with the web client](./users/connect-web.md).
 - If you encounter any issues, go to [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md).
