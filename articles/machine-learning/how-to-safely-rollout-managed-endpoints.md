@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.date: 04/29/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
@@ -21,12 +21,10 @@ ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 
 In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. Using blue-green deployment (or safe rollout), you'll introduce a new version of a web service to production by rolling out the change to a small subset of users/requests before rolling it out completely. 
 
-This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. 
+This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
 > [!Note]
 > The main example in this article uses managed online endpoints for deployment. To use Kubernetes endpoints instead, see the notes in this document inline with the managed online endpoints discussion.
-
-For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
 In this article, you'll learn to:
 
@@ -87,6 +85,9 @@ cd cli
 
 The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` in the `cli` directory, and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
+> [!NOTE]
+> The YAML configuration files for Kubernetes online endpoints are in the `endpoints/online/kubernetes/` subdirectory.
+
 # [Python](#tab/python)
 
 ### Clone the examples repository
@@ -103,11 +104,16 @@ cd azureml-examples/sdk/python/endpoints/online/managed
 
 The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. It contains the same content as this article, although the order of the codes is slightly different.
 
+The steps for the Kubernetes online endpoint are based on the [kubernetes-online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/kubernetes/kubernetes-online-endpoints-safe-rollout.ipynb) notebook.
+
 ### Connect to Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace where you'll perform deployment tasks.
 
 1. Import the required libraries:
+
+    > [!NOTE]
+    > If you're using the Kubernetes online endpoint, import the `KubernetesOnlineEndpoint` and `KubernetesOnlineDeployment` class from the `azure.ai.ml.entities` library.
 
     [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=import_libraries)]
 
@@ -154,7 +160,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 ### Create online endpoint
 
-To create an online endpoint, we'll use `ManagedOnlineEndpoint`. This class allows users to configure the following key aspects:
+To create a managed online endpoint, use the `ManagedOnlineEndpoint` class. If you're creating a Kubernetes online endpoint, use the `KubernetesOnlineEndpoint` class. Both of these classes allow users to configure the following key aspects of the endpoint:
 
 * `name` - Name of the endpoint. Needs to be unique at the Azure region level
 * `auth_mode` - The authentication method for the endpoint. Key-based authentication and Azure ML token-based authentication are supported. Key-based authentication doesn't expire but Azure ML token-based authentication does. Possible values are `key` or `aml_token`.
@@ -173,7 +179,7 @@ To create an online endpoint, we'll use `ManagedOnlineEndpoint`. This class allo
 
 ### Create the 'blue' deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class. This class allows user to configure the following key aspects.
+A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment for your managed online endpoint, use the `ManagedOnlineDeployment` class. If you're creating a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class. Both of these classes allow users to configure the following key aspects of the deployment:
 
 **Key aspects of deployment**
 * `name` - Name of the deployment.
@@ -183,7 +189,7 @@ A deployment is a set of resources required for hosting the model that does the 
 * `code_configuration` - the configuration for the source code and scoring script
     * `path`- Path to the source code directory for scoring the model
     * `scoring_script` - Relative path to the scoring file in the source code directory
-* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* `instance_type` - The VM size to use for the deployment. For the list of supported sizes for managed online endpoints, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * `instance_count` - The number of instances to use for the deployment
 
 1. Configure blue deployment:
@@ -287,7 +293,10 @@ If you want to use a REST client to invoke the deployment directly without going
 
 # [Python](#tab/python)
 
-Create a new deployment named `green`:
+Create a new deployment for your managed online endpoint and name the deployment `green`:
+
+> [!NOTE]
+> If you're creating a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class and specify a [Kubernetes instance type](how-to-manage-kubernetes-instance-types.md) in your Kubernetes cluster.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_new_deployment)]
 
@@ -336,7 +345,7 @@ You can test mirror traffic by invoking the endpoint several times:
 
 Mirroring has the following limitations:
 * You can only mirror traffic to one deployment.
-* Mirrored traffic isn't currently supported with K8s.
+* Mirror traffic isn't currently supported for Kubernetes online endpoints.
 * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
 
 Also note the following behavior:
