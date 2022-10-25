@@ -160,8 +160,9 @@ from azure.identity import ManagedIdentityCredential
 subscription_id = "<subscription>"
 resource_group = "<resource-group>"
 workspace = "<workspace>"
+resource_id = "<resource-id>"
 
-ml_client = MLClient(ManagedIdentityCredential("<resource-id>"), subscription_id, resource_group, workspace)
+ml_client = MLClient(ManagedIdentityCredential(resource_id), subscription_id, resource_group, workspace)
 ```
 
 Once authenticated, use the following command to run a batch deployment job:

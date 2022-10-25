@@ -2,7 +2,7 @@
 title: Export using Stream Analytics from Azure Application Insights | Microsoft Docs
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
 ms.topic: conceptual
-ms.date: 10/17/2022
+ms.date: 10/24/2022
 ms.service: stream-analytics
 ms.author: ebnkruma
 ---
@@ -14,7 +14,7 @@ ms.author: ebnkruma
 In this example, we'll create an adaptor that takes data from Application Insights using continuous export, renames and processes some of the fields, and pipes it into Power BI.
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/app/export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 > [!IMPORTANT]
 > Continuous export will be deprecated on February 29, 2024 and is only supported for classic Application Insights resources. Azure Stream Analytics does not support reading from AppInsights with diagnostic settings.
@@ -192,7 +192,7 @@ Wait until the job is Running.
 ## See results in Power BI
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/app/export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 
 Open Power BI with your work or school account, and select the dataset and table that you defined as the output of the Stream Analytics job.
