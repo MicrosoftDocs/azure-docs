@@ -47,7 +47,7 @@ The following steps configure the allocation policy for a device's enrollment:
 
 5. Select **Save**, or proceed to the next section to set the reprovisioning policy.
 
-    ![Select enrollment allocation policy](./media/how-to-reprovision/enrollment-allocation-policy.png)
+    ![Screenshot that shows setting the enrollment allocation policy and IoT hubs in the Azure portal.](./media/how-to-reprovision/enrollment-allocation-policy.png)
 
 ## Set the reprovisioning policy
 
@@ -63,7 +63,7 @@ The following steps configure the allocation policy for a device's enrollment:
 
 4. Select **Save** to enable the reprovisioning of the device based on your changes.
 
-    ![Screenshot that highlights the changes you've made and the Save button.](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Screenshot that shows setting the enrollment reprovisioning policy in the Azure portal.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 ## Send a provisioning request from the device
 

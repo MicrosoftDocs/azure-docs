@@ -86,7 +86,7 @@ To update the settings for a linked IoT hub using the Azure portal:
 
 1. On the **Linked IoT hub details** page:
 
-    :::image type="content" source="media/how-to-manage-linked-iot-hubs/set-linked-iot-hub-properties.png" alt-text="Screenshot that shows the linked IoT hub details page":::.
+    :::image type="content" source="media/how-to-manage-linked-iot-hubs/set-linked-iot-hub-properties.png" alt-text="Screenshot that shows the linked IoT hub details page.":::.
 
     * Use the **Allocation weight** slider or text box to choose a weight between one and 1000. The default is one.
 
@@ -144,7 +144,7 @@ It may become necessary to either rotate or update the symmetric keys for an IoT
 
 ### Use the Azure portal to update keys
 
-You can't update the connection string setting for a linked IoT Hub when using Azure portal. Instead, you need to delete the linked IoT hub from your DPS instance and the readd it.
+You can't update the connection string setting for a linked IoT Hub when using Azure portal. Instead, you need to delete the linked IoT hub from your DPS instance and then re-add it.
 
 To update symmetric keys for a linked IoT hub in the Azure portal:
 
