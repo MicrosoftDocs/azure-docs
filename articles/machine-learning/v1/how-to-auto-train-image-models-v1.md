@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 01/18/2022
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -42,7 +42,7 @@ Automated ML supports model training for computer vision tasks like image classi
     To install the SDK you can either, 
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
     > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
@@ -515,11 +515,11 @@ For a detailed description on task specific hyperparameters, please refer to [Hy
 If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](../how-to-use-automl-small-object-detect.md).
 
 ## Example notebooks
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
 
 
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](../tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](../tutorial-auto-train-image-models.md).
 * [Make predictions with ONNX on computer vision models from AutoML](../how-to-inference-onnx-automl-image-models.md) 
 * [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -22,6 +22,16 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (Preview)
     Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files large volumes break this barrier by enabling volumes of 100 TiB to 500TiB in size. Large volumes enable a variety of use cases and workloads that require large volumes with a single directory namespace.   
     
+## October 2022
+
+* [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview) 
+
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../availability-zones/az-overview.md#availability-zones) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well Architected Framework](/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). 
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
+
+    The application volume group for SAP HANA feature is now generally available. You no longer need to register the feature to use it. 
+
 ## August 2022
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).

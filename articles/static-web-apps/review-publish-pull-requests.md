@@ -38,17 +38,17 @@ There are many benefits of using pre-production environments. For example, you c
 
 Begin by making a change in your repository. You can do it directly on GitHub as shown in the following steps.
 
-1. Navigate to your project's repository on GitHub, then click on the **Branch** button to create a new branch.
+1. Go to your project's repository on GitHub, then select **Branch** to create a new branch.
 
     :::image type="content" source="./media/review-publish-pull-requests/create-branch.png" alt-text="Create new branch using GitHub interface":::
 
-    Type a branch name and click on **Create branch**.
+    Type a branch name and select **Create branch**.
 
-1. Go to your _app_ folder and change some text content. For example, you can change a title or paragraph. Once you found the file you want to edit, click on **Edit** to make the change.
+2. Go to your _app_ folder and change some text content. For example, you can change a title or paragraph. Once you found the file you want to edit, select **Edit** to make the change.
 
     :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Edit file button in GitHub interface":::
 
-1. After you make the changes, click on **Commit changes** to commit your changes to the branch.
+3. After you make the changes, select **Commit changes** to commit your changes to the branch.
 
     :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Commit changes button in GitHub interface":::
 
@@ -60,9 +60,9 @@ Next, create a pull request from this change.
 
     :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Pull request tab in a GitHub repository":::
 
-1. Click on the **Compare & pull request** button of your branch.
+2. Select **Compare & pull request** on your branch.
 
-1. You can optionally fill in some details about your changes, then click on **Create pull request**.
+3. You can optionally fill in some details about your changes, then select **Create pull request**.
 
     :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Pull request creation in GitHub":::
 
@@ -75,11 +75,11 @@ You can assign reviewers and add comments to discuss your changes if needed.
 
 After the pull request is created, the [GitHub Actions](https://github.com/features/actions) deployment workflow runs and deploys your changes to a pre-production environment.
 
-Once the workflow has completed building and deploying your app, the GitHub bot adds a comment to your pull request which contains the URL of the pre-production environment. You can click on this link to see your staged changes.
+Once the workflow has completed building and deploying your app, the GitHub bot adds a comment to your pull request which contains the URL of the pre-production environment. You can select this link to see your staged changes.
 
 :::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Pull request comment with the pre-production URL":::
 
-Click on the generated URL to see the changes.
+Select the generated URL to see the changes.
 
 If you take a closer look at the URL, you can see that it's composed like this: `https://<SUBDOMAIN-PULL_REQUEST_ID>.<AZURE_REGION>.azurestaticapps.net`.
 
@@ -92,7 +92,7 @@ This URL can be referenced in the rest of your workflow to run your tests agains
 
 Once changes are approved, you can publish your changes to production by merging the pull request.
 
-Click on **Merge pull request**:
+Select **Merge pull request**:
 
 :::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Merge pull request button in GitHub interface":::
 

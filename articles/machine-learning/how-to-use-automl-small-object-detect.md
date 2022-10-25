@@ -1,25 +1,23 @@
 ---
 title: Use AutoML to detect small objects in images
 titleSuffix: Azure Machine Learning
-description: Set up Azure Machine Learning automated ML to train small object detection models with the CLI v2 and Python SDK v2 (preview).
+description: Set up Azure Machine Learning automated ML to train small object detection models with the CLI v2 and Python SDK v2.
 author: PhaniShekhar
 ms.author: phmantri
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
-# Train a small object detection model with AutoML (preview)
+# Train a small object detection model with AutoML
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](v1/how-to-use-automl-small-object-detect-v1.md)
 > * [v2 (current version)](how-to-use-automl-small-object-detect.md)
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
 
@@ -60,7 +58,7 @@ training_parameters:
   tile_grid_size: '3x2'
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 ```python
 image_object_detection_job.set_training_parameters(
@@ -87,7 +85,7 @@ search_space:
       values: ['2x1', '3x2', '5x3']
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 ```python
 image_object_detection_job.extend_search_space(
@@ -135,8 +133,8 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* Learn more about [how and where to deploy a model](./how-to-deploy-managed-online-endpoints.md).
 * For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
 * [Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md)

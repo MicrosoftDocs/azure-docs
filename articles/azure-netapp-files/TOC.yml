@@ -81,7 +81,7 @@
           href: application-volume-group-introduction.md
         - name: Requirements and considerations for application volume group for SAP HANA
           href: application-volume-group-considerations.md
-  - name: Data protection 
+  - name: Data protection and resiliency
     items:
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
@@ -91,12 +91,16 @@
         href: backup-introduction.md  
       - name: Requirements and considerations for Azure NetApp Files backup
         href: backup-requirements-considerations.md
-    - name: Cross-region replication
+    - name: Disaster recovery with cross-region replication
       items: 
       - name: Understand cross-region replication
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
+    - name: High availability and resiliency with availability zones
+      items: 
+      - name: Use availability zones for high availability 
+        href: use-availability-zones.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -289,9 +293,9 @@
         href: backup-disable.md
       - name: Delete backups 
         href: backup-delete.md 	
-    - name: Manage cross-region replication
+    - name: Manage replication
       items:
-      - name: Create volume replication
+      - name: Create cross-region replication
         href: cross-region-replication-create-peering.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
@@ -299,6 +303,10 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+    - name: Manage availability zones
+      items:
+      - name: Manage availability zone volume placement
+        href: manage-availability-zone-volume-placement.md
   - name: Develop
     items:
     - name: REST API
@@ -329,6 +337,8 @@
     href: /azure/templates/microsoft.netapp/allversions
   - name: Azure CLI
     href: /cli/azure/netappfiles
+  - name: Manage preview features with Terraform Cloud and AzAPI Provider
+    href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-azure-netapp-files-preview-features-with-terraform/ba-p/3657714
   - name: AzAcSnap command reference 
     items: 
     - name: -c configure

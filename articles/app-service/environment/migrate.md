@@ -123,6 +123,10 @@ Once the new IPs are created, you'll have the new default outbound to the intern
 
 App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Migration won't succeed if the App Service Environment's subnet isn't delegated or it's delegated to a different resource.
 
+### Ensure there are no locks on your resources
+
+Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+
 ### Choose your App Service Environment v3 configurations
 
 Your App Service Environment v3 can be deployed across availability zones in the regions that support it. This architecture is known as [zone redundancy](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can only be configured during App Service Environment creation. If you want your new App Service Environment v3 to be zone redundant, enable the configuration during the migration process. Any App Service Environment that is using the migration feature to migrate can be configured as zone redundant as long as you're using a [region that supports zone redundancy for App Service Environment v3](./overview.md#regions). If you're existing environment is using a region that doesn't support zone redundancy, the configuration option will be disabled and you won't be able to configure it. The migration feature doesn't support changing regions. If you'd like to use a different region, use one of the [manual migration options](migration-alternatives.md).

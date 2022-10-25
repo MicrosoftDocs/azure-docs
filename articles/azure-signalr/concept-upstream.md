@@ -64,7 +64,12 @@ The URL of upstream is not encryption at rest. If you have any sensitive informa
    
    For example, a complete reference would look like the following:
    ```
-   @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
+   {@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)}
+   ```
+   
+   An upstream URL to Azure Function would look like the following:
+   ```
+   https://contoso.azurewebsites.net/runtime/webhooks/signalr?code={@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)}
    ```
 
 > [!NOTE]
