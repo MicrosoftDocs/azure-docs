@@ -2,8 +2,8 @@
 title: "Features: Action and context - Personalizer" 
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -30,6 +30,8 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * Over time, you may add and remove features about context and actions. Personalizer continues to learn from available information.
 * There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions.
 * For categorical features, you don't need to define the possible values, and you don't need to pre-define ranges for numerical values.
+
+Features are sent as part of the JSON payload in a [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) call. Each Rank call is associated with a personalization _event_. By default, Personalizer will automatically assign an event ID and return it in the Rank response. This default behavior is recommended for most users, however, if you need to create your own unique event ID (for example, using a GUID), then you can provide it in the Rank call as an argument. 
 
 ## Supported feature types
 
@@ -168,7 +170,6 @@ You can use several other [Azure Cognitive Services](https://www.microsoft.com/c
 
 Each action:
 
-* Has an _event_ ID. If you already have an event ID, you should submit that. If you do not have an event ID, do not send one, Personalizer creates one for you and returns it in the response of the Rank request. The ID is associated with the Rank event, not the user. If you create an ID, a GUID works best. 
 * Has a list of features.
 * The list of features can be large (hundreds) but we recommend evaluating feature effectiveness to remove features that aren't contributing to getting rewards. 
 * The features in the **actions** may or may not have any correlation with features in the **context** used by Personalizer.
@@ -326,6 +327,88 @@ JSON objects can include nested JSON objects and simple property/values. An arra
     ]
 }
 ```
+
+## Inference Explainability
+Personalizer can help you to understand which features of a chosen action are the most and least influential to then model during inference. When enabled, inference explainability includes feature scores from the underlying model into the Rank API response, so your application receives this information at the time of inference.
+Feature scores empower you to better understand the relationship between features and the decisions made by Personalizer. They can be used to provide insight to your end-users into why a particular recommendation was made, or to further analyze how the data is being used by the underlying model.
+
+Setting the service configuration flag IsInferenceExplainabilityEnabled in your service configuration enables Personalizer to include feature values and weights in the Rank API response. To update your current service configuration, use the [Service Configuration – Update API](/rest/api/personalizer/1.1preview1/service-configuration/update?tabs=HTTP). In the JSON request body, include your current service configuration and add the additional entry: `“IsInferenceExplainabilityEnabled”: true`. If you don’t know your current service configuration, you can obtain it from the [Service Configuration – Get API](/rest/api/personalizer/1.1preview1/service-configuration/get?tabs=HTTP)
+
+```JSON
+{
+  "rewardWaitTime": "PT10M",
+  "defaultReward": 0,
+  "rewardAggregation": "earliest",
+  "explorationPercentage": 0.2,
+  "modelExportFrequency": "PT5M",
+  "logMirrorEnabled": true,
+  "logMirrorSasUri": "https://testblob.blob.core.windows.net/container?se=2020-08-13T00%3A00Z&sp=rwl&spr=https&sv=2018-11-09&sr=c&sig=signature",
+  "logRetentionDays": 7,
+  "lastConfigurationEditDate": "0001-01-01T00:00:00Z",
+  "learningMode": "Online",
+  "isAutoOptimizationEnabled": true,
+  "autoOptimizationFrequency": "P7D",
+  "autoOptimizationStartDate": "2019-01-19T00:00:00Z",
+"isInferenceExplainabilityEnabled": true
+}
+```
+
+### How to interpret feature scores?
+Enabling inference explainability will add a collection to the JSON response from the Rank API called *inferenceExplanation*. This contains a list of feature names and values that were submitted in the Rank request, along with feature scores learned by Personalizer’s underlying model. The feature scores provide you with insight on how influential each feature was in the model choosing the action.
+
+```JSON
+
+{
+  "ranking": [
+    {
+      "id": "EntertainmentArticle",
+      "probability": 0.8
+    },
+    {
+      "id": "SportsArticle",
+      "probability": 0.10
+    },
+    {
+      "id": "NewsArticle",
+      "probability": 0.10
+    }
+  ],
+ "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
+ "rewardActionId": "EntertainmentArticle",
+ "inferenceExplanation": [
+    {
+        "id”: "EntertainmentArticle",
+        "features": [
+            {
+                "name": "user.profileType",
+                "score": 3.0
+            },
+            {
+                "name": "user.latLong",
+                "score": -4.3
+            },
+            {
+                "name": "user.profileType^user.latLong",
+                "score" : 12.1
+            },
+        ]
+  ]
+}
+```
+
+In the example above, three action IDs are returned in the _ranking_ collection along with their respective probabilities scores. The action with the largest probability is the _best action_ as determined by the model trained on data sent to the Personalizer APIs, which in this case is `"id": "EntertainmentArticle"`. The action ID can be seen again in the _inferenceExplanation_ collection, along with the feature names and scores determined by the model for that action and the features and values sent to the Rank API. 
+
+Recall that Personalizer will either return the _best action_ or an _exploratory action_ chosen by the exploration policy. The best action is the one that the model has determined has the highest probability of maximizing the average reward, whereas exploratory actions are chosen among the set of all possible actions provided in the Rank API call. Actions taken during exploration do not leverage the feature scores in determining which action to take, therefore **feature scores for exploratory actions should not be used to gain an understanding of why the action was taken.** [You can learn more about exploration here](./concepts-exploration.md).
+
+For the best actions returned by Personalizer, the feature scores can provide general insight where:
+* Larger positive scores provide more support for the model choosing this action. 
+* Larger negative scores provide more support for the model not choosing this action.
+* Scores close to zero have a small effect on the decision to choose this action.
+
+### Important considerations for Inference Explainability
+* **Increased latency.** Currently, enabling _Inference Explainability_ may significantly increase the latency of Rank API calls due to processing of the feature information. Run experiments and measure the latency in your scenario to see if it satisfies your application’s latency requirements. 
+* **Correlated Features.** Features that are highly correlated with each other can reduce the utility of feature scores. For example, suppose Feature A is highly correlated with Feature B. It may be that Feature A’s score is a large positive value while Feature B’s score is a large negative value. In this case, the two features may effectively cancel each other out and have little to no impact on the model. While Personalizer is very robust to highly correlated features, when using _Inference Explainability_, ensure that features sent to Personalizer are not highly correlated
+* **Default exploration only.**	Currently, Inference Explainability supports only the default exploration algorithm at this time.
 
 ## Next steps
 

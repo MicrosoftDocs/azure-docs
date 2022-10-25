@@ -141,7 +141,6 @@ You can use the download icon in the upper-right corner of any widget to downloa
 | Tenant ID | Unique ID of the tenant |
 | License State | License state |
 | Service ID | Unique identifier used in the package to map the plan with the license checks |
-|
 
 ## Next steps
 

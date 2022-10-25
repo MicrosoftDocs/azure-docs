@@ -36,12 +36,12 @@ NODEPOOL_ID=$(az aks nodepool show --name nodepool1 --cluster-name myAKSCluster 
 
 > [!IMPORTANT]
 > Your AKS node pool must be created or upgraded after Nov 10th, 2021 in order for a snapshot to be taken from it.
->Starting April, 2022 the CLI-preview extension commands for node pool snapshot has changed. In preview CLI please use az aks nodepool snapshot commands, refer [CLI Node Pool Snapshot][az-aks-nodepool-snapshot].
+> If you are using the `aks-preview` Azure CLI extension version `0.5.59` or newer, the commands for node pool snapshot have changed. For updated commands, see the [Node Pool Snapshot CLI reference][az-aks-nodepool-snapshot].
 
 Now, to take a snapshot from the previous node pool you'll use the `az aks snapshot` CLI command.
 
 ```azurecli-interactive
-az aks snapshot create --name MySnapshot --resource-group MyResourceGroup --nodepool-id $NODEPOOL_ID --location eastus
+az aks nodepool snapshot create --name MySnapshot --resource-group MyResourceGroup --nodepool-id $NODEPOOL_ID --location eastus
 ```
 
 ## Create a node pool from a snapshot
@@ -49,7 +49,7 @@ az aks snapshot create --name MySnapshot --resource-group MyResourceGroup --node
 First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
 
 ```azurecli-interactive
-SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
+SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
 Now, we can use the command below to add a new node pool based off of this snapshot.
@@ -65,7 +65,7 @@ You can upgrade a node pool to a snapshot configuration so long as the snapshot 
 First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
 
 ```azurecli-interactive
-SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
+SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
 Now, we can use this command to upgrade this node pool to this snapshot configuration.
@@ -84,7 +84,7 @@ When you create a cluster from a snapshot, the cluster original system pool will
 First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
 
 ```azurecli-interactive
-SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
+SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
 Now, we can use this command to create this cluster off of the snapshot configuration.

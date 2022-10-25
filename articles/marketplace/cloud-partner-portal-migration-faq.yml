@@ -30,7 +30,6 @@ sections:
           | Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in Partner Center](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
           | API integrations with existing [Cloud Partner Portal APIs](cloud-partner-portal-api-overview.md) | Existing Cloud Partner Portal APIs are still supported and your existing integrations still work. Learn more at [Are the Cloud Partner Portal REST APIs still supported?](#are-the-cloud-partner-portal-rest-apis-still-supported-) |
           | Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. There are differences between how analytics reports display in CPP and Partner Center. For example, **Seller Insights** in CPP has an **Orders & Usage** tab that displays data for usage-based offers and non-usage-based offers, while in Partner Center the **Orders** page has a separate tab for SaaS Offers. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](analytics.md). |
-          |||
           
       - question: |
           Do I need to create a new account to manage my offers in Partner Center?
@@ -51,7 +50,6 @@ sections:
           | History page | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | The History feature is accessible from each offer. |
           | Insights dashboard | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/insights/analytics/overview](https://partner.microsoft.com/dashboard/insights/analytics/overview) |
           | Payout report | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
-          |||
 
       - question: |
           What about offers I published in the Cloud Partner Portal?
@@ -100,4 +98,3 @@ sections:
           | --- | --- | --- |
           | POST Publish, GoLive, Cancel | For migrated offers, the response header will have a different format but will continue to work in the same way, denoting a relative path to retrieve the operation status. | When sending any of the corresponding POST requests for an offer, the Location header will have one of two formats depending on the migration status of the offer: <ul><li>Non-migrated offers: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrated offers: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
           | GET Operation | For offers that previously supported a 'notification-email' field in the response, this field will be deprecated and no longer returned for migrated offers. | For migrated offers, we'll no longer send notifications to the list of emails specified in the requests. Instead, the API service will align with the notification email process in Partner Center to send emails. Specifically, notifications of operation progress will be sent to the email address set in the Seller contact info section of your account settings in Partner Center.<br><br>Ensure the email address set in the Contact info section in the [Account settings](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#developer) in Partner Center is correct to receive notifications. |
-          |||

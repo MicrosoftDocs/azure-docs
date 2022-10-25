@@ -64,6 +64,10 @@
       href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Restrict guest user access
       href: users-restrict-guest-permissions.md
+    - name: Clean up unmanaged accounts
+      href: clean-up-unmanaged-azure-ad-accounts.md 
+    - name: Clean up stale guest accounts
+      href: clean-up-stale-guest-accounts.md
     - name: Dynamic groups and guests   
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Organization (tenant)
@@ -110,6 +114,8 @@
         href: groups-dynamic-rule-more-efficient.md
       - name: Change group membership type  
         href: groups-change-type.md
+    - name: Group as memberOf a dynamic group
+      href: groups-dynamic-rule-member-of.md
     - name: Add members in bulk
       href: groups-bulk-import-members.md
     - name: Remove members in bulk
@@ -124,6 +130,8 @@
       href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Manage group owners
       href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Manage group writeback
+      href: groups-write-back-portal.md
     - name: Manage groups in groups
       href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Add group access to SaaS apps

@@ -12,7 +12,7 @@ ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 
 ---
 
-# Set up a GitHub Actions workflow to deploy your static website in Azure Storage
+# Use GitHub Actions workflow to deploy your static website in Azure Storage
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy a static site to an Azure storage account. Once you have set up a GitHub Actions workflow, you will be able to automatically deploy your site to Azure from GitHub when you make changes to your site's code.
 
@@ -152,7 +152,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -240,7 +240,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -358,7 +358,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub actions run":::
+    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub Actions run":::
 
 ## Clean up resources
 

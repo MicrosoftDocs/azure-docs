@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: ADSyncTools PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADSyncTools.psm1 PowerShell module.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.date: 11/30/2020
@@ -346,12 +346,12 @@ with: UserPrincipalName, Mail, SourceAnchor, DistinguishedName, CsObjectId, Obje
 ### EXAMPLES
 #### EXAMPLE 1
 ```
-Export-ADSyncToolsDisconnectors -SyncObjectType 'PublicFolder'
+Export-ADSyncToolsAadDisconnectors -SyncObjectType 'PublicFolder'
 ```
 Exports to CSV all PublicFolder Disconnector objects
 #### EXAMPLE 2
 ```
-Export-ADSyncToolsDisconnectors
+Export-ADSyncToolsAadDisconnectors
 ```
 Exports to CSV all Disconnector objects
 ### PARAMETERS
@@ -1358,6 +1358,7 @@ Accept wildcard characters: False
 ```
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
+
 ## Set-ADSyncToolsTls12
 ### SYNOPSIS
 Sets Client\Server TLS 1.2 settings for .NET Framework
@@ -1741,6 +1742,97 @@ Aliases: cf
 Required: False
 Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+#### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
+
+## Get-ADSyncToolsDuplicateUsersSourceAnchor
+### SYNOPSIS
+Gets a list of all the objects with "Source anchor has changed" error.
+### SYNTAX
+```
+Get-ADSyncToolsDuplicateUsersSourceAnchor [-ADConnectorName] <Object> [<CommonParameters>]
+```
+### DESCRIPTION
+There are certain scenarios like M&A where Customers add a new forest to Azure AD Connect with duplicate user objects. 
+This causes multiple sync errors if the new connector precedence is higher for the newly joined users. This cmdlet will provide a list of all the objects with "Source anchor has changed" errors.
+
+### EXAMPLES
+#### EXAMPLE 1
+```
+Get-ADSyncToolsDuplicateUsersSourceAnchor -ADConnectorName Contoso.com
+```
+### PARAMETERS
+#### -ADConnectorName
+AD connector name for which user source anchors needs to be repaired
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+Required: true
+Position: 1
+Default value: 
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+#### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
+
+## Set-ADSyncToolsDuplicateUsersSourceAnchor
+### SYNOPSIS
+Fixes all the objects with "Source Anchor has changed" error.
+### SYNTAX
+```
+et-ADSyncToolsDuplicateUsersSourceAnchor [-DuplicateUserSourceAnchorInfo] <DuplicateUserSourceAnchorInfo> [-ActiveDirectoryCredential <PSCredential>] [-OverridePrompt <Boolean>] [<CommonParameters>]
+```
+### DESCRIPTION
+This cmdlet takes in the list of objects from Get-ADSyncToolsDuplicateUsersSourceAnchor as pipeline input. It then fixes the sync errors by updating the msDS-ConsistencyGuid attribute with the sourceAnchor/immutableID of the original object. 
+The cmdlet has an optional parameter - "Override prompt", which is False by default. If it is set to True, then the user will not be prompted when updating the msDS-ConsistencyGuid attribute.
+
+### EXAMPLES
+#### EXAMPLE 1
+```
+Get-ADSyncToolsDuplicateUsersSourceAnchor -ADConnectorName Contoso.lab | Set-ADSyncToolsDuplicateUsersSourceAnchor
+```
+#### EXAMPLE 2
+```
+Get-ADSyncToolsDuplicateUsersSourceAnchor -ADConnectorName Contoso.lab | Set-ADSyncToolsDuplicateUsersSourceAnchor -OverridePrompt $true
+```
+### PARAMETERS
+#### -DuplicateUserSourceAnchorInfo
+User list for which the source anchor needs to be fixed
+```yaml
+Type: DuplicateUserSourceAnchorInfo
+Parameter Sets: (All)
+Aliases:
+Required: True
+Position: 1
+Default value: 
+Accept pipeline input: True (ByValue, ByPropertyName)
+Accept wildcard characters: False
+```
+#### -ActiveDirectoryCredential
+AD EA/DA Admin Credentials, If not provided default credentials will be used
+```yaml
+Type: PSCredential
+Parameter Sets: (All)
+Aliases:
+Required: False
+Position: Named
+Default value: 
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+#### -OverridePrompt
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

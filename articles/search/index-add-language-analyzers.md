@@ -7,8 +7,8 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/08/2021
+ms.topic: how-to
+ms.date: 06/24/2022
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
@@ -20,7 +20,7 @@ You should consider a language analyzer when awareness of word or sentence struc
 
 You should also consider language analyzers when content consists of non-Western language strings. While the [default analyzer (Standard Lucene)](search-analyzers.md#default-analyzer) is language-agnostic, the concept of using spaces and special characters (hyphens and slashes) to separate strings is more applicable to Western languages than non-Western ones. 
 
-For example, in Chinese, Japanese, Korean (CJK), and other Asian languages, a space is not necessarily a word delimiter. Consider the following Japanese string. Because it has no spaces, a language-agnostic analyzer would likely analyze the entire string as one token, when in fact the string is actually a phrase.
+For example, in Chinese, Japanese, Korean (CJK), and other Asian languages, a space isn't necessarily a word delimiter. Consider the following Japanese string. Because it has no spaces, a language-agnostic analyzer would likely analyze the entire string as one token, when in fact the string is actually a phrase.
 
 ```
 これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
@@ -37,7 +37,7 @@ Azure Cognitive Search supports 35 language analyzers backed by Lucene, and 50 l
 
 Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene language analyzers are faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization, word decompounding (in languages like German, Danish, Dutch, Swedish, Norwegian, Estonian, Finish, Hungarian, Slovak) and entity recognition (URLs, emails, dates, numbers). If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit. You can use [Analyze API](/rest/api/searchservice/test-analyzer) to see the tokens generated from a given text using a specific analyzer.
 
-Indexing with Microsoft analyzers is on average two to three times slower than their Lucene equivalents, depending on the language. Search performance should not be significantly affected for average size queries. 
+Indexing with Microsoft analyzers is on average two to three times slower than their Lucene equivalents, depending on the language. Search performance shouldn't be significantly affected for average size queries. 
 
 ### English analyzers
 
@@ -45,19 +45,19 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 + Lucene's English analyzer extends the Standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per Porter Stemming algorithm, and removes English stop words.  
 
-+ Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better which results in more relevant search results 
++ Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better which results in more relevant search results.
 
 ## How to specify a language analyzer
 
-Set the analyzer during index creation, before it's loaded with data.
+Set the analyzer during index creation before it's loaded with data.
 
 1. In the field definition, make sure the field is attributed as "searchable" and is of type Edm.String.
 
 1. Set the "analyzer" property to one of the language analyzers from the [supported analyzers list](#language-analyzer-list).
 
-   The "analyzer" property is the only property that will accept a language analyzer, and it's used for both indexing and queries. Other analyzer-related properties ("searchAnalyzer" and "indexAnalyzer") will not accept a language analyzer.
+   The "analyzer" property is the only property that will accept a language analyzer, and it's used for both indexing and queries. Other analyzer-related properties ("searchAnalyzer" and "indexAnalyzer") won't accept a language analyzer.
 
-Language analyzers cannot be customized. If an analyzer isn't meeting your requirements, you can try creating a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and add filters for pre- and post-tokenization processing.
+Language analyzers can't be customized. If an analyzer isn't meeting your requirements, create a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and then add filters for pre- and post-tokenization processing.
 
 The following example illustrates a language analyzer specification in an index:
 

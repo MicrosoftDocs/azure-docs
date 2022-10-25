@@ -4,9 +4,8 @@ description: Use the on-premises management console to get a comprehensive view 
 author: rkarlin
 manager: rkarlin
 ms.author: rkarlin
-ms.date: 11/09/2021
+ms.date: 06/12/2022 
 ms.topic: how-to
-ms.service: azure
 ---
 
 
@@ -51,7 +50,7 @@ The following tools are available for viewing devices and device information fro
 
 To view alerts associated with a specific zone:
 
-- Select the alert icon form the **Zone** window. 
+- Select the alert icon from the **Zone** window. 
 
   :::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view-v2.png" alt-text="The default Business Unit view with examples.":::
 
@@ -65,7 +64,11 @@ To view the device inventory associated with a specific zone:
 
   :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-business-unit.png" alt-text="The device inventory screen will appear.":::
 
-For more information, see [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+For more information, see:
+
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 ## View additional zone information
 
@@ -77,7 +80,7 @@ The following additional zone information is available:
 
 - **Connectivity status**: If a sensor is disconnected, connect from the sensor. See [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console). 
 
-- **Update progress**: If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
+- **Update progress**: If the connected sensor is being upgraded, upgrade statuses will appear. During the upgrade, the on-premises management console doesn't receive device information from the sensor.
 
 ## Next steps
 

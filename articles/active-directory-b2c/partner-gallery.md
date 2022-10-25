@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 09/14/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -21,7 +21,7 @@ Our ISV partner network extends our solution capabilities to help you build seam
 To be considered into this sample documentation, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx). For any additional questions, send an email to [SaaSApplicationIntegrations@service.microsoft.com](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 >[!NOTE]
->The [Azure Active Directory B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) also provides sample custom policies from the community.
+>The [Azure Active Directory B2C community site on GitHub](https://github.com/azure-ad-b2c/partner-integrations) also provides sample custom policies from the community.
 
 ## Identity verification and proofing
 
@@ -29,6 +29,7 @@ Microsoft partners with the following ISVs for identity verification and proofin
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a deduce logo.](./media/partner-gallery/deduce-logo.png) | [Deduce](./partner-deduce.md) is an identity verification and proofing provider focused on stopping account takeover and registration fraud. It helps combat identity fraud and creates a trusted user experience. |
 | ![Screenshot of a eid-me logo](./media/partner-gallery/eid-me-logo.png) | [eID-Me](./partner-eid-me.md) is an identity verification and decentralized digital identity solution for Canadian citizens. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |
 | ![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
 | ![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
@@ -56,7 +57,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
 | ![Screenshot of a whoiam logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. |
-| ![Screenshot of a xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (PII) through the xID API. |
+| ![Screenshot of a xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified personal information through the xID API. |
 
 ## Role-based access control 
  
@@ -64,8 +65,10 @@ Microsoft partners with the following ISVs for role-based access control.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a grit IAM logo.](./media/partner-gallery/grit-logo.png) | [Grit IAM B2B2C](./partner-grit-iam.md) provides authentication, authorization, profile and role management, and delegated B2B SaaS application administration. It also enables role-based access control (RBAC) for end-users of Azure AD B2C.|
 | ![Screenshot of a n8identity logo](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md) is an Identity-as-a-Service governance platform that provides solution to address customer accounts migration and Customer Service Requests (CSR) administration running on Microsoft Azure. |
 | ![Screenshot of a Saviynt logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) cloud-native platform promotes better security, compliance, and governance through intelligent analytics and cross application integration for streamlining IT modernization. |
+| ![Screenshot of a WhoIAM Rampart logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM Rampart](./partner-whoiam-rampart.md) provides a fully integrated helpdesk and invitation-gated user registration experience. It allows support specialists to efficiently perform tasks like resetting passwords and multi-factor authentication without using Azure. It also enables apps and role-based access control (RBAC) for end-users of Azure AD B2C. |
 
 ## Secure hybrid access to on-premises application
 
@@ -99,6 +102,13 @@ Microsoft partners with the following ISVs for Web Application Firewall (WAF).
 |  ![Screenshot of Azure WAF logo](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-azure-web-application-firewall.md) provides centralized protection of your web applications from common exploits and vulnerabilities.  |
 ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
 
+## Developer tools 
+
+Microsoft partners with the following ISVs for tools that can help with implementation of your authentication solution.
+
+| ISV partner | Description and integration walkthroughs |
+|:-------------------------|:--------------|
+| ![Screenshot of a grit ief editor logo.](./media/partner-gallery/grit-logo.png) | [Grit Visual Identity Experience Framework Editor](./partner-grit-editor.md) provides a low code/no code experience for developers to create sophisticated authentication user journeys. The tool comes with integrated debugger and templates for the most used scenarios.|
 
 ## Additional information
 

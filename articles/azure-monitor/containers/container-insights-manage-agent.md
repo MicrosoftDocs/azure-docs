@@ -3,12 +3,17 @@ title: How to manage the Container insights agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Container insights.
 ms.topic: conceptual
 ms.date: 07/21/2020
-
+ms.reviewer: aul
 ---
 
 # How to manage the Container insights agent
 
 Container insights uses a containerized version of the Log Analytics agent for Linux. After initial deployment, there are routine or optional tasks you may need to perform during its lifecycle. This article details on how to manually upgrade the agent and disable collection of environmental variables from a particular container. 
+
+
+>[!NOTE]
+>The Container Insights agent name has changed from  OMSAgent to Azure Monitor Agent, along with a few other resoruce names. This doc reflects the new name. Please update your commands, alerts and scripts referencing the old name. Read more about the name change in [our blog post](https://techcommunity.microsoft.com/t5/azure-monitor-status-archive/name-update-for-agent-and-associated-resources-in-azure-monitor/ba-p/3576810). 
+>
 
 ## How to upgrade the Container insights agent
 
@@ -28,7 +33,7 @@ To install the new version of the agent, follow the steps described in the [enab
 
 After you've re-enabled monitoring, it might take about 15 minutes before you can view updated health metrics for the cluster. To verify the agent upgraded successfully, you can either:
 
-* Run the command: `kubectl get pod <omsagent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output.
+* Run the command: `kubectl get pod <ama-logs-agent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for Azure Monitor Agent in the *Containers* section of the output.
 * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
 The version of the agent shown should match the latest version listed on the [Release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) page.

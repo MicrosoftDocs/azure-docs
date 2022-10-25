@@ -16,7 +16,7 @@ When you use a Wait activity in a pipeline, the pipeline waits for the specified
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## Create a Fail activity with UI
+## Create a Wait activity with UI
 
 To use a Wait activity in a pipeline, complete the following steps:
 

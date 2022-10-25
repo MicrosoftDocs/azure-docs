@@ -161,11 +161,24 @@ New-SAPSystem -Parameterfile DEV-WEEU-SAP01-X01.tfvars
 -Type sap_system
 ```
 
+# [Azure DevOps](#tab/devops)
+
+Open (https://dev.azure.com) and go to your Azure DevOps Services project.
+
+> [!NOTE]
+> Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
+
+The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00' folder. 
+
+Run the pipeline by selecting the _SAP system deployment_ pipeline from the Pipelines section. Enter 'DEV-WEEU-SAP01-X00' as the SAP System configuration name.
+
+You can track the progress in the Azure DevOps Services portal. Once the deployment is complete, you can see the SAP System details in the _Extensions_ tab.
+
 ---
 
 ### Output files
 
-The deployment will create a Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for the Ansible playbooks.
+The deployment will create an Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for the Ansible playbooks.
 ## Next steps
 
 > [!div class="nextstepaction"]

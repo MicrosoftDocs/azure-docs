@@ -5,7 +5,7 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/10/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
 ---
 

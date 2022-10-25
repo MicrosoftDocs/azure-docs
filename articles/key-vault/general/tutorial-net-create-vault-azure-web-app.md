@@ -282,7 +282,7 @@ dotnet add package Azure.Security.KeyVault.Secrets
 
 #### Update the code
 
-Find and open the Startup.cs file in your akvwebapp project. 
+Find and open the Startup.cs file for .NET 5.0 or earlier, or Program.cs file for .NET 6.0 in your akvwebapp project. 
 
 Add these lines to the header:
 
@@ -292,7 +292,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add the following lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
+Add the following lines before the `app.UseEndpoints` call (.NET 5.0 or earlier) or `app.MapGet` call (.NET 6.0) , updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -312,11 +312,22 @@ KeyVaultSecret secret = client.GetSecret("<mySecret>");
 string secretValue = secret.Value;
 ```
 
+##### .NET 5.0 or earlier
+
 Update the line `await context.Response.WriteAsync("Hello World!");` to look like this line:
 
 ```csharp
 await context.Response.WriteAsync(secretValue);
 ```
+
+##### .NET 6.0
+
+Update the line `app.MapGet("/", () => "Hello World!");` to look like this line:
+
+```csharp
+app.MapGet("/", () => secretValue);
+```
+
 
 Be sure to save your changes before continuing to the next step.
 

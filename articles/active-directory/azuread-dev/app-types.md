@@ -1,5 +1,5 @@
 ---
-title: Application types in v1.0 | Azure
+title: Application types in v1.0
 description: Describes the types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 author: rwike77

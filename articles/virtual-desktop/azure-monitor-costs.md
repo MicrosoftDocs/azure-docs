@@ -165,7 +165,7 @@ Using the default Pay-as-you-go model for [Log Analytics pricing](https://azure.
 
 This section will explain how to measure and manage data ingestion to reduce costs.
 
-To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-access-control.md).
+To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-overview.md#access-control).
 
 >[!NOTE]
 >Removing data points will impact their corresponding visuals in Azure Monitor for Azure Virtual Desktop.
@@ -207,7 +207,7 @@ You can also reduce costs by removing performance counters. To learn how to remo
 
 ### Manage Windows Event Logs
 
-Windows Events are unlikely to cause a spike in data ingestion when all hosts are healthy. An unhealthy host can increase the number of events sent to the log, but the information can be critical to fixing the host's issues. We recommend keeping them. To learn more about how to manage Windows Event Logs, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
+Windows Events are unlikely to cause a spike in data ingestion when all hosts are healthy. An unhealthy host can increase the number of events sent to the log, but the information can be critical to fixing the host's issues. We recommend keeping them. To learn more about how to manage Windows Event Logs, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
 
 ### Manage diagnostics
 

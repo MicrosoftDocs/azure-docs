@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric disaster recovery 
 description: Azure Service Fabric offers capabilities to deal with disasters. This article describes the types of disasters that can occur and how to deal with them.
-author: masnider
-
-ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 # Disaster recovery in Azure Service Fabric
 A critical part of delivering high availability is ensuring that services can survive all different types of failures. This is especially important for failures that are unplanned and outside your control. 

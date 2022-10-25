@@ -1,16 +1,16 @@
 ---
-title: 'Connect Azure Front Door Premium to an App service origin with Private Link'
+title: 'Connect Azure Front Door Premium to an App Service origin with Private Link'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a webapp privately.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 06/09/2022
 ms.author: duau
 ---
 
-# Connect Azure Front Door Premium to an App service origin with Private Link
+# Connect Azure Front Door Premium to an App Service origin with Private Link
 
 This article will guide you through how to configure Azure Front Door Premium tier to connect to your App service privately using the Azure Private Link service.
 
@@ -19,8 +19,8 @@ This article will guide you through how to configure Azure Front Door Premium ti
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Create a [Private Link](../../private-link/create-private-link-service-portal.md) service for your origin web servers.
 
-> [!Note]
-> Private Endpoint is available in public regions for PremiumV2-tier, PremiumV3-tier Windows web apps, Linux web apps, and the Azure Functions Premium plan (sometimes referred to as the Elastic Premium plan).
+> [!NOTE]
+> Private endpoints requires your App Service plan or function hosting plan to meet some requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
 
 ## Sign in to Azure
 
@@ -43,7 +43,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter a name to identify this storage blog origin. |
-    | Origin Type | Storage (Azure Blobs) |
+    | Origin Type | App services |
     | Host name | Select the host from the dropdown that you want as an origin. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
     | HTTP port | 80 (default) |

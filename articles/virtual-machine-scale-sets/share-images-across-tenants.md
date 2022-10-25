@@ -13,12 +13,12 @@ ms.custom: devx-track-azurecli
 ---
 # Share images across tenants with Azure Compute Gallery
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
-
 ## Create a scale set using Azure CLI
+
+> [!IMPORTANT]
+> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant. 
 
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 

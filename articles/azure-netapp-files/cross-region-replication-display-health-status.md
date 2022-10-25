@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 05/16/2022
 ms.author: anfdocs
 ---
 # Display health and monitor status of replication relationship 
@@ -58,9 +58,9 @@ Follow the following steps to create [alert rules in Azure Monitor](../azure-mon
 5.	From the Condition tab, select **Add condition**. From there, find a signal called “**is volume replication healthy**”.
 6.	There you'll see **Condition of the relationship, 1 or 0** and the **Configure Signal Logic** window is displayed.
 7.	To check if the replication is _unhealthy_: 
-    * Set **Operator** to `Less than or equal to`.
+    * Set **Operator** to `Less than`.
     * Set **Aggregation type** to `Average`. 
-    * Set **Threshold** value to `0`.
+    * Set **Threshold** value to `1`.
     * Set **Unit** to `Count`.
 8.	To check if the replication is _healthy_: 
     * Set **Operator** to `Greater than or equal to`.

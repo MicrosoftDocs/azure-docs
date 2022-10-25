@@ -95,7 +95,7 @@ If you look at the availability set in the portal by going to **Resource Groups*
 ![Availability set in the portal](./media/tutorial-availability-sets/fd-ud.png)
 
 > [!NOTE]
-> Under certain circumstances, 2 VMs in the same AvailabilitySet could share the same FaultDomain. This can be confirmed by going into your availability set and checking the Fault Domain column. This can be causeed by the following sequence of events while deploying the VMs:
+> Under certain circumstances, 2 VMs in the same AvailabilitySet could share the same FaultDomain. This can be confirmed by going into your availability set and checking the Fault Domain column. This can be caused by the following sequence of events while deploying the VMs:
 > 1. The 1st VM is Deployed
 > 1. The 1st VM is Stopped/Deallocated
 > 1. The 2nd VM is Deployed.

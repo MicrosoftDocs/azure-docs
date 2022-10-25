@@ -9,6 +9,8 @@
   items:
   - name: Get started with Azure Digital Twins Explorer
     href: quickstart-azure-digital-twins-explorer.md
+  - name: Get started with 3D Scenes Studio
+    href: quickstart-3d-scenes-studio.md
 - name: Tutorials
   items:
   - name: Code a client app
@@ -41,7 +43,7 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md 
-  - name: Data history (with Azure Data Explorer) (preview)
+  - name: Data history (with Azure Data Explorer)
     href: concepts-data-history.md
   - name: Querying with the Azure Data Explorer plugin
     href: concepts-data-explorer-plugin.md
@@ -59,6 +61,8 @@
     href: concepts-event-notifications.md
   - name: Endpoints and event routes
     href: concepts-route-events.md
+  - name: 3D Scenes Studio
+    href: concepts-3d-scenes-studio.md
   - name: Security for Azure Digital Twins solutions
     href: concepts-security.md  
   - name: High availability and disaster recovery
@@ -88,7 +92,7 @@
   - name: Use live execution environment
     items:
     - name: Use Azure Digital Twins Explorer
-      href: how-to-use-azure-digital-twins-explorer.md  
+      href: how-to-use-azure-digital-twins-explorer.md
     - name: Manage digital twins
       href: how-to-manage-twin.md
     - name: Manage the twin graph and relationships
@@ -99,16 +103,14 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Make API requests with Postman
-      href: how-to-use-postman.md
+    - name: Call Azure Digital Twins APIs with Postman
+      href: how-to-use-postman-with-digital-twins.md
+    - name: Use 3D Scenes Studio
+      href: how-to-use-3d-scenes-studio.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration with Azure Digital Twins access
-      items:
-      - name: Portal
-        href: how-to-create-app-registration-portal.md
-      - name: CLI
-        href: how-to-create-app-registration-cli.md
+      href: how-to-create-app-registration.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
   - name: Connect input
@@ -127,7 +129,7 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Use data history with Azure Data Explorer (preview)
+    - name: Use data history with Azure Data Explorer
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
@@ -147,12 +149,12 @@
       href: troubleshoot-performance.md
     - name: Known issues
       href: troubleshoot-known-issues.md
-    - name: Problem resolution
+    - name: Problem resolution in Azure Digital Twins
       items:
       - name: Error 403 (Forbidden)
-        href: troubleshoot-error-403.md
+        href: troubleshoot-error-403-digital-twins.md
       - name: Error 404 (Sub-Domain not found)
-        href: troubleshoot-error-404.md
+        href: troubleshoot-error-404-digital-twins.md
       - name: Azure Digital Twins Explorer authentication error
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
       - name: CLI parsing failures
@@ -174,7 +176,7 @@
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins
+          href: /java/api/overview/azure/digital-twins
         - name: JavaScript SDK
           href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
         - name: Python SDK
@@ -191,7 +193,7 @@
           href: reference-query-clause-select.md
         - name: FROM
           href: reference-query-clause-from.md
-        - name: MATCH (preview)
+        - name: MATCH
           href: reference-query-clause-match.md
         - name: JOIN
           href: reference-query-clause-join.md
@@ -290,17 +292,19 @@
       - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: Model Uploader (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools/UploadModels
-      - name: Model Visualizer (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/AdtModelVisualizer 
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/UploadModels
+      - name: Model Deleter (sample)
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
       - name: OWL2DTDL Converter   
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/OWL2DTDL   
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL   
       - name: DPS and IoT Hub integration sample
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
       - name: Custom Swaggers for Logic Apps connector
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+      - name: Multivariate Anomaly Detection Toolkit
+        href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
   - name: Ontologies
     items:
       - name: Smart buildings
@@ -319,10 +323,12 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
-  - name: 'Microsoft Learn: Extend IoT solutions by using Azure Digital Twins'
-    href: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
-  - name: 'Microsoft Learn: Set up a mixed reality project for Azure Digital Twins in Unity'
-    href: /learn/modules/set-up-mixed-reality-azure-digital-twins-unity/
+  - name: Learning paths
+    items:  
+    - name: 'Extend IoT solutions by using Azure Digital Twins'
+      href: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/
+    - name: 'Set up a mixed reality project for Azure Digital Twins in Unity'
+      href: /training/modules/set-up-mixed-reality-azure-digital-twins-unity/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

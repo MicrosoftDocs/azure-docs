@@ -6,7 +6,7 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 05/23/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -25,17 +25,19 @@ Keep the following points in mind when you transfer an enterprise account to a n
 
 - Only the accounts specified in the request are transferred. If all accounts are chosen, then they're all transferred.
 - The source enrollment keeps its status as active or extended. You can continue using the enrollment until it expires.
+- You can't change account ownership during a transfer. After the account transfer is complete, the current account owner can change account ownership in the EA portal. Keep in mind that an EA administrator can't change account ownership.
 
 ### Prerequisites
 
-When you request an account transfer, provide the following information:
+When you request an account transfer with a support request, provide the following information:
 
 - The number of the target enrollment, account name, and account owner email of account to transfer
 - The enrollment number and account to transfer for the source enrollment
 
 Other points to keep in mind before an account transfer:
 
-- Approval from an EA Administrator is required for the target and source enrollment.
+- Approval from a full EA Administrator, not a read-only EA administrator, is required for the target and source enrollment.
+    - If you have only UPN (User Principal Name) entities configured as full EA administrators without access to e-mail, you must **either** create a temporary full EA administrator account in the EA portal **or** provide EA portal screenshot evidence of a user account associated with the UPN account.
 - You should consider an enrollment transfer if an account transfer doesn't meet your requirements.
 - Your account transfer moves all services and subscriptions related to the specific accounts.
 - Your transferred account appears inactive under the source enrollment and appears active under the target enrollment when the transfer is complete.
@@ -57,16 +59,17 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 - Usage transferred may take up to 72 hours to be reflected in the new enrollment.
 - If department administrator (DA) or account owner (AO) view charges were enabled on the transferred enrollment, they must be enabled on the new enrollment.
 - If you're using API reports or Power BI, generate a new API key under your new enrollment.
+    - For reporting, all APIs use either the old enrollment or the new one, not both. If you need reporting from APIs for the old and new enrollments, you must create your own reports.
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
 - You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents more usage against the enrollment.
 - Any remaining Azure Prepayment balance in the agreement is lost, including future terms.
--    If the enrollment you're transferring from has reservation purchases, the reservation purchasing fee will remain in the source enrollment. However, all reservation benefits will be transferred across for use in the new enrollment.
--    The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment aren't transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
+-    If the enrollment you're transferring from has reservation purchases, the historic (past) reservation purchasing fee will remain in the source enrollment. All future purchasing fees transfer to the new enrollment. Additionally, all reservation benefits will be transferred across for use in the new enrollment.
+-    The historic marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment aren't transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
 
 ### Effective transfer date
 
-The effective transfer day can be on or after the start date of the target enrollment. Transfers can only be backdated till the first day of the month in which request is made. 
+The effective transfer day can be on or after the start date of the target enrollment. Transfers can only be backdated till the first day of the month in which request is made. Additionally, if individual subscriptions are deleted or transferred in the current month, then the deletion/transfer date becomes the new earliest possible effective transfer date.
 
 The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged.
 
@@ -90,9 +93,10 @@ Other points to keep in mind before an enrollment transfer:
 - Any API keys used in the source enrollment must be regenerated for the target enrollment.
 - If the source and destination enrollments are on different cloud instances, the transfer will fail. Support personnel can transfer only within the same cloud instance.
 - For reservations (reserved instances):
-  - The enrollment or account transfer between different currencies affects monthly reservation purchases.
+  - The enrollment or account transfer between different currencies affects monthly reservation purchases. The following image illustrates the effects.  
+        :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
   - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
-  - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency.
+  - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
 
 
 ### Auto enrollment transfer

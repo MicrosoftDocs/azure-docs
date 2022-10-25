@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 02/01/2022
+ms.date: 09/01/2022
 ---
 
 # Create an Azure support request
@@ -14,10 +14,9 @@ Azure enables you to create and manage support requests, also known as support t
 > The Azure portal URL is specific to the Azure cloud where your organization is deployed.
 >
 >- Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
->- Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >- Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
 
-Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
+Azure provides unlimited support for subscription management, which includes billing, [quota adjustments](../../quotas/quotas-overview.md), and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
 
 ## Getting started
 
@@ -25,7 +24,7 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 ### Azure role-based access control
 
-To create a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor),  [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](../../role-based-access-control/resource-provider-operations.md#microsoftsupport), at the subscription level.
+You must have the appropriate access to a subscription before you can create a support request for it. This means you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](../../role-based-access-control/resource-provider-operations.md#microsoftsupport), at the subscription level.
 
 To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
@@ -63,7 +62,9 @@ We'll walk you through some steps to gather information about your problem and h
 The first step of the support request process is to select an issue type. You'll then be prompted for more information, which can vary depending on what type of issue you selected. If you select **Technical**, you'll need to specify the service that your issue relates to. Depending on the service, you'll see additional options for **Problem type** and **Problem subtype**.
 
 > [!IMPORTANT]
-> In most cases, you'll need to specify a subscription. Choose the subscription where you are experiencing the problem. The support engineer assigned to your case will be able to access the subscription you specify here. You can tell them about additional subscriptions in your description (or by [sending a message](how-to-manage-azure-support-request.md#send-a-message) later), but the support engineer will only be able to work on [subscriptions to which you have access](#azure-role-based-access-control).
+> In most cases, you'll need to specify a subscription. Be sure to choose the subscription where you are experiencing the problem. The support engineer assigned to your case will only be able to access resources in the subscription you specify. The access requirement serves as a point of confirmation that the support engineer is sharing information to the right audience, which is a key factor for ensuring the security and privacy of customer data. For details on how Azure treats customer data, see [Data Privacy in the Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/privacy/).
+>
+> If the issue applies to multiple subscriptions, you can mention additional subscriptions in your description, or by [sending a message](how-to-manage-azure-support-request.md#send-a-message) later. However, the support engineer will only be able to work on [subscriptions to which you have access](#azure-role-based-access-control). If you don't have the required access for a subscription, we won't be able to work on it as part of your request.
 
 :::image type="content" source="media/how-to-create-azure-support-request/basics2lower.png" alt-text="Screenshot of the Problem description step of the support request process.":::
 
@@ -79,7 +80,7 @@ If you're still unable to resolve the issue, continue creating your support requ
 
 Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
-1. Complete the **problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
+1. Complete the **problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can optionally upload one file (or a compressed file such as .zip that contains multiple files), such as a log file or [browser trace](../capture-browser-trace.md). For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
 1. In the **Advanced diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. See the [Advanced diagnostic information logs](#advanced-diagnostic-information-logs) section for more details about the types of files we might collect.
 
@@ -130,8 +131,9 @@ To learn more about self-help support options in Azure, watch this video:
 
 Follow these links to learn more:
 
-* [How to manage an Azure support request](how-to-manage-azure-support-request.md)
-* [Azure support ticket REST API](/rest/api/support)
-* Engage with us on [Twitter](https://twitter.com/azuresupport)
-* Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
-* Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
+- [How to manage an Azure support request](how-to-manage-azure-support-request.md)
+- [Azure support ticket REST API](/rest/api/support)
+- Engage with us on [Twitter](https://twitter.com/azuresupport)
+- Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
+- Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
+- [Azure Quotas overview](../../quotas/quotas-overview.md)

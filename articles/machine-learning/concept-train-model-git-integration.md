@@ -1,15 +1,16 @@
 ---
 title: Git integration for Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning integrates with a local Git repository to track repository, branch, and current commit information as part of a training run.
+description: Learn how Azure Machine Learning integrates with a local Git repository to track repository, branch, and current commit information as part of a training job.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: larryfr
-author: blackmist
+author: ositanachi  
+ms.author: osiotugo
+ms.reviewer: larryfr
 ms.date: 04/05/2022
-
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 # Git integration for Azure Machine Learning
 
@@ -124,19 +125,19 @@ SSH displays this fingerprint when it connects to an unknown host to protect you
 
 ## Track code that comes from Git repositories
 
-When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training run. This information is stored in the following properties for the training run:
+When you submit a training job from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training job. This information is stored in the following properties for the training job:
 
 | Property | Git command used to get the value | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
-| `azureml.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
-| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
-| `azureml.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
-| `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the job was submitted. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the job was submitted. |
+| `azureml.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the job. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the job. |
 | `azureml.git.dirty` | `git status --porcelain .` | `True`, if the branch/commit is dirty; otherwise, `false`. |
 
-This information is sent for runs that use an estimator, machine learning pipeline, or script run.
+This information is sent for jobs that use an estimator, machine learning pipeline, or script run.
 
 If your training files are not located in a git repository on your development environment, or the `git` command is not available, then no git-related information is tracked.
 
@@ -151,13 +152,13 @@ If your training files are not located in a git repository on your development e
 
 ## View the logged information
 
-The git information is stored in the properties for a training run. You can view this information using the Azure portal or Python SDK.
+The git information is stored in the properties for a training job. You can view this information using the Azure portal or Python SDK.
 
 ### Azure portal
 
 1. From the [studio portal](https://ml.azure.com), select your workspace.
-1. Select __Experiments__, and then select one of your experiments.
-1. Select one of the runs from the __RUN NUMBER__ column.
+1. Select __Jobs__, and then select one of your experiments.
+1. Select one of the jobs from the __Display name__ column.
 1. Select __Outputs + logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
 
 The logged information contains text similar to the following JSON:
@@ -183,11 +184,12 @@ The logged information contains text similar to the following JSON:
 
 After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.run%28class%29) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 run.properties['azureml.git.commit']
 ```
 
-
 ## Next steps
 
-* [Use compute targets for model training](how-to-set-up-training-targets.md)
+* [Use compute targets for model training](v1/how-to-set-up-training-targets.md)

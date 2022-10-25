@@ -4,8 +4,8 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 08/31/2021
-ms.author: azhussai
+ms.date: 10/03/2022
+ms.author: greglin
 ms.topic: conceptual
 ---
 
@@ -26,7 +26,7 @@ Similarly, you can host multiple subdomains of the same parent domain on the sam
 
 ## Request Routing rules evaluation order
 
-While using multi-site listeners, to ensure that the client traffic is routed to the accurate backend, it's important to have the request routing rules be present in the correct order.
+When you use multi-site listeners to ensure that the client traffic is routed to the accurate backend, it's important to have the request routing rules be present in the correct order.
 For example, if you have 2 listeners with associated Host name as `*.contoso.com` and `shop.contoso.com` respectively, the listener with the `shop.contoso.com` Host name would have to be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic would be received by the more specific `shop.contoso.com` listener.
 
 This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request. Each request routing rule needs to have a unique priority value.
@@ -34,7 +34,12 @@ This ordering can be established by providing a 'Priority' field value to the re
 The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
 >[!NOTE]
->If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+>If you wish to use rule priority, you will have to specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+Starting with API version 2021-08-01 rule priority field would be a mandatory field as part of the request routing rules.
+From this API version, rule priority field values would be auto-populated for existing request routing rules based on current ordering of evaluation as part of the first PUT call. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.
+
+> [!IMPORTANT]
+> Rule priority field values for existing request routing rules based on current order would be automatically populated if any configuration updates are applied using API version 2021-08-01 and above, portal, Azure PowerShell and Azure CLI. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.  
 
 ## Wildcard host names in listener
 
@@ -51,7 +56,7 @@ In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-Hos
 
 In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
 
-In the Azure portal, under the multi-site listener, you must chose the **Multiple/Wildcard** host type to mention up to five host names with allowed wildcard characters.
+In the Azure portal, under the multi-site listener, you must choose the **Multiple/Wildcard** host type to mention up to five host names with allowed wildcard characters.
 
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener UI":::
 
@@ -77,12 +82,12 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 
 ### Considerations and limitations of using wildcard or multiple host names in a listener
 
-* [SSL termination and End-to-End SSL](ssl-overview.md) requires you to configure the protocol as HTTPS and upload a certificate to be used in the listener configuration. If it's a multi-site listener, you can input the host name as well, usually this is the CN of the SSL certificate. When you are specifying multiple host names in the listener or use wildcard characters, you must consider the following:
+* [SSL termination and End-to-End SSL](ssl-overview.md) requires you to configure the protocol as HTTPS and upload a certificate to be used in the listener configuration. If it's a multi-site listener, you can input the host name as well, usually this is the CN of the SSL certificate. When you're specifying multiple host names in the listener or use wildcard characters, you must consider the following:
     * If it's a wildcard hostname like *.contoso.com, you must upload a wildcard certificate with CN like *.contoso.com
     * If multiple host names are mentioned in the same listener, you must upload a SAN certificate (Subject Alternative Names) with the CNs matching the host names mentioned.
-* You cannot use a regular expression to mention the host name. You can only use wildcard characters like asterisk (*) and question mark (?) to form the host name pattern.
-* For backend health check, you cannot associate multiple [custom probes](application-gateway-probe-overview.md) per HTTP settings. Instead, you can probe one of the websites at the backend or use "127.0.0.1" to probe the localhost of the backend server. However, when you are using wildcard or multiple host names in a listener, the requests for all the specified domain patterns will be routed to the backend pool depending on the rule type (basic or path-based).
-* The properties "hostname" takes one string as input, where you can mention only one non-wildcard domain name and "hostnames" takes an array of strings as input, where you can mention up to 5 wildcard domain names. But both the properties cannot be used at once.
+* You can't use a regular expression to mention the host name. You can only use wildcard characters like asterisk (*) and question mark (?) to form the host name pattern.
+* For backend health check, you can't associate multiple [custom probes](application-gateway-probe-overview.md) per HTTP settings. Instead, you can probe one of the websites at the backend or use "127.0.0.1" to probe the localhost of the backend server. However, when you're using wildcard or multiple host names in a listener, the requests for all the specified domain patterns will be routed to the backend pool depending on the rule type (basic or path-based).
+* The "hostname" property takes one string as input, where you can mention only one non-wildcard domain name. The "hostnames" property takes an array of strings as input, where you can mention up to 5 wildcard domain names. Both these properties can't be used at once.
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 

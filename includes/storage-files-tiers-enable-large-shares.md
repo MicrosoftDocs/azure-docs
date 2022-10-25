@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
  ms.date: 02/03/2021
- ms.author: fauhse
+ ms.author: kendownie
  ms.custom: include file
 ---
 By default, standard file shares can span only up to 5 TiB, but you can increase the share limit to 100 TiB. To increase your share limit, enable **Large file share** on your storage account. Premium storage accounts (*FileStorage* storage accounts) don't have the large file share feature flag as all premium file shares are already enabled for provisioning up to the full 100-TiB capacity.

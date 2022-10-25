@@ -17,6 +17,9 @@ adobe-target-content: ./quickstart-html-uiex
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
+> [!NOTE]
+> For information regarding hosting static HTML files in a serverless environment, please see [Static Web Apps](../static-web-apps/overview.md).
+
 :::image type="content" source="media/quickstart-html/hello-world-in-browser.png" alt-text="Home page of sample app":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -48,6 +51,14 @@ cd html-docs-hello-world
 
 az webapp up --location westeurope --name <app_name> --html
 ```
+> [!NOTE]
+> If you want to host your static content on a Linux based App Service instance configure PHP as your runtime using the `--runtime` and `--os-type` flags:
+>
+> `az webapp up --location westeurope --name <app_name> --runtime "PHP:8.1" --os-type linux`
+> 
+> The PHP container includes a web server that is suitable to host static HTML content.
+
+
 
 The `az webapp up` command does the following actions:
 

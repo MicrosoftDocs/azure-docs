@@ -5,7 +5,7 @@ keywords: vm sizes, cluster sizes, cluster configuration
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/14/2020
+ms.date: 06/22/2022
 ---
 
 # What are the default and recommended node configurations for Azure HDInsight?

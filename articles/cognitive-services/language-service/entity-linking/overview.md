@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/15/2022
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
 ---
@@ -25,6 +25,8 @@ This documentation contains the following types of articles:
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
 The result will be a collection of recognized entities in your text, with URLs to Wikipedia as an online knowledge base. 
+
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
 ## Responsible AI 
 

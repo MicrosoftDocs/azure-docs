@@ -1,16 +1,16 @@
 ---
-title: Azure Container Apps Preview overview
+title: Azure Container Apps overview
 description: Learn about common scenarios and uses for Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/23/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
-# Azure Container Apps Preview overview
+# Azure Container Apps overview
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
 
@@ -44,17 +44,19 @@ With Azure Container Apps, you can:
 
 - [**Use internal ingress and service discovery**](connect-apps.md) for secure internal-only endpoints with built-in DNS-based service discovery.
 
-- [**Build microservices with Dapr**](microservices.md) and access its rich set of APIs.
+- [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
 
 - [**Run containers from any registry**](containers.md), public or private, including Docker Hub and Azure Container Registry (ACR).
 
-- [**Use the Azure CLI extension or ARM templates**](get-started.md) to manage your applications.
+- [**Use the Azure CLI extension, Azure portal or ARM templates**](get-started.md) to manage your applications.
 
 - [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
 
 - [**Securely manage secrets**](manage-secrets.md) directly in your application.
 
-- [**View application logs**](monitor.md) using Azure Log Analytics.
+- [**Monitor logs**](log-monitoring.md) using Azure Log Analytics.
+
+- [**Generous quotas**](quotas.md) which are overridable to increase limits on a per-account basis.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 

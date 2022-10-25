@@ -108,6 +108,15 @@ The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** res
 
 If a custom domain is desired for services that use a Public IP, you can use [Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
 
+## Availability Zone
+
+Public IP addresses with a Standard SKU can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). A zone-redundant IP is created in all zones for a region and can survive any single zone failure.  A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses is placed into a zone for you by Azure and does not give a guarantee of redundancy.
+
+In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.
+
+> [!NOTE]
+> All Basic SKU public IP addresses are created as non-zonal.  Any IP that is upgraded from a Basic SKU to Standard SKU remains non-zonal.
+
 ## Other public IP address features
 
 There are other attributes that can be used for a public IP address.  
@@ -127,7 +136,7 @@ The limits for IP addressing are listed in the full set of [limits for networkin
 
 ## Pricing
 
-Public IP addresses have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
+Public IPv4 addresses have a nominal charge; Public IPv6 addresses have no charge.  To learn more about IP address pricing in Azure, review the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
 
 ## Limitations for IPv6
 

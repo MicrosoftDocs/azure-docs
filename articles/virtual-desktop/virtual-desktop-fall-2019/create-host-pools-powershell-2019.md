@@ -3,7 +3,7 @@ title: Create Azure Virtual Desktop (classic) host pool PowerShell - Azure
 description: How to create a host pool in Azure Virtual Desktop (classic) with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 08/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -62,6 +62,8 @@ You can create a virtual machine in multiple ways:
 
 >[!NOTE]
 >If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Azure Virtual Desktop](deploy-windows-7-virtual-machine.md).
+>
+> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](../prerequisites.md#operating-systems-and-licenses).
 
 After you've created your session host virtual machines, [apply a Windows license to a session host VM](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
 

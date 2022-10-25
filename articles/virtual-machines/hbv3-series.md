@@ -2,7 +2,7 @@
 title: HBv3-series - Azure Virtual Machines
 description: Specifications for the HBv3-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/10/2022
 ms.reviewer: cynthn

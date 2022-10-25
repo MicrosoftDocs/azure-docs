@@ -19,25 +19,24 @@ ms.author: eur
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
+Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
-Use the following `require` statement to import the SDK:
+### Set environment variables
 
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
-
 ## Synthesize to file output
 
-Follow these steps to create a new console application for speech synthesis.
+Follow these steps to create a Node.js console application for speech synthesis.
 
 1. Open a command prompt where you want the new project, and create a new file named `SpeechSynthesis.js`.
+1. Install the Speech SDK for JavaScript:
+    ```console
+    npm install microsoft-cognitiveservices-speech-sdk
+    ```
 1. Copy the following code into `SpeechSynthesis.js`:
 
     ```javascript
@@ -48,11 +47,9 @@ Follow these steps to create a new console application for speech synthesis.
         var sdk = require("microsoft-cognitiveservices-speech-sdk");
         var readline = require("readline");
         
-        var key = "YourSubscriptionKey";
-        var region = "YourServiceRegion";
         var audioFile = "YourAudioFile.wav";
-      
-        const speechConfig = sdk.SpeechConfig.fromSubscription(key, region);
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
         const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
         
         // The language of the voice that speaks.
@@ -90,7 +87,8 @@ Follow these steps to create a new console application for speech synthesis.
     }());
     ```
 
-1. In `SpeechSynthesis.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Optionally you can rename `YourAudioFile.wav` to another output filename.
+1. In `SpeechSynthesis.js`, optionally you can rename `YourAudioFile.wav` to another output filename.
+
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
 
 Run your new console application to start speech synthesis to a file:
@@ -98,6 +96,9 @@ Run your new console application to start speech synthesis to a file:
 ```console
 node.exe SpeechSynthesis.js
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 The provided text should be output to an audio file:
 
@@ -110,6 +111,9 @@ synthesis finished.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-file-output" target="_target">I ran into an issue</a>
+
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
 This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 - For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).

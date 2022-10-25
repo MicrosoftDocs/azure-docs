@@ -1,9 +1,10 @@
 ---
 title: ACR Transfer Troubleshooting
 description: Troubleshoot ACR Transfer
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.topic: article
-ms.date: 11/18/2021
-ms.custom:
 ---
 
 # ACR Transfer troubleshooting
@@ -30,11 +31,12 @@ ms.custom:
 * **AzCopy issues**
   * See [Troubleshoot AzCopy issues](../storage/common/storage-use-azcopy-configure.md).
 * **Artifacts transfer problems**
-  * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 50 artifacts.
+  * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you're transferring a maximum of 50 artifacts.
   * Pipeline run might not have completed. An export or import run can take some time.
   * For other pipeline issues, provide the deployment [correlation ID](../azure-resource-manager/templates/deployment-history.md) of the export run or import run to the Azure Container Registry team.
+  * To create ACR Transfer resources such as `exportPipelines`,` importPipelines`, and `pipelineRuns`, the user must have at least Contributor access on the ACR subscription. Otherwise, they'll see authorization to perform the transfer denied or scope is invalid errors.
 * **Problems pulling the image in a physically isolated environment**
-  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If this is the case, you will need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)
+  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If so, you'll need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)
 
   <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

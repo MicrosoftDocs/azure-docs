@@ -27,7 +27,7 @@ Portal](https://azureforeducation.microsoft.com/account/Subscriptions). Once app
 ## For students, faculty, and administrators
 Studences access Azure dev tools through the [Education Hub](https://aka.ms/devtoolsforteaching).
 
-Students and faculty alike can get access to all the software download benefits through the Education Hub. The Education Hub is built within the Azure portal and it provides your students easy access to the entire catalog of software, as well as access to the entire [Microsoft Learn](/learn/) catalog.
+Students and faculty alike can get access to all the software download benefits through the Education Hub. The Education Hub is built within the Azure portal and it provides your students easy access to the entire catalog of software, as well as access to the entire [Microsoft Learn training](/training/) catalog.
 
 ## Next steps
 - [Manage student accounts](manage-students.md)

@@ -2,6 +2,7 @@
 title: Tutorial - Delete an Azure VMware Solution private cloud
 description: Learn how to delete an Azure VMware Solution private cloud that you no longer need.
 ms.topic: tutorial
+ms.service: azure-vmware
 ms.date: 03/13/2021
 ---
 

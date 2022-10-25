@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Active Directory Domain Services
 description: Lists Azure Policy built-in policy definitions for Azure Active Directory Domain Services. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 03/08/2022
+ms.date: 09/12/2022
 ms.service: active-directory
 ms.subservice: domain-services
 author: justinha

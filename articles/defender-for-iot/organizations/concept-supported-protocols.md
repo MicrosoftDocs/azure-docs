@@ -1,7 +1,7 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that are supported by Microsoft Defender for IoT.
-ms.date: 03/16/2022
+ms.date: 06/02/2022
 ms.topic: article
 ---
 
@@ -26,8 +26,8 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Eurocontrol**     |      ASTERIX   |
 |**GE**     | Bentley Nevada (System 1 / BN3500)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
 |**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
-|**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA     |
-|**IEC**     |    IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-101 (encapsulated serial)<br> IEC 60870-5-103 (encapsulated serial)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> Codesys V3<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
+|**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA<br> Honeywell EUCN <br> Honeywell Discovery     |
+|**IEC**     |    Codesys V3<br>IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-101 (encapsulated serial)<br> IEC 60870-5-103 (encapsulated serial)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC 61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
 |**IEEE**     |     LLC<br> STP<br> VLAN    |
 |**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
 |**ISO**     |  CLNP (ISO 8473)<br> COTP (ISO 8073)<br> ISO Industrial Protocol<br>  MQTT (IEC 20922)       |
@@ -37,7 +37,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Omron**     |  FINS       |
 |**Oracle**     |   TDS<br> TNS      |
 |**Rockwell Automation**     |   ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
-|**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)        |
+|**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
 |**Schneider Electric / Modicon**     |   Modbus RTU      |
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
@@ -45,20 +45,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> Vnet/IP      |
 
-
-## Supported protocols for active monitoring
-
-Defender for IoT can detect the following protocols using active monitoring, such as ping sweeps and queries:
-
-
-|Brand / Vendor  |Protocols  |
-|---------|---------|
-|**IETF**     |  Ping Sweep <br>SNMP Network Layout Query<br>SNMP Query       |
-|**Microsoft**     |  Windows WMI Query (req. WMI/WinRM): hardware, BIOS, version, software, patches       |
-|**Rockwell Automation**     |  ENIP Query<br> ENIP Scan<br>  EtherNet/IP CIP (CIP Query)       |
-|**Siemens**     | Siemens S7        |
-
-
+[!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
 ## Don't see your protocol here? 
 

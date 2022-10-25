@@ -1,25 +1,26 @@
 ---
-title: 'Tutorial: Connect to an Azure Cosmos account using an Azure Private endpoint'
+title: 'Tutorial: Connect to an Azure Cosmos DB account using an Azure Private endpoint'
 titleSuffix: Azure Private Link
-description: Get started with this tutorial using Azure Private endpoint to connect to an Azure Cosmos account privately.
+description: Get started with this tutorial using Azure Private endpoint to connect to an Azure Cosmos DB account privately.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 9/25/2020
+ms.date: 06/22/2022
+ms.custom: template-tutorial, ignite-2022
 ---
 
-# Tutorial: Connect to an Azure Cosmos account using an Azure Private Endpoint
+# Tutorial: Connect to an Azure Cosmos DB account using an Azure Private Endpoint
 
-Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
+Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure Cosmos DB.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Cosmos DB account with a private endpoint.
-> * Test connectivity to Cosmos DB account private endpoint.
+> * Create an Azure Cosmos DB account with a private endpoint.
+> * Test connectivity to the private endpoint.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -41,14 +42,14 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
 2. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroup** |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**                                    |
-    | Region           | Select **East US** |
+    | Setting          | Value                         |
+    |------------------|-----------------------------------------|
+    | **Project Details**  |                                 |
+    | Subscription     | Select your Azure subscription.                        |
+    | Resource Group   | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
+    | **Instance details** |                                       |
+    | Name             | Enter **myVNet**.                          |
+    | Region           | Select **East US**. |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -56,7 +57,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
+    | IPv4 address space | Enter **10.1.0.0/16**. |
 
 5. Under **Subnet name**, select the word **default**.
 
@@ -64,8 +65,8 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet** |
-    | Subnet address range | Enter **10.1.0.0/24** |
+    | Subnet name | Enter **mySubnet**. |
+    | Subnet address range | Enter **10.1.0.0/24**. |
 
 7. Select **Save**.
 
@@ -75,8 +76,8 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
+    | Bastion name | Enter **myBastionHost**. |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/24**. |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
@@ -95,19 +96,20 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
-    | Virtual machine name | Enter **myVM** |
-    | Region | Select **East US** |
-    | Availability Options | Select **No infrastructure redundancy required** |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1** |
-    | Azure Spot instance | Select **No** |
-    | Size | Choose VM size or take default setting |
+    | Virtual machine name | Enter **myVM**. |
+    | Region | Select **East US**. |
+    | Availability Options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Azure Spot instance | Select **No**. |
+    | Size | Choose VM size or take default setting. |
     | **Administrator account** |  |
-    | Username | Enter a username |
-    | Password | Enter a password |
-    | Confirm password | Reenter password |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Reenter password. |
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -116,10 +118,10 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Setting | Value |
     |-|-|
     | **Network interface** |  |
-    | Virtual network | **myVNet** |
-    | Subnet | **mySubnet** |
+    | Virtual network | **myVNet**. |
+    | Subnet | **mySubnet**. |
     | Public IP | Select **None**. |
-    | NIC network security group | **Basic**|
+    | NIC network security group | **Basic**. |
     | Public inbound ports | Select **None**. |
    
 5. Select **Review + create**. 
@@ -128,13 +130,15 @@ In this section, you'll create a virtual machine that will be used to test the p
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-## Create a Cosmos DB account with a private endpoint
+## Create an Azure Cosmos DB account with a private endpoint
 
-In this section, you'll create a Cosmos DB account and configure the private endpoint.
+In this section, you'll create an Azure Cosmos DB account and configure the private endpoint.
 
-1. In the left-hand menu, select **Create a resource** > **Databases** > **Cosmos DB Account**, or search for **Cosmos DB account** in the search box.
+1. In the left-hand menu, select **Create a resource** > **Databases** > **Azure Cosmos DB**, or search for **Azure Cosmos DB** in the search box.
 
-2. In the **Basics** tab of **Create Cosmos DB account** enter or select the following information:
+2. In **Select API option** page, Select **Create** under **Azure Cosmos DB for NoSQL**.
+
+2. In the **Basics** tab of **Create Azure Cosmos DB account** enter or select the following information:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -143,14 +147,11 @@ In this section, you'll create a Cosmos DB account and configure the private end
     | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
     | Account name | Enter **mycosmosdb**. If the name is unavailable, enter a unique name. |
-    | API | Select **Core (SQL)**. |
-    | Location | Select **East US**. |
+    | Location | Select **(US) East US**. |
     | Capacity mode | Leave the default **Provisioned throughput**. |
     | Apply Free Tier Discount | Leave the default **Do Not Apply**. |
-    | Geo-Redundancy | Leave the default **Disable**. |
-    | Multi-region Writes | Leave the default **Disable**. |
    
-3. Select the **Networking** tab or select the **Next: Networking** button.
+3. Select the **Networking** tab, or select **Next: Global Distribution**, then **Next: Networking**.
 
 4. In the **Networking** tab, enter or select the following information:
 
@@ -168,17 +169,17 @@ In this section, you'll create a Cosmos DB account and configure the private end
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
-    | Location | Select **East US** |
-    | Name | Enter **myPrivateEndpoint** |
-    | Target subresource | Leave the default **Core (SQL)** |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
+    | Location | Select **East US**. |
+    | Name | Enter **myPrivateEndpoint**. |
+    | Azure Cosmos DB sub-resource | Leave the default **Azure Cosmos DB for NoSQL - Recommended**. |
     | **Networking** |  |
-    | Virtual network | Select **myVNet** |
-    | Subnet | Select **mySubnet** |
-    | **Private DNS integration** |
-    | Integrate with private DNS zone | Leave the default **Yes** |
-    | Private DNS Zone | Leave the default (New) privatelink.documents.azure.com |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **mySubnet**. |
+    | **Private DNS integration** |  |
+    | Integrate with private DNS zone | Leave the default **Yes**. |
+    | Private DNS Zone | Leave the default **(New) privatelink.documents.azure.com**. |
 
 7. Select **OK**.
 
@@ -188,30 +189,30 @@ In this section, you'll create a Cosmos DB account and configure the private end
 
 ### Add a database and a container
 
-1. Select **Got to resource** or in the left-hand menu of the Azure portal, select **All Resources** > **mycosmosdb**.
+1. Select **Go to resource**, or in the left-hand menu of the Azure portal, select **All Resources** > **mycosmosdb**.
 
 2. In the left-hand menu, select **Data Explorer**.
 
 3. In the **Data Explorer** window, select **New Container**.
 
-4. In **Add Container**, enter or select the following information:
+4. In **New Container**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Database ID | Leave the default of **Create new**. </br> Enter **mydatabaseid** in the text box. |
-    | Throughput (400 - 100,000 RU/s) | Leave the default of **Manual**. </br> Enter **400** in the text box. |
-    | Container ID | Enter **mycontainerid** |
-    | Partition key | Enter **/mykey** |
+    | Database id | Leave the default of **Create new**. </br> Enter **mydatabaseid** in the box. |
+    | Database throughput (400 - unlimited RU/s) | Select **Manual**. </br> Enter **400** in the box. |
+    | Container id | Enter **mycontainerid**. |
+    | Partition key | Enter **/mykey**. |
 
 5. Select **OK**.
 
-6. In the **Settings** section of the CosmosDB account, select **Keys**.
+6. In the **Settings** section of the Azure Cosmos DB account, select **Keys**.
 
-7. Select copy on the **PRIMARY CONNECTION STRING**.
+7. Select copy on the **PRIMARY CONNECTION STRING**. A valid connection string is in the format: `AccountEndpoint=https://<cosmosdb-account-name>.documents.azure.com:443/;AccountKey=<accountKey>;`
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous step to connect to the Cosmos DB account across the private endpoint.
+In this section, you'll use the virtual machine you created in the previous steps to connect to the Azure Cosmos DB account across the private endpoint using **Azure Cosmos DB Explorer**.
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
@@ -221,54 +222,34 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. On the overview page for **myVM**, select **Connect** then **Bastion**.
 
-1. Select the blue **Use Bastion** button.
-
 1. Enter the username and password that you entered during the virtual machine creation.
+
+1. Select **Connect** button.
 
 1. Open Windows PowerShell on the server after you connect.
 
-1. Enter `nslookup <cosmosdb-account-name>.documents.azure.com` and validate the name resolution. Replace **\<cosmosdb-account-name>** with the name of the Cosmos DB account you created in the previous steps. 
+1. Enter `nslookup <cosmosdb-account-name>.documents.azure.com` and validate the name resolution. Replace **\<cosmosdb-account-name>** with the name of the Azure Cosmos DB account you created in the previous steps. You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
     Address:  168.63.129.16
 
     Non-authoritative answer:
-    Name:    mycosmosdb8675.privatelink.documents.azure.com
+    Name:    mycosmosdb.privatelink.documents.azure.com
     Address:  10.1.0.5
-    Aliases:  mycosmosdb8675.documents.azure.com
+    Aliases:  mycosmosdb.documents.azure.com
     ```
-    A private IP address of **10.1.0.5** is returned for the Cosmos DB account name.  This address is in the subnet of the virtual network you created previously.
-    
-1. Get your Azure Cosmos DB primary connection string from portal. A valid connection string is in the format:
-   
-   For SQL API accounts: `https://<accountName>.documents.azure.com:443/;AccountKey=<accountKey>;` 
-   For Azure Cosmos DB API for MongoDB: `mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false`
+    A private IP address of **10.1.0.5** is returned for the Azure Cosmos DB account name.  This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
 
-1. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
+1. Go to [Azure Cosmos DB](https://cosmos.azure.com/). Select **Connect to your account with connection string**, then paste the connection string that you copied in the previous steps and select **Connect**.
 
-1. Select **Finish** after the **Microsoft Azure Storage Explorer** is installed.  Leave the box checked to open the application.
-
-1. In the **Connect to Azure Storage** screen, select **Cancel**.
-
-1. In Storage Explorer, select the right mouse button on **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
-
-1. Leave the default of **SQL** under **Select API**.
-
-1. In the box under **Connection String**, paste the connection string from the Cosmos DB account you copied in the previous steps.
-
-1. Select **Next**.
-
-1. Verify the settings are correct in **Connection Summary**.  
-
-1. Select **Connect**.
+1. Under the **Azure Cosmos DB for NoSQL** menu on the left, you see **mydatabaseid** and **mycontainerid** that you previously created in **mycosmosdb**.
 
 1. Close the connection to **myVM**.
 
-
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the virtual network, virtual machine, and Cosmos DB account with the following steps:
+If you're not going to continue to use this application, delete the virtual network, virtual machine, and Azure Cosmos DB account with the following steps:
 
 1. From the left-hand menu, select **Resource groups**.
 
@@ -282,12 +263,12 @@ If you're not going to continue to use this application, delete the virtual netw
 
 ## Next steps
 
-In this tutorial, you created a:
+In this tutorial, you learned how to create:
 
 * Virtual network and bastion host.
 * Virtual Machine.
-* Cosmos DB Account.
+* Azure Cosmos DB account.
 
-Learn how to create a Private Link service:
+Learn how to connect to a web app using an Azure Private Endpoint:
 > [!div class="nextstepaction"]
-> [Create a Private Link service](create-private-link-service-portal.md)
+> [Connect to a web app using Private Endpoint](tutorial-private-endpoint-webapp-portal.md)

@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
-author: mayurigupta13
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 05/02/2022
-ms.author: mayg
+ms.author: v-pgaddala
 
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
@@ -51,6 +51,8 @@ When you try to select the source machine to enable replication by using Site Re
 ### Troubleshoot protected virtual machines greyed out in the portal
 
 Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. [Learn more](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) about deleting stale entries and resolving the issue.
+
+Another reason could be that the machine was cloned. When machines move between hypervisor and if BIOS ID changes, then the mobility agent blocks replication. Replication of cloned machines is not supported by Site Recovery.
 
 ## No crash consistent recovery point available for the VM in the last 'XXX' minutes
 
@@ -207,6 +209,12 @@ This error occurs when trying to enable replication and the application folders 
 - *C:\thirdparty\php5nts*
 - All the items under the below path -
     - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
+
+## Troubleshoot and handle time changes on replicated servers
+This error occurs when the source machine's time moves forward and then moves back in short time, to correct the change. You may not notice the change as the time is corrected very quickly.
+
+**How to fix**: 
+To resolve this issue, wait till system time crosses the skewed future time. Another option is to disable and enable replication once again, which is only feasible for forward replication (data replicated from on-premises to Azure) and is not applicable for reverse replication (data replicated from Azure to on-premises). 
 
 ## Next steps
 

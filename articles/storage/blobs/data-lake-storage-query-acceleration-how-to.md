@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 06/09/2022
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurepowershell
@@ -241,10 +241,25 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 {
     try
     {
-        var options = new BlobQueryOptions() {
-            InputTextConfiguration = new BlobQueryCsvTextOptions() { HasHeaders = headers },
-            OutputTextConfiguration = new BlobQueryCsvTextOptions() { HasHeaders = true },
-            ProgressHandler = new Progress<long>((finishedBytes) => Console.Error.WriteLine($"Data read: {finishedBytes}"))
+        var options = new BlobQueryOptions()
+        {
+            InputTextConfiguration = new BlobQueryCsvTextOptions()
+            { 
+                HasHeaders = true, 
+                RecordSeparator = "\n", 
+                ColumnSeparator = ",", 
+                EscapeCharacter = '\\', 
+                QuotationCharacter = '"'
+            },
+            OutputTextConfiguration = new BlobQueryCsvTextOptions() 
+            { 
+                HasHeaders = true, 
+                RecordSeparator = "\n", 
+                ColumnSeparator = ",", 
+                EscapeCharacter = '\\', 
+                QuotationCharacter = '"' },
+            ProgressHandler = new Progress<long>((finishedBytes) => 
+                Console.Error.WriteLine($"Data read: {finishedBytes}"))
         };
         options.ErrorHandler += (BlobQueryError err) => {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -256,7 +271,8 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
                 query,
                 options)).Value.Content))
         {
-            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture, hasHeaderRecord: true) { HasHeaderRecord = true }))
+            using (var parser = new CsvReader
+                (reader, new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = true }))
             {
                 while (await parser.ReadAsync())
                 {
@@ -267,7 +283,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
     }
     catch (Exception ex)
     {
-        Console.Error.WriteLine("Exception: " + ex.ToString());
+        System.Windows.Forms.MessageBox.Show("Exception: " + ex.ToString());
     }
 }
 

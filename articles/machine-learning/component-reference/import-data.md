@@ -5,6 +5,7 @@ description: Learn how to use the Import Data component in Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
 
 author: likebupt
@@ -18,7 +19,7 @@ This article describes a component in Azure Machine Learning designer.
 Use this component to load data into a machine learning pipeline from existing cloud data services. 
 
 > [!Note]
-> All functionality provided by this component can be done by **datastore** and **datasets** in the worksapce landing page. We recommend you use **datastore** and **dataset** which includes additional features like data monitoring. To learn more, see [How to Access Data](../how-to-access-data.md) and [How to Register Datasets](../how-to-create-register-datasets.md) article.
+> All functionality provided by this component can be done by **datastore** and **datasets** in the workspace landing page. We recommend you use **datastore** and **dataset** which includes additional features like data monitoring. To learn more, see [How to Access Data](../v1/how-to-access-data.md) and [How to Register Datasets](../v1/how-to-create-register-datasets.md) article.
 >  After you register a dataset, you can find it in the **Datasets** -> **My Datasets** category in designer interface. This component is reserved for Studio(classic) users to for a familiar experience. 
 >
 

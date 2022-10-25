@@ -2,11 +2,11 @@
 title: Transient connectivity errors - Azure Database for MariaDB
 description: Learn how to handle  transient connectivity errors for Azure Database for MariaDB.
 keywords: mysql connection,connection string,connectivity issues,transient error,connection error
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ---
 
 # Handling of transient connectivity errors for Azure Database for MariaDB

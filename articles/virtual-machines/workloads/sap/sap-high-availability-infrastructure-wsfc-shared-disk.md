@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/14/2022
+ms.date: 05/10/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -160,7 +160,7 @@ ms.custom: H1Hack27Feb2017
 This article describes the steps you take to prepare the Azure infrastructure for installing and configuring a high-availability SAP ASCS/SCS instance on a Windows failover cluster by using a *cluster shared disk* as an option for clustering an SAP ASCS instance. Two alternatives for *cluster shared disk* are presented in the documentation:
 
 - [Azure shared disks](../../disks-shared.md)
-- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) to create mirrored storage, that will simulate clustered shared disk 
+- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create mirrored storage, that will simulate clustered shared disk 
 
 The documentation doesn't cover the database layer.  
 
@@ -172,7 +172,7 @@ Before you begin the installation, review this article:
 
 ## Create the ASCS VMs
 
-For SAP ASCS / SCS cluster deploy two VMs in Azure availability set or Azure availability zones based on the type of your deployment. If you are using [Azure proximity placement groups (PPG)](./sap-proximity-placement-scenarios.md), make sure all virtual machines sharing a disk must be part of the same PPG. Once the VMs are deployed:
+For SAP ASCS / SCS cluster deploy two VMs in Azure availability set or Azure availability zones based on the type of your deployment. Once the VMs are deployed:
 
 - Create Azure Internal Load Balancer for SAP ASCS /SCS instance.
 - Add Windows VMs to the AD domain.
@@ -202,7 +202,9 @@ Based on your deployment type, the host names and the IP addresses of the scenar
 The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if the cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS).
 
 > [!Note]
-> [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But if you are using PPG for SAP system, all virtual machines sharing a disk must be part of the same PPG.
+> [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
+> - If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
+> -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
 ## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure internal load balancer
 
@@ -351,7 +353,7 @@ Set-ClusterQuorum –CloudWitness –AccountName $AzureStorageAccountName -Acces
 After you successfully install the Windows failover cluster, you need to adjust some thresholds, to be suitable for clusters deployed in Azure. The parameters to be changed are documented in [Tuning failover cluster network thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). Assuming that your two VMs that make up the Windows cluster configuration for ASCS/SCS are in the same subnet, change the following parameters to these values:
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- RouteHistoryLength = 30
 
 These settings were tested with customers and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough for real error conditions in SAP workloads or VM failure.  
 
@@ -459,7 +461,7 @@ This section is only applicable, if you are using the third-party software SIOS 
 Now, you have a working Windows Server failover clustering configuration in Azure. To install an SAP ASCS/SCS instance, you need a shared disk resource. One of the options is to use SIOS DataKeeper Cluster Edition is a third-party solution that you can use to create shared disk resources.  
 
 Installing SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk involves these tasks:
-- Add Microsoft .NET Framework, if needed. See the [SIOS documentation](https://us.sios.com/products/datakeeper-cluster/) for the most up-to-date .NET framework requirements 
+- Add Microsoft .NET Framework, if needed. See the [SIOS documentation](https://us.sios.com/products/sios-datakeeper/) for the most up-to-date .NET framework requirements 
 - Install SIOS DataKeeper
 - Configure SIOS DataKeeper
 

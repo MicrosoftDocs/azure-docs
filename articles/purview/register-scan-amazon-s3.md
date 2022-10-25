@@ -26,17 +26,16 @@ For this service, use Microsoft Purview to provide a Microsoft account with secu
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| Yes | Yes | Yes | Yes | Yes | No | Limited** |
-|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| Yes | Yes | Yes | Yes | Yes | No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 
 ## Microsoft Purview scope for Amazon S3
 
-We currently do not support ingestion private endpoints that work with your AWS sources.
+We currently don't support ingestion private endpoints that work with your AWS sources.
 
 For more information about Microsoft Purview limits, see:
 
@@ -45,7 +44,7 @@ For more information about Microsoft Purview limits, see:
 
 ### Storage and scanning regions
 
-The Microsoft Purview connector for the Amazon S3 service is currently deployed in specific regions only. The following table maps the regions where you data is stored to the region where it would be scanned by Microsoft Purview.
+The Microsoft Purview connector for the Amazon S3 service is currently deployed in specific regions only. The following table maps the regions where your data is stored to the region where it would be scanned by Microsoft Purview.
 
 > [!IMPORTANT]
 > Customers will be charged for all related data transfer charges according to the region of their bucket.
@@ -167,7 +166,7 @@ This procedure describes how to create the AWS role, with the required Microsoft
 
 - For buckets that use **AWS-KMS** encryption, [special configuration](#configure-scanning-for-encrypted-amazon-s3-buckets) is required to enable scanning.
 
-- Make sure that your bucket policy does not block the connection. For more information, see:
+- Make sure that your bucket policy doesn't block the connection. For more information, see:
 
     - [Confirm your bucket policy access](#confirm-your-bucket-policy-access)
     - [Confirm your SCP policy access](#confirm-your-scp-policy-access)
@@ -189,7 +188,7 @@ This procedure describes how to create a new Microsoft Purview credential to use
     |Field |Description  |
     |---------|---------|
     |**Name**     |Enter a meaningful name for this credential.        |
-    |**Description**     |Enter a optional description for this credential, such as `Used to scan the tutorial S3 buckets`         |
+    |**Description**     |Enter an optional description for this credential, such as `Used to scan the tutorial S3 buckets`         |
     |**Authentication method**     |Select **Role ARN**, since you're using a role ARN to access your bucket.         |
     |**Role ARN**     | Once you've [created your Amazon IAM role](#create-a-new-aws-role-for-microsoft-purview), navigate to your role in the AWS IAM area, copy the **Role ARN** value, and enter it here. For example: `arn:aws:iam::181328463391:role/S3Role`. <br><br>For more information, see [Retrieve your new Role ARN](#retrieve-your-new-role-arn). |
     | | |
@@ -262,14 +261,14 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
 
 ### Confirm your bucket policy access
 
-Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) does not block the connection:
+Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) doesn't block the connection:
 
 1. In AWS, navigate to your S3 bucket, and then select the **Permissions** tab > **Bucket policy**.
 1. Check the policy details to make sure that it doesn't block the connection from the Microsoft Purview scanner service.
 
 ### Confirm your SCP policy access
 
-Make sure that there is no [SCP policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that blocks the connection to the S3 bucket. 
+Make sure that there's no [SCP policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that blocks the connection to the S3 bucket. 
 
 For example, your SCP policy might block read API calls to the [AWS Region](#storage-and-scanning-regions) where your S3 bucket is hosted.
 
@@ -332,7 +331,7 @@ For example:
 
 ## Add a single Amazon S3 bucket as a Microsoft Purview account
 
-Use this procedure if you only have a single S3 bucket that you want to register to Microsoft Purview as a data source, or if you have multiple buckets in your AWS account, but do not want to register all of them to Microsoft Purview.
+Use this procedure if you only have a single S3 bucket that you want to register to Microsoft Purview as a data source, or if you have multiple buckets in your AWS account, but don't want to register all of them to Microsoft Purview.
 
 **To add your bucket**:
 
@@ -460,9 +459,9 @@ Use the other areas of Microsoft Purview to find out details about the content i
 
 - **View Insight reports** to view statistics for the classification, sensitivity labels, file types, and more details about your content.
 
-    All Microsoft Purview Insight reports include the Amazon S3 scanning results, along with the rest of the results from your Azure data sources. When relevant, an additional **Amazon S3** asset type was added to the report filtering options.
+    All Microsoft Purview Insight reports include the Amazon S3 scanning results, along with the rest of the results from your Azure data sources. When relevant, another **Amazon S3** asset type was added to the report filtering options.
 
-    For more information, see the [Understand Insights in Microsoft Purview](concept-insights.md).
+    For more information, see the [Understand Data Estate Insights in Microsoft Purview](concept-insights.md).
 
 ## Minimum permissions for your AWS policy
 
@@ -581,9 +580,9 @@ This is a general error that indicates an issue when using the Role ARN. For exa
 
 - Make sure that the AWS role has the correct Microsoft account ID. In the AWS IAM area, select the **Role > Trust relationships** tab and then follow the steps in [Create a new AWS role for Microsoft Purview](#create-a-new-aws-role-for-microsoft-purview) again to verify your details.
 
-For more information, see [Cannot find the specified bucket](#cannot-find-the-specified-bucket), 
+For more information, see [Can't find the specified bucket](#cant-find-the-specified-bucket), 
 
-### Cannot find the specified bucket
+### Can't find the specified bucket
 
 Make sure that the S3 bucket URL is properly defined:
 
@@ -596,4 +595,4 @@ Make sure that the S3 bucket URL is properly defined:
 Learn more about Microsoft Purview Insight reports:
 
 > [!div class="nextstepaction"]
-> [Understand Insights in Microsoft Purview](concept-insights.md)
+> [Understand Data Estate Insights in Microsoft Purview](concept-insights.md)

@@ -69,6 +69,10 @@
          href: onboard-configuration-manager-custom-task.md 
        - name: Connect machines using group policy
          href: onboard-group-policy.md
+       - name: Connect machines using group policy with service principal encryption
+         href: onboard-group-policy-service-principal-encryption.md
+       - name: Connect machines using Ansible playbooks
+         href: onboard-ansible-playbooks.md
        - name: Connect machines from Automation Update Management
          href: onboard-update-management-machines.md
   - name: Migrate
@@ -103,8 +107,12 @@
       href: plan-evaluate-on-azure-virtual-machine.md
     - name: Onboard to Microsoft Sentinel
       href: scenario-onboard-azure-sentinel.md
+    - name: Migrate to Azure Monitor Agent using Ansible
+      href: migrate-azure-monitor-agent-ansible.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+    - name: Manage with Windows Admin Center
+      href: /windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
   - name: Connect via SSH
     items:
     - name: SSH access to Azure Arc-enabled servers
@@ -119,8 +127,6 @@
       href: troubleshoot-vm-extensions.md
 - name: Reference
   items:
-  - name: Data residency
-    href: data-residency.md
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell

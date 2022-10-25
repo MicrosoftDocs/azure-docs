@@ -8,6 +8,7 @@ ms.author: ssalgado
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/25/2021
 ---
@@ -32,7 +33,7 @@ The quickest way to create resources is using the extension's toolbar.
 1. Select **+** in the activity bar.
 1. Choose your resource from the dropdown list.
 1. Configure the specification file. The information required depends on the type of resource you want to create.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, you can create a resource by using the command palette:
 
@@ -50,7 +51,7 @@ To version a resource:
 
 1. Use the existing specification file that created the resource or follow the create resources process to create a new specification file.
 1. Increment the version number in the template.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 As long as the name of the updated resource is the same as the previous version, Azure Machine Learning picks up the changes and creates a new version.
 
@@ -62,7 +63,7 @@ For more information, see [workspaces](concept-workspace.md).
 
 1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Workspace` command in the command palette.
 
@@ -85,7 +86,7 @@ The extension currently supports datastores of the following types:
 - Azure Data Lake Gen 2
 - Azure File
 
-For more information, see [datastores](concept-data.md#datastores).
+For more information, see [datastore](concept-data.md#datastore).
 
 ### Create a datastore
 
@@ -94,7 +95,7 @@ For more information, see [datastores](concept-data.md#datastores).
 1. Right-click the **Datastores** node and select **Create Datastore**.
 1. Choose the datastore type.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Datastore` command in the command palette.
 
@@ -116,7 +117,7 @@ The extension currently supports the following dataset types:
 - *Tabular*: Allows you to materialize data into a DataFrame.
 - *File*: A file or collection of files. Allows you to download or mount files to your compute.
 
-For more information, see [datasets](concept-data.md#datasets)
+For more information, see [datasets](./v1/concept-data.md)
 
 ### Create dataset
 
@@ -124,7 +125,7 @@ For more information, see [datasets](concept-data.md#datasets)
 1. Expand the workspace node you want to create the dataset under.
 1. Right-click the **Datasets** node and select **Create Dataset**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Dataset` command in the command palette.
 
@@ -134,7 +135,7 @@ Alternatively, use the `> Azure ML: Create Dataset` command in the command palet
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to:
-    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple version of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
+    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple versions of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
     - **Preview dataset**. View your dataset directly in the VS Code Data Viewer. Note that this option is only available for tabular datasets.
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
@@ -150,7 +151,7 @@ For more information, see [environments](concept-environments.md).
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Environments** node and select **Create Environment**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Environment` command in the command palette.
 
@@ -167,7 +168,7 @@ Alternatively, use the `> Azure ML: View Environment` command in the command pal
 
 ## Experiments
 
-For more information, see [experiments](concept-azure-machine-learning-architecture.md#experiments).
+For more information, see [experiments](v1/concept-azure-machine-learning-architecture.md#experiments).
 
 ### Create job
 
@@ -180,13 +181,13 @@ Using the resource nodes in the Azure Machine Learning view:
 1. Right-click the **Experiments** node in your workspace and select **Create Job**.
 1. Choose your job type.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Job` command in the command palette.
 
 ### View job
 
-To view your job in Azure Machine Learning Studio:
+To view your job in Azure Machine Learning studio:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
@@ -195,24 +196,24 @@ To view your job in Azure Machine Learning Studio:
 
 Alternatively, use the `> Azure ML: View Experiment in Studio` command respectively in the command palette.
 
-### Track run progress
+### Track job progress
 
-As you're running your job, you may want to see its progress. To track the progress of a run in Azure Machine Learning studio from the extension:
+As you're running your job, you may want to see its progress. To track the progress of a job in Azure Machine Learning studio from the extension:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the job node you want to track progress for.
-1. Right-click the run and select **View Run in Studio**.
-1. A prompt appears asking you to open the run URL in Azure Machine Learning studio. Select **Open**.
+1. Right-click the job and select **View Job in Studio**.
+1. A prompt appears asking you to open the job URL in Azure Machine Learning studio. Select **Open**.
 
-### Download run logs & outputs
+### Download job logs & outputs
 
-Once a run is complete, you may want to download the logs and assets such as the model generated as part of a run.
+Once a job is complete, you may want to download the logs and assets such as the model generated as part of a job.
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the job node you want to download logs and outputs for.
-1. Right-click the run:
+1. Right-click the job:
     - To download the outputs, select **Download outputs**.
     - To download the logs, select **Download logs**.
 
@@ -229,7 +230,7 @@ For more information, see [compute instances](concept-compute-instance.md).
 1. Expand the **Compute** node.
 1. Right-click the **Compute instances** node in your workspace and select **Create Compute**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
 
@@ -266,7 +267,7 @@ Alternatively, use the `Azure ML: Delete Compute instance` command in the comman
 
 ## Compute clusters
 
-For more information, see [training compute targets](concept-compute-target.md#train).
+For more information, see [training compute targets](concept-compute-target.md#training-compute-targets).
 
 ### Create compute cluster
 
@@ -275,7 +276,7 @@ For more information, see [training compute targets](concept-compute-target.md#t
 1. Expand the **Compute** node.
 1. Right-click the **Compute clusters** node in your workspace and select **Create Compute**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
 
@@ -299,7 +300,7 @@ Alternatively, use the `> Azure ML: Remove Compute` command in the command palet
 
 ## Inference Clusters
 
-For more information, see [compute targets for inference](concept-compute-target.md#deploy).
+For more information, see [compute targets for inference](concept-compute-target.md#compute-targets-for-inference).
 
 ### Manage inference clusters
 
@@ -338,7 +339,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 
 ## Models
 
-For more information, see [models](concept-azure-machine-learning-architecture.md#models)
+For more information, see [models](v1/concept-azure-machine-learning-architecture.md#models)
 
 ### Create model
 
@@ -346,7 +347,7 @@ For more information, see [models](concept-azure-machine-learning-architecture.m
 1. Expand your workspace node.
 1. Right-click the **Models** node in your workspace and select **Create Model**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Model` command in the command palette.
 
@@ -377,7 +378,7 @@ Alternatively, use the `> Azure ML: Remove Model` command in the command palette
 
 ## Endpoints
 
-For more information, see [endpoints](concept-azure-machine-learning-architecture.md#endpoints).
+For more information, see [endpoints](v1/concept-azure-machine-learning-architecture.md#endpoints).
 
 ### Create endpoint
 
@@ -386,7 +387,7 @@ For more information, see [endpoints](concept-azure-machine-learning-architectur
 1. Right-click the **Models** node in your workspace and select **Create Endpoint**.
 1. Choose your endpoint type.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Endpoint` command in the command palette.
 

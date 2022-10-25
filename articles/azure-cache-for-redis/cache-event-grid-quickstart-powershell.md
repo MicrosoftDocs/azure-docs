@@ -82,7 +82,7 @@ $sitename="<your-site-name>"
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/main/azuredeploy.json" `
   -siteName $sitename `
   -hostingPlanName viewerhost
 ```

@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a basic public load balancer - Azure portal'
 titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart. 
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/15/2022

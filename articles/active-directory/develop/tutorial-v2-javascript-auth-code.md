@@ -1,16 +1,15 @@
 ---
-title: "Tutorial: Create a JavaScript single-page app that uses auth code flow | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create a JavaScript single-page app that uses auth code flow"
 description: In this tutorial, you create a JavaScript SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/12/2021
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev, devx-track-js
 ---
 
@@ -67,8 +66,8 @@ Next, implement a small [Express](https://expressjs.com/) web server to serve yo
     npm install yargs
     ```
 2. Next, create file named *server.js* and add the following code:
-
-  :::code language="js" source="~/ms-identity-javascript-v2/server.js":::
+ 
+   :::code language="js" source="~/ms-identity-javascript-v2/server.js":::
 
 ## Create the SPA UI
 

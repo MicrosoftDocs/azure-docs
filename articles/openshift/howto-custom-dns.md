@@ -1,8 +1,8 @@
 ---
 title: Configure custom DNS resources in an Azure Red Hat OpenShift (ARO) cluster
 description: Discover how to add a custom DNS server on all of your nodes in Azure Red Hat OpenShift (ARO).
-author: bryanro92
-ms.author: suvetriv
+author: konghot
+ms.author: pkonghot
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/02/2021

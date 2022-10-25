@@ -3,7 +3,7 @@ title: Overview of Azure Relay .NET Standard APIs | Microsoft Docs
 description: This article summarizes some of the key an overview of Azure Relay Hybrid Connections .NET Standard API.
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
@@ -85,7 +85,7 @@ The following code reads individual lines of text from the stream until a cancel
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop
 var cancellationToken = new CancellationToken();
-// Create a StreamReader from the 'hybridConnectionStream`
+// Create a StreamReader from the hybridConnectionStream
 var streamReader = new StreamReader(hybridConnectionStream);
 
 while (!cancellationToken.IsCancellationRequested)

@@ -4,6 +4,7 @@ description: Migrate from Studio (classic) to Azure Machine Learning for a moder
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper
@@ -53,7 +54,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer component-mapping](#studio-classic-and-designer-component-mapping) table below.
 
-4. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=azure-portal).
+4. [Create an Azure Machine Learning workspace](quickstart-create-resources.md).
 
 ## Step 2: Define a strategy and plan
 
@@ -74,7 +75,7 @@ After you've defined a strategy, migrate your first model.
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
     >[!NOTE]
-    > Azure Machine Learning also supports code-first workflows for migrating [datasets](how-to-create-register-datasets.md), [training](how-to-set-up-training-targets.md), and [deployment](how-to-deploy-and-where.md).
+    > Above guidance are built on top of AzureML v1 concepts and features. AzureML has CLI v2 and Python SDK v2. We suggest to rebuild your ML Studio(classic) models using v2 instead of v1. Start with AzureML v2 [here](./concept-v2.md)  
 
 ## Step 4: Integrate client apps
 
@@ -143,9 +144,8 @@ In Studio (classic), **datasets** were saved in your workspace and could only be
 
 ![automobile-price-classic-dataset](./media/migrate-overview/studio-classic-dataset.png)
 
-In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](concept-data.md#reference-data-in-storage-with-datasets).
+In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](./v1/concept-data.md).
 
-![automobile-price-aml-dataset](./media/migrate-overview/aml-dataset.png)
 
 ### Pipeline
 
@@ -163,7 +163,7 @@ Studio (classic) used **REQUEST/RESPOND API** for real-time prediction and **BAT
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-Azure Machine Learning uses **real-time endpoints** for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
+Azure Machine Learning uses **real-time endpoints** (managed endpoints) for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
 

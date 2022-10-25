@@ -1,12 +1,14 @@
 ---
 title: Cluster Resource Manager - Management Integration 
 description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Cluster resource manager integration with Service Fabric cluster management
 The Service Fabric Cluster Resource Manager doesn't drive upgrades in Service Fabric, but it is involved. The first way that the Cluster Resource Manager helps with management is by tracking the desired state of the cluster and the services inside it. The Cluster Resource Manager sends out health reports when it cannot put the cluster into the desired configuration. For example, if there is insufficient capacity the Cluster Resource Manager sends out health warnings and errors indicating the problem. Another piece of integration has to do with how upgrades work. The Cluster Resource Manager alters its behavior slightly during upgrades.  
 
@@ -66,7 +68,7 @@ Here's what this health message is telling us is:
 5. The distribution policy for this service: "Distribution Policy -- Packing". This is governed by the `RequireDomainDistribution` [placement policy](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). *Packing* indicates that in this case DomainDistribution was _not_ required, so we know that placement policy was not specified for this service. 
 6. When the report happened - 8/10/2015 7:13:02 PM
 
-Information like this powers alerts that fire in production to let you know something has gone wrong and is also used to detect and halt bad upgrades. In this case, we’d want to see if we can figure out why the Resource Manager had to pack the replicas into the Upgrade Domain. Usually packing is transient because the nodes in the other Upgrade Domains were down, for example.
+Information like this powers alerting. You can use alerts in production to let you know something has gone wrong. Alerting is also used to detect and halt bad upgrades. In this case, we’d want to see if we can figure out why the Resource Manager had to pack the replicas into the Upgrade Domain. Usually packing is transient because the nodes in the other Upgrade Domains were down, for example.
 
 Let’s say the Cluster Resource Manager is trying to place some services, but there aren't any solutions that work. When services can't be placed, it is usually for one of the following reasons:
 

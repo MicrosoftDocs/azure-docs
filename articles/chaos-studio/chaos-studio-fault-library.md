@@ -2,12 +2,12 @@
 title: Chaos Studio fault and action library
 description: Understand the available actions you can use with Chaos Studio including any prerequisites and parameters.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: article
-ms.date: 04/21/2022
-ms.author: johnkem
+ms.date: 06/16/2022
+ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Chaos Studio fault and action library
@@ -22,7 +22,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Supported OS Types | N/A |
 | Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (for example, waiting for autohealing to occur before injecting another fault). |
 | Prerequisites | N/A |
-| Urn | urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed |
+| Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
 | duration | The duration of the delay in ISO 8601 format (Example: PT10M) |
 
 ### Sample JSON
@@ -33,7 +33,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
   "actions": [ 
     {
       "type": "delay",
-      "name": "urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed",
+      "name": "urn:csci:microsoft:chaosStudio:timedDelay/1.0",
       "duration": "PT10M"
     }
   ] 
@@ -47,7 +47,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Capability Name | CPUPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows, Linux |
-| Description | Add CPU pressure up to the specified value on the VM where this fault is injected for the duration of the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Add CPU pressure up to the specified value on the VM where this fault is injected for the duration of the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the "% Processor Utility" performance counter is used at fault start to determine current CPU percentage and this is subtracted from the pressureLevel defined in the fault so that % Processor Utility will hit approximately the pressureLevel defined in the fault parameters. |
 | Prerequisites | **Linux:** Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng*  |
 | | **Windows:** None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
@@ -626,7 +626,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachine |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down a VM for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
+| Description | Shuts down a VM for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
 | Parameters (key, value) |  |
@@ -661,7 +661,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
@@ -694,15 +694,15 @@ Known issues on Linux:
 }
 ```
 
-## Cosmos DB failover
+## Azure Cosmos DB failover
 
 | Property | Value |
 |-|-|
 | Capability Name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
-| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md) |
+| Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md) |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:cosmosDB:failover/1.0 |
+| Urn | `urn:csci:microsoft:cosmosDB:failover/1.0` |
 | Parameters (key, value) |  |
 | readRegion | The read region that should be promoted to write region during the failover, for example, "East US 2" |
 

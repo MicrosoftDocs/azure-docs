@@ -12,13 +12,53 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 07/29/2022
 ms.author: phjensen
 ---
 
 # Release Notes for Azure Application Consistent Snapshot tool
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
+
+## Jul-2022
+
+### AzAcSnap 6 (Build: 1A5F0B8)
+
+> [!IMPORTANT]
+> AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
+ 
+Since AzAcSnap v5.0 was released as GA in April 2021, there have been 8 releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6 we will have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers cannot accidentally use Preview features, and must enable them with the `--preview` command line option.  This means the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
+
+AzAcSnap 6 is being released with the following fixes and improvements:
+
+- Features moved to GA (generally available):
+  - Oracle Database support.
+  - Backint integration to work with Azure Backup.
+  - RunBefore/RunAfter command line options to execute custom shell scripts and commands before or after taking storage snapshots.
+- Features in Preview:
+  - Azure Key Vault to store Service Principal content.
+  - Azure Managed Disk as an alternate storage back-end.
+- ANF Client API Version updated to 2021-10-01.
+- Change to workflow for handling Backint to re-enable backint configuration should there be a failure when putting SAP HANA in a consistent state for snapshot.
+ 
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  For specific information on Preview features refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## May-2022
+
+### AzAcSnap v5.0.3 (Build: 20220524.14204) - Patch update to v5.0.2
+
+AzAcSnap v5.0.3 (Build: 20220524.14204) is provided as a patch update to the v5.0 branch with the following fix:
+
+- Fix for handling delimited identifiers when querying SAP HANA.  This issue only impacted SAP HANA in HSR-HA node when there is a Secondary node configured with 'logreplay_readaccss' and has been resolved.
+
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
+
+### AzAcSnap v5.1 Preview (Build: 20220524.15550)
+
+AzAcSnap v5.1 Preview (Build: 20220524.15550) is an updated build to extend the preview expiry date for 90 days.  This update contains the fix for handling delimited identifiers when querying SAP HANA as provided in v5.0.3.
+
+Read about the [AzAcSnap Preview](azacsnap-preview.md).
+Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer).
 
 ## Mar-2022
 
@@ -28,11 +68,6 @@ AzAcSnap v5.1 Preview (Build: 20220302.81795) has been released with the followi
 
 - Azure Key Vault support for securely storing the Service Principal.
 - A new option for `-c backup --volume` which has the `all` parameter value.
-
-Details of these new features are in the AzAcSnap Preview documentation.
-
-Read about the new features and how to use the [AzAcSnap Preview](azacsnap-preview.md).
-Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer).
 
 ## Feb-2022
 
@@ -68,8 +103,6 @@ AzAcSnap v5.0.2 (Build: 20210827.19086) is provided as a patch update to the v5.
 - Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures  (refer `man ssh` "EXIT STATUS") - then AzAcSnap would trap this exit code as a failure and abort.  With this update extra verification is done to validate correct execution, this includes parsing `ssh` STDOUT and STDERR for errors in addition to traditional exit code checks.
 - Fix the installer's check for the location of the hdbuserstore.  The installer would check for the existence of an incorrect source directory for the hdbuserstore for the user running the install - this is fixed to check for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
 - Installer now shows the version it will install/extract (if the installer is run without any arguments).
-
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
 
 ## May-2021
 

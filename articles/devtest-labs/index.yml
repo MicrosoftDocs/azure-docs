@@ -39,7 +39,7 @@ landingContent:
       - linkListType: learn
         links:       
           - text: Intro to DevTest Labs
-            url: /learn/modules/intro-to-azure-devtest-labs/
+            url: /training/modules/intro-to-azure-devtest-labs/
   - title: Artifacts
     linkLists:
       - linkListType: how-to-guide

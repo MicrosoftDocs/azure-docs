@@ -1,8 +1,8 @@
 ---
 title: Azure Red Hat OpenShift support lifecycle
 description: Understand the support lifecycle and supported versions for Azure Red Hat OpenShift
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: joharder
+ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 06/16/2021
@@ -36,14 +36,14 @@ Upgrade channels are tied to a minor version of Red Hat OpenShift Container Plat
 
 Azure Red Hat OpenShift 4 supports stable channels only. For example: stable-4.4.
 
-You can use the stable-4.5 channel to upgrade from a previous minor version of Azure Red Hat OpenShift. Clusters upgraded using fast, prerelease, and candidate channels will not be supported.
+You can use the stable-4.5 channel to upgrade from a previous minor version of Azure Red Hat OpenShift. Clusters upgraded using fast, prerelease, and candidate channels won't be supported.
 
-If you change to a channel that does not include your current release, an alert displays and no updates can be recommended, but you can safely change back to your original channel at any point.
+If you change to a channel that doesn't include your current release, an alert displays and no updates can be recommended. However, you can safely change back to your original channel at any point.
 
 ## Red Hat OpenShift Container Platform version support policy
 
 Azure Red Hat OpenShift supports two generally available (GA) minor versions of Red Hat OpenShift Container Platform:
-* The latest GA minor version that is released in Azure Red Hat OpenShift (which we will refer to as N)
+* The latest GA minor version that is released in Azure Red Hat OpenShift (which we'll refer to as N)
 * One previous minor version (N-1)
 
 If available in a stable upgrade channel, newer minor releases (N+1, N+2) available in upstream OCP may be supported as well.
@@ -68,13 +68,13 @@ When a new minor version is introduced, the oldest minor version is deprecated a
 You can reference upcoming version releases and deprecations on the Azure Red Hat OpenShift Release Calendar.
 
 For new minor versions of Red Hat OpenShift Container Platform:
-* The Azure Red Hat OpenShift SRE team publishes a pre-announcement with the planned date of a new version release and respective old version deprecation on the [Azure Red Hat OpenShift Release notes](https://github.com/Azure/OpenShift/releases) at least 30 days prior to removal.
+* The Azure Red Hat OpenShift SRE team publishes a pre-announcement with the planned date of a new version release, and respective old version deprecation, in the [Azure Red Hat OpenShift Release notes](https://github.com/Azure/OpenShift/releases) at least 30 days prior to removal.
 * The Azure Red Hat OpenShift SRE team publishes a service health notification available to all customers with Azure Red Hat OpenShift and portal access, and sends an email to the subscription administrators with the planned version removal dates.
 * Customers have 30 days from version removal to upgrade to a supported minor version release to continue receiving support.
 
 For new patch versions of Red Hat OpenShift Container Platform:
 * Because of the urgent nature of patch versions, these can be introduced into the service by Azure Red Hat OpenShift SRE team as they become available.
-* In general, the Azure Red Hat OpenShift SRE team does not perform broad communications for the installation of new patch versions. However, the team constantly monitors and validates available CVE patches to support them in a timely manner. If customer action is required, the team will notify customers about the upgrade.
+* In general, the Azure Red Hat OpenShift SRE team doesn't perform broad communications for the installation of new patch versions. However, the team constantly monitors and validates available CVE patches to support them in a timely manner. If customer action is required, the team will notify customers about the upgrade.
 
 ## Supported versions policy exceptions
 
@@ -98,22 +98,23 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 |4.7|February 2021| July 15 2021|4.9 GA|
 |4.8|July 2021| Sept 15 2021|4.10 GA|
 |4.9|November 2021| February 1 2022|4.11 GA|
+|4.10|March 2022| June 21 2022|4.12 GA|
 
 ## FAQ
 
 **What happens when a user upgrades an OpenShift cluster with a minor version that is not supported?**
 
-If you are on the N-2 version or older, it means you are outside of support and will be asked to upgrade to continue recieving support. When your upgrade from version N-2 to N-1 succeeds, you are back within support. Upgrading from version N-3 version or older to a supported version can be challenging and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues. 
+If you're on the N-2 version or older, it means you are outside of support and will be asked to upgrade to continue receiving support. When your upgrade from version N-2 to N-1 succeeds, you're back within support. Upgrading from version N-3 version or older to a supported version can be challenging, and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues. 
 For example:
 * If the oldest supported Azure Red Hat OpenShift version is 4.4.z and you are on 4.3.z or older, you are outside of support.
-* When the upgrade from 4.3.z to 4.4.z or higher succeeds, you are back within our support policies. 
+* When the upgrade from 4.3.z to 4.4.z or higher succeeds, you're back within our support policies. 
 
 Reverting your cluster to a previous version, or a rollback, isn't supported. Only upgrading to a newer version is supported.
 
 **What does "Outside of Support" mean?**
 
-If your ARO cluster is running an OpenShift version that is not on the supported versions list or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
-- When opening a support ticket for your cluster, you will be asked to upgrade the cluster to a supported version. before receiving support, unless you are within the 30-day grace period after version support ends. 
-- Any runtime or SLA guarantees for clusters outside of the support are voided.
+If your ARO cluster is running an OpenShift version that is not on the supported versions list, or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
+- When opening a support ticket for your cluster, you will be asked to upgrade the cluster to a supported version before receiving support, unless you are within the 30-day grace period after version support ends. 
+- Any runtime or SLA guarantees for clusters outside of support are voided.
 - Clusters outside of support will be patched only on a best effort basis.
 - Clusters outside of support will not be monitored.

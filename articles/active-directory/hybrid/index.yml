@@ -8,7 +8,7 @@ summary:  Microsoft’s identity solutions span on-premises and cloud-based capa
 metadata:
   author: billmath
   description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD.
-  manager: karenhoran
+  manager: amycolannino
   ms.author: billmath
   ms.collection: na
   ms.date: 08/15/2019
@@ -84,7 +84,7 @@ landingContent:
             url: how-to-connect-sync-change-serviceacct-pass.md
           - text: Change the Azure AD Connector account password
             url: how-to-connect-azureadaccount.md   
-          - text: Change the AD DS account password
+          - text: Change the AD DS Connector account password
             url: how-to-connect-sync-change-addsacct-pass.md
       - linkListType: reference
         links:

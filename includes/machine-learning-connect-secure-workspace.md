@@ -18,3 +18,5 @@ To connect to a workspace that's secured behind a VNet, use one of the following
 
 > [!IMPORTANT]
 > When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](../articles/machine-learning/how-to-custom-dns.md).
+
+If you have problems connecting to the workspace, see [Troubleshoot secure workspace connectivity](../articles/machine-learning/how-to-troubleshoot-secure-connection-workspace.md).

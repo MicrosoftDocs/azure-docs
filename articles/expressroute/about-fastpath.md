@@ -34,15 +34,13 @@ To configure FastPath, the virtual network gateway must be either:
 
 While FastPath supports most configurations, it doesn't support the following features:
 
-* UDR on the gateway subnet: FastPath doesn't honor UDRs configured on the gateway subnet. FastPath traffic bypasses any next-hops determined by UDRs configured on the gateway subnet.
-
 * Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
 * Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, over a non-100Gbps ExpressRoute Direct circuit, the connection will go through the virtual network gateway. FastPath Connectivity to a private endpoint over a 100Gb ExpressRoute Direct circuit is supported.
 
 ### IP address limits
 
-| ExpressRoute SKU | Bandwidth | FathPath IP limit |
+| ExpressRoute SKU | Bandwidth | FastPath IP limit |
 | -- | -- | -- |
 | ExpressRoute Direct Port | 100Gbps | 200,000 |
 | ExpressRoute Direct Port | 10Gbps | 100,000 |
@@ -51,13 +49,26 @@ While FastPath supports most configurations, it doesn't support the following fe
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
 > * Traffic will flow through the ExpressRoute gateway when these limits are reached.
->
-
 ## Public preview
 
 The following FastPath features are in Public preview:
 
-**VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This preview is available for both IPv4 and IPv6 connectivity.
+### Virtual network (Vnet) Peering
+FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This feature is available for both IPv4 and IPv6 connectivity.
+
+**FastPath support for vnet peering is only available for ExpressRoute Direct connections.**
+
+> [!NOTE]
+> * FastPath Vnet peering connectivity is not supported for Azure Dedicated Host workloads.
+
+## User Defined Routes (UDRs)
+FastPath will honor UDRs configured on the GatewaySubnet and send traffic directly to an Azure Firewall or third party NVA.
+
+**FastPath support for UDRs is only available for ExpressRoute Direct connections**
+
+> [!NOTE]
+> * FastPath UDR connectivity is not supported for Azure Dedicated Host workloads.
+> * FastPath UDR connectivity is not supported for IPv6 workloads.
 
 **Private Link Connectivity for 10Gbps ExpressRoute Direct Connectivity** - Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
 This preview is available in the following Azure Regions.
@@ -90,7 +101,6 @@ This preview is available for connections associated to ExpressRoute Direct circ
 
 See [How to enroll in ExpressRoute FastPath features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
 
-Available in all regions.
  
 ## Next steps
 

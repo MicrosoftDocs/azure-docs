@@ -2,24 +2,23 @@
 title: Approve activation requests for group members and owners in Privileged Identity Management - Azure AD
 description: Learn how to approve or deny requests for role-assignable groups in Azure AD Privileged Identity Management (PIM).
 services: active-directory
-documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
-ms.reviewer: shaunliu
+ms.date: 08/16/2022
+ms.author: amsliu
+ms.reviewer: jgangadhar
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Approve activation requests for privileged access group members and owners (preview)
 
-With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), you can configure privileged access group members and owners to require approval for activation, and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each group to reduce workload for the privileged role administrator. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
+With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can configure privileged access group members and owners to require approval for activation, and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each group to reduce workload for the privileged role administrator. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 
 Follow the steps in this article to approve or deny requests for Azure resource roles.
 
@@ -68,8 +67,18 @@ Here's some information about workflow notifications:
 >[!Note]
 >An administrator who believes that an approved user should not be active can remove the active group assignment in Privileged Identity Management. Although resource administrators are not notified of pending requests unless they are an approver, they can view and cancel pending requests for all users by viewing pending requests in Privileged Identity Management.
 
+## Troubleshoot
+
+### Permissions are not granted after activating a role
+
+When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
+
+1. Sign out of the Azure portal and then sign back in.
+1. In Privileged Identity Management, verify that you are listed as the member of the role.
+
 ## Next steps
 
+- [Create an access review of Privileged Access Groups (preview)](../governance/create-access-review-privileged-access-groups.md)
 - [Extend or renew group assignments in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
 - [Approve or deny requests for group assignments in Privileged Identity Management](azure-ad-pim-approval-workflow.md)

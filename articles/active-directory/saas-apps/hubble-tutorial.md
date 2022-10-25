@@ -20,7 +20,6 @@ In this tutorial, you'll learn how to integrate Hubble with Azure Active Directo
 
 * Control in Azure AD who has access to Hubble.
 * Enable your users to be automatically signed-in to Hubble with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
@@ -48,6 +47,8 @@ To configure the integration of Hubble into Azure AD, you need to add Hubble fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Hubble** in the search box.
 1. Select **Hubble** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Hubble
 
@@ -87,10 +88,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up Hubble** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -117,7 +114,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Hubble SSO
 
-To configure single sign-on on **Hubble** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Hubble support team](mailto:cs@hubble-inc.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Hubble** side, you need to upload the downloaded **Federation Metadata XML** to the configuration page on Hubble.
 
 ### Create Hubble test user
 

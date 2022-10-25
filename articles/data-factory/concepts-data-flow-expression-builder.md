@@ -48,6 +48,9 @@ In mapping data flows, expressions can be composed of column values, parameters,
 
 Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see the [mapping data flow language reference](data-transformation-functions.md).
 
+### User Defined Functions (Preview)
+Mapping data flows supports the creation and use of user defined functions. To see how to create and use user defined functions see [user defined functions](concepts-data-flow-udf.md).
+
 #### Address array indexes
 
 When dealing with columns or functions that return array types, use brackets ([]) to access a specific element. If the index doesn't exist, the expression evaluates into NULL.

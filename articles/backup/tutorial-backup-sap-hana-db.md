@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 04/01/2022
+ms.date: 05/16/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -75,8 +75,8 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 4. Change the permissions and ownership of the file as follows:
     
     ```bash
-    chmod 750 ExtensionSettingsOverrides.json
-    chown root:msawb ExtensionSettingsOverrides.json
+    chmod 750 ExtensionSettingOverrides.json
+    chown root:msawb ExtensionSettingOverrides.json
     ```
 
 5. No restart of any service is required. The Azure Backup service will attempt to limit the throughput performance as mentioned in this file.
@@ -88,6 +88,7 @@ Running the pre-registration script performs the following functions:
 * Based on your Linux distribution, the script installs or updates any necessary packages required by the Azure Backup agent.
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
 * It logs into your HANA system using the custom user key or SYSTEM user key mentioned as part of the [prerequisites](#prerequisites). This is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully. _Note that the SYSTEM user key must not be deleted_.
+* It checks and warns if the */opt/msawb* folder is placed in the root partition and the root partition is 2 GB in size. The script recommends that you increase the root partition size to 4 GB or move the */opt/msawb* folder to a different location where it has space to grow to a maximum of 4 GB in size. Note that if you place the */opt/msawb* folder in the root partition of 2 GB size, this could lead to root partition getting full and causing the backups to fail.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
   * For MDC: DATABASE ADMIN and BACKUP ADMIN (from HANA 2.0 SPS05 onwards): to create new databases during restore.
   * For SDC: BACKUP ADMIN: to create new databases during restore.

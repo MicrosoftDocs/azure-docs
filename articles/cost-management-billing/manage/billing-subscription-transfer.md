@@ -8,14 +8,16 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 05/04/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an MOSP Azure subscription to another account
 
-This article shows the steps needed to transfer billing ownership of an (MOSP) Microsoft Online Services Program, also referred to as pay-as-you-go, Azure subscription to another account. Before you transfer billing ownership for a subscription, read [Azure subscription and reservation transfer hub](subscription-transfer.md) to ensure that your transfer type is supported.
+This article shows the steps needed to transfer billing ownership of an (MOSP) Microsoft Online Services Program, also referred to as pay-as-you-go, Azure subscription to another MOSP account. 
+
+Before you transfer billing ownership for a subscription, read [Azure subscription and reservation transfer hub](subscription-transfer.md) to ensure that your transfer type is supported.
 
 If you want to keep your billing ownership but change subscription type, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can access resources in the subscription, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -56,7 +58,7 @@ When you transfer billing ownership of your subscription to an account in anothe
 
 ## Transfer Visual Studio and Partner Network subscriptions
 
-Visual Studio and Microsoft Partner Network subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscriptions, your credit isn't available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on September 9 and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every ninth day of the month.
+Visual Studio and Microsoft Cloud Partner Program subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscriptions, your credit isn't available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on September 9 and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every ninth day of the month.
 
 ## Next steps after accepting billing ownership
 

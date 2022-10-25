@@ -33,6 +33,8 @@
     - name: Permissions and access
       displayName: Access control
       items:
+        - name: Permissions and consent overview
+          href: permissions-consent-overview.md
         - name: "Authorization options: ACLs, RBAC, ABAC"
           href: authorization-basics.md
         - name: RBAC for app developers
@@ -45,10 +47,12 @@
           href: application-consent-experience.md
         - name: Consent framework
           href: consent-framework.md
-        - name: Conditional access (CA) dev guide
+        - name: Conditional Access dev guide
           href: v2-conditional-access-dev-guide.md
-        - name: Conditional access (CA) auth context
+          displayName: ca
+        - name: Conditional Access auth context
           href: developer-guide-conditional-access-authentication-context.md
+          displayName: ca
     - name: App registrations and workload identities
       displayName: App configuration
       items:
@@ -65,14 +69,14 @@
     - name: Security best practices
       displayName: least privilege, secure app configuration, conditional access
       items:
-        - name: Zero Trust for app developers
-          href: zero-trust-for-developers.md
-        - name: Least privileged access for applications
-          href: secure-least-privileged-access.md
-        - name: App registration security
+        - name: Application security
           href: security-best-practices-for-app-registration.md
-        - name: Secure access control using groups in Azure AD
+        - name: Least privileged access
+          href: secure-least-privileged-access.md
+        - name: Secure access control using groups
           href: secure-group-access-control.md
+        - name: Zero Trust
+          href: zero-trust-for-developers.md
     - name: Identity platform best practices
       href: identity-platform-integration-checklist.md
 - name: How-to
@@ -102,6 +106,7 @@
             - name: App sign-in flow
               href: app-sign-in-flow.md
             - name: Support passwordless authentication
+              href: support-fido2-authentication.md
         - name: Protect and access APIs
           items:
             - name: Restrict your app to a set of users
@@ -118,7 +123,7 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
-            - name: Use directory schema extension attributes in claims
+            - name: Use directory extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
               href: active-directory-saml-claims-customization.md
@@ -128,6 +133,9 @@
               href: configure-token-lifetimes.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
+            - name: SAML app multi-instancing
+              displayName: Configure SAML app multi-instancing for an application
+              href: reference-app-multi-instancing.md
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari
@@ -138,10 +146,10 @@
       items:
         - name: Workload identity federation
           href: workload-identity-federation.md
-        - name: Trust an external identity provider (federation)
+        - name: Configure an app to trust an external identity provider
           href: workload-identity-federation-create-trust.md
-        - name: Configure an app to trust a GitHub repo
-          href: workload-identity-federation-create-trust-github.md
+        - name: Configure a managed identity to trust an external identity provider
+          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
@@ -323,6 +331,22 @@
           href: tutorial-blazor-server.md
         - name: Node.js
           href: tutorial-v2-nodejs-webapp-msal.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: Secure web app accesses storage and Microsoft Graph
+          items:
+            - name: Overview
+              href: multi-service-web-app-overview.md
+            - name: Set up App Service authentication
+              href: multi-service-web-app-authentication-app-service.md
+            - name: Access storage as the app
+              href: multi-service-web-app-access-storage.md
+            - name: Access Microsoft Graph as the user
+              href: multi-service-web-app-access-microsoft-graph-as-user.md
+            - name: Access Microsoft Graph as the app
+              href: multi-service-web-app-access-microsoft-graph-as-app.md
+            - name: Clean up resources
+              href: multi-service-web-app-clean-up-resources.md
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#web-applications
@@ -397,6 +421,8 @@
       items:
         - name: Scopes for web API accepting v1.0 tokens
           href: msal-v1-app-scopes.md
+        - name: Spring Cloud Azure
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support
 - name: Desktop
   items:
     - name: Desktop app authentication documentation
@@ -759,6 +785,8 @@
               href: active-directory-signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md
+            - name: Federated identity credentials considerations and limitations
+              href: workload-identity-federation-considerations.md
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol

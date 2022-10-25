@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) simulator reference agent | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) simulator reference agent.
-author: valls
-ms.author: valls
+author: eross-msft
+ms.author: lizross
 ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
@@ -29,13 +29,15 @@ In this tutorial, you'll learn how to:
 
 If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md) and configure an IoT hub.
 
+Download the zip file named `Tutorial_Simulator.zip` from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases) in the latest release, and unzip it.
+
 ## Add a device to Azure IoT Hub
 
 After the Device Update agent is running on an IoT device, you must add the device to IoT Hub. From within IoT Hub, a connection string is generated for a particular device.
 
 1. From the Azure portal, start the Device Update for IoT Hub.
 1. Create a new device.
-1. On the left pane, go to **IoT Devices**. Then select **New**.
+1. On the left pane, go to **Devices**. Then select **New**.
 1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
 1. Select **Save**.
 1. Now, you're returned to the **Devices** page and the device you created should be in the list. Select that device.
@@ -73,15 +75,28 @@ After the Device Update agent is running on an IoT device, you must add the devi
    
    `sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>`
 
-1. Download the `sample-du-simulator-data.json` from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases). Run the following command to create and edit the `du-simulator-data.json` file in the tmp folder:
+1. You will need the file `sample-du-simulator-data.json` from the downloaded `Tutorial_Simulator.zip` in the prerequisites. 
+
+   Open the file `sample-du-simulator-data.json` and copy contents to clipboard:
+   
+   ```sh
+   nano sample-du-simulator-data.json
+   ```
+   
+   Select the contents of the file and press **Ctrl+C**. Press **Ctrl+X** to close the file and don't save changes.
+   
+   Run the following command to create and edit the `du-simulator-data.json` file in the tmp folder:
 
    ```sh
    sudo nano /tmp/du-simulator-data.json
+   ```
+   Press **Ctrl+V** to paste the contents into the editor. Select **Ctrl+X** to save the changes, and then **Y**.
+   
+   Change permissions:
+   ```sh
    sudo chown adu:adu /tmp/du-simulator-data.json
    sudo chmod 664 /tmp/du-simulator-data.json
    ```
-
-   Copy the contents from the downloaded file into the `du-simulator-data.json` file. Select **Ctrl+X** to save the changes.
   
    If /tmp doesn't exist, then:
 
@@ -113,7 +128,7 @@ Read the license terms prior to using the agent. Your installation and use const
 ## Add a tag to your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. From **IoT Devices** or **IoT Edge** on the left pane, find your IoT device and go to the device twin or module twin.
+1. From **Devices** on the left pane, find your IoT device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using the device identity with a Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
 
@@ -125,7 +140,7 @@ Read the license terms prior to using the agent. Your installation and use const
 
 ## Import the update
 
-1. Download the sample tutorial manifest (Tutorial Import Manifest_Sim.json) and sample update (adu-update-image-raspberrypi3-0.6.5073.1.swu) from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases) for the latest agent. The update file is reused from the Raspberry Pi tutorial. Because the update in this tutorial is simulated, the specific file content doesn't matter.
+1. You will need the files `TutorialImportManifest_Sim.importmanifest.json` and `adu-update-image-raspberrypi3.swu` from the downloaded `Tutorial_Simulator.zip` in the prerequisites. The update file is reused from the Raspberry Pi tutorial. Because the update in this tutorial is simulated, the specific file content doesn't matter.
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your IoT hub with Device Update. On the left pane, under **Automatic Device Management**, select **Updates**.
 1. Select the **Updates** tab.
 1. Select **+ Import New Update**.

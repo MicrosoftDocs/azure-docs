@@ -3,7 +3,7 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/08/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ ms.custom: device-developer
 
 # Telemetry, property, and command payloads
 
-A device template in Azure IoT Central is a blueprint that defines the:
+A [device template](concepts-device-templates.md) in Azure IoT Central is a blueprint that defines the:
 
 * Telemetry a device sends to IoT Central.
 * Properties a device synchronizes with IoT Central.
@@ -22,14 +22,17 @@ A device template in Azure IoT Central is a blueprint that defines the:
 
 This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
 
+> [!IMPORTANT]
+> IoT Central expects to receive UTF-8 encoded JSON data.
+
 The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
 
 Each example shows a snippet from the device model that defines the type and example JSON payloads to illustrate how the device should interact with the IoT Central application.
 
 > [!NOTE]
-> IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see [Export IoT data to destinations in Azure](howto-export-data.md).
+> IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
@@ -46,6 +49,28 @@ IoT Central lets you view the raw data that a device sends to an application. Th
     On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
 ## Telemetry
+
+To learn more about the DTDL telemetry naming rules, see [DTDL > Telemetry](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry). You can't start a telemetry name using the `_` character.
+
+Don't create telemetry types with the following names. IoT Central uses these reserved names internally. If you try to use these names, IoT Central will ignore your data:
+
+* `EventEnqueuedUtcTime`
+* `EventProcessedUtcTime`
+* `PartitionId`
+* `EventHub`
+* `User`
+* `$metadata`
+* `$version`
+
+### Telemetry timestamps
+
+By default, IoT Central uses the message enqueued time when it displays telemetry on dashboards and charts. Message enqueued time is set internally when IoT Central receives the message from the device.
+
+A device can set the `iothub-creation-time-utc` property when it creates a message to send to IoT Central. If this property is present, IoT Central uses it when it displays telemetry on dashboards and charts.
+
+You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
+
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
 
 ### Telemetry in components
 
@@ -435,6 +460,8 @@ A device client should send the state as JSON that looks like the following exam
 ```
 
 ## Properties
+
+To learn more about the DTDL property naming rules, see [DTDL > Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property). You can't start a property name using the `_` character.
 
 > [!NOTE]
 > The payload formats for properties applies to applications created on or after 07/14/2020.
@@ -869,6 +896,8 @@ The device should send the following JSON payload to IoT Central after it proces
 
 ## Commands
 
+To learn more about the DTDL command naming rules, see [DTDL > Command](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#command). You can't start a command name using the `_` character.
+
 If the command is defined in a component, the name of the command the device receives includes the component name. For example, if the command is called `getMaxMinReport` and the component is called `thermostat2`, the device receives a request to execute a command called `thermostat2*getMaxMinReport`.
 
 The following snippet from a device model shows the definition of a command that has no parameters and that doesn't expect the device to return anything:
@@ -1043,7 +1072,7 @@ When the device has finished processing the request, it should send a property t
 
 In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have a request parameter but don't return a response.
 
-The **Queue if offline** setting isn't included if you export a model or interface from the device template. You can't tell by looking at an exported model or interface JSON that a command is an offline command.
+Offline commands are marked as `durable` if you export the model as DTDL.
 
 Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
 

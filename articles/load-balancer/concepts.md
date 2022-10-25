@@ -3,13 +3,13 @@ title: Azure Load Balancer concepts
 description: Overview of Azure Load Balancer concepts
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2021
-ms.author: allensu
+ms.author: mbender
 
 ---
 

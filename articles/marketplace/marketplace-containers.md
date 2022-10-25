@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: aarathin
 ms.author: aarathin
-ms.date: 03/15/2022
+ms.date: 09/30/2022
 ---
 
 # Plan an Azure container offer
@@ -16,26 +16,46 @@ Azure container offers help you publish your container image to Azure Marketplac
 
 Azure container offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option a user sees is **Get It Now**.
 
-Use the Azure Container offer type when your solution is a Docker container image that's set up as a Kubernetes-based Azure Container instance.
+Use the Azure Container offer type when your solution is either:
+- A Docker container image that's set up as a Kubernetes-based Azure Container instance
+- A Kubernetes application meant to be deployed on a managed Azure Kubernetes Service (AKS) cluster. 
+
+> [!IMPORTANT]
+> The Kubernetes application-based offer experience is in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
 
 > [!NOTE]
 > An Azure Container instance is a run-time docker instance that provides the fastest and simplest way to run a container in Azure, without having to manage any virtual machines or adopt a higher-level service. Container instances can be deployed directly to Azure or orchestrated by Azure Kubernetes Services or Azure Kubernetes Service Engine.  
 
 ## Licensing options
 
-These are the available licensing options for Azure Container offers:
+If you're publishing container images, these are the available licensing options for Azure Container offers:
 
 | Licensing option | Transaction process |
 | --- | --- |
 | Free | List your offer to customers for free. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-|
+
+If you're publishing Kubernetes apps, these are the available licensing options for Azure Container offers:
+
+| Licensing option | Transaction process |
+| --- | --- |
+| Free | List your offer to customers for free. |
+| BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
+| Per core | List your Azure Container offer with pricing based on the critical CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application for the critical cores you’ve tagged in your application as the ones that should generate usage. |
+| Per every core in cluster | List your Azure Container offer with pricing based on the total number of CPU cores in the cluster. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware in the cluster.|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
+> [!NOTE]
+> To ensure the prices are right before you publish them, first select Save draft to save pricing changes, then export the pricing spreadsheet and review the prices in each market.
+
+When selecting a pricing option, Microsoft does the currency conversion.
+
 ## Customer leads
 
-When you're publishing an offer to the commercial marketplace with Partner Center, you'll want to connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive; otherwise, connecting to a CRM is optional. Partner Center supports Azure table, Dynamics 365 Customer Engagement, HTTPS endpoint, Marketo, and Salesforce.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Legal contracts
 
@@ -76,9 +96,12 @@ You can send invites to Azure subscription IDs. Add up to 10 IDs manually or imp
 
 ## Plans and pricing
 
-Container offers require at least one plan. A plan defines the solution scope and limits. You can create multiple plans for your offer to give your customers different technical and licensing options. 
+Container offers require at least one plan. A plan defines the solution scope and limits. You can create multiple plans for your offer to give your customers different technical, pricing, and licensing options.
 
-Containers support two licensing models: Free or Bring Your Own License (BYOL). BYOL means you’ll bill your customers directly, and Microsoft won’t charge you any fees. Microsoft only passes through Azure infrastructure usage fees. For more information, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
+Containers support different licensing models based on your packaging and deployment needs:
+
+- If you are publishing container images, then two licensing models are supported: Free or Bring Your Own License (BYOL). BYOL means you’ll bill your customers directly, and Microsoft won’t charge you any fees. Microsoft only passes through Azure infrastructure usage fees. 
+- If you are publishing Kubernetes apps, then four licensing models are supported: Free, BYOL, Per core, and Per every core in cluster. BYOL means you’ll bill your customers directly, and Microsoft won’t charge you any fees. Microsoft only passes through Azure infrastructure usage fees. For more info on the licensing models, see [Licensing options](#licensing-options). For additional information, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## Additional sales opportunities
 
@@ -89,6 +112,8 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Container offer requirements
 
+For a container image-based offer, the following requirements apply:
+
 | Requirement | Details |  
 |:--- |:--- |  
 | Billing and metering | Support either the free or BYOL billing model. |
@@ -96,6 +121,15 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 | Hosting in an Azure Container Registry repository | Container images must be hosted in an Azure Container Registry repository. For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |
 | Image tagging | Container images must contain at least one tag (maximum number of tags: 16). For more information about tagging an image, see the `docker tag` page on the [Docker Documentation](https://docs.docker.com/engine/reference/commandline/tag) site. |
 
+For a Kubernetes application-based offer, the following requirements apply:
+
+| Requirement | Details |  
+|:--- |:--- |  
+| Billing and metering | Support one of the PerCore, PerEveryCoreInCluster, or BYOL billing models. |
+| Artifacts packaged as a Cloud Native Application Bundle (CNAB) | The Helm chart, manifest, createUiDefinition.json, and Azure Resource Manager template must be packaged as a CNAB. For more information, see [prepare technical assets][azure-kubernetes-technical-assets]. |
+| Hosting in an Azure Container Registry repository | The CNAB must be hosted in an Azure Container Registry repository. For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |
+
 ## Next steps
 
-- [Prepare technical assets](azure-container-technical-assets.md)
+- [Prepare technical assets for a container image-based offer](azure-container-technical-assets.md)
+- [Prepare technical assets for a Kubernetes application-based offer](azure-container-technical-assets-kubernetes.md)

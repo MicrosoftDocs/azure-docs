@@ -7,13 +7,15 @@ manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 06/24/2022
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
 
 Occasionally, indexers run into problems and there is no error to help with diagnosis. This article covers problems and potential resolutions when indexer results are unexpected and there is limited information to go on. If you have an error to investigate, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md) instead.
+
 
 <a name="connection-errors"></a>
 
@@ -23,7 +25,11 @@ For data sources that are secured by Azure network security mechanisms, indexers
 
 ### Firewall rules
 
-Azure Storage, Cosmos DB and Azure SQL provide a configurable firewall. There's no specific error message when the firewall is enabled. Typically, firewall errors are generic and look like `The remote server returned an error: (403) Forbidden` or `Credentials provided in the connection string are invalid or have expired`.
+Azure Storage, Azure Cosmos DB and Azure SQL provide a configurable firewall. There's no specific error message when the firewall is enabled. Typically, firewall errors are generic. Some common errors include:
+* `The remote server returned an error: (403) Forbidden`
+* `This request is not authorized to perform this operation`
+* `Credentials provided in the connection string are invalid or have expired`
+
 
 There are two options for allowing indexers to access these resources in such an instance:
 
@@ -35,7 +41,7 @@ Details for configuring IP address range restrictions for each data source type 
 
 * [Azure Storage](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [Cosmos DB](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
+* [Azure Cosmos DB](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
 * [Azure SQL](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules)
 
@@ -43,7 +49,7 @@ Details for configuring IP address range restrictions for each data source type 
 
 Azure functions (that could be used as a [Custom Web Api skill](cognitive-search-custom-skill-web-api.md)) also support [IP address restrictions](../azure-functions/ip-addresses.md#ip-address-restrictions). The list of IP addresses to configure would be the IP address of your search service and the IP address range of `AzureCognitiveSearch` service tag.
 
-For more information about connecting to a virtual machine, see [Configure a connection to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+For more information about connecting to a virtual machine, see [Configure a connection to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 ### Configure network security group (NSG) rules
 
@@ -53,7 +59,22 @@ In such cases, the Azure VM, or the SQL managed instance can be configured to re
 
 The `AzureCognitiveSearch` service tag can be directly used in the inbound [NSG rules](../virtual-network/manage-network-security-group.md#work-with-security-rules) without needing to look up its IP address range.
 
-More details for accessing data in a SQL managed instance are outlined [here](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+More details for accessing data in a SQL managed instance are outlined [here](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
+
+### Network errors
+
+Usually, network errors are generic. Some common errors include:
+* `A network-related or instance-specific error occurred while establishing a connection to the server`
+* `The server was not found or was not accessible`
+* `Verify that the instance name is correct and that the source is configured to allow remote connections`
+
+When you are receiving any of those errors:
+
+* Make sure your source is accessible by trying to connect to it directly and not through the search service
+* Check your source in the Azure portal for any current errors or outages
+* Check for any network outages in [Azure Status](https://azure.status.microsoft/status)
+* Check you are using public DNS for name resolution and not an [Azure Private DNS](../dns/private-dns-overview.md)
+
 
 ## Azure SQL Database serverless indexing (error code 40613)
 
@@ -178,6 +199,7 @@ The blob indexer [finds and extracts text from blobs in a container](search-howt
 
 * The blob indexer is configured to only index metadata. To extract content, the blob indexer must be configured to [extract both content and metadata](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex):
 
+
 ```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
@@ -189,9 +211,23 @@ api-key: [admin key]
 }
 ```
 
-## Missing content from Cosmos DB
+## Missing content from Azure Cosmos DB
 
-Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+Azure Cognitive Search has an implicit dependency on Azure Cosmos DB indexing. If you turn off automatic indexing in Azure Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+
+
+## Indexer reflects a different document count than data source or index
+
+Indexer may show a different document count than either the data source, the index or count in your code in a point in time, depending on specific circumstances. Here are some possible causes of why this may occur:
+
+- The indexer has a Deleted Document Policy. The deleted documents get counted on the indexer end if they are indexed before they get deleted.
+- If the ID column in the data source is not unique. This is for data sources that have the concept of columns, such as Azure Cosmos DB.
+- If the data source definition has a different query than the one you are using to estimate the number of records. In example, in your data base you are querying all your data base record count, while in the data source definition query you may be selecting just a subset of records to index.
+- The counts are being checked in different intervals for each component of the pipeline: data source, indexer and index.
+- The index may take some minutes to show the real document count. 
+- The data source has a file that's mapped to many documents. This condition can occur when [indexing blobs](search-howto-index-json-blobs.md) and "parsingMode" is set to **`jsonArray`** and **`jsonLines`**.
+- Due to [documents processed multiple times](#documents-processed-multiple-times).
+ 
 
 ## Documents processed multiple times
 
@@ -203,6 +239,7 @@ Indexers leverage a conservative buffering strategy to ensure that every new and
 Indexers are not intended to be invoked multiple times in quick succession. If you need updates quickly, the supported approach is to push updates to the index while simultaneously updating the data source. For on-demand processing, we recommend that you pace your requests in five-minute intervals or more, and run the indexer on a schedule.
 
 ### Example of duplicate document processing with 30 second buffer
+
 Conditions under which a document is processed twice is explained below in a timeline that notes each action and counter action. The following timeline illustrates the issue:
 
 | Timeline (hh:mm:ss) | Event | Indexer High Water Mark | Comment |
@@ -229,6 +266,12 @@ Conditions under which a document is processed twice is explained below in a tim
 | 00:01:43 | Indexer ends | 00:01:40 | Notice this indexer execution started more than 30 seconds after the last write to the data source and also processed `doc2`. This is the expected behavior because if all indexer executions before 00:01:35 are eliminated, this will become the first and only execution to process `doc1` and `doc2`. |
 
 In practice, this scenario only happens when on-demand indexers are manually invoked within minutes of each other, for certain data sources. It may result in mismatched numbers (like the indexer processed 345 documents total according to the indexer execution stats, but there are 340 documents in the data source and index) or potentially increased billing if you are running the same skills for the same document multiple times. Running an indexer using a schedule is the preferred recommendation.
+
+
+## Indexing documents with sensitivity labels
+
+If you have [sensitivity labels set on documents](/microsoft-365/compliance/sensitivity-labels) you might not be able to index them. If you're getting errors, remove the labels prior to indexing.
+
 
 ## See also
 

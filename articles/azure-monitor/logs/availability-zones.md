@@ -15,8 +15,7 @@ ms.custom: references_regions
 
 
 ## Regions
-See [Regions and Availability Zones in Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for the Azure regions that have availability zones. Azure Monitor currently supports the following regions. 
-
+Azure Monitor currently supports the following regions:
 - East US 2
 - West US 2
 

@@ -3,13 +3,13 @@ title: Create a storage account
 titleSuffix: Azure Storage
 description: Learn to create a storage account to store blobs, files, queues, and tables. An Azure storage account provides a unique namespace in Microsoft Azure for reading and writing your data.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/27/2022
-ms.author: tamram
-ms.subservice: common 
+ms.date: 05/26/2022
+ms.author: jammart
+ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -18,8 +18,6 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. For more information about Azure storage accounts, see [Storage account overview](storage-account-overview.md).
 
 In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -54,6 +52,10 @@ The button launches an interactive shell that you can use to run the steps outli
 
 You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
+# [Bicep](#tab/bicep)
+
+None.
+
 # [Template](#tab/template)
 
 None.
@@ -84,6 +86,10 @@ To log into your local installation of the CLI, run the [az login](/cli/azure/re
 az login
 ```
 
+# [Bicep](#tab/bicep)
+
+N/A
+
 # [Template](#tab/template)
 
 N/A
@@ -102,11 +108,11 @@ To create an Azure storage account with the Azure portal, follow these steps:
 
 1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
 
-    :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser" lightbox="media/storage-account-create/menu-expand-lrg.png":::
+    :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
 
 1. On the **Storage accounts** page, select **Create**.
 
-    :::image type="content" source="media/storage-account-create/create-button-sml.png" alt-text="Image showing the location of the create button within the Azure Portal Storage Accounts page" lightbox="media/storage-account-create/create-button-lrg.png":::
+    :::image type="content" source="media/storage-account-create/create-button-sml.png" alt-text="Image showing the location of the create button within the Azure Portal Storage Accounts page." lightbox="media/storage-account-create/create-button-lrg.png":::
 
 Options for your new storage account are organized into tabs in the **Create a storage account** page. The following sections describe each of the tabs and their options.
 
@@ -127,7 +133,7 @@ The following table describes the fields on the **Basics** tab.
 
 The following image shows a standard configuration of the basic properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Basics tab" lightbox="media/storage-account-create/create-account-basics-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Basics tab." lightbox="media/storage-account-create/create-account-basics-tab-lrg.png":::
 
 ### Advanced tab
 
@@ -144,14 +150,14 @@ The following table describes the fields on the **Advanced** tab.
 | Security | Minimum TLS version | Required | Select the minimum version of Transport Layer Security (TLS) for incoming requests to the storage account. The default value is TLS version 1.2. When set to the default value, incoming requests made using TLS 1.0 or TLS 1.1 are rejected. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](transport-layer-security-configure-minimum-version.md). |
 | Data Lake Storage Gen2 | Enable hierarchical namespace | Optional | To use this storage account for Azure Data Lake Storage Gen2 workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
 | Blob storage | Enable SFTP | Optional | Enable the use of Secure File Transfer Protocol (SFTP) to securely transfer of data over the internet. For more information, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](../blobs/secure-file-transfer-protocol-support.md). |
-| Blob storage | Enable network file share (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](../blobs/network-file-system-protocol-support.md). |
+| Blob storage | Enable network file share (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md). |
 | Blob storage | Allow cross-tenant replication | Required | By default, users with appropriate permissions can configure object replication across Azure AD tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Azure AD tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). |
 | Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
 
 The following image shows a standard configuration of the advanced properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-advanced-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab" lightbox="media/storage-account-create/create-account-advanced-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-advanced-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab." lightbox="media/storage-account-create/create-account-advanced-tab-lrg.png":::
 
 ### Networking tab
 
@@ -162,11 +168,16 @@ The following table describes the fields on the **Networking** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | Network connectivity | Connectivity method | Required | By default, incoming network traffic is routed to the public endpoint for your storage account. You can specify that traffic must be routed to the public endpoint through an Azure virtual network. You can also configure private endpoints for your storage account. For more information, see [Use private endpoints for Azure Storage](storage-private-endpoints.md). |
+| Network connectivity | Endpoint type | Required | Azure Storage supports two types of endpoints: standard endpoints (the default) and Azure DNS zone endpoints (preview). Within a given subscription, you can create up to 250 accounts with standard endpoints per region, and up to 5000 accounts with Azure DNS zone endpoints per region. To learn how to view the service endpoints for an existing storage account, see [Get service endpoints for the storage account](storage-account-get-info.md#get-service-endpoints-for-the-storage-account). |
 | Network routing | Routing preference | Required | The network routing preference specifies how network traffic is routed to the public endpoint of your storage account from clients over the internet. By default, a new storage account uses Microsoft network routing. You can also choose to route network traffic through the POP closest to the storage account, which may lower networking costs. For more information, see [Network routing preference for Azure Storage](network-routing-preference.md). |
 
 The following image shows a standard configuration of the networking properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab" lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab." lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
+
+> [!IMPORTANT]
+> Azure DNS zone endpoints are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Data protection tab
 
@@ -186,7 +197,7 @@ The following table describes the fields on the **Data protection** tab.
 
 The following image shows a standard configuration of the data protection properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-protection-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Data Protection tab" lightbox="media/storage-account-create/create-account-protection-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-protection-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Data Protection tab." lightbox="media/storage-account-create/create-account-protection-tab-lrg.png":::
 
 ### Encryption tab
 
@@ -202,7 +213,7 @@ On the **Encryption** tab, you can configure options that relate to how your dat
 
 The following image shows a standard configuration of the encryption properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-encryption-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Encryption tab" lightbox="media/storage-account-create/create-account-encryption-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-encryption-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Encryption tab." lightbox="media/storage-account-create/create-account-encryption-tab-lrg.png":::
 
 ### Tags tab
 
@@ -210,7 +221,7 @@ On the **Tags** tab, you can specify Resource Manager tags to help organize your
 
 The following image shows a standard configuration of the index tag properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab" lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-tags-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab." lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
 
 ### Review + create tab
 
@@ -220,13 +231,13 @@ If validation fails, then the portal indicates which settings need to be modifie
 
 The following image shows the **Review** tab data prior to the creation of a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-review-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Review tab" lightbox="media/storage-account-create/create-account-review-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-review-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Review tab." lightbox="media/storage-account-create/create-account-review-tab-lrg.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
 To create a general-purpose v2 storage account with PowerShell, first create a new resource group by calling the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
-```azurepowershell-interactive
+```azurepowershell
 $resourceGroup = "<resource-group>"
 $location = "<location>"
 New-AzResourceGroup -Name $resourceGroup -Location $location
@@ -234,13 +245,13 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 If you're not sure which region to specify for the `-Location` parameter, you can retrieve a list of supported regions for your subscription with the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command:
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzLocation | select Location
 ```
 
 Next, create a standard general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name <account-name> `
   -Location $location `
@@ -248,7 +259,42 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `EnableHierarchicalNamespace' parameter to `$True` on the call to the **New-AzStorageAccount** command.
+To create an account with Azure DNS zone endpoints (preview), follow these steps:
+
+1. Register for the preview as described in [Azure DNS zone endpoints (preview)](storage-account-overview.md#azure-dns-zone-endpoints-preview).
+
+1. Make sure you have the latest version of PowerShellGet installed.
+
+    ```azurepowershell
+    Install-Module PowerShellGet –Repository PSGallery –Force
+    ```
+
+1. Close and reopen the PowerShell console.
+
+1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+
+    ```azurepowershell
+    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force
+    ```
+
+Next, create the account, specifying `AzureDnsZone` for the `-DnsEndpointType` parameter. After the account is created, you can see the service endpoints by getting the `PrimaryEndpoints` and `SecondaryEndpoints` properties for the storage account.
+
+```azurepowershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+$account = New-AzStorageAccount -ResourceGroupName $rgName `
+          -Name $accountName `
+          -SkuName Standard_RAGRS `
+          -Location <location> `
+          -Kind StorageV2 `
+          -DnsEndpointType AzureDnsZone
+
+$account.PrimaryEndpoints
+$account.SecondaryEndpoints 
+```
+
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `EnableHierarchicalNamespace` parameter to `$True` on the call to the **New-AzStorageAccount** command.
 
 The following table shows which values to use for the `SkuName` and `Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
@@ -268,7 +314,7 @@ To create a general-purpose v2 storage account with Azure CLI, first create a ne
 ```azurecli-interactive
 az group create \
   --name storage-resource-group \
-  --location westus
+  --location eastus
 ```
 
 If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az-account-list) command.
@@ -285,9 +331,34 @@ Next, create a standard general-purpose v2 storage account with read-access geo-
 az storage account create \
   --name <account-name> \
   --resource-group storage-resource-group \
-  --location westus \
+  --location eastus \
   --sku Standard_RAGRS \
   --kind StorageV2
+```
+
+To create an account with Azure DNS zone endpoints (preview), first register for the preview as described in [Azure DNS zone endpoints (preview)](storage-account-overview.md#azure-dns-zone-endpoints-preview). Next, install the preview extension for the Azure CLI if it's not already installed:
+
+```azurecli
+az extension add --name storage-preview
+```
+
+Next, create the account, specifying `AzureDnsZone` for the `--dns-endpoint-type` parameter. After the account is created, you can see the service endpoints by getting the `PrimaryEndpoints` property of the storage account.
+
+```azurecli
+az storage account create \
+    --name <account-name> \
+    --resource-group <resource-group> \
+    --location <location> \
+    --dns-endpoint-type AzureDnsZone
+```
+
+After the account is created, you can return the service endpoints by getting the `primaryEndpoints` and `secondaryEndpoints` properties for the storage account.
+
+```azurecli
+az storage account show \
+    --resource-group <resource-group> \
+    --name <account-name> \
+    --query '[primaryEndpoints, secondaryEndpoints]'
 ```
 
 To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `enable-hierarchical-namespace` parameter to `true` on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
@@ -303,11 +374,41 @@ The following table shows which values to use for the `sku` and `kind` parameter
 | Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 | Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
+# [Bicep](#tab/bicep)
+
+You can use either Azure PowerShell or Azure CLI to deploy a Bicep file to create a storage account. The Bicep file used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). Bicep currently doesn't support deploying a remote file.  Download and save [the Bicep file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/main.bicep) to your local computer, and then run the scripts.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "main.bicep"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-file "main.bicep"
+```
+
+> [!NOTE]
+> This Bicep file serves only as an example. There are many storage account settings that aren't configured as part of this Bicep file. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this Bicep file by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
+
+To learn how to modify this Bicep file or create new ones, see:
+
+- [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
+- [Storage account template reference](/azure/templates/microsoft.storage/allversions).
+- [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
+
 # [Template](#tab/template)
 
 You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
 
-```azurepowershell-interactive
+```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
@@ -364,11 +465,29 @@ To delete the storage account, use the [az storage account delete](/cli/azure/st
 az storage account delete --name <storage-account> --resource-group <resource-group>
 ```
 
-# [Template](#tab/template)
+# [Bicep](#tab/bicep)
 
 To delete the storage account, use either Azure PowerShell or Azure CLI.
 
 ```azurepowershell-interactive
+$storageResourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+Remove-AzStorageAccount -Name $storageAccountName -ResourceGroupName $storageResourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the resource group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az storage account delete --name storageAccountName --resource-group resourceGroupName
+```
+
+# [Template](#tab/template)
+
+To delete the storage account, use either Azure PowerShell or Azure CLI.
+
+```azurepowershell
 $storageResourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 Remove-AzStorageAccount -Name $storageAccountName -ResourceGroupName $storageResourceGroupName

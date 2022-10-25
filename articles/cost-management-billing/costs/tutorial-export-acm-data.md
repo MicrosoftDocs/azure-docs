@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Create and manage exported data from Cost Management
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/25/2022
+ms.date: 08/23/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -242,6 +242,13 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 ### Export schedule
 
 Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export isn't guaranteed and the exported data is available within four hours of run time.
+
+Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
+
+- When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
+    - Example - A weekly export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19. The weekly export will be scheduled to run every Friday.
+- When you create an export in the Azure portal, its start date time is automatically converted to the equivalent UTC time.
+    - Example - A weekly export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18th. The weekly export will be scheduled to run every Thursday.
 
 Each export creates a new file, so older exports aren't overwritten.
 

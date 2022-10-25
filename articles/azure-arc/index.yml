@@ -39,7 +39,7 @@ highlightedContent:
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: SQL Server on Azure Arc-enabled servers
+    - title: Azure Arc-enabled SQL Server
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
@@ -100,13 +100,13 @@ conceptualContent:
           text: Create SQL Managed Instance
         - url: ./data/create-postgresql-hyperscale-server-group.md
           itemType: how-to-guide
-          text: Create PostgreSQL Hyperscale
+          text: Create PostgreSQL server
       # footerLink (optional)
       footerLink:
         url: ./data/index.yml
         text: See more
     # Card
-    - title: SQL Server on Azure Arc-enabled servers
+    - title: Azure Arc-enabled SQL Server
       links:
         - url: /sql/sql-server/azure-arc/connect
           itemType: deploy
@@ -141,6 +141,9 @@ conceptualContent:
         - url: ./vmware-vsphere/overview.md
           itemType: overview
           text: Azure Arc-enabled VMware vSphere (preview)
+        - url: ./system-center-virtual-machine-manager/overview.md
+          itemType: overview
+          text: Azure Arc-enabled System Center Virtual Machine Manager (preview)
     # Card
     - title: Application services
       links:

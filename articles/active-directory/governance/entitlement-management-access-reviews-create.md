@@ -1,28 +1,28 @@
 ---
 title: Create an access review of an access package in Azure AD entitlement management
-description: Learn how to create an access review policy for entitlement management access packages in Azure Active Directory access reviews (Preview).
+description: Learn how to set up an access review in a policy for entitlement management access packages in Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/26/2021
-ms.author: ajburnle
+ms.date: 08/01/2022
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an administrator, I want to create an access review policy for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
+#Customer intent: As an administrator, I want to create an access review for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
 
 ---
 # Create an access review of an access package in Azure AD entitlement management
 
-To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Azure AD entitlement management. You can enable reviews when you create a new access package or edit an existing access package. This article describes how to enable access reviews of access packages.
+To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Azure AD entitlement management. You can enable reviews when you create a new access package or edit an existing access package assignment policy. This article describes how to enable access reviews of access packages.
 
 ## Prerequisites
 
@@ -35,9 +35,15 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Create an access review of an access package
 
-You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-lifecycle-policy.md) policy. Follow these steps to enable access reviews of an access package:
+You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package assignment policy](entitlement-management-access-package-lifecycle-policy.md) policy. If you have multiple policies, for different communities of users to request access, you can have independent access review schedules for each policy. Follow these steps to enable access reviews of an access package's assignments:
 
-1. Open the **Lifecycle** tab for an access package to specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+
+1. To create a new access policy, in the left menu, select **Access packages**, then select **New access** package.
+
+1. To edit an existing access policy, in the left menu, select **Access packages** and open the access package you want to edit. Then, in the left menu, select **Policies** and select the policy that has the lifecycle settings you want to edit.
+
+1. Open the **Lifecycle** tab for an access package assignment policy to specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
 
 1. In the **Expiration** section, set Access package assignments expires to **On date**, **Number of days**, **Number of hours**, or **Never**.
 

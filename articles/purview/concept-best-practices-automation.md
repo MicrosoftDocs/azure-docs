@@ -6,7 +6,7 @@ ms.author: tarifat
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 06/20/2022
 ---
 
 # Microsoft Purview automation best practices
@@ -59,7 +59,21 @@ When to use?
 * Custom application development or process automation.
 
 ## Streaming (Atlas Kafka)
-Each Microsoft Purview account comes with an optional fully managed event hub, accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. Microsoft Purview events can be monitored by consuming messages from the event hub. External systems can also use the event hub to publish events to Microsoft Purview as they occur.
+Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. 
+
+To enable this Event Hubs namespace, you can follow these steps:
+1. Search for and open your Microsoft Purview account in the [Azure portal](https://portal.azure.com).
+1. Select **Managed Resources** under settings on your Microsoft Purview account page in the Azure portal.
+    :::image type="content" source="media/concept-best-practices/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure portal.":::
+1. Select the Enable/Disable toggle to enable your Event Hubs namespace. It can be disabled at any time.
+1. Select **Save** to save the choice and begin the enablement or disablement process. This can take several minutes to complete.
+    :::image type="content" source="media/concept-best-practices/select-save.png" alt-text="Screenshot showing the Managed resources page of the Microsoft Purview account page in the Azure portal with the save button highlighted.":::
+
+>[!NOTE]
+>Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/pricing/details/purview/).
+
+
+Once the namespace is enabled, Microsoft Purview events can be monitored by consuming messages from the event hub. External systems can also use the event hub to publish events to Microsoft Purview as they occur.
 * **Consume Events** - Microsoft Purview will send notifications about metadata changes to Kafka topic **ATLAS_ENTITIES**. Applications interested in metadata changes can monitor for these notifications. Supported operations include: `ENTITY_CREATE`, `ENTITY_UPDATE`, `ENTITY_DELETE`, `CLASSIFICATION_ADD`, `CLASSIFICATION_UPDATE`, `CLASSIFICATION_DELETE`.
 * **Publish Events** - Microsoft Purview can be notified of metadata changes via notifications to Kafka topic **ATLAS_HOOK**. Supported operations include: `ENTITY_CREATE_V2`, `ENTITY_PARTIAL_UPDATE_V2`, `ENTITY_FULL_UPDATE_V2`, `ENTITY_DELETE_V2`.
 

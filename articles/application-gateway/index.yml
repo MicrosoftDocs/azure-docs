@@ -36,9 +36,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Intro to Azure Application Gateway
-            url: /learn/modules/intro-to-azure-application-gateway
+            url: /training/modules/intro-to-azure-application-gateway
           - text: Load balance your web service traffic with Application Gateway
-            url: /learn/modules/load-balance-web-traffic-with-application-gateway/
+            url: /training/modules/load-balance-web-traffic-with-application-gateway/
   # Card
   - title: Support high traffic volumes
     linkLists:

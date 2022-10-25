@@ -1,11 +1,13 @@
 ---
 title: Scheduled maintenance - Azure Database for MySQL - Flexible server
 description: This article describes the scheduled maintenance feature in Azure Database for MySQL - Flexible server.
-author: niklarin
-ms.author: nlarin
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/21/2020
+author: code-sidd
+ms.author: sisawant
+ms.custom: event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 
 # Scheduled maintenance in Azure Database for MySQL – Flexible server

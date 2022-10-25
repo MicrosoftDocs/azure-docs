@@ -7,11 +7,11 @@ metadata:
   title: Service Connector documentation
   description: Connect your Azure compute service to backing services easily with Service Connector.
   ms.service: service-connector
+  ms.custom: event-tier1-build-2022
   ms.topic: landing-page
-  author: shizn
-  ms.author: xshi
-  ms.date: 10/29/2021
-
+  author: maud-lv
+  ms.author: malev
+  ms.date: 05/24/2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -32,10 +32,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create new service connection in App Service
+          - text: Create a new service connection in App Service
             url: quickstart-portal-app-service-connection.md 
-          - text: Create new service connection in Spring Cloud
+          - text: Create a new service connection in Azure Spring Apps
             url: quickstart-portal-spring-cloud-connection.md
+          - text: Create a new service connection in Container Apps
+            url: quickstart-portal-container-apps.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
@@ -48,6 +50,11 @@ landingContent:
             url: tutorial-csharp-webapp-storage-cli.md
           - text: Spring Cloud app with Kafka on Confluent Cloud
             url: tutorial-java-spring-confluent-kafka.md
+          - text: Store secrets in Key Vault
+            url: tutorial-portal-key-vault.md
+          - text: Web app with App Configuration
+            url: tutorial-connect-web-app-app-configuration.md
+            
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting guide

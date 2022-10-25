@@ -1,20 +1,20 @@
 ---
-title: Certificate-based authentication on iOS - Azure Active Directory
+title: Certificate-based authentication with federation on iOS - Azure Active Directory
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication for Azure Active Directory in solutions with iOS devices
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 09/30/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory certificate-based authentication on iOS
+# Azure Active Directory certificate-based authentication with federation on iOS
 
 To improve security, iOS devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to the following applications or services:
 
@@ -29,7 +29,7 @@ Using certificates eliminates the need to enter a username and password combinat
 | Apps | Support |
 | --- | --- |
 | Azure Information Protection app |![Check mark signifying support for this application][1] |
-| Intune Company Portal |![Check mark signifying support for this application][1] |
+| Company Portal |![Check mark signifying support for this application][1] |
 | Microsoft Teams |![Check mark signifying support for this application][1] |
 | Office (mobile) |![Check mark signifying support for this application][1] |
 | OneNote |![Check mark signifying support for this application][1] |
@@ -46,21 +46,21 @@ To use CBA with iOS, the following requirements and considerations apply:
 
 * The device OS version must be iOS 9 or above.
 * Microsoft Authenticator is required for Office applications on iOS.
-* An identity preference must be created in the macOS Keychain that include the authentication URL of the ADFS server. For more information, see [Create an identity preference in Keychain Access on Mac](https://support.apple.com/guide/keychain-access/create-an-identity-preference-kyca6343b6c9/mac).
+* An identity preference must be created in the macOS Keychain that includes the authentication URL of the AD FS server. For more information, see [Create an identity preference in Keychain Access on Mac](https://support.apple.com/guide/keychain-access/create-an-identity-preference-kyca6343b6c9/mac).
 
-The following Active Directory Federation Services (ADFS) requirements and considerations apply:
+The following Active Directory Federation Services (AD FS) requirements and considerations apply:
 
-* The ADFS server must be enabled for certificate authentication and use federated authentication.
+* The AD FS server must be enabled for certificate authentication and use federated authentication.
 * The certificate needs to have to use Enhanced Key Usage (EKU) and contain the UPN of the user in the *Subject Alternative Name (NT Principal Name)*.
 
-## Configure ADFS
+## Configure AD FS
 
-For Azure AD to revoke a client certificate, the ADFS token must have the following claims. Azure AD adds these claims to the refresh token if they're available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation:
+For Azure AD to revoke a client certificate, the AD FS token must have the following claims. Azure AD adds these claims to the refresh token if they're available in the AD FS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation:
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` - add the serial number of your client certificate
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` - add the string for the issuer of your client certificate
 
-As a best practice, you also should update your organization's ADFS error pages with the following information:
+As a best practice, you also should update your organization's AD FS error pages with the following information:
 
 * The requirement for installing the Microsoft Authenticator on iOS.
 * Instructions on how to get a user certificate.
@@ -69,7 +69,7 @@ For more information, see [Customizing the AD FS sign in page](/previous-version
 
 ## Use modern authentication with Office apps
 
-Some Office apps with modern authentication enabled send `prompt=login` to Azure AD in their request. By default, Azure AD translates `prompt=login` in the request to ADFS as `wauth=usernamepassworduri` (asks ADFS to do U/P Auth) and `wfresh=0` (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, modify the default Azure AD behavior.
+Some Office apps with modern authentication enabled send `prompt=login` to Azure AD in their request. By default, Azure AD translates `prompt=login` in the request to AD FS as `wauth=usernamepassworduri` (asks AD FS to do U/P Auth) and `wfresh=0` (asks AD FS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, modify the default Azure AD behavior.
 
 To update the default behavior, set the '*PromptLoginBehavior*' in your federated domain settings to *Disabled*. You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) cmdlet to perform this task, as shown in the following example:
 

@@ -5,10 +5,9 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: cavoeg
-author: modillon
-ms.date: 02/15/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/03/2022
 ---
 
 # Tutorial for Da Vinci Drug Formulary for Azure API for FHIR
@@ -18,8 +17,7 @@ In this tutorial, we'll walk through setting up Azure API for FHIR to pass the [
 ## Touchstone capability statement
 
 The first test that we'll focus on is testing Azure API for FHIR against the [Da Vinci Drug Formulary capability
-statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to
-missing search parameters and missing profiles.
+statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to missing search parameters and missing profiles.
 
 ### Define search parameters
 
@@ -57,3 +55,5 @@ In this tutorial, we walked through how to pass the Da Vinci Payer Data Exchange
 
 >[!div class="nextstepaction"]
 >[Da Vinci PDex](davinci-pdex-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

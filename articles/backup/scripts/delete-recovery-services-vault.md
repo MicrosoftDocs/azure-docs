@@ -29,13 +29,6 @@ This script helps you to delete a Recovery Services vault.
    ```
 
 1. Launch PowerShell 7 as Administrator.
-1. Before you run the script for vault deletion, run the following command to upgrade the _Az module_ to the latest version:
-
-   ```azurepowershell-interactive
-    Uninstall-Module -Name Az.RecoveryServices
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-    Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
-   ```
 
 1. In the PowerShell window, change the path to the location the file is present, and then run the file using **./NameOfFile.ps1**.
 1. Provide authentication via browser by signing into your Azure account.
@@ -45,6 +38,26 @@ The script will continue to delete all the backup items and ultimately the entir
 ## Script
 
 ```azurepowershell-interactive
+Write-Host "WARNING: Please ensure that you have at least PowerShell 7 before running this script. Visit https://go.microsoft.com/fwlink/?linkid=2181071 for the procedure." -ForegroundColor Yellow
+$RSmodule = Get-Module -Name Az.RecoveryServices -ListAvailable
+$NWmodule = Get-Module -Name Az.Network -ListAvailable
+$RSversion = $RSmodule.Version.ToString()
+$NWversion = $NWmodule.Version.ToString()
+
+if($RSversion -lt "5.3.0")
+{
+	Uninstall-Module -Name Az.RecoveryServices
+	Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+	Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
+}
+
+if($NWversion -lt "4.15.0")
+{
+	Uninstall-Module -Name Az.Network
+	Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+	Install-Module -Name Az.Network -Repository PSGallery -Force -AllowClobber
+}
+
 Connect-AzAccount
 
 $VaultName = "Vault name" #enter vault name
@@ -63,19 +76,10 @@ foreach ($softitem in $containerSoftDelete)
 {
     Undo-AzRecoveryServicesBackupItemDeletion -Item $softitem -VaultId $VaultToDelete.ID -Force #undelete items in soft delete state
 }
-#Invoking API to disable enhanced security
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$accesstoken = Get-AzAccessToken
-$token = $accesstoken.Token
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token
-}
-$body = @{properties=@{enhancedSecurityState= "Disabled"}}
-$restUri = 'https://management.azure.com/subscriptions/'+$SubscriptionId+'/resourcegroups/'+$ResourceGroup+'/providers/Microsoft.RecoveryServices/vaults/'+$VaultName+'/backupconfig/vaultconfig?api-version=2019-05-13' #Replace "management.azure.com" with "management.usgovcloudapi.net" if your subscription is in USGov.
-$response = Invoke-RestMethod -Uri $restUri -Headers $authHeader -Body ($body | ConvertTo-JSON -Depth 9) -Method PATCH
 
+#Invoking API to disable Security features (Enhanced Security) to remove MARS/MAB/DPM servers.
+Set-AzRecoveryServicesVaultProperty -VaultId $VaultToDelete.ID -DisableHybridBackupSecurityFeature $true
+Write-Host "Disabled Security features for the vault"
 
 #Fetch all protected items and servers
 $backupItemsVM = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $VaultToDelete.ID
@@ -246,9 +250,38 @@ $backupServersMARSFin = Get-AzRecoveryServicesBackupContainer -ContainerType "Wi
 $backupServersMABSFin = Get-AzRecoveryServicesBackupManagementServer -VaultId $VaultToDelete.ID| Where-Object { $_.BackupManagementType -eq "AzureBackupServer" }
 $backupServersDPMFin = Get-AzRecoveryServicesBackupManagementServer -VaultId $VaultToDelete.ID | Where-Object { $_.BackupManagementType-eq "SCDPM" }
 $pvtendpointsFin = Get-AzPrivateEndpointConnection -PrivateLinkResourceId $VaultToDelete.ID
-Write-Host "Number of backup items left in the vault and which need to be deleted:" $backupItemsVMFin.count "Azure VMs" $backupItemsSQLFin.count "SQL Server Backup Items" $backupContainersSQLFin.count "SQL Server Backup Containers" $protectableItemsSQLFin.count "SQL Server Instances" $backupItemsSAPFin.count "SAP HANA backup items" $backupContainersSAPFin.count "SAP HANA Backup Containers" $backupItemsAFSFin.count "Azure File Shares" $StorageAccountsFin.count "Storage Accounts" $backupServersMARSFin.count "MARS Servers" $backupServersMABSFin.count "MAB Servers" $backupServersDPMFin.count "DPM Servers" $pvtendpointsFin.count "Private endpoints"
-Write-Host "Number of ASR items left in the vault and which need to be deleted:" $ASRProtectedItems "ASR protected items" $ASRPolicyMappings "ASR policy mappings" $fabricCount "ASR Fabrics" $pvtendpointsFin.count "Private endpoints. Warning: This script will only remove the replication configuration from Azure Site Recovery and not from the source. Please cleanup the source manually. Visit https://go.microsoft.com/fwlink/?linkid=2182781 to learn more"
-Remove-AzRecoveryServicesVault -Vault $VaultToDelete
+
+#Display items which are still present in the vault and might be preventing vault deletion.
+
+if($backupItemsVMFin.count -ne 0) {Write-Host $backupItemsVMFin.count "Azure VM backups are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupItemsSQLFin.count -ne 0) {Write-Host $backupItemsSQLFin.count "SQL Server Backup Items are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupContainersSQLFin.count -ne 0) {Write-Host $backupContainersSQLFin.count "SQL Server Backup Containers are still registered to the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($protectableItemsSQLFin.count -ne 0) {Write-Host $protectableItemsSQLFin.count "SQL Server Instances are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupItemsSAPFin.count -ne 0) {Write-Host $backupItemsSAPFin.count "SAP HANA Backup Items are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupContainersSAPFin.count -ne 0) {Write-Host $backupContainersSAPFin.count "SAP HANA Backup Containers are still registered to the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupItemsAFSFin.count -ne 0) {Write-Host $backupItemsAFSFin.count "Azure File Shares are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($StorageAccountsFin.count -ne 0) {Write-Host $StorageAccountsFin.count "Storage Accounts are still registered to the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupServersMARSFin.count -ne 0) {Write-Host $backupServersMARSFin.count "MARS Servers are still registered to the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupServersMABSFin.count -ne 0) {Write-Host $backupServersMABSFin.count "MAB Servers are still registered to the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($backupServersDPMFin.count -ne 0) {Write-Host $backupServersDPMFin.count "DPM Servers are still registered to the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($ASRProtectedItems -ne 0) {Write-Host $ASRProtectedItems "ASR protected items are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($ASRPolicyMappings -ne 0) {Write-Host $ASRPolicyMappings "ASR policy mappings are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($fabricCount -ne 0) {Write-Host $fabricCount "ASR Fabrics are still present in the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+if($pvtendpointsFin.count -ne 0) {Write-Host $pvtendpointsFin.count "Private endpoints are still linked to the vault. Remove the same for successful vault deletion." -ForegroundColor Red}
+
+$accesstoken = Get-AzAccessToken
+$token = $accesstoken.Token
+$authHeader = @{
+    'Content-Type'='application/json'
+    'Authorization'='Bearer ' + $token
+}
+$restUri = "https://management.azure.com/subscriptions/"+$SubscriptionId+'/resourcegroups/'+$ResourceGroup+'/providers/Microsoft.RecoveryServices/vaults/'+$VaultName+'?api-version=2021-06-01&operation=DeleteVaultUsingPS'
+$response = Invoke-RestMethod -Uri $restUri -Headers $authHeader -Method DELETE
+
+$VaultDeleted = Get-AzRecoveryServicesVault -Name $VaultName -ResourceGroupName $ResourceGroup -erroraction 'silentlycontinue'
+if ($VaultDeleted -eq $null){
+Write-Host "Recovery Services Vault" $VaultName "successfully deleted"
+}
 #Finish
 
 ```

@@ -6,16 +6,17 @@ ms.date: 01/11/2022
 ms.custom: references_regions
 ---
 
-# Create an Azure Batch pool without public IP addresses (preview)
+# Create a Batch pool without public IP addresses (preview)
 
 > [!IMPORTANT]
-> Support for pools without public IP addresses in Azure Batch is currently in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe, North Central US, West US, Australia East, Japan East, Japan West.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - Support for pools without public IP addresses in Azure Batch is currently in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe, North Central US, West US, Australia East, Japan East, Japan West.
+> - This preview version will be retired on **31 March 2023**, and will be replaced by [Simplified node communication pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md). For more details, please refer to [Retirement Migration Guide](batch-pools-without-public-ip-addresses-classic-retirement-migration-guide.md).
+> - This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When you create an Azure Batch pool, you can provision the virtual machine configuration pool without a public IP address. This article explains how to set up a Batch pool without public IP addresses.
 
-## Why use a pool without public IP Addresses?
+## Why use a pool without public IP addresses?
 
 By default, all the compute nodes in an Azure Batch virtual machine configuration pool are assigned a public IP address. This address is used by the Batch service to schedule tasks and for communication with compute nodes, including outbound access to the internet.
 
@@ -43,6 +44,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. Pools without public IP addresses must use Virtual Machine Configuration and not Cloud Services Configuration.
 1. [Custom endpoint configuration](pool-endpoint-configuration.md) to Batch compute nodes doesn't work with pools without public IP addresses.
 1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](create-pool-public-ip.md) with this type of pool.
+1. [Basic VM size](../virtual-machines/sizes-previous-gen.md#basic-a) doesn't work with pools without public IP addresses.
 
 ## Create a pool without public IP addresses in the Azure portal
 
@@ -59,7 +61,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The example below shows how to use the [Azure Batch REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The example below shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
 
 ### REST API URI
 
@@ -78,9 +80,9 @@ client-request-id: 00000000-0000-0000-0000-000000000000
           "imageReference": {
                "publisher": "Canonical",
                "offer": "UbuntuServer",
-               "sku": "16.040-LTS"
+               "sku": "18.04-lts"
           },
-     "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 18.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
@@ -98,11 +100,11 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "enableAutoScale": false,
      "enableInterNodeCommunication": true,
      "metadata": [
-    {
-      "name": "myproperty",
-      "value": "myvalue"
-    }
-       ]
+          {
+               "name": "myproperty",
+               "value": "myvalue"
+          }
+     ]
 }
 ```
 

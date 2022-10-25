@@ -3,11 +3,10 @@ title: Plan an Azure managed application for an Azure application offer
 description: Learn what is required to create a managed application plan for a new Azure application offer using the commercial marketplace portal in Microsoft Partner Center.
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 08/18/2022
 ---
 
 # Plan an Azure managed application for an Azure application offer
@@ -28,9 +27,8 @@ Use an Azure Application: Managed application plan when the following conditions
 | An Azure subscription | Managed applications must be deployed to a customer's subscription, but they can be managed by a third party. |
 | Billing and metering | The resources are provided in a customer's Azure subscription. VMs that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license VMs, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly. |
 | Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<br> * [Create an Azure VM technical asset](./azure-vm-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (for Windows VHDs).<br> *  [Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md) (for Linux VHDs). |
-| Customer usage attribution | All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID. For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
+| Customer usage attribution | For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
 | Deployment package | You'll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same package. For details, see the next section: Deployment package. |
-|||
 
 > [!NOTE]
 > Managed applications must be deployable through Azure Marketplace. If customer communication is a concern, reach out to interested customers after you've enabled lead sharing.
@@ -49,9 +47,9 @@ Use an Azure Application: Managed application plan when the following conditions
 ### Rules and known issues for AKS and containers in managed applications
 
 - AKS Node Resource Group does not inherit the Deny Assignments as a part of the Azure Managed Application. This means the customer will have full access to the AKS Node Resource Group that is created by the AKS resource when it is included in the managed application while the Managed Resource Group will have the proper Deny Assignments.
- 
+
 - The publisher can include Helm charts and other scripts as part of the Azure Managed Application. However, the offer will be treated like a regular managed application deployment and there will be no automatic container-specific processing or Helm chart installation at deployment time. It is the publisher’s responsibility to execute the relevant scripts, either at deployment time, using the usual techniques such as VM custom script extension or Azure Deployment Scripts, or after deployment.
- 
+
 - Same as with the regular Azure Managed Application, it is the publisher’s responsibility to ensure that the solution deploys successfully and that all components are properly configured, secured, and operational. For example, publishers can use their own container registry as the source of the images but are fully responsible for the container security and ongoing vulnerability scanning.
 
 > [!NOTE]
@@ -71,7 +69,8 @@ Maximum file sizes supported are:
 - Up to 1 Gb in total compressed .zip archive size
 - Up to 1 Gb for any individual uncompressed file within the .zip archive
 
-All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
+> [!TIP]
+> Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before publishing your Azure Application.
 
 ## Azure regions
 
@@ -137,7 +136,7 @@ You must indicate who can manage a managed application in each of the selected c
 For each principal ID, you will associate one of the Azure AD built-in roles (Owner or Contributor). The role you select describes the permissions the principal will have on the resources in the customer subscription. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](../role-based-access-control/overview.md).
 
 > [!NOTE]
-> Although you may add up to 100 authorizations per Azure region, it's generally easier to create an Active Directory user group and specify its ID in the "Principal ID." This lets you add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
+> Although you may add up to 100 authorizations per Azure region, we recommend you create an Active Directory user group and specify its ID in the "Principal ID." This lets you add more users to the management group after the plan is deployed and reduces the need to update the plan just to add more authorizations.
 
 ## Policy settings
 
@@ -152,10 +151,13 @@ You can configure a maximum of five policies, and only one instance of each Poli
 | Azure Data Lake Store Encryption | No |
 | Audit Diagnostic Setting | Yes |
 | Audit Resource Location compliance | No |
-|||
 
 For each policy type you add, you must associate Standard or Free Policy SKU. The Standard SKU is required for audit policies. Policy names are limited to 50 characters.
 
 ## Next steps
 
 - [Create an Azure application offer](azure-app-offer-setup.md)
+
+**Video tutorial**
+
+- [Azure Managed Applications Overview](https://go.microsoft.com/fwlink/?linkid=2196308)

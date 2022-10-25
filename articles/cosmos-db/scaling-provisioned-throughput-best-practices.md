@@ -3,15 +3,16 @@ title: Best practices for scaling provisioned throughput (RU/s)
 description: Learn best practices for scaling provisioned throughput for manual and autoscale throughput
 author: deborahc
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
+ms.custom: ignite-2022
 ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Best practices for scaling provisioned throughput (RU/s) 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes best practices and strategies for scaling the throughput (RU/s) of your database or container (collection, table, or graph). The concepts apply when you're increasing either the provisioned manual RU/s or the autoscale max RU/s of any resource for any of the Azure Cosmos DB APIs. 
  
@@ -132,7 +133,7 @@ Follow [best practices](partitioning-overview.md#choose-partitionkey) for choosi
 ### Step 2: Calculate the number of physical partitions you'll need 
 `Number of physical partitions = Total data size in GB / Target data per physical partition in GB`
 
-Each physical partition can hold a maximum of 50 GB of storage (30 GB for Cassandra API). The value you should choose for the `Target data per physical partition in GB` depends on how fully packed you want the physical partitions to be and how much you expect storage to grow post-migration. 
+Each physical partition can hold a maximum of 50 GB of storage (30 GB for API for Cassandra). The value you should choose for the `Target data per physical partition in GB` depends on how fully packed you want the physical partitions to be and how much you expect storage to grow post-migration. 
 
 For example, if you anticipate that storage will continue to grow, you may choose to set the value to 30 GB. Assuming you've chosen a good partition key that evenly distributes storage, each partition will be ~60% full (30 GB out of 50 GB). As future data is written, it can be stored on the existing set of physical partitions, without requiring the service to immediately add more physical partitions.
 

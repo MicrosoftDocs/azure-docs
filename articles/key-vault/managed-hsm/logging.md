@@ -125,7 +125,7 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
 
 You can use the Key Vault solution in Azure Monitor logs to review Managed HSM **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.
 
-For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../key-vault-insights-overview.md).
 
 ## Next steps
 

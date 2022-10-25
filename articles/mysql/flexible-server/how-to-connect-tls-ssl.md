@@ -1,12 +1,14 @@
 ---
 title: Encrypted connectivity using TLS/SSL in Azure Database for MySQL - Flexible Server
 description: Instructions and information on how to connect using TLS/SSL in Azure Database for MySQL - Flexible Server.
-author: savjani
-ms.author: pariks
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 09/21/2020
+ms.subservice: flexible-server
+ms.topic: how-to
+author: vivgk
+ms.author: vivgk
 ms.devlang: csharp, golang, java, javascript, php, python, ruby
+ms.custom: event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections
@@ -30,7 +32,7 @@ Following are the different configurations of SSL and TLS settings you can have 
 > * Changes to SSL Cipher on flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2 . For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
 > * MySQL open-source community editions starting with the release of MySQL versions 8.0.26 and 5.7.35, the TLSv1 and TLSv1.1 protocols are deprecated. These protocols released in 1996 and 2006, respectively to encrypt data in motion, are considered weak, outdated, and vulnerable to security threats. For more information, see [Removal of Support for the TLSv1 and TLSv1.1 Protocols.](https://dev.mysql.com/doc/refman/8.0/en/encrypted-connection-protocols-ciphers.html#encrypted-connection-deprecated-protocols).Azure Database for MySQL – Flexible Server will also stop supporting TLS versions once the community stops the support for the protocol, to align with modern security standards. 
 
-In this article, you'll learn how to:
+In this article, you learn how to:
 
 * Configure your flexible server
   * With SSL disabled

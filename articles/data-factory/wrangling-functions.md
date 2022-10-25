@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 09/26/2022
 ---
 
 # Transformation functions in Power Query for data wrangling
@@ -70,10 +70,10 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
     step, but the user must ensure that there are no duplicate column names
     among the joined tables
 * Supported Join Kinds:
-    [Inner](/powerquery-m/joinkind-inner),
-    [LeftOuter](/powerquery-m/joinkind-leftouter),
-    [RightOuter](/powerquery-m/joinkind-rightouter),
-    [FullOuter](/powerquery-m/joinkind-fullouter)
+    Inner,
+    LeftOuter,
+    RightOuter,
+    FullOuter
 * Both
     [Value.Equals](/powerquery-m/value-equals)
     and

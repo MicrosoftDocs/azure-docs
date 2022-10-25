@@ -83,7 +83,7 @@ The weighted method enables some useful scenarios:
 
 By default, without session affinity, Azure Front Door forwards requests originating from the same client to different origins. Certain stateful applications or in certain scenarios when ensuing requests from the same user prefers the same origin to process the initial request. The cookie-based session affinity feature is useful when you want to keep a user session on the same origin. When you use managed cookies with SHA256 of the origin URL as the identifier in the cookie, Azure Front Door can direct ensuing traffic from a user session to the same origin for processing.
 
-Session affinity can be enabled the origin group level in Azure Front Door Standard and Premium tier and front end host level in Azure Front Door (classic) for each of your configured domains (or subdomains). Once enabled, Azure Front Door adds a cookie to the user's session. Cookie-based session affinity allows Front Door to identify different users even if behind the same IP address, which in turn allows a more even distribution of traffic between your different origins.
+Session affinity can be enabled the origin group level in Azure Front Door Standard and Premium tier and front end host level in Azure Front Door (classic) for each of your configured domains (or subdomains). Once enabled, Azure Front Door adds a cookie to the user's session. The cookies are called ASLBSA and ASLBSACORS. Cookie-based session affinity allows Front Door to identify different users even if behind the same IP address, which in turn allows a more even distribution of traffic between your different origins.
 
 The lifetime of the cookie is the same as the user's session, as Front Door currently only supports session cookie. 
 
@@ -92,10 +92,10 @@ The lifetime of the cookie is the same as the user's session, as Front Door curr
 >
 > Public proxies may interfere with session affinity. This is because establishing a session requires Front Door to add a session affinity cookie to the response, which cannot be done if the response is cacheable as it would disrupt the cookies of other clients requesting the same resource. To protect against this, session affinity will **not** be established if the origin sends a cacheable response when this is attempted. If the session has already been established, it does not matter if the response from the origin is cacheable.
 >
-> Session affinity will be established in the following circumstances, **unless** the response has an HTTP 304 status code:
-> - The response has specific values set for the `Cache-Control` header that prevents caching, such as *private* or *no-store*.
-> - The response contains an `Authorization` header that has not expired.
-> - The response has an HTTP 302 status code.
+> Session affinity will be established in the following circumstances beyond the standard non-cacheable scenarios:
+> - The response must include the `Cache-Control` header of *no-store*.
+> - If the response contains an `Authorization` header, it must not be expired.
+> - The response is an HTTP 302 status code.
 
 ## Next steps
 

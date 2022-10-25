@@ -1,13 +1,13 @@
 ---
-title: OT sensor VM (VMWare ESXi) - Microsoft Defender for IoT
-description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using VMWare ESXi.
+title: OT sensor VM (VMware ESXi) - Microsoft Defender for IoT
+description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using VMware ESXi.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# OT network sensor VM (VMWare ESXi)
+# OT network sensor VM (VMware ESXi)
 
-This article describes an OT sensor deployment on a virtual appliance using VMWare ESXi.
+This article describes an OT sensor deployment on a virtual appliance using VMware ESXi.
 
 | Appliance characteristic |Details |
 |---------|---------|
@@ -25,6 +25,8 @@ Before you begin the installation, make sure you have the following items:
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
 - The OT sensor software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal).
+
+- Traffic mirroring configured on your vSwitch. For more information, see [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md).
 
 Make sure the hypervisor is running.
 
@@ -66,49 +68,15 @@ This procedure describes how to create a virtual machine by using ESXi.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-sensor-software).
+1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
 
-
-## Configure a monitoring interface (SPAN)
-
-While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
-
-*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
-
-For more information, see [Purdue reference model and Defender for IoT](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot).
-
-**To configure a SPAN port with ESXi**:
-
-1. Open vSwitch properties.
-
-1. Select **Add**.
-
-1. Select **Virtual Machine** > **Next**.
-
-1. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
-
-1. Select **Finish**.
-
-1. Select **SPAN Network** > **Edit*.
-
-1. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
-
-1. Select **OK**, and then select **Close** to close the vSwitch properties.
-
-1. Open the **XSense VM** properties.
-
-1. For **Network Adapter 2**, select the **SPAN** network.
-
-1. Select **OK**.
-
-1. Connect to the sensor, and verify that mirroring works.
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) and [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
+For more information, see:
 
-Then, use any of the following procedures to continue:
-
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Which appliances do I need?](../ot-appliance-sizing.md)
+- [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
+- [On-premises management console (VMware ESXi)](virtual-management-vmware.md)
+- [OT network sensor VM (Microsoft Hyper-V)](virtual-sensor-hyper-v.md)
+- [On-premises management console (Microsoft Hyper-V hypervisor)](virtual-management-hyper-v.md)

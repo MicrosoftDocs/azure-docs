@@ -3,8 +3,8 @@ title: Trigger custom Logic Apps with Azure AD entitlement management
 description: Learn how to configure and use custom Logic Apps in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 11/02/2020
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -46,7 +46,7 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
 1. In the left menu, select **Catalogs**. 
 
-1. In the left menu, select **Custom Extensions (Preview)**. 
+1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions (Preview)**. 
 
 1. In the header navigation bar, select **Add a Custom Extension**.  
 
@@ -97,7 +97,7 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
  For more information on creating Logic App workflows, see [Create automated workflows with Azure Logic Apps in the Azure portal](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## Add custom extension to access package policy 
+## Add custom extension to a policy in an access package
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager 
 
@@ -107,18 +107,21 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
 1. In the left menu, select **Access packages**. 
 
-1. Select **New access package** if you want to add a custom extension (Logic App) to a new access package. Or select the access package you want to add a custom extension (Logic App) to from the list of access packages that have already been created.  
+1. Select the access package you want to add a custom extension (Logic App) to from the list of access packages that have already been created.  
 
     > [!NOTE]  
-    > For more information about how to create an access package see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policy-of-request-settings). 
+    > Select **New access package** if you want to create a new access package.
+    > For more information about how to create an access package see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
-1. In the policy settings of the access package, go to the **Rules (Preview)** tab. 
+1. Change to the policy tab, select the policy and select **Edit**.
 
-1. In the menu below **When**, select the access package event you wish to use as trigger for this custom extension (Logic App). For example, if you only want to trigger the custom extension Logic App workflow when a user requests the access package, select **when request is created**. 
+1. In the policy settings, go to the **Custom Extensions (Preview)** tab.
 
-1. In the menu below **Do**, select the custom extension (Logic App) you want to add to the access package. The do action you select will execute when the event selected in the when field occurs.  
+1. In the menu below **Stage**, select the access package event you wish to use as trigger for this custom extension (Logic App). For example, if you only want to trigger the custom extension Logic App workflow when a user requests the access package, select **Request is created**. 
 
-1. Select **Create** if you want to add the custom extension to a new access package. Select **Update** if you want to add it to an existing access package.
+1. In the menu below **Custom Extension**, select the custom extension (Logic App) you want to add to the access package. The do action you select will execute when the event selected in the when field occurs.  
+
+1. Select **Update** to add it to an existing access package's policy.
 
     ![Add a logic app to access package](./media/entitlement-management-logic-apps/add-logic-apps-access-package.png)
 

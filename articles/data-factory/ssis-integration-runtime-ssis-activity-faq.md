@@ -4,11 +4,11 @@ description: "This article provides troubleshooting guidance for SSIS package ex
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: faq
-ms.author: sawinark
-author: swinarko
-ms.reviewer: sawinark
+ms.author: chugu
+author: chugugrace
+ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 02/21/2022
+ms.date: 09/22/2022
 ---
 
 # Troubleshoot package execution in the SSIS integration runtime
@@ -174,6 +174,10 @@ Check if security policies are correctly assigned to the account running self-ho
 
 Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
           
+
+### Error message: "Timeout when reading from staging"
+
+This error occurs when SSIS-IR with SHIR as a data proxy can't read data from staging blob successfully. Usually, it is due to that SHIR has failed to transfer on-premises data to the staging blob. Then SSIS-IR's attempt to read staging data fails with timeout error. You need to check SHIR logs in C:\ProgramData\SSISTelemetry folder for runtime logs and C:\ProgramData\SSISTelemetry\ExecutionLog folder for execution logs to further investigate why data hasn't been uploaded to staging blob successfully by SHIR.
 
 ### Multiple Package executions are triggered unexpectedly
 

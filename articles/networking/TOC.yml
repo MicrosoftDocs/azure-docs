@@ -135,7 +135,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network/
   - name: .Net
-    href: /dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
+    href: /dotnet/api/microsoft.azure.management.network
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: REST

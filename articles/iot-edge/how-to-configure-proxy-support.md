@@ -3,7 +3,7 @@ title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
 description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server. 
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/28/2022
+ms.date: 06/27/2022
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ ms.custom: [amqp, contperf-fy21q1]
 
 # Configure an IoT Edge device to communicate through a proxy server
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices send HTTPS requests to communicate with IoT Hub. If your device is connected to a network that uses a proxy server, you need to configure the IoT Edge runtime to communicate through the server. Proxy servers can also affect individual IoT Edge modules if they make HTTP or HTTPS requests that aren't routed through the IoT Edge hub.
 
@@ -155,7 +155,7 @@ systemctl show --property=Environment iotedge
 :::moniker-end
 <!--end 1.1-->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Open an editor in the terminal to configure the IoT Edge daemon.
@@ -203,7 +203,7 @@ systemctl show --property=Environment aziot-edged
 systemctl show --property=Environment aziot-identityd
 ```
 :::moniker-end
-<!--end 1.2-->
+<!--end iotedge-2020-11-->
 
 #### Windows using IoT Edge for Linux on Windows
 
@@ -273,7 +273,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Open the config file on your IoT Edge device: `/etc/aziot/config.toml`. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor.
@@ -307,9 +307,17 @@ This step takes place once on the IoT Edge device during initial device setup.
    ```bash
    sudo iotedge config apply
    ```
+   
+6. Verify that your proxy settings are propagated using `docker inspect edgeAgent` in the `Env` section. If not, the container must be recreated.
+
+   ```bash
+   sudo docker rm -f edgeAgent
+   ```
+   
+7. The IoT Edge runtime should recreate `edgeAgent` within a minute. Once `edgeAgent` container is running again, `docker inspect edgeAgent` and verify the proxy settings matches the configuration file. 
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Configure deployment manifests  
 
@@ -389,7 +397,7 @@ To use a proxy that performs traffic inspection, you must use either shared acce
 
 ## Fully qualified domain names (FQDNs) of destinations that IoT Edge communicates with
 
-If your proxy has a firewall that requires you to allow-list all FQDNs for internet connectivity, review the list from [Allow connections from IoT Edge devices](production-checklist.md#allow-connections-from-iot-edge-devices) to determine which FQDNs to add.
+If your proxy has a firewall that requires you to allowlist all FQDNs for internet connectivity, review the list from [Allow connections from IoT Edge devices](production-checklist.md#allow-connections-from-iot-edge-devices) to determine which FQDNs to add.
 
 ## Next steps
 

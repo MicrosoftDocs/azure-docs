@@ -2,9 +2,11 @@
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry. Create a container registry or replication in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 09/13/2021
-ms.custom: references_regions, devx-track-azurecli
+author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.date: 10/11/2022
+ms.custom: references_regions, devx-track-azurecli
+
 ---
 
 # Enable zone redundancy in Azure Container Registry for resiliency and high availability
@@ -21,7 +23,7 @@ Zone redundancy is a  feature of the Premium container registry service tier. Fo
   
     |Americas  |Europe  |Africa  |Asia Pacific  |
     |---------|---------|---------|---------|
-    |Brazil South<br/>Canada Central<br/>Central US<br/>East US<br/>East US 2<br/>South Central US<br/>US Government Virginia<br/>West US 2<br/>West US 3     |France Central<br/>Germany West Central<br/>North Europe<br/>Norway East<br/>West Europe<br/>UK South      |South Africa North<br/>        |Australia East<br/>Central India<br/>Japan East<br/>Korea Central<br/>  |
+    |Brazil South<br/>Canada Central<br/>Central US<br/>East US<br/>East US 2<br/>South Central US<br/>US Government Virginia<br/>West US 2<br/>West US 3     |France Central<br/>Germany West Central<br/>North Europe<br/>Norway East<br/>West Europe<br/>UK South      |South Africa North<br/>        |Australia East<br/>Central India<br/>Japan East<br/>Korea Central<br/>Southeast Asia<br/>East Asia<br/>  |
 
 * Region conversions to availability zones aren't currently supported. To enable availability zone support in a region, the registry must either be created in the desired region, with availability zone support enabled, or a replicated region must be added with availability zone support enabled.
 * A registry with an AZ-enabled stamp creates a home region replication with an AZ-enabled stamp by default. The AZ stamp can't be disabled once it's enabled.
@@ -225,7 +227,7 @@ Copy the following contents to a new file and save it using a filename such as `
   }
 ```
 
-Run the following [az deployment group create](/cli/azure/group/deployment#az-group-deployment-create) command to create the registry using the preceding template file. Where indicated, provide:
+Run the following [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to create the registry using the preceding template file. Where indicated, provide:
 
 * a unique registry name, or deploy the template without parameters and it will create a unique name for you
 * a location for the replica that supports availability zones, such as *westus2*

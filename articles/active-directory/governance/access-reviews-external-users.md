@@ -3,15 +3,15 @@ title: Use Azure AD Identity Governance to review and remove external users who 
 description: Use Access Reviews to extend of remove access from members of partner organizations
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: ajburnle
+ms.author: amsliu
 ---
 
 # Use Azure Active Directory (Azure AD) Identity Governance to review and remove external users who no longer have resource access
@@ -65,7 +65,7 @@ In addition to the option of removing unwanted external identities from resource
 
 ![upon completion settings](media/access-reviews-external-users/upon-completion-settings.png)
 
-When creating a new Access Review, in the “Upon completion settings” section, for **Action to apply on denied users** you can define **Block users from signing-in for 30 days, then remove user from the tenant**.
+When creating a new Access Review, choose the **Select Teams + groups** option and limit the scope to **Guest users only**. In the “Upon completion settings” section, for **Action to apply on denied users** you can define **Block users from signing-in for 30 days, then remove user from the tenant**.
 
 This setting allows you to identify, block, and delete external identities from your Azure AD tenant. External identities who are reviewed and denied continued access by the reviewer will be blocked and deleted, irrespective of the resource access or group membership they have. This setting is best used as a last step after you have validated that the external users in-review no longer carries resource access and can safely be removed from your tenant or if you want to make sure they are removed, irrespective of their standing access. The “Disable and delete” feature blocks the external user first, taking away their ability to signing into your tenant and accessing resources. Resource access is not revoked in this stage, and in case you wanted to reinstantiate the external user, their ability to log on can be reconfigured. Upon no further action, a blocked external identity will be deleted from the directory after 30 days, removing the account as well as their access.
 

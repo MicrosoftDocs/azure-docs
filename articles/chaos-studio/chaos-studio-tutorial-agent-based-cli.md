@@ -1,10 +1,10 @@
 ---
 title: Create an experiment that uses an agent-based fault with Azure Chaos Studio with the Azure CLI
 description: Create an experiment that uses an agent-based fault and configure the chaos agent with the Azure CLI
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
@@ -66,7 +66,7 @@ sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install 
 Or:
 
 ```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng
+sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
 ```
 
 ### Enable chaos target and capabilities

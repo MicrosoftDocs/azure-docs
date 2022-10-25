@@ -2,7 +2,7 @@
 title: Azure Service Bus - Automatically update messaging units 
 description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 05/16/2022
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 
@@ -18,10 +18,13 @@ For example, you can implement the following scaling scenarios for Service Bus n
 - Decrease messaging units for a Service Bus namespace when the CPU usage of the namespace goes below 25%. 
 - Use more messaging units during business hours and fewer during off hours. 
 
-This article shows you how you can automatically scale a Service Bus namespace (update [messaging units](service-bus-premium-messaging.md)) in the Azure portal. 
+This article shows you how you can automatically scale a Service Bus namespace (update [messaging units](service-bus-premium-messaging.md)) using the Azure portal and an Azure Resource Manager template.
 
 > [!IMPORTANT]
 > This article applies to only the **premium** tier of Azure Service Bus. 
+
+## Configure using the Azure portal
+In this section, you learn how to use the Azure portal to configure auto-scaling of messaging units for a Service Bus namespace. 
 
 ## Autoscale setting page
 First, follow these steps to navigate to the **Autoscale settings** page for your Service Bus namespace.
@@ -139,6 +142,212 @@ The previous section shows you how to add a default condition for the autoscale 
     > 
     > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us.  
 
+## Run history
+Switch to the **Run history** tab on the **Scale** page to see a chart that plots number of messaging units as observed by the autoscale engine. If the chart is empty, it means either autoscale wasn't configured or configured but disabled, or is in a cool down period.  
+
+:::image type="content" source="./media/automate-update-messaging-units/run-history.png" alt-text="Screenshot showing **Run history** on the **Scale** page.":::
+
+## Notifications
+Switch to the **Notify** tab on the **Scale** page to:
+
+- Enable sending notification emails to administrators, co-administrators, and any additional administrators. 
+- Enable sending notification emails to an HTTP or HTTPS endpoints exposed by webhooks. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/notify-page.png" alt-text="Screenshot showing the **Notify** tab of the **Scale** page.":::
+
+## Configure using a Resource Manager template
+You can use the following sample Resource Manager template to create a Service Bus namespace with a queue, and to configure autoscale settings for the namespace. In this example, two scale conditions are specified. 
+
+- Default scale condition: increase messaging units when the average CPU usage goes above 75% and decrease messaging units when the average CPU usage goes below 25%. 
+- Assign two messaging units to the namespace on weekends.
+
+### Template
+
+```json
+{
+	"$schema": "https: //schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"serviceBusNamespaceName": {
+			"type": "String",
+			"metadata": {
+				"description": "Name of the Service Bus namespace"
+			}
+		},
+		"serviceBusQueueName": {
+			"type": "String",
+			"metadata": {
+				"description": "Name of the Queue"
+			}
+		},
+		"autoScaleSettingName": {
+			"type": "String",
+			"metadata": {
+				"description": "Name of the auto scale setting."
+			}
+		},
+		"location": {
+			"defaultValue": "[resourceGroup().location]",
+			"type": "String",
+			"metadata": {
+				"description": "Location for all resources."
+			}
+		}
+	},
+	"resources": [{
+			"type": "Microsoft.ServiceBus/namespaces",
+			"apiVersion": "2021-11-01",
+			"name": "[parameters('serviceBusNamespaceName')]",
+			"location": "[parameters('location')]",
+			"sku": {
+				"name": "Premium"
+			},
+			"properties": {}
+		},
+		{
+			"type": "Microsoft.ServiceBus/namespaces/queues",
+			"apiVersion": "2021-11-01",
+			"name": "[format('{0}/{1}', parameters('serviceBusNamespaceName'), parameters('serviceBusQueueName'))]",
+			"dependsOn": [
+				"[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
+			],
+			"properties": {
+				"lockDuration": "PT5M",
+				"maxSizeInMegabytes": 1024,
+				"requiresDuplicateDetection": false,
+				"requiresSession": false,
+				"defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+				"deadLetteringOnMessageExpiration": false,
+				"duplicateDetectionHistoryTimeWindow": "PT10M",
+				"maxDeliveryCount": 10,
+				"autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+				"enablePartitioning": false,
+				"enableExpress": false
+			}
+		},
+		{
+			"type": "Microsoft.Insights/autoscaleSettings",
+			"apiVersion": "2021-05-01-preview",
+			"name": "[parameters('autoScaleSettingName')]",
+			"location": "East US",
+			"dependsOn": [
+				"[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
+			],
+			"tags": {},
+			"properties": {
+				"name": "[parameters('autoScaleSettingName')]",
+				"enabled": true,
+				"predictiveAutoscalePolicy": {
+					"scaleMode": "Disabled",
+					"scaleLookAheadTime": null
+				},
+				"targetResourceUri": "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]",
+				"profiles": [{
+						"name": "Increase messaging units to 2 on weekends",
+						"capacity": {
+							"minimum": "2",
+							"maximum": "2",
+							"default": "2"
+						},
+						"rules": [],
+						"recurrence": {
+							"frequency": "Week",
+							"schedule": {
+								"timeZone": "Eastern Standard Time",
+								"days": [
+									"Saturday",
+									"Sunday"
+								],
+								"hours": [
+									6
+								],
+								"minutes": [
+									0
+								]
+							}
+						}
+					},
+					{
+						"name": "{\"name\":\"Scale Out at 75% CPU and Scale In at 25% CPU\",\"for\":\"Increase messaging units to 4 on weekends\"}",
+						"capacity": {
+							"minimum": "1",
+							"maximum": "8",
+							"default": "2"
+						},
+						"rules": [{
+								"scaleAction": {
+									"direction": "Increase",
+									"type": "ServiceAllowedNextValue",
+									"value": "1",
+									"cooldown": "PT5M"
+								},
+								"metricTrigger": {
+									"metricName": "NamespaceCpuUsage",
+									"metricNamespace": "microsoft.servicebus/namespaces",
+									"metricResourceUri": "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]",
+									"operator": "GreaterThan",
+									"statistic": "Average",
+									"threshold": 75,
+									"timeAggregation": "Average",
+									"timeGrain": "PT1M",
+									"timeWindow": "PT10M",
+									"Dimensions": [],
+									"dividePerInstance": false
+								}
+							},
+							{
+								"scaleAction": {
+									"direction": "Decrease",
+									"type": "ServiceAllowedNextValue",
+									"value": "1",
+									"cooldown": "PT5M"
+								},
+								"metricTrigger": {
+									"metricName": "NamespaceCpuUsage",
+									"metricNamespace": "microsoft.servicebus/namespaces",
+									"metricResourceUri": "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]",
+									"operator": "LessThan",
+									"statistic": "Average",
+									"threshold": 25,
+									"timeAggregation": "Average",
+									"timeGrain": "PT1M",
+									"timeWindow": "PT10M",
+									"Dimensions": [],
+									"dividePerInstance": false
+								}
+							}
+						],
+						"recurrence": {
+							"frequency": "Week",
+							"schedule": {
+								"timeZone": "Eastern Standard Time",
+								"days": [
+									"Saturday",
+									"Sunday"
+								],
+								"hours": [
+									18
+								],
+								"minutes": [
+									0
+								]
+							}
+						}
+					}
+				],
+				"notifications": [],
+				"targetResourceLocation": "East US"
+			}
+		}
+	]
+}
+```
+
+You can also generate a JSON example for an autoscale setting resource from the Azure portal. After you configure autoscale settings in the Azure portal, select **JSON** on the command bar of the **Scale** page.
+
+:::image type="content" source="./media/automate-update-messaging-units/auto-scale-json.png" alt-text="Image showing the selection of the JSON button on the command bar of the **Scale** page in the Azure portal.":::
+
+Then, include the JSON in the `resources` section of a Resource Manager template as shown in the preceding example. 
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)

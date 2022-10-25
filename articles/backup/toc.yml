@@ -24,6 +24,8 @@
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure Database for PostgreSQL server - Azure portal
     href: quick-backup-postgresql-database-portal.md
+  - name: Enable Multi-user authorization on Recovery Services vault
+    href: enable-multi-user-authorization-quickstart.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -52,8 +54,14 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
+  - name: Configure Multi-user authorization (MUA) on Recovery Services vault
+    href: multi-user-authorization-tutorial.md
 - name: Concepts
   items:
+  - name: Resiliency
+    items:
+    - name: Migrate to availability zone support
+      href: ../availability-zones/migrate-recovery-services-vault.md
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
@@ -110,6 +118,22 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: SAP HANA database on Azure VM backup
+    items:
+    - name: About HANA database backup
+      href: sap-hana-database-about.md
+    - name: Architecture
+      href: azure-backup-architecture-for-sap-hana-backup.md      
+  - name: Monitor and Alerts
+    href: monitoring-and-alerts-overview.md
+  - name: Security
+    items:
+    - name: Enhanced soft delete
+      href: backup-azure-enhanced-soft-delete-about.md
+    - name: Multi-user authorization
+      href: multi-user-authorization-concept.md
+    - name: Immutable vault
+      href: backup-azure-immutable-vault-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -212,6 +236,14 @@
         href: restore-sql-database-azure-vm.md
       - name: Manage
         href: manage-monitor-sql-database-backup.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-azure-sql-backup-cli.md
+      - name: Restore
+        href: backup-azure-sql-restore-cli.md
+      - name: Manage
+        href: backup-azure-sql-manage-cli.md
     - name: With REST API
       items:
       - name: Backup
@@ -380,16 +412,22 @@
         href: manage-azure-file-share-rest-api.md
   - name: SAP HANA database on Azure VM backup
     items:
-    - name: Overview
-      href: sap-hana-db-about.md
-    - name: Architecture
-      href: azure-backup-architecture-for-sap-hana-backup.md
     - name: Backup
-      href: backup-azure-sap-hana-database.md
+      items:
+      - name: Database
+        href: backup-azure-sap-hana-database.md
+      - name: HANA System Replication database
+        href: sap-hana-database-with-hana-system-replication-backup.md
+      - name: Snapshots
+        href: sap-hana-database-instances-backup.md
     - name: Restore
-      href: sap-hana-db-restore.md
+      items:
+      - name: Database and HANA System Replication database
+        href: sap-hana-database-restore.md
+      - name: Snapshots
+        href: sap-hana-database-instances-restore.md
     - name: Manage
-      href: sap-hana-db-manage.md
+      href: sap-hana-database-manage.md      
   - name: Azure Backup Server (MABS)
     items:
     - name: Protection matrices
@@ -478,16 +516,16 @@
       href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
-    - name: Overview
-      href: monitoring-and-alerts-overview.md
-    - name: Using Backup Explorer
-      href: monitor-azure-backup-with-backup-explorer.md
-    - name: Using the Azure portal
+    - name: Using Backup center
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Using Azure Monitor alerts
+      href: move-to-azure-monitor-alerts.md
     - name: Using Azure Monitor metrics
       href: metrics-overview.md
     - name: Using Azure Monitor Logs
       href: backup-azure-monitoring-use-azuremonitor.md
+    - name: Using Backup Explorer
+      href: monitor-azure-backup-with-backup-explorer.md
   - name: Reports
     items:
     - name: Configure Azure Backup reports
@@ -548,7 +586,7 @@
       href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
     - name: Query backup information using ARG
       href: query-backups-using-azure-resource-graph.md
-    - name: Resource Manager templates
+    - name: Resource Manager and Bicep templates
       href: backup-rm-template-samples.md
   - name: Security and Ransomware protection
     items:
@@ -556,8 +594,10 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Multi-user authorization using Resource Guard
+    - name: Configure Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
+    - name: Manage Immutable vaults
+      href: backup-azure-immutable-vault-how-to-manage.md
     - name: Soft delete
       items:
       - name: Overview
@@ -566,6 +606,8 @@
         href: soft-delete-virtual-machines.md
       - name: For SQL Server and SAP HANA in Azure VMs
         href: soft-delete-sql-saphana-in-azure-vm.md
+    - name: Configure and manage enhanced soft delete
+      href: backup-azure-enhanced-soft-delete-configure-manage.md 
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection
@@ -627,6 +669,8 @@
       href: backup-azure-database-postgresql-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
       href: backup-azure-sap-hana-database-troubleshoot.md
+    - name: SAP HANA database instance backup in Azure VM
+      href: sap-hana-database-instance-troubleshoot.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier
@@ -646,7 +690,7 @@
   - name: Azure Data Protection - PowerShell
     href: /powershell/module/az.dataprotection/
   - name: PowerShell – Azure Backup agent
-    href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+    href: /powershell/module/msonlinebackup/
   - name: REST - Azure Data Protection
     href: /rest/api/dataprotection/
   - name: REST - Backup

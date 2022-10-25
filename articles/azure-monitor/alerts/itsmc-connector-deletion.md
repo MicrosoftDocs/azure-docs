@@ -4,6 +4,7 @@ description: This article provides an explanation of how to delete ITSM connecto
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.custom: references_regions
+ms.reviewer: nolavime
 
 ---
 

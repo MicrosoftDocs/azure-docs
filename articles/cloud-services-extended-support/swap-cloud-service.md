@@ -58,7 +58,7 @@ To save compute costs, you can delete one of the cloud services (designated as a
 
 ## REST API
 
-To use the [REST API](/rest/api/compute/load-balancers/swap-public-ip-addresses) to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
+To use the [REST API](/rest/api/load-balancer/load-balancers/swap-public-ip-addresses) to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
 
 ```http
 POST https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/westus/setLoadBalancerFrontendPublicIpAddresses?api-version=2021-02-01

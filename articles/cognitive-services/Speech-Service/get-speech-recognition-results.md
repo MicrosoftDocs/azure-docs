@@ -8,10 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 06/13/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
-zone_pivot_groups: programming-languages-speech-sdk
+zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: speech to text, speech to text software
 ---
 
@@ -47,6 +47,10 @@ keywords: speech to text, speech to text software
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](./includes/how-to/recognize-speech-results/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-cli"
+[!INCLUDE [CLI include](./includes/how-to/recognize-speech-results/cli.md)]
 ::: zone-end
 
 ## Next steps

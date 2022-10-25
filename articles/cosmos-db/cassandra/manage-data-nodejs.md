@@ -1,17 +1,17 @@
 ---
-title: 'Quickstart: Cassandra API with Node.js - Azure Cosmos DB'
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with Node.js
+title: Create a profile app with Node.js using the API for Cassandra
+description: This quickstart shows how to use the Azure Cosmos DB for Apache Cassandra to create a profile application with Node.js.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 02/10/2021
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, kr2b-contr-experiment, ignite-2022
 ---
 # Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)
@@ -23,13 +23,14 @@ ms.custom: devx-track-js, mode-api
 > * [Golang](manage-data-go.md)
 >    
 
-In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use a Cassandra Node.js app cloned from GitHub to create a Cassandra database and container. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create an Azure Cosmos DB for Apache Cassandra account, and use a Cassandra Node.js app cloned from GitHub to create a Cassandra database and container. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](../try-free.md) without an Azure subscription, free of charge and commitments.
 
 In addition, you need:
+
 * [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) version v0.10.29 or higher
 * [Git](https://git-scm.com/)
 
@@ -41,27 +42,27 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 ## Clone the sample application
 
-Now let's clone a Cassandra API app from GitHub, set the connection string, and run it. You see how easy it is to work with data programmatically. 
+Clone a API for Cassandra app from GitHub, set the connection string, and run it.
 
-1. Open a command prompt. Create a new folder named `git-samples`. Then, close the command prompt.
+1. Open a Command Prompt window. Create a new folder named `git-samples`. Then, close the window.
 
-    ```bash
+    ```cmd
     md "C:\git-samples"
     ```
 
-2. Open a git terminal window, such as git bash. Use the `cd` command to change to the new folder to install the sample app.
+1. Open a git terminal window, such as git bash. Use the `cd` command to change to the new folder to install the sample app.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+1. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
     ```
 
-1. Install the Node.js dependencies with npm.
+1. Install the Node.js dependencies with `npm`.
 
     ```bash
     npm install
@@ -69,9 +70,9 @@ Now let's clone a Cassandra API app from GitHub, set the connection string, and 
 
 ## Review the code
 
-This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the `uprofile.js` file in the `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started` folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the `uprofile.js` file in the `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started` folder. Otherwise, skip ahead to [Update your connection string](#update-your-connection-string).
 
-* The username and password values were set using the connection string page in the Azure portal. 
+* The username and password values were set using the connection string page in the Azure portal.
 
    ```javascript
     let authProvider = new cassandra.auth.PlainTextAuthProvider(
@@ -93,7 +94,7 @@ This step is optional. If you're interested to learn how the code creates the da
     });
     ```
 
-* The `client` connects to the Azure Cosmos DB Cassandra API.
+* The `client` connects to the Azure Cosmos DB for Apache Cassandra.
 
     ```javascript
     client.connect();
@@ -168,7 +169,7 @@ This step is optional. If you're interested to learn how the code creates the da
     }
     ```  
 
-* Close connection. 
+* Close connection.
 
     ```javascript
     client.shutdown();
@@ -176,42 +177,41 @@ This step is optional. If you're interested to learn how the code creates the da
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
+Go to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
 
-1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**.
 
-1. Use the :::image type="icon" source="./media/manage-data-nodejs/copy.png"::: button on the right side of the screen to copy the top value, the CONTACT POINT.
+1. Use the :::image type="icon" source="./media/manage-data-nodejs/copy.png"::: button on the right side of the screen to copy the top value, **CONTACT POINT**.
 
-    :::image type="content" source="./media/manage-data-nodejs/keys.png" alt-text="View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page":::
+    :::image type="content" source="./media/manage-data-nodejs/keys.png" alt-text="Screenshot showing how to view and copy the CONTACT POINT, USERNAME,and PASSWORD from the Connection String page.":::
 
-1. Open the `config.js` file. 
+1. Open the *config.js* file.
 
-1. Paste the CONTACT POINT value from the portal over `'CONTACT-POINT` on line 9.
+1. Paste the **CONTACT POINT** value from the portal over `CONTACT-POINT` on line 9.
 
-    Line 9 should now look similar to 
+    Line 9 should now look similar to this value:
 
     `contactPoint: "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com",`
 
-1. Copy the USERNAME value from the portal and paste it over `<FillMEIN>` on line 2.
+1. Copy the **USERNAME** value from the portal and paste it over `<FillMEIN>` on line 2.
 
-    Line 2 should now look similar to 
+    Line 2 should now look similar to this value:
 
     `username: 'cosmos-db-quickstart',`
 
-1. Copy the PASSWORD value from the portal and paste it over `USERNAME` on line 8.
+1. Copy the **PASSWORD** value from the portal and paste it over `USERNAME` on line 8.
 
-    Line 8 should now look similar to
+    Line 8 should now look similar to this value:
 
     `password: '2Ggkr662ifxz2Mg==',`
 
-1. Replace REGION with the Azure region you created this resource in.
+1. Replace **REGION** with the Azure region you created this resource in.
 
-1. Save the `config.js` file.
-
+1. Save the *config.js* file.
 
 ## Run the Node.js app
 
-1. In the terminal window, ensure you are in the sample directory you cloned earlier:
+1. In the bash terminal window, ensure you are in the sample directory you cloned earlier:
 
     ```bash
     cd azure-cosmos-db-cassandra-nodejs-getting-started
@@ -223,15 +223,15 @@ Now go back to the Azure portal to get your connection string information and co
     npm start
     ```
 
-4. Verify the results as expected from the command line.
+1. Verify the results as expected from the command line.
 
-    :::image type="content" source="./media/manage-data-nodejs/output.png" alt-text="View and verify the output":::
+    :::image type="content" source="./media/manage-data-nodejs/output.png" alt-text="Screenshot shows a Command Prompt window where you can view and verify the output.":::
 
-    Press CTRL+C to stop execution of the program and close the console window. 
+    Press **Ctrl**+**C** to stop the program and close the console window.
 
-5. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
+1. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data.
 
-    :::image type="content" source="./media/manage-data-nodejs/data-explorer.png" alt-text="View the data in Data Explorer"::: 
+    :::image type="content" source="./media/manage-data-nodejs/data-explorer.png" alt-text="Screenshot shows the Data Explorer page, where you can view the data.":::
 
 ## Review SLAs in the Azure portal
 
@@ -243,7 +243,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account with Cassandra API, and run a Cassandra Node.js app that creates a Cassandra database and container. You can now import additional data into your Azure Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account with API for Cassandra, and run a Cassandra Node.js app that creates a Cassandra database and container. You can now import more data into your Azure Cosmos DB account.
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](migrate-data.md)

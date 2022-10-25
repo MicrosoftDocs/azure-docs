@@ -26,29 +26,31 @@ A Job is a unit of work (demand), which must be routed to an available Worker (s
 
 A real-world example is an incoming call or chat in the context of a call center.
 
-### Job submission flow
+### Job lifecycle
 
 1. Your application submits a Job via the Job Router SDK.
-2. The Job is classified and a [JobClassified Event][job_classified_event] is sent via Event Grid.
+1. (Optional) If you specified a [Classification Policy](#classification-policy), the Job is classified and a [JobClassified Event][job_classified_event] is sent via Event Grid.
+1. The Job is added to the queue that you specified or that was determined by the Classification Policy, and a [JobQueued Event][job_queued_event] is sent via Event Grid.
+1. Job Router searches for matching workers based upon any [Label selectors](#label-selectors) and the [Distribution Policy](#distribution-policy) if the queue.
+1. When a matching Worker is found, an [Offer](#offer) is issued and an [OfferIssued Event][offer_issued_event] is sent.
+1. Your application can accept the [Offer](#offer) via the SDK and the Job will be removed from the queue and an [OfferAccepted Event][offer_accepted_event] will be sent that contains an `assignmentId`.
+1. Once the Worker has completed the Job, the SDK can be used to complete and close it, using the `assignmentId`. This will free the Worker up to take on the next Job.
 
-    :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram of job submission.":::
+:::image type="content" source="./media/job-lifecycle.svg" alt-text="Diagram that shows the Job lifecycle.":::
 
 ## Worker
 
-A Worker is the supply available to handle a Job. Each worker registers with one or more queues to receive jobs.
+A Worker is the supply available to handle a Job. When you use the SDK to register a Worker to receive jobs, you can specify:
+
+- One or more queues to listen on.
+- The number of concurrent jobs per [Channel](#channel) that the Worker can handle.
+- A set of [Labels](#labels) that can be used to group and [select](#label-selectors) workers.
 
 A real-world example is an agent in a call center.
 
-### Worker registration flow
-
-1. When your Worker is ready to take on work, you can register the worker via the Job Router SDK.
-2. Job Router then sends a [WorkerRegistered Event][worker_registered_event]
-
-    :::image type="content" source="../media/router/acs-router-worker-registration.png" alt-text="Diagram of worker registration.":::
-
 ## Queue
 
-A Queue is an ordered list of jobs, that are waiting to be served by a worker. Workers register with a queue to receive work from it.
+A Queue is an ordered list of jobs, that are waiting to be served to a worker. Workers register with a queue to receive work from it.
 
 A real-world example is a call queue in a call center.
 
@@ -64,13 +66,29 @@ An Offer is extended by Job Router to a worker to handle a particular job when i
 
 A real-world example is the ringing of an agent in a call center.
 
-### Offer flow
+### Offer acceptance flow
 
 1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
-2. The Offer is accepted via the Job Router API.
-3. Job Router sends an [OfferAccepted Event][offer_accepted_event].
+1. The Offer is accepted via the Job Router API.
+1. The job is removed from the queue and assigned to the worker.
+1. Job Router sends an [OfferAccepted Event][offer_accepted_event].
+1. Any existing offers to other workers for this same job will be revoked and an [OfferRevoked Event][offer_revoked_event] will be sent.
 
-    :::image type="content" source="../media/router/acs-router-accept-offer.png" alt-text="Diagram showing Communication Services' Job Router accept offer.":::
+### Offer decline flow
+
+1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
+1. The Offer is declined via the Job Router API.
+1. The Offer is removed from the worker, opening up capacity for another Offer for a different job.
+1. Job Router sends an [OfferDeclined Event][offer_declined_event].
+1. Job Router won't reoffer the declined Offer to the worker unless they deregister and re-register.
+
+### Offer expiry flow
+
+1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
+1. The Offer is not accepted or declined within the TTL period defined by the Distribution Policy.
+1. Job Router will expire the Offer and an [OfferExpired Event][offer_expired_event] will be sent.
+1. The worker is considered unavailable and will be automatically deregistered.
+1. A [WorkerDeregistered Event][worker_deregistered_event] will be sent.
 
 ## Distribution Policy
 
@@ -114,6 +132,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [How jobs are matched to workers](matching-concepts.md)
 - [Router Rule concepts](router-rule-concepts.md)
 - [Classification concepts](classification-concepts.md)
+- [Distribution modes](distribution-concepts.md)
 - [Exception Policies](exception-policy.md)
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
@@ -126,8 +145,8 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [cla]: https://cla.microsoft.com
 [nuget]: https://www.nuget.org/
-[netstandars2mappings]:https://github.com/dotnet/standard/blob/master/docs/versions.md
-[useraccesstokens]:https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp
+[netstandars2mappings]: https://github.com/dotnet/standard/blob/master/docs/versions.md
+[useraccesstokens]: ../../quickstarts/access-tokens.md?pivots=programming-language-csharp
 [communication_resource_docs]: ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
 [communication_resource_create_portal]:  ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
 [communication_resource_create_power_shell]: /powershell/module/az.communication/new-azcommunicationservice
@@ -135,7 +154,12 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
+[worker_deregistered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerderegistered
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
+[job_queued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued
 [offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
 [offer_accepted_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferaccepted
+[offer_declined_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferdeclined
+[offer_expired_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferexpired
+[offer_revoked_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked
 [worker-scoring]: ../../how-tos/router-sdk/customize-worker-scoring.md

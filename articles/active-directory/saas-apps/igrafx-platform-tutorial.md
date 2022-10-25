@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2022
+ms.date: 06/03/2022
 ms.author: jeedes
 
 ---
@@ -48,6 +48,8 @@ To configure the integration of iGrafx Platform into Azure AD, you need to add i
 1. In the **Add from the gallery** section, type **iGrafx Platform** in the search box.
 1. Select **iGrafx Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for iGrafx Platform
 
 Configure and test Azure AD SSO with iGrafx Platform using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in iGrafx Platform.
@@ -69,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -77,35 +79,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Identifier** |
     |--------|
-    | `https://<CustomerName>.igrafxcloud.com/saml/metadata` |
-    | `https://<CustomerName>.igrafxdemo.com/saml/metadata` |
-    | `https://<CustomerName>.igrafxtraining.com/saml/metadata` |
-    | `https://<CustomerName>.igrafx.com/saml/metadata` |
+    | `https://<SUBDOMAIN>.igrafxcloud.com/saml/metadata` |
+    | `https://<SUBDOMAIN>.igrafxdemo.com/saml/metadata` |
+    | `https://<SUBDOMAIN>.igrafxtraining.com/saml/metadata` |
+    | `https://<SUBDOMAIN>.igrafx.com/saml/metadata` |
 
     b.  In the **Reply URL** text box, type a URL using one of the following patterns:
 
     | **Reply URL** |
     |---------|
-    | `https://<CustomerName>.igrafxcloud.com/` |
-    | `https://<CustomerName>.igrafxdemo.com/` |
-    | `https://<CustomerName>.igrafxtraining.com/` |
-    | `https://<CustomerName>.igrafx.com/` |
+    | `https://<SUBDOMAIN>.igrafxcloud.com/` |
+    | `https://<SUBDOMAIN>.igrafxdemo.com/` |
+    | `https://<SUBDOMAIN>.igrafxtraining.com/` |
+    | `https://<SUBDOMAIN>.igrafx.com/` |
 
 	c. In the **Sign on URL** text box, type a URL using one of the following patterns:
 
     | **Sign on URL** |
     |-------|
-    | `https://<CustomerName>.igrafxcloud.com/` |
-    | `https://<CustomerName>.igrafxdemo.com/` |
-    | `https://<CustomerName>.igrafxtraining.com/` |
-    | `https://<CustomerName>.igrafx.com/` |
+    | `https://<SUBDOMAIN>.igrafxcloud.com/` |
+    | `https://<SUBDOMAIN>.igrafxdemo.com/` |
+    | `https://<SUBDOMAIN>.igrafxtraining.com/` |
+    | `https://<SUBDOMAIN>.igrafx.com/` |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [iGrafx Platform Client support team](mailto:support@igrafx.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 ### Create an Azure AD test user
 

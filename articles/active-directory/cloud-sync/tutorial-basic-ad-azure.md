@@ -3,7 +3,7 @@ title: Tutorial - Basic Active Directory on-premises and Azure AD environment.
 services: active-directory
 description: Learn how to create a basic AD and Azure AD environment.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial

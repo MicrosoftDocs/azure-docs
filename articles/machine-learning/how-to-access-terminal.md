@@ -8,6 +8,7 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 02/05/2021
 #Customer intent: As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio.
@@ -24,7 +25,7 @@ Access the terminal of a compute instance in your workspace to:
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 ## Access a terminal
 
@@ -42,7 +43,7 @@ To access the terminal:
 
 In addition to the steps above, you can also access the terminal from:
 
-* RStudio: Select the **Terminal** tab on top left.
+* RStudio (See [Add RStudio](how-to-create-manage-compute-instance.md?tabs=python#setup-rstudio-workbench)): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine, if you enabled SSH access when the compute instance was created.
@@ -60,15 +61,13 @@ Access all Git operations from the terminal. All Git files and folders will be s
 > [!NOTE]
 > Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
 
-Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
-
 ## Install packages
 
  Install packages from a terminal window. Install Python packages into the **Python 3.8 - AzureML** environment.  Install R packages into the **R** environment.
 
 Or you can install packages directly in Jupyter Notebook or RStudio:
 
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio ([Add RStudio](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-preview)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]

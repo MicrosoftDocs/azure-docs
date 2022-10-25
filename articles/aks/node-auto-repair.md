@@ -35,7 +35,7 @@ If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS t
 
 1. Reboot the node.
 1. If the reboot is unsuccessful, reimage the node.
-1. If the reimage is unsuccessful, redploy the node.
+1. If the reimage is unsuccessful, redeploy the node.
 
 Alternative remediations are investigated by AKS engineers if auto-repair is unsuccessful. 
 

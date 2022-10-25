@@ -10,13 +10,13 @@ ms.author: larryfr
 author: blackmist
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-
-
-# Customer intent: As a workspace administrator, I want to link Azure Synapse workspaces and Azure Machine Learning workspaces and attach Apache Spark pools for a unified data wrangling experience.
+ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, event-tier1-build-2022
+#Customer intent: As a workspace administrator, I want to link Azure Synapse workspaces and Azure Machine Learning workspaces and attach Apache Spark pools for a unified data wrangling experience.
 ---
 
 # Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to create a linked service that links your [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) workspace and [Azure Machine Learning workspace](concept-workspace.md). 
 
@@ -31,7 +31,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 
 ## Prerequisites
 
-* [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=python).
+* [Create an Azure Machine Learning workspace](quickstart-create-resources.md).
 
 * [Create a Synapse workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 
@@ -188,7 +188,7 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## Next steps
 
-* [How to data wrangle with Azure Synapse (preview)](how-to-data-prep-synapse-spark-pool.md).
-* [How to use Apache Spark in your machine learning pipeline with Azure Synapse (preview)](how-to-use-synapsesparkstep.md)
-* [Train a model](how-to-set-up-training-targets.md).
+* [How to data wrangle with Azure Synapse (preview)](v1/how-to-data-prep-synapse-spark-pool.md).
+* [How to use Apache Spark in your machine learning pipeline with Azure Synapse (preview)](v1/how-to-use-synapsesparkstep.md)
+* [Train a model](v1/how-to-set-up-training-targets.md).
 * [How to securely integrate Azure Synapse and Azure Machine Learning workspaces](how-to-private-endpoint-integration-synapse.md).

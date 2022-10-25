@@ -1,13 +1,13 @@
 ---
-title: API Versioning for DICOM service - Azure Health Data Services
+title: API versioning for DICOM service - Azure Health Data Services
 description: This guide gives an overview of the API version policies for the DICOM service. 
 services: healthcare-apis
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/24/2022
-ms.author: aersoy
+ms.date: 10/13/2022
+ms.author: mmitrik
 ---
 
 # API versioning for DICOM service
@@ -18,11 +18,12 @@ All versions of the DICOM APIs will always conform to the DICOMweb™ Standard s
 
 ## Specifying version of REST API in requests
 
-The version of the REST API should be explicitly specified in the request URL as in the following example:
+The version of the REST API must be explicitly specified in the request URL as in the following example:
 
 `<service_url>/v<version>/studies`
 
-Currently routes without a version are still supported. For example, `<service_url>/studies` has the same behavior as specifying the version as v1.0-prerelease. However, we strongly recommend that you specify the version in all requests via the URL as routes without a version won't be supported after the General Availability release of the DICOM service.
+> [!NOTE]
+> Routes without a version are no longer supported.
 
 ## Supported versions
 
@@ -31,9 +32,9 @@ Currently the supported versions are:
 * v1.0-prerelease
 * v1
 
-The OpenApi Doc for the supported versions can be found at the following url:
- 
-`<service_url>/{version}/api.yaml`
+The OpenAPI Doc for the supported versions can be found at the following url:
+
+`<service_url>/v<version>/api.yaml`
 
 ## Prerelease versions
 

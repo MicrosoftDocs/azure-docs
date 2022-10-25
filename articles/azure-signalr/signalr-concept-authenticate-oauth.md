@@ -57,7 +57,7 @@ To complete this tutorial, you must have the following prerequisites:
     | Setting Name | Suggested Value | Description |
     | ------------ | --------------- | ----------- |
     | Application name | *Azure SignalR Chat* | The GitHub user should be able to recognize and trust the app they are authenticating with.   |
-    | Homepage URL | `http://localhost:5000/home` | |
+    | Homepage URL | `http://localhost:5000` | |
     | Application description | *A chat room sample using the Azure SignalR Service with GitHub authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
     | Authorization callback URL | `http://localhost:5000/signin-github` | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. In this tutorial, you must use the default callback URL for the *AspNet.Security.OAuth.GitHub* package, */signin-github*.  |
 
@@ -547,7 +547,7 @@ The last thing you need to do is update the **Homepage URL** and **Authorization
 
     | Setting | Example |
     | ------- | ------- |
-    | Homepage URL | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
+    | Homepage URL | `https://signalrtestwebapp22665120.azurewebsites.net` |
     | Authorization callback URL | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |
 
 3. Navigate to your web app URL and test the application.

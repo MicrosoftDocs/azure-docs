@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 09/08/2022
 ms.author: jianleishen
 ---
 
@@ -168,6 +168,7 @@ The below table lists the properties supported by a delimited text source. You c
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+| Maximum columns | The default value is 20480. Customize this value when the column number is over 20480 | no | Integer | maxColumns |
 
 > [!NOTE]
 > Data flow sources support for list of files is limited to 1024 entries in your file. To include more files, use wildcards in your file list.
@@ -183,9 +184,10 @@ The associated data flow script is:
 ```
 source(
     allowSchemaDrift: true,
-    validateSchema: false,
-    multiLineRow: true,
-    wildcardPaths:['*.csv']) ~> CSVSource
+	validateSchema: false,
+	ignoreNoFilesFound: false,
+	multiLineRow: true,
+	wildcardPaths:['*.csv']) ~> CSVSource
 ```
 
 > [!NOTE]

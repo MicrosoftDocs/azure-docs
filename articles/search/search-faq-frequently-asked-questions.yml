@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ
+  title: Cognitive Search FAQ
   titleSuffix: Azure Cognitive Search
   description: Get answers to common questions about Microsoft Azure Cognitive Search service, a cloud hosted search service on Microsoft Azure.
   
@@ -9,16 +9,30 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: faq
-  ms.date: 01/20/2022
-title: Azure Cognitive Search FAQ
-summary:  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Cognitive Search.
-
+  ms.date: 10/12/2022
+title: Cognitive Search Frequently Asked Questions
+summary:  Find answers to commonly asked questions about Azure Cognitive Search.
 
 sections:
   - name: General
     questions:
       - question: |
-          How do integrate search into my solution?
+          What is Azure Cognitive Search?
+        answer: | 
+          Azure Cognitive Search is a service on Azure that provides a dedicated search engine and persistent storage of your searchable content for full text search scenarios. It includes integrated AI used during indexing to extract more text and structure from raw content. It provides APIs and tools for integration and all search-related operations, including rich support in Azure portal for configuring and using most search features.
+
+      - question: |
+          Are "Azure Search" and "Azure Cognitive Search" the same service?
+        answer: |
+          Azure Search was renamed to Azure Cognitive Search in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. 
+
+      - question: |
+          What languages are supported?
+        answer: |
+          The default analyzer used for tokenization is standard Lucene and it's language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [semantic search](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
+
+      - question: |
+          How do I integrate search into my solution?
         answer: |
           Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
 
@@ -27,50 +41,65 @@ sections:
         answer: |
           Not always. The REST API is always the first to implement new features in preview API versions, and the generally available versions support all programmatic operations. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
 
-          Although the REST APIs are first out with newest features, the Azure SDKs provide more coding support and are recommended over REST unless a required feature is unavailable.
+          Although the REST APIs are first out with newest features, the Azure SDKs provide more coding support, and are recommended over REST unless a required feature is unavailable.
 
       - question: |
           Can I pause the service and stop billing?
         answer: |
-          You cannot pause a search service. In Azure Cognitive Search, computing resources are allocated when the service is created. It's not possible to release and reclaim those resources on-demand.
+          You can't pause a search service. In Azure Cognitive Search, computing resources are allocated when the service is created. It's not possible to release and reclaim those resources on-demand.
 
       - question: |
           Can I upgrade, downgrade, rename or move the service?
         answer: |
           Service tier, name, and region are fixed for the lifetime of the service.
+          
+      - question: |
+          If I migrate my search service to another subscription or resource group, should I expect any downtime?
+        answer: |
+          As long as you follow the [checklist before moving resources](../azure-resource-manager/management/move-resource-group-and-subscription.md) and make sure each step is completed, there shouldn't be any downtime.
 
   - name: Indexing 
     questions:
       - question: |
+          What does "indexing" mean in Cognitive Search?
+        answer: |
+          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indices and other physical data structures that support information retrieval.
+
+      - question: |
           Can I move, backup, and restore indexes?
         answer: |
-          There is no native support for index management. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there is no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it or wanted to move it.
+          There's no native support for index management. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there's no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it, or wanted to move it.
           
           However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
                    
       - question: |
-          Can I restore my index or service once it is deleted?
+          Can I restore my index or service once it's deleted?
         answer: |
-          No, if you delete an Azure Cognitive Search index or service, it cannot be recovered. When you delete a search service, all indexes in the service are deleted permanently.   
+          No, if you delete an Azure Cognitive Search index or service, it can't be recovered. When you delete a search service, all indexes in the service are deleted permanently.   
                     
       - question: |
           Can I index from SQL Database replicas?
         answer: |
-          If you are using the search indexer for Azure SQL Database, there are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
+          If you're using the search indexer for Azure SQL Database, there are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there's no guarantee you get all of the data.
 
   - name: Queries
-    questions:         
+    questions:
+      - question: |
+          Where does query execution occur?
+        answer: |
+          Queries execute over a single search index that's hosted on your search service. You can't join multiple indices to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/multiple-search-services).
+              
       - question: |
           Why are there zero matches on terms I know to be valid?
         answer: |
-          The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks down terms to root forms. This aspect of query parsing casts a broader net over possible matches, because the tokenized term matches a greater number of variants.
+          The most common case isn't knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks down terms to root forms. This aspect of query parsing casts a broader net over possible matches, because the tokenized term matches a greater number of variants.
           
-          Wildcard, fuzzy and regex queries, however, aren't analyzed like regular term or phrase queries and can lead to poor recall if the query does not match the analyzed form of the word in the search index. For more information on query parsing and analysis, see [query architecture](./search-lucene-query-architecture.md).
+          Wildcard, fuzzy and regex queries, however, aren't analyzed like regular term or phrase queries and can lead to poor recall if the query doesn't match the analyzed form of the word in the search index. For more information on query parsing and analysis, see [query architecture](./search-lucene-query-architecture.md).
           
       - question: |
           Why are my wildcard searches slow?
         answer: |
-          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
+          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
 
       - question: |
           Can I search across multiple indexes?
@@ -80,9 +109,9 @@ sections:
       - question: |
           Why is the search score a constant 1.0 for every match?
         answer: |
-          Search scores are generated for full text search queries, based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. Query types that are not full text search (wildcard, prefix, regex) are not ranked by a relevance score. This behavior is by design. A constant score allow matches found through query expansion to be included in the results, without affecting the ranking.
+          Search scores are generated for full text search queries, based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. Query types that aren't full text search (wildcard, prefix, regex) aren't ranked by a relevance score. This behavior is by design. A constant score allow matches found through query expansion to be included in the results, without affecting the ranking.
           
-          For example, suppose an input of "tour*" in a wildcard search produces matches on "tours", "tourettes", and "tourmaline". Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, term frequencies are ignored when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
+          For example, suppose an input of "tour*" in a wildcard search produces matches on "tours", "tourettes", and "tourmaline". Given the nature of these results, there's no way to reasonably infer which terms are more valuable than others. For this reason, term frequencies are ignored when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
 
   - name: Security
     questions:
@@ -99,12 +128,17 @@ sections:
       - question: |
           Can I control access to search results based on user identity?
         answer: |
-          Typically, users who are authorized to run your application are also authorized to see all search results. Cognitive Search does not have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. 
+          Not exactly. Typically, users who are authorized to run your application are also authorized to see all search results. Cognitive Search doesn't have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. 
 
       - question: |
           Can I control access to operations based on user identity?
         answer: |
-          [Role-based authorization](search-security-rbac.md) for data plane operations over content is now in public preview. 
+          [Role-based authorization](search-security-rbac.md) for data plane operations over content is now in public preview.
+
+      - question: |
+          Can I use the Azure portal to view and manage search content if the search service is behind an IP firewall or a private endpoint?
+        answer: |
+          You can use the Azure portal on a network-protected search service if you create a network exception that allows client and portal access. For more information, see [connect through an IP firewall](./service-configure-firewall.md#allow-access-from-your-client-and-portal-ip) or [connect through a private endpoint](./service-create-private-endpoint.md#portal-access-private-search-service).
 
 additionalContent: |
 

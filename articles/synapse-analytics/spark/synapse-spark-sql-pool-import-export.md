@@ -140,7 +140,7 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
 
 ## API documentation
 
-Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/latest/scala/index.html).
+Azure Synapse Dedicated SQL Pool Connector for Apache Spark - API Documentation.
 
 ### Configuration options
 
@@ -276,7 +276,7 @@ dfToReadFromTable.show()
 > The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
 > Read from a query is only available in Spark 3. It is not available in Spark 2.4.
 
-##### [Scala](#tab/scala1)
+##### [Scala](#tab/scala2)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -412,7 +412,7 @@ dfToReadFromTable = (spark.read
                      # Set user's password to the database
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
-                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Three-part table name from where data will be read.
@@ -535,6 +535,7 @@ dfToReadFromQuery2.show()
 
 ```
 ---
+
 
 ### Write to Azure Synapse Dedicated SQL Pool
 
@@ -668,7 +669,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
  .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
  # Set name of the data source definition that is defined with database scoped credentials.
- # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+ # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
  .option(Constants.DATA_SOURCE, "<data_source_name>")
  # Choose a save mode that is apt for your use case.
  # Options for save modes are "error" or "errorifexists" (default), "overwrite", "append", "ignore".    
@@ -762,7 +763,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  # Set user's password to the database
  .option(Constants.PASSWORD, "<user_password>")
  # Set name of the data source with database scoped credentials for external table.
- # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+ # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
  .option(Constants.DATA_SOURCE, "<data_source_name>")
  # For Basic Auth, need the storage account key for the storage account where the data will be staged
  .option(Constants.STAGING_STORAGE_ACCOUNT_KEY,"<storage_account_key>")

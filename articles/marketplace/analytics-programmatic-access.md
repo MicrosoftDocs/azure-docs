@@ -44,7 +44,6 @@ The following example shows how to create a custom query to get _Normalized Usag
 | Method | Request URI |
 | ------------ | ------------- |
 | POST | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledQueries` |
-|||
 
 **Request header**
 
@@ -52,7 +51,6 @@ The following example shows how to create a custom query to get _Normalized Usag
 | ------------- | ------------- | ------------- |
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token. The format is `Bearer <token>`. |
 | Content-Type | `string` | `application/JSON` |
-||||
 
 **Path parameter**
 
@@ -81,7 +79,6 @@ This table provides the key definitions of elements in the request payload.
 | `Name` | Yes | Friendly name of the query | string |
 | `Description` | No | Description of what the query returns | string |
 | `Query` | Yes | Report query string | Data type: string<br>[Custom query](analytics-sample-queries.md) based on business need |
-|||||
 
 > [!NOTE]
 > For custom query samples, see [Examples of sample queries](analytics-sample-queries.md).
@@ -129,7 +126,6 @@ This table provides the key definitions of elements in the response.
 | `TotalCount` | Number of datasets in the Value array |
 | `StatusCode` | Result Code<br>The possible values are 200, 400, 401, 403, 500 |
 | `message` | Status message from the execution of the API |
-|||
 
 ## Create report API
 
@@ -140,7 +136,6 @@ On creating a custom report template successfully and receiving the `QueryID` as
 | Method | Request URI |
 | ------------ | ------------- |
 | POST | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport` |
-|||
 
 **Request header**
 
@@ -148,7 +143,6 @@ On creating a custom report template successfully and receiving the `QueryID` as
 | ------ | ---- | ----------- |
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token. The format is `Bearer <token>`. |
 | Content Type | string | `application/JSON` |
-||||
 
 **Path parameter**
 
@@ -190,7 +184,6 @@ This table provides the key definitions of elements in the request payload.
 | `ExecuteNow` | No | This parameter should be used to create a report that will be executed only once. `StartTime`, `RecurrenceInterval`, and `RecurrenceCount` are ignored if this is set to `true`. The report is executed immediately in an asynchronous fashion. | true/false |
 | `QueryStartTime` | No | Optionally specifies the start time for the query extracting the data. This parameter is applicable only for one time execution report which has `ExecuteNow` set to `true`. The format should be yyyy-MM-ddTHH:mm:ssZ | Timestamp as string |
 | `QueryEndTime` | No | Optionally specifies the end time for the query extracting the data. This parameter is applicable only for one time execution report which has `ExecuteNow` set to `true`. The format should be yyyy-MM-ddTHH:mm:ssZ | Timestamp as string |
-|||||
 
 **Sample response**
 
@@ -249,7 +242,6 @@ This table provides the key definitions of elements in the response.
 | `TotalCount` | Number of datasets in the Value array |
 | `StatusCode` | Result Code<br>The possible values are 200, 400, 401, 403, 500 |
 | `message` | Status message from the execution of the API |
-|||
 
 ## Get report executions API
 
@@ -263,7 +255,6 @@ You can use this method to query the status of a report execution using the `Rep
 | Method | Request URI |
 | ------------ | ------------- |
 | Get | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport/execution/{reportId}?executionId={executionId}&executionStatus={executionStatus}&getLatestExecution={getLatestExecution}` |
-|||
 
 **Request header**
 
@@ -271,7 +262,6 @@ You can use this method to query the status of a report execution using the `Rep
 | ------ | ------ | ------ |
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token. The format is `Bearer <token>`. |
 | Content type | string | `application/json` |
-||||
 
 **Path parameter**
 
@@ -285,7 +275,6 @@ None
 | `executionId` | No | string | Filter to get details of only reports with `executionId` given in this argument. Multiple `executionIds` can be specified by separating them with a semicolon “;”. |
 | `executionStatus` | No | string/enum | Filter to get details of only reports with `executionStatus` given in this argument.<br>Valid values are: `Pending`, `Running`, `Paused`, and `Completed` <br>The default value is `Completed`. Multiple statuses can be specified by separating them with a semicolon “;”. |
 | `getLatestExecution` | No | boolean | The API will return details of the latest report execution.<br>By default, this parameter is set to `true`. If you choose to pass the value of this parameter as `false`, then the API will return the last 90 days execution instances. |
-|||||
 
 **Request payload**
 
@@ -342,7 +331,6 @@ Key definitions of elements in the response.
 | `TotalCount` | Number of datasets in the Value array |
 | `StatusCode` | Result Code <br>The possible values are 200, 400, 401, 403, 404 and 500 |
 | `message` | Status message from the execution of the API |
-|||
 
 ## Next steps
 - You can try out the APIs through the [Swagger API URL](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)

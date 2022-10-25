@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/13/2022
+ms.date: 06/02/2022
 ms.author: radeltch
 
 ---
@@ -120,6 +120,16 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 
 > [!TIP]
 > You can find the instructions on how to mount the Azure NetApp Files volume, if you navigate in [Azure Portal](https://portal.azure.com/#home) to the Azure NetApp Files object, click on the **Volumes** blade, then **Mount Instructions**.  
+
+### Important considerations
+
+When considering Azure NetApp Files for the SAP Netweaver architecture, be aware of the following important considerations:
+
+- The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
+- The minimum volume is 100 GiB
+- The selected virtual network must have a subnet, delegated to Azure NetApp Files.
+- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.  
+ 
 
 ## Prepare the infrastructure for SAP HA by using a Windows failover cluster 
 

@@ -78,7 +78,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
 1. The drop-down menu that appears under **Create** gives you three choices for creating playbooks:
 
-    1. If you're creating a **Standard** playbook (the new kind - see [Two types of Logic Apps](automate-responses-with-playbooks.md#two-types-of-logic-apps)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
+    1. If you're creating a **Standard** playbook (the new kind - see [Logic app types](automate-responses-with-playbooks.md#logic-app-types)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
 
     1. If you're creating a **Consumption** playbook (the original, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger** or **Playbook with alert trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
 
@@ -256,14 +256,20 @@ To create an automation rule:
     <a name="explicit-permissions"></a>
 
     > [!IMPORTANT]
+    >
     > **Microsoft Sentinel must be granted explicit permissions in order to run playbooks based on the incident trigger**, whether manually or from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
+    >
     > In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and click **Apply**.
+    >  
     > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Manage permissions":::
+    >
     > - You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
+    >
     > - In a multi-tenant deployment, if the playbook you want to run is in a different tenant, you must grant Microsoft Sentinel permission to run the playbook in the playbook's tenant.
     >    1. From the Microsoft Sentinel navigation menu in the playbooks' tenant, select **Settings**.
     >    1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
     >    1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
+    >
     > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the Azure Security Insights app in your Azure Lighthouse onboarding template:
     >    1. From the Azure Portal go to **Azure Active Directory**.
     >    1. Click on **Enterprise Applications**.

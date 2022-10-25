@@ -1,8 +1,10 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 09/03/2021
+ms.date: 06/15/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -13,11 +15,16 @@ query language used by Resource Graph, start with the
 
 This article covers the language components supported by Resource Graph:
 
-- [Resource Graph tables](#resource-graph-tables)
-- [Resource Graph custom language elements](#resource-graph-custom-language-elements)
-- [Supported KQL language elements](#supported-kql-language-elements)
-- [Scope of the query](#query-scope)
-- [Escape characters](#escape-characters)
+- [Understanding the Azure Resource Graph query language](#understanding-the-azure-resource-graph-query-language)
+  - [Resource Graph tables](#resource-graph-tables)
+  - [Extended properties](#extended-properties)
+  - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
+    - [Shared query syntax (preview)](#shared-query-syntax-preview)
+  - [Supported KQL language elements](#supported-kql-language-elements)
+    - [Supported tabular/top level operators](#supported-tabulartop-level-operators)
+  - [Query scope](#query-scope)
+  - [Escape characters](#escape-characters)
+  - [Next steps](#next-steps)
 
 ## Resource Graph tables
 
@@ -89,7 +96,7 @@ Resources
 > When limiting the `join` results with `project`, the property used by `join` to relate the two
 > tables, _subscriptionId_ in the above example, must be included in `project`.
 
-## <a name="extended-properties"></a>Extended properties (preview)
+## Extended properties
 
 As a _preview_ feature, some of the resource types in Resource Graph have additional type-related
 properties available to query beyond the properties provided by Azure Resource Manager. This set of
@@ -114,7 +121,7 @@ Resources
 
 ## Resource Graph custom language elements
 
-### <a name="shared-query-syntax"></a>Shared query syntax (preview)
+### Shared query syntax (preview)
 
 As a preview feature, a [shared query](../tutorials/create-share-query.md) can be accessed directly
 in a Resource Graph query. This scenario makes it possible to create standard queries as shared
@@ -167,7 +174,7 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Limit of 3 `join` in a single query, 1 of which may be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then 3 cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, see [Resource Graph tables](#resource-graph-tables). |
 |[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
-|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
+|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
 |[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `sort` |
 |[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#parse-subnets) |It's optimal to access properties directly if they exist instead of using `parse`. |
 |[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
@@ -212,6 +219,51 @@ Group' with ID 'myMG'.
   {
       "query": "Resources | summarize count()",
       "managementGroups": ["myMG"]
+  }
+  ```
+
+The `AuthorizationScopeFilter` parameter enables you to list Azure Policy assignments inherited from upper scopes. The `AuthorizationScopeFilter` parameter accepts the following values:
+
+- **AtScopeAndBelow** (default if not specified): Returns policy assignments for the given scope and all child scopes
+- **AtScopeAndAbove**: Returns policy assignments for the given scope and all parent scopes, but not child scopes
+- **AtScopeAboveAndBelow**: Returns policy assignments for the given scope, all parent scopes and all child scopes
+- **AtScopeExact**: Returns policy assignments  only for the given scope; no parent or child scopes are included
+
+> [!NOTE]
+> To use the `AuthorizationScope` parameter, be sure to reference the **2021-06-01-preview** API version in your requests.
+
+Example: Get all policy assignments at the **myMG** management group and Tenant Root (parent) scopes.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-06-01-preview
+  ```
+
+- Request Body Sample
+
+  ```json
+  {
+      "authorizationScopeFilter": "AtScopeAndAbove",
+      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+      "managementGroups": ["myMG"]
+  }
+  ```
+
+Example: Get all policy assignments at the **mySubscriptionId** subscription, management group, and Tenant Root scopes.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-06-01-preview
+  ```
+- Request Body Sample
+
+  ```json
+  {
+      "authorizationScopeFilter": "AtScopeAndAbove",
+      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+      "subscriptions": ["mySubscriptionId"]
   }
   ```
 

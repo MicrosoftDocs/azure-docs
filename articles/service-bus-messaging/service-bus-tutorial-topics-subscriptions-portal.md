@@ -56,7 +56,7 @@ To run the code, follow these steps:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navigate to the sample folder `azure-service-bus\samples\DotNet\Azure.Messaging.ServiceBus\BasicSendReceiveTutorialwithFilters`.
+2. Navigate to the sample folder `azure-service-bus\samples\DotNet\Azure.Messaging.ServiceBus\BasicSendReceiveTutorialWithFilters`.
 
 3. Obtain the connection string you copied to Notepad in the Obtain the management credentials section of this tutorial. You also need the name of the topic you created in the previous section.
 
@@ -66,12 +66,12 @@ To run the code, follow these steps:
    dotnet build
    ```
 
-5. Navigate to the `BasicSendReceiveTutorialwithFilters\bin\Debug\netcoreapp3.1` folder.
+5. Navigate to the `BasicSendReceiveTutorialWithFilters\bin\Debug\netcoreapp3.1` folder.
 
 6. Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myTopicName` with the name of the topic you created:
 
    ```shell
-   dotnet BasicSendReceiveTutorialwithFilters.dll -ConnectionString "myConnectionString" -TopicName "myTopicName"
+   dotnet --roll-forward Major BasicSendReceiveTutorialWithFilters.dll -ConnectionString "myConnectionString" -TopicName "myTopicName"
    ``` 
 7. Follow the instructions in the console to select filter creation first. Part of creating filters is to remove the default filters. When you use PowerShell or CLI you don't need to remove the default filter, but if you do it in code, you must remove them. The console commands 1 and 3 help you manage the filters on the subscriptions you previously created:
 
@@ -349,7 +349,7 @@ private async Task ReceiveMessages(string subscription)
     // to the broker for the specified amount of seconds and the broker returns messages as soon as they arrive. The client then initiates
     // a new connection. So in reality you would not want to break out of the loop. 
     // Also note that the code shows how to batch receive, which you would do for performance reasons. For convenience you can also always
-    // use the regular receive pump which we show in our Quick Start and in other github samples.
+    // use the regular receive pump which we show in our Quick Start and in other GitHub samples.
     while (true)
     {
         try

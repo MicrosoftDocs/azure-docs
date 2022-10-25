@@ -4,7 +4,7 @@ description: Frequently asked questions about managed identities
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 02/23/2022
+ms.date: 07/27/2022
 ms.author: barclayn
 ---
 
@@ -111,9 +111,9 @@ Managed identities use certificate-based authentication. Each managed identity�
 
 In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities wouldn't be impacted.
 
-### Does managed identities for Azure resources work with Azure Cloud Services?
+### Does managed identities for Azure resources work with Azure Cloud Services (Classic)?
 
-No, there are no plans to support managed identities for Azure resources in Azure Cloud Services.
+Managed identities for Azure resources don’t have support for [Azure Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) at this time. “
 
 
 ### What is the security boundary of managed identities for Azure resources?
@@ -147,6 +147,9 @@ Moving a user-assigned managed identity to a different resource group isn't supp
 ### Are managed identities tokens cached?
 
 Managed identity tokens are cached by the underlying Azure infrastructure for performance and resiliency purposes: the back-end services for managed identities maintain a cache per resource URI for around 24 hours. It can take several hours for changes to a managed identity's permissions to take effect, for example. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. For more information, see [Limitation of using managed identities for authorization](managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
+
+### What happens to tokens after a managed identity is deleted?
+When a managed identity is deleted, an Azure resource that was previously associated with that identity can no longer request new tokens for that identity. Tokens that were issued before the identity was deleted will still be valid until their original expiry. Some target endpoints' authorization systems may carry out additional checks in the directory for the identity, in which case the request will fail as the object can't be found. However some systems, like Azure RBAC, will continue to accept requests from that token until it expires.
 
 ## Next steps
 

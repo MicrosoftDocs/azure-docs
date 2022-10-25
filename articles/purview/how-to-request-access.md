@@ -12,9 +12,9 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How to request access for a data asset
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-If you discover a data asset in the catalog that you would like to access, you can request access directly through Azure Purview. The request will trigger a workflow that will request that the owners of the data resource grant you access to that data source.
+If you discover a data asset in the catalog that you would like to access, you can request access directly through Microsoft Purview. The request will trigger a workflow that will request that the owners of the data resource grant you access to that data source.
 
 This article outlines how to make an access request.
 
@@ -24,7 +24,7 @@ This article outlines how to make an access request.
 
 ## Request access
 
-1. To find a data asset, use Azure Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality.
+1. To find a data asset, use Microsoft Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality.
 
     :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Microsoft Purview governance portal, with the search bar and browse buttons highlighted.":::
 
@@ -40,6 +40,9 @@ This article outlines how to make an access request.
 
 1. The **Request access** window will open. You can provide comments on why data access is requested.
 1. Select **Send** to trigger the self-service data access workflow.
+
+    > [!NOTE]
+    > If you want to request access on behalf of another user, select the checkbox **Request for someone else** and populate the email id of that user.
 
     :::image type="content" source="./media/how-to-request-access/send.png" alt-text="Screenshot of a data asset's overview page, with the Request access window overlaid. The Send button is highlighted at the bottom of the Request access window.":::
 

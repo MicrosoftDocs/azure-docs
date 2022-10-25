@@ -83,7 +83,7 @@ To view and configure a notification template in the portal:
 
 ## Configure email settings
 
-You can modify general e-mail settings for notifications that are sent from your API Management instance. You can change the administrator email address, the name of the organization sending notification, and the originating email address.
+You can modify general email settings for notifications that are sent from your API Management instance. You can change the administrator email address, the name of the organization sending notifications, and the originating email address.
 
 To modify email settings:
 

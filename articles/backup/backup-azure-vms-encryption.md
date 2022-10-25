@@ -2,7 +2,10 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 05/05/2022
+ms.service: backup
+author: v-amallick
+ms.author: v-amallick
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -33,8 +36,8 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 **Unmanaged** | Yes | Yes
 **Managed**  | Yes | Yes
 
-- Learn more about [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md), and [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
-- Read the [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) for Azure VM disk encryption.
+- Learn more about [ADE](../virtual-machines/disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md), and [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Read the [FAQ](../virtual-machines/disk-encryption-overview.md) for Azure VM disk encryption.
 
 ### Limitations
 
@@ -145,6 +148,8 @@ To set permissions:
     ![Access policies](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
 1. Select **Save** to provide Azure Backup with the permissions.
+
+You can also set the access policy using [PowerShell](./backup-azure-vms-automation.md#enable-protection) or [CLI](./quick-backup-vm-cli.md#prerequisites-to-backup-encrypted-vms).
 
 ## Next steps
 
