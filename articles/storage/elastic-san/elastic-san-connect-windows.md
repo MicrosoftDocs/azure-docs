@@ -31,7 +31,10 @@ To connect to a SAN volume, you need to enable the storage service endpoint on y
 
 ### Enable Storage service endpoint
 
-In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN.
+In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN. To enable service point for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+
+> [!NOTE]
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 # [Portal](#tab/azure-portal)
 
@@ -110,7 +113,7 @@ Start-Service -Name MSiSCSI
 Set-Service -Name MSiSCSI -StartupType Automatic
 ```
 
-#### Multipath I/O
+#### Multipath I/O - for multi-session connectivity
 
 Install Multipath I/O, enable multipath support for iSCSI devices, and set a default load balancing policy.
 
@@ -144,6 +147,12 @@ $connectVolume.storagetargetportalport
 ```
 
 Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next sections.
+
+## Determine which sessions to create
+
+You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
+
+For multi-session connections, you should first install [Multipath I/O - for multi-session connectivity](#multipath-io---for-multi-session-connectivity).
 
 ### Multi-session configuration
 

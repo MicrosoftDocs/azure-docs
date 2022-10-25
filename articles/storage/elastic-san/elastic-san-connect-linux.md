@@ -31,7 +31,10 @@ To connect to a SAN volume, you need to enable the storage service endpoint on y
 
 ### Enable Storage service endpoint
 
-In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN.
+In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN. To enable service point for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+
+> [!NOTE]
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 # [Portal](#tab/azure-portal)
 
@@ -66,7 +69,7 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 Now that you've enabled the service endpoint, configure the network security settings on your volume groups. You can grant network access to a volume group from one or more Azure virtual networks.
 
-By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For more information on networking, see [Configure Elastic SAN networking (preview)](elastic-san-networking.md).
+By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For instructions on accessing your volumes from another region, see [Configure Elastic SAN networking (preview)](elastic-san-networking.md).
 
 # [Portal](#tab/azure-portal)
 
@@ -101,7 +104,7 @@ To create iSCSI connections from a Linux client, install the iSCSI initiator pac
 
 As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
 
-#### Multipath I/O
+#### Multipath I/O - for multi-session connectivity
 
 Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
 
@@ -143,6 +146,12 @@ You should see a list of output that looks like the following:
 
 
 Note down the values for **targetIQN**, **targetPortalHostName**, and **targetPortalPort**, you'll need them for the next sections.
+
+## Determine which sessions to create
+
+You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
+
+For multi-session connections, you should first install [Multipath I/O - for multi-session connectivity](#multipath-io---for-multi-session-connectivity).
 
 ### Multi-session connections
 
