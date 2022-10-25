@@ -271,10 +271,10 @@ dfToReadFromTable.show()
 #### Read from a query using Azure AD based authentication
 > [!Note]
 > Restrictions while reading from query:
-> Table name and query cannot be specified at the same time.
-> Only select queries are allowed. DDL and DML SQLs are not allowed.
-> The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
-> Read from a query is only available in Spark 3. It is not available in Spark 2.4.
+> * Table name and query cannot be specified at the same time.
+> * Only select queries are allowed. DDL and DML SQLs are not allowed.
+> * The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
+> *  Read from a query is only available in Spark 3. It is not available in Spark 2.4.
 
 ##### [Scala](#tab/scala2)
 
