@@ -367,10 +367,11 @@ select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, 
 11. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **StoredProceduretoUpdateChangeTrackingActivity**. This activity updates the change tracking version in the **table_store_ChangeTracking_version** table.
 
 12. Switch to the **Settings** tab, and do the following steps:
-	1- Select **AzureSqlDatabaseLinkedService** for **Linked service**.
-	2- For **Stored procedure name**, select **Update_ChangeTracking_Version**.  
-	3- Select **Import**.
-	4- In the **Stored procedure parameters** section, specify following values for the parameters:
+	
+	1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
+	2. For **Stored procedure name**, select **Update_ChangeTracking_Version**.  
+	3. Select **Import**.
+	4. In the **Stored procedure parameters** section, specify following values for the parameters:
 
         | Name | Type | Value |
         | ---- | ---- | ----- |
