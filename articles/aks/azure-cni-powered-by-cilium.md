@@ -9,17 +9,28 @@ ms.date: 10/24/2022
 
 # Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
 
-Azure CNI powered by Cilium combines the robust control plane of Azure CNI with the dataplane of [Cilium](https://cilium.io/) to provide high-performance networking and security.
+Azure CNI Powered by Cilium combines the robust control plane of Azure CNI with the dataplane of [Cilium](https://cilium.io/) to provide high-performance networking and security. eBPF programs loaded into the Linux kernel provide functionality equivalent to existing Azure CNI and Azure CNI Overlay plugins with faster service routing, more efficient network policy enforcement, and better observability of cluster traffic. More efficient object structure places less load onto the cluster API server, which will enable AKS clusters to scale to more nodes, pods, and services than existing AKS CNI plugin offerings.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+## IP Address Management (IPAM) with Azure CNI Powered by Cilium
+
+Azure CNI Powered by Cilium can be deployed using two different methods for assigning pod IPs: 
+
+- assign IP addresses from a VNet (similar to existing Azure CNI with Dynamic Pod IP Assignment)
+- assign IP addresses from an overlay network (similar to Azure CNI Overlay mode; requires the [Azure CNI Overlay mode](./azure-cni-overlay.md) preview feature to be registered on the subscription)
+
+If you aren't sure which option to select, read ["Choosing a network model to use"](./azure-cni-overlay.md#choosing-a-network-model-to-use).
 
 ## Network Policy Enforcement
 
-Cilium enforces [network policies to allow or deny traffic between pods](./operator-best-practices-network.md#control-traffic-flow-with-network-policies). With Cilium, you don't need to install a separate network policy engine such as Azure NPM or Calico.
+Cilium enforces [network policies to allow or deny traffic between pods](./operator-best-practices-network.md#control-traffic-flow-with-network-policies). With Cilium, you don't need to install a separate network policy engine such as Azure Network Policy Manager or Calico.
 
 ## Limitations
 
 Azure CNI powered by Cilium currently has the following limitations:
 
-* Can be enabled only for new clusters.
+* Available only for new clusters.
 * Available only for Linux and not for Windows.
 * Cilium L7 policy enforcement is disabled.
 * Hubble is disabled.
@@ -27,109 +38,124 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Multiple Kubernetes services can't use the same host port with different protocols (for example, TCP or UDP) ([Cilium issue #14287](https://github.com/cilium/cilium/issues/14287)).
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
 
-## Before you begin
+## Prerequisites
 
-1. [Install Azure CLI](/cli/azure/install-azure-cli)
-2. Install the aks-preview extension by running `az extension add --name aks-preview`
-3. Check the version of Azure CLI by running `az --version`.
-    * azure-cli must have version 2.41.0 or later. You can upgrade to the latest version by running `az upgrade`.
-    * aks-preview extension should be installed and must be version 0.5.109 or later. You can upgrade the extension by running `az extension update --name aks-preview`
-4. Enable the feature by running:
+* Azure CLI version 2.41.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI][/cli/azure/install-azure-cli].
+* Azure CLI with aks-preview extension 0.5.109 or later.
+* If using ARM templates or the REST API, the AKS API version must be 2022-09-02-preview or later.
+
+### Install the aks-preview CLI extension
+
 ```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService --name CiliumDataplanePreview
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
 ```
 
-## Steps to Create an AKS Cluster with Azure CNI Powered by Cilium
+### Register the `CiliumDataplanePreview` preview feature
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+To create an AKS cluster with Azure CNI powered by Cilium, you must enable the `CiliumDataplanePreview` feature flag on your subscription.
 
-First, decide whether to assign IP addresses from a VNet or from an overlay network. If you aren't sure, read ["Choosing a network model to use"](./azure-cni-overlay.md#choosing-a-network-model-to-use).
+Register the `CiliumDataplanePreview` feature flag by using the `az feature register` command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "CiliumDataplanePreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CiliumDataplanePreview')].{Name:name,State:properties.state}"
+```
+
+When the feature has been registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+## Create a new AKS Cluster with Azure CNI Powered by Cilium
 
 ### Option 1: Assign IP addresses from a VNet
 
-Run these commands to create a resource group and VNet with a subnet for nodes and a subnet for pods:
+Run the following commands to create a resource group and VNet with a subnet for nodes and a subnet for pods.
 
 ```azurecli-interactive
-resourceGroup="myResourceGroup"
-vnet="myVirtualNetwork"
-location="westcentralus"
-
 # Create the resource group
-az group create --name $resourceGroup --location $location
-
-# Create a VNet with a subnet for nodes and a subnet for pods
-az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
+az group create --name <resourceGroupName> --location <location>
 ```
 
-Then create the cluster using `--enable-cilium-dataplane`:
+```azurecli-interactive
+# Create a VNet with a subnet for nodes and a subnet for pods
+az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
+az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
+az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
+```
+
+Create the cluster using `--enable-cilium-dataplane`:
 
 ```azurecli-interactive
-clusterName="myAKSCluster"
-subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
-
-az aks create -n $clusterName -g $resourceGroup -l $location \
+az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --max-pods 250 \
   --node-count 2 \
   --network-plugin azure \
-  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
-  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
+  --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
+  --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
   --enable-cilium-dataplane
 ```
 
 ### Option 2: Assign IP addresses from an overlay network
 
 > [!NOTE]
-> Azure CNI Overlay networking currently requires the `Microsoft.ContainerService/AzureOverlayPreview` feature and may be available only in certain regions. For more information, see [Azure CNI Overlay networking](./azure-cni-overlay.md) for more information.
+> Azure CNI Overlay networking currently requires the `Microsoft.ContainerService/AzureOverlayPreview` feature and may be available only in certain regions. For more information, see [Azure CNI Overlay networking](./azure-cni-overlay.md).
 
 Run these commands to create a resource group and VNet with a single subnet:
 
 ```azurecli-interactive
-resourceGroup="myResourceGroup"
-vnet="myVirtualNetwork"
-location="westcentralus"
-
 # Create the resource group
-az group create --name $resourceGroup --location $location
+az group create --name <resourceGroupName> --location <location>
+```
 
-# Create a VNet and a subnet for nodes 
-az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefix 10.10.0.0/16 -o none
+```azurecli-interactive
+# Create a VNet with a subnet for nodes and a subnet for pods
+az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
+az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
 ```
 
 Then create the cluster using `--enable-cilium-dataplane`:
 
 ```azurecli-interactive
-clusterName="myAKSCluster"
-subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
-
-az aks create -n $clusterName -g $resourceGroup --location $location \
+az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
+  --max-pods 250 \
+  --node-count 2 \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
-  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
+  --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
   --enable-cilium-dataplane
 ```
 
 ## Frequently asked questions
 
-1. *Can I enable Cilium in an existing (already deployed) cluster?*
-
-    No, Cilium can be enabled only when creating a new cluster.
-
-2. *Do I need to specify `--network-policy` when creating a cluster?*
-
-    Cilium enforces network policies, so you don't need to specify a separate network policy engine.
-
-3. *Can I customize Cilium configuration?*
+1. *Can I customize Cilium configuration?*
 
     No, the Cilium configuration is managed by AKS can't be modified. We recommend that customers who require more control use [AKS BYO CNI](./use-byo-cni.md) and install Cilium manually.
 
-4. *Can I enable Hubble?*
-
-    No, it isn't currently possible to enable Hubble.
-
-5. *Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?*
+1. *Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?*
 
     `CiliumNetworkPolicy` custom resources aren't officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
+
+## Next steps
+
+Learn more about networking in AKS in the following articles:
+
+* [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
+* [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
+
+* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
+* [Enable the HTTP application routing add-on][aks-http-app-routing]
+* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
+* [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
+* [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
