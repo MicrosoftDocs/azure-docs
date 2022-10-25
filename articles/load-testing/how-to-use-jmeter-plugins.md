@@ -1,7 +1,7 @@
 ---
-title: Use JMeter plugins in test scripts
+title: Customize load tests with JMeter plugins
 titleSuffix: Azure Load Testing
-description: Learn how to use an Apache JMeter plugin in your test scripts with Azure Load Testing. Upload a custom plugin JAR file or reference a publicly available plugin.
+description: Learn how to customize your load test with JMeter plugins and Azure Load Testing. Upload a custom plugin JAR file or reference a publicly available plugin.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -10,7 +10,7 @@ ms.date: 10/24/2022
 ms.topic: how-to
 
 ---
-# Use Apache JMeter plugins with Azure Load Testing Preview
+# Customize a load test with Apache JMeter plugins and Azure Load Testing Preview
 
 Learn how to use an Apache JMeter plugin in your load test script with Azure Load Testing Preview. You can extend the core functionality of Apache JMeter by using plugins. For example, to add functionality for performing data manipulation, to implement custom request samplers, and more.
 
