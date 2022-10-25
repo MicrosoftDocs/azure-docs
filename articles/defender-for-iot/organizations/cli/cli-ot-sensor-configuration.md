@@ -22,15 +22,15 @@ Each activity listed below is accessible by a different set of privileged users,
 
 For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
 
-## Trigger test alert
+## Triggering a test alert
 
 Use the following command to test connectivity and alert forwarding from the sensor to management consoles, including the Azure portal, a Defender for IoT on-premises management console, or a third-party SIEM.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| cyberx | `cyberx-xsense-trigger-test-alert` | No attributes |
+| **cyberx** | `cyberx-xsense-trigger-test-alert` | No attributes |
 
-For example:
+The following example shows the command syntax and response for the *cyberx* user:
 
 ```bash
 root@xsense:/# cyberx-xsense-trigger-test-alert
@@ -38,7 +38,7 @@ Triggering Test Alert...
 Test Alert was successfully triggered.
 ```
 
-## Apply ingress traffic filters (*capture* filter)
+## Applying ingress traffic filters (*capture* filter)
 
 For advanced network scenarios, administrators can use the **capture** filter <!--not sure what this is, we should clarify--> to eliminate network traffic that doesn't need to be monitored from detected data. Use either include or exclude lists to filter traffic.
 
@@ -46,7 +46,9 @@ For advanced network scenarios, administrators can use the **capture** filter <!
 > Commands for applying traffic filters don't support Defender for IoT malware detections.
 >
 
-### Create a new capture-filter
+### Creating a new capture-filter
+
+Use the following command to create a new capture filter on your sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -113,39 +115,38 @@ After you run the command, answer the questions that are prompted as follows:
 
 1. `In which component do you wish to apply this capture filter?`
 
-    Configure a filter for a specific component. <!--left off editing here-->
+    Configure a filter for a specific component by entering one of the following:
 
-In the next step, the filter can be setup for a specific component (advanced troubleshooting).
-In most common use cases, we recommend that you select `all` (Selecting `all` doesn't include the malware detection engine, which isn't supported by this command).
+    - `all` (Recommended, and most commonly used)
+    - `dissector`
+    - `collector`
+    - `statistics-collector`
+    - `rpc-parser`
+    - `smb-parser`
 
+    > [!NOTE]
+    > This filter doesn't support Defender for IoT malware detections.
+    >
 
-Your options are: `all`, `dissector`, `collector`, `statistics-collector`, `rpc-parser`, or `smb-parser`.
+1. Configure a base capture filter for your components. For example, your filter might allow specific ports to be available for the component.
 
-In the next step, a base capture filter can be setup for the components. For example, a filter can allow which ports are available to the component.
-Select `Y` for all of the following options. All of the filters are added to the baseline after the changes are set. If you make a change, it will overwrite the existing baseline.
+    To add all filters to the base capture filter, enter `Y` for all of the following questions. Any changes you make overwrite any existing baseline.
 
->`Would you like to supply a custom base capture filter for the dissector component? [Y/N]:`
->
->`Would you like to supply a custom base capture filter for the collector component? [Y/N]:`
->
->`Would you like to supply a custom base capture filter for the statistics-collector component? [Y/N]:`
->
->`Would you like to supply a custom base capture filter for the rpc-parser component? [Y/N]:`
->
->`Would you like to supply a custom base capture filter for the smb-parser component? [Y/N]:`
->
+    - `Would you like to supply a custom base capture filter for the dissector component? [Y/N]:`
+    - `Would you like to supply a custom base capture filter for the collector component? [Y/N]:`
+    - `Would you like to supply a custom base capture filter for the statistics-collector component? [Y/N]:`
+    - `Would you like to supply a custom base capture filter for the rpc-parser component? [Y/N]:`
+    - `Would you like to supply a custom base capture filter for the smb-parser component? [Y/N]:`
 
-In the next step, the breadth of the capture filter is set:
-We recommend that you select `internal`.
+1. `Type Y for "internal" otherwise N for "all-connected" (custom operation mode enabled) [Y/N]:`
 
-For example, for a subnet such as 1.1.1:
-- `internal` will exclude only traffic within the specific subnet.
-- `all-connected` will exclude that subnet and all the traffic to and from that subnet.
+    Enter `Y` and then define the breadth of the capture filter with one of the following values:
 
->`Type Y for "internal" otherwise N for "all-connected" (custom operation mode enabled) [Y/N]:`
+    - `internal`: (Recommended). Excludes traffic only within the specific subnet.
+    - `all-connected`: Excludes traffic within the subnet and all traffic to and from that subnet.
 
 > [!NOTE]
-> Your choices are used for all the filters in the tool and are not session dependent. In other words, you can't ever choose `internal` for some filters and `all-connected` for others.
+> Your selections are used for all filters configured, and aren't session dependent. This means, for example, that you can't select `internal` for some filters and `all-connected` for others.
 
 The following example shows the command syntax and response for the *support* user:
 
@@ -183,27 +184,39 @@ root@xsense:
 ```
 
 
-### Viewing capture filters on the appliance components
+### Viewing capture filters on the sensor components
 
-You can view filters in ```/var/cyberx/properties/cybershark.properties```:
-
-- **statistics-collector**: `bpf_filter property` in ```/var/cyberx/properties/net.stats.collector.properties```
-- **dissector**: `override.capture_filter` property in ```/var/cyberx/properties/cybershark.properties```
-- **rpc-parser**: `override.capture_filter` property in ```/var/cyberx/properties/rpc-parser.properties```
-- **smb-parser**: `override.capture_filter` property in ```/var/cyberx/properties/smb-parser.properties```
-- **collector**: `general.bpf_filter` property in ```/var/cyberx/properties/collector.properties```
+Use the following commands to show details about the current capture filters configured for your sensor components.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| support | `edit-config cybershark` | No attributes |
-| cyberx | `nano /var/cyberx/properties/cybershark.properties` | No attributes |
+| **support** | `edit-config cybershark` | No attributes |
+| **cyberx** | `nano /var/cyberx/properties/cybershark.properties` | No attributes |
+
+<!--missing example-->
+
+You can also view filters on your sensor machine in the `/var/cyberx/properties/cybershark.properties` file. <!--all of them? then why does it differ in the list below?-->
+
+The following table shows where you can find details about each capture filter on the sensor. <!--this table doesn't actually belong here as this is a CLI reference. it should be somewhere else. also what are these? it's completely unclear-->
+
+|Name  |File |Property  |
+|---------|---------|---------|
+|**statistics-collector**     |  `/var/cyberx/properties/net.stats.collector.properties       |  `bpf_filter property`       |
+|**dissector**     |   `/var/cyberx/properties/cybershark.properties`      |    `override.capture_filter`     |
+|**rpc-parser**     |   `/var/cyberx/properties/rpc-parser.properties`      |   `override.capture_filter`      |
+|**smb-parser**     |   `/var/cyberx/properties/smb-parser.properties`      | `override.capture_filter`        |
+|**collector**     | `/var/cyberx/properties/collector.properties`        |   `general.bpf_filter`      |
+
 
 ### Resetting all capture filters
 
-The default capture filter configuration can be restored by entering the following command:
+Use the following command to restores the default capture configuration.
+
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| cyberx  | `cyberx-xsense-capture-filter -p all -m all-connected ` | N/A|
+| **cyberx**  | `cyberx-xsense-capture-filter -p all -m all-connected ` | No attributes |
+
+The following example shows the command syntax and response for the *cyberx* user:
 
 ```bash
 root@xsense:/#  cyberx-xsense-capture-filter -p all -m all-connected
@@ -228,16 +241,21 @@ root@xsense:/#
 
 
 ## Local alert suppression
-### Show alert suppression rules
 
-If you wish to see a list of exclusion rules that are already in place, enter the following command:
+The following commands support alert suppression features on your sensor, including showing current suppression rules, adding and editing rules, and deleting rules.
+
+<!--for more information, see. I don't see where else we talk about this?? is it possible that we don't? how is this different from what we have in the section below?-->
+
+### Showing alert suppression rules
+
+Use the following command to display a list of currently configured exclusion rules.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| support | `alerts exclusion-rule-list` | No attributes |
-| cyberx | `cyberx-xsense-exclusion-rule-list` | No attributes |
+| **support** | `alerts exclusion-rule-list` | No attributes |
+| **cyberx** | `cyberx-xsense-exclusion-rule-list` | No attributes |
 
-For example, for the support user:
+The following example shows the command syntax and response for the *support* user:
 
 ```bash
 root@xsense: alerts exclusion-rule-list
@@ -245,32 +263,35 @@ starting "/usr/local/bin/cyberx-xsense-exclusion-rule-list"
 root@xsense:
 ```
 
-### Create new alert suppression rule
+### Creating a new alert suppression rule
 
-Using the CLI, it is possible to create a local alert exclusion rule by entering the following command:
+Use the following commands to create a local alert exclusion rule on your sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| support | `cyberx-xsense-exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]` |  -h, --help show this help message and exit<br> -n NAME, --name NAME  Rule name<br>  -ts TIMES, --time_span TIMES Excluded time periods (xx:yy-xx:yy, xx:yy-xx:yy)<br>  -dir DIRECTION, --direction DIRECTION Excluded address direction (both / src / dst)<br>  -dev DEVICES, --devices DEVICES Device address and address type (ip-x.x.x.x, mac-xx:xx:xx:xx:xx:xx, subnet:x.x.x.x/x)<br> -a ALERTS, --alerts ALERTS scenario names by hex (0x00000, 0x000001) |
-| cyberx | `cyberx-xsense-exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]` | -h, --help show this help message and exit<br> -n NAME, --name NAME  Rule name<br>  -ts TIMES, --time_span TIMES Excluded time periods (xx:yy-xx:yy, xx:yy-xx:yy)<br>  -dir DIRECTION, --direction DIRECTION Excluded address direction (both / src / dst)<br>  -dev DEVICES, --devices DEVICES Device address and address type (ip-x.x.x.x, mac-xx:xx:xx:xx:xx:xx, subnet:x.x.x.x/x)<br> -a ALERTS, --alerts ALERTS scenario names by hex (0x00000, 0x000001)  |
+| **support** | `cyberx-xsense-exclusion-rule-create` |  `cyberx-xsense-exclusion-rule-create [-h] [-n NAME] [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]`|
+| **cyberx** |`cyberx-xsense-exclusion-rule-create`  |`cyberx-xsense-exclusion-rule-create [-h] [-n NAME] [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]`   |
 
+Supported attributes are defined as follows:
+
+|Attribute  |Description  |
+|---------|---------|
+|`-h`, `--help`     |  Shows the help message and exits.      |
+|`[-n <NAME>]`, `[--name <NAME>]` | Define the rule's name.|
+|`[-ts <TIMES>]` `[--time_span <TIMES>]` | Defines the time span for which the rule is active, using the following syntax: `xx:yy-xx:yy, xx:yy-xx:yy` |
+|`[-dir <DIRECTION>]`, `--direction <DIRECTION>` | Address direction to exclude. Use one of the following values: `both`, `src`, `dst`|
+|`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
+| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` <!--where do you find hex values?-->|
+
+The following example shows the command syntax and response for the *support* user:
+
+<!--left off editing here-->
 ```bash
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-There are a number of attributes that can be used with the alert exclusion rules, including:
-
-| Attribute | Description |
-|--|--|
-| [-h] | Prints the help information for the command. |
-| -n NAME | The name of the rule being created. |
-| [-ts TIMES] | The time span for which the rule is active. This should be specified as:<br />`xx:yy-xx:yy`<br />You can define more than one time period by using a comma between them. For example: `xx:yy-xx:yy, xx:yy-xx:yy`. |
-| [-dir DIRECTION] | The direction in which the rule is applied. This should be specified as:<br />`both | src | dst` |
-| [-dev DEVICES] | The IP address and the address type of the devices to be excluded by the rule, specified as:<br />`ip-x.x.x.x`<br />`mac-xx:xx:xx:xx:xx:xx`<br />`subnet: x.x.x.x/x` |
-| [-a ALERTS] | The name of the alert that the rule will exclude:<br />`0x00000`<br />`0x000001` |
-
-### Append/Edit an alert suppression rule
+### Appending and editing an alert suppression rule
 
 In the CLI, enter the following command to append local alert exclusion rules:
 
@@ -283,7 +304,7 @@ alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 As explained in the section Create local alert exclusion rules, these attributes are also used here. In this case, the attributes are applied to existing rules.
 
 
-### Remove (Delete) an alert suppression rule
+### Deleting an alert suppression rule
 
 The following command can be used to remove an existing alert exclusion rule:
 
@@ -298,11 +319,11 @@ The following attribute can be used with the alert exclusion rules:
 | --------- | ---------------------------------- |
 | -n NAME | The name of the rule to be deleted. |
 
-## Manage local alert exclusions
+## Local alert exclusion rules
 
 <!--extra intro about what these are and xref to where we talk about them in the main docs-->
 
-### Show local alert exclusion rules
+### Showing local alert exclusion rules
 
 Run one of the following commands to show the current alert exclusion rules:
 
@@ -311,7 +332,7 @@ Run one of the following commands to show the current alert exclusion rules:
 |**support**     |   `alerts exclusion-rule-list`      |   `alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  [-dev DEVICES] [-a ALERTS]`      |
 |**cyberx**     |  `alerts cyberx-xsense-exclusion-rule-list`       |   `alerts cyberx-xsense-exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  [-dev DEVICES] [-a ALERTS]`      |
 
-For example, for the **support** user:
+The following example shows the command syntax and response for the *support* user:
 
 <!-- tbd full example including response-->
 
@@ -328,7 +349,7 @@ For more information, see [Alert exclusion rule attributes](#alert-exclusion-rul
 |**cyberx**     |   `<command>`      |   `<full command syntax with attributes`      |
 
 
-For example, for the **support** user:
+The following example shows the command syntax and response for the *support* user:
 
 <!-- tbd full example including response-->
 
