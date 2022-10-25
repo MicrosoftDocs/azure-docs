@@ -11,11 +11,11 @@ ms.author: jasteppe
 
 # How to use CalculatedContentTemplate mappings
 
-This article describes how to use CalculatedContentTemplate mappings with MedTech service Device mappings templates.
+This article describes how to use CalculatedContentTemplate mappings with MedTech service device mapping template.
 
 ## CalculatedContentTemplate
 
-MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JmesPath. Each expression within the template may choose its own expression language. 
+MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JMESPath. Each expression within the template may choose its own expression language. 
 
 > [!NOTE]
 > If an expression language isn't defined, the default expression language configured for the template will be used. The default is JSONPath but can be overwritten if needed.
@@ -42,8 +42,9 @@ In the example below, *typeMatchExpression* is defined as:
         ...
     }
 ```
+
 > [!TIP]
-> The default expression language to use for a Device mapping template is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
+> The default expression language to use for a MedTech service device mapping template is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
 
 ```json
 "templateType": "CalculatedContent",
@@ -54,7 +55,7 @@ In the example below, *typeMatchExpression* is defined as:
     }
 ```
 
-The default expression language to use for a template can be explicitly set using the `defaultExpressionLanguage` parameter:
+The default expression language to use for a MedTech service device template can be explicitly set using the `defaultExpressionLanguage` parameter:
 
 ```json
 "templateType": "CalculatedContent",
@@ -88,16 +89,16 @@ When specifying the language to use for the expression, the below values are val
 | Expression Language | Value        |
 |---------------------|--------------|
 | JSONPath            | **JsonPath** |
-| JmesPath            | **JmesPath** |
+| JMESPath            | **JmesPath** |
 
->[ !TIP]
+>[!TIP]
 > For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
-> For more information on JmesPath, see [JmesPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JmesPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JmesPath expressions.
+> For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
 ### Custom Functions
 
-A set of MedTech service Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [MedTech service Custom Functions](how-to-use-custom-functions.md).
+A set of MedTech service Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JMESPath specification. For more information on Custom Functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
 
 ### Matched Token
 
@@ -506,7 +507,7 @@ In the below example, height data arrives in either inches or meters. We want al
           {
             "required": "true",
             "valueExpression": {
-              "value": "multiply(to_number(matchedToken.height), `0.0254`)", // Convert inches to meters. Notice we utilize JmesPath as that gives us access to transformation functions
+              "value": "multiply(to_number(matchedToken.height), `0.0254`)", // Convert inches to meters. Notice we utilize JMESPath as that gives us access to transformation functions
               "language": "JmesPath"
             },
             "valueName": "height"
@@ -538,7 +539,7 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
+> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 

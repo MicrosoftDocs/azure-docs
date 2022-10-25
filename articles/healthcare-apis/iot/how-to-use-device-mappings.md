@@ -1,6 +1,6 @@
 ---
 title: Device mappings in MedTech service - Azure Health Data Services
-description: This article describes how to configure and use Device mapping templates with Azure Health Data Services MedTech service. 
+description: This article describes how to configure and use device mapping templates with Azure Health Data Services MedTech service. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -11,11 +11,11 @@ ms.author: jasteppe
 
 # How to use device mappings
 
-This article describes how to configure the MedTech service device mapping.
+This article describes how to configure the MedTech service device mappings.
 
-The MedTech service requires two types of JSON-based mappings. The first type, **device mapping**, is responsible for mapping the device payloads sent to the MedTech service device message event hub end point. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
+The MedTech service requires two types of JSON-based mappings. The first type, **device mappings**, is responsible for mapping the device payloads sent to the MedTech service device message event hub end point. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
-The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping**, controls the mapping for FHIR resource. The FHIR destination mapping allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings**, controls the mapping for FHIR resource. The FHIR destination mappings allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
 > [!NOTE]
 > Device and FHIR destination mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately.
@@ -24,11 +24,7 @@ The two types of mappings are composed into a JSON document based on their type.
   
 ## Device mappings overview
 
-Device mappings provide functionality to extract device message content into a common format for further evaluation. Each device message received is evaluated against all device mapping templates. 
-
-A single inbound device message can be separated into multiple outbound messages that are later mapped to different observations in the FHIR service. 
-
-The result is a normalized data object representing the value or values parsed by the templates. 
+Device mappings provide functionality to extract device message content into a common format for further evaluation. Each device message received is evaluated against all device mapping templates. A single inbound device message can be separated into multiple outbound messages that are later mapped to different observations in the FHIR service. The result is a normalized data object representing the value or values parsed by the device mapping templates. 
 
 The normalized data model has a few required properties that must be found and extracted:
 
@@ -67,7 +63,7 @@ The content payload itself is an Azure Event Hubs message, which is composed of 
 ```
 ## CollectionContentTemplate
 
-The CollectionContentTemplate is the **default** template type used by the MedTech service device mapping and may be used to represent a list of templates that will be used during normalization.
+The CollectionContentTemplate is the **default** template type used by the MedTech service device mapping template and represents a list of templates that will be used during thr normalization process.
                                                              
 ### Example
 
@@ -115,11 +111,11 @@ The CollectionContentTemplate is the **default** template type used by the MedTe
 
 The device mapping content types supported by the MedTech service rely on JSONPath to both match the required mapping and extracted values. More information on JSONPath can be found [here](https://goessner.net/articles/JsonPath/). All template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 
-The below example is from a device message received by the MedTech service from an Azure Event Hubs event hub:
+### Example
 
 **Heart rate**
 
-*Device message from the Azure Event Hubs event hub*
+*A device message from the Azure Event Hubs event hub received by the MedTech service*
 
 ```json
 {
@@ -133,7 +129,7 @@ The below example is from a device message received by the MedTech service from 
 }
 ```
 
-*MedTech service device mapping template*
+*A MedTech service device mapping template used during the normalization process*
 
 ```json
 {
@@ -179,17 +175,17 @@ You can define one or more templates within the MedTech service device mapping. 
 
 |Template Type|Description|
 |-------------|-----------|   
-|[CalculatedContentTemplate](how-to-use-calculated-functions-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JmesPath functions.|
+|[CalculatedContentTemplate](how-to-use-calculated-functions-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JMESPath functions.|
 |[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
  
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
+> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
 
 ## Next steps
 
-In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
+In this article, you learned how to use device mappings. To learn how to use FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
-> [How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
+> [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

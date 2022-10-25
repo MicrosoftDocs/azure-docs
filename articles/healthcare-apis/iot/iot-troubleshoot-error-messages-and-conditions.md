@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot MedTech service error messages, conditions, and fixes - Azure Health Data Services
-description: This article helps users troubleshoot MedTech service errors/conditions and provides fixes and solutions.
+title: Troubleshoot MedTech service error messages and conditions - Azure Health Data Services
+description: This article helps users troubleshoot MedTech service errors messages and conditions.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 03/21/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
@@ -14,14 +14,17 @@ ms.author: jasteppe
 
 This article provides steps for troubleshooting and fixing MedTech service error messages and conditions.
 
-> [!IMPORTANT]
-> Having access to MedTech service metrics is essential for monitoring and troubleshooting. MedTech service assists you to do these actions through [Metrics](how-to-configure-metrics.md).
-
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
+> Having access to metrics and logs are essential tools for assisting in troubleshooting your MedTech service.
+>  
+> [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
+>
+> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
+>
+> [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 
 > [!NOTE]
-> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the MedTech service, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
+> When you open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the MedTech service, include [copies of your device and FHIR destination mappings](how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
 ## Error messages and conditions
 
@@ -117,7 +120,7 @@ This property provides the name for a specific error. Below is the list of all e
 
 In this article, you learned how to troubleshoot MedTech service error messages and conditions. To learn how to troubleshoot a MedTech service Device and FHIR destination mappings, see
 
->[!div class="nextstepaction"]
->[Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md)
+> [!div class="nextstepaction"]
+> [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
