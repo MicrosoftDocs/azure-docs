@@ -6,8 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
 ms.date: 10/21/2022
-ms.custom: engagement-fy23
-#Customer intent: As a developer, I want to export one or more consumption workflows to a Standard workflow.
+#Customer intent: As a developer, I want to export one or more Consumption workflows to a Standard workflow.
 ---
 
 # Export Consumption workflows to a Standard logic app (Preview)
@@ -16,11 +15,12 @@ ms.custom: engagement-fy23
 >
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
-If you want the benefits from Standard workflows, but your workflows run in consumpton sku, you can now move your workflows to a  single-tenant Azure Logic Apps. This switch makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency or better predictability of costs.
+If you want the benefits from Standard workflows, but your workflows run in multi-tenant Azure Logic Apps, you can now move your Consumption workflows to single-tenant Azure Logic Apps. This switch makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency or better predictability of costs.
 
-You can now export logic app workflows running on consumption sku to a Standard logic app. Using Visual Studio Code and the latest Azure Logic Apps (Standard) extension, you export your logic apps as stateful workflows to a Standard logic app project. You can then locally update, test, and debug your workflows to get them ready for redeployment. When you're ready, you can deploy either directly from Visual Studio Code or through your own DevOps process.
+You can now export Consumption logic apps to a Standard logic app. Using Visual Studio Code and the latest Azure Logic Apps (Standard) extension, you export your logic apps as stateful workflows to a Standard logic app project. You can then locally update, test, and debug your workflows to get them ready for redeployment. When you're ready, you can deploy either directly from Visual Studio Code or through your own DevOps process.
 
 > [!NOTE]
 >
@@ -45,9 +45,9 @@ This article provides information about the export process and shows how to expo
 
 - The export tool can export logic app workflows with triggers that have concurrency settings. However, single-tenant Azure Logic Apps ignores these settings.
 
-- Logic apps must be in the same region to be exported as part of the same Logic Apps Standard project.
+- Logic apps must exist in the same region if you want to export them within the same Standard logic app project.
 
-- For now, connectors will be deploy as *managed* versions, which appear in the designer under the **Azure** tab. The export tool will have the capability to export connectors that have a built-in, service provider counterpart, when the latter gain parity with their Azure versions. The export tool automatically makes the conversion when Azure connector is available to export as a built-in, service provider connector.
+- For now, connectors deploy as their *managed* versions, which appear in the designer under the **Azure** tab. The export tool will have the capability to export connectors that have a built-in, service provider counterpart, when the latter gain parity with their Azure versions. The export tool automatically makes the conversion when Azure connector is available to export as a built-in, service provider connector.
 
 - By default, connection credentials aren't cloned from source logic app workflows. Before your logic app workflows can run, you'll have to reauthenticate these connections after export.
 
@@ -60,7 +60,7 @@ This article provides information about the export process and shows how to expo
 
 ## Prerequisites
 
-- One or more logic apps deployed to the same subscription and Azure region (e.g. East US 2) .
+- One or more logic apps to deploy to the same subscription and Azure region, for example, East US 2.
 
 - Azure contributor subscription-level access to the subscription where the logic apps are currently deployed, not just resource group-level access.
 
@@ -68,7 +68,7 @@ This article provides information about the export process and shows how to expo
 
 ## Group logic apps for export
 
-With the Azure Logic Apps (Standard) extension, you can combine multiple consumption-based logic app workflows into a single Standard logic app project. In single-tenant Azure Logic Apps, one Standard logic app resource can have multiple workflows. With this approach, you can pre-validate your workflows so that you don't miss any dependencies when you select logic apps for export.
+With the Azure Logic Apps (Standard) extension, you can combine multiple Consumption logic app workflows into a single Standard logic app project. In single-tenant Azure Logic Apps, one Standard logic app resource can have multiple workflows. With this approach, you can pre-validate your workflows so that you don't miss any dependencies when you select logic apps for export.
 
 Consider the following recommendations when you select logic apps for export:
 
@@ -178,8 +178,8 @@ The following table describes these new folders and files added by the export pr
 | | LogicAppStandardInfrastructure.parameters.json | Azure Resource Manager template parameters file for deploying Standard logic app resource |
 | | LogicAppStandardInfrastructure.template.json | Azure Resource Manager template definition for deploying Standard logic app resource |
 | .logs\\export | exportReport.json | Export report summary raw file, which includes all the steps required for post-export remediation |
-| | exportValidation.json | Validation report raw file, which includes the validation results for each exported logic app. |
-| | README.md | Markdown file with export results summary, including the created logic apps and all the required next steps. |
+| | exportValidation.json | Validation report raw file, which includes the validation results for each exported logic app |
+| | README.md | Markdown file with export results summary, including the created logic apps and all the required next steps |
 
 ## Next steps
 
