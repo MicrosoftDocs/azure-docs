@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To step through the features covered in this tutorial:
 
 - [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role does not. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
@@ -228,13 +228,14 @@ The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by 
 Since we’ve released the Microsoft cloud security benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
 
 ### What standards are supported in the compliance dashboard?
-By default, the regulatory compliance dashboard shows you the Azure Security Benchmark. The Azure Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Azure Security Benchmark introduction](../security/benchmarks/introduction.md).
+By default, the regulatory compliance dashboard shows you the Microsoft cloud security benchmark. The Microsoft cloud security benchmark is the Microsoft-authored guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Microsoft cloud security benchmark introduction](../security/benchmarks/introduction.md).
 
 To track your compliance with any other standard, you'll need to explicitly add them to your dashboard.
  
 You can add other standards such as Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP, and PCI-DSS 3.2.1.  
 
 **AWS**: There are three benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+
 Users that have one Defender bundle enabled cab enable CIS and PCI as well (same as regulatory compliance for Azure).
 
 Available AWS regulatory standards:
@@ -245,13 +246,18 @@ Available AWS regulatory standards:
 To add regulatory compliance standards on AWS accounts:
 
 1. Navigate to **Environment settings**.
+
 1. Select the relevant account.
+
 1. Select **Standards**.
+
 1. Select **Add** and choose **Standard**.
+
 1. Choose a standard from the drop-down menu.
+
 1. Select **Save**.
 
-:::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
 
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
@@ -293,7 +299,7 @@ On the main dashboard, you can see a report of passing and failing controls for 
 
 When you select **Download report**, select the standard and the format (PDF or CSV). The resulting report will reflect the current set of subscriptions you've selected in the portal's filter.
 
-* The PDF report shows a summary status for the standard you selected
+- The PDF report shows a summary status for the standard you selected
 * The CSV report provides detailed results per resource, as it relates to policies associated with each control
 
 Currently, there's no support for downloading a report for a custom policy; only for the supplied regulatory standards.
