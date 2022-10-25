@@ -91,14 +91,14 @@ To enable the SAP data connector to retrieve certain information from your SAP s
 - **SAP BASIS 7.5 SP12 and above**: Client IP Address information from security audit log
 - **ANY SAP BASIS version**: DB Table logs
 
-| SAP BASIS versions | Recommended CR |
-| --- | --- |
-| - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) |
-| - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) |
+| SAP BASIS versions | Recommended CR |Notes |
+| --- | --- | --- |
+| - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) | Deploy the relevant [SAP note](#deploy-sap-note-optional). |
+| - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) | |
 
 #### Deploy SAP note (optional)
 
-If you choose to retrieve additional information with the CRs in this section, ensure that the following SAP note is deployed in your SAP system, according to its version:
+If you choose to retrieve additional information with the [NPLK900202 optional CR](#retrieve-additional-information-from-sap-optional), ensure that the following SAP note is deployed in your SAP system, according to its version:
 
 | SAP BASIS versions | Notes |
 | --- | --- |
