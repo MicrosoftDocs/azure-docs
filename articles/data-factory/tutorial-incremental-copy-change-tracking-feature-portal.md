@@ -97,31 +97,30 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
 
 1. 
-```sql
-   ALTER DATABASE <your database name>
-   SET CHANGE_TRACKING = ON  
-   (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
-   ALTER TABLE data_source_table
-   ENABLE CHANGE_TRACKING  
-   WITH (TRACK_COLUMNS_UPDATED = ON)
 ```
+   ALTER DATABASE <your database name>
+   SET CHANGE_TRACKING = ON
+   (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)
+   ALTER TABLE data_source_table
+   ENABLE CHANGE_TRACKING
+   WITH (TRACK_COLUMNS_UPDATED = ON)
+   ```
 
 1. Create a new table and store the ChangeTracking_version with a default value by running the following query:
    
-```sql
+```
    create table table_store_ChangeTracking_version
    (
-       TableName varchar(255),
-       SYS_CHANGE_VERSION BIGINT,
+   TableName varchar(255),
+   SYS_CHANGE_VERSION BIGINT,
    );
    
    DECLARE @ChangeTracking_version BIGINT
-   SET @ChangeTracking_version = CHANGE_TRACKING_CURRENT_VERSION();  
+   SET @ChangeTracking_version = CHANGE_TRACKING_CURRENT_VERSION();
    
    INSERT INTO table_store_ChangeTracking_version
    VALUES ('data_source_table', @ChangeTracking_version)
-   
-```
+   ```
    > [!NOTE]
    > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
 6. Run the following query to create a stored procedure in your database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
@@ -151,10 +150,9 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 1. 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
     ![Screenshot that shows the data factory selection in the New pane.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
-2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
+1. 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 
-1.  ![New data factory page.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu1.png)
-
+    ![New data factory page.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu1.png)
 1. The name of the Azure Data Factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
    *Data factory name “ADFTutorialDataFactory” is not available*
@@ -301,6 +299,8 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 You see a file named `incremental-<GUID>.csv` in the `incchgtracking` folder of the `adftutorial` container.
 ![Output file from full copy.](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file1.png)
 The file should have the data from your database:
+
+
 
 
 
