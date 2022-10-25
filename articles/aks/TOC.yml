@@ -380,6 +380,8 @@
           href: internal-lb.md
         - name: Use a Standard Load Balancer
           href: load-balancer-standard.md
+        - name: Use kube-proxy configuration (IPVS)
+          href: configure-kube-proxy.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
         - name: Use an HTTP proxy
