@@ -19,7 +19,7 @@ In this article, you'll learn how to upgrade a static Basic SKU public IP addres
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A **static** basic SKU public IP address in your subscription. For more information, see [Create a basic public IP address using PowerShell](./create-public-ip-powershell.md?tabs=create-public-ip-basic%2Ccreate-public-ip-zonal%2Crouting-preference).
+* A **static** basic SKU public IP address in your subscription. For more information, see [Create a basic public IP address using PowerShell](./create-public-ip-powershell.md?tabs=create-public-ip-basic%2Ccreate-public-ip-non-zonal%2Crouting-preference#create-public-ip).
 * Azure PowerShell installed locally or Azure Cloud Shell
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
