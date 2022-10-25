@@ -107,6 +107,9 @@ The revision mode controls whether only a single revision or multiple revisions 
 
 By default, a container app is in *single revision mode*. In this mode, only one revision is active at a time. When a new revision is created, the latest revision replaces the active revision.
 
+> [!NOTE]
+> When creating new revisions, both the existing and new revisions may both be active to ensure [zero downtime deployment](application-lifecycle-management.md#zero-downtime-deployment).
+
 ### Multiple revision mode
 
 Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in this mode, new revisions are activated alongside current active revisions.
