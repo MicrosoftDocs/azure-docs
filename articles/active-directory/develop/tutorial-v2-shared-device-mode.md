@@ -301,4 +301,5 @@ The Sample Application is a simple app that will call the Graph API of your orga
 
 Learn more about working with the Microsoft Authentication Library and shared device mode on Android devices:
 
-> [!div class="nextstepaction"] > [Shared device mode for Android devices](msal-android-shared-devices.md)
+> [!div class="nextstepaction"] 
+> [Shared device mode for Android devices](msal-android-shared-devices.md)
