@@ -24,7 +24,7 @@ Azure [availability zones](../availability-zones/az-overview.md#availability-z
 
 Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones let you design and operate applications and databases that automatically transition between zones without interruption. You can design resilient solutions by using Azure services that use availability zones.  
 
-The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/architecture/framework/resiliency/app-design#use-availability-zones-within-a-region). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation.
+The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation.
 
 :::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="../media/azure-netapp-files/availability-zone-diagram.png":::
 
