@@ -37,6 +37,8 @@
     href: concept-conditional-access-report-only.md
   - name: Service dependencies
     href: service-dependencies.md
+  - name: Filter for applications
+    href: concept-filter-for-applications.md
   - name: Location conditions
     href: location-condition.md
   - name: Workload identities
