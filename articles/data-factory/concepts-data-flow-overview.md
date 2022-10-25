@@ -24,7 +24,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 
 Data flows are created from the factory resources pane like pipelines and datasets. To create a data flow, select the plus sign next to **Factory Resources**, and then select **Data Flow**. 
 
-![New data flow.](media/concepts-data-flow-overview/new-data-flow.png)
+![Screenshot showing a new data flow.](media/concepts-data-flow-overview/new-data-flow.png)
 This action takes you to the data flow canvas, where you can create your transformation logic. Select **Add source** to start configuring your source transformation. For more information, see [Source transformation](data-flow-source.md).
 
 ## Authoring data flows
@@ -49,7 +49,7 @@ Each transformation contains at least four configuration tabs.
 
 The first tab in each transformation's configuration pane contains the settings specific to that transformation. For more information, see that transformation's documentation page.
 
-![Source settings tab.](media/concepts-data-flow-overview/source-1.png)
+![Screenshot showing the source settings tab.](media/concepts-data-flow-overview/source-1.png)
 #### Optimize
 
 The **Optimize** tab contains settings to configure partitioning schemes. To learn more about how to optimize your data flows, see the [mapping data flow performance guide](concepts-data-flow-performance.md).
