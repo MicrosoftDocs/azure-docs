@@ -12,7 +12,9 @@ ms.custom: references_regions, ignite-2022
 
 # Connect to Elastic SAN (preview) volumes - Linux
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN (preview) volumes - Windows](elastic-san-connect-windows.md). In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
+This article explains how to connect to an Elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN (preview) volumes - Windows](elastic-san-connect-windows.md).
+
+In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
 
 ## Prerequisites
 
