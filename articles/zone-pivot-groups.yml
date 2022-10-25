@@ -747,7 +747,20 @@ groups:
   - id: programming-language-java
     title: Java
 - id: programming-languages-spark-all-minus-sql
-# Owner: euang
+# Owner: midesa
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-r
+    title: R
+- id: programming-languages-spark-all-minus-sql-r
+# Owner: midesa
   title: Programming languages
   prompt: Choose a language
   pivots:
@@ -1502,6 +1515,8 @@ groups:
   pivots:
   - id: identity-wif-mi-methods-azp
     title: Azure portal
+  - id: identity-wif-mi-methods-powershell
+    title: Azure PowerShell 
   - id: identity-wif-mi-methods-azcli
     title: Azure CLI
   - id: identity-wif-mi-methods-arm

@@ -380,7 +380,7 @@ The following example defines a pipeline containing three nodes and moves data b
 * `train_node` that trains a CNN model with Keras using the training data, `mnist_train.csv` .
 * `score_node` that scores the model using test data, `mnist_test.csv`.
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 ## Next steps
 
