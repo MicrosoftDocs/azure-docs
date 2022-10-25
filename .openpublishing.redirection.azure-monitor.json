@@ -847,6 +847,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/export-power-bi.md",
+            "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs.md",
             "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
             "redirect_document_id": false
