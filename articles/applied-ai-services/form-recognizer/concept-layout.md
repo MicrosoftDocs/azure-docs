@@ -247,6 +247,23 @@ Extracting tables is a key requirement for processing documents containing large
 }
 
 ```
+### Handwritten style for text lines (Latin languages only)
+
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows an example JSON snippet.
+
+```json
+"styles": [
+{
+	"confidence": 0.95,
+	"spans": [
+	{
+		"offset": 509,
+		"length": 24
+	}
+	"isHandwritten": true
+	]
+}
+```
 
 ### Extracts selected pages from documents
 
