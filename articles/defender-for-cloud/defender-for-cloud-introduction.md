@@ -103,7 +103,7 @@ Learn more on the following pages:
 
 - [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Identify vulnerabilities in images in Azure container registries](defender-for-containers-va-acr.md)
-- [Identify vulnerabilities in images in AWS Elasctic Container Registry](defender-for-containers-va-ecr.md)
+- [Identify vulnerabilities in images in AWS Elastic Container Registry](defender-for-containers-va-ecr.md)
 
 ## Enforce your security policy from the top down
 
