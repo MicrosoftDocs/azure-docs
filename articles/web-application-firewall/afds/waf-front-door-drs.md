@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 10/25/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
