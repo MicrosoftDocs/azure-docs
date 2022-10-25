@@ -215,7 +215,7 @@ This article gives a comparison of data scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[Method/API in SDK v1](/python/api/azurzeml-core/azureml.datadisplayname: migration, v1, v2)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities)|
+|[Method/API in SDK v1](/python/api/azurzeml-core/azureml.data)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities)|
 
 ## Next steps
 
