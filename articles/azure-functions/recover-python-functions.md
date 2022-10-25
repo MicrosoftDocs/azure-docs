@@ -14,20 +14,22 @@ This article provides information to help you troubleshoot errors with your Pyth
 
 The following is a list of troubleshooting sections for common issues in Python functions:
 
+::: zone pivot="python-mode-configuration"
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
-
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
-
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
-
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
+* [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
+::: zone-end
 ::: zone pivot="python-mode-decoration" 
+* [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
+* [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
+* [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
+* [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
+* [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
 * [Multiple Python workers not supported](#multiple-python-workers-not-supported)
-
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
-
 * [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-Azure-Storage-connection)
-
 * [Issues with deployment](#issue-with-deployment)
 ::: zone-end
 
