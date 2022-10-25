@@ -15,12 +15,12 @@ ms.author: malev
 
 In this quickstart, you will use the Python provider for Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration Python provider client library](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider).
 
-The Python App Configuration provider is a library running on top of the Python SDK helping Python developers easily consume the App Configuration service for the configuration settings, like a dictionary.
+The Python App Configuration provider is a library running on top of the Azure SDK for Python, helping Python developers easily consume the App Configuration service. It enables configuration settings to be used like a dictionary.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 2.7,  3.6, or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Create an App Configuration store
 
@@ -28,13 +28,11 @@ The Python App Configuration provider is a library running on top of the Python 
 
 9. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
-    | Key          | Value           |
-    |--------------|-----------------|
-    | message      | Hello           |
-    | test.message | Hello test      |
-    | my_json      | {"key":"value"} |
-
-    Leave **Label** and **Content Type** empty.
+    | Key            | Value             | Label       | Content type       |
+    |----------------|-------------------|-------------|--------------------|
+    | *message*      | *Hello*           | Leave empty | Leave empty        |
+    | *test.message* | *Hello test*      | Leave empty | Leave empty        |
+    | *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
 
 10. Select **Apply**.
 
@@ -55,7 +53,7 @@ The Python App Configuration provider is a library running on top of the Python 
 1. Install the Azure App Configuration provider by using the `pip install` command.
 
     ```console
-    pip install azure-appconfiguration.provider
+    pip install azure-appconfiguration-provider
     ```
 
 1. Create a new file called *app-configuration-quickstart.py* in the *app-configuration-quickstart* directory and add the following code:
@@ -94,9 +92,6 @@ The Python App Configuration provider is a library running on top of the Python 
     print("message found: " + str("message" in config))
     print("test.message found: " + str("test.message" in config))
     ```
-
-> [!NOTE]
-> The code snippets in this quickstart will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
 
 ## Configure your App Configuration connection string
 

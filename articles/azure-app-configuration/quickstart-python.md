@@ -20,7 +20,7 @@ To use Azure App Configuration with the Python provider instead of the SDK, go t
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 2.7, or 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python or 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Create an App Configuration store
 
@@ -28,9 +28,9 @@ To use Azure App Configuration with the Python provider instead of the SDK, go t
 
 9. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
-    | Key                      | Value                             |
-    |--------------------------|-----------------------------------|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
+    | Key                        | Value                               |
+    |----------------------------|-------------------------------------|
+    | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
     Leave **Label** and **Content Type** empty for now.
 
