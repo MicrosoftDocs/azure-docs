@@ -65,7 +65,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
     ```
 
-1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](https://learn.microsoft.com/en-us/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
+1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
 
     ```azurecli     
         az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
@@ -137,7 +137,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     }
     ```
 
-1.  Update the application's group membership claims:
+1.  Update the application's group membership claims. RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
     
     ```azurecli 
         az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
@@ -155,7 +155,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}"  --query password -o tsv) 
     ```
 
-1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](https://learn.microsoft.com/en-us/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
+1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
 
     ```azurecli
         az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
@@ -165,9 +165,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     > [!NOTE]
     > An Azure tenant administrator has to run this step.
     > 
-    > For usage of this feature in production, we recommend that you  create a different server application for every cluster.
-    > 
-    > RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg`. [Additional Information.] (https://learn.microsoft.com/en-us/azure/active-directory/develop/supported-accounts-validation)  
+    > For usage of this feature in production, we recommend that you  create a different server application for every cluster.  
 
 #### Create a client application
 
@@ -192,7 +190,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         az ad app show --id "${SERVER_APP_ID}" --query "api.oauth2PermissionScopes[0].id" -o tsv
     ```
 
-4. Grant the required permissions for the client application:
+4. Grant the required permissions for the client application. RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
 
     ```azurecli
         az ad app permission add --id "${CLIENT_APP_ID}" --api "$ENV:SERVER_APP_ID" --api-permissions <oAuthPermissionId>=Scope
