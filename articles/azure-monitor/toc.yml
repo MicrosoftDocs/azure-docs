@@ -224,10 +224,10 @@ items:
       items: 
       - name: Overview
         displayName: Prometheus
-        href: essentials/prometheus-metrics-enable.md
+        href: essentials/prometheus-metrics-overview.md
       - name: Enable
         displayName: Prometheus
-        href: essentials/prometheus-metrics-overview.md
+        href: essentials/prometheus-metrics-enable.md
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md

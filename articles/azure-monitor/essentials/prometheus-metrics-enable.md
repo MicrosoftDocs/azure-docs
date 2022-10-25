@@ -8,10 +8,13 @@ ms.reviewer: aul
 ---
 
 # Enable Azure Monitor managed service for Prometheus (preview)
-This article describes how to configure Container insights to send Prometheus metrics from an Azure Kubernetes cluster to Azure Monitor managed service for Prometheus. This includes installing the metrics addon for Container insights.
+This article describes how to enable Azure Monitor managed service for Prometheus and how to configure Azure Kubernetes cluster to collect Prometheus metrics.
 
+> [!NOTE]
+> The method described in this article doesn't enable features of Container insights. To enable collection of Prometheus metrics using Container insights, see [Send metrics to Azure Monitor managed service for Prometheus with Container insights (preview)](../containers/container-insights-prometheus-metrics-addon.md).
 ## Prerequisites
 
+- The cluster must use [managed identity authentication](container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
   - Microsoft.Insights
@@ -23,18 +26,17 @@ To enable Azure Monitor managed service for Prometheus, you must create an [Azur
 
 
 ## Enable Prometheus metric collection
-Use any of the following methods to install the metrics addon on your cluster and send Prometheus metrics to an Azure Monitor workspace.
+Use any of the following methods to send Prometheus metrics from your AKS cluster to your Azure Monitor workspace.
 
 ### [Azure portal](#tab/azure-portal)
-
-Use the following procedure to install the Azure Monitor agent and the metrics addon to collect Prometheus metrics. This method doesn't enable other Container insights features.
+Use the following procedure to install the Azure Monitor agent and the metrics addon to collect Prometheus metrics.
 
 1. Create an Azure Monitor workspace using the guidance at [Create an Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
 2. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
 3. Select **Managed Prometheus** to display a list of AKS clusters.
 4. Click **Configure** next to the cluster you want to enable.
 
-    :::image type="content" source="media/container-insights-prometheus-metrics-addon/azure-monitor-workspace-configure-prometheus.png" lightbox="media/container-insights-prometheus-metrics-addon/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot of Azure Monitor workspace with Prometheus configuration.":::
+    :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot of Azure Monitor workspace with Prometheus configuration.":::
 
 
 ### [CLI](#tab/cli)
@@ -313,5 +315,4 @@ When you allow a default Azure Monitor workspace to be created when you install 
 ## Next steps
 
 - [Customize Prometheus metric scraping for the cluster](../essentials/prometheus-metrics-scrape-configuration.md).
-- [Create Prometheus alerts based on collected metrics](container-insights-metric-alerts.md)
-- [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
+
