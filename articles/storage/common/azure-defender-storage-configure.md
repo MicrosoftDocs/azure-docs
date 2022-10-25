@@ -222,6 +222,10 @@ For the Defender for Storage per-transaction pricing plan, we recommend that you
 
 You can configure Microsoft Defender for Storage on your subscriptions in several ways.
 
+#### [Azure Portal](#tab/azure-portal)
+
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using the Azure Portal:
+
 #### [Bicep template](#tab/bicep-template)
 
 To enable Microsoft Defender for Storage at the subscription level with the per-transaction plan using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
@@ -390,7 +394,7 @@ Microsoft Defender for Storage is now enabled for this storage account. If you w
 
 #### [ARM template](#tab/arm-template)
 
-To enable Microsoft Defender for Storage at the account level with the per-transaction plan using an ARM template, use [the prepared Azure template](https://azure.microsoft.com/en-us/resources/templates/storage-advanced-threat-protection-create/).
+To enable Microsoft Defender for Storage at the account level with the per-transaction plan using an ARM template, use [the prepared Azure template](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/).
 
 If you want to disable Defender for Storage on the account:
 
