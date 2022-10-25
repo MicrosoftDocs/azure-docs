@@ -35,6 +35,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Batch                     | [Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity](../../batch/batch-customer-managed-key.md)  </BR> [Configure managed identities in Batch pools](../../batch/managed-identity-pools.md)          |
 | Azure Blueprints                | [Stages of a blueprint deployment](../../governance/blueprints/concepts/deployment-stages.md)                              |
 | Azure Cache for Redis           | [Managed identity for storage accounts with Azure Cache for Redis](../../azure-cache-for-redis/cache-managed-identity.md) |
+| Azure Container Apps            | [Managed identities in Azure Container Apps](../../container-apps/managed-identity.md) |
 | Azure Container Instance        | [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)                                                                                          |
 | Azure Container Registry        | [Use an Azure-managed identity in ACR Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)                                                                       |
 | Azure Cognitive Services        | [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../cognitive-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
@@ -46,6 +47,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure DevTest Labs             | [Enable user-assigned managed identities on lab virtual machines in Azure DevTest Labs](../../devtest-labs/enable-managed-identities-lab-vms.md) |
 | Azure Digital Twins             | [Enable a managed identity for routing Azure Digital Twins events](../../digital-twins/how-to-enable-managed-identities-portal.md)                                                                                            |
 | Azure Event Grid                | [Event delivery with a managed identity](../../event-grid/managed-service-identity.md)
+| Azure Event Hubs                | [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](../../event-hubs/authenticate-managed-identity.md)
 | Azure Image Builder             | [Azure Image Builder overview](../../virtual-machines/image-builder-overview.md#permissions)                                                                                                    |
 | Azure Import/Export             | [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)
 | Azure IoT Hub                   | [IoT Hub support for virtual networks with Private Link and Managed Identity](../../iot-hub/virtual-network-support.md)                                                                               |

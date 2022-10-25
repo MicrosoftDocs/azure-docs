@@ -129,7 +129,7 @@ Microsoft Defender for Storage can exclude specific active Databricks workspace 
 
 The tags will be inherited by the Storage account of the Databricks workspace and prevent Defender for Storage from turning on. 
 
-> [!Note]
+> [!NOTE]
 > Tags can't be added directly to the Databricks Storage account, or its Managed Resource Group.
 
 ### Prevent auto-enabling on a new Databricks workspace storage account 

@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 09/07/2022
+ms.date: 10/20/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -339,6 +339,14 @@ Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapsh
 Error code:  UserErrorRequestDisallowedByPolicy <BR> Error message: An invalid policy is configured on the VM which is preventing Snapshot operation.
 
 If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](../governance/policy/concepts/effects.md#deny) to a [Modify effect](../governance/policy/concepts/effects.md#modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+
+### UserErrorUnableToOpenMount
+
+**Error code**: UserErrorUnableToOpenMount
+
+**Cause**: Backups failed because the backup extensions on the VM were unable to open the mount points in the VM.
+
+**Recommended action**: The backup extension on the VM must be able to access all mount points in the VM to determine the underlying disks, take snapshot, and calculate the size. Ensure that all mount points are accessible.
 
 ## Jobs
 

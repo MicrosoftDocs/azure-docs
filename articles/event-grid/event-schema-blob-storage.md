@@ -651,7 +651,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
 > [!NOTE]
-> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are written.
+> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are written. If you want to ensure that the Microsoft.Storage.BlobCreated event is triggered only when a Block Blob is completely committed, filter the event for the SftpCommit REST API call.
 
 ```json
 [{
