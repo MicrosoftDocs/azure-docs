@@ -332,7 +332,7 @@ In this step, you create a pipeline with the following activities, and run it pe
    ![Screenshot shows how to create a pipeline in a data factory.](new-pipeline-menu-3.png)
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **IncrementalCopyPipeline**.
 
-1. Expand **General** in the **Activities** toolbox, and drag-drop the **Lookup** activity to the pipeline designer surface or search in the **Search activities** search box. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that is stored in the table **table_store_ChangeTracking_version**.
+3. Expand **General** in the **Activities** toolbox, and drag-drop the **Lookup** activity to the pipeline designer surface or search in the **Search activities** search box. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that is stored in the table **table_store_ChangeTracking_version**.
 4. Switch to the **Settings** in the **Properties** window, and select **ChangeTrackingDataset** for the **Source Dataset** field.
 
 5. Drag-and-drop the **Lookup** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **LookupCurrentChangeTrackingVersionActivity**. This activity gets the current change tracking version.
@@ -341,35 +341,36 @@ In this step, you create a pipeline with the following activities, and run it pe
 
    1. Select **SourceDataset** for the **Source Dataset** field.
    2. Select **Query** for **Use Query**.
-1- Enter the following SQL query for **Query**.
+   3. Enter the following SQL query for **Query**.
 ```sql
 SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
 ```
 
    ![Screenshot shows a query added to the Settings tab in the Properties window.](media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
-1. In the **Activities** toolbox, expand **Move & transform**, drag-drop the **Copy** **data** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store.
+7. In the **Activities** toolbox, expand **Move & transform**, drag-drop the **Copy** **data** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store.
 8. Switch to the **Source** tab in the **Properties** window, and do the following steps:
 
    1. Select **SourceDataset** for **Source Dataset**.
    2. Select **Query** for **Use Query**.
-1-    3. Enter the following SQL query for **Query**.
+   3. Enter the following SQL query for **Query**.
 
 ```sql
 select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
 ```
 
    ![Copy Activity - source settings.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+   
 9. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field.
 
 10. **Connect both Lookup activities to the Copy activity** one by one. Drag the **green** button attached to the **Lookup** activity to the **Copy** activity.
 
 11. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **StoredProceduretoUpdateChangeTrackingActivity**. This activity updates the change tracking version in the **table_store_ChangeTracking_version** table.
 
-1. Switch to the **Settings** tab, and do the following steps:
-1- Select **AzureSqlDatabaseLinkedService** for **Linked service**.
-1- For **Stored procedure name**, select **Update_ChangeTracking_Version**.  
-1- Select **Import**.
-1-     3. In the **Stored procedure parameters** section, specify following values for the parameters:
+12. Switch to the **Settings** tab, and do the following steps:
+	1- Select **AzureSqlDatabaseLinkedService** for **Linked service**.
+	2- For **Stored procedure name**, select **Update_ChangeTracking_Version**.  
+	3- Select **Import**.
+	4- In the **Stored procedure parameters** section, specify following values for the parameters:
 
         | Name | Type | Value |
         | ---- | ---- | ----- |
@@ -377,18 +378,19 @@ select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, 
         | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
    ![Stored Procedure Activity - Parameters.](media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
-14. **Connect the Copy activity to the Stored Procedure Activity**. Drag-and-drop the **green** button attached to the Copy activity to the Stored Procedure activity.
+   
+13. **Connect the Copy activity to the Stored Procedure Activity**. Drag-and-drop the **green** button attached to the Copy activity to the Stored Procedure activity.
 
-1. Click **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window by clicking **Close**.
-1. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish All** button. Wait until you see the **Publishing succeeded** message.
-1. ![Screenshot shows the Publish All button for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)  
+14. Click **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window by clicking **Close**.
+15. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish All** button. Wait until you see the **Publishing succeeded** message.
+16. 
+![Screenshot shows the Publish All button for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)  
 
 ### Run the incremental copy pipeline
-1. 
-   1. 1. Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
+1. Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 
       ![Screenshot shows a pipeline with activities and the Trigger Now option selected from the Trigger menu.](media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
-1. In the **Pipeline Run** window, select **OK**.
+2. In the **Pipeline Run** window, select **OK**.
 ### Monitor the incremental copy pipeline
 1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. The links in the **Pipeline name** column let you view activity runs associated with the pipeline run and to rerun the pipeline.
    ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
