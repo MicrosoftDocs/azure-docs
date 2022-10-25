@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 4/5/2022
+ms.date: 10/24/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video, ignite-2022
@@ -52,9 +52,22 @@ In the API for MongoDB, compound indexes are **required** if your query needs th
 
 A compound index or single field indexes for each field in the compound index will result in the same performance for filtering in queries.
 
+Compounded indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the index. 
+
+For example a compound index containing people.tom.age will work in this case since there's no array on the path:
+```javascript
+{ "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
+```
+but won't won't work in this case since there's an array in the path:
+```javascript
+{ "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
+```
+
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+
 
 > [!NOTE]
-> You can't create compound indexes on nested properties or arrays.
+> You can't create compound indexes on arrays.
 
 The following command creates a compound index on the fields `name` and `age`:
 
@@ -244,6 +257,20 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 #### Limitations
 
 Unique indexes need to be created while the collection is empty. 
+
+Unique indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the unique index and uniqueness wil not be preserved for that value. 
+
+For example a unique index on people.tom.age will work in this case since there's no array on the path:
+```javascript
+{ "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
+```
+but won't won't work in this case since there's an array in the path:
+```javascript
+{ "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
+```
+
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+
 
 ### TTL indexes
 
