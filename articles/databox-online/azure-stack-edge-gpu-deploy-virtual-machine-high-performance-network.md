@@ -36,7 +36,7 @@ The high-level summary of the HPN deployment workflow is as follows:
 1. Enable cloud management of VMs from the Azure portal.
 1. Upload a VHD to an Azure Storage account by using Azure Storage Explorer. 
 1. Use the uploaded VHD to download the VHD onto the device, and create a VM image from the VHD.
-1. Reserve vCPUs on the device for HPN VMs.
+1. Reserve vCPUs on the device for HPN VMs with versions 2209 and earlier.
 1. Use the resources created in the previous steps:
     1. VM image that you created.
     1. Virtual switch associated with the network interface on which you enabled compute.
@@ -233,7 +233,7 @@ Follow these steps to create an HPN VM on your device.
 
 - **Issue: Insufficient CPU or memory resources**
 
-   If no numa node provides sufficient CPU and memory resources, you will see the following error message: 
+   **Error description:** If no numa node provides sufficient CPU and memory resources, you will see the following error message: 
 
    *Customer-facing error message*
 
