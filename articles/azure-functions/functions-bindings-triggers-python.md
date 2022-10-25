@@ -13,7 +13,7 @@ The new Python v2 programming model in Azure Functions is intended to provide be
 
 The improved v2 programming model requires fewer files than the default model (v1), and specifically eliminates the need for a configuration file (`function.json`). Instead, triggers and bindings are represented in the `function_app.py` file as decorators. Moreover, functions can be logically organized with support for multiple functions to be stored in the same file. Functions within the same function application can also be stored in different files, and be referenced as blueprints.
 
-To learn more about using the new Python programming model for Azure Functions, see the [Azure Functions Python developer guide](./functions-reference-python.md). Note that in addition to the documentation, [hints](https://aka.ms/functions-python-hints) are available in code editors that support type checking with .pyi files.
+To learn more about using the new Python programming model for Azure Functions, see the [Azure Functions Python developer guide](./functions-reference-python.md). In addition to the documentation, [hints](https://aka.ms/functions-python-hints) are available in code editors that support type checking with .pyi files.
 
 This article contains example code snippets that define various triggers and bindings using the Python v2 programming model. To be able to run the code snippets below, ensure the following:
 
@@ -61,7 +61,7 @@ def test_function(documents: func.DocumentList) -> str:
 
 ## EventHub Trigger
 
-The following code snippet defines a function triggered from an Event Hub instance:
+The following code snippet defines a function triggered from an event hub instance:
 
 ```python
 import logging
