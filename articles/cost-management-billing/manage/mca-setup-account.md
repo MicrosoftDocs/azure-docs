@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/25/2022
 ms.author: banders
 ---
 
@@ -113,9 +113,9 @@ Next, select the source enrollment to transition. Then select the billing accoun
 
 If you have the Enterprise Administrator (read-only) role, you'll see the following error that prevents the transition. You must have the Enterprise Administrator role before you can transition your enrollment.
 
-`Select another enrollment. You do not hve Enterprise Administrator write permission to the enrollment.`
+`Select another enrollment. You do not have Enterprise Administrator write permission to the enrollment.`
 
-If your enrollment has more than 60 days until its end date, you'll see the following error that prevents the transition. The current date must be within 60 of the enrollment end before you can transition your enrollment.
+If your enrollment has more than 60 days until its end date, you'll see the following error that prevents the transition. The current date must be within 60 of the enrollment end date before you can transition your enrollment.
 
 `Select another enrollment. This enrollment has more than 60 days before its end date.`
 
@@ -188,9 +188,22 @@ Azure services in your subscription keep running without any interruption. We on
 
 Access to Azure resources that was set using Azure role-based access control (Azure RBAC) isn't affected during the transition.
 
-### Azure Reservations
+### Azure reservations and savings plans
 
-Any Azure Reservations in your Enterprise Agreement enrollment is moved to your new billing account. During the transition, there won't be any changes to the reservation discounts that are being applied to your subscriptions.
+Any Azure reservations and savings plan in your Enterprise Agreement enrollment are moved to your new billing account. During the transition, there won't be any changes to the reservation or savings plan discounts that are being applied to your subscriptions.
+
+>[!NOTE]
+> If have saving plans under the Enterprise Agreement that were not purchased in USD, then the savings plans are canceled. They are repurchased under the terms of the new Microsoft Customer Agreement in USD.
+
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
+
+If you have savings plans that need to be repurchased, select **View charges** to open the Exchange savings plans page. 
+The Exchange savings plans page shows you the savings plans that will get returned in their original currency and the new savings plans that will get purchased in USD. Here’s an example showing the exchange. Monetary values are for example purposes only:
+
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" alt-text="Screenshot showing the Exchange savings plan page." lightbox="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" :::
+
+You must agree to the cancellation notification prompt.
+
 
 ### Azure Marketplace products
 
@@ -210,7 +223,7 @@ Complete the setup of your billing account before your Enterprise Agreement enro
 
 ### Changes to the Enterprise Agreement enrollment after the setup
 
-Azure subscriptions that are created for the Enterprise Agreement enrollment after the transition can be manually moved to the new billing account. For more information, see [get billing ownership of Azure subscriptions from other users](mca-request-billing-ownership.md). To move Azure Reservations that are purchased after the transition, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). You can also provide users access to the billing account after the transition. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+Azure subscriptions that are created for the Enterprise Agreement enrollment after the transition can be manually moved to the new billing account. For more information, see [get billing ownership of Azure subscriptions from other users](mca-request-billing-ownership.md). To move Azure reservations or savings plans that are purchased after the transition, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). You can also provide users access to the billing account after the transition. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### Revert the transition
 
@@ -237,7 +250,7 @@ To complete the setup, you need access to both the new billing account and the E
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
     - The billing of your Azure subscriptions is transitioned to the new account. **There won't be any impact on your Azure services during this transition. They'll keep running without any disruption**.
-    - If you have Azure Reservations, they're moved to your new billing account with no change to benefits or term.
+    - If you have Azure reservations or savings plans, they're moved to your new billing account with no change to benefits or term. If have saving plans under the Enterprise Agreement that were not purchased in USD, then the savings plans are canceled. They are repurchased under the terms of the new Microsoft Customer Agreement in USD.
 
 4. You can monitor the status of the transition on the **Transition status** page.
 
@@ -263,9 +276,9 @@ To complete the setup, you need access to both the new billing account and the E
 
 Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If you believe any subscription is missing, transition the billing of the subscription manually in the Azure portal. For more information, see [get billing ownership of Azure subscriptions from other users](mca-request-billing-ownership.md)
 
-### Azure reservations
+### Azure reservations and savings plan
 
-Azure reservations in your Enterprise Agreement enrollment will be moved to your new billing account with no change to benefits or term. Transactions completed before the transition won't appear in your new billing account. However, you can verify that the benefits of your reservations are applied to your subscriptions by visiting the [Azure reservations page](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Azure reservations and savings plans in your Enterprise Agreement enrollment will be moved to your new billing account with no change to benefits or term. Transactions completed before the transition won't appear in your new billing account. However, you can verify that the benefits are applied to your subscriptions. For more information about reservations, see the [Azure reservations page](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and for savings plans, see the [Azure Savings Plans page](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/SavingsPlan).
 
 ### Access of enterprise administrators on the billing account
 
