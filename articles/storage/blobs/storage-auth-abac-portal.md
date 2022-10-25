@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/21/2022
+ms.date: 10/25/2022
 
 #Customer intent:
 
