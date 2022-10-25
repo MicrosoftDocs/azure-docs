@@ -55,7 +55,7 @@ This article describes the information that you should gather before you open a 
    4. Choose the job that you are troubleshooting.
    5. In the Job Summary pane, check for the GUID value in **Job ID**.
 
-      ![Job ID within Job Summary Pane](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
+      :::image type="content" source="./media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png" alt-text="Screenshot Job ID within Job Summary Pane.":::
 
 3. Collect a sample of the script that you are running.
 
@@ -68,8 +68,8 @@ This article describes the information that you should gather before you open a 
    5. Select **All Logs**.
       In the pane below, you can collect the data.
 
-      ![Data listed under All Logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
-
+       :::image type="content" source="./media/collect-data-microsoft-azure-automation-case/all-logs-data.png" alt-text="Screenshot of Data listed under All Logs.":::
+      
 ## Data for module issues
 
 In addition to the knowledge Base article [4034605 - How to capture Azure Automation-scripted diagnostics](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), obtain the following information:
