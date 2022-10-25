@@ -6,6 +6,7 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.author: anaharris
+author: anaharris
 ms.reviewer: asinghal
 ms.custom: references_regions
 ---
