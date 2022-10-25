@@ -3,7 +3,7 @@ title: Terminology used with Azure IoT Hub Device Provisioning Service | Microso
 description: Describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub
 author: kgremban
 ms.author: kgremban
-ms.date: 09/18/2019
+ms.date: 10/24/2022
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps

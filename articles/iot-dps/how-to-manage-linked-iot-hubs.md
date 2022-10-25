@@ -3,7 +3,7 @@ title: How to manage linked IoT hubs with Device Provisioning Service (DPS)
 description: This article shows how to link and manage IoT hubs with the Device Provisioning Service (DPS).
 author: kgremban
 ms.author: kgremban
-ms.date: 09/19/2022
+ms.date: 10/24/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
