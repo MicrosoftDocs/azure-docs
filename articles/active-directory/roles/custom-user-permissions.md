@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/21/2022
+ms.date: 10/26/2022
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -59,7 +59,7 @@ The following permissions are available to read or update identity of users.
 > | Permission | Description |
 > | ---------- | ----------- |
 > | microsoft.directory/users/identities/read | Read identities of users. |
-> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name, user principal name, and object ID. |
+> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name and user principal name. |
 
 ## Read or update job information of users
 
@@ -172,7 +172,7 @@ The following permissions are available to read assignments and memberships of u
 > | microsoft.directory/users/directReports/read | Read the direct reports for users. |
 > | microsoft.directory/users/extensionProperties/update | Update extension properties of users. |
 > | microsoft.directory/users/identities/read | Read identities of users. |
-> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name, user principal name, and object ID. |
+> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name and user principal name. |
 > | microsoft.directory/users/jobInfo/update | Update the job info properties of users, such as job title, department, and company name. |
 > | microsoft.directory/users/licenseDetails/read | Read license details of users. |
 > | microsoft.directory/users/manager/read | Read manager of users. |
