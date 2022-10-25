@@ -167,3 +167,10 @@ Learn more about networking in AKS in the following articles:
 * [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
 * [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 * [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+
+<!-- LINKS - Internal -->
+[aks-ingress-basic]: ingress-basic.md
+[aks-ingress-tls]: ingress-tls.md
+[aks-ingress-static-tls]: ingress-static-ip.md
+[aks-http-app-routing]: http-application-routing.md
+[aks-ingress-internal]: ingress-internal-ip.md
