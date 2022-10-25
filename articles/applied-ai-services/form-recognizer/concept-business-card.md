@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer business card model
+title: Business card data extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts related to data extraction and analysis using the prebuilt business card model.
+description: OCR and machine learning based business card recognition model in Form Recognizer extracts key data from business cards.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -14,9 +14,13 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer business card model
+# Business card data extraction
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
+Business cards reading
+
+## Form Recognizer Business Card model
 
 The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
