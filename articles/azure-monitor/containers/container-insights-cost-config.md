@@ -91,11 +91,11 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 1. Download the Azure Resource Manager Template and Parameter files
 
 ```bash
-curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file -o existingClusterOnboarding.json
+curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-file -o existingClusterOnboarding.json 
 ```
 
 ```bash
-curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json
+curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json 
 ```
 
 2. Edit the values in the parameter file: existingClusterParam.json
