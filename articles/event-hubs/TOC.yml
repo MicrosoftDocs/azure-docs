@@ -181,6 +181,8 @@
       items:
         - name: Get Event Hubs connection string
           href: event-hubs-get-connection-string.md
+        - name: Connect to an event hub (.NET)
+          href: connect-event-hub.md
         - name: Configure processing units for a premium namespace
           href: configure-processing-units-premium-namespace.md
         - name: Add custom data to events
@@ -207,12 +209,18 @@
       items:
         - name: Capture Event Hubs data in Parquet format
           href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
-        - name: Materialize data to Cosmos DB
+        - name: Materialize data to Azure Cosmos DB
           href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=/azure/event-hubs/toc.json
         - name: Filter and ingest Synapse SQL data
           href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=/azure/event-hubs/toc.json
         - name: Filter and ingest to Data Lake Storage Gen2
           href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=/azure/event-hubs/toc.json
+        - name: Enrich data and ingest to event hub
+          href: ../stream-analytics/no-code-enrich-event-hub-data.md?toc=/azure/event-hubs/toc.json
+        - name: Transform and ingest to SQL database
+          href: ../stream-analytics/no-code-transform-filter-ingest-sql.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest to Azure Data Explorer
+          href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
     - name: Integrate with Spring framework

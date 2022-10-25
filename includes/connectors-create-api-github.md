@@ -3,13 +3,14 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 03/02/2019
+ms.date: 09/27/2022
+ms.custom: engagement-fy23
 ---
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. In the designer search box, enter **github**. If your workflow is blank, select the trigger that you want to use. If your workflow already has a trigger, select the action that you want to use.
-   
+
    This example continues with a GitHub trigger.
 
    ![Select the GitHub connector and a trigger](./media/connectors-create-api-github/github-connector.png)

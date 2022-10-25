@@ -85,6 +85,7 @@ Follow these steps to create a new console application for speech recognition.
     import java.util.concurrent.ExecutionException;
     
     public class SpeechSynthesis {
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         private static String speechKey = System.getenv("SPEECH_KEY");
         private static String speechRegion = System.getenv("SPEECH_REGION");
     
@@ -103,13 +104,13 @@ Follow these steps to create a new console application for speech recognition.
                 return;
             }
     
-            SpeechSynthesisResult speechRecognitionResult = speechSynthesizer.SpeakTextAsync(text).get();
+            SpeechSynthesisResult speechSynthesisResult = speechSynthesizer.SpeakTextAsync(text).get();
     
-            if (speechRecognitionResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
+            if (speechSynthesisResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
                 System.out.println("Speech synthesized to speaker for text [" + text + "]");
             }
-            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
-                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechRecognitionResult);
+            else if (speechSynthesisResult.getReason() == ResultReason.Canceled) {
+                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechSynthesisResult);
                 System.out.println("CANCELED: Reason=" + cancellation.getReason());
     
                 if (cancellation.getReason() == CancellationReason.Error) {
@@ -132,6 +133,9 @@ Run your new console application to start speech synthesis to the default speake
 javac SpeechSynthesis.java -cp ".;target\dependency\*"
 java -cp ".;target\dependency\*" SpeechSynthesis
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 

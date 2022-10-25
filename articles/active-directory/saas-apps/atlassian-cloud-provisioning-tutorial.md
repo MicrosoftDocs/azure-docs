@@ -159,14 +159,17 @@ Once you've configured provisioning, use the following resources to monitor your
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Connector Limitations
-* Atlassian Cloud only supports provisioning updates for users with verified domains. Changes made to users from a non-verified domain will not be pushed to Atlassian Cloud. Learn more about Atlassian verified domains [here] (https://support.atlassian.com/provisioning-users/docs/understand-user-provisioning/).
+
+* Atlassian Cloud only supports provisioning updates for users with verified domains. Changes made to users from a non-verified domain will not be pushed to Atlassian Cloud. Learn more about Atlassian verified domains [here](https://support.atlassian.com/provisioning-users/docs/understand-user-provisioning/).
 * Atlassian Cloud does not support group renames today. This means that any changes to the displayName of a group in Azure AD will not be updated and reflected in Atlassian Cloud.
 * The value of the **mail** user attribute in Azure AD is only populated if the user has a Microsoft Exchange Mailbox. If the user does not have one, it is recommended to map a different desired attribute to the **emails** attribute in Atlassian Cloud.
+* When a group is synced and removed from the sync scope, the corresponding group gets deleted from the Atlassian provisioning directory. It will cause the groups on the Cloud sites, where the group had previously synced to be deleted as well. Deleting groups at the site level is destructive and can't be reversed/recovered. If the synced groups are being used to provide permissions like Jira project permissions, deleting the groups will remove those permissions settings from the Cloud site. Simply re-adding/re-syncing the group won't restore permissions. The Cloud site admins will need to manually rebuild the permissions. Do not remove a group from the sync scope in Azure AD unless you are sure that you want the group to get deleted on the Atlassian Cloud sites.
 
 ## Change log
 
 * 06/15/2020 - Added support for batch PATCH for groups.
 * 04/21/2021 - Added support for **Schema Discovery**.
+* 10/14/2022 - Updated Connector Limitations.
 
 ## Additional resources
 

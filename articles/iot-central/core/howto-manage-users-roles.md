@@ -3,7 +3,7 @@ title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 08/01/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -225,6 +225,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | ---- | -------- |
 | Manage | None     |
 | Full Control | Manage |
+
+**Audit log permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None     |
+| Full Control | View |
+
+> [!CAUTION]
+> Any user granted permission to view the audit log can see all log entries even if they don't have permission to view or modify the entities listed in the log. Therefore, any user who can view the log can view the identity of and changes made to any modified entity.
 
 #### Managing users and roles
 
