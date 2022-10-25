@@ -13,7 +13,7 @@
 
 <sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
 
-<sup>2</sup> [Auth code flow][auth-code-flow] with PCKE only (Recommended). 
+<sup>2</sup> [Auth code flow][auth-code-flow] with PKCE only (Recommended). 
 
 <sup>3</sup> [Implicit grant flow][implicit-flow] only.
 
