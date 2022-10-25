@@ -130,7 +130,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`MachineReadableZone.DateOfExpiration`|`date`|Date of expiration|2019-05-05|
 |`MachineReadableZone.Sex`|`string`|Sex|F|
 
-#### Document type - `idDocument.nationalIdentityCard`fields extracted: 
+#### Document type - `idDocument.nationalIdentityCard` fields extracted: 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`CountryRegion`|`countryRegion`|Country or region code|USA|
