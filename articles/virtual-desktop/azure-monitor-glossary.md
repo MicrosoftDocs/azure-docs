@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 10/25/2022
 ms.author: helohr
 manager: femila
 ---
@@ -21,6 +21,15 @@ Any active Azure Monitor alerts that you've configured on the subscription and c
 ## Available sessions
 
 Available sessions shows the number of available sessions in the host pool. The service calculates this number by multiplying the number of virtual machines (VMs) by the maximum number of sessions allowed per virtual machine, then subtracting the total sessions.
+
+## Client operating system (OS)
+
+The client operating system (OS) is 
+
+This item identifies the version of the operating system (OS) in use by end-users accessing Azure Virtual Desktop resources. Both the HTML client and full remote desktop client are represented. For Windows, operating system versions can be referenced here: [Operating System Version - Win32 apps | Microsoft Learn](/windows/win32/sysinfo/operating-system-version).
+
+>[!IMPORTANT]
+>Windows 7 support officially ends January 10th, 2023. The Client OS Version for Windows 7 is Windows 6.1.
 
 ## Connection success
 
