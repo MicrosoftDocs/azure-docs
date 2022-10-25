@@ -28,7 +28,8 @@ You can break file locks for all files in a volume or limit the breaking to a fi
 ## Break file locks
 
 1. Navigate to the volume you want to break file locks on. In the **Volume** menu under **Support & Troubleshooting**, navigate to **Break File Locks**.
-1. To break file locks on a specific client IP, enter an IP address in **Client IP**. To break file locks only for the volume, leave the **Client IP** field empty. Select **Break File Locks**.
+1. To break file locks for a specific client connected to a volume, enter an IP address in the **Client IP**. To break file locks for all clients connected to a volume, leave the **Client IP** field empty.
+1. Select **Break File Locks**.
 
     :::image type="content" source="../media/azure-netapp-files/break-file-locks.png" alt-text="Screenshot of break file locks portal" lightbox="../media/azure-netapp-files/break-file-locks.png":::
 
