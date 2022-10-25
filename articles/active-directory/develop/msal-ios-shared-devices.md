@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 10/25/2022
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Shared device mode for iOS devices
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
@@ -38,7 +38,7 @@ To create a shared device mode app, developers and cloud device admins work toge
 
 1. [**Required during Public Preview only**] A user with [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role must then launch the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) and join their device to the organization.
 
-    To configure the membership of your organizational roles in the Azure portal: **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**
+   To configure the membership of your organizational roles in the Azure portal: **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**
 
 The following sections help you update your application to support shared device mode.
 
@@ -51,34 +51,34 @@ Your device needs to be configured to support shared device mode. It must have i
 
 1. In the Intune Configuration Portal, tell the device to enable the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) with the following configuration:
 
-    - **Type**: Redirect
-    - **Extension ID**: com.microsoft.azureauthenticator.ssoextension
-    - **Team ID**: (this field is not needed for iOS)
-    - **URLs**:   
-        - `https://login.microsoftonline.com`
-        - `https://login.microsoft.com`
-        - `https://sts.windows.net`
-        - `https://login.partner.microsoftonline.cn`
-        - `https://login.chinacloudapi.cn`
-        - `https://login.microsoftonline.de`
-        - `https://login.microsoftonline.us`
-        - `https://login.usgovcloudapi.net`
-        - `https://login-us.microsoftonline.com`
-    - **Additional Data to configure**:
-      - Key: sharedDeviceMode
-      - Type: Boolean
-      - Value: true
+   - **Type**: Redirect
+   - **Extension ID**: com.microsoft.azureauthenticator.ssoextension
+   - **Team ID**: (this field is not needed for iOS)
+   - **URLs**:
+     - `https://login.microsoftonline.com`
+     - `https://login.microsoft.com`
+     - `https://sts.windows.net`
+     - `https://login.partner.microsoftonline.cn`
+     - `https://login.chinacloudapi.cn`
+     - `https://login.microsoftonline.de`
+     - `https://login.microsoftonline.us`
+     - `https://login.usgovcloudapi.net`
+     - `https://login-us.microsoftonline.com`
+   - **Additional Data to configure**:
+     - Key: sharedDeviceMode
+     - Type: Boolean
+     - Value: true
 
-    For more information about configuring with Intune, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
+   For more information about configuring with Intune, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
 
 1. Next, configure your MDM to push the Microsoft Authenticator app to your device through an MDM profile.
 
-    Set the following configuration options to turn on Shared Device mode:
+   Set the following configuration options to turn on Shared Device mode:
 
-    - Configuration 1:
-      - Key: sharedDeviceMode
-      - Type: Boolean
-      - Value: true
+   - Configuration 1:
+     - Key: sharedDeviceMode
+     - Type: Boolean
+     - Value: true
 
 ## Modify your iOS application to support shared device mode
 
@@ -175,7 +175,7 @@ parameters.loginHint = self.loginHintTextField.text;
 
 ### Globally sign out a user
 
-The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It does not, however, clear the *data* from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
+The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It does not, however, clear the _data_ from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
 
 #### Clear browser state
 
@@ -222,6 +222,53 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
     // Sign out completed successfully
 }];
 ```
+
+#### Broadcast receiver
+
+To receive the account change broadcast, you will need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](tutorial-v2-shared-device-mode.md#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
+
+The following code snippet shows how you could register a broadcast receiver.
+
+```objectivec
+NSString *const MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
+
+- (void) registerDarwinNotificationListener 
+
+{ 
+
+   CFNotificationCenterRef center =
+
+   CFNotificationCenterGetDarwinNotifyCenter(); 
+
+   CFNotificationCenterAddObserver(center, nil,
+
+   sharedModeAccountChangedCallback,
+
+   (CFStringRef)MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY, 
+
+   nil, CFNotificationSuspensionBehaviorDeliverImmediately); 
+
+} 
+
+// CFNotificationCallbacks used specifically for Darwin notifications leave userInfo unused 
+
+void sharedModeAccountChangedCallback(CFNotificationCenterRef center, void * observer, CFStringRef name, void const * object, __unused CFDictionaryRef userInfo) 
+
+{ 
+
+    // Invoke account cleanup logic here 
+
+} 
+```
+
+For more information about the available options for CFNotificationAddObserver or to see the corresponding method signatures in Swift, see:
+
+- [CFNotificationAddObserver](https://developer.apple.com/documentation/corefoundation/1543316-cfnotificationcenteraddobserver?language=objc)
+- [CFNotificationCallback](https://developer.apple.com/documentation/corefoundation/cfnotificationcallback?language=objc)
+
+#### iOS background capabilities
+
+Your app will require a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes).  
 
 ## Next steps
 
