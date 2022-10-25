@@ -21,6 +21,9 @@ A tenant is a digital representation of your organization and is primarily assoc
 
 Each tenant is distinct and separate from other tenants, yet you can allow guest users from other tenants to access your tenant to track your costs and manage billing.
 
+## What's an associated tenant? 
+An associated tenant is a tenant that is linked to your primary billing tenant’s billing account. You can move Microsoft 365 subscriptions to these tenants. You can also assign billing account roles to users in associated billing tenants. Read more about associated tenants [Manage billing across multiple tenants using associated billing tenants](../manage/manage-billing-across-tenants.md). 
+
 ## How tenants and subscriptions relate to billing account
 
 You use your Microsoft Customer Agreement (billing account) to track costs and manage billing. Each billing account has at least one billing profile. The billing profile allows you to manage your invoice and payment method. Each billing profile includes one invoice section, by default. You can create more invoice sections to group, track, and manage costs at a more granular level if needed.
