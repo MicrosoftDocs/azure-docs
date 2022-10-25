@@ -32,6 +32,191 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## October 2022
+
+### General Availability - Limits on the number of configured API permissions for an application registration will be enforced starting in October 2022
+
+
+
+**Type:** Plan for change   
+**Service category:** Other     
+**Product capability:** Developer Experience   
+
+In the end of October the total number of required permissions for any single application registration must not exceed 400 permissions across all APIs. Applications exceeding the limit will not be able to increase the number of permissions they are configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
+
+In the Azure portal, the required permissions are listed under API Permissions within specific applications in the application registration menu. When using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an [application](/graph/api/resources/application) entity. For more information, see: [Validation differences by supported account types (signInAudience)](../develop/supported-accounts-validation.md).
+
+---
+
+### Public Preview - Conditional access authentication strengths for external identities
+
+
+**Type:** New feature  
+**Service category:** B2B     
+**Product capability:** B2B/B2C   
+
+You can now require your business partner (B2B) guests across all Microsoft clouds to use specific authentication methods to access your resources with **Conditional Access Authentication Strength policies**. For more information, see: [Conditional Access: Require an authentication strength for external users](../conditional-access/howto-conditional-access-policy-authentication-strength-external.md).
+
+---
+
+### Public Preview - Conditional Access Authentication Strength support to map AAGUID to auth strength 
+
+
+
+**Type:** New feature  
+**Service category:** Conditional Access     
+**Product capability:** User Authentication   
+
+You can use custom authentication strengths to restrict access by requiring specific FIDO2 keys using the Authenticator Attestation GUIDs (AAGUIDs), and apply this through conditional access policies. For more information, see: [FIDO2 security key advanced options](../authentication/concept-authentication-strengths.md#fido2-security-key-advanced-options).
+
+---
+
+### Public Preview - Conditional access Authentication strengths 
+
+
+
+**Type:** New feature  
+**Service category:** Conditional Access   
+**Product capability:** User Authentication  
+
+Announcing Public preview of Authentication strength, a Conditional Access control that allows administrators to specify which authentication methods can be used to access a resource.  For more information, see: [Conditional Access authentication strength (preview)](../authentication/concept-authentication-strengths.md).
+
+---
+
+### Generally Availability - Windows Hello for Business, Cloud Kerberos Trust deployment
+
+
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)     
+**Product capability:** User Authentication   
+
+We are excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+
+---
+
+### General Availability - Device-based conditional access on Linux Desktops
+
+
+
+**Type:** New feature  
+**Service category:** Conditional Access     
+**Product capability:** SSO  
+
+This feature empowers users on Linux clients to register their devices with Azure AD, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
+
+- Users can register their Linux devices with Azure AD
+- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based conditional access on Linux Desktops 
+- If compliant, users can use Edge Browser to enable Single-Sign on to M365/Azure resources and satisfy device-based Conditional Access policies.
+
+
+For more information, see: 
+[Azure AD registered devices](../devices/concept-azure-ad-register.md).
+[Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)
+
+---
+
+### General Availability - Deprecation of Azure Multi-Factor Authentication Server
+
+
+
+**Type:** Deprecated   
+**Service category:** MFA     
+**Product capability:** Identity Security & Protection  
+
+Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multi-factor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services, and to remain in a supported state, organizations should migrate their users’ authentication data to the cloud-based Azure MFA service using the latest Migration Utility included in the most recent [Azure MFA Server update]. For more information, see: [Migrate from MFA Server to Azure AD Multi-Factor Authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md).
+
+---
+
+### General Availability - Change of Default User Consent Settings
+
+
+
+**Type:** New feature  
+**Service category:** Enterprise Apps     
+**Product capability:** Developer Experience  
+
+Starting Sept 30th, 2022, Microsoft will require all new tenants to follow a new user consent configuration. While this will not impact any existing tenants that were created before September 30, 2022, all new tenants created after September 30, 2022, will have the default setting of “Enable automatic updates (Recommendation)” under User consent settings. This change reduces the risk of malicious applications attempting to trick users into granting them access to your organization's data. For more information, see: [Configure how users consent to applications](../manage-apps/configure-user-consent.md).
+
+---
+
+### Public Preview - Lifecycle Workflows is now available
+
+
+
+**Type:** New feature  
+**Service category:** Lifecycle Workflows     
+**Product capability:** Identity Governance   
+
+
+We're excited to announce the public preview of Lifecycle Workflows, a new Identity Governance capability that allows customers to extend the user provisioning process, and adds enterprise grade user lifecycle management capabilities, in Azure AD to modernize your identity lifecycle management process. With Lifecycle Workflows, you can confidently configure and deploy custom workflows to automate out-of-the-box actions critical to required Joiner and Leaver scenarios for onboarding and offboarding cloud employees at scale, and replace your manual processes. For more information, see: [What are Lifecycle Workflows? (Public Preview)](../governance/what-are-lifecycle-workflows.md).
+
+---
+
+### Public Preview - User-to-Group Affiliation recommendation for group Access Reviews
+
+
+
+**Type:** New feature  
+**Service category:** Access Reviews     
+**Product capability:** Identity Governance   
+
+This feature provides Machine Learning based recommendations to group access reviews, and makes the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group, and relies on a scoring mechanism, computed by calculating the user’s average distance with the remaining users in the group. For more information, see: [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md).
+
+---
+
+### General Availability - Group assignment for SuccessFactors Writeback application
+
+
+
+**Type:** New feature  
+**Service category:** Provisioning  
+**Product capability:** Outbound to SaaS Applications   
+
+When configuring writeback of attributes from Azure AD to SAP SuccessFactors Employee Central, you can now specify the scope of users using Azure AD group assignment. For more information, see: [Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md).
+
+---
+
+### General Availability - Number Matching for Microsoft Authenticator notifications
+
+
+
+**Type:** New feature  
+**Service category:** Microsoft Authenticator App      
+**Product capability:** User Authentication   
+
+To prevent accidental notification approvals, admins can now require users to enter the number displayed on the sign-in screen when approving an MFA notification in the Microsoft Authenticator app. We have also refreshed the Azure Portal admin UX and Microsoft Graph APIs to make it easier for customers to manage Authenticator app feature rollouts. As part of this update we have also added the highly requested ability for admins to exclude user groups from each feature. 
+
+The number matching feature greatly up-levels the security posture of the Microsoft Authenticator app and protects organizations from MFA fatigue attacks. We highly encourage our customers to adopt this feature leveraging the rollout controls we have built. Number Matching will begin to be enabled for all users of the Microsoft Authenticator app starting 27th of February 2023.
+
+
+For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md).
+
+---
+
+### General Availability - Additional context in Microsoft Authenticator notifications
+
+
+
+**Type:** New feature  
+**Service category:** Microsoft Authenticator App      
+**Product capability:** User Authentication 
+
+Reduce accidental approvals by showing users additional context in Microsoft Authenticator app notifications. Customers can enhance notifications with the following:
+
+- Application Context: This feature will show users which application they are signing into.
+- Geographic Location Context: This feature will show users their sign-in location based on the IP address of the device they are signing into. 
+
+The feature is available for both MFA and Password-less Phone Sign-in notifications and greatly increases the security posture of the Microsoft Authenticator app. We have also refreshed the Azure Portal Admin UX and Microsoft Graph APIs to make it easier for customers to manage Authenticator app feature roll-outs. As part of this update, we have also added the highly requested ability for admins to exclude user groups from certain features. 
+
+We highly encourage our customers to adopt these critical security features to reduce accidental approvals of Authenticator notifications by end users.
+
+
+For more information, see: [How to use additional context in Microsoft Authenticator notifications - Authentication methods policy](../authentication/how-to-mfa-additional-context.md).
+
+---
+
+
 ## September 2022 
 
 ### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect cloud sync
