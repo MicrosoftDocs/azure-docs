@@ -1490,9 +1490,9 @@ groups:
   prompt: Choose an Azure IoT Edge development option
   pivots:
   - id: iotedge-dev-cli
-    title: Command line interface
+    title: IoT Edge Dev Tool CLI
   - id: iotedge-dev-ext
-    title: Azure IoT Edge VS tool extension
+    title: IoT Edge VS extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods

@@ -13,27 +13,27 @@ zone_pivot_groups: iotedge-dev
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-This article shows you how to use Visual Studio 2022 to develop and debug Azure IoT Edge modules.
+This article shows you how to use Visual Studio 2022 to develop, debug, and deploy custom Azure IoT Edge modules. Visual Studio 2022 provides templates for IoT Edge modules written in C and C#. The supported device architectures are Windows x64, Linux x64, ARM32, and ARM64 (preview). For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
-The **Azure IoT Edge Tools for Visual Studio** extension provides the following benefits:
+You can choose either the **Azure IoT Edge Dev Tool** CLI or the **Azure IoT Edge tools for Visual Studio** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article. Both tools provide the following benefits:
 
 * Create, edit, build, run, and debug IoT Edge solutions and modules on your local development computer.
 * Code your Azure IoT modules in C or C# with the benefits of Visual Studio development.
 * Deploy your IoT Edge solution to an IoT Edge device via Azure IoT Hub.
-* Manage IoT Edge devices and modules with the UI.
 
-Visual Studio 2022 provides support for modules written in C and C#. The supported device architectures are Windows x64 and Linux x64 or ARM32, while ARM64 is in preview. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
-  
 ## Prerequisites
 
 This article assumes that you use a machine running Windows as your development machine. 
 
-* On Windows computers, you can develop either Windows or Linux modules.
+* To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-    * To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer.
-    * To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+* To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer. For more information, see, [Windows containers](support.md#windows-containers).
+:::moniker-end
+<!-- end 1.1 -->
 
-* Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C++** workloads in your Visual Studio 2022 installation. Alternatively, you can [Modify Visual Studio 2022](/visualstudio/install/modify-visual-studio?view=vs-2022&preserve-view=true) to add the required workloads, if Visual Studio is already installed on your machine.
+* Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workloads options.
 
 ::: zone pivot="iotedge-dev-cli"
 
@@ -56,15 +56,12 @@ This article assumes that you use a machine running Windows as your development 
 * Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
 
     * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
-
-      > [!TIP]
-      > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
-
     * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup will open. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
 
-      If you only need to update your tools, go to the **Manage Extensions** window, expand **Updates > Visual Studio Marketplace**, select **Azure IoT Edge Tools** then select **Update**. 
-    
-      After the update is complete, select **Close** and restart Visual Studio.
+    You may have to  restart Visual Studio.
+
+   > [!TIP]
+   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
 
 * Set up your local development environment to debug, run, and test your IoT Edge solution by installing the [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (3.5/3.6/3.7/3.8) and Pip](https://www.python.org/) and then install the **iotedgehubdev** package by running the following command in your terminal.
 
@@ -93,12 +90,20 @@ This article assumes that you use a machine running Windows as your development 
   vcpkg.exe --triplet x64-windows integrate install
   ```
 
-* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. For example, install [Docker Community Edition](https://docs.docker.com/install/).
 
-* Create an instance of [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+* Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
+:::moniker-end
+<!-- end 1.1 -->
+
+* Create an [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
 
   > [!TIP]
   > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
+
+* Install the [Azure CLI](/cli/azure/install-azure-cli)
 
 * To test your module on a device, you'll need an active IoT Hub with at least one IoT Edge device. To create an IoT Edge device for testing you can create one in the Azure portal or with the CLI:
 

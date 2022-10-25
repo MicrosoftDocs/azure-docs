@@ -1,9 +1,8 @@
 ---
-title: Develop and debug modules for Azure IoT Edge | Microsoft Docs
+title: Develop and debug modules for Azure IoT Edge
 description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
 services: iot-edge
 author: PatAltimore
-
 ms.author: patricka
 ms.date: 10/18/2022
 ms.topic: conceptual
@@ -16,7 +15,7 @@ zone_pivot_groups: iotedge-dev
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-This article shows you how to use Visual Studio Code for developing and debugging IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
+This article shows you how to use Visual Studio Code to develop and debug IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
 
 Visual Studio Code supports writing IoT Edge modules in the following programming languages:
 
@@ -60,8 +59,8 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
-- Install [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
-- Create a [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. For example, install [Docker Community Edition](https://docs.docker.com/install/).
+- Create an [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
 
     > [!TIP]
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
