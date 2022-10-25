@@ -118,6 +118,8 @@
       items:
         - name: Monitoring
           href: concepts-monitoring.md
+        - name: Performance tuning
+          href: concepts-performance-tuning.md
         - name: Audit logs
           href: concepts-audit.md
     - name: Columnar storage
