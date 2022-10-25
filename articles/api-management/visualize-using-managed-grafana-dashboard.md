@@ -54,7 +54,7 @@ To import the dashboard:
 
 Review the default visualizations on the dashboard, which will appear similar to the following screenshot:
 
-:::image type="content" source="media/visualize-using-managed-grafana-dashboard/api-management-dashboard.png" alt-text="Screenshot of API Management dashboard in Managed Grafana workspace.":::
+:::image type="content" source="media/visualize-using-managed-grafana-dashboard/api-management-dashboard.png" alt-text="Screenshot of API Management dashboard in Managed Grafana workspace." lightbox=media/visualize-using-managed-grafana-dashboard/api-management-dashboard.png":::
 
 ## Next steps
 
