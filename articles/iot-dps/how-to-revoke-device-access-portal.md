@@ -33,7 +33,7 @@ To disallow a device from being provisioned through Device Provisioning Service,
 > [!NOTE] 
 > Be aware of the retry policy of devices that you revoke access for. For example, a device that has an infinite retry policy might continuously try to register with the provisioning service. That situation consumes service resources such as service operation quotas and possibly affects performance.
 
-## Permanently disenroll the device by deleting its enrollment:
+## Permanently disenroll the device by deleting its enrollment
 
 If an IoT device is at the end of its device lifecycle and should no longer be allowed to provision to the IoT solution, the device enrollment should be removed from the Device Provisioning Service:
 
