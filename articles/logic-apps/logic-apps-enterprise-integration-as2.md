@@ -82,7 +82,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 ### [Consumption](#tab/consumption)
 
-#### [AS2 v2](#tab/as2-v2/consumption)
+#### AS2 v2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -104,7 +104,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
    ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-consumption.png)
 
-#### [AS2](#tab/as2/consumption)
+#### AS2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -137,11 +137,11 @@ Select the tab for either Consumption or Standard logic app workflows:
    | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
    | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box so that the dynamic content list opens. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
 
-   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-details-consumption.png)
+   ![Screenshot showing the "Encode to AS2 message" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-details-consumption.png)
 
 ### [Standard](#tab/standard)
 
-#### [AS2 v2](#tab/as2-v2/standard)
+#### AS2 v2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -165,7 +165,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
    ![Screenshot showing the Standard workflow designer and "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-built-in-standard.png)
 
-#### [AS2](#tab/as2/standard)
+#### AS2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -210,7 +210,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 ### [Consumption](#tab/consumption)
 
-#### [AS2 v2](#tab/as2-v2/consumption)
+#### AS2 v2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -233,7 +233,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
    ![Screenshot showing the "AS2 Decode" action with the "Body" and "Headers" outputs entered from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-consumption.png)
 
-#### [AS2](#tab/as2/consumption)
+#### AS2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -269,7 +269,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 ### [Standard](#tab/standard)
 
-#### [AS2 v2](#tab/as2-v2/standard)
+#### AS2 v2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -292,7 +292,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
    ![Screenshot showing the Standard workflow designer and "AS2 Decode" action with the message decoding properties.](./media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-built-in-standard.png)
 
-#### [AS2](#tab/as2/standard)
+#### AS2 connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
