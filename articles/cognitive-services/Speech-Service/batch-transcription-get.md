@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/11/2022
+ms.date: 10/21/2022
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
@@ -347,7 +347,7 @@ Depending in part on the request parameters set when you created the transcripti
 |`displayPhraseElements`|A list of results with display text for each word of the phrase. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with speech-to-text REST API version 3.1.|
 |`duration`|The audio duration, ISO 8601 encoded duration.|
 |`durationInTicks`|The audio duration in ticks (1 tick is 100 nanoseconds).|
-|`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "doctor smith" to "dr smith", phone numbers, and other transformations are applied.|
+|`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "Doctor Smith" to "Dr Smith", phone numbers, and other transformations are applied.|
 |`lexical`|The actual words recognized.|
 |`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with speech-to-text REST API version 3.1.|
 |`maskedITN`|The ITN form with profanity masking applied.|

@@ -11,6 +11,7 @@ ms.date: 10/20/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
+ms.custom: references_regions
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -23,11 +24,27 @@ recommendations: false
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+>[!NOTE]
+> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
+
 ## October 2022
+
+### Language expansion
 
 With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
 
 Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
+
+### New Prebuilt Contract model
+
+A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. Contracts is currenlty in preview, please request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
+
+### Region expansion for training custom neural models 
+
+Training custom neural models now supported in added regions.
+* East US
+* East US2
+* US Gov Arizona
 
 ## September 2022
 
@@ -565,7 +582,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 * Client defaults to the latest supported service version, currently v2.1. You can specify version 2.0  in the **FormRecognizerClientOptions** object's **Version** property.
 
-* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _ID_ keyword for all related identity documents recognition API functionalities.
 
 * **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**.
 
@@ -653,7 +670,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 #### **Breaking changes (May)**
 
-* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword.
+* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _ID_ keyword.
 
 * **FieldValueType**. Renamed value type *country* to **countryRegion**.  Removed value type *gender*.
 
