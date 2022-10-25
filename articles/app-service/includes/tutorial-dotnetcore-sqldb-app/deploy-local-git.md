@@ -41,7 +41,11 @@ Next, let's add an Azure origin to our local Git repo using the App Service Git 
 ```bash
 git remote add azure https://<your-app-name>.scm.azurewebsites.net/<your-app-name>.git
 ```
-
+Before pushing your code to App Service you need to commit the changes in your local Git that were done in Step#5. 
+```bash
+git add <file-name> or git add . 
+git commit -m "Updating the modified appsettings.json and Startup.cs files"
+```
 Finally, push your code using the correct origin and branch name.
 
 ```bash
