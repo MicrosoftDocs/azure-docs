@@ -256,7 +256,7 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 1. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **FullCopyPipeline**.
 1. In the **Activities** toolbox, expand **Move & transform**, and drag-drop the **Copy** activity to the pipeline designer surface or search the **copy data** activity in search bar under **Activities**, and set the name **FullCopyActivity**.
 1. Switch to the **Source** tab, and select **SourceDataset** for the **Source Dataset** field.
-1. 5. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field.
+1. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field.
 
 1. To validate the pipeline definition, click **Validate** on the toolbar. Confirm that there is no validation error. Close the **Pipeline Validation output** by clicking **Close**.
 1. To publish entities (linked services, datasets, and pipelines), click **Publish all**. Wait until the publishing succeeds.
@@ -272,7 +272,7 @@ In this step, you create a pipeline with a copy activity that copies the entire 
    ![Pipeline run confirmation with parameter check.](media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-pipeline-run-confirmation.png)
 ### Monitor the full copy pipeline
 
-1. 1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. Hover on the pipeline run to get the option to **Rerun** or check **consumption** .
+1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. Hover on the pipeline run to get the option to **Rerun** or check **consumption** .
    ![Screenshot shows pipeline runs for a data factory.](monitor-full-copy-pipeline-run1.png)
 1. To view activity runs associated with the pipeline run, click the pipeline name from **Pipeline name** column. There is only one activity in the pipeline, so you see only one entry in the list. To switch back to the pipeline runs view, click **All** **pipeline runs** link at the top.
 ### Review the results
