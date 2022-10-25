@@ -14,13 +14,13 @@ ms.topic: conceptual
 > **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
 
 > [!IMPORTANT]
->  This article refers to a solution that is maintained by the Open Source community. Support is only available in the form of GitHub collaboration, not from Microsoft.
+>  The article refers to a solution that is maintained by the Open Source community. Support is only available in the form of GitHub collaboration, not from Microsoft.
 
 This article explains how to create configuration from existing servers for an Azure Automation state configuration. To create configurations from an existing servers is a challenging task as you need to know the right settings and the order they must be applied to ensure that configuration is successful.  
 
-## Community project: ReverseDSC
+## Community project: ReverseDSC 
 
-A community maintained solution named [ReverseDSC](https://github.com/microsoft/reversedsc) is created to work in this area beginning with the SharePoint. The solution builds on the [SharePointDSC resource](https://github.com/powershell/sharepointdsc) and extends it to orchestrate by [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) from existing servers running SharePoint.
+ The [ReverseDSC](https://github.com/microsoft/reversedsc) is a community maintained solution created to work in this area beginning with the SharePoint. The solution builds on the [SharePointDSC resource](https://github.com/powershell/sharepointdsc) and extends it to orchestrate by [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) from existing servers running SharePoint.
 
 The latest version has multiple [extraction modes](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) to determine the level of information to include. The result of using the solution is generating
 [Configuration Data](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) that must be used with SharePointDSC configuration scripts.
@@ -31,7 +31,7 @@ The latest version has multiple [extraction modes](https://github.com/Microsoft/
 Follow the steps to create a configuration from existing servers for an Azure Automation state configuration:
 
 1. After you generate the data files, you can use them with [DSC Configuration scripts](/powershell/dsc/overview) to generate *MOF* files.
-1. [upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+1. upload the [MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
 1. Register your servers from either [on-premises](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines)
 or [in Azure](./automation-dsc-onboarding.md#enable-azure-vms) to pull configurations.
 
