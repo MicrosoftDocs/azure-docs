@@ -298,7 +298,7 @@ To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-Run the [New-AzFederatedIdentityCredentials]() command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
+Run the New-AzFederatedIdentityCredentials command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
 
 ```azurepowershell
 New-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 `
@@ -307,7 +307,7 @@ New-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityNam
 
 ## List federated identity credentials on a user-assigned managed identity
 
-Run the [Get-AzFederatedIdentityCredentials]() command to read all the federated identity credentials configured on a user-assigned managed identity:
+Run the Get-AzFederatedIdentityCredentials command to read all the federated identity credentials configured on a user-assigned managed identity:
 
 ```azurepowershell
 Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01
@@ -315,7 +315,7 @@ Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityNam
 
 ## Get a federated identity credential on a user-assigned managed identity
 
-Run the [Get-AzFederatedIdentityCredentials]() command to show a federated identity credential (by ID):
+Run the Get-AzFederatedIdentityCredentials command to show a federated identity credential (by ID):
 
 ```azurepowershell
 Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 -Name fic-pwsh01
@@ -323,7 +323,7 @@ Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityNam
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-Run the [Remove-AzFederatedIdentityCredentials]() command to delete a federated identity credential under an existing user assigned identity.
+Run the Remove-AzFederatedIdentityCredentials command to delete a federated identity credential under an existing user assigned identity.
 
 ```azurepowershell
 Remove-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 -Name fic-pwsh01
