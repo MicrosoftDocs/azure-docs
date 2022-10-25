@@ -186,7 +186,7 @@ To learn more about infrastructure encryption, see [Enable infrastructure encryp
 
 To view the encryption scopes for a storage account in the Azure portal, navigate to the **Encryption Scopes** setting for the storage account. From this pane, you can enable or disable an encryption scope or change the key for an encryption scope.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot showing list of encryption scopes in Azure portal":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot showing list of encryption scopes in Azure portal" lightbox="media/encryption-scope-manage/list-encryption-scopes-portal.png":::
 
 To view details for a customer-managed key, including the key URI and version and whether the key version is automatically updated, follow the link in the **Key** column.
 
