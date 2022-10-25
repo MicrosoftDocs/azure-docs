@@ -285,39 +285,65 @@ Supported attributes are defined as follows:
 
 The following example shows the command syntax and response for the *support* user:
 
-<!--left off editing here-->
 ```bash
-alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
+alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-### Appending and editing an alert suppression rule
+### Modify an alert suppression rule
 
-In the CLI, enter the following command to append local alert exclusion rules:
+Use the following commands to modify an existing local alert exclusion rule on your sensor.
 
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+| **support** | `exclusion-rule-append` |  `exclusion-rule-append [-h] [-n NAME] [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]`|
+| **cyberx** |`exclusion-rule-append`  |`exclusion-rule-append [-h] [-n NAME] [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]`   |
+
+Supported attributes are defined as follows:
+
+|Attribute  |Description  |
+|---------|---------|
+|`-h`, `--help`     |  Shows the help message and exits.      |
+|`[-n <NAME>]`, `[--name <NAME>]` | The name of the rule you want to modify.|
+|`[-ts <TIMES>]` `[--time_span <TIMES>]` | Defines the time span for which the rule is active, using the following syntax: `xx:yy-xx:yy, xx:yy-xx:yy` |
+|`[-dir <DIRECTION>]`, `--direction <DIRECTION>` | Address direction to exclude. Use one of the following values: `both`, `src`, `dst`|
+|`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
+| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` <!--where do you find hex values?-->|
+
+The following example shows the command syntax and response for the *support* user:
+<!--in entire page, need to replace variables in these samples with actual sample values that would make sense here-->
 
 ```bash
-alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
+alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
-
-As explained in the section Create local alert exclusion rules, these attributes are also used here. In this case, the attributes are applied to existing rules.
-
 
 ### Deleting an alert suppression rule
 
-The following command can be used to remove an existing alert exclusion rule:
+Use the following commands to delete an existing local alert exclusion rule on your sensor.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+| **support** | `exclusion-rule-remove` |  `exclusion-rule-append [-h] [-n NAME] [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]`|
+| **cyberx** |`exclusion-rule-remove`  |`exclusion-rule-append [-h] [-n NAME] [-ts TIMES] [-dir DIRECTION] [-dev DEVICES] [-a ALERTS]`   |
+
+Supported attributes are defined as follows:
+
+|Attribute  |Description  |
+|---------|---------|
+|`-h`, `--help`     |  Shows the help message and exits.      |
+|`[-n <NAME>]`, `[--name <NAME>]` | The name of the rule you want to delete.|
+|`[-ts <TIMES>]` `[--time_span <TIMES>]` | Defines the time span for which the rule is active, using the following syntax: `xx:yy-xx:yy, xx:yy-xx:yy` |
+|`[-dir <DIRECTION>]`, `--direction <DIRECTION>` | Address direction to exclude. Use one of the following values: `both`, `src`, `dst`|
+|`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
+| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` <!--where do you find hex values?-->|
+
+The following example shows the command syntax and response for the *support* user:
 
 ```bash
 alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
-
-The following attribute can be used with the alert exclusion rules:
-
-| Attribute | Description|
-| --------- | ---------------------------------- |
-| -n NAME | The name of the rule to be deleted. |
 
 ## Local alert exclusion rules
 
