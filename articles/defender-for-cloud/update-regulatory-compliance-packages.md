@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 10/25/2022
 ms.custom: ignite-2022
 ---
 # Customize the set of standards in your regulatory compliance dashboard
@@ -54,8 +54,8 @@ Users that have one Defender bundle enabled cab enable CIS and PCI as well (same
 
 Available AWS regulatory standards:
 
-* AWS CIS 1.2.0
-* AWS PCI DSS 3.2.1
+- AWS CIS 1.2.0
+- AWS PCI DSS 3.2.1
 
 To add regulatory compliance standards on AWS accounts:
 
@@ -66,7 +66,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
-:::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
 
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
@@ -110,8 +110,7 @@ To add standards to your dashboard:
 1. Expand the Industry & regulatory standards section and select **Add more standards**.
 
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
-
-    ![Adding regulatory standards to Microsoft Defender for Cloud's regulatory compliance dashboard.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+:::image type="content" source="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png" alt-text="screenshot showing adding regulatory standards to regulatory compliance dashboard. "lightbox="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png":::
 
 1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
@@ -122,7 +121,7 @@ To add standards to your dashboard:
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-:::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="screenshot showing regulatory compliance dashboard."  lightbox="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png":::
+    :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="screenshot showing regulatory compliance dashboard."  lightbox="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png":::
 
 ### Add a standard to your AWS resources
 
@@ -135,7 +134,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
-:::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
 
 ## Remove a standard from your dashboard
 
@@ -156,7 +155,7 @@ To remove a standard:
 
 1. For the standard you want to remove, select **Disable**. A confirmation window appears.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirm that you really want to remove the regulatory standard you selected.":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirm that you really want to remove the regulatory standard you selected." lightbox="media/update-regulatory-compliance-packages/remove-standard-confirm.png":::
 
 1. Select **Yes**. The standard will be removed.
 
