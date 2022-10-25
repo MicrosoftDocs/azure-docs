@@ -14,21 +14,23 @@ This article provides information to help you troubleshoot errors with your Pyth
 
 The following is a list of troubleshooting sections for common issues in Python functions:
 
-::: zone pivot="python-mode-configuration" 
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
+
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
+
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
+
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
-::: zone-end
-::: zone pivot="python-mode-configuration" 
-* [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
+::: zone pivot="python-mode-decoration" 
 * [Multiple Python workers not supported](#multiple-python-workers-not-supported)
+
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
+
 * [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-Azure-Storage-connection)
+
 * [Issues with deployment](#issue-with-deployment)
 ::: zone-end
 
-::: zone pivot="python-mode-configuration"
 ## Troubleshoot ModuleNotFoundError
 
 This section helps you troubleshoot module-related errors in your Python function app. These errors typically result in the following Azure Functions error message:
@@ -152,7 +154,6 @@ Sometimes, the package may have been integrated into [Python Standard Library](h
 However, if you're facing an issue that it hasn't been fixed and you're on a deadline. I encourage you to do some research and find a similar package for your project. Usually, the Python community will provide you with a wide variety of similar libraries that you can use.
 
 ---
-::: zone-end
 
 ## Troubleshoot cannot import 'cygrpc'
 
@@ -189,7 +190,7 @@ Check if your Python interpreter matches our expected version by `py --version` 
 If your Python interpreter version doesn't meet the requirements for Functions, instead download the Python 3.6, 3.7, 3.8, or 3.9 interpreter from [Python Software Foundation](https://www.python.org/downloads).
 
 ---
-::: zone pivot="python-mode-configuration"
+
 ## Troubleshoot Python Exited With Code 137
 
 Code 137 errors are typically caused by out-of-memory issues in your Python function app. As a result, you get the following Azure Functions error message:
@@ -250,7 +251,7 @@ There are two ways to mitigate this issue.
     ```
 
 ---
-::: zone-end
+
 ::: zone pivot="python-mode-decorators"  
 ## Multiple Python workers not supported
 
@@ -307,8 +308,8 @@ You may see this error in your local output as the following message:
 > `Value cannot be null. (Parameter 'provider')`
 
 This error is a result of how extensions are loaded from the bundle locally. To resolve this error, you can do one of the following:
-* Use a storage emulator such as [Azurerite](./storage/common/storage-use-azurite.md). This is a good option when you aren't planning to use a storage account in your function application.
-* Create a storage account and add a connection string to the `AzureWebJobsStorage` environment variable in `localsettings.json`. Use this option when you are using a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](./storage/common/storage-account-create.md).
+* Use a storage emulator such as [Azurerite](../storage/common/storage-use-azurite.md). This is a good option when you aren't planning to use a storage account in your function application.
+* Create a storage account and add a connection string to the `AzureWebJobsStorage` environment variable in `localsettings.json`. Use this option when you are using a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Issue with Deployment
 
