@@ -82,16 +82,14 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project.   
 
-5. Open the generated `function_app.py` project file, which will contain your functions.
+5. Open the generated `function_app.py` project file, which contains your functions.
 
 6. Uncomment the `test_function` function, which is an HTTP triggered function.
 
-7. Change the `name` parameter of the `app.function_name` decorator method to `HttpExample`.
-
-8. Add the following decorator code before the function declaration:
+7. Replace the `app.route()` method call with the following code:
 
     ```python
-    @app.auth_level.ANONYMOUS
+    @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
     ```
 
     This code enables your HTTP function endpoint to be called in Azure without having to provide an [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys). Local execution doesn't require authorization keys. 
@@ -99,9 +97,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     Your function code should now look like the following example:
 
     ```python
-    @app.function_name(name="HttpExample")
-    @app.auth_level.ANONYMOUS 
-    @app.route(route="hello")
+    @app.function_name(name="HttpTrigger1")
+    @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
     def test_function(req: func.HttpRequest) -> func.HttpResponse:
         logging.info('Python HTTP trigger function processed a request.')
 
@@ -123,6 +120,14 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
             ) 
     ```
  
+8. Open the local.settings.json project file and updated the `AzureWebJobsStorage` setting as in the following example:
+
+    ```json
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    ```
+
+    This tells the local Functions host to use the storage emulator for the storage connection currently required by the v2 model. When you publish your project to Azure, you'll instead use the default storate account. If you're instead using an Azure Storage account, set your storage account connection string here.
+
 ## Start the emulator
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.

@@ -5,28 +5,37 @@ ms.topic: article
 ms.date: 05/25/2022
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
+zone_pivot_groups: python-mode-functions
 ---
 
 # Azure Functions Python developer guide
 
 This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
+> [!IMPORTANT]
+> This article supports both the v1 and v2 programming model for Python in Azure Functions. 
+> The v2 programming model is currently in preview.
+> While the v1 model uses a functions.json file to define functions, the new v2 model lets you instead use a decorator-based approach. This new approach results in a simpler file structure and a more code-centric approach. Choose the **v2** selector at the top of the article to learn about this new programming model. . 
+
 As a Python developer, you may also be interested in one of the following articles:
 
+::: zone pivot="python-mode-configuration" 
 | Getting started | Concepts| Scenarios/Samples |
 |--|--|--|
-| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+::: zone-end
+::: zone pivot="python-mode-decorators" 
+| Getting started | Concepts| 
+|--|--|--|
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | 
+::: zone-end
 
 > [!NOTE]
-> While you can [develop your Python based Azure Functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
-
-> [!TIP]
-> The V2 programming model for Azure Functions in Python is in Preview. This new model's features include a decorator-based approach and a simpler file structure. Select the **V2** tab to learn about this new programming model. To create a function app in the new model, see the [quickstart](./create-first-function-vs-code-python.md?pivots=python-mode-decorators). 
+> While you can develop your Python based Azure Functions locally on Windows, Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
 
 ## Programming model
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration" 
 Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).
 
 Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
@@ -53,9 +62,8 @@ def main(req: azure.functions.HttpRequest) -> str:
 ```
 
 Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions) package to bind input and outputs to your methods.
-
-# [V2](#tab/V2)
-
+::: zone-end
+::: zone pivot="python-mode-decorators" 
 Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method in the `function_app.py` file.
 
 Triggers and bindings can be declared and used in a function in a decorator based approach. They are defined in the same file, `function_app.py`, as the functions. As an example, the below _function_app.py_ file represents a function trigger by an HTTP request.
@@ -97,12 +105,11 @@ At this time, only specific triggers and bindings are supported by the V2 progra
 
 To learn about known limitations with the V2 model and their workarounds, see [Troublehshooting Python Functions using the V2 Model](recover-python-functions-v2.md) 
 
----
+::: zone-end
 
 ## Alternate entry point
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration"  
 You can change the default behavior of a function by optionally specifying the `scriptFile` and `entryPoint` properties in the *function.json* file. For example, the _function.json_ below tells the runtime to use the `customentry()` method in the _main.py_ file, as the entry point for your Azure Function.
 
 ```json
@@ -115,16 +122,14 @@ You can change the default behavior of a function by optionally specifying the `
 }
 ```
 
-# [V2](#tab/V2)
-
-During Preview, the entry point will always be in the file `function_app.py`. However, functions within the project can be stored in different files, and be referenced through [blueprints](#blueprints).
-
----
+::: zone-end
+::: zone pivot="python-mode-decorators" 
+During Preview, the entry point will always be in the file `function_app.py`. However, functions within the project can be
+::: zone-end
 
 ## Folder structure
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration"  
 The recommended folder structure for a Python Functions project looks like the following example:
 
 ```
@@ -162,11 +167,8 @@ The main project folder (<project_root>) can contain the following files:
 * *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains `.vscode/` to ignore your editor setting, `.venv/` to ignore local Python virtual environment, `tests/` to ignore test cases, and `local.settings.json` to prevent local app settings being published.
 
 Each function has its own code file and binding configuration file (function.json).
-
-When you deploy your project to a function app in Azure, the entire contents of the main project (*<project_root>*) folder should be included in the package, but not the folder itself, which means `host.json` should be in the package root. We recommend that you maintain your tests in a folder along with other functions, in this example `tests/`. For more information, see [Unit Testing](#unit-testing).
-
-# [V2](#tab/V2)
-
+::: zone-end
+::: zone pivot="python-mode-decorators" 
 The recommended folder structure for a Python Functions project looks like the following example:
 
 ```
@@ -195,23 +197,23 @@ The main project folder (<project_root>) can contain the following files:
 * *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of Python packages the system installs when publishing to Azure.
 * *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
-
+::: zone-end
 
 When you deploy your project to a function app in Azure, the entire contents of the main project (*<project_root>*) folder should be included in the package, but not the folder itself, which means `host.json` should be in the package root. We recommend that you maintain your tests in a folder along with other functions, in this example `tests/`. For more information, see [Unit Testing](#unit-testing).
 
----
+::: zone pivot="python-mode-decorators"
 ## Blueprints
 
-The V2 programming model is introducing blueprints. A blueprint is a new class instantiated to register functions besides the function application. The functions registered in blueprint instances are not indexed directly by function runtime. Note that to get the functions indexed, the function app needs to register the functions from blueprint instances.
+The v2 programming model introduces the concept of _blueprints_. A blueprint is a new class instantiated to register functions ourside of the core function application. The functions registered in blueprint instances are not indexed directly by function runtime. To get these blueprint functions indexed, the function app needs to register the functions from blueprint instances.
 
-Blueprints will allow for
-* Breaking up the function app into modular components enabling you to define functions in multiple Python files and divide them into different components per file
-* Extensible public function app interfaces to build and reuse your own API’s
+Using blueprints provides the following benefits:
 
+* Lets you break-up the function app into modular components enabling you to define functions in multiple Python files and divide them into different components per file.
+* Provides extensible public function app interfaces to build and reuse your own APIs.
 
-Following is an example of using blueprints:
+The following example shows how to use blueprints:
 
-In `http_blueprint.py` a http function is first defined and added to a blueprint object.
+First, in an `http_blueprint.py` file HTTP triggered function is first defined and added to a blueprint object.
 
 ```python
 import logging 
@@ -246,7 +248,7 @@ def default_template(req: func.HttpRequest) -> func.HttpResponse:
         ) 
 ```
  
-In `function_app.py` the blueprint object is imported and its functions are registered to function app.  
+Next, in `function_app.py` the blueprint object is imported and its functions are registered to function app.  
 
 ```python
 import azure.functions as func 
@@ -257,11 +259,9 @@ app = func.FunctionApp()
 app.register_functions(bp) 
 ```
  
-
 ## Import behavior
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration"  
 You can import modules in your function code using both absolute and relative references. Based on the folder structure shown above, the following imports work from within the function file *<project_root>\my\_first\_function\\_\_init\_\_.py*:
 
 ```python
@@ -289,12 +289,11 @@ from __app__.shared_code import my_first_helper_function #(deprecated __app__ im
 from ..shared_code import my_first_helper_function #(deprecated beyond top-level relative import)
 ```
 
----
+::: zone-end
 
 ## Triggers and Inputs
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration"  
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're different in the `function.json` file, usage is identical in Python code.  Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
 
 For example, the following code demonstrates the difference between the two:
@@ -346,9 +345,8 @@ def main(req: func.HttpRequest,
 ```
 
 When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the storage account specified is the connection string found in the AzureWebJobsStorage app setting, which is the same storage account used by the function app.
-
-# [V2](#tab/V2)
-
+::: zone-end
+::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
 
 As an example, the following code demonstrates the difference between the two:
@@ -396,12 +394,11 @@ Note that at this time, only specific triggers and bindings are supported by the
 
 To learn more about defining triggers and bindings in the V2 model, see this [documentation](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
 
----
+::: zone-end
 
 ## Outputs
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration" 
 Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you'll have to use output parameters.
 
 To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in `function.json`.
@@ -446,8 +443,8 @@ def main(req: func.HttpRequest,
     return message
 ```
 
-# [V2](#tab/V2)
-
+::: zone-end
+::: zone pivot="python-mode-decorators" 
 Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you'll have to use output parameters.
 
 To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
@@ -467,7 +464,7 @@ def test_function(req: func.HttpRequest,
     msg.set(message)
     return message
 ```
----
+::: zone-end
 
 ## Logging
 
@@ -544,8 +541,7 @@ def main(req, context):
 
 ## HTTP Trigger and bindings
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration" 
 The HTTP trigger is defined in the function.json file. The `name` of the binding must match the named parameter in the function.
 In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
 
@@ -578,9 +574,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 In this function, the value of the `name` query parameter is obtained from the `params` parameter of the [HttpRequest] object. The JSON-encoded message body is read using the `get_json` method.
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
-
-# [V2](#tab/V2)
-
+::: zone-end
+::: zone pivot="python-mode-decorators"  
 The HTTP trigger is defined in the function.json file. The `name` of the binding must match the named parameter in the function.
 In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
 
@@ -619,12 +614,11 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 To pass in a name in this example, paste the URL provided when running the function, and append it with "?name={name}"
 
----
+::: zone-end
 
 ## Web frameworks
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration"  
 You can use WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
 
 First, the function.json file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
@@ -686,7 +680,7 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
 
 Update the Python code file `init.py`, depending on the interface used by your framework. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
 
-### ASGI
+# [ASGI](#tab/asgi)
 
 ```python
 app=fastapi.FastAPI()
@@ -701,7 +695,7 @@ def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
     return AsgiMiddleware(app).handle(req, context)
 ```
 
-### WSGI
+# [WSGI](#tab/wsgi)
 
 ```python
 app=Flask("Test")
@@ -716,11 +710,15 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
 ```
 For a full example, see [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
 
-# [V2](#tab/V2)
+---
 
+::: zone-end
+::: zone pivot="python-mode-decorators" 
 You can leverage ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. The following examples demonstrate how to do so.
 
-`AsgiFunctionApp`: Top level function app class for constructing ASGI HTTP functions. 
+# [ASGI](#tab/asgi)
+
+`AsgiFunctionApp` is the top-level function app class for constructing ASGI HTTP functions. 
 
 ```python
 # function_app.py
@@ -738,8 +736,9 @@ app = func.AsgiFunctionApp(app=fast_app,
                            http_auth_level=func.AuthLevel.ANONYMOUS) 
 ```
 
+# [WSGI](#tab/wsgi)
 
-`WsgiFunctionApp`: Top level function app class for constructing WSGI HTTP functions.  
+`WsgiFunctionApp` is top level function app class for constructing WSGI HTTP functions.  
 
 ```python
 # function_app.py
@@ -814,8 +813,7 @@ def main(req):
 
 ## Environment variables
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration"  
 In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
 
 | Method | Description |
@@ -841,8 +839,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For local development, application settings are [maintained in the local.settings.json file](functions-develop-local.md#local-settings-file).
 
-# [V2](#tab/V2)
-
+::: zone-end
+::: zone pivot="python-mode-decorators"  
 In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
 
 | Method | Description |
@@ -882,7 +880,7 @@ When deploying the function, this setting will not be automatically imported- th
 
 Multiple Python workers are not supported in V2 at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than 1 is not supported for the functions using the V2 model.
 
----
+::: zone-end
 
 ## Python version
 
@@ -1038,8 +1036,7 @@ Functions written in Python can be tested like other Python code using standard 
 
 Take *my_second_function* as an example, following is a mock test of an HTTP triggered function:
 
-# [V1](#tab/V1)
-
+::: zone pivot="python-mode-configuration" 
 First we need to create *<project_root>/my_second_function/function.json* file and define this function as an http trigger.
 
 ```json
@@ -1131,9 +1128,8 @@ class TestFunction(unittest.TestCase):
 ```
 
 Inside your `.venv` Python virtual environment, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
-
-# [V2](#tab/V2)
-
+::: zone-end
+::: zone pivot="python-mode-decorators"  
 First we need to create *<project_root>/function_app.py* file and implement  *my_second_function* function as http trigger and the *shared_code.my_second_helper_function*.
 
 ```python
@@ -1206,9 +1202,7 @@ class TestFunction(unittest.TestCase):
 
 Inside your `.venv` Python virtual environment, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
 
----
-
----
+::: zone-end
 
 ## Temporary files
 

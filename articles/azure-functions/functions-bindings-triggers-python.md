@@ -1,31 +1,34 @@
 ---
-title: V2 Model for Python Triggers and Bindings
-description: Learn how to create triggers in functions with Python using the V2 model
+title: Python V2 model Azure Functions triggers and bindings
+description: Provides examples of how to define Python triggers and bindings in Azure Functions using the preview v2 model
 ms.topic: article
-ms.date: 10/20/22
+ms.date: 10/25/2022
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 ---
 
-# Trigger examples using the V2 Model to developer Azure Functions using Python
+# Python V2 model Azure Functions triggers and bindings (preview)
 
-## V2 Programming Model (Preview)
+The new Python v2 programming model in Azure Functions is intended to provide better alignment with Python development principles and with commonly used Python frameworks. 
 
-The new programming model in Azure Functions Python delivers an experience that aligns with Python development principles, and subsequently with commonly used Python frameworks. 
+The improved v2 programming model requires fewer files than the default model (v1), and specifically eliminates the need for a configuration file (`function.json`). Instead, triggers and bindings are represented in the `function_app.py` file as decorators. Moreover, functions can be logically organized with support for multiple functions to be stored in the same file. Functions within the same function application can also be stored in different files, and be referenced as blueprints.
 
-The improved programming model requires fewer files than the default model, and specifically eliminates the need for a configuration file (`function.json`). Instead, triggers and bindings are represented in the `function_app.py` file as decorators. Moreover, functions can be logically organized with support for multiple functions to be stored in the same file. Functions within the same function application can also be stored in different files, and be referenced as blueprints.
+To learn more about using the new Python programming model for Azure Functions, see the [Azure Functions Python developer guide](./functions-reference-python.md). Note that in addition to the documentation, [hints](https://aka.ms/functions-python-hints) are available in code editors that support type checking with .pyi files.
 
-To learn more about using the new Python programming model for Azure Functions, see the [Azure Functions Python developer guide](https://aka.ms/pythondeveloperguide). Note that in addition to the documentation, [hints](https://aka.ms/functions-python-hints) are available in code editors that support type checking with PYI files.
-
-To learn more about the new programming model for Azure Functions in Python, see [Programming Models in Azure Functions](https://aka.ms/functions-programming-models).
-
-Following are example code snippet for supported using the Python V2 programming model. To run the code snippets below, ensure the following:
+This article contains example code snippets that define various triggers and bindings using the Python v2 programming model. To be able to run the code snippets below, ensure the following:
 
 - The function application is defined and named `app`.
 - Confirm that the parameters within the trigger reflect values that correspond with your storage account.
 - The name of the file the function is in must be `function_app.py`.
 
-### Blob Trigger
+To create your first function in the new v2 model, see one of these quickstart articles:
+
++ [Get started with Visual Studio](./create-first-function-vs-code-python.md)
++ [Get started command prompt](./create-first-function-cli-python.md)
+
+## Blob Trigger
+
+The following code snippet defines a function triggered from Azure Blob Storage:
 
 ```python
 import logging
@@ -33,28 +36,32 @@ import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="BlobTrigger1")
 @app.blob_trigger(arg_name="myblob", path="samples-workitems/{name}",
-                  connection="")
+                  connection="<STORAGE_CONNECTION_SETTING>")
 def test_function(myblob: func.InputStream):
    logging.info(f"Python blob trigger function processed blob \n"
                 f"Name: {myblob.name}\n"
                 f"Blob Size: {myblob.length} bytes")
 ```
 
-### Cosmos DB Trigger
+## Cosmos DB Trigger
+
+The following code snippet defines a function triggered from an Azure Cosmos DB (SQL API):
 
 ```python
 import logging
 import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="CosmosDBTrigger1")
-@app.cosmos_db_trigger(arg_name="documents", database_name="", collection_name="", connection_string_setting="",
+@app.cosmos_db_trigger(arg_name="documents", database_name="<DB_NAME>", collection_name="<COLLECTION_NAME>", connection_string_setting="<COSMOS_CONNECTION_SETTING>",
  lease_collection_name="leases", create_lease_collection_if_not_exists="true")
 def test_function(documents: func.DocumentList) -> str:
     if documents:
         logging.info('Document id: %s', documents[0]['id'])
 ```
 
-### EventHub Trigger
+## EventHub Trigger
+
+The following code snippet defines a function triggered from an Event Hub instance:
 
 ```python
 import logging
@@ -62,13 +69,15 @@ import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="EventHubTrigger1")
 @app.event_hub_message_trigger(arg_name="myhub", event_hub_name="samples-workitems",
-                               connection="") 
+                               connection="<EVENT_HUB_CONNECTION_SETTING>") 
 def test_function(myhub: func.EventHubEvent):
     logging.info('Python EventHub trigger processed an event: %s',
                 myhub.get_body().decode('utf-8'))
 ```
 
-### HTTP Trigger
+## HTTP Trigger
+
+The following code snippet defines an HTTP triggered function:
 
 ```python
 import azure.functions as func
@@ -95,7 +104,7 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### Queue Trigger
+## Queue Trigger
 
 ```python
 import logging
@@ -109,7 +118,7 @@ def test_function(msg: func.QueueMessage):
                  msg.get_body().decode('utf-8'))
 ```
 
-### Service Bus Queue Trigger
+## Service Bus Queue Trigger
 
 ```python
 import logging
@@ -122,7 +131,7 @@ def test_function(msg: func.ServiceBusMessage):
                  msg.get_body().decode('utf-8'))
 ```
 
-### Service Bus Topic Trigger
+## Service Bus Topic Trigger
 
 ```python
 import logging
@@ -136,7 +145,7 @@ def test_function(message: func.ServiceBusMessage):
     logging.info("Message Body: " + message_body)
 ```
 
-### Timer Trigger
+## Timer Trigger
 
 ```python
 import datetime
@@ -153,3 +162,8 @@ def test_function(mytimer: func.TimerRequest) -> None:
         logging.info('The timer is past due!')
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
+## Next steps
+
++ [Python developer guide](./functions-reference-python.md)
++ [Get started with Visual Studio](./create-first-function-vs-code-python.md)
++ [Get started command prompt](./create-first-function-cli-python.md)

@@ -237,6 +237,8 @@ The results depend on the Python programming model. For more information, see th
 
 **Python v1**: A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
 
+**Python v2**: New function code is added either to the default function_app.py file or to another Python file you selected. 
+
 ---
 
 ## <a name="add-input-and-output-bindings"></a>Connect to services
