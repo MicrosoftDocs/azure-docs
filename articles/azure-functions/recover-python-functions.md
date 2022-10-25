@@ -21,7 +21,7 @@ The following is a list of troubleshooting sections for common issues in Python 
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
 ::: zone-end
-::: zone pivot="python-mode-decoration" 
+::: zone pivot="python-mode-decorators" 
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
@@ -29,7 +29,7 @@ The following is a list of troubleshooting sections for common issues in Python 
 * [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
 * [Multiple Python workers not supported](#multiple-python-workers-not-supported)
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
-* [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-Azure-Storage-connection)
+* [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-azure-storage-connection)
 * [Issues with deployment](#issue-with-deployment)
 ::: zone-end
 
@@ -166,7 +166,7 @@ This section helps you troubleshoot 'cygrpc' related errors in your Python funct
 This error occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
 
 - [The Python interpreter mismatches OS architecture](#the-python-interpreter-mismatches-os-architecture)
-- [The Python interpreter isn't supported by Azure Functions Python Worker](#the-python-interpreter-is-not-supported-by-azure-functions-python-worker)
+- [The Python interpreter isn't supported by Azure Functions Python Worker](#the-python-interpreter-isnt-supported-by-azure-functions-python-worker)
 
 ### Diagnose 'cygrpc' reference error
 
