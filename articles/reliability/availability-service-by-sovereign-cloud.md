@@ -25,8 +25,8 @@ This section outlines variations and considerations when using Azure Bot Service
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-|Azure Machine learning| See [Azure Machine Learning feature availability across US Gov cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
+|Azure Machine learning| See [Azure Machine Learning feature availability across Azure China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
+| Cognitive Services: Speech| See [Cognitive Services: Azure China Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
 
 ### Media
 

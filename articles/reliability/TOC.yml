@@ -6,7 +6,7 @@
   items:
   - name: What are Azure availability zones and regions?
     href: az-overview.md
-  - name: Availability zone service and regional support
+  - name: Services and regions with availability zone support
     href: az-service-support.md
   - name: Migrate to availability zone support
     items:
@@ -137,12 +137,82 @@
     href: ../backup/index.yml
 - name: Reliability by service
   items:
-  - name: Azure Batch
-    href: reliability-batch.md
-  - name: Azure Cache for Redis
-    href: reliability-cache.md
-  - name: Azure Functions 
-    href: reliability-functions.md
+    - name: Azure Active Directory Domain Services
+      href: ../active-directory-domain-services/overview.md
+    - name: Azure API Management
+    - name: Azure App Configuration
+      href: ../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability.md
+    - name: Azure App Service
+    - name: Azure App Service- App Service Environment
+    - name: Azure Application Gateway (V2)
+      href: ../application-gateway/overview-v2
+    - name: Azure Backup
+      href: ../backup/index.yml
+    - name: Azure Bastion
+    - name: Azure Batch
+      href: reliability-batch.md
+    - name: Azure Cache for Redis
+      href: reliability-cache.md
+    - name: Azure Cognitive Search
+    - name: Azure Container Instances
+    - name: Azure Container Registry
+    - name: Azure Cosmos DB
+      href: ../cosmos-db/high-availability.md
+    - name: Azure Data Explorer
+    - name: Azure Data Factory
+    - name: Azure Database for MySQL
+    - name: Azure Database for PostgreSQL
+    - name: Azure DDoS Protection
+    - name: Azure Disk Encryption
+    - name: Azure DNS - Azure DNS Private Zones
+      href: ../dns/private-dns-getstarted-portal.md
+    - name: Azure DNS - Azure DNS Private Resolver
+      href: ../dns/dns-private-resolver-get-started-portal.md
+    - name: Azure Event Grid
+    - name: Azure Event Hubs
+      href: ../event-hubs/event-hubs-geo-dr.md#availability-zones
+    - name: Azure ExpressRoute
+      href: ../expressroute/designing-for-high-availability-with-expressroute.md
+    - name: Azure Firewall
+    - name: Azure Firewall Manager
+    - name: Azure Functions 
+      href: reliability-functions.md
+    - name: Azure HDInsight
+    - name: Azure IoT Hub
+    - name: Azure Key Vault
+      href: ../key-vault/general/disaster-recovery-guidance.md
+    - name: Azure Kubernetes Service (AKS)
+    - name: Azure Load Balancer
+      href: ../load-balancer/load-balancer-standard-availability-zones.md
+    - name: Azure Logic Apps
+    - name: Azure Monitor
+    - name: Azure Network Watcher
+    - name: Azure Notification Hubs
+    - name: Azure Private Link
+    - name: Azure Public IP
+      href: ../virtual-network/ip-services/public-ip-addresses.md
+    - name: Azure Route Server
+    - name: Azure Service Bus
+      href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones
+    - name: Azure Service Fabric
+      href: ../service-fabric/service-fabric-cross-availability-zones.md
+    - name: Azure Site Recovery
+    - name: Azure Blob Storage
+      href: ../storage/common/storage-disaster-recovery-guidance.md
+    - name: Azure Stream Analytics
+    - name: Azure SQL
+      href: ../azure-sql/database/high-availability-sla.md
+    - name: Azure Virtual WAN
+    - name: Azure Web Application Firewall
+    - name: Azure Virtual Machine Scale Sets
+      href: ../virtual-machines/availability.md
+    - name: Azure Virtual Machines
+      href: (../virtual-machines/availability.md
+    - name: Azure Virtual Network
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: Azure VPN Gateway
+      href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md
+
 - name: Service availability
   items:
   - name: Availability of services by category
