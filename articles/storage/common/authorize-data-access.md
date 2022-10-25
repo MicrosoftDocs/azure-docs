@@ -45,7 +45,7 @@ Each authorization option is briefly described below:
     For more information about ABAC and its feature status, see:
     > [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)
     >
-    > [The status of ABAC condition features](../../role-based-access-control/conditions-overview.md#features-of-conditions)
+    > [The status of ABAC condition features](../../role-based-access-control/conditions-overview.md#status-of-condition-features)
     >
     > [The status of ABAC condition features in Azure Storage](#status-of-condition-features-in-azure-storage)
 
