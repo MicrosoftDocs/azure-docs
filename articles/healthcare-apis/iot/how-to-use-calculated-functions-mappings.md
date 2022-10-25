@@ -67,7 +67,7 @@ The default expression language to use for a MedTech service device template can
     }
 ```
 
-The CalculatedContentTemplate allows matching on and extracting values from an Azure Event Hub message using **Expressions** as defined below:
+The CalculatedContentTemplate allows matching on and extracting values from an Azure Event Hubs message using **Expressions** as defined below:
 
 |Property|Description|Example|
 |--------|-----------|-------|
@@ -80,7 +80,7 @@ The CalculatedContentTemplate allows matching on and extracting values from an A
 |CorrelationIdExpression|*Optional*: The expression to extract the correlation identifier. This output can be used to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
 |Values[].ValueName|The name to associate with the value extracted by the next expression. Used to bind the wanted value/component in the FHIR destination mapping template.|`hr`|
 |Values[].ValueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
-|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated and an InvalidOperationException will be created.|`true`|
+|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated, and an InvalidOperationException will be created.|`true`|
 
 ### Expression Languages
 
@@ -96,9 +96,9 @@ When specifying the language to use for the expression, the below values are val
 >
 > For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
-### Custom Functions
+### Custom functions
 
-A set of MedTech service Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JMESPath specification. For more information on Custom Functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
+A set of MedTech service custom functions is also available. The MedTech service custom functions are outside of the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
 
 ### Matched Token
 
@@ -219,7 +219,6 @@ And
       "systolic": "122",
       "diastolic": "82",
       "date": "2021-07-13T17:28:01.061122Z"
-    }
   }
 }
 ```

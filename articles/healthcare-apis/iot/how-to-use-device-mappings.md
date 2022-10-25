@@ -15,7 +15,7 @@ This article describes how to configure the MedTech service device mappings.
 
 The MedTech service requires two types of JSON-based mappings. The first type, **device mappings**, is responsible for mapping the device payloads sent to the MedTech service device message event hub end point. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
-The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings**, controls the mapping for FHIR resource. The FHIR destination mappings allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings**, controls the mapping for FHIR resource. The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
 > [!NOTE]
 > Device and FHIR destination mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately.
@@ -38,7 +38,7 @@ The normalized data model has a few required properties that must be found and e
 > [!IMPORTANT]
 > The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
 
-Below is an example of what happens during normalization and transformation process within the MedTech service. For the purposes of the device mapping, we will be focusing on the **Normalized data** process:
+Below is an example of what happens during normalization and transformation process within the MedTech service. For the purposes of the device mapping, we'll be focusing on the **Normalized data** process:
 
 :::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow example zoomed out." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
@@ -63,7 +63,7 @@ The content payload itself is an Azure Event Hubs message, which is composed of 
 ```
 ## CollectionContentTemplate
 
-The CollectionContentTemplate is the **default** template type used by the MedTech service device mapping template and represents a list of templates that will be used during thr normalization process.
+The CollectionContentTemplate is the **default** template type used by the MedTech service device mapping template and represents a list of templates that will be used during the normalization process.
                                                              
 ### Example
 
@@ -129,7 +129,7 @@ The device mapping content types supported by the MedTech service rely on JSONPa
 }
 ```
 
-*A MedTech service device mapping template used during the normalization process*
+*A conforming MedTech service device mapping template that could be used during the normalization process with the example device message*
 
 ```json
 {
@@ -167,9 +167,9 @@ JSONPath allows matching on and extracting values from a device message.
 |CorrelationIdExpression|*Optional*: The expression to extract the correlation identifier. This output can be used to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
 |Values[].ValueName|The name to associate with the value extracted by the next expression. Used to bind the wanted value/component in the FHIR destination mapping template.|`hr`|
 |Values[].ValueExpression|The JSONPath expression to extract the wanted value.|`$.matchedToken.heartRate`|
-|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated and an InvalidOperationException will be created.|`true`|
+|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated, and an InvalidOperationException will be created.|`true`|
 
-## Additional template types
+## Other supported template types
 
 You can define one or more templates within the MedTech service device mapping. Each device message received is evaluated against all device mapping templates.
 

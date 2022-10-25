@@ -15,7 +15,7 @@ ms.author: jasteppe
 This article provides the validation steps the MedTech service performs on the device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings and can be used for troubleshooting mappings error messages and conditions. 
 
 > [!TIP]
-> Having access to metrics and logs are essential tools for assisting in troubleshooting your MedTech service.
+> Having access to metrics and logs are essential tools for assisting you in troubleshooting and assessing the overall performance of your MedTech service. Check out these MedTech service articles to learn more about how to enable, configure, and use these monitoring features:
 >  
 > [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
 >

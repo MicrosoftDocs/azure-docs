@@ -44,6 +44,7 @@ items:
       - name: Calculated Functions mappings
         href: how-to-use-calculated-functions-mappings.md
       - name: IotJsonPathContentTemplate mappings
+        href: how-to-use-iot-jsonpath-content-mappings.md
     - name: Custom Functions
       href: how-to-use-custom-functions.md  
     - name: Destination

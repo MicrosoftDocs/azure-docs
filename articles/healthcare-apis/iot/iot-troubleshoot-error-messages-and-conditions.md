@@ -15,7 +15,7 @@ ms.author: jasteppe
 This article provides steps for troubleshooting and fixing MedTech service error messages and conditions.
 
 > [!TIP]
-> Having access to metrics and logs are essential tools for assisting in troubleshooting your MedTech service.
+> Having access to metrics and logs are essential tools for assisting you in troubleshooting and assessing the overall performance of your MedTech service. Check out these MedTech service articles to learn more about how to enable, configure, and use these monitoring features:
 >  
 > [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
 >
@@ -79,8 +79,8 @@ This property provides the name for a specific error. Below is the list of all e
 |`PatientDeviceMismatchException`|This error occurs when the device resource on the FHIR service has a reference to a patient resource. This error type means it doesn't match with the patient identifier present in the message.|`FHIRResourceError`|Error|`FHIRConversionError`|
 |`PatientNotFoundException`|No Patient FHIR resource is referenced by the Device FHIR resource associated with the device identifier present in the device message. Note this error will only occur when the MedTech service instance is configured with the *Lookup* resolution type.|`FHIRConversionError`|Error|`FHIRConversion`|
 |`DeviceNotFoundException`|No device resource exists on the FHIR service associated with the device identifier present in the device message.|`DeviceMessageError`|Error|Normalization|
-|`PatientIdentityNotDefinedException`|This error occurs when expression to parse patient identifier from the device message isn't configured on the Device mapping or patient identifer isn't present in the device message. Note this error occurs only when MedTech service's resolution type is set to *Create*.|`DeviceTemplateError`|Critical|Normalization|
-|`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the Device mapping or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
+|`PatientIdentityNotDefinedException`|This error occurs when expression to parse patient identifier from the device message isn't configured on the device mapping or patient identifer isn't present in the device message. Note this error occurs only when MedTech service's resolution type is set to *Create*.|`DeviceTemplateError`|Critical|Normalization|
+|`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the device mapping or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
 |`NotSupportedException`|Error occurred when device message with unsupported format is received.|`DeviceMessageError`|Error|Normalization|
 
 ### MedTech service resource
@@ -114,7 +114,7 @@ This property provides the name for a specific error. Below is the list of all e
 |A Patient Resource hasn't been created in the FHIR service (Resolution Type: Look up only)*.|Create a valid Patient Resource in the FHIR service.|
 |The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Look up only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
 
-*Reference [Quickstart: Deploy MedTech service using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the MedTech service resolution types (For example: Look up or Create).
+*Reference [Quickstart: Deploy MedTech service using Azure portal](deploy-05-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (For example: Create or Lookup).
 
 ## Next steps
 
