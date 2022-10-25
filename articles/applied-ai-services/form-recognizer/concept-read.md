@@ -1,7 +1,7 @@
 ---
-title: Read OCR - Form Recognizer
+title: OCR for documents - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to Read OCR API analysis with Form Recognizer API—usage and limits.
+description: Extract print and handwritten text from scanned and digital documents with Form Recognizer’s Read OCR model.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,9 +13,14 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Form Recognizer Read OCR model
+# OCR for documents
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+
+> [!NOTE]
+>
+> For general, in-the-wild images like labels, street signs, and posters, use the [Computer Vision v4.0 preview Read](../../cognitive-services/computer-vision/concept-ocr.md) feature that is optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
+> 
 
 Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) model. The Read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
 
