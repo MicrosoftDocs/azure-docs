@@ -2,22 +2,11 @@
   href: index.yml
 - name: Overview
   href: overview-reliability.md
-- name: Business continuity management program
-  href: business-continuity-management-program.md
-- name: Reliability by service
-  items:
-  - name: Azure Batch
-    href: reliability-batch.md
-  - name: Azure Cache for Redis
-    href: reliability-cache.md
-  - name: Azure Functions 
-    href: reliability-functions.md
 - name: Availability zone support
   items:
   - name: Availability zone service and regional support
     href: az-service-support.md
-  - name: Cross-region replication
-    href: cross-region-replication-azure.md
+
   - name: Migrate to availability zone support
     items:
     - name: Overview
@@ -135,8 +124,24 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
-  - name: Terminology
-    href: glossary.md
+- name: Disaster recovery
+  items:
+  - name: Business continuity management program
+    href: business-continuity-management-program.md
+  - name: Cross-region replication
+    href: cross-region-replication-azure.md
+  - name: Use Azure Site Recovery
+    href: ../site-recovery/index.yml
+  - name: Use Azure Backup
+    href: ../backup/index.yml
+- name: Reliability by service
+  items:
+  - name: Azure Batch
+    href: reliability-batch.md
+  - name: Azure Cache for Redis
+    href: reliability-cache.md
+  - name: Azure Functions 
+    href: reliability-functions.md
 - name: Service availability
   items:
   - name: Availability of services by category
@@ -147,16 +152,12 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
 - name: Resources
   items:
-  - name: Use Azure Site Recovery
-    href: ../site-recovery/index.yml
-  - name: Use Azure Backup
-    href: ../backup/index.yml
   - name: Microsoft Azure Well-Architected Framework
     href: /azure/architecture/framework/
-  - name: Terminology
-    href: glossary.md
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Terminology
+    href: glossary.md
   
