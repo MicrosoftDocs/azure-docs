@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 10/25/2022
 ms.author: anfdocs
 ---
 # Break file locks on an Azure NetApp Files volume
