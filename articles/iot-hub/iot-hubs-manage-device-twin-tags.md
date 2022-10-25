@@ -36,7 +36,7 @@ Device twin tags can be used as a powerful tool to help you organize your device
 ```
 
 
-## Pre-requisites
+## Prerequisites
 
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
