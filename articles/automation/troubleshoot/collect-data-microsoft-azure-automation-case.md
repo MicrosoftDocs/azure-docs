@@ -18,19 +18,19 @@ This article describes the information that you should gather before you open a 
 
 ## Data for Update Management issues on Linux
 
-1. In addition to the items that are listed in KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), run the following log collection tool:
+1. Run the following log collection tool, in addition to the details in KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-   [OMS Linux Agent Log Collector](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
+  - [OMS Linux Agent Log Collector](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
  
-2. Compress the contents of the **/var/opt/microsoft/omsagent/run/automationworker/** folder, then send the compressed file to Azure Support.
+1. Compress the contents of the **/var/opt/microsoft/omsagent/run/automationworker/** folder, and send the compressed file to Azure Support.
  
-3. Verify that the ID for the workspace that the Log Analytics agent for Linux reports to is the same as the ID for the workspace being monitored for updates.
+1. Verify that the ID for the workspace that the Log Analytics agent for Linux reports to is the same as the ID for the workspace being monitored for updates.
 
 ## Data for Update Management issues on Windows
 
 1. Collect data for the items listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-2. Export the following event logs into the EVTX format:
+1. Export the following event logs into the EVTX format:
 
    * System
    * Application
@@ -38,7 +38,7 @@ This article describes the information that you should gather before you open a 
    * Operations Manager
    * Microsoft-SMA/Operational
 
-3. Verify that the ID of the workspace that the agent reports to is the same as the ID for the workspace being monitored by Windows Updates.
+1. Verify that the ID of the workspace that the agent reports to is the same as the ID for the workspace being monitored by Windows Updates.
 
 ## Data for job issues
 
@@ -49,10 +49,13 @@ This article describes the information that you should gather before you open a 
    1. In the Azure portal, go to **Automation Accounts**.
    2. Select the Automation account that you are troubleshooting, and note the name.
    3. Select **Jobs**.
-   4. Choose the job that you are troubleshooting.
-   5. In the Job Summary pane, look for the GUID value in **Job ID**.
 
-   ![Job ID within Job Summary Pane](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
+      :::image type="content" source="/media/collect-data-microsoft-azure-automation-case/select-jobs.png" alt-text="Screenshot showing to select jobs menu from automation account.":::
+
+   4. Choose the job that you are troubleshooting.
+   5. In the Job Summary pane, check for the GUID value in **Job ID**.
+
+      ![Job ID within Job Summary Pane](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
 
 3. Collect a sample of the script that you are running.
 
@@ -63,21 +66,19 @@ This article describes the information that you should gather before you open a 
    3. Select **Jobs**.
    4. Choose the job that you are troubleshooting.
    5. Select **All Logs**.
-   6. In the resulting pane, collect the data.
+      In the pane below, you can collect the data.
 
-   ![Data listed under All Logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
+      ![Data listed under All Logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
 
 ## Data for module issues
 
-In addition to the [basic data items](#basic-data), gather the following information:
+In addition to the knowledge Base article [4034605 - How to capture Azure Automation-scripted diagnostics](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), obtain the following information:
 
-* The steps you have followed, so that the problem can be reproduced.
+* The steps you followed, so that the problem can be reproduced.
 * Screenshots of any error messages.
 * Screenshots of the current modules and their version numbers.
 
 ## Next steps
-
-If you need more help:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
