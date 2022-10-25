@@ -17,7 +17,7 @@ recommendations: false
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-## What is document structure and layout analysis?
+## What is document layout analysis?
 
 Document structure and layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page typically for better semantic understanding and more intelligent versions of knowledge mining, process automation, and accessibility experiences. 
 
@@ -25,6 +25,7 @@ Text, tables, and selection marks are examples of geometric roles. Titles, headi
 
 The following illustration shows the typical components in an image of a sample page.
 
+:::image type="content" source="media/document-layout-example.png" alt-text="Document layout example illustration":::
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
