@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 10/24/2022
 ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mmcc
@@ -1147,7 +1147,7 @@ None. You don't need to wrap them in try-catch clauses. If the SDK encounters pr
 
 ### Is there a REST API to get data from the portal?
 
-Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Log Analytics to Power BI](./export-power-bi.md) and [continuous export](./export-telemetry.md).
+Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
 
 ### Why are my calls to custom events and metrics APIs ignored?
 
