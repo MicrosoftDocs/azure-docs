@@ -2,7 +2,8 @@
 title: Connect to Azure Cosmos DB using Compass
 description: Learn how to use MongoDB Compass to store and manage data in Azure Cosmos DB.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
@@ -10,28 +11,28 @@ ms.author: gahllevy
 ---
 
 # Use MongoDB Compass to connect to Azure Cosmos DB's API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-This tutorial demonstrates how to use [MongoDB Compass](https://www.mongodb.com/products/compass) when storing and/or managing data in Cosmos DB. We use the Azure Cosmos DB's API for MongoDB for this walk-through. For those of you unfamiliar, Compass is a GUI for MongoDB. It is commonly used to visualize your data, run ad-hoc queries, along with managing your data.
+This tutorial demonstrates how to use [MongoDB Compass](https://www.mongodb.com/products/compass) when storing and/or managing data in Azure Cosmos DB. We use the Azure Cosmos DB's API for MongoDB for this walk-through. For those of you unfamiliar, Compass is a GUI for MongoDB. It is commonly used to visualize your data, run ad-hoc queries, along with managing your data.
 
-Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB.
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 ## Pre-requisites
 
-To connect to your Cosmos DB account using MongoDB Compass, you must:
+To connect to your Azure Cosmos DB account using MongoDB Compass, you must:
 
 * Download and install [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
-* Have your Cosmos DB [connection string](connect-mongodb-account.md) information
+* Have your Azure Cosmos DB [connection string](connect-account.md) information
 
-## Connect to Cosmos DB's API for MongoDB
+## Connect to Azure Cosmos DB's API for MongoDB
 
-To connect your Cosmos DB account to Compass, you can follow the below steps:
+To connect your Azure Cosmos DB account to Compass, you can follow the below steps:
 
-1. Retrieve the connection information for your Cosmos account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-mongodb-account.md).
+1. Retrieve the connection information for your Azure Cosmos DB account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-account.md).
 
     :::image type="content" source="./media/connect-using-compass/mongodb-compass-connection.png" alt-text="Screenshot of the connection string blade":::
 
-2. Click on the button that says **Copy to clipboard** next to your **Primary/Secondary connection string** in Cosmos DB. Clicking this button will copy your entire connection string to your clipboard.
+2. Click on the button that says **Copy to clipboard** next to your **Primary/Secondary connection string** in Azure Cosmos DB. Clicking this button will copy your entire connection string to your clipboard.
 
     :::image type="content" source="./media/connect-using-compass/mongodb-connection-copy.png" alt-text="Screenshot of the copy to clipboard button":::
 
@@ -45,7 +46,7 @@ To connect your Cosmos DB account to Compass, you can follow the below steps:
 
     :::image type="content" source="./media/connect-using-compass/mongodb-compass-replica.png" alt-text="Screenshot shows the Replica Set Name text box.":::
 
-6. Click on **Connect** at the bottom of the page. Your Cosmos DB account and databases should now be visible within MongoDB Compass.
+6. Click on **Connect** at the bottom of the page. Your Azure Cosmos DB account and databases should now be visible within MongoDB Compass.
 
 ## Next steps
 

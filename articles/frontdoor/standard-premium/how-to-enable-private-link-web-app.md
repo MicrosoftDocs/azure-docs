@@ -43,7 +43,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter a name to identify this storage blog origin. |
-    | Origin Type | Storage (Azure Blobs) |
+    | Origin Type | App services |
     | Host name | Select the host from the dropdown that you want as an origin. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
     | HTTP port | 80 (default) |
