@@ -1527,6 +1527,8 @@ groups:
   pivots:
   - id: identity-wif-mi-methods-azp
     title: Azure portal
+  - id: identity-wif-mi-methods-powershell
+    title: Azure PowerShell 
   - id: identity-wif-mi-methods-azcli
     title: Azure CLI
   - id: identity-wif-mi-methods-arm
