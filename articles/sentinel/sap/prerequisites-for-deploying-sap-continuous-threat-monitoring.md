@@ -96,7 +96,7 @@ To enable the SAP data connector to retrieve certain information from your SAP s
 | - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) |
 | - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) |
 
-#### Deploy SAP notes (optional)
+#### Deploy SAP note (optional)
 
 If you choose to retrieve additional information with the CRs in this section, ensure that the following SAP note is deployed in your SAP system, according to its version:
 

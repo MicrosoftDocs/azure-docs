@@ -34,7 +34,8 @@ This article discusses the installation of the following CRs:
     - **Client number:** `001`
     - **IP address:** `192.168.136.4`
     - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
-2. Make sure you've installed the SAP notes required for the deployment of the Microsoft Sentinel Solution for SAP. Review the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) for the list of SAP notes.
+1. Review the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) to determine which CRs to install.
+1. If you installed the NPLK900201 or NPLK900202 [optional CRs](#required-and-optional-crs) used to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#deploy-sap-note-optional).
 
 ## Deployment milestones
 
