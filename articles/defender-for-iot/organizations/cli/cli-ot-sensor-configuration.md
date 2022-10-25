@@ -201,7 +201,7 @@ The following table shows where you can find details about each capture filter o
 
 |Name  |File |Property  |
 |---------|---------|---------|
-|**statistics-collector**     |  `/var/cyberx/properties/net.stats.collector.properties       |  `bpf_filter property`       |
+|**statistics-collector**     |  `/var/cyberx/properties/net.stats.collector.properties`       |  `bpf_filter property`       |
 |**dissector**     |   `/var/cyberx/properties/cybershark.properties`      |    `override.capture_filter`     |
 |**rpc-parser**     |   `/var/cyberx/properties/rpc-parser.properties`      |   `override.capture_filter`      |
 |**smb-parser**     |   `/var/cyberx/properties/smb-parser.properties`      | `override.capture_filter`        |
@@ -361,8 +361,6 @@ Run one of the following commands to show the current alert exclusion rules:
 The following example shows the command syntax and response for the *support* user:
 
 <!-- tbd full example including response-->
-
-For more information, see [Alert exclusion rule attributes](#alert-exclusion-rule-attributes).
 
 
 ## template section
