@@ -236,7 +236,7 @@ Refer to the following table to ensure that your pronunciation dataset files are
 Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind that audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
 
 > [!NOTE]
-> Audio only data for training is available in preview for the `en-US` locale. For other locales, you can use audio data for testing only.
+> Audio only data for training is available in preview for the `en-US` locale. For other locales, to train with audio data you must also provide [human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
 
 Custom Speech projects require audio files with these properties:
 
