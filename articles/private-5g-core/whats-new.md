@@ -10,7 +10,7 @@ ms.date: 10/24/2022
 
 # What's new in Azure Private 5G Core?
 
-Azure Automation receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Azure Private 5G Core receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - New features
