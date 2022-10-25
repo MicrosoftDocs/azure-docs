@@ -59,8 +59,8 @@ As a developer you'll provide the steps below to your tenant administrator. The 
 As a developer you now have the request URL and body from your tenant admin, follow these steps to update your application or website:
 
 1. Add the request URL and body to your application or website to request Verified IDs from your users.
-   >[!NOTE]
-   > If you are using [one of the sample apps](https://aka.ms/vcsample) you need to replace the contents of the presentation_request_config.json with the request body obtained.
+   >[!Note]
+   >If you are using [one of the sample apps](https://aka.ms/vcsample), you'll need to replace the contents of the `presentation_request_config.json` with the request body obtained in [Part 1](#part-1). The sample code overwrites the `trustedIssuers` values with `IssuerAuthority` value from `appsettings.json`. Copy the `trustedIssuers` value from the payload to `IssuerAuthority` in `appsettings.json` file.
 1. Replace the values for the "url", "state", and "api-key" with your respective values.
 1. Grant your app [permissions](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens) to obtain an access token for the Verified ID service request service principal.
 
