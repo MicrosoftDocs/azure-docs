@@ -5,14 +5,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
 # How to use CalculatedContentTemplate mappings
-
-> [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of MedTech service.
 
 This article describes how to use CalculatedContentTemplate mappings with MedTech service Device mappings templates.
 
@@ -93,14 +90,14 @@ When specifying the language to use for the expression, the below values are val
 | JSONPath            | **JsonPath** |
 | JmesPath            | **JmesPath** |
 
->[!TIP]
->For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+>[ !TIP]
+> For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
->For more information on JmesPath, see [JmesPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JmesPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JmesPath expressions.
+> For more information on JmesPath, see [JmesPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JmesPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JmesPath expressions.
 
 ### Custom Functions
 
-A set of MedTech service Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [MedTech service Custom Functions](./how-to-use-custom-functions.md).
+A set of MedTech service Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [MedTech service Custom Functions](how-to-use-custom-functions.md).
 
 ### Matched Token
 
@@ -541,13 +538,13 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 
 In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
 
->[!div class="nextstepaction"]
->[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

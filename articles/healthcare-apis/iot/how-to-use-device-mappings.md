@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
@@ -21,13 +21,7 @@ The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) desti
 > Device and FHIR destination mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately.
 
 The two types of mappings are composed into a JSON document based on their type. These JSON documents are then added to your MedTech service through the Azure portal. The device mapping is added through the **Device mapping** page and the FHIR destination mapping through the **Destination** page.
-
-> [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service device and FHIR destination mappings; and export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
-
-> [!IMPORTANT]
-> Links to OSS projects on the GitHub website are for informational purposes only and do not constitute an endorsement or guarantee of any kind.  You should review the information and licensing terms on the OSS projects on GitHub before using it.   
-
+  
 ## Device mappings overview
 
 Device mappings provide functionality to extract device message content into a common format for further evaluation. Each device message received is evaluated against all device mapping templates. 
@@ -48,11 +42,9 @@ The normalized data model has a few required properties that must be found and e
 > [!IMPORTANT]
 > The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
 
-Below are conceptual examples of what happens during normalization and transformation process within the MedTech service:
+Below is an example of what happens during normalization and transformation process within the MedTech service. For the purposes of the device mapping, we will be focusing on the **Normalized data** process:
 
 :::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow example zoomed out." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
-
-:::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="Diagram of IoT data normalization flow example zoomed in." lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
 
 The content payload itself is an Azure Event Hubs message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hubs framework with entries automatically populated by it.
 
@@ -73,32 +65,131 @@ The content payload itself is an Azure Event Hubs message, which is composed of 
     }
 }
 ```
+## CollectionContentTemplate
+
+The CollectionContentTemplate is the **default** template type used by the MedTech service device mapping and may be used to represent a list of templates that will be used during normalization.
+                                                             
+### Example
+
+```json
+{
+  "templateType": "CollectionContent",
+  "template": [
+    {
+      "templateType": "CalculatedContent",
+      "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@heartRate)]",
+        "deviceIdExpression": "$.matchedToken.deviceId",
+        "timestampExpression": "$.matchedToken.endDate",
+        "values": [
+          {
+            "required": "true",
+            "valueExpression": "$.matchedToken.heartRate",
+            "valueName": "hr"
+          }
+        ]
+      }
+    },
+    {
+      "templateType": "CalculatedContent",
+      "template": {
+        "typeName": "stepcount",
+        "typeMatchExpression": "$..[?(@steps)]",
+        "deviceIdExpression": "$.matchedToken.deviceId",
+        "timestampExpression": "$.matchedToken.endDate",
+        "values": [
+          {
+            "required": "true",
+            "valueExpression": "$.matchedToken.steps",
+            "valueName": "steps"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
 ## Mapping with JSONPath
 
-The five device content-mapping types supported today rely on JSONPath to both match the required mapping and extracted values. More information on JSONPath can be found [here](https://goessner.net/articles/JsonPath/). All five template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+The device mapping content types supported by the MedTech service rely on JSONPath to both match the required mapping and extracted values. More information on JSONPath can be found [here](https://goessner.net/articles/JsonPath/). All template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 
-You can define one or more templates within the MedTech service device mapping. Each event hub device message received is evaluated against all device mapping templates. 
+The below example is from a device message received by the MedTech service from an Azure Event Hubs event hub:
 
-A single inbound device message can be separated into multiple outbound messages that are later mapped to different observations in the FHIR service. 
+**Heart rate**
 
-Various template types exist and may be used when building the MedTech service device mapping.
+*Device message from the Azure Event Hubs event hub*
 
-|Name                                                                     | Description                                                                   |  
-|-------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-|[JsonPathContentTemplate](./how-to-use-jsonpath-content-mappings.md)     |A template that supports writing expressions using JsonPath                  
-|[CollectionContentTemplate](./how-to-use-collection-content-mappings.md) |A template used to represent a list of templates that will be used during the normalization.                                                            |                                                           
-|[CalculatedContentTemplate](./how-to-use-calculated-functions-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JmesPath functions.|
-|[IotJsonPathContentTemplate](./how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.|
-|[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|A template that supports messages sent via the Export Data feature of Azure Iot Central.| 
+```json
+{
+    "Body": {
+        "heartRate": "78",
+        "endDate": "2021-02-01T22:46:01.8750000Z",
+        "deviceId": "device123"
+    },
+    "Properties": {},
+    "SystemProperties": {}
+}
+```
 
+*MedTech service device mapping template*
+
+```json
+{
+  "templateType": "CollectionContent",
+  "template": [
+    {  
+       "templateType": "JsonPathContent",
+       "template": {
+       "typeName": "heartrate",
+       "typeMatchExpression": "$..[?(@heartRate)]",
+        "deviceIdExpression": "$.deviceId",
+        "timestampExpression": "$.endDate",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.heartRate",
+                "valueName": "hr"
+            }
+         ]
+       }
+     }
+   ]
+}
+```
+JSONPath allows matching on and extracting values from a device message.
+
+|Property|Description|Example|
+|--------|-----------|-------|
+|TypeName|The type to associate with measurements that match the template|`heartrate`|
+|TypeMatchExpression|The JSONPath expression that is evaluated against the EventData payload. If a matching JToken is found, the template is considered a match. All later expressions are evaluated against the extracted JToken matched here.|`$..[?(@heartRate)]`|
+|DeviceIdExpression|The JSONPath expression to extract the device identifier.|`$.matchedToken.deviceId`|
+|TimestampExpression|The JSONPath expression to extract the timestamp value for the measurement's OccurrenceTimeUtc.|`$.matchedToken.endDate`|
+|PatientIdExpression|*Required* when IdentityResolution is in **Create** mode and *Optional* when IdentityResolution is in **Lookup** mode. The expression to extract the patient identifier.|`$.matchedToken.patientId`|
+|EncounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|
+|CorrelationIdExpression|*Optional*: The expression to extract the correlation identifier. This output can be used to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
+|Values[].ValueName|The name to associate with the value extracted by the next expression. Used to bind the wanted value/component in the FHIR destination mapping template.|`hr`|
+|Values[].ValueExpression|The JSONPath expression to extract the wanted value.|`$.matchedToken.heartRate`|
+|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated and an InvalidOperationException will be created.|`true`|
+
+## Additional template types
+
+You can define one or more templates within the MedTech service device mapping. Each device message received is evaluated against all device mapping templates.
+
+|Template Type|Description|
+|-------------|-----------|   
+|[CalculatedContentTemplate](how-to-use-calculated-functions-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JmesPath functions.|
+|[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
+ 
 > [!TIP]
-> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues. 
+> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
 
 ## Next steps
 
 In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
 
->[!div class="nextstepaction"]
->[How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

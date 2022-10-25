@@ -182,13 +182,13 @@ Examples:
 | {"unix": 0}              | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
 
 > [!TIP]
-> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 
 In this article, you learned how to use the MedTech service custom functions. To learn how to use custom functions with the MedTech service device mapping, see
 
->[!div class="nextstepaction"]
->[How to use device mappings](how-to-use-device-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use device mappings](how-to-use-device-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
