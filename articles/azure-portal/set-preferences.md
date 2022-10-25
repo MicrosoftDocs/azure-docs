@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 09/06/2022
+ms.date: 10/26/2022
 ms.topic: how-to
 ---
 
@@ -34,6 +34,9 @@ To switch to a different directory, select the directory that you want to work i
 ### Subscription filters
 
 You can choose the subscriptions that are filtered by default when you sign in to the Azure portal. This can be helpful if you have a primary list of subscriptions you work with but use others occasionally.
+
+> [!IMPORTANT]
+> When you apply a subscription filter, you won't see or be able to work with any subscriptions that are excluded from that filter. To access those subscriptions in the portal again, remove the filter or apply a different one that includes them.
 
 To use customized filters, select **Advanced filters**. You'll be prompted to confirm before continuing.
 
