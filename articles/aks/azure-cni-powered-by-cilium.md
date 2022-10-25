@@ -29,7 +29,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 ## Before you begin
 
-1. [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+1. [Install Azure CLI](/cli/azure/install-azure-cli)
 2. Install the aks-preview extension by running `az extension add --name aks-preview`
 3. Check the version of Azure CLI by running `az --version`.
     * azure-cli must have version 2.41.0 or later. You can upgrade to the latest version by running `az upgrade`.
