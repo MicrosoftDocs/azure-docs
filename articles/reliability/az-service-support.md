@@ -1,12 +1,12 @@
 ---
-title: Availability zone service and regional support
-description: Azure availability zone service and regional support
-author: anaharris-ms
-ms.service: azure-resource-manager
+title: Azure services that support availability zones
+description: Learn what services are supported by availability zones and understand resiliency across all Azure services.
+ms.service: reliability
+ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 08/18/2022
-ms.author: rarco
-ms.reviewer: cynthn
+ms.date: 10/20/2022
+ms.author: anaharris
+ms.reviewer: asinghal
 ms.custom: references_regions
 ---
 
@@ -172,6 +172,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | --- | --- |
 | [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure NetApp Files](../azure-netapp-files/use-availability-zones.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Azure Red Hat OpenShift | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Managed Instance for Apache Cassandra](../managed-instance-apache-cassandra/create-cluster-portal.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Azure Storage: Ultra Disk | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
