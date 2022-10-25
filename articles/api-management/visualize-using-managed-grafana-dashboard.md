@@ -11,7 +11,7 @@ ms.custom:
 
 # Visualize API Management monitoring data using a Managed Grafana dashboard
 
-You can use [Azure Managed Grafana](../managed-grafana/index.yml) to visualize API Management monitoring data that is collected into a Log Analytics workspace. Use a prebuilt [API Management dashboard](https://grafaxx`na.com/grafana/dashboards/16604-azure-api-management) for real-time visualization of logs and metrics collected from your API Management instance.
+You can use [Azure Managed Grafana](../managed-grafana/index.yml) to visualize API Management monitoring data that is collected into a Log Analytics workspace. Use a prebuilt [API Management dashboard](https://grafana.com/grafana/dashboards/16604-azure-api-management) for real-time visualization of logs and metrics collected from your API Management instance.
 
 * [Learn more about Azure Managed Grafana](../managed-grafana/overview.md)
 * [Learn more about observability in Azure API Management](observability.md)
@@ -24,7 +24,7 @@ You can use [Azure Managed Grafana](../managed-grafana/index.yml) to visualize A
     
     * To visualize detailed data about requests to the API Management gateway, [integrate](api-management-howto-app-insights.md) your API Management instance with Application Insights.
 
-> [!NOTE]
+    > [!NOTE]
     > To visualize data in a single dashboard, configure the Log Analytics workspace for the diagnostic settings and the Application Insights instance in the same resource group as your API Management instance.
 
 * Managed Grafana workspace
