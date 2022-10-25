@@ -130,7 +130,7 @@ The following section walk through several examples of tagging using Azure CLI. 
     az iot hub device-twin update --name {your iot hub name} \
         -d {device_id} --tags '{"country":{"county":"king"}}'
     ```
-5. Using the command on an existing tag to update the value:
+5. Use the command on an existing tag to update the value:
     ```azurecli
     az iot hub device-twin update --name {your iot hub name} \
         -d {device_id} --tags '{"country": "Germany"}'
