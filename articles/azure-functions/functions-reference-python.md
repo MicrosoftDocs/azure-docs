@@ -21,7 +21,7 @@ As a Python developer, you may also be interested in one of the following articl
 > While you can [develop your Python based Azure Functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
 
 > [!TIP]
-> The V2 programming model for Azure Functions in Python is in Preview! Switch to the 'V2' tab to learn about the new model's features which include a decorator based approach and a simpler file structure. To create a function app with the new model, see the [quickstart](./create-first-function-vs-code-python-v2). To learn more about the new programming models across Azure Functions, see [New Programming Models](./functions-new-programming-models.md).
+> The V2 programming model for Azure Functions in Python is in Preview. This new model's features include a decorator-based approach and a simpler file structure. Select the **V2** tab to learn about this new programming model. To create a function app in the new model, see the [quickstart](./create-first-function-vs-code-python.md?pivots=python-mode-decorators). 
 
 ## Programming model
 

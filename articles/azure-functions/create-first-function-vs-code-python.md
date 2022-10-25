@@ -2,20 +2,20 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/15/2022
+ms.date: 10/24/2022
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./create-first-function-vs-code-python-uiex
+zone_pivot_groups: python-mode-functions
 ---
 
 # Quickstart: Create a function in Azure with Python using Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
-
 In this article, you use Visual Studio Code to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
+
+This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
+
+>[!NOTE]
+>The Python v2 programming model for Functions is currently in Preview. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -25,7 +25,28 @@ There's also a [CLI-based version](create-first-function-cli-python.md) of this 
 
 Before you begin, make sure that you have the following requirements in place:
 
-[!INCLUDE [functions-requirements-visual-studio-code-python](../../includes/functions-requirements-visual-studio-code-python.md)]
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+::: zone pivot="python-mode-configuration" 
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
+::: zone-end
+::: zone pivot="python-mode-decorators" 
+The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.0.4785 or above.
+::: zone-end
++ Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
+
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+
++ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
+
+::: zone pivot="python-mode-configuration" 
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+::: zone-end
+::: zone pivot="python-mode-decorators" 
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.8.1 or later.
+
++ The [Azurite](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) local storage emulator. While you can also use an actual Azure storage account, this article assumes you're using an emulator.
+::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -39,6 +60,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Provide the following information at the prompts:
 
+::: zone pivot="python-mode-configuration" 
     |Prompt|Selection|
     |--|--|
     |**Select a language**| Choose `Python`.|
@@ -47,8 +69,69 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Provide a function name**| Enter `HttpExample`.|
     |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
     |**Select how you would like to open your project**| Choose `Add to workspace`.|
+::: zone-end
+::: zone pivot="python-mode-decorators"  
+|Prompt|Selection|
+    |--|--|
+    |**Select a language**| Choose `Python (Programming Model V2)`.|
+    |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
+    |**Select how you would like to open your project**| Choose `Add to workspace`.|
 
-1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
+4. Visual Studio Code uses the provided information and generates an Azure Functions project.   
+
+5. Open the generated `function_app.py` project file, which will contain your functions.
+
+6. Uncomment the `test_function` function, which is an HTTP triggered function.
+
+7. Change the `name` parameter of the `app.function_name` decorator method to `HttpExample`.
+
+8. Add the following decorator code before the function declaration:
+
+    ```python
+    @app.auth_level.ANONYMOUS
+    ```
+
+    This code enables your HTTP function endpoint to be called in Azure without having to provide an [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys). Local execution doesn't require authorization keys. 
+
+    Your function code should now look like the following example:
+
+    ```python
+    @app.function_name(name="HttpExample")
+    @app.auth_level.ANONYMOUS 
+    @app.route(route="hello")
+    def test_function(req: func.HttpRequest) -> func.HttpResponse:
+        logging.info('Python HTTP trigger function processed a request.')
+
+        name = req.params.get('name')
+        if not name:
+            try:
+                req_body = req.get_json()
+            except ValueError:
+                pass
+            else:
+                name = req_body.get('name')
+
+        if name:
+            return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+        else:
+            return func.HttpResponse(
+                "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+                status_code=200
+            ) 
+    ```
+
+::: zone-end
+::: zone pivot="python-mode-configuration" 
+4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
+::: zone-end
+::: zone pivot="python-mode-decorators" 
+## Start the emulator
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.
+
+1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run your function locally.
+::: zone-end
+
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -57,6 +140,20 @@ After you've verified that the function runs correctly on your local computer, i
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+
+::: zone pivot="python-mode-decorators"
+## Update app settings
+
+To use the Python v2 model in your function app, you need to add a new application setting in Azure named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
+
+1. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>. 
+
+1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
+
+The setting added to your new function app, which enables it to run the v2 model in Azure. 
+::: zone-end
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 

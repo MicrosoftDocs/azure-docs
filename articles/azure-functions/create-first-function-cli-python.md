@@ -11,9 +11,12 @@ zone_pivot_groups: python-mode-functions
 
 # Quickstart: Create a Python function in Azure from the command line
 
-[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
+In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 
-In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
+This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
+
+>[!NOTE]
+>The Python v2 programming model for Functions is currently in Preview. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -39,11 +42,7 @@ Before you begin, you must have the following requirements in place:
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
 ::: zone pivot="python-mode-decorators"  
-+ One of the following storage options:
-
-    + Use a storage emulator such as [Azurerite](../storage/common/storage-use-azurite.md). This is a good option if you only have HTTP triggered functions and aren't planning to use storage in your functions.
-
-    + Create or use an existing Azure Storage account. This is a good option when you're planning to use storage-based functions and when you already have an existing storage account. To create a storage account, see [Create a storage account](../storage/common/storage-account-create.md).
++ The [Azurite](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite) storage emulator. While you can also use an actual Azure Storage account, this article assumes you're using an emulator.
 ::: zone-end  
 
 ### Prerequisite check
@@ -168,7 +167,7 @@ In Azure Functions, a function project is a container for one or more individual
 
     This folder contains various files for the project, including configuration files named *[local.settings.json]*(functions-develop-local.md#local-settings-file) and *[host.json]*(functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
-1. The file `function_app.py` can include all functions within your project. To start with, there is already an HTTP function stored in the file.
+1. The file `function_app.py` can include all functions within your project. To start with, there's already an HTTP function stored in the file.
 
 ```python
 import azure.functions as func
@@ -210,7 +209,17 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 For more information, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=python).
 
-Before running the function locally, you must either use a local storage emulator, such as [Azurerite](../storage/common/storage-use-azurite.md), or use an Azure Storage account. If using a storage account, you need to add a connection string to the `AzureWebJobsStorage` environment variable in `localsettings.json`. The `AzureWebJobsStorage` setting is currently required because of how extensions are being loaded.  
+## Start the storage emulator
+
+Before running the function locally, you must start the local Azurite storage emulator. You can skip this step if the `AzureWebJobsStorage` setting in the local.settings.json file is set to the connection string for an Azure Storage account.   
+
+Use the following command to start the Azurite storage emulator:
+
+```cmd
+azurite
+```
+
+For more information, see [Run Azurite](../storage/common/storage-use-azurite.md?tabs=npm#run-azurite)
 ::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
@@ -232,7 +241,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
@@ -325,41 +334,35 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     In the previous example, replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
-::: zone pivot="python-mode-configuration"
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
-::: zone-end
+
 ::: zone pivot="python-mode-decorators"
-## Deploy the function project to Azure
+## Update app settings
 
-After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command.  
+To use the Python v2 model in your function app, you need to add a new application setting in Azure named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
 
-In the following example, replace `<APP_NAME>` with the name of your app.
+Run the following command to add this setting to your new function app in Azure.
 
-```console
-func azure functionapp publish <APP_NAME> --publish-local-settings
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli 
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
 ```
 
-Using the `--publish-local-settings` option makes sure that the `AzureWebJobsStorage` setting from local.settings.json is recreated as an app setting in Azure. The publish command shows results similar to the following output (truncated for simplicity):
+# [Azure PowerShell](#tab/azure-powershell)
 
-<pre>
-...
+```azurepowershell
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
+```
 
-Getting site publishing info...
-Creating archive for current directory...
-Performing remote build for functions project.
+---
 
-...
-
-Deployment successful.
-Remote build succeeded!
-Syncing triggers...
-Functions in msdocs-azurefunctions-qs:
-    HttpExample - [httpTrigger]
-        Invoke url: https://msdocs-azurefunctions-qs.azurewebsites.net/api/httpexample
-</pre>
+In the previous example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively. This setting is already in your local.settings.json file.
 ::: zone-end
+
+## Verify in Azure
 
 Run the following command to view near real-time [streaming logs](functions-run-local.md#enable-streaming-logs) in Application Insights in the Azure portal.
 

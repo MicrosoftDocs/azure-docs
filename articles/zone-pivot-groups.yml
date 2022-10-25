@@ -348,7 +348,7 @@ groups:
     title: Command line
 - id: python-mode-functions
   title: Python mode
-  prompt: Choose a function definition mode
+  prompt: Choose a Python programming model
   pivots:
   - id: python-mode-configuration
     title: v1
