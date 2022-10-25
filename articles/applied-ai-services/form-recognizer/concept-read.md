@@ -95,6 +95,20 @@ Form Recognizer v3.0 version supports several languages for the read model. *See
 
 ## Data detection and extraction
 
+### Microsoft Office and HTML text extraction (preview) <sup>🆕</sup>
+Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview text extraction from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text as well as text from the images embedded in the Word document by running OCR on the images.
+
+:::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
+
+The page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Word (preview) | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
+|Excel (preview) | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
+|PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
 ### Paragraphs extraction <sup>🆕</sup>
 
 The Read OCR model in Form Recognizer extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
@@ -126,19 +140,6 @@ The Read OCR model in Form Recognizer adds [language detection](language-support
     },
 ]
 ```
-### Microsoft Office and HTML text extraction (preview) <sup>🆕</sup>
-Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview text extraction from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text as well as text from the images embedded in the Word document by running OCR on the images.
-
-:::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
-
-The page units in the model output are computed as shown:
-
- **File format**   | **Computed page unit**   | **Total pages**  |
-| --- | --- | --- |
-|Word (preview) | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
-|Excel (preview) | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
-|PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
-|HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
 ### Extracting pages from documents
 
@@ -195,6 +196,24 @@ For large multi-page PDF documents, use the `pages` query parameter to indicate 
 
 > [!NOTE]
 > For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, the Read API ignores the pages parameter and extracts all pages by default.
+
+### Handwritten style for text lines (Latin languages only)
+
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows an example JSON snippet.
+
+```json
+"styles": [
+{
+	"confidence": 0.95,
+	"spans": [
+	{
+		"offset": 509,
+		"length": 24
+	}
+	"isHandwritten": true
+	]
+}
+```
 
 ## Next steps
 
