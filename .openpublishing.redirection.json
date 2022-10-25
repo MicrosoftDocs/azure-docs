@@ -11104,7 +11104,7 @@
             "redirect_document_id": false
         },
         {
-		    "source_path_from_root": "/azure/databox-online/azure-stack-edge-gpu-deploy-arc-data-controller.md",
+		    "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-deploy-arc-data-controller.md",
 		    "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-azure-portal",
 		    "redirect_document_id": false
         },
