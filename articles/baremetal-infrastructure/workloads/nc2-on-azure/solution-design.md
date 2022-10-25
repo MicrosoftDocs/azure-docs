@@ -2,7 +2,8 @@
 title: Solution design
 description: Learn about topologies and constraints for NC2 on Azure. 
 ms.topic: conceptual
-ms.subservice:  baremetal-nutanix
+ms.subservice: baremetal-nutanix
+ms.custom: engagement-fy23
 ms.date: 10/13/2022
 ---
 

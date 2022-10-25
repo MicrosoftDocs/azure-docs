@@ -2,7 +2,8 @@
 title: Architecture of BareMetal Infrastructure for NC2
 description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2.
 ms.topic: reference
-ms.subservice:  baremetal-nutanix
+ms.subservice: baremetal-nutanix
+ms.custom: engagement-fy23
 ms.date: 10/13/2022
 ---
 
