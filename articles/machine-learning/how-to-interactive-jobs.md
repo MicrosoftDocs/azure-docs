@@ -16,19 +16,17 @@ ms.date: 03/15/2022
 
 # Debug & monitor training jobs
 
-Machine learning model training is usually an iterative process and requires significant experimentation. With the AzureML interactive job experience, data scientists can now use the AzureML Python SDKv2, AzureML CLIv2 or AzureML Studio to quickly access the container where their job is running to iterate on training scripts, monitor training progress or debug the job remotely like they usually do on their local machines. This is possible to do via different training applications including **JupyterLab, TensorBoard, VS Code** or by connecting via SSH directly into the job container.  
+Machine learning model training is usually an iterative process and requires significant experimentation. With the AzureML interactive job experience, data scientists can now use the AzureML Python SDKv2, AzureML CLIv2 or AzureML Studio to quickly access the container where their job is running to iterate on training scripts, monitor training progress or debug the job remotely like they usually do on their local machines. This is possible to do via different training applications including **JupyterLab, TensorBoard, VS Code** or by connecting via **SSH** directly into the job container.  
 
-Note that interactive training is supported on **AzureML Compute Cluster** and **Azure Arc-enabled Kubernetes Cluster**.
+Note that interactive training is supported on [**AzureML Compute Cluster**](link-out-to-doc) and [**Azure Arc-enabled Kubernetes Cluster**](link-out-to-doc).
 
 ## Pre-requisites
 - [Get started with training on AzureML](./how-to-train-model.md) 
 - To use **VS Code**, please [follow this guide](/how-to-setup-vs-code) to set-up the Azure Machine Learning & the Azure Machine Learning -- Remote extension.
-- Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed
-- Interactive jobs cannot be used in conjuction with the below AzureML features
-  1. Clusters/instances with windows images 
-  2. Custom multi-node setup on compute clusters // elaborate
-  3. [Parallel Jobs](/python/api/azure-ai-ml/azure.ai.ml.parallel?view=azure-python)
-  4. [MPI](./how-to-train-distributed-gpu#mpi)
+- Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all AzureML curated training environments have these installed by default)
+- Interactive jobs cannot be used on distributed training runs where the distribution type is anything other than Pytorch or Tensorflow (for example, MPI or custom)
+  
+  ![screenshot select-distributioni](media/select-distribution.png) 
 
 ## Get started with AzureML Studio
 #### Submit a job with interactive services enabled
@@ -44,9 +42,17 @@ Note that interactive training is supported on **AzureML Compute Cluster** and *
 
 ![screenshot select-environment-ui](media/select-environment.png) 
 
-4. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job. **You can end your command with `sleep <specific time>` to pause the job and reserve the compute.** An example is like below:
+4. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
 
 ![screenshot set-command](media/sleep-command.png) 
+
+  Note that you can put `sleep <specific time>` at the end of your command to speicify the amount of time you want to reserve the compute resource. The format follows: 
+    * sleep 1s
+    * sleep 1m
+    * sleep 1h
+    * sleep 1d
+
+    You can also use the `sleep infinity` command. However, note that if you use `sleep infinity`, you will need to cancel the job to let go of the compute resource (and stop billing). // Add warning/note
 
 5. Select the training applications you want to use to interact with the job.
 
@@ -72,7 +78,6 @@ It might take a few minutes to start the job and the training applications speci
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
 
     ```python
-    # NEED TO LINK OUT TO SAMPLES REPO INSTEAD OF HARD CODING
     command_job = command(...
         code="./src",  # local path where the code is stored
         command="python main.py", # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running
@@ -87,11 +92,11 @@ It might take a few minutes to start the job and the training applications speci
           ),
           "My_tensorboard": JobService(
             job_service_type = "tensorboard"
-            logs = "~/logs" # location of Tensorboard logs # TODO VERIFY SYNTAX
+            logs = "logs/" # relative path of Tensorboard logs (same as in your training script)
           ),
           "My_ssh": JobService(
             job_service_type = "ssh",
-            sshPublicKeys = "<add-public-key>" # TODO VERIFY SYNTAX
+            sshPublicKeys = "<add-public-key>"
           ),
         }
     )
@@ -116,7 +121,6 @@ It might take a few minutes to start the job and the training applications speci
 
 1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
     ```dotnetcli
-    # NEED TO LINK OUT TO SAMPLES REPO INSTEAD OF HARD CODING
     code: src 
     command: 
       python train.py 
@@ -129,7 +133,7 @@ It might take a few minutes to start the job and the training applications speci
         my_tensor_board:
           job_service_type: tensorboard
           properties:
-            logDir: "~/logs" # location of Tensorboard logs
+            logDir: "logs/" # relative path of Tensorboard logs (same as in your training script)
         my_jupyter_lab:
           job_service_type: jupyter_lab
         my_ssh:
@@ -154,9 +158,11 @@ It might take a few minutes to start the job and the training applications speci
 #### Connect to endpoints
 
 # [Python SDK](#tab/python)
-- Once the job is submitted, you can use the `python ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
+- Once the job is submitted, you can use `ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
   // TODO -- add screenshot
   
+You can find the reference documentation for these commands [here](/sdk/azure/ml).
+
 Please note that you can access the applications only when the applications is in **Running** status and only the **job owner** is authorized to access the applications. Note that if you are training on multiple nodes, you can pick the specific node you would like to interact with by passing in the node index.
 
 # [Azure CLI](#tab/azurecli)
