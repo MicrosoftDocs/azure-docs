@@ -21,7 +21,7 @@ This tutorial describes how you can order an Azure Data Box Disk. In this tutori
 >
 > * Order a Data Box Disk
 > * Track the order
-> * Cancel the order
+> * Cancel the order 
 
 ## Prerequisites
 
