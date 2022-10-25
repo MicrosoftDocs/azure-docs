@@ -2183,7 +2183,7 @@
         {
             "source_path_from_root": "/articles/cognitive-services/immersive-reader/ios-picture-immersive-reader-tutorial.md",
             "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-ios-picture-immersive-reader",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/immersive-reader/ios-quickstart.md",
