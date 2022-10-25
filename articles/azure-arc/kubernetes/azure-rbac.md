@@ -17,7 +17,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 ## Prerequisites
 
-- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to version 2.30.0 or later.
+- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
 - Install the latest version of `connectedk8s` Azure CLI extension:
 
@@ -41,7 +41,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 ## Set up Azure AD applications
 
 
-### [AzureCLI v2.30 >= v2.36](#tab/AzureCLI236)
+### [AzureCLI < v2.37](#tab/AzureCLI)
 #### Create a server application
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
@@ -106,7 +106,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
     ```
 
-### [AzureCLI > v2.37](#tab/AzureCLI237)
+### [AzureCLI >= v2.37](#tab/AzureCLI237)
 #### Create a server application
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
@@ -212,18 +212,16 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
     ```json
     {
-        "oauth2PermissionScopes": [
-            {
-                "adminConsentDescription": "Sign in and read user profile",
-                "adminConsentDisplayName": "Sign in and read user profile",
-                "id": "<oauth_app_ID>",
-                "isEnabled": true,
-                "type": "User",
-                "userConsentDescription": "Sign in and read user profile",
-                "userConsentDisplayName": "Sign in and read user profile",
-                "value": "User.Read"
-            }
-        ]
+      "Name": "Read authorization",
+      "IsCustom": true,
+      "Description": "Read authorization",
+      "Actions": ["Microsoft.Authorization/*/read"],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/<subscription-id>"
+      ]
     }
     ```
 
