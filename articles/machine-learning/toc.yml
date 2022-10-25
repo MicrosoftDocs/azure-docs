@@ -707,6 +707,8 @@
           href: reference-yaml-environment.md
         - name: Data
           href: reference-yaml-data.md
+        - name: MLTable
+          href: reference-yaml-mltable.md
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
