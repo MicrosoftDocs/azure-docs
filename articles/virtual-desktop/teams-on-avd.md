@@ -79,6 +79,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         ```powershell
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
         ```
+        
 
         This process installs Teams to the `%ProgramFiles(x86)%` folder on a 64-bit operating system and to the `%ProgramFiles%` folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
 
@@ -90,7 +91,6 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         |ALLUSERS=1|Used in both non-VDI and VDI environments to make the Teams Machine-Wide Installer appear in Programs and Features under the Control Panel and in Apps & Features in Windows Settings. The installer lets all users with admin credentials uninstall Teams.|
 
         When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
-        
         > [!NOTE]
         > We recommend you use per-machine installation for better centralized management for both pooled and personal host pool setups.
         >
