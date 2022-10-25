@@ -11,22 +11,29 @@ ms.author: v-bcatherine
 
 # Deploy Azure Container Apps with the az containerapp up command
 
-The `az containerapp up` (or "up") command is the fastest way to deploy an Azure Container App from an existing image, local source code or a GitHub repo.  You can have your container app up and running in minutes by running this single command.
+The `az containerapp up` (or "up") command is the fastest way to deploy an Azure Container App from an existing image, local source code or a GitHub repo.  With this single command, you can have your container app up and running in minutes.  
 
-You'll need to use the `az containerapp create` command to create a container with customizations such as:
+The `az containerapp up` command is a streamlined way to create and deploy container apps that primarily use default settings. You'll need to use the `az containerapp create` command to create  apps with customizations such as:
 
 - Dapr configuration
 - Secrets
 - Transport protocols
 - Custom domains
+- Storage mounts
 
-To customize your container app's resource or scaling settings, you can use the "up" command and then the `az containerapp update` command to change these settings.  
+To customize your container app's resource or scaling settings, you can use the "up" command and then the `az containerapp update` command to change these settings.  The `az containerapp up` command isn't an abbreviation of the `az containerapp update` command.  
 
-The `az containerapp up` command is an easy, streamlined way to deploy container apps that use the default container app settings. The command can create the necessary resources, build the container image, and deploy the app.  When you're working from a GitHub repro, it makes a GitHub Action that automatically builds and pushes a new container image when you commit changes to your GitHub repo.
+The "up" command can create or use existing resources including:
 
-If you don't provide an existing Container Apps environment, the command looks for one in your resource group and, if found, uses that environment.  If not found, it creates an environment and Log Analytics workspace.  If you need to customize the Container App environment, use the `az containerapp environment create` command to create your environment.
+- Resource group
+- Azure Container Registry
+- Container Apps environment and Log Analytics workspace
 
-To learn more about the `az containerapp up` command and its options, see [az containerapp up](/cli/azure/containerapp#az_containerapp_up).
+The command can build and push a container image to an Azure Container Registry (ACR) if you provide local source code or a GitHub repo.  When you're working from a GitHub repo, it creates a GitHub Action that automatically builds and pushes a new container image when you commit changes to your GitHub repo.
+
+ If you need to customize the Container App environment, use the `az containerapp environment create` command to create your environment.  If you don't provide an existing environment, the "up" command looks for one in your resource group and, if found, uses that environment.  If not found, it creates an environment with a Log Analytics workspace.
+
+To learn more about the `az containerapp up` command and its options, see [`az containerapp up`](/cli/azure/containerapp#az_containerapp_up).
 
 ## Prerequisites
 
