@@ -151,7 +151,7 @@ Note down the values for **targetIQN**, **targetPortalHostName**, and **targetPo
 
 You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
 
-For multi-session connections, you should first install [Multipath I/O - for multi-session connectivity](#multipath-io---for-multi-session-connectivity).
+For multi-session connections, install [Multipath I/O - for multi-session connectivity](#multipath-io---for-multi-session-connectivity).
 
 ### Multi-session connections
 
