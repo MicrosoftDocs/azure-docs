@@ -2,7 +2,7 @@
 title: Supported instances and regions
 description: Learn about instances and regions supported for NC2 on Azure.
 ms.topic: how-to
-ms.custom: references_regions 
+ms.custom: "references_regions, engagement-fy23" 
 ms.subservice:  baremetal-nutanix
 ms.date: 10/13/2022
 ---
