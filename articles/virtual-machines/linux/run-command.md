@@ -95,6 +95,32 @@ Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/act
 
 You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
 
+## Action Run Command Linux troubleshooting
+
+When troubleshooting action run command for Linux environments, refer to the *handler* log file typically located in the following directory: `/var/log/azure/run-command/handler.log` for further details.
+
+### Known issues
+The Linux action run command logs have a few notable differences compared to the action run command Windows logs:
+
+- The sequence number is reported with each line of the log as 'seq=#'
+- There won't be a line that contains `Awaiting completion...` as this will be in action run command Windows only.
+- The line `Command existed with code: #` is also only present in action run command Windows logging.
+
+### Action Run Command Removal
+
+If needing to remove your action run command Linux extension, refer to the below steps for Azure PowerShell and CLI:
+
+ Replace *rgname* and *vmname* with your relevant resource group name and virtual machine name in the following removal examples.
+
+
+```powershell-interactive
+ Invoke-AzVMRunCommand -ResourceGroupName 'rgname' -VMName 'vmname' -CommandId 'RemoveRunCommandLinuxExtension'
+```
+
+```azurecli-interactive
+az vm run-command invoke  --command-id RemoveRunCommandLinuxExtension --name vmname -g rgname
+```
+
 ## Next steps
 
 To learn about other ways to run scripts and commands remotely in your VM, see [Run scripts in your Linux VM](run-scripts-in-vm.md).

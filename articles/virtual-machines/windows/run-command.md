@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 author: nikhilpatel909
 ms.author: erd
-ms.date: 09/07/2022
+ms.date: 10/25/2022
 ms.topic: how-to  
 ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -114,6 +114,41 @@ Listing the run commands or showing the details of a command requires the `Micro
 Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 
 You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
+
+
+## Action Run Command Windows troubleshooting
+
+When troubleshooting action run command for Windows environments, refer to the *RunCommandExtension* log file typically located in the following directory: `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.RunCommandWindows\<version>\RunCommandExtension.log` for further details.
+
+### Known issues
+
+Your Action Run Command Extension might fail to execute in your Windows environment if the command contains reserved characters. For example:
+
+If the `&` symbol is passed in the parameter of your command such as the below PowerShell script, it might fail.
+
+```powershell-interactive    
+$paramm='abc&jj'
+Invoke-AzVMRunCommand -ResourceGroupName AzureCloudService1 -Name test -CommandId 'RunPowerShellScript' -ScriptPath C:\data\228332902\PostAppConfig.ps1 -Parameter @{"Prefix" = $paramm}
+```
+
+Use the `^` character to escape the `&` in the argument, i.e. `$paramm='abc^&jj'`
+
+The Run Command extension might also fail to execute if command to be executed contains "\n" in it's path, as it will be treated as a new line. For example, `C:\Windows\notepad.exe` contains the `\n` in the file path. Consider replacing `\n` with `\N` in your path.
+
+### Action Run Command Removal
+
+If needing to remove your action run command Windows extension, refer to the below steps for Azure PowerShell and CLI:
+
+ Replace *rgname* and *vmname* with your relevant resource group name and virtual machine name in the following removal examples.
+
+
+```powershell-interactive
+ Invoke-AzVMRunCommand -ResourceGroupName 'rgname' -VMName 'vmname' -CommandId 'RemoveRunCommandWindowsExtension'
+```
+
+```azurecli-interactive
+az vm run-command invoke  --command-id RemoveRunCommandWindowsExtension --name vmname -g rgname
+```
 
 ## Next steps
 
