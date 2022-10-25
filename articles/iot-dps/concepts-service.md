@@ -38,7 +38,7 @@ There are four supported allocation policies:
 
 * **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they're equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. This is the default allocation policy for a DPS instance. If you're provisioning devices to only one IoT Hub, we recommend using this policy.
 
-* **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, DPS hashes devices across those IoT hubs.
+* **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, DPS hashes devices across those IoT hubs based on their configured allocation weight.
 
 * **Static configuration**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
 
