@@ -1,126 +1,109 @@
 ---
-title: Bulk data uploads For Azure Database for PostgreSQL - Flexible Server
-description: Best practices to bulk load data in Azure Database for PostgreSQL - Flexible Server 
+title: Upload data in bulk in Azure Database for PostgreSQL - Flexible Server
+description: This article discusses best practices for uploading data in bulk in Azure Database for PostgreSQL - Flexible Server 
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan 
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/16/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 
-# Best practices for bulk data upload for Azure Database for PostgreSQL - Flexible Server
+# Best practices for uploading data in bulk in Azure Database for PostgreSQL - Flexible Server
 
-There are two types of bulk loads:
-- Initial data load of an empty database
-- Incremental data loads
-
-This article discusses various loading techniques along with best practices when it comes to initial data loads and incremental data loads.
+This article discusses various methods for loading data in bulk in Azure Database for PostgreSQL - Flexible Server, along with best practices for both initial data loads in empty databases and incremental data loads.
 
 ## Loading methods
 
-Performance-wise, the data loading methods arranged in the order of most time consuming to least time consuming is as follows:
-- Single record Insert
-- Batch into 100-1000 rows per commit. One can use transaction block to wrap multiple records per commit  
-- INSERT with multi row values
-- COPY command
+The following data-loading methods are arranged in order from most time consuming to least time consuming:
+- Run a single-record `INSERT` command.
+- Batch into 100 to 1000 rows per commit. You can use a transaction block to wrap multiple records per commit.  
+- Run `INSERT` with multiple row values.
+- Run the `COPY` command.
 
-The preferred method to load the data into the database is by copy command. If the copy command isn't possible, batch INSERTs is the next best method. Multi-threading with a COPY command is the optimal method for bulk data loads.
+The preferred method for loading data into a database is to use the `COPY` command. If the `COPY` command isn't possible, using batch `INSERT` is the next best method. Multi-threading with a `COPY` command is the optimal method for loading data in bulk.
 
 ## Best practices for initial data loads
 
-#### Drop indexes
+### Drop indexes
 
-Before an initial data load, it's advised to drop all the indexes in the tables. It's always more efficient to create the indexes after the data load.
+Before you do an initial data load, we recommend that you drop all the indexes in the tables. It's always more efficient to create the indexes after the data is loaded.
 
-#### Drop constraints
+### Drop constraints
 
-##### Unique key constraints
+The main drop constraints are described here:
 
-To achieve strong performance, it's advised to drop unique key constraints before an initial data load, and recreate it once the data load is completed. However, dropping unique key constraints cancels the safeguards against duplicated data.
+* **Unique key constraints** 
 
-##### Foreign key constraints
+   To achieve strong performance, we recommend that you drop unique key constraints before an initial data load, and re-create them after the data load is completed. However, dropping unique key constraints cancels the safeguards against duplicated data.
 
-It's advised to drop foreign key constraints before initial data load and recreate once data load is completed.
+* **Foreign key constraints** 
 
-Changing the `session_replication_role` parameter to replica also disables all foreign key checks. However, be aware making the change can leave data in an inconsistent state if not properly used.
+   We recommend that you drop foreign key constraints before the initial data load and re-create them after the data load is completed.
 
-#### Unlogged tables
+   Changing the `session_replication_role` parameter to `replica` also disables all foreign key checks. However, be aware that making the change can leave data in an inconsistent state if it's not properly used.
 
-Use of unlogged tables will make data load faster. Data written to unlogged tables isn't written to the write-ahead log.
+### Unlogged tables
 
-The disadvantages of using unlogged tables are
+Consider the pros and cons of using unlogged tables before you use them in initial data loads.
+
+Using unlogged tables makes data load faster. Data that's written to unlogged tables isn't written to the write-ahead log.
+
+The disadvantages of using unlogged tables are:
 - They aren't crash-safe. An unlogged table is automatically truncated after a crash or unclean shutdown.
 - Data from unlogged tables can't be replicated to standby servers.
 
-The pros and cons of using unlogged tables should be considered before using in initial data loads.
+To create an unlogged table or change an existing table to an unlogged table, use the following options:
 
-Use the following options to create an unlogged table or change an existing table to unlogged table:
+* Create a new unlogged table by using the following syntax:  
+    ``` 
+    CREATE UNLOGGED TABLE <tablename>;
+    ```
 
-Create a new unlogged table by using the following syntax:  
-``` 
-CREATE UNLOGGED TABLE <tablename>;
-```
+* Convert an existing logged table to an unlogged table by using the following syntax:   
 
-Convert an existing logged table to an unlogged table by using the following syntax:   
-```
-ALTER TABLE <tablename> SET UNLOGGED;
-```
+    ```
+    ALTER TABLE <tablename> SET UNLOGGED;
+    ```
 
-#### Server parameter tuning
+### Server parameter tuning
 
-`Autovacuum`
-
-During the initial data load, it's best to turn off the autovacuum. Once the initial load is completed, it's advised to run a manual VACUUM ANALYZE on all tables in the database, and then turn on autovacuum.
+* `autovacuum`: During the initial data load, it's best to turn off `autovacuum`. After the initial load is completed, we recommend that you run a manual `VACUUM ANALYZE` on all tables in the database, and then turn on `autovacuum`.
 
 > [!NOTE]
-> Please follow the recommendations below only if there is enough memory and disk space.
+> Follow the recommendations here only if there's enough memory and disk space.
 
-`maintenance_work_mem`
+* `maintenance_work_mem`: Can be set to a maximum of 2 gigabytes (GB) on a flexible server. `maintenance_work_mem` helps in speeding up autovacuum, index, and foreign key creation.
 
-The maintenance_work_mem can be set to a maximum of 2 GB on a flexible server. `maintenance_work_mem` helps in speeding up autovacuum, index, and foreign key creation.
+* `checkpoint_timeout`: On a flexible server, the `checkpoint_timeout` value can be increased to a maximum of 24 hours from the default setting of 5 minutes. We recommend that you increase the value to 1 hour before you load data initially on the flexible server.
 
-`checkpoint_timeout`
+* `checkpoint_completion_target`: We recommend a value of 0.9.
 
-On the flexible server, the checkpoint_timeout can be increased to maximum 24 h from default 5 minutes. It's advised to increase the value to 1 hour before initial data loads on Flexible server.
+* `max_wal_size`: Can be set to the maximum allowed value on a flexible server, which is 64 GB while you're doing the initial data load.
 
-`checkpoint_completion_target`
-
-A value of 0.9 is always recommended.
-
-`max_wal_size`
-
-The max_wal_size can be set to the maximum allowed value on the Flexible server, which is 64 GB while we do the initial data load.
-
-`wal_compression`
-
-wal_compression can be turned on. Enabling the parameter can have some extra  CPU cost spent on the compression during WAL logging and on the decompression during WAL replay.
+* `wal_compression`: Can be turned on. Enabling this parameter can incur some extra CPU cost spent on the compression during write-ahead log (WAL) logging and on the decompression during WAL replay.
 
 
-#### Flexible server recommendations
+### Flexible server recommendations
 
-Before the start of initial data load on a Flexible server, it's recommended to
+Before you begin an initial data load on the flexible server, we recommend that you:
 
-- Disable high availability [HA] on the server. You can enable HA once initial load is completed on master/primary.
-- Create read replicas after initial data load is completed.
-- Make logging minimal or disable all together during initial data loads. Example: disable pgaudit, pg_stat_statements, query store.
+- Disable high availability on the server. You can enable it after the initial load is completed on master/primary.
+- Create read replicas after the initial data load is completed.
+- Make logging minimal or disable it altogether during initial data loads (for example: disable pgaudit, pg_stat_statements, query store).
 
 
-#### Recreating indexes and adding constraints
+### Re-create indexes and add constraints
 
-Assuming the indexes and constraints were dropped before the initial load, it's recommended to have high values of maintenance_work_mem (as recommended above) for creating indexes and adding constraints. In addition, starting with Postgres version 11, the following parameters can be modified for faster parallel index creation after initial data load:
+Assuming that you dropped the indexes and constraints before the initial load, we recommend that you use high values in `maintenance_work_mem` (as mentioned earlier) for creating indexes and adding constraints. In addition, starting with PostgreSQL version 11, the following parameters can be modified for faster parallel index creation after the initial data load:
 
-`max_parallel_workers`
+* `max_parallel_workers`: Sets the maximum number of workers that the system can support for parallel queries.
 
-Sets the maximum number of workers that the system can support for parallel queries.
+* `max_parallel_maintenance_workers`: Controls the maximum number of worker processes, which can be used in `CREATE INDEX`.
 
-`max_parallel_maintenance_workers`
-
-Controls the maximum number of worker processes, which can be used to CREATE INDEX.
-
-One could also create the indexes by making recommended settings at the session level. An example of how it can be done at the session level is shown below:
+You can also create the indexes by making the recommended settings at the session level. Here's an example of how to do it:
 
 ```sql
 SET maintenance_work_mem = '2GB';
@@ -131,40 +114,42 @@ CREATE INDEX test_index ON test_table (test_column);
 
 ## Best practices for incremental data loads
 
-#### Table partitioning
+### Partition tables
 
-It's always recommended to partition large tables. Some advantages of partitioning, especially during incremental loads:
-- Creation of new partitions based on the new deltas makes it efficient to add new data to the table.
-- Maintenance of tables becomes easier. One can drop a partition during incremental data loads avoiding time-consuming deletes on large tables.
-- Autovacuum would be triggered only on partitions that were changed or added during incremental loads, which make maintaining statistics on the table easier.
+We always recommend that you partition large tables. Some advantages of partitioning, especially during incremental loads, include:
+- Creating new partitions based on new deltas makes it efficient to add new data to the table.
+- Maintaining tables becomes easier. You can drop a partition during an incremental data load to avoid time-consuming deletions in large tables.
+- Autovacuum would be triggered only on partitions that were changed or added during incremental loads, which makes maintaining statistics on the table easier.
 
-#### Maintain up-to-date table statistics
+### Maintain up-to-date table statistics
 
-Monitoring and maintaining table statistics is important for query performance on the database. This also includes scenarios where you have incremental loads. PostgreSQL uses the autovacuum daemon process to clean up dead tuples and analyze the tables to keep the statistics updated. For more details on autovacuum monitoring and tuning, review [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
+Monitoring and maintaining table statistics is important for query performance on the database. This also includes scenarios where you have incremental loads. PostgreSQL uses the autovacuum daemon process to clean up dead tuples and analyze the tables to keep the statistics updated. For more information, see [Autovacuum monitoring and tuning](./how-to-autovacuum-tuning.md).
 
-#### Index creation on foreign key constraints
+### Create indexes on foreign key constraints
 
-Creating indexes on foreign keys in the child tables would be beneficial in the following scenarios:
-- Data updates or deletions in the parent table. When data is updated or deleted in the parent table lookups would be performed on the child table. To make lookups faster, you could index foreign keys on the child table.
-- Queries, where we see join between parent and child tables on key columns.
+Creating indexes on foreign keys in the child tables can be beneficial in the following scenarios:
+- Data updates or deletions in the parent table. When data is updated or deleted in the parent table, lookups are performed on the child table. To make lookups faster, you could index foreign keys on the child table.
+- Queries, where you can see the joining of parent and child tables on key columns.
 
-#### Unused indexes
+### Identify unused indexes
 
-Identify unused indexes in the database and drop them. Indexes are an overhead on data loads. The fewer the indexes on a table the better the performance is during data ingestion.
-Unused indexes can be identified in two ways - by Query Store and an index usage query.
+Identify unused indexes in the database and drop them. Indexes are an overhead on data loads. The fewer the indexes on a table, the better the performance during data ingestion.
 
-##### Query store
+You can identify unused indexes in two ways: by Query Store and an index usage query.
 
-Query Store helps identify indexes, which can be dropped based on query usage patterns on the database. For step-by-step guidance, see [Query Store](./concepts-query-store.md).
-Once Query Store is enabled on the server, the following query can be used to identify indexes that can be dropped by connecting to azure_sys database.
+**Query Store**
+
+The Query Store feature helps identify indexes, which can be dropped based on query usage patterns on the database. For step-by-step guidance, see [Query Store](./concepts-query-store.md).
+
+After you've enabled Query Store on the server, you can use the following query to identify indexes that can be dropped by connecting to azure_sys database.
 
 ```sql
 SELECT * FROM IntelligentPerformance.DropIndexRecommendations;
 ```
 
-##### Index usage
+**Index usage**
 
-The below query can also be used to identify unused indexes:
+You can also use the following query to identify unused indexes:
 
 ```sql
 SELECT 
@@ -188,59 +173,45 @@ WHERE
 ORDER BY 1, 2; 
 ```
 
-Number_of_scans, tuples_read, and tuples_fetched columns would indicate index usage.number_of_scans column value of zero points to index not being used.
+The `number_of_scans`, `tuples_read`, and `tuples_fetched` columns would indicate the index usage.number_of_scans column value of zero points as an index that's not being used.
 
-#### Server parameter tuning
+### Server parameter tuning
 
 > [!NOTE]
-> Please follow the recommendations below only if there is enough memory and disk space.
+> Follow the recommendations in the following parameters only if there's enough memory and disk space.
 
-`maintenance_work_mem`
+* `maintenance_work_mem`: This parameter can be set to a maximum of 2 GB on the flexible server. `maintenance_work_mem` helps speed up index creation and foreign key additions.
 
-The maintenance_work_mem parameter can be set to a maximum of 2 GB on Flexible Server. `maintenance_work_mem` helps speed up index creation and foreign key additions.
+* `checkpoint_timeout`: On the flexible server, the `checkpoint_timeout` value can be increased to 10 or 15 minutes from the default setting of 5 minutes. Increasing `checkpoint_timeout` to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there's a crash. We recommend careful consideration before you make the change.
 
-`checkpoint_timeout`
+* `checkpoint_completion_target`: We recommend a value of 0.9.
 
-On the Flexible Server, the checkpoint_timeout parameter can be increased to 10 minutes or 15 minutes from the default 5 minutes. Increasing `checkpoint_timeout` to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there was a crash. Careful consideration is recommended before making the change.
+* `max_wal_size`: This value depends on SKU, storage, and workload. One way to arrive at the correct value for `max_wal_size` is shown in the following example.
 
-`checkpoint_completion_target`
+    During peak business hours, arrive at a value by doing the following:
 
-A value of 0.9 is always recommended.
+    a. Take the current WAL log sequence number (LSN) by running the following query:
 
-`max_wal_size`
+    ```sql
+    SELECT pg_current_wal_lsn (); 
+    ```
+    b. Wait for `checkpoint_timeout` number of seconds. Take the current WAL LSN by running the following query:
 
-The max_wal_size depends on SKU, storage, and workload.
+    ```sql
+    SELECT pg_current_wal_lsn (); 
+    ```
+    c. Use the two results to check the difference, in GB:
+    
+    ```sql
+    SELECT round (pg_wal_lsn_diff('LSN value when run second time','LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB; 
+    ```
 
-One way to arrive at the correct value for max_wal_size is shown below.
-
-During peak business hours, follow the below steps to arrive at a value:
-
-- Take the current WAL LSN by executing the below query:
-
-```sql
-SELECT pg_current_wal_lsn (); 
-```
-
-- Wait for checkpoint_timeout number of seconds. Take the current WAL LSN by executing the below query:
-
-```sql
-SELECT pg_current_wal_lsn (); 
-```
-
-- Use the two results to check the difference in GB:
- 
-```sql
-SELECT round (pg_wal_lsn_diff('LSN value when run second time','LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB; 
-```
-
-`wal_compression`
-
-wal_compression can be turned on. Enabling the parameter can have some extra  CPU cost spent on the compression during WAL logging and on the decompression during WAL replay.
+* `wal_compression`: Can be turned on. Enabling this parameter can incur some extra CPU cost spent on the compression during WAL logging and on the decompression during WAL replay.
 
 
 ## Next steps
-- Troubleshoot high CPU utilization [High CPU Utilization](./how-to-high-CPU-utilization.md).
-- Troubleshoot high memory utilization [High Memory Utilization](./how-to-high-memory-utilization.md).
-- Configure server parameters [Server Parameters](./howto-configure-server-parameters-using-portal.md).
-- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
-- Troubleshoot high CPU utilization [High IOPS Utilization](./how-to-high-io-utilization.md).
+- [Troubleshoot high CPU utilization](./how-to-high-CPU-utilization.md)
+- [Troubleshoot high memory utilization](./how-to-high-memory-utilization.md)
+- [Configure server parameters](./howto-configure-server-parameters-using-portal.md)
+- [Troubleshoot and tune Autovacuum](./how-to-autovacuum-tuning.md)
+- [Troubleshoot high CPU utilization](./how-to-high-io-utilization.md)

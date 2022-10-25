@@ -179,17 +179,6 @@ If the number of **DirectoryOpen/DirectoryClose** calls is among the top API cal
 ### Workaround
 
 - A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
-
-## File creation is slower than expected
-
-### Cause
-
-Workloads that rely on creating a large number of files won't see a substantial difference in performance between premium file shares and standard file shares.
-
-### Workaround
-
-- None.
-
 ## Slow performance from Windows 8.1 or Server 2012 R2
 
 ### Cause
