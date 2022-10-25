@@ -290,10 +290,10 @@ To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
     You might need to `Exit` out of the current PowerShell session after you run this command for the next step.
 
-1. Install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
+1. Install the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
 
     ```azurepowershell
-    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    Install-Module -Name Az.ManagedServiceIdentity
     ```
 
 ## Configure a federated identity credential on a user-assigned managed identity
