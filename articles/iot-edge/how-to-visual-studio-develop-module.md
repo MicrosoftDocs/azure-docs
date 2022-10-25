@@ -35,6 +35,22 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C++** workloads in your Visual Studio 2022 installation. Alternatively, you can [Modify Visual Studio 2022](/visualstudio/install/modify-visual-studio?view=vs-2022&preserve-view=true) to add the required workloads, if Visual Studio is already installed on your machine.
 
+::: zone pivot="iotedge-dev-cli"
+
+* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
+
+    ```cmd
+    pip3 install iotedgedev
+    ```
+
+    > [!NOTE]
+    >
+    > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
+    >
+    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+
+::: zone-end
+
 ::: zone pivot="iotedge-dev-ext"
 
 * Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
@@ -133,6 +149,7 @@ Now you have an IoT Edge project and an IoT Edge module in your Visual Studio so
 In your solution is a main project folder and a single module folder. Both are on the project level. The main project folder contains your deployment manifest.
 
 The module project folder contains a file for your module code named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files included here provide the information needed to build your module as a Windows or Linux container.
+
 #### Deployment manifest of your project
 
 The deployment manifest you'll edit is called `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
@@ -143,6 +160,8 @@ If you open this deployment template, you see that the two runtime modules, **ed
 
 The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.4. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio to match.
 
+::: zone pivot="iotedge-dev-ext"
+
 1. In the Solution Explorer, right-click the name of your main project and select **Set IoT Edge runtime version**.
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Screenshot of how to find and select the menu item named 'Set I o T Edge Runtime version'.":::
@@ -150,6 +169,8 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes. If no change was made, select **Cancel** to exit.
 
 1. If you changed the version, re-generate your deployment manifest by right-clicking the name of your project and select **Generate deployment for IoT Edge**. This will generate a deployment manifest based on your deployment template and will appear in the **config** folder of your Visual Studio project.
+
+::: zone-end
 
 ## Module infrastructure & development options
 
