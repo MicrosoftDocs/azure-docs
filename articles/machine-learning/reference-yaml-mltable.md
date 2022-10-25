@@ -106,8 +106,8 @@ The following transformations are specific to delimited files.
 - header: user can choose one of the following options: `no_header`, `from_first_file`, `all_files_different_headers`, `all_files_same_headers`. Defaults to `all_files_same_headers`.
 - delimiter: The separator used to split columns.
 - empty_as_string: Specify if empty field values should be loaded as empty strings. The default (`False`) will read empty field values as nulls. Passing this setting as `True` will read empty field values as empty strings. If the values are converted to numeric or datetime, then this setting has no effect, as empty values will be converted to nulls.
-- include_path_column: Boolean to keep path information as column in the table. Defaults to `False`. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from.
-- support_multi_line: By default (support_multi_line=`False`), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This should be set to `True` when the delimited files are known to contain quoted line breaks.
+- include_path_column: Boolean to keep path information as column in the table. Defaults to `False`. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
+- support_multi_line: By default (support_multi_line=`False`), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This setting should be set to `True` when the delimited files are known to contain quoted line breaks.
 
 ## MLTable transformations: read_json_lines
 ```yaml
@@ -138,7 +138,7 @@ transformations:
 Only flat Json files are supported.
 Below are the supported transformations that are specific for json lines:
 
-- `include_path` Boolean to keep path information as column in the MLTable. Defaults to False. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from, or want to keep useful information in file path.
+- `include_path_column` Boolean to keep path information as column in the MLTable. Defaults to False. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
 - `invalid_lines` How to handle lines that are invalid JSON. Supported values are `error` and `drop`. Defaults to `error`.
 - `encoding` Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
 
@@ -156,7 +156,7 @@ transformations:
 ### Parquet files transformations
 If the user doesn't define options for `read_parquet` transformation, default options will be selected (see below).
 
-- `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This is useful when you are reading multiple files, and want to know which file a particular record originated from.
+- `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
 
 ## MLTable transformations: read_delta_lake
 ```yaml
