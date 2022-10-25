@@ -248,6 +248,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Navigate to **Environment settings**.
 
 1. Select the relevant account.
+
 1. Select **Standards**.
 1. Select **Add** and choose **Standard**.
 1. Choose a standard from the drop-down menu.
