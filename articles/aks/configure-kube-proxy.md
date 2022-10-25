@@ -1,17 +1,17 @@
 ---
-title: Configure kube-proxy (iptables/IPVS)
+title: Configure kube-proxy (iptables/IPVS) (preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure kube-proxy to utilize different load balancing configurations with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 10/25/2022
 ms.author: pahealy
 author: phealy
 
 #Customer intent: As a cluster operator, I want to utilize a different kube-proxy configuration.
 ---
 
-# Configure `kube-proxy` in Azure Kubernetes Service (AKS) (PREVIEW)
+# Configure `kube-proxy` in Azure Kubernetes Service (AKS) (preview)
 
 `kube-proxy` is a component of Kubernetes that handles routing traffic for services within the cluster. There are two backends available for Layer 3/4 load balancing in upstream `kube-proxy` - iptables and IPVS. 
 
@@ -39,7 +39,7 @@ az extension update --name aks-preview
 
 ### Register the `KubeProxyConfigurationPreview` preview feature
 
-To create an AKS cluster with API Server VNet Integration, you must enable the `KubeProxyConfigurationPreview` feature flag on your subscription.
+To create an AKS cluster with custom `kube-proxy` configuration, you must enable the `KubeProxyConfigurationPreview` feature flag on your subscription.
 
 Register the `KubeProxyConfigurationPreview` feature flag by using the `az feature register` command, as shown in the following example:
 
