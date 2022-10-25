@@ -51,7 +51,7 @@ Verifiable credentials can be used to enable faster and easier user onboarding b
 
 Learn more about [account onboarding](https://learn.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
 
-:::image type="content" source="media/verified-id-partner-au10tix/vc-solution-architecture-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
+:::image type="content" source="media/partner-vu/vc-solution-architecture-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
 
 ## Configure your application to use VU Identity Card
 
