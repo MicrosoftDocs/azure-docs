@@ -110,14 +110,14 @@ Within your Resource Manager templates, an additional parameter for `licenseType
 ```
 
 **Deploy via PowerShell**
-When deploying your Windows Server VM via PowerShell, you've an another parameter for `-LicenseType`. Once you've your VHD uploaded to Azure, you create a VM using `New-AzVM` and specify the licensing type as follows:
+When deploying your Windows Server VM via PowerShell, you need to add another parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you can create a VM using `New-AzVM` and specify the licensing type as follows:
 
 ```powershell
 New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## Verify your VM is utilizing the licensing benefit
-Once you've deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzVM` as follows:
+Once you've deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzVM`:
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
