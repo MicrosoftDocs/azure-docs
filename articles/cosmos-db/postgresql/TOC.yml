@@ -118,6 +118,8 @@
       items:
         - name: Monitoring
           href: concepts-monitoring.md
+        - name: Performance tuning
+          href: concepts-performance-tuning.md
         - name: Audit logs
           href: concepts-audit.md
     - name: Columnar storage
@@ -128,6 +130,8 @@
       href: howto-connect.md
     - name: Ingest data
       items:
+        - name: Azure Blob Storage (ABS)
+          href: howto-ingest-azure-blob-storage.md
         - name: Azure Stream Analytics (ASA)
           href: howto-ingest-azure-stream-analytics.md
         - name: Azure Data Factory (ADF)

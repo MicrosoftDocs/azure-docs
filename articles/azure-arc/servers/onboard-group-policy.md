@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using group policy
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using group policy.
-ms.date: 05/25/2022
+ms.date: 10/20/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -10,7 +10,7 @@ ms.custom: template-how-to
 
 You can onboard Active Directory–joined Windows machines to Azure Arc-enabled servers at scale using Group Policy.
 
-You'll first need to set up a local remote share with the Connected Machine Agent and define a configuration file specifying the Arc-enabled server's landing zone within Azure. You will then define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
+You'll first need to set up a local remote share and define a configuration file specifying the Arc-enabled server's landing zone within Azure. You will then define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
 
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.
 
@@ -18,11 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prepare a remote share
 
-The Group Policy to onboard Azure Arc-enabled servers requires a remote share with the Connected Machine Agent. You will need to:
-
-1. Prepare a remote share to host the Azure Connected Machine agent package for Windows and the configuration file. You need to be able to add files to the distributed location.
-
-1. Download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share.
+Prepare a remote share to host the configuration file and onboarding script. You need to be able to add files to the distributed location.
 
 ## Generate an onboarding script and configuration file from Azure portal
 
@@ -48,7 +44,7 @@ Before you can run the script to connect your machines, you'll need to do the fo
 
 The group policy will project machines as Arc-enabled servers in the Azure subscription, resource group, and region specified in this configuration file.
 
-## Save the onboarding script to a remote share
+## Save the onboarding script to the remote share
 
 Before you can run the script to connect your machines, you'll need to save the onboarding script to the remote share. This will be referenced when creating the Group Policy Object.
 
@@ -135,7 +131,7 @@ try
         "Installation Complete" >> $logpath
     }
 
-    & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --config "$InstallationFolder\$ConfigFilename" >> $logpath
+    & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --config "$InstallationFolder\$ConfigFilename" --correlation-id "478b97c2-9310-465a-87df-f21e66c2b248" >> $logpath
     if ($LASTEXITCODE -ne 0) {
         throw "Failed during azcmagent connect: $LASTEXITCODE"
     }
@@ -184,7 +180,7 @@ In the **General** tab, set the following parameters under **Security Options**:
 
 1. In the field **Configure for**, select **Windows Vista or Window 2008**.
 
-:::image type="content" source="media/onboard-group-policy/general-properties.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
+:::image type="content" source="media/onboard-group-policy/general-properties.png" alt-text="Screenshot of the Azure Arc Connected Machine agent Deployment and Configuration properties window." :::
 
 ### Assign trigger parameters for the task
 

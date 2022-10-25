@@ -197,5 +197,5 @@ An important part of the overall deployment is monitoring the solution end-to-en
 
 ## Next steps
 
-- [Provision devices across load-balanced IoT Hubs](tutorial-provision-multiple-hubs.md)
+- [Provision devices across IoT Hubs](how-to-use-allocation-policies.md)
 - [Retry timing](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/docs/iot/mqtt_state_machine.md#retry-timing) when retrying operations
