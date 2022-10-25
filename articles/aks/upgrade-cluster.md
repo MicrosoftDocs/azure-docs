@@ -14,7 +14,10 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 > [!NOTE]
-> Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
+> Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
+
+> [!NOTE]
+> Performing upgrade operations requires the `Microsoft.ContainerService/managedClusters/agentPools/write` RBAC role. For more on Azure RBAC roles, see the [Azure resource provider operations]
 
 ## Before you begin
 
