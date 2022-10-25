@@ -126,7 +126,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[aks-schema-kubeproxyconfig]: https://learn.microsoft.com/en-us/azure/templates/microsoft.containerservice/managedclusters?pivots=deployment-language-bicep#containerservicenetworkprofilekubeproxyconfig
+[aks-schema-kubeproxyconfig]: /azure/templates/microsoft.containerservice/managedclusters?pivots=deployment-language-bicep#containerservicenetworkprofilekubeproxyconfig
 
 <!-- LINKS - Internal -->
 [aks-byo-cni]: use-byo-cni.md
