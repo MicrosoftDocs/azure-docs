@@ -285,6 +285,10 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
+    ::: zone pivot="python-mode-decorators" 
+    In the current v2 programming model preview, choose a region from one of the following locations: France Central, West Central US, North Europe, China East, East US, or North Central US.
+    ::: zone-end
+
     > [!NOTE]
     > You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
 
