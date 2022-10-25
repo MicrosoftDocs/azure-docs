@@ -59,12 +59,12 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
 
    For **Azure Active Directory** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {AzureAD TenantID} with your tenant ID.
 
-   * **Tenant:** TenantID for the Azure AD tenant. Enter the tenant ID that corresponds to your configuration.
+   * **Tenant:** TenantID for the Azure AD tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL does not have a `\` at the end.
 
-     * Azure Public AD: `https://login.microsoftonline.com/{AzureAD TenantID}/`
-     * Azure Government AD: `https://login.microsoftonline.us/{AzureAD TenantID/`
-     * Azure Germany AD: `https://login-us.microsoftonline.de/{AzureAD TenantID/`
-     * China 21Vianet AD: `https://login.chinacloudapi.cn/{AzureAD TenantID/`
+     * Azure Public AD: `https://login.microsoftonline.com/{AzureAD TenantID}`
+     * Azure Government AD: `https://login.microsoftonline.us/{AzureAD TenantID}`
+     * Azure Germany AD: `https://login-us.microsoftonline.de/{AzureAD TenantID}`
+     * China 21Vianet AD: `https://login.chinacloudapi.cn/{AzureAD TenantID}`
 
    * **Audience**: The Application ID of the "Azure VPN" Azure AD Enterprise App.
 
