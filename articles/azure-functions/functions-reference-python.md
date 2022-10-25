@@ -103,7 +103,7 @@ At this time, only specific triggers and bindings are supported by the V2 progra
 | Blob | x | x | x |
 | Event Grid | x |   | x |
 
-To learn about known limitations with the V2 model and their workarounds, see [Troublehshooting Python Functions using the V2 Model](./recover-python-functions.md?pivots=python-mode-decorators). 
+To learn about known limitations with the V2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
 
 ## Alternate entry point
@@ -123,7 +123,7 @@ You can change the default behavior of a function by optionally specifying the `
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-During Preview, the entry point will always be in the file `function_app.py`. However, functions within the project can be
+During preview, the entry point is only in the file `function_app.py`. However, functions within the project can be referenced in function_app.py using [blueprints](#blueprints) or by importing.
 ::: zone-end
 
 ## Folder structure
