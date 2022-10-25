@@ -24,13 +24,13 @@ If you would like to learn about how to create and manage Azure subscription use
 
 When you first created your Azure Database for PostgreSQL, you provided a server admin user name and password. For more information, you can follow the [Quickstart](quickstart-create-server-portal.md) to see the step-by-step approach. Since the server admin user name is a custom name, you can locate the chosen server admin user name from the Azure portal.
 
-The Azure Database for PostgreSQL server is created with the 3 default roles defined. You can see these roles by running the command: `SELECT rolname FROM pg_roles;`
+The Azure Database for PostgreSQL server is created with the three default roles defined. You can see these roles by running the command: `SELECT rolname FROM pg_roles;`
 
 - azure_pg_admin
 - azure_superuser
 - your server admin user
 
-Your server admin user is a member of the azure_pg_admin role. However, the server admin account is not part of the azure_superuser role. Since this service is a managed PaaS service, only Microsoft is part of the super user role.
+Your server admin user is a member of the azure_pg_admin role. However, the server admin account isn't part of the azure_superuser role. Since this service is a managed PaaS service, only Microsoft is part of the super user role.
 
 The PostgreSQL engine uses privileges to control access to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL, the server admin user is granted these privileges:
   LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION
@@ -43,7 +43,7 @@ The server admin user account can be used to create additional users and grant t
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal.
 
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as pgAdmin or psql.
-   If you are unsure of how to connect, see [the quickstart](./quickstart-create-server-portal.md)
+   If you're unsure of how to connect, see [the quickstart](./quickstart-create-server-portal.md)
 
 3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password.
 
@@ -86,7 +86,7 @@ The server admin user account can be used to create additional users and grant t
     GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <db_user>;
     ```
 
-5. Log in to your server, specifying the designated database, using the new user name and password. This example shows the psql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
+5. Log in to your server, specifying the designated database, using the new user name and password. This example shows the psql command line. With this command, you're prompted for the password for the user name. Replace your own server name, database name, and user name.
 
    ```shell
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
