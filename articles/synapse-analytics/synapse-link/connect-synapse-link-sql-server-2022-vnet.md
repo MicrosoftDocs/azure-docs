@@ -97,7 +97,7 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sql-server.png" alt-text="Screenshot that shows how to create a link from the SQL Server 2022 instance.":::
 
-1. Start your link connection
+1. Start your link connection.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="Screenshot that shows how to start the link connection.":::
  
