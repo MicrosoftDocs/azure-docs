@@ -65,8 +65,7 @@ Run an assessment as follows:
         - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
         - Alternatively, select the storage type you want to use for VM when you migrate it.
     - In **Reserved Instances**, specify whether you want to use reserve instances for the VM when you migrate it.
-        - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. 
-        - [Learn more](https://aka.ms/azurereservedinstances).
+        - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. [Learn more](https://aka.ms/azurereservedinstances).
  1. In **VM Size**:
      - In **Sizing criterion**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment.
