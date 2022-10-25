@@ -235,6 +235,7 @@ To track your compliance with any other standard, you'll need to explicitly add 
 You can add other standards such as Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP, and PCI-DSS 3.2.1.  
 
 **AWS**: There are three benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+
 Users that have one Defender bundle enabled cab enable CIS and PCI as well (same as regulatory compliance for Azure).
 
 Available AWS regulatory standards:
