@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 > **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
 
-[!NOTE]
+> [!NOTE]
 > Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
 
 > [!IMPORTANT]
