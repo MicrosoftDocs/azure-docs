@@ -29240,11 +29240,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root":"/articles/availability-zones/az-overview.md",
-            "redirect_URL": "/azure/reliability/az-service-support",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/availability-zones/az-region.md",
             "redirect_URL": "/azure/reliability/az-service-support",
             "redirect_document_id": false

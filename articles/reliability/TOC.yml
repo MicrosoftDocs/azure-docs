@@ -4,9 +4,10 @@
   href: overview-reliability.md
 - name: Availability zone support
   items:
+  - name: What are Azure availability zones and regions?
+    href: az-overview.md
   - name: Availability zone service and regional support
     href: az-service-support.md
-
   - name: Migrate to availability zone support
     items:
     - name: Overview
@@ -153,7 +154,7 @@
 - name: Resources
   items:
   - name: Microsoft Azure Well-Architected Framework
-    href: /azure/architecture/framework/
+    href: https://learn.microsoft.com/azure/architecture/framework/
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Azure Roadmap

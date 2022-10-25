@@ -13,51 +13,24 @@ ms.custom: references_regions
 
 # Availability zone service and regional support
 
-Azure *availability zones* are physically separate locations within each Azure region that are tolerant to local failures. This article gives you a brief overview of availability zones and which regions and services support them.
+Azure availability zones are physically separate locations within each Azure region. This article shows you which regions and services support availability zones. 
 
+For more information on availability zones and regions, see [What are Azure regions and availability zones?](az-overview.md),
 
-## Availability zones
-
-Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.
-
-Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. They help your data stay synchronized and accessible when things go wrong. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. Availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.
-
-![Image showing physically separate availability zone locations within an Azure region.](media/availability-zones.png)
-
-Datacenter locations are selected by using rigorous vulnerability risk assessment criteria. This process identifies all significant datacenter-specific risks and considers shared risks between availability zones.
-
-With availability zones, you can design and operate applications and databases that automatically transition between zones without interruption. Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple datacenter infrastructures.
-
-Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API called: [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
-
-You can design resilient solutions by using Azure services that use availability zones. Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones.
-
-Azure *availability zones-enabled services* are designed to provide the right level of resiliency and flexibility. They can be configured in two ways. They can be either *zone redundant*, with automatic replication across zones, or *zonal*, with instances pinned to a specific zone. You can also combine these approaches.
-
-Some organizations require high availability of availability zones and protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against localized disasters with availability zones and protection from regional or large geography disasters with disaster recovery, by making use of another region. To learn more about business continuity, disaster recovery, and cross-region replication, see [Cross-region replication in Azure](cross-region-replication-azure.md).
-
-![Image showing availability zones that protect against localized disasters and regional or large geography disasters by using another region.](media/availability-zones-region-geography.png)
 
 ## Azure regions with availability zone support
 
 [!INCLUDE [availability-zone-regions-include](./includes/availability-zone-regions-include.md)]
 
-
 ## Azure services with availability zone support
 
-Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these approaches to architecture when you design your resiliency strategy.
+Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.
+
+Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these approaches to architecture when you design your reliability strategy.
 
 - **Zonal services**: A resource can be deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements. Resiliency is self-architected by replicating applications and data to one or more zones within the region. Resources can be pinned to a specific zone. For example, virtual machines, managed disks, or standard IP addresses can be pinned to a specific zone, which allows for increased resiliency by having one or more instances of resources spread across zones.
 - **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across three zones so that a failure in one zone doesn't affect the high availability of the data. 
 - **Always-available services**: Always available across all Azure geographies and are resilient to zone-wide outages and region-wide outages. For a complete list of always-available services, also called non-regional services, in Azure, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
-
-Azure offerings are grouped into three categories that reflect their _regional_ availability: *foundational*, *mainstream*, and *strategic* services. Azure's general policy on deploying services into any given region is primarily driven by region type, service category, and customer demand. For more information, see [Azure services](availability-service-by-category.md).
-
-- **Foundational services**: Available in all recommended and alternate regions when a region is generally available, or within 90 days of a new foundational service becoming generally available.
-- **Mainstream services**: Available in all recommended regions within 90 days of a region's general availability. Mainstream services are demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
-- **Strategic services**: Targeted service offerings, often industry-focused or backed by customized hardware. Strategic services are demand-driven for availability across regions, and many are already deployed into a large subset of recommended regions.
-
-Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.
 
 For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
 
@@ -67,6 +40,12 @@ The following tables provide a summary of the current offering of zonal, zone-re
 ![Legend containing icons and meaning of each with respect to service category and regional availability of each service in the table.](media/legend.png) 
 
 In the Product Catalog, always-available services are listed as "non-regional" services.
+
+Azure offerings are grouped into three categories that reflect their _regional_ availability: *foundational*, *mainstream*, and *strategic* services. Azure's general policy on deploying services into any given region is primarily driven by region type, service category, and customer demand. For more information, see [Azure services](availability-service-by-category.md).
+
+- **Foundational services**: Available in all recommended and alternate regions when a region is generally available, or within 90 days of a new foundational service becoming generally available.
+- **Mainstream services**: Available in all recommended regions within 90 days of a region's general availability. Mainstream services are demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
+- **Strategic services**: Targeted service offerings, often industry-focused or backed by customized hardware. Strategic services are demand-driven for availability across regions, and many are already deployed into a large subset of recommended regions
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
