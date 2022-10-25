@@ -25,7 +25,7 @@ The ideal scenarios to use mltable are:
 - The schema of your data is complex and/or changes frequently.
 - You only need a subset of data. (for example: a sample of rows or files, specific columns, etc.)
 - AutoML jobs requiring tabular data.
-If your scenario does not fit the above then it is likely that [URIs](reference-yaml-data.md) are a more suitable type.
+If your scenario does not fit the above, then it is likely that [URIs](reference-yaml-data.md) are a more suitable type.
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/MLTable.schema.json.
 
@@ -75,7 +75,7 @@ transformations:
 ```
 
 ## MLTable transformations
-These are transforms that all mltable-artifact files support:
+These transformations apply to all mltable-artifact files:
 
 - `take`: Takes the first *n* records of the table
 - `take_random_sample`: Takes a random sample of the table where each record has a *probability* of being selected. The user can also include a *seed*.
@@ -105,8 +105,8 @@ The following transformations are specific to delimited files.
 - encoding: Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Defaults to `utf8`.
 - header: user can choose one of the following options: `no_header`, `from_first_file`, `all_files_different_headers`, `all_files_same_headers`. Defaults to `all_files_same_headers`.
 - delimiter: The separator used to split columns.
-- empty_as_string: Specify if empty field values should be loaded as empty strings. The default (`False`) will read empty field values as nulls. Passing this as `True` will read empty field values as empty strings. If the values are converted to numeric or datetime then this has no effect, as empty values will be converted to nulls.
-- include_path_column: Boolean to keep path information as column in the table. Defaults to `False`. This is useful when you are reading multiple files, and want to know which file a particular record originated from.
+- empty_as_string: Specify if empty field values should be loaded as empty strings. The default (`False`) will read empty field values as nulls. Passing this setting as `True` will read empty field values as empty strings. If the values are converted to numeric or datetime, then this setting has no effect, as empty values will be converted to nulls.
+- include_path_column: Boolean to keep path information as column in the table. Defaults to `False`. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from.
 - support_multi_line: By default (support_multi_line=`False`), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This should be set to `True` when the delimited files are known to contain quoted line breaks.
 
 ## MLTable transformations: read_json_lines
@@ -138,7 +138,7 @@ transformations:
 Only flat Json files are supported.
 Below are the supported transformations that are specific for json lines:
 
-- `include_path` Boolean to keep path information as column in the MLTable. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+- `include_path` Boolean to keep path information as column in the MLTable. Defaults to False. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from, or want to keep useful information in file path.
 - `invalid_lines` How to handle lines that are invalid JSON. Supported values are `error` and `drop`. Defaults to `error`.
 - `encoding` Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
 
