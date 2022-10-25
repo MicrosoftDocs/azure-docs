@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 10/25/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -85,6 +85,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
 
     1. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
     1. Identify all the VMs running on your device. This includes Kubernetes VMs, or any VM workloads that you may have deployed.
+
         ```powershell
         get-vm
         ```
@@ -92,13 +93,20 @@ In addition to the above prerequisites that are used for VM creation, you'll als
     
         ```powershell
         stop-vm -force
-        ```
+        ``` 
 
     1. Get the `hostname` for your device. This should return a string corresponding to the device hostname.
         ```powershell
         hostname
         ```
-    1. Get the logical processor indexes to reserve for HPN VMs.
+    1. Get the logical processor indexes to reserve for HPN VMs. Use the following cmdlets to customize the CPU set.
+
+       | Cmdlet | Description |
+       |-------|----------|
+       |Set-HcsNumaLpMapping |Description...|
+       |Get-HcsNumaLpMapping | |
+       |Set-HcsNumaSpanning | | 
+       |
 
        ```powershell
        Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command>
@@ -119,12 +127,23 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        ```
  
     6. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
+    
+       ```powershell
+       Set-HcsNumaLpMapping -policy SkuPolicy
+       <SkuPolicy: 4+4 minroot>
+       <AllRoot: all minroot>
+       ```
 
        ```powershell
        Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false 
        ```
+       
+       ```powershell
+       Set-HcsNumaSpanning -Enable $true/$false
+       <Sets the NUMA spanning setting. You will see VM migration/VM stopped while this operation takes place.>
+       ```
 
-       After this command is run, the device restarts automatically. 
+       After this command is run, all nodes will reboot automatically. 
 
        Here is an example output: 
 
@@ -174,17 +193,6 @@ In addition to the above prerequisites that are used for VM creation, you'll als
       ```
 ---
 
-## Customize the CPU set
-
-Use the following cmdlets to customize the CPU set.
-
-| Cmdlet | Description |
-|-------|----------|
-|Set-HcsNumaLpMapping |Description...|
-|Get-HcsNumaLpMapping | |
-|Set-HcsNumaSpanning | | 
-|
-
 ## Deploy a VM
 
 Follow these steps to create an HPN VM on your device.
@@ -233,7 +241,7 @@ Follow these steps to create an HPN VM on your device.
 
 - **Issue: Insufficient CPU or memory resources**
 
-   **Error description:** If no numa node provides sufficient CPU and memory resources, you will see the following error message: 
+   **Error description:** If no NUMA node provides sufficient CPU and memory resources, you will see the following error message: 
 
    *Customer-facing error message*
 
