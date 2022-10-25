@@ -87,7 +87,7 @@ Experienced SAP administrators may choose to create the role manually and assign
 
 ### Retrieve additional information from SAP (optional)
 
-To enable the SAP data connector to retrieve certain information from your SAP system, you must deploy additional CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR):
+You can deploy additional CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve certain information from your SAP system.
 - **SAP BASIS 7.5 SP12 and above**: Client IP Address information from security audit log
 - **ANY SAP BASIS version**: DB Table logs
 
