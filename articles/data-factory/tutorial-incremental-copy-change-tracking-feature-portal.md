@@ -104,11 +104,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    ALTER TABLE data_source_table
    ENABLE CHANGE_TRACKING  
    WITH (TRACK_COLUMNS_UPDATED = ON)
-   ```
+```
 
 1. Create a new table and store the ChangeTracking_version with a default value by running the following query:
    
-```
+```sql
    create table table_store_ChangeTracking_version
    (
        TableName varchar(255),
@@ -121,7 +121,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    INSERT INTO table_store_ChangeTracking_version
    VALUES ('data_source_table', @ChangeTracking_version)
    
-   ```
+```
    > [!NOTE]
    > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
 6. Run the following query to create a stored procedure in your database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
@@ -193,7 +193,9 @@ In this step, you link your Azure Storage Account to the data factory.
 1- Enter **AzureStorageLinkedService** for **Name**.
 1- Select the integration runtime in **Connect via integrationruntime**.
 1- Select the **Authentication type** .
-    2. Select your Azure Storage account for **Storage account name**.
+```
+2. Select your Azure Storage account for **Storage account name**.
+```
 1- Click **Create**.
 ### Create Azure SQL Database linked service.
 In this step, you link your database to the data factory.
@@ -208,7 +210,9 @@ In this step, you link your database to the data factory.
 1- Select the authentication type for the **Authentication type** field.
 1- We are using SQL authentication for this demo ,enter name of the user for the **User name** field.
 1- Enter password for the user for the **Password** field or provide the **Azure Key Vault - AKV linked service** name , **Secret name** and **secret version**.
-    6. Click **Test connection** to test the connection.
+```
+6. Click **Test connection** to test the connection.
+```
 1- Click **Create** to create the linked service.
    ![Azure SQL Database linked service settings.](media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-setting.png)
 ## Create datasets
@@ -299,6 +303,7 @@ You see a file named `incremental-<GUID>.csv` in the `incchgtracking` folder of 
 The file should have the data from your database:
 
 
+
 ```
 
 
@@ -352,7 +357,7 @@ In this step, you create a pipeline with the following activities, and run it pe
    2. Select **Query** for **Use Query**.
 1-    3. Enter the following SQL query for **Query**.
 
-   ```sql
+```sql
 SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
 ```
 
@@ -364,7 +369,7 @@ SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
    2. Select **Query** for **Use Query**.
 1-    3. Enter the following SQL query for **Query**.
 
-   ```sql
+```sql
 select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
 ```
 
@@ -381,7 +386,9 @@ select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, 
 1- Select **Import**.
 1-     3. In the **Stored procedure parameters** section, specify following values for the parameters:
 
-    | Name | Type | Value |
+```
+| Name | Type | Value |
+```
  | ---- | ---- | ----- |
  | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
  | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
@@ -428,4 +435,5 @@ Advance to the following tutorial to learn about copying new and changed files o
 
 > [!div class="nextstepaction"]
 > [Copy new files by lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+
 
