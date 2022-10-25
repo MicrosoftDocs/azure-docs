@@ -13,7 +13,7 @@ Azure CNI powered by Cilium combines the robust control plane of Azure CNI with 
 
 ## Network Policy Enforcement
 
-Cilium enforces [network policies to allow or deny traffic between pods](./operator-best-practices-network.md#control-traffic-flow-with-network-policies). With Cilium, you do not need to install a separate network policy engine such as Azure NPM or Calico.
+Cilium enforces [network policies to allow or deny traffic between pods](./operator-best-practices-network.md#control-traffic-flow-with-network-policies). With Cilium, you don't need to install a separate network policy engine such as Azure NPM or Calico.
 
 ## Limitations
 
@@ -23,8 +23,8 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Available only for Linux and not for Windows.
 * Cilium L7 policy enforcement is disabled.
 * Hubble is disabled.
-* Kubernetes services with `internalTrafficPolicy=Local` are not supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
-* Multiple Kubernetes services cannot use the same host port with different protocols (e.g. TCP or UDP) ([Cilium issue #14287](https://github.com/cilium/cilium/issues/14287)).
+* Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
+* Multiple Kubernetes services can't use the same host port with different protocols (for example, TCP or UDP) ([Cilium issue #14287](https://github.com/cilium/cilium/issues/14287)).
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
 
 ## Before you begin
@@ -81,7 +81,7 @@ az aks create -n $clusterName -g $resourceGroup -l $location \
 ### Option 2: Assign IP addresses from an overlay network
 
 > [!NOTE]
-> Azure CNI Overlay networking currently requires the `Microsoft.ContainerService/AzureOverlayPreview` feature and may be available only in certain regions. Please see [Azure CNI Overlay networking](./azure-cni-overlay.md) for more information.
+> Azure CNI Overlay networking currently requires the `Microsoft.ContainerService/AzureOverlayPreview` feature and may be available only in certain regions. For more information, see [Azure CNI Overlay networking](./azure-cni-overlay.md) for more information.
 
 Run these commands to create a resource group and VNet with a single subnet:
 
@@ -120,16 +120,16 @@ az aks create -n $clusterName -g $resourceGroup --location $location \
 
 2. *Do I need to specify `--network-policy` when creating a cluster?*
 
-    Cilium enforces network policies, so you do not need to specify a separate network policy engine.
+    Cilium enforces network policies, so you don't need to specify a separate network policy engine.
 
 3. *Can I customize Cilium configuration?*
 
-    No, the Cilium configuration is managed by AKS cannot be modified. We recommend that customers who require additional control use [AKS BYO CNI](./use-byo-cni.md) and install Cilium manually.
+    No, the Cilium configuration is managed by AKS can't be modified. We recommend that customers who require more control use [AKS BYO CNI](./use-byo-cni.md) and install Cilium manually.
 
 4. *Can I enable Hubble?*
 
-    No, it is not currently possible to enable Hubble.
+    No, it isn't currently possible to enable Hubble.
 
 5. *Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?*
 
-    `CiliumNetworkPolicy` custom resources are not officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
+    `CiliumNetworkPolicy` custom resources aren't officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
