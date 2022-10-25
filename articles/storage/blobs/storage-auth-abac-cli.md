@@ -17,7 +17,7 @@ ms.date: 10/25/2022
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI
 
-In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more fine-grained access control by adding a role assignment condition.
+In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more granular access control by adding a role assignment condition.
 
 In this tutorial, you learn how to:
 
