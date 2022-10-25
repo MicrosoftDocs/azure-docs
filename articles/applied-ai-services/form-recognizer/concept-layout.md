@@ -1,7 +1,7 @@
 ---
-title: Layouts - Form Recognizer
+title: Document layout analysis - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to the Layout API with Form Recognizer REST API usage and limits.
+description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Form Recognizer.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,11 +13,18 @@ monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
-# Form Recognizer layout model
+# Document layout analysis
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-The Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+## What is document structure and layout analysis?
+
+Document structure and layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page typically for better semantic understanding and more intelligent versions of knowledge mining, process automation, and accessibility experiences. 
+
+Text, tables, and selection marks are examples of geometric roles. Titles, headings, and footers are examples of logical roles. A reading system requires differentiating text regions from non-textual ones along with their reading order.
+
+The following illustration shows the typical components in an image of a sample page.
+
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
