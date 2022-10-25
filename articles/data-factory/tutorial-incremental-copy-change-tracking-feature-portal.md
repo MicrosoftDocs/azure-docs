@@ -279,6 +279,7 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 1. Click **Add** **trigger** on the toolbar for the pipeline, and click **Trigger Now**.
    ![Screenshot shows the Trigger Now option selected from the Trigger menu.](media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu1.png)
 1. Click **OK** on the Pipeline run window .
+	
    ![Pipeline run confirmation with parameter check.](media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-pipeline-run-confirmation.png)
 ### Monitor the full copy pipeline
 
