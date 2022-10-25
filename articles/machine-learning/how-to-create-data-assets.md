@@ -1,7 +1,7 @@
 --- 
 title: Create Data Assets
 titleSuffix: Azure Machine Learning
-description: Learn how to create Azure Machine Learning data assets.
+description: Learn how to create Azure Machine Learning data assets. As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -11,7 +11,6 @@ ms.author: xunwan
 author: xunwan
 ms.reviewer: nibaccam
 ms.date: 09/22/2022
-#Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 ---
 
 # Create data assets
@@ -36,7 +35,6 @@ The benefits of creating data assets are:
 
 
 
-
 ## Prerequisites
 
 To create and work with data assets, you need:
@@ -55,9 +53,9 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 |Location  | Examples  |
 |---------|---------|
 |A path on your local computer     | `./home/username/data/my_data`         |
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
 |A path on a datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|A path on Azure Storage     |`wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`<br> `https://<account_name>.blob.core.windows.net/<container_name>/path`  |
 
 
 > [!NOTE]
@@ -219,6 +217,13 @@ To create a File data asset in the Azure Machine Learning studio, use the follow
 ## Create a `mltable` data asset
 
 `mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (an overview can be found in [MLTable](concept-data.md#mltable)). 
+`mltable` supports tabular data coming from belowing sources:
+- Delimited files (CSV, TSV, TXT)
+- Parquet files
+- JSON Lines
+- Delta Lake 
+
+Please find more details about what are the abilities we provide via `mltable` in [reference-yaml-mltable](reference-yaml-mltable.md).
 
 In this section, we show you how to create a data asset when the type is an `mltable`.
 
@@ -350,6 +355,7 @@ To create a Table data asset in the Azure Machine Learning studio, use the follo
 
 1. Follow the steps, once you reach the Review step, click Create on the last page
 ---
+
 
 
 ## Next steps
