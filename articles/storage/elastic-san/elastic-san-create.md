@@ -180,4 +180,4 @@ az elastic-san volume create --elastic-san-name $sanName -g $resourceGroupName -
 
 ## Next steps
 
-Now that you've deployed an Elastic SAN, [Connect to Elastic SAN (preview) volumes](elastic-san-connect.md).
+Now that you've deployed an Elastic SAN, Connect to Elastic SAN (preview) volumes from either [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-linux.md) clients.

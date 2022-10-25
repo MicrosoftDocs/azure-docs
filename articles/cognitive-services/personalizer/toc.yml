@@ -47,6 +47,8 @@
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
     href: how-to-offline-evaluation.md
+  - name: Enable inference explainability
+    href: how-to-inference-explainability.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks

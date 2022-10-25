@@ -7,23 +7,19 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 10/19/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ---
 
-# Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Actions and attributes for Azure role assignment conditions for Azure Blob Storage
 
 This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
 
 To understand the role assignment condition format, see [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
+
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Suboperations
 
@@ -36,7 +32,7 @@ In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used 
 > [!NOTE]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
 
-In this preview, storage accounts support the following suboperations:
+Storage accounts support the following suboperations:
 
 > [!div class="mx-tableFixed"]
 > | Display name | DataAction | Suboperation |
@@ -457,6 +453,6 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 
 ## See also
 
-- [Example Azure role assignment conditions (preview)](storage-auth-abac-examples.md)
-- [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
-- [Troubleshoot Azure role assignment conditions (preview)](../../role-based-access-control/conditions-troubleshoot.md)
+- [Example Azure role assignment conditions](storage-auth-abac-examples.md)
+- [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)
+- [Troubleshoot Azure role assignment conditions](../../role-based-access-control/conditions-troubleshoot.md)
