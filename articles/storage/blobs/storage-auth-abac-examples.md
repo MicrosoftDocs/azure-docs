@@ -27,7 +27,9 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Blob index tags
 
-> [!IMPORTANT]
+This section includes examples involving blob index tags.
+
+> [!NOTE]
 > Although the `Read content from a blob with tag conditions` suboperation is currently supported for compatibility with conditions implemented during the ABAC feature preview, it has been deprecated and Microsoft recommends using the [`Read a blob`](storage-auth-abac-attributes.md#read-a-blob) action instead.
 >
 > When configuring ABAC conditions in the Azure portal, you might see **DEPRECATED: Read content from a blob with tag conditions**. Microsoft recommends removing the operation and replacing it with the `Read a blob` action.
