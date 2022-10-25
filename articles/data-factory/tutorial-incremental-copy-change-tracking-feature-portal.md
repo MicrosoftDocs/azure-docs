@@ -381,12 +381,10 @@ select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, 
 1- Select **Import**.
 1-     3. In the **Stored procedure parameters** section, specify following values for the parameters:
 
-```
-| Name | Type | Value |
-```
- | ---- | ---- | ----- |
- | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
- | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
+        | Name | Type | Value |
+        | ---- | ---- | ----- |
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
    ![Stored Procedure Activity - Parameters.](media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Connect the Copy activity to the Stored Procedure Activity**. Drag-and-drop the **green** button attached to the Copy activity to the Stored Procedure activity.
@@ -423,7 +421,7 @@ The first three columns are changed data from data_source_table. The last two co
 PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ==================================================================
 1        update  10            2                                 U
-6        new     50	           1                                 I
+6        new     50	       1                            	 I
 ```
 
 ## Next steps
