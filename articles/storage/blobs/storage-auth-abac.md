@@ -40,7 +40,7 @@ The benefits of using role assignment conditions are:
 
 The tradeoff of using conditions is that you need a structured and consistent taxonomy when using attributes across your organization. Attributes must be protected to prevent access from being compromised. Also, conditions must be carefully designed and reviewed for their effect.
 
-Role-assignment conditions in Azure Storage are supported for Azure blob storage. You can also use conditions with accounts that have the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS) feature enabled on them (Azure Data Lake Storage Gen2).
+Role-assignment conditions in Azure Storage are supported for Azure blob storage. You can also use conditions with accounts that have the [hierarchical namespace](data-lake-storage-namespace.md) (HNS) feature enabled on them (Data Lake Storage Gen2).
 
 ## Supported attributes and operations
 
@@ -54,7 +54,7 @@ You can add conditions to built-in roles or custom roles. The built-in roles on 
 
 You can use conditions with custom roles so long as the role includes [actions that support conditions](storage-auth-abac-attributes.md#azure-blob-storage-actions-and-suboperations).
 
-If you're working with conditions based on [blob index tags](../blobs/storage-manage-find-blobs.md), you should use the *Storage Blob Data Owner* since permissions for tag operations are included in this role.
+If you're working with conditions based on [blob index tags](storage-manage-find-blobs.md), you should use the *Storage Blob Data Owner* since permissions for tag operations are included in this role.
 
 > [!NOTE]
 > Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace. You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.

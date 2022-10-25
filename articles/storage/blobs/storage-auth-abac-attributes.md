@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 10/25/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -30,7 +30,7 @@ For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blob
 In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used to apply a condition to only those operations that support blob index tags as a request parameter.
 
 > [!NOTE]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
 Storage accounts support the following suboperations:
 
@@ -96,7 +96,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md) |
+> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 
 ### Find blobs by tags
 
@@ -152,7 +152,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Principal attributes support** | True |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})`<br/>`!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})`<br/>[Example: New blobs must include a blob index tag](storage-auth-abac-examples.md#example-new-blobs-must-include-a-blob-index-tag) |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md) |
+> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 
 ### Create a blob or snapshot, or append data
 
@@ -181,7 +181,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})`<br/>[Example: Existing blobs must have blob index tag keys](storage-auth-abac-examples.md#example-existing-blobs-must-have-blob-index-tag-keys) |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md) |
+> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 
 ### Write Blob legal hold and immutability policy
 
@@ -289,7 +289,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
 > | **Examples** | [Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path)<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots)<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
-> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
+> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
 ## Azure Blob Storage attributes
 
@@ -323,7 +323,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAllOfAnyValues:StringEquals {'Project', 'Program'}`<br/>[Example: Existing blobs must have blob index tag keys](storage-auth-abac-examples.md#example-existing-blobs-must-have-blob-index-tag-keys) |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
+> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Blob index tags [Values in key]
 
@@ -338,7 +338,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>`<br/>`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'`<br/>[Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag) |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
+> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Blob path
 
@@ -394,7 +394,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Attribute type** | String |
 > | **Exists support** | True |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}`<br/>[Example: Read blobs with specific encryption scopes](storage-auth-abac-examples.md#example-read-blobs-with-specific-encryption-scopes) |
-> | **Learn more** | [Create and manage encryption scopes](../blobs/encryption-scope-manage.md) |
+> | **Learn more** | [Create and manage encryption scopes](encryption-scope-manage.md) |
 
 ### Is Current Version
 
@@ -419,7 +419,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Attribute source** | Resource |
 > | **Attribute type** | Boolean |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true`<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
-> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
+> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Snapshot
 
@@ -434,7 +434,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Exists support** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]`<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
-> | **Learn more** | [Blob snapshots](../blobs/snapshots-overview.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
+> | **Learn more** | [Blob snapshots](snapshots-overview.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Version ID
 
@@ -449,7 +449,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Exists support** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
-> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
+> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
 ## See also
 
