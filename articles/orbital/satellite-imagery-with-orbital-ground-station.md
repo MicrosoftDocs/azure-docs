@@ -125,7 +125,7 @@ Follow the steps below to increase the size of the OS disk on the ```receiver-vm
 1. Select **Save**.  
 1. Navigate back to **Virtual Machine** pane.
 1. On the **Overview** page, select **Start** 
-
+---
 On the receiver-vm, verify that the root partition now has 1TB available
 
 ```bash
