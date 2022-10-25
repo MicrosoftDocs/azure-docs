@@ -50,7 +50,7 @@ export LANGUAGE_ENDPOINT=your-endpoint
 
 **If youre using MacOS**: After you add the environment variables, run `source ~/.bash_profile` from your console window to make the changes effective.
 
-#### Xcode
+#### Xcode (macOS & iOS only)
 
 For iOS and macOS development, you set the environment variables in Xcode. For example, follow these steps to set the environment variable in Xcode 13.4.1.
 
