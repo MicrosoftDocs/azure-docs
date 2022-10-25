@@ -67,7 +67,7 @@ Use the following commands to send the API request using the program you're usin
 |`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
 |`-d <documents>`     | The JSON file containing the documents you want to send.         |
 
-#### [Windows](#tab/windows)
+# [Windows](#tab/windows)
 
  Replace `C:\Users\<myaccount>\Desktop\test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
 
@@ -89,7 +89,7 @@ curl.exe -X POST $env:LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-
 -d "@C:\Users\<myaccount>\Desktop\test_sentiment_payload.json"
 ```
 
-#### [Linux/macOS](#tab/linux-mac)
+# [Linux & macOS](#tab/linux-mac)
 
 Use the following commands to send the API request using the program you're using. Replace `C:\Users\<myaccount>\Desktop\test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
 

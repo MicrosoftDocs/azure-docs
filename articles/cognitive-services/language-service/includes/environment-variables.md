@@ -21,7 +21,7 @@ To set the environment variable for your Language resource key, open a console w
 1. To set the `LANGUAGE_KEY` environment variable, replace `your-key` with one of the keys for your resource.
 2. To set the `LANGUAGE_ENDPOINT` environment variable, replace `your-endpoint` with the endpoint for your resource.
 
-#### [Windows](#tab/windows)
+# [Windows](#tab/windows)
 
 ```console
 setx LANGUAGE_KEY your-key
@@ -36,7 +36,7 @@ setx LANGUAGE_ENDPOINT your-endpoint
 
 After you add the environment variables, you may need to restart any running programs that will need to read the environment variables, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
 
-#### [Linux/macOS](#tab/linux-mac)
+# [Linux & macOS](#tab/linux-mac)
 
 ```bash
 export LANGUAGE_KEY=your-key
