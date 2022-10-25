@@ -51,7 +51,7 @@ In the fully interconnected scenario, you can access the Azure VMware Solution f
 The diagram below shows the on-premises to private cloud interconnectivity, which enables the following use cases:
 
 - Hot/Cold vSphere vMotion between on-premises and Azure VMware Solution.
-- On-Premises to Azure VMware Solution private cloud management access.
+- On-premises to Azure VMware Solution private cloud management access.
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Diagram showing the virtual network and on-premises to private cloud interconnectivity." border="false":::
 
