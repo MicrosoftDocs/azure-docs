@@ -124,7 +124,7 @@ Containers allow for reducing unnecessary resource allocation and making better 
 
 Ampere’s Cloud Native Processors are uniquely designed to meet both the high performance and power efficiency needs of the cloud. 
 
-* Evaluate if [nodes with Ampere Altra Arm–based processors](/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads.
+* Evaluate if [nodes with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads.
 
 ### Match the scalability needs and utilize auto-scaling and bursting capabilities
 
