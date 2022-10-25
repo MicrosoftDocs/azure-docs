@@ -54,14 +54,14 @@ Follow the instructions in the article, [Add or deactivate custom security attri
    - requireHybridJoinedDevice
    - requireCompliantApp
 
-:::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="Custom security attribute and predefined values in Azure AD." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
+:::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="A screenshot showing custom security attribute and predefined values in Azure AD." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
 
 > [!NOTE] 
 > Conditional Access filters for devices only works with custom security attributes of type "string".
 
 ## Create a Conditional Access policy
 
-:::image type="content" source="media/concept-filter-for-applications/edit-filter-for-applications.png" alt-text="A Conditional Access policy with the edit filter window showing an attribute of require MFA." lightbox="media/concept-filter-for-applications/edit-filter-for-applications.png":::
+:::image type="content" source="media/concept-filter-for-applications/edit-filter-for-applications.png" alt-text="A screenshot showing a Conditional Access policy with the edit filter window showing an attribute of require MFA." lightbox="media/concept-filter-for-applications/edit-filter-for-applications.png":::
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
