@@ -431,9 +431,6 @@ Default cluster VM sizes will be changed from D-series to Ev3-series. This chang
 #### Network interface resource not visible for clusters running on Azure virtual machine scale sets
 HDInsight is gradually migrating to Azure virtual machine scale sets. Network interfaces for virtual machines are no longer visible to customers for clusters that use Azure virtual machine scale sets.
 
-#### Breaking change for .NET for Apache Spark 1.0.0
-With the latest release, HDInsight introduces the first official version v1.0.0 of the [“.NET for Apache Spark”](https://github.com/dotnet/spark) library. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with a host of [other features](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). There will be breaking changes for this major version, refer to [the .NET for Apache Spark migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. To learn more, refer to this [.NET for Apache Spark v1.0 on Azure HDInsight guide](./spark/spark-dotnet-version-update.md#using-net-for-apache-spark-v10-in-hdinsight).
-
 ### Upcoming changes
 The following changes will happen in upcoming releases.
 
@@ -774,10 +771,10 @@ No behavior changes for this release. To get ready for upcoming changes, see [Up
 The following changes will happen in upcoming releases. 
 
 #### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
-Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.3 on HDInsight 3.6 by June 30, 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](./spark/migrate-versions.md).
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.3 on HDInsight 3.6 by June 30, 2020 to avoid potential system/support interruption.
 
 #### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
-Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30, 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](./spark/migrate-versions.md).
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30, 2020 to avoid potential system/support interruption. 
 
 #### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
 Starting July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Kafka workloads to Azure HDInsight 4.0](./kafka/migrate-versions.md).
