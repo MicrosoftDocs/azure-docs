@@ -17,12 +17,14 @@ Merging partitions in Azure Cosmos DB (preview) allows you to reduce the number 
 
 ## Getting started
 
-To get started using partition merge, enable the *Partition merge (preview)* feature via the **Features** blade in your Azure Cosmos DB account page in the Azure Portal.
+To get started using partition merge, navigate to the **Features** page in your Azure Cosmos DB account. Select and enable the **Partition merge (preview)** feature.
 
 Before enabling the feature, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria). Once you've enabled the feature, it will take 15-20 minutes to take effect.
 
 > [!CAUTION]
 > When merge is enabled on an account, only requests from .NET SDK version >= 3.27.0 will be allowed on the account, regardless of whether merges are ongoing or not. Requests from other SDKs (older .NET SDK, Java, JavaScript, Python, Go) or unsupported connectors (Azure Data Factory, Azure Search, Azure Cosmos DB Spark connector, Azure Functions, Azure Stream Analytics, and others) will be blocked and fail. Ensure you have upgraded to a supported SDK version before enabling the feature. After the feature is enabled or disabled, it may take 15-20 minutes to fully propagate to the account. If you plan to disable the feature after you've completed using it, it may take 15-20 minutes before requests from SDKs and connectors that are not supported for merge are allowed.
+
+:::image type="content" source="media/merge/merge-feature-blade.png" alt-text="Screenshot of Features blade and Partition merge feature.":::
 
 To check whether an Azure Cosmos DB account is eligible for the preview, you can use the built-in eligibility checker in the Azure portal. From your Azure Cosmos DB account overview page in the Azure portal, navigate to **Diagnose and solve problems** -> **Throughput and Scaling** ->  **Partition Merge**. Run the **Check eligibility for partition merge preview** diagnostic.
 
