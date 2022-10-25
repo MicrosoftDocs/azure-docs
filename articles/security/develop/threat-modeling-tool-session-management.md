@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Session Management
 | Product/Service | Article |
 | --------------- | ------- |
-| **Azure AD**    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
+| **Azure AD**    | <ul><li>[Implement proper logout using MSAL methods when using Azure AD](#logout-msal)</li></ul> |
 | **IoT Device** | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Use minimum token lifetimes for generated Resource tokens](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implement proper logout using WsFederation methods when using ADFS](#wsfederation-logout)</li></ul> |
@@ -29,7 +29,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Web Application** | <ul><li>[Applications available over HTTPS must use secure cookies](#https-secure-cookies)</li><li>[All http based application should specify http only for cookie definition](#cookie-definition)</li><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages](#csrf-asp)</li><li>[Set up session for inactivity lifetime](#inactivity-lifetime)</li><li>[Implement proper logout from the application](#proper-app-logout)</li></ul> |
 | **Web API** | <ul><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs](#csrf-api)</li></ul> |
 
-## <a id="logout-adal"></a>Implement proper logout using ADAL methods when using Azure AD
+## <a id="logout-msal"></a>Implement proper logout using MSAL methods when using Azure AD
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
