@@ -96,29 +96,17 @@ DRS 2.1 includes 17 rule groups, as shown in the following table. Each group con
 
 The following rules are disabled by default for DRS 2.1:
 
-
 |Rule ID  |Rule Group|Description  |Why disabled|
 |---------|---------|---------|---------|
-|932200      |LFI|RCE Bypass Technique |Missing MATCHED_VAR support in FDv2/Roxy|
-|942130      |SQLI |SQL Injection Attack: SQL Tautology Detected |Not supported by Regex engine |
 |942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
 |942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
 |942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Replaced by MSTIC rule 99031004 |
 |942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Too many false positives.|
 |942440      |SQLI|SQL Comment Sequence Detected|Replaced by MSTIC rule 99031002 |
-|920380      |PROTOCOL-ENFORCEMENT |Too many arguments in request |Requires customer input to specify request limits |
-|920360      |PROTOCOL-ENFORCEMENT|Argument name too long |Requires customer input to specify request limits|
-|920370      |PROTOCOL-ENFORCEMENT|Argument name too long|Requires customer input to specify request limits|
-|920390      |PROTOCOL-932200 ENFORCEMENT |Total arguments size exceeded |Requires customer input to specify request limits|
-|920400      |PROTOCOL-ENFORCEMENT|Uploaded file size too large |Requires customer input to specify request limits |
-|920410      |PROTOCOL-ENFORCEMENT|Total uploaded files size too large |Requires customer input to specify request limits |
-|920250      |PROTOCOL-ENFORCEMENT|UTF8 Encoding Abuse Attack Attempt |Disabled by default in CRS |
-|913102      |SCANNER-DETECTION |Found User-Agent associated with web crawler/bot |To be integrated into Bot Manager ruleset |
-|913101      |SCANNER-DETECTION |Found User-Agent associated with scripting/generic HTTP client |To be integrated into Bot Manager ruleset |
-|913120      |SCANNER-DETECTION |Found request filename/argument associated with security scanner |To be integrated into Bot Manager ruleset |
-|913110      |SCANNER-DETECTION |Found request header associated with security scanner |To be integrated into Bot Manager ruleset |
-|913100      |SCANNER-DETECTION |Found User-Agent associated with security scanner |To be integrated into Bot Manager ruleset |
-
+|99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Replaced by Microsoft threat intelligence rule.|
+|99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Replaced by Microsoft threat intelligence rule.|
+|99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Replaced by Microsoft threat intelligence rule.|
+|99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Replaced by Microsoft threat intelligence rule.|
 
 ### DRS 2.0
 
