@@ -103,8 +103,7 @@ At this time, only specific triggers and bindings are supported by the V2 progra
 | Blob | x | x | x |
 | Event Grid | x |   | x |
 
-To learn about known limitations with the V2 model and their workarounds, see [Troublehshooting Python Functions using the V2 Model](recover-python-functions-v2.md) 
-
+To learn about known limitations with the V2 model and their workarounds, see [Troublehshooting Python Functions using the V2 Model](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
 
 ## Alternate entry point
@@ -258,7 +257,9 @@ app = func.FunctionApp()
  
 app.register_functions(bp) 
 ```
- 
+
+::: zone-end 
+
 ## Import behavior
 
 ::: zone pivot="python-mode-configuration"  
@@ -759,6 +760,7 @@ app = func.WsgiFunctionApp(app=flask_app.wsgi_app,
 
 ---
 
+::: zone-end
 ## Scaling and Performance
 
 For scaling and performance best practices for Python function apps, see the [Python scale and performance article](python-scale-performance-reference.md).
@@ -1398,12 +1400,12 @@ This functionality is available only for function apps running in Premium and De
 Following is a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
-* [Can't import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
+* [Can't import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc).
 
-Following is a list of troubleshooting guides for known issues with the V2 programming model:
+Following is a list of troubleshooting guides for known issues with the v2 programming model:
 
 * [Could not load file or assembly](recover-python-functions.md#troubleshoot-could-not-load-file-or-assembly)
-* [Unable to resolve the Azure Storage connection named Storage](recover-python-functions.md#troubleshoot-unable-to-resolve-the-azure-storage-connection-named-storage)
+* [Unable to resolve the Azure Storage connection named Storage](recover-python-functions.md#troubleshoot-unable-to-resolve-the-azure-storage-connection).
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 
