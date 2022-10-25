@@ -29,10 +29,10 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 ## Inactive user recommendations
 A user is considered 'inactive' if they have not signed into the tenant within the last 30 days. This behavior is adjusted for reviews of application assignments, which checks each user's last activity in the app as opposed to the entire tenant. When inactive user recommendations are enabled for an access review, the last sign-in date for each user will be evaluated once the review starts, and any user that has not signed-in within 30 days will be given a recommended action of Deny. Additionally, when these decision helpers are enabled, reviewers will be able to see the last sign-in date for all users being reviewed. This sign-in date (as well as the resulting recommendation) is determined when the review begins and will not get updated while the review is in-progress.
 
-## User-to-group Affiliation (Preview)
+## User-to-Group Affiliation (Preview)
 Making the review experience easier and more accurate empowers IT admins and reviewers to make more informed decisions. This Machine Learning based recommendation opens the journey to automate access reviews, thereby enabling intelligent automation and reducing access rights attestation fatigue.
 
-User Affiliation in an organization’s chart is defined as two or more users who share similar characteristics in an organization's reporting structure.
+User-to-Group Affiliation in an organization’s chart is defined as two or more users who share similar characteristics in an organization's reporting structure.
 
 This recommendation detects user affiliation with other users within the group, based on organization's reporting-structure similarity. The recommendation relies on a scoring mechanism which is calculated by computing the user’s average distance with the remaining users in the group. Users who are very distant from all the other group members based on their organization's chart, are considered to have "low affiliation" within the group.
 
