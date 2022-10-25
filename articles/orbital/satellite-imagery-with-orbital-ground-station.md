@@ -24,7 +24,7 @@ In this tutorial, we will follow these steps to collect and process Aqua data:
 > * [Process Aqua direct broadcast data using RT-STPS](#step-2-process-aqua-direct-broadcast-data-using-rt-stps).
 > * [Create higher level products using IPOPP](#step-3-create-higher-level-products-using-ipopp).
 
-Optional setup steps for capturing the ground station telemetry are included in the [Appendix](#appendix).
+Optional setup steps for capturing the ground station telemetry are included the guide on [receiving real-time telemetry from the ground stations](receive-real-time-telemetry.md).
 
 ## Step 1: Schedule a contact and collect Aqua direct broadcast data using AOGS
 
@@ -107,45 +107,60 @@ In the steps below, you'll process the Level-0 data generated in the previous st
 > [!NOTE]
 > Due to potential resource contention, DRL recommends installing RT-STPS and IPOPP on separate machines. But for this tutorial, we install both on the our receiver-vm because we don't run them at the same time. For production workloads, please follow sizing and isolation recommendations in the user guides available on the DRL website. 
 
-### Attach a data disk to the receiver-vm
+### Increase OS disk size on the receiver-vm
 
-IPOPP installation and subsequent generation of products requires more disk space and I/O throughput than what is available on the receiver-vm by default. 
-To provide more disk space and throughput, attach a 1TB premium data disk to the receiver-vm by following steps in [Attach a data disk to a Linux VM](../virtual-machines/linux/attach-disk-portal.md)
+IPOPP installation and subsequent generation of products requires more disk space than what is available on an Azure VM by default. 
 
-### Create a file system on the data disk
+Follow the steps below to increase the size of the OS disk on the ```receiver-vm``` to 1TB.
+
+### [Portal](#tab/portal2)
+
+1. Open the [portal](https://portal.azure.com).
+1. Navigate to your virtual machine.
+1. On the **Overview** page, select **Stop**. 
+1. On the **Disks** page, select the OS disk. 
+1. On the **Disk** pane, navigate to **Size + performance** page. 
+1. Select **Premium SSD(locally redundant storage)** from the **Disk SKU** dropdown. 
+1. Select the **P30** Disk Tier (1024GB).
+1. Select **Save**.  
+1. Navigate back to **Virtual Machine** pane.
+1. On the **Overview** page, select **Start** 
+
+On the receiver-vm, verify that the root partition now has 1TB available
+
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT
+```
+This should show ~1TB allocated to the root ```/``` mountpoint.
 
 ```console
-lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
-sudo parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100% 
-sudo mkfs.xfs /dev/sdb1
-sudo partprobe /dev/sdb1 
-sudo mkdir /datadrive
-sudo mount /dev/sdb1 /datadrive
-sudo chown azureuser:azureuser /datadrive
+NAME    HCTL        SIZE MOUNTPOINT
+sda     0:0:0:0       1T 
+├─sda1              500M /boot
+├─sda2             1023G /
+├─sda14               4M 
+└─sda15             495M /boot/efi
 ```
-> [!NOTE]
-> To ensure that the datadrive is mounted automatically after every reboot, please refer to [Attach a data disk to a Linux VM](../virtual-machines/linux/attach-disk-portal.md#mount-the-disk) for instructions on how to add an entry to ```/etc/fstab```
-
 
 ### Install Desktop and VNC Server
 
 IPOPP installation requires using a browser to sign on to the DRL website to download the installation script. This script must be run from the same host that it was downloaded to. The subsequent IPOPP configuration also requires a GUI. Therefore, we install a full desktop and a vnc server to enable running GUI applications on the receiver-vm.
 
-```console
+```bash
 sudo yum install tigervnc-server
 sudo yum groups install "GNOME Desktop"
 ```
 
 Start VNC server:
 
-```console
+```bash
 vncsever
 ```
 Enter a password when prompted. 
 
 Port forward the vncserver port (5901) over ssh:
 
-```console
+```bash
 ssh -L 5901:localhost:5901 azureuser@receiver-vm
 ```
 
@@ -153,19 +168,14 @@ Download the [TightVNC](https://www.tightvnc.com/download.php) viewer and connec
 
 Start a new terminal, and start the Firefox browser
 
-```console
+```bash
 firefox
 ```
 
 [Log on the DRL website](https://directreadout.sci.gsfc.nasa.gov/loginDRL.cfm?cid=320&type=software) and download the downloader script.
 
-Run the downloader script from the ```/datadrive/ipopp``` directory because
-the home directory isn't large enough to hold the downloaded content.
-
-```console
-INSTALL_DIR=/datadrive/ipopp
-cp ~/Downloads/downloader_DRL-IPOPP_4.1.sh $INSTALL_DIR
-cd $INSTALL_DIR
+```bash
+cd ~/Downloads
 ./downloader_DRL-IPOPP_4.1.sh
 ```
 
@@ -175,47 +185,49 @@ Alternatively, you can upload your installation binaries to a container in Azure
 
 ### Install IPOPP
 
-```console
-tar -xvzf DRL-IPOPP_4.1.tar.gz --directory $INSTALL_DIR
-chmod -R 755 $INSTALL_DIR/IPOPP
-$INSTALL_DIR/IPOPP/install_ipopp.sh -installdir $INSTALL_DIR/drl -datadir $INSTALL_DIR/data -ingestdir $INSTALL_DIR/data/ingest
+```bash
+cd ~/Downloads
+tar -xvzf DRL-IPOPP_4.1.tar.gz --directory ~/
+cd ~/IPOPP
+./install_ipopp.sh
 ```
 
-### Install IPOPP patches
-
-```console
-$INSTALL_DIR/drl/tools/install_patch.sh $PATCH_FILE_NAME
-```
 ### Start IPOPP services
 
-```console
-$INSTALL_DIR/drl/tools/services.sh start
+```bash
+cd ~/drl/tools
+./services.sh start
 ```
 ### Verify service status
 
-```
-$INSTALL_DIR/drl/tools/services.sh status
-$INSTALL_DIR/drl/tools/spa_services.sh status
+```bash
+cd ~/drl/tools
+./services.sh status
 ```
 
 ### Configure IPOPP services using its dashboard
 
-Before we can create Level-1 and Level-2 products from the Level-0 PDS files generated by rt-stps, we need to configure IPOPP. IPOPP must be configured with its dashboard GUI. To start the dashboard, first port forward the vncserver port (5901) over ssh:
+The above steps start IPOPP services with the default configuration. IPOPP services must be configured using the dashboard GUI. 
 
-```console
+To start the dashboard, first port forward the vncserver port (5901) over ssh:
+
+```bash
 ssh -L 5901:localhost:5901 azureuser@receiver-vm
 ```
 
-Using the TightVNC client, connect to localhost:5901 and enter the vncserver password. On the virtual machine desktop, open a new terminal and start the dashboard:
+Using the TightVNC client, connect to localhost:5901 and enter the vncserver password that you previously set. 
 
-```console
-cd /datadrive/ipopp
-./drl/tools/dashboard.sh & 
+On the virtual machine desktop, open a new terminal and start the dashboard:
+
+```bash
+cd ~/drl/tools
+./dashboard.sh
 ```
+Configure services:
 
-1. IPOPP Dashboard starts in process monitoring mode. Switch to **Configuration Mode** by using the menu option. 
+1. IPOPP dashboard starts in process monitoring mode. Switch to **Configuration Mode** by using the menu option. 
 
-2. Aqua related products can be configured from EOS tab in configuration mode. Disable all other tabs. We're interested in the MODIS Aerosol L2 (MOD04) product, which is produced by IMAPP SPA. Therefore, enable the following in the **EOS** tab: 
+1. Aqua related products can be configured from **EOS** tab in configuration mode. Disable all other tabs. We're interested in the MODIS Aerosol L2 (MOD04) product, which is produced by IMAPP SPA. Therefore, enable the following in the **EOS** tab: 
 
     - gbad 
 
@@ -225,45 +237,39 @@ cd /datadrive/ipopp
 
     - IMAPP 
 
-3. After updating the configuration, switch back to **Process Monitoring** mode using the menu. All tiles will be in OFF mode initially. 
+1. After updating the configuration, switch back to **Process Monitoring** mode using the menu. All tiles will be in OFF mode initially. 
 
-4. When prompted, save changes to the configuration.  
+1. When prompted, save changes to the configuration.  
 
-5. Click **Start Services** in the action menu. Note that **Start Services** is only enabled in process monitoring mode.  
+1. Click **Start Services** in the action menu. Note that **Start Services** is only enabled in process monitoring mode.  
 
-6. Click **Check IPOPP Services** in action menu to validate.
+1. Click **Check IPOPP Services** in action menu to validate.
 
 ## Ingest data for processing
 
-Copy the Level-0 PDS files generated by RT-STPS to the IPOPP ingest directory for further processing.
+Copy the PDS files generated by RT-STPS to the IPOPP ingest directory for further processing.
 
 ```console
-cp ~/software/rt-stps/data/* /datadrive/ipopp/drl/data/dsm/ingest/.
+cp ~/software/rt-stps/data/* ~/drl/data/dsm/ingest/.
 ```
 
 Run IPOPP ingest to create the products configured in the dashboard. 
 
 ```
-/datadrive/ipopp/drl/tools/ingest_ipopp.sh
+~/drl/tools/ingest_ipopp.sh
 ```
 
 You can watch the progress in the dashboard.
 
 ```
-/datadrive/ipopp/drl/tools/dashboard.sh
+~/drl/tools/dashboard.sh
 ```
 
-IPOPP will produce output products in the following directories:
+IPOPP will produce output products in the following directory:
 
 ```
-/datadrive/ipopp/drl/data/pub/gsfcdata/aqua/modis/level[0,1,2] 
+cd ~/drl/data/pub/gsfcdata/aqua/modis/
 ```
-
-## Appendix
-
-### Capture ground station telemetry
-
-Follow steps here to [receive real-time telemetry from the ground stations](receive-real-time-telemetry.md).
 
 ## Next steps
 
