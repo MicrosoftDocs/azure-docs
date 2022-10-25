@@ -40,11 +40,11 @@ Run an assessment as follows:
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-   ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
+   :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess.png" alt-text="Screenshot of Get started screen.":::
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess** and select **Azure VM**.
 
-    ![Screenshot of Assess VM selection.](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-servers.png" alt-text="Screenshot of Assess VM selection.":::
 
 3. The **Create assessment** wizard appears with **Azure VM** as the **Assessment type**.
 4. In **Discovery source**:
@@ -54,7 +54,8 @@ Run an assessment as follows:
     
 1. Select **Edit** to review the assessment properties.
 
-    ![Screenshot of View all button to review assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Screenshot of View all button to review assessment properties.":::
+    
 
 1. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
@@ -93,7 +94,7 @@ Run an assessment as follows:
 
 1. Select **Save** if you make changes.
 
-    ![Screenshot of Assessment properties.](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-properties.png" alt-text="Screenshot of Assessment properties.":::
 
 1. In **Assess Servers**, select **Next**.
 
@@ -101,7 +102,7 @@ Run an assessment as follows:
 
 1. In **Select or create a group** > select **Create New** and specify a group name. 
     
-     ![Screenshot of adding VMs to a group.](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
+     :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Screenshot of adding VMs to a group.":::
 
 
 1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**.
@@ -128,7 +129,7 @@ An Azure VM assessment describes:
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VM**.
 2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
-    ![Screenshot of an Assessment summary.](./media/how-to-create-assessment/assessment-summary.png)
+    :::image type="content" source="./media/how-to-create-assessment/assessment-summary.png" alt-text="Screenshot of an Assessment summary.":::
 
 ### Review Azure readiness
 
@@ -158,7 +159,7 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 
 When you run performance-based assessments, a confidence rating is assigned to the assessment.
 
-![Screenshot of Confidence rating.](./media/how-to-create-assessment/confidence-rating.png)
+:::image type="content" source="./media/how-to-create-assessment/confidence-rating.png" alt-text="Screenshot of Confidence rating.":::
 
 - A rating from 1-star (lowest) to 5-star (highest) is awarded.
 - The confidence rating helps you estimate the reliability of the size recommendations provided by the assessment.
