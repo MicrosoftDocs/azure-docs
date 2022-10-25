@@ -205,9 +205,9 @@ private void onSignOutClicked()
 }
 ```
 
-To receive the account change broadcast, you will need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the Context. See documentation on context-registered receivers here.
+To receive the account change broadcast, you will need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the Context. For more information about context, see [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers).
 
-When an account change broadcast is received, immediately get the signed in user and determine if a user has changed on the device. If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
+When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](tutorial-v2-shared-device-mode.md#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
 
 The following code snippet shows how you could register a broadcast receiver.
 
