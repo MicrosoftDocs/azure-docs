@@ -16,6 +16,7 @@ manager: celestedg
 
 ms.collection: M365-identity-device-management
 adobe-target: true
+ms.custom: engagement-fy23
 ---
 
 # Leave an organization as an external user
