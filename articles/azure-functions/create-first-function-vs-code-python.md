@@ -15,7 +15,7 @@ In this article, you use Visual Studio Code to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->The Python v2 programming model for Functions is currently in Preview. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python).
+>The Python v2 programming model for Functions is currently in Preview. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -31,7 +31,7 @@ Before you begin, make sure that you have the following requirements in place:
 + The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.0.4785 or above.
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), version 4.0.4785 or a later version.
 ::: zone-end
 + Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
@@ -45,7 +45,7 @@ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functi
 ::: zone pivot="python-mode-decorators" 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.8.1 or later.
 
-+ The [Azurite](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) local storage emulator. While you can also use an actual Azure storage account, this article assumes you're using an emulator.
++ The [Azurite V3 extension](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) local storage emulator. While you can also use an actual Azure storage account, this article assumes you're using the Azurite emulator.
 ::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
@@ -56,11 +56,10 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
-
-1. Provide the following information at the prompts:
-
+2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 ::: zone pivot="python-mode-configuration" 
+3. Provide the following information at the prompts:
+
     |Prompt|Selection|
     |--|--|
     |**Select a language**| Choose `Python`.|
@@ -69,9 +68,13 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Provide a function name**| Enter `HttpExample`.|
     |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
     |**Select how you would like to open your project**| Choose `Add to workspace`.|
+
+4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
 ::: zone-end
 ::: zone pivot="python-mode-decorators"  
-|Prompt|Selection|
+3. Provide the following information at the prompts:
+
+    |Prompt|Selection|
     |--|--|
     |**Select a language**| Choose `Python (Programming Model V2)`.|
     |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
@@ -119,19 +122,13 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
                 status_code=200
             ) 
     ```
-
-::: zone-end
-::: zone pivot="python-mode-configuration" 
-4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
-::: zone-end
-::: zone pivot="python-mode-decorators" 
+ 
 ## Start the emulator
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.
 
 1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run your function locally.
 ::: zone-end
-
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 

@@ -16,7 +16,7 @@ In this article, you use command-line tools to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->The Python v2 programming model for Functions is currently in Preview. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python).
+>The Python v2 programming model for Functions is currently in Preview. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -42,7 +42,7 @@ Before you begin, you must have the following requirements in place:
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
 ::: zone pivot="python-mode-decorators"  
-+ The [Azurite](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite) storage emulator. While you can also use an actual Azure Storage account, this article assumes you're using an emulator.
++ The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
 ::: zone-end  
 
 ### Prerequisite check
