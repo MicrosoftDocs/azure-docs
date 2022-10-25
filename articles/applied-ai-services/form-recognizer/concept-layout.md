@@ -19,13 +19,17 @@ recommendations: false
 
 ## What is document layout analysis?
 
-Document structure and layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page typically for better semantic understanding and more intelligent versions of knowledge mining, process automation, and accessibility experiences. 
-
-Text, tables, and selection marks are examples of geometric roles. Titles, headings, and footers are examples of logical roles. A reading system requires differentiating text regions from non-textual ones along with their reading order.
+Document structure and layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page for building better semantic understanding models. For all extracted text, there are two types of roles that text plays in a document layout.  Text, tables, and selection marks are examples of geometric roles. Titles, headings, and footers are examples of logical roles. For example. a reading system requires differentiating text regions from non-textual ones along with their reading order.
 
 The following illustration shows the typical components in an image of a sample page.
 
 :::image type="content" source="media/document-layout-example.png" alt-text="Document layout example illustration":::
+
+## Form Recognizer Layout model
+
+The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks. 
+
+**Starting with v3.0 GA**, it extracts paragraphs and additional structure information like titles, section headings, page header, page footer, page number, and footnote from the document page. These are examples of logical roles described in the previous section. This capability is supported for PDF documents and images (JPG, PNG, BMP, TIFF).
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
@@ -39,11 +43,11 @@ The following illustration shows the typical components in an image of a sample 
 
 ### Data extraction
 
-| **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Paragraph roles** |
+| **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Logical roles** |
 | --- | --- | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
-**Supported paragraph roles**:
+**Supported logical roles for paragraphs**:
 The paragraph roles are best used with unstructured documents.  Paragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
 
 * title
@@ -67,7 +71,7 @@ The following tools are supported by Form Recognizer v2.1:
 |----------|-------------------------|
 |**Layout API**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-## Try Form Recognizer
+## Try document layout analysis
 
 Try extracting data from forms and documents using the Form Recognizer Studio. You'll need the following resources:
 
@@ -109,7 +113,7 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
-### Paragraphs <sup>🆕</sup>
+### Paragraph extraction <sup>🆕</sup>
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
@@ -125,7 +129,7 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ### Paragraph roles<sup> 🆕</sup>
 
-The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
+The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Form Recognizer Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
 | **Predicted role**   | **Description**   |
 | --- | --- |
@@ -156,7 +160,7 @@ The Layout model may flag certain paragraphs with their specialized type or `rol
 
 ```
 
-### Pages
+### Pages extraction
 
 The pages collection is the very first object you see in the service response.
 
@@ -176,9 +180,9 @@ The pages collection is the very first object you see in the service response.
 ]
 ```
 
-### Text lines and words
+### Text lines and words extraction
 
-Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+The document layout model in Form Recognizer extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
 ```json
 "words": [
@@ -197,9 +201,9 @@ Read extracts print and handwritten style text as `lines` and `words`. The model
     }
 ]
 ```
-### Selection marks
+### Selection marks extraction
 
-Layout API also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
+The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
 ```json
 {
@@ -217,9 +221,9 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 }
 ```
 
-### Tables and table headers
+### Extract tables from documents and images
 
-Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding `polygon` is output along with information whether it's recognized as a `columnHeader` or not. The API also works with rotated tables. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top level `content` that contains the full text from the document.
+Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether it's recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
 
 ```json
 {
@@ -244,7 +248,7 @@ Layout API extracts tables in the `pageResults` section of the JSON output. Docu
 
 ```
 
-### Select page numbers or ranges for text extraction
+### Extracts selected pages from documents
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
