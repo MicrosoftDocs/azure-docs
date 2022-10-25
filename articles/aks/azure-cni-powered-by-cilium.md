@@ -9,7 +9,15 @@ ms.date: 10/24/2022
 
 # Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
 
-Azure CNI Powered by Cilium combines the robust control plane of Azure CNI with the dataplane of [Cilium](https://cilium.io/) to provide high-performance networking and security. eBPF programs loaded into the Linux kernel provide functionality equivalent to existing Azure CNI and Azure CNI Overlay plugins with faster service routing, more efficient network policy enforcement, and better observability of cluster traffic. More efficient object structure places less load onto the cluster API server, which will enable AKS clusters to scale to more nodes, pods, and services than existing AKS CNI plugin offerings.
+Azure CNI Powered by Cilium combines the robust control plane of Azure CNI with the dataplane of [Cilium](https://cilium.io/) to provide high-performance networking and security. 
+
+By making use of eBPF programs loaded into the Linux kernel and a more efficient API object structure, Azure CNI Powered by Cilium provides the following benefits:
+
+- Functionality equivalent to existing Azure CNI and Azure CNI Overlay plugins
+- Faster service routing
+- More efficient network policy enforcement
+- Better observability of cluster traffic
+- Support for larger clusters (more nodes, pods, and services)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
