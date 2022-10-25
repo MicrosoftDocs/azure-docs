@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To step through the features covered in this tutorial:
 
 - [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role does not. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
