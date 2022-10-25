@@ -149,7 +149,13 @@ Starting Sept 30th, 2022, Microsoft will require all new tenants to follow a new
 **Product capability:** Identity Governance   
 
 
-We're excited to announce the public preview of Lifecycle Workflows, a new Identity Governance capability that allows customers to extend the user provisioning process, and adds enterprise grade user lifecycle management capabilities, in Azure AD to modernize your identity lifecycle management process. With Lifecycle Workflows, you can confidently configure and deploy custom workflows to automate out-of-the-box actions critical to required Joiner and Leaver scenarios for onboarding and offboarding cloud employees at scale, and replace your manual processes. For more information, see: [What are Lifecycle Workflows? (Public Preview)](../governance/what-are-lifecycle-workflows.md).
+We're excited to announce the public preview of Lifecycle Workflows, a new Identity Governance capability that allows customers to extend the user provisioning process, and adds enterprise grade user lifecycle management capabilities, in Azure AD to modernize your identity lifecycle management process. With Lifecycle Workflows, you can:
+
+- Confidently configure and deploy custom workflows to onboard and offboard cloud employees at scale replacing your manual processes.
+- Automate out-of-the-box actions critical to required Joiner and Leaver scenarios and get rich reporting insights.
+- Extend workflows via Logic Apps integrations with custom tasks extensions for more complex scenarios.
+
+For more information, see: [What are Lifecycle Workflows? (Public Preview)](../governance/what-are-lifecycle-workflows.md).
 
 ---
 
