@@ -3,7 +3,7 @@ title: SKUs
 description: Learn about SKU options for NC2 on Azure, including core, RAM, storage, and network.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
-ms.date: 07/01/2021
+ms.date: 10/13/2022
 ---
 
 # SKUs

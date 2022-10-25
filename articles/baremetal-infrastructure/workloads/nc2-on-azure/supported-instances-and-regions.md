@@ -4,7 +4,7 @@ description: Learn about instances and regions supported for NC2 on Azure.
 ms.topic: how-to
 ms.custom: references_regions 
 ms.subservice:  baremetal-nutanix
-ms.date: 03/31/2021
+ms.date: 10/13/2022
 ---
 
 # Supported instances and regions
