@@ -8,7 +8,7 @@ metadata:
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 01/02/2022
+  ms.date: 11/24/2022
 title: 'FAQ - Questions about data collection, agents, and workspaces'
 summary: |
   Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
@@ -21,9 +21,11 @@ sections:
       - question: |
           Am I billed for Azure Monitor logs on the workspaces created by Defender for Cloud?
         answer: |
-          No. Workspaces created by Defender for Cloud, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Defender for Cloud billing is always based on your Defender for Cloud security policy and the solutions installed on a workspace:
+          As explained in the [pricing and billing FAQ](enhanced-security-features-overview.md#faq---pricing-and-billing), there is a 500-MB free data ingestion for each workspace. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
+
+          Workspaces created by Defender for Cloud, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Defender for Cloud billing is always based on your Defender for Cloud security policy and the solutions installed on a workspace:
           
-          - **Enhanced security off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Microsoft Defender for Cloud is off.
+          - **Enhanced security off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. There are no charges when there are no Defender plans enabled.
           
           - **All Microsoft Defender for Cloud plans enabled** – Defender for Cloud enables the "Security" solution on the default workspace.
           

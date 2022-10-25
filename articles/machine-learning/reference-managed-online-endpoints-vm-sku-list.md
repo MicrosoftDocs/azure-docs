@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.reviewer: larryfr
-ms.author: sehan
 author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
 ms.custom: devplatv2, event-tier1-build-2022
 ms.date: 06/02/2022
 ---
