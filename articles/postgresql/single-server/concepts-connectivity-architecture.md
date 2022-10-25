@@ -102,7 +102,7 @@ Only Gateway nodes will be decommissioned. When users connect to their servers, 
 
 Ping your server's FQDN, for example  ``ping xxx.postgres.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway. Contrarily, if the returned Ip address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
 
-You may also test by [PSPing](/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 3306 and ensure that return IP address isn't one of the decommissioning IP addresses
+You may also test by [PSPing](/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 5432 and ensure that return IP address isn't one of the decommissioning IP addresses
 
 ### How do I know when the maintenance is over and will I get another notification when old IP addresses are decommissioned?
 
