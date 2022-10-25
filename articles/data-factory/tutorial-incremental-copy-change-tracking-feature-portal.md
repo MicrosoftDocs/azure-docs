@@ -78,7 +78,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Age int
         PRIMARY KEY (PersonID)
     );
-
     INSERT INTO data_source_table
         (PersonID, Name, Age)
     VALUES
@@ -87,56 +86,45 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         (3, 'cccc', 20),
         (4, 'dddd', 26),
         (5, 'eeee', 22);
-
     ```
 
-1. 4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query:
+4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query:
 
-   > [!NOTE]
-   > - Replace &lt;your database name&gt; with the name of the database in Azure SQL Database that has the data_source_table.
-   > 
-   > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
-   
-   ```sql
-ALTER DATABASE <your database name>
-SET CHANGE_TRACKING = ON  
-(CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
+    > [!NOTE]
+    > - Replace &lt;your database name&gt; with the name of the database in Azure SQL Database that has the data_source_table.
+    > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
+    ```sql
+    ALTER DATABASE <your database name>
+    SET CHANGE_TRACKING = ON  
+    (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
+    ALTER TABLE data_source_table
+    ENABLE CHANGE_TRACKING  
+    WITH (TRACK_COLUMNS_UPDATED = ON)
+    ```
+5. Create a new table and store the ChangeTracking_version with a default value by running the following query:
 
-ALTER TABLE data_source_table
-ENABLE CHANGE_TRACKING  
-WITH (TRACK_COLUMNS_UPDATED = ON)
-```
-1. 5. Create a new table and store the ChangeTracking_version with a default value by running the following query:
+    ```sql
+    create table table_store_ChangeTracking_version
+    (
+        TableName varchar(255),
+        SYS_CHANGE_VERSION BIGINT,
+    );
+    DECLARE @ChangeTracking_version BIGINT
+    SET @ChangeTracking_version = CHANGE_TRACKING_CURRENT_VERSION();  
+    INSERT INTO table_store_ChangeTracking_version
+    VALUES ('data_source_table', @ChangeTracking_version)
+    ```
 
-   ```sql
-create table table_store_ChangeTracking_version
-(
-    TableName varchar(255),
-    SYS_CHANGE_VERSION BIGINT,
-);
-
-DECLARE @ChangeTracking_version BIGINT
-SET @ChangeTracking_version = CHANGE_TRACKING_CURRENT_VERSION();  
-
-INSERT INTO table_store_ChangeTracking_version
-VALUES ('data_source_table', @ChangeTracking_version)
-```
-
-   > [!NOTE]
-   > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
-   
+    > [!NOTE]
+    > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
 6. Run the following query to create a stored procedure in your database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
-
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
     AS
-
     BEGIN
-
     UPDATE table_store_ChangeTracking_version
     SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
-
     END    
     ```
 
