@@ -358,7 +358,7 @@ All of the template parameters are mandatory.
 
 There is a limit of 3-120 characters for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
 
-You must add exactly 1 audience to a federated identity credential, this gets verified during token exchange. Use “api://AzureADTokenExchange” as the default value.
+You must add exactly 1 audience to a federated identity credential. The audience is verified during token exchange. Use “api://AzureADTokenExchange” as the default value.
 
 List, Get, and Delete operations are not available with template. Refer to Azure CLI for these operations.  By default, all child federated identity credentials are created in parallel, which triggers concurrency detection logic and causes the deployment to fail with a 409-conflict HTTP status code. To create them sequentially, specify a chain of dependencies using the *dependsOn* property.
 
@@ -556,7 +556,7 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-Delete a federated identity credentials on the specified user-assigned managed identity.
+Delete a federated identity credential on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
