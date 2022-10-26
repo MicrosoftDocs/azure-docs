@@ -50,12 +50,12 @@ Here are some definitions to get you started:
 :::image type="content" source="./media/connection-monitor-2-preview/cm-tg-2.png" alt-text="Diagram that shows a connection monitor and defines the relationship between test groups and tests.":::
 
  > [!NOTE]
- > Connection Monitor now supports the auto-enabling of monitoring extensions for Azure and non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of the connection monitor. 
+ > Connection Monitor now supports the auto-enabling of monitoring extensions for Azure and non-Azure endpoints. You no longer have to install monitoring solutions manually while you're creating a connection monitor. 
 
 ## Create a connection monitor
 
 > [!Note]
-> Connection Monitor now supports the Azure Monitor Agent extension, thus eliminating any dependency on the legacy Log Analytics agent. 
+> Connection Monitor now supports the Azure Monitor Agent extension. This support eliminates any dependency on the legacy Log Analytics agent. 
 
 To create a connection monitor by using the Azure portal, do the following: 
 
@@ -83,7 +83,7 @@ To create a connection monitor by using the Azure portal, do the following:
 
    :::image type="content" source="./media/connection-monitor-2-preview/create-tg.png" alt-text="Screenshot that shows the 'Test groups' pane in Connection Monitor.":::
 
-1. Select **Next: Create Alerts**. [Learn more](#create-alerts-in-connection-monitor).
+1. Select **Next: Create Alerts**. Learn more about [creating alerts](#create-alerts-for-a-connection-monitor).
 
    :::image type="content" source="./media/connection-monitor-2-preview/create-alert.png" alt-text="Screenshot that shows the 'Create alert' pane.":::
 
@@ -103,7 +103,7 @@ Connection Monitor creates the connection monitor resource in the background.
 ## Create test groups in a connection monitor
 
 > [!NOTE]
-> Connection Monitor now supports the auto-enabling of monitoring extensions for Azure and non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of the connection monitor. 
+> Connection Monitor now supports the auto-enabling of monitoring extensions for Azure and non-Azure endpoints. You no longer have to install monitoring solutions manually while you're creating a connection monitor. 
 
 Each test group in a connection monitor includes sources and destinations that get tested on network elements. They're tested for the percentage of checks that fail and the RTT over test configurations.
 
@@ -123,7 +123,7 @@ In the Azure portal, to create a test group in a connection monitor, specify val
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the 'Add Sources' pane and the Azure endpoints, including the 'Virtual machine scale sets' tab in Connection Monitor.":::
 
-   * To choose on-premises agents, select the **Non–Azure endpoints** tab. Select from a list of on-premises hosts with a Log Analytics agent installed. Select **Arc Endpoint** as the **Type**, and select the subscriptions from the **Subscription** dropdown list. The list of hosts that have the [Azure Arc endpoint](azure-monitor-agent-with-connection-monitor.md) extension and [Azure Monitor Agent extension](connection-monitor-install-azure-monitor-agent.md) enabled are displayed.
+   * To choose on-premises agents, select the **Non–Azure endpoints** tab. Select from a list of on-premises hosts with a Log Analytics agent installed. Select **Arc Endpoint** as the **Type**, and select the subscriptions from the **Subscription** dropdown list. The list of hosts that have the [Azure Arc endpoint](azure-monitor-agent-with-connection-monitor.md) extension and the [Azure Monitor Agent extension](connection-monitor-install-azure-monitor-agent.md) enabled are displayed.
 
    :::image type="content" source="./media/connection-monitor-2-preview/arc-endpoint.png" alt-text="Screenshot of Azure Arc-enabled and Azure Monitor Agent-enabled hosts.":::
    
@@ -191,7 +191,7 @@ In the Azure portal, to create a test group in a connection monitor, specify val
    :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up test groups and consent for auto-upgrading of a virtual machine scale set in the connection monitor.":::
 * **Disable test group**: You can select this checkbox to disable monitoring for all sources and destinations that the test group specifies. This checkbox is cleared by default.
 
-## Create alerts in a connection monitor
+## Create alerts for a connection monitor
 
 You can set up alerts on tests that are failing, based on the thresholds set in the test configurations.
 
