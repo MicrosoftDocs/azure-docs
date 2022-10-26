@@ -7,7 +7,7 @@ ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
 ms.custom: github-actions-azure, mode-other
-ms.date: 06/20/2022
+ms.date: 10/26/2022
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure MySQL
@@ -45,7 +45,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-[!INCLUDE [include](~/../articles/reusable-content/github-actions/generate-deployment-credentials.md)]
+[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ## Copy the MySQL connection string
 
@@ -64,7 +64,7 @@ You'll use the connection string as a GitHub secret.
 
 ## Configure GitHub secrets
 
-[!INCLUDE [include](~/../articles/reusable-content/github-actions/create-secrets-with-openid.md)]
+[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Add your workflow
 
