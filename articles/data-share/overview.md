@@ -5,7 +5,7 @@ author:  sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: overview
-ms.date: 10/12/2022
+ms.date: 10/26/2022
 ms.custom: references_regions
 ---
 # What is Azure Data Share?

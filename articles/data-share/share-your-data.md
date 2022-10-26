@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Share outside your org - Azure Data Share'
 description: Tutorial - Share data with customers and partners using Azure Data Share  
-author: jifems
-ms.author: jife
+author:  sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2021
+ms.date: 10/26/2022
 ---
 # Tutorial: Share data using Azure Data Share  
 
@@ -192,39 +192,39 @@ Use these commands to create the resource:
 
 1. Navigate to your Data Share Overview page.
 
-    ![Share your data](./media/share-receive-data.png "Share your data") 
+   :::image type="content" source="./media/share-receive-data.png" alt-text="Screenshot of the Azure Data Share overview page in the Azure portal.":::
 
 1. Select **Start sharing your data**.
 
-1. Select **Create**.   
+1. Select **Create**.
 
 1. Fill out the details for your share. Specify a name, share type, description of share contents, and terms of use (optional). 
 
-    ![EnterShareDetails](./media/enter-share-details.png "Enter Share details") 
+   :::image type="content" source="./media/enter-share-details.png " alt-text="Screenshot of the share creation page in Azure Data Share, showing the share name, type, description, and terms of used filled out.":::
 
 1. Select **Continue**.
 
-1. To add Datasets to your share, select **Add Datasets**. 
+1. To add Datasets to your share, select **Add Datasets**.
 
-    ![Add Datasets to your share](./media/datasets.png "Datasets")
+   :::image type="content" source="./media/datasets.png" alt-text="Screenshot of the datasets page in share creation, the add datasets button is highlighted.":::
 
-1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you will be prompted for authentication method to list tables. Select AAD authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**. 
+1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you will be prompted for authentication method to list tables. Select AAD authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
-    ![AddDatasets](./media/add-datasets.png "Add Datasets")    
+   :::image type="content" source="./media/add-datasets-updated.png" alt-text="Screenshot showing the available dataset types.":::
 
-1. Navigate to the object you would like to share and select 'Add Datasets'. 
+1. Navigate to the object you would like to share and select 'Add Datasets'.
 
-    ![SelectDatasets](./media/select-datasets.png "Select Datasets")    
+   :::image type="content" source="./media/select-datasets.png" alt-text="Screenshot of the select datasets page, showing a folder selected."":::
 
-1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. 
+1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'.
 
-    ![AddRecipients](./media/add-recipient.png "Add recipients") 
+   :::image type="content" source="./media/add-recipient.png" alt-text="Screenshot of the recipients page, showing a recipient added.":::
 
 1. Select **Continue**.
 
 1. If you have selected snapshot share type, you can configure snapshot schedule to provide updates of your data to your data consumer. 
 
-    ![EnableSnapshots](./media/enable-snapshots.png "Enable snapshots") 
+   :::image type="content" source="./media/enable-snapshots.png" alt-text="Screenshot of the settings page, showing the snapshot toggle enabled.":::
 
 1. Select a start time and recurrence interval. 
 
