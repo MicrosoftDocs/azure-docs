@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 05/12/2022
+ms.date: 08/04/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,21 +15,72 @@ ms.custom: devx-track-azurepowershell
 
 When issues happen, one of the first things to check is what changed in application, configuration and resources to triage and root cause issues. Change Analysis provides a centralized view of the changes in your subscriptions for up to the past 14 days to provide the history of changes for troubleshooting issues.  
 
-In this tutorial, you learn how to: 
+In this tutorial, you will: 
 
 > [!div class="checklist"]
-> * Enable Change Analysis to track changes for Azure resources and for Azure Web App configurations
-> * Troubleshoot a Web App issue using Change Analysis
+> - Clone, create, and deploy a [sample web application](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample) with a storage account.
+> - Enable Change Analysis to track changes for Azure resources and for Azure Web App configurations
+> - Troubleshoot a Web App issue using Change Analysis
 
 ## Pre-requisites
 
-An Azure Web App with a Storage account dependency. Follow instructions at [ChangeAnalysis-webapp-storage-sample](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample) if you haven't already deployed one. 
+- Install [.NET 5.0 or above](https://dotnet.microsoft.com/download). 
+- Install [the Azure CLI](/cli/azure/install-azure-cli). 
+
+## Set up the test application
+
+### Clone
+
+1. In your preferred terminal, log in to your Azure subscription.
+
+```bash
+az login
+az account set --s {azure-subscription-id}
+```
+
+1. Clone the [sample web application with storage to test Change Analysis](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample).
+
+```bash
+git clone https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample.git
+```
+
+1. Change the working directory to the project folder.
+
+```bash
+cd changeanalysis-webapp-storage-sample
+``` 
+
+### Create and deploy
+
+1. Create and deploy the web application.
+
+```bash
+az webapp up --name {webapp_name} --sku S2 --location eastus
+```
+
+1. Make a note of the resource group created, if you'd like to deploy your storage account in the same resource group.
+
+1. Create the storage account.
+
+```bash
+az storage account create --name {storage_name} --resource-group {resourcegroup_name} --sku Standard_RAGRS --https-only
+```
+
+1. Show your new storage account connection string.
+
+```bash
+az storage account show-connection-string -g {resourcegroup_name} -n {storage_name}
+```
+
+1. Connect the web application to the storage account through **App Settings**.
+
+```bash
+az webapp config appsettings set -g {resourcegroup_name} -n {webapp_name} --settings AzureStorageConnection={storage_connectionstring_from_previous_step}
+```
 
 ## Enable Change Analysis
 
-In the Azure portal, navigate to theChange Analysis service home page.  
-
-If this is your first time using Change Analysis service, the page may take up to a few minutes to register the `Microsoft.ChangeAnalysis` resource provider in your selected subscriptions.
+In the Azure portal, [navigate to the Change Analysis standalone UI](./change-analysis-visualizations.md). This may take a few minutes as the `Microsoft.ChangeAnalysis` resource provider is registered. 
 
 :::image type="content" source="./media/change-analysis/change-analysis-blade.png" alt-text="Screenshot of Change Analysis in Azure portal.":::
 
@@ -72,4 +123,4 @@ Now that you've discovered the web app in-guest change and understand next steps
 
 ## Next steps
 
-Learn more about [Change Analysis](./change-analysis.md). 
+Learn more about [Change Analysis](./change-analysis.md).

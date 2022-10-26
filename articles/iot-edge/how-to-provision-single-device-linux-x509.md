@@ -5,13 +5,13 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 07/11/2022
 ms.author: patricka
 ---
 
 # Create and provision an IoT Edge device on Linux using X.509 certificates
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
 
@@ -197,20 +197,29 @@ If you need to troubleshoot the service, retrieve the service logs.
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-   ```bash
-   sudo iotedge system logs
-   ```
+```bash
+sudo iotedge system logs
+```
 
 ::: moniker-end
 
 Use the `check` tool to verify configuration and connection status of the device.
 
-   ```bash
-   sudo iotedge check
-   ```
+```bash
+sudo iotedge check
+```
 
 >[!TIP]
 >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
+
+>[!NOTE]
+>On a newly provisioned device, you may see an error related to IoT Edge Hub:
+>
+>**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+>
+>**Could not check current state of edgeHub container**
+>
+>This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
 View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
@@ -316,7 +325,7 @@ Remove the IoT Edge runtime.
 ::: moniker range="iotedge-2018-06"
 
 ```bash
-sudo apt-get remove iotedge
+sudo apt-get autoremove iotedge
 ```
 
 ::: moniker-end
@@ -326,10 +335,10 @@ sudo apt-get remove iotedge
 
 # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 ```bash
-sudo apt-get remove aziot-edge
+sudo apt-get autoremove --purge aziot-edge
 ```
 
-Use the `--purge` flag if you want to delete all the files associated with IoT Edge, including your configuration files. Leave this flag out if you want to reinstall IoT Edge and use the same configuration information in the future.
+Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags deletes all the files associated with IoT Edge, including your configuration files. 
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 ```bash
@@ -354,8 +363,7 @@ sudo docker rm -f <container name>
 Finally, remove the container runtime from your device.
 
 ```bash
-sudo apt-get remove --purge moby-cli
-sudo apt-get remove --purge moby-engine
+sudo apt-get autoremove --purge moby-engine
 ```
 
 ## Next steps

@@ -272,9 +272,6 @@ Architecture | uname
 
 Azure Migrate appliance used for discovery of VMware VMs can also collect data on SQL Server instances and databases.
 
-> [!Note]
-> Currently this feature is only available for servers running in your VMware environment.
-
 ### SQL database metadata
 
 **Database Metadata** |	**Views/ SQL Server properties**

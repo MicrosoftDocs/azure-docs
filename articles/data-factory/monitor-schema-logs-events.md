@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/25/2022
 ---
 
 # Schema of logs and events
@@ -469,4 +469,4 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
 
 ## Next steps
 
-[Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-analytics.md)
+[Monitor programmatically using SDKs](monitor-programmatically.md)

@@ -36,7 +36,7 @@ After the Customer-managed key configuration, new ingested data to workspaces li
 > [!IMPORTANT]
 > Customer-managed key capability is regional. Your Azure Key Vault, cluster and linked workspaces must be in the same region, but they can be in different subscriptions.
 
-![Customer-managed key overview](media/customer-managed-keys/cmk-overview.png)
+[![Customer-managed key overview](media/customer-managed-keys/cmk-overview.png "Screenshot of Customer-managed key diagram.")](media/customer-managed-keys/cmk-overview.png#lightbox)
 
 1. Key Vault
 2. Log Analytics cluster resource having managed identity with permissions to Key Vault—The identity is propagated to the underlay dedicated cluster storage
@@ -71,9 +71,11 @@ Customer-managed key configuration isn't supported in Azure portal currently and
 
 ## Storing encryption key ("KEK")
 
+A [portfolio of Azure Key Management products](../../key-vault/managed-hsm/mhsm-control-data.md#portfolio-of-azure-key-management-products) lists the vaults and managed HSMs that can be used. 
+
 Create or use an existing Azure Key Vault in the region that the cluster is planed, and generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable, to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
-![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png)
+[![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png "Screenshot of Key Vault soft delete and purge protection properties")](media/customer-managed-keys/soft-purge-protection.png#lightbox)
 
 These settings can be updated in Key Vault via CLI and PowerShell:
 
@@ -97,16 +99,23 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 ## Grant Key Vault permissions
 
-Create Access Policy in Key Vault to grants permissions to your cluster. These permissions are used by the underlay cluster storage. Open your Key Vault in Azure portal and click *Access Policies* then *+ Add Access Policy* to create a policy with these settings:
+There are two permission models in Key Vault to grants permissions to your cluster and underlay storage——Vault access policy, and Azure role-based access control.
 
-- Key permissions—select *Get*, *Wrap Key* and *Unwrap Key*.
-- Select principal—depending on the identity type used in the cluster (system or user assigned managed identity)
-  - System assigned managed identity - enter the cluster name or cluster principal ID 
-  - User assigned managed identity - enter the identity name
+1. Vault access policy
 
-![grant Key Vault permissions](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
+    Open your Key Vault in Azure portal and click *Access Policies*, select *Vault access policy*, then click *+ Add Access Policy* to create a policy with these settings:
 
-The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
+    - Key permissions—select *Get*, *Wrap Key* and *Unwrap Key*.
+    - Select principal—depending on the identity type used in the cluster (system or user assigned managed identity)
+      - System assigned managed identity - enter the cluster name or cluster principal ID 
+      - User assigned managed identity - enter the identity name
+
+    [![grant Key Vault permissions](media/customer-managed-keys/grant-key-vault-permissions-8bit.png "Screenshot of Key Vault access policy permissions")](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
+
+    The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
+
+2. Azure role-based access control
+   Open your Key Vault in Azure portal and click *Access Policies*, select *Azure role-based access control*, then enter *Access control (IAM)* and add *Key Vault Crypto Service Encryption User* role assignment.
 
 ## Update cluster with key identifier details
 
@@ -118,7 +127,7 @@ This step updates dedicated cluster storage with the key and version to use for 
 >- Key rotation can be automatic or require explicit key update, see [Key rotation](#key-rotation) to determine approach that is suitable for you before updating the key identifier details in cluster.
 >- Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
-![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png)
+[![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png "Screenshot of Key Vault key identifier details")](media/customer-managed-keys/key-identifier-8bit.png#lightbox)
 
 Update KeyVaultProperties in cluster with key identifier details.
 
@@ -270,6 +279,8 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az account set —subscription "storage-account-subscription-id"
+
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
 az account set —subscription "workspace-subscription-id"
@@ -280,11 +291,13 @@ az monitor log-analytics workspace linked-storage create —type Query —resour
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+Select-AzSubscription "StorageAccount-subscription-id"
+
+$storageAccountId = (Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name").id
 
 Select-AzSubscription "workspace-subscription-id"
 
-New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccountId
 ```
 
 # [REST](#tab/rest)
@@ -320,6 +333,8 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az account set —subscription "storage-account-subscription-id"
+
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
 az account set —subscription "workspace-subscription-id"
@@ -330,11 +345,13 @@ az monitor log-analytics workspace linked-storage create —type ALerts —resou
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+Select-AzSubscription "StorageAccount-subscription-id"
+
+$storageAccountId = (Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name").id
 
 Select-AzSubscription "workspace-subscription-id"
 
-New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccountId
 ```
 
 # [REST](#tab/rest)

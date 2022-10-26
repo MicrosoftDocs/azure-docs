@@ -20,7 +20,7 @@ To ensure your apps work with the latest updates, the validation host pool shoul
 You can debug issues in the validation host pool with either [the diagnostics feature](./troubleshoot-set-up-overview.md) or the [Azure Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
-> We recommend that you leave the validation host pool in place to test all future updates.
+> We recommend that you leave the validation host pool in place to test all future updates. Validation hostpool should only be used for testing, and not in production environments.
 
 ## Create your host pool
 

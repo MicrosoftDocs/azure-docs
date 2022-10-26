@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 05/25/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
+ms.custom: ignite-2022
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 
 # Manage instances in Durable Functions in Azure
 
-Orchestrations in Durable Functions are long-running stateful functions that can be started, queried, and terminated using built-in management APIs. Several other instance management APIs are also exposed by the Durable Functions [orchestration client binding](durable-functions-bindings.md#orchestration-client), such as sending external events to instances, purging instance history, etc. This article goes into the details of all supported instance management operations.
+Orchestrations in Durable Functions are long-running stateful functions that can be started, queried, suspended, resumed, and terminated using built-in management APIs. Several other instance management APIs are also exposed by the Durable Functions [orchestration client binding](durable-functions-bindings.md#orchestration-client), such as sending external events to instances, purging instance history, etc. This article goes into the details of all supported instance management operations.
 
 ## Start instances
 
@@ -206,7 +207,7 @@ The method returns an object with the following properties:
 * **LastUpdatedTime**: The time at which the orchestration last checkpointed.
 * **Input**: The input of the function as a JSON value. This field isn't populated if `showInput` is false.
 * **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property includes the failure details. If the orchestrator function was terminated, this property includes the reason for the termination (if any).
+* **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property includes the failure details. If the orchestrator function was suspended or terminated, this property includes the reason for the suspension or termination (if any).
 * **RuntimeStatus**: One of the following values:
   * **Pending**: The instance has been scheduled but has not yet started running.
   * **Running**: The instance has started running.
@@ -214,6 +215,7 @@ The method returns an object with the following properties:
   * **ContinuedAsNew**: The instance has restarted itself with a new history. This state is a transient state.
   * **Failed**: The instance failed with an error.
   * **Terminated**: The instance was stopped abruptly.
+  * **Suspended**: The instance was suspended and may be resumed at a later point in time.
 * **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
 
 > [!NOTE]
@@ -621,6 +623,46 @@ A terminated instance will eventually transition into the `Terminated` state. Ho
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
 
+## Suspend and Resume instances (preview)
+
+Suspending an orchestration allows you to stop a running orchestration. Unlike with termination, you have the option to resume a suspended orchestrator at a later point in time.
+
+The two parameters for the suspend API are an instance ID and a reason string, which are written to logs and to the instance status.
+
+# [C#](#tab/csharp)
+
+```csharp
+[FunctionName("SuspendResumeInstance")]
+public static async Task Run(
+    [DurableClient] IDurableOrchestrationClient client,
+    [QueueTrigger("suspend-resume-queue")] string instanceId)
+{
+    string suspendReason = "Need to pause workflow";
+    await client.SuspendAsync(instanceId, suspendReason);
+    
+    // ... wait for some period of time since suspending is an async operation...
+    
+    string resumeReason = "Continue workflow";
+    await client.ResumeAsync(instanceId, resumeReason);
+}
+```
+
+# [JavaScript](#tab/javascript)
+> [!NOTE]
+> This feature is currently not supported in JavaScript.
+# [Python](#tab/python)
+> [!NOTE]
+> This feature is currently not supported in Python.
+# [Java](#tab/java)
+> [!NOTE]
+> This feature is currently not supported in Java.
+
+---
+
+A suspended instance will eventually transition to the `Suspended` state. However, this transition will not happen immediately. Rather, the suspend operation will be queued in the task hub along with other operations for that instance. You can use the instance query APIs to know when a running instance has actually reached the Suspended state.
+
+When a suspended orchestrator is resumed, its status will change back to `Running`.
+
 ### Azure Functions Core Tools
 
 You can also terminate an orchestration instance directly, by using the [`func durable terminate` command](../functions-core-tools-reference.md#func-durable-terminate) in Core Tools.
@@ -827,7 +869,7 @@ public HttpResponseMessage httpStartAndWait(
 
 ---
 
-Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
+Call the function with the following line. Use 2 seconds for the timeout and 0.5 second for the retry interval:
 
 ```bash
 curl -X POST "http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5"
@@ -867,7 +909,9 @@ Transfer-Encoding: chunked
     "id": "d3b72dddefce4e758d92f4d411567177",
     "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
     "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+    "suspendPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/suspend?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+    "resumePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/resume?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
 }
 ```
 
@@ -889,6 +933,8 @@ The methods return an object with the following string properties:
 * **SendEventPostUri**: The "raise event" URL of the orchestration instance.
 * **TerminatePostUri**: The "terminate" URL of the orchestration instance.
 * **PurgeHistoryDeleteUri**: The "purge history" URL of the orchestration instance.
+* **suspendPostUri**: The "suspend" URL of the orchestration instance.
+* **resumePostUri**: The "resume" URL of the orchestration instance.
 
 Functions can send instances of these objects to external systems to monitor or raise events on the corresponding orchestrations, as shown in the following examples:
 
@@ -906,7 +952,7 @@ public static void SendInstanceInfo(
 {
     HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
 }
 ```
@@ -924,7 +970,7 @@ modules.exports = async function(context, ctx) {
 
     const payload = client.createHttpManagementPayload(ctx.instanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     context.bindings.document = JSON.stringify({
         id: ctx.instanceId,
         payload,

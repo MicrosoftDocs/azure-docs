@@ -3,13 +3,13 @@ title: "Quickstart: Use the Language Detection client library"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Language Detection.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/13/2022
-ms.author: aahi
+ms.date: 08/15/2022
+ms.author: jboback
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-language-detection, ignite-fall-2021, mode-api
 keywords: text mining, language detection
@@ -17,8 +17,6 @@ zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: using the Language Detection client library and REST API
-
-Use this article to get started with Language Detection using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 

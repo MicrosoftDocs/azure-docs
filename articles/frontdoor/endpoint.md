@@ -40,7 +40,7 @@ The endpoint domain is accessible when you associate it with a route.
 
 When you delete and redeploy an endpoint, you might expect to get the same pseudorandom hash value, and therefore the same endpoint domain name. Front Door enables you to control how the pseudorandom hash values are reused on an endpoint-by-endpoint basis.
 
-An endpoint's domain can be reused within the same tenant, subscription, or resource group scope level. You can also choose to not allow the reuse of an endpoint domain. By default, your allow reuse of the endpoint domain within the same Azure Active Directory tenant.
+An endpoint's domain can be reused within the same tenant, subscription, or resource group scope level. You can also choose to not allow the reuse of an endpoint domain. By default, Front Door allows reuse of the endpoint domain within the same Azure Active Directory tenant.
 
 You can use Bicep, an Azure Resource Manager template (ARM template), the Azure CLI, or Azure PowerShell to configure the scope level of the endpoint's domain reuse behavior. You can also configure it for all Front Door endpoints in your whole organization by using Azure Policy. The Azure portal uses the scope level you define through the command line once it has been changed.
 

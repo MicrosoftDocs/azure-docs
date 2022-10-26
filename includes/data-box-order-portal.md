@@ -77,7 +77,7 @@ Do the following steps in the Azure portal to order a device:
 
       If you select a General Purpose v1 or General Purpose v2 storage account that supports Azure file shares and doesn't have large file shares enabled, you'll see an **Enable large file shares** button. To enable large file shares for one or more storage accounts, select **Enable large file shares**, and then enable large file shares on each storage account that will need large file shares.
 
-      Once you enable large file shares on an account, the storage account is upgraded and this upgrade can't be reversed. For more information, see [Large file shares](../articles/storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+      Once you enable large file shares on an account, the storage account is upgraded and this upgrade can't be reversed. For more information, see [Large file shares](../articles/storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
 
       ![Screenshot of the Enable option for for a Data Box order that will import files to storage accounts. The Enabled button is highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
@@ -103,7 +103,7 @@ Do the following steps in the Azure portal to order a device:
 
     ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-08.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting the page blobs to managed disks and moving them to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting the page blobs to managed disks and moving them to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-has-uploaded-to-azure).
 
     > [!NOTE]
     > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.

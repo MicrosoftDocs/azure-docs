@@ -51,6 +51,7 @@ The following are unsupported:
 - DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
 - System databases: The [mysql system database](https://mariadb.com/kb/en/the-mysql-database-tables/) is read-only and used to support various PaaS functionalities. You can't make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
+- Azure Database for MariaDB supports at largest, **1 TB**, in a single data file. If your database size is larger than 1 TB, you should create the table in [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) tablespace. If you have a single table size larger than 1 TB, you should use the partition table.
 
 ### Supported
 

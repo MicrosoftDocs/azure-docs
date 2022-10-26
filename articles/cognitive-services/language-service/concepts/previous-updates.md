@@ -45,7 +45,7 @@ This article contains a list of previously recorded updates for Azure Cognitive 
 
 ### Text Analytics for health updates
 
-* A new model version `2021-05-15` for the `/health` endpoint and on-premise container which provides
+* A new model version `2021-05-15` for the `/health` endpoint and on-premises container which provides
     * 5 new entity types: `ALLERGEN`, `CONDITION_SCALE`, `COURSE`, `EXPRESSION` and `MUTATION_TYPE`,
     * 14 new relation types,
     * Assertion detection expanded for new entity types and
@@ -72,7 +72,7 @@ This article contains a list of previously recorded updates for Azure Cognitive 
     * This parameter lets you specify select PII entities, as well as those not supported by default for the input language.
 * Updated client libraries, which include asynchronous and text analytics for health operations.
 
-* A new model version `2021-03-01` for text analytics for health API and on-premise container which provides:
+* A new model version `2021-03-01` for text analytics for health API and on-premises container which provides:
     * A rename of the `Gene` entity type to `GeneOrProtein`.
     * A new `Date` entity type.
     * Assertion detection which replaces negation detection.

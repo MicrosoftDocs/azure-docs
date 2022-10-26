@@ -140,7 +140,7 @@ The Map Control API is a convenient client library. This API allows you to easil
 
    About this code:
 
-   * A `ready` event is added to the map, which fires when the map resources finnish loading and the map is ready to be accessed.
+   * A `ready` event is added to the map, which fires when the map resources finish loading and the map is ready to be accessed.
    * In the map `ready` event handler, a data source is created to store result data.
    * A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered. In this case, the result is rendered with a dark blue round pin icon, centered over the results coordinate, that allows other icons to overlap.
    * The result layer is added to the map layers.
@@ -257,7 +257,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
     ![A screen shot of a map with information popups that appear when you hover over a search pin.](./media/tutorial-search-location/popup-map.png)
 
 * For the completed code used in this tutorial, see the [search](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Search) tutorial on GitHub.
-* To view this sample live, see [Search for points of interest](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest) on the **Azure Maps Code Samples** site.
+* To view this sample live, see [Search for points of interest](https://samples.azuremaps.com/?sample=search-for-points-of-interest) on the **Azure Maps Code Samples** site.
 
 ## Next steps
 

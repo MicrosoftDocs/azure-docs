@@ -1,14 +1,14 @@
 ---
-title: Quota errors
+title: Resource quota errors
 description: Describes how to resolve resource quota errors when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 12/10/2021
+ms.date: 09/12/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Resolve errors for resource quotas
 
-This article describes quota errors that might occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
+This article describes resource quota errors that might occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
 
 ## Symptom
 

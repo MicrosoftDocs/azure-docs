@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 10/24/2022
 ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mmcc
@@ -150,6 +150,9 @@ The telemetry is available in the `customEvents` table on the [Application Insig
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackEvent()`, the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
 
+> [!NOTE]
+> itemCount has a minimum value of one; the record itself represents an entry.
+
 ## GetMetric
 
 To learn how to effectively use the `GetMetric()` call to capture locally pre-aggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
@@ -211,6 +214,9 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 
 * `valueSum`: The sum of the measurements. To get the mean value, divide by `valueCount`.
 * `valueCount`: The number of measurements that were aggregated into this `trackMetric(..)` call.
+
+> [!NOTE]
+> valueCount has a minimum value of one; the record itself represents an entry.
 
 ## Page views
 
@@ -611,7 +617,7 @@ In Java, many dependency calls can be automatically tracked by using the
 You use this call if you want to track calls that the automated tracking doesn't catch.
 
 To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. For Java, see
-[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppressing-specific-auto-collected-telemetry).
+[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-auto-collected-telemetry).
 
 ### Dependencies in Log Analytics
 
@@ -649,6 +655,7 @@ When you use `FlushAsync()`, we recommend this pattern:
 
 ```csharp
 await telemetryClient.FlushAsync()
+// No need to sleep
 ```
 
 We recommend always flushing as part of the application shutdown to guarantee that telemetry isn't lost.
@@ -1132,14 +1139,21 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## Questions
+## Frequently asked questions
 
-* What exceptions might `Track_()` calls throw?
+### What exceptions might `Track_()` calls throw?
 
-    None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and, if the messages get through, in Diagnostic Search.
-* Is there a REST API to get data from the portal?
+None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and, if the messages get through, in Diagnostic Search.
 
-    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Log Analytics to Power BI](./export-power-bi.md) and [continuous export](./export-telemetry.md).
+### Is there a REST API to get data from the portal?
+
+Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
+
+### Why are my calls to custom events and metrics APIs ignored?
+
+The Application Insights SDK isn't compatible with auto-instrumentation. If auto-instrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
+
+Turn off auto-instrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
 
 ## <a name="next"></a>Next steps
 

@@ -2,7 +2,7 @@
 title: Emergency Rotation of the AD FS certificates | Microsoft Docs
 description: This article explains how to revoke and update AD FS certificates immediately.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

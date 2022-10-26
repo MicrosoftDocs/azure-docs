@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Troubleshoot Source Anchor Issues during Installation 
 description: This topic provides steps for how to troubleshoot issues with the source anchor during installation.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting

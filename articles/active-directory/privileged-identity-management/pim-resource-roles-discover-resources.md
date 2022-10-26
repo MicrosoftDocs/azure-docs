@@ -3,15 +3,15 @@ title: Discover Azure resources to manage in PIM - Azure AD | Microsoft Docs
 description: Learn how to discover Azure resources to manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/27/2022
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---

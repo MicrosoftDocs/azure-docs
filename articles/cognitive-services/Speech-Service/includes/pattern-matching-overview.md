@@ -12,7 +12,7 @@ keywords: intent recognition pattern matching
 
 Pattern matching can be customized to group together pattern intents and entities inside a ``PatternMatchingModel``. Using this grouping, it's possible to access more advanced entity types that will help make your intent recognition more precise.
 
-For supported locales see [here](../language-support.md?tabs=IntentRecognitionPatternMatcher).
+For supported locales see [here](../language-support.md?tabs=intent-recognition).
 
 ## Patterns vs. Exact Phrases
 

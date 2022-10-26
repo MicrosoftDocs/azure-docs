@@ -18,7 +18,7 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure OpenAI?
+    - title: What is Azure OpenAI? (Preview)
       itemType: overview # controls the icon image and super-title text
       url: overview.md
     - title: Quickstarts
@@ -54,11 +54,13 @@ additionalContent:
               url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
             # Card
             - text: Quotas and limits
-              url: https://review.docs.microsoft.com/en-us/azure/cognitive-services/openai/quotas-limits?branch=release-azure-openai-preview
+              url: ./quotas-limits.md?branch=release-azure-openai-preview
+            - text: Apply for access to Azure OpenAI
+              url: https://aka.ms/oaiapply
         - title: Video
           links:
             - text: Combining OpenAI models with the power of Azure
-              url: https://docs.microsoft.com/shows/ai-show/build-recap-combining-openai-models-with-the-power-of-azure
+              url: /shows/ai-show/build-recap-combining-openai-models-with-the-power-of-azure
         - title: Reference
           links:
             - text: REST API

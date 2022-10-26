@@ -27,7 +27,7 @@ Run the code on either of these environments:
 * Azure Machine Learning compute instance (no downloads or installation necessary):
   * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
 * Your own Jupyter Notebook server:
-  * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
+  * Create a [workspace configuration file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
   * Create an [Azure container registry](../container-registry/index.yml) or other Docker registry that's available on the internet.
 
@@ -145,9 +145,9 @@ print(compute_target.get_status().serialize())
 
 ## Configure your training job
 
-For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
+For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
-Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](how-to-set-up-training-targets.md).
+Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](v1/how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig

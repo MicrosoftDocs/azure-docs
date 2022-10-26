@@ -3,7 +3,7 @@ title: Problem installing the Azure Active Directory Application Proxy Agent Con
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector for Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

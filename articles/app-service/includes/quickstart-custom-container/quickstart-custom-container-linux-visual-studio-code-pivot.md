@@ -2,12 +2,17 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
+ms.custom: ignite-2022
 ms.topic: quickstart
 ms.date: 06/30/2022
 ms.author: cephalin
 ---
 
 [Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry](../../../container-registry/index.yml) (ACR) to App Service.
+
+> [!NOTE]
+> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
+>
 
 To complete this quickstart, you need:
 
@@ -168,7 +173,7 @@ The App Service app pulls from the container registry every time it starts. If y
 
 Other Azure extensions:
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

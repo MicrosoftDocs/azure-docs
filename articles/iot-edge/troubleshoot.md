@@ -12,7 +12,7 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge device
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and diagnostics.
 
@@ -391,6 +391,41 @@ While IoT Edge provides enhanced configuration for securing Azure IoT Edge runti
 |MQTT|8883|BLOCKED (Default)|BLOCKED (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open when using MQTT as the communication protocol.<li>1883 for MQTT is not supported by IoT Edge. <li>Incoming (Inbound) connections should be blocked.</ul>|
 |AMQP|5671|BLOCKED (Default)|OPEN (Default)|<ul> <li>Default communication protocol for IoT Edge. <li> Must be configured to be Open if Azure IoT Edge is not configured for other supported protocols or AMQP is the desired communication protocol.<li>5672 for AMQP is not supported by IoT Edge.<li>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<li>Incoming (Inbound) connections should be blocked.</ul></ul>|
 |HTTPS|443|BLOCKED (Default)|OPEN (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open on 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <li><a id="anchortext">Incoming (Inbound) connection</a> should be Open only for specific scenarios: <ul> <li>  If you have a transparent gateway with leaf devices that may send method requests. In this case, Port 443 does not need to be open to external networks to connect to IoTHub or provide IoTHub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open Incoming (Inbound) from the internal network. <li> For Client to Device (C2D) scenarios.</ul><li>80 for HTTP is not supported by IoT Edge.<li>If non-HTTP protocols (for example, AMQP or MQTT) cannot be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.</ul>|
+
+
+## Last resort: stop and recreate all containers
+
+Sometimes, a system might require significant special modification to work with existing networking or operating system constraints. For example, a system could require a different data disk mount and proxy settings. If you tried all steps above and still get container failures, it's possible that somewhere the docker system caches or persisted network settings are not up to date with the latest reconfiguration. In this case, the last resort option is to use [`docker prune`](https://docs.docker.com/engine/reference/commandline/system_prune/) get a clean start from scratch. 
+
+The followling command stops the IoT Edge system (and thus all containers), uses the "all" and "volume" option for `docker prune` to remove all containers and volumes. Review the warning that the command issues and confirm with `y` when ready.
+
+```bash
+sudo iotedge system stop
+docker system prune --all --volumes
+```
+
+```output
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all volumes not used by at least one container
+  - all images without at least one container associated to them
+  - all build cache
+
+Are you sure you want to continue? [y/N]
+```
+
+Start the system again. To be safe, apply any potentially remaining configuration and start the system with one command.
+
+```bash
+sudo iotedge config apply
+```
+
+Wait a few minutes and check again. 
+
+```bash
+sudo iotedge list
+```
 
 ## Next steps
 

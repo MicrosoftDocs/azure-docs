@@ -31,11 +31,9 @@ Logical replication and logical decoding have several similarities. They both:
 The two technologies have their differences:
 Logical replication: 
 * Allows you to specify a table or set of tables to be replicated.
-* Replicates data between PostgreSQL instances.
 
 Logical decoding:
 * Extracts changes across all tables in a database.
-* Can't send data between PostgreSQL instances.
 
 >[!NOTE]
 > As at this time, Flexible server does not support cross-region read replicas. Depending on the type of workload, you may choose to use logical replication feature for cross-region disaster recovery (DR) purpose.

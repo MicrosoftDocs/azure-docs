@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 06/27/2022
+ms.date: 09/26/2022
 ms.topic: conceptual
 ---
 
@@ -24,7 +24,7 @@ $HOME\.KVA\.ssh\logkey
 
 To run the `az arcappliance logs` command, the path to the kubeconfig must be provided. The kubeconfig is generated after successful completion of the `az arcappliance deploy` command and is placed in the same directory as the CLI command in ./kubeconfig or as specified in `--outfile` (if the parameter was passed).  
 
-If `az arcappliance deploy` was not completed, then the kubeconfig file may exist but may be empty or missing data, so it can't be used for logs collection. In this case, the Appliance VM IP address can be used to collect logs instead. The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane Endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 10.97.176.27", the command to use for logs collection would be: 
+If `az arcappliance deploy` was not completed, then the kubeconfig file may exist but may be empty or missing data, so it can't be used for logs collection. In this case, the Appliance VM IP address can be used to collect logs instead. The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane Endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 10.97.176.27", the command to use for logs collection would be:
 
 ```azurecli
 az arcappliance logs hci --out-dir c:\logs --ip 10.97.176.27
@@ -120,6 +120,34 @@ When the appliance is deployed to a host resource pool, there is no high availab
 
 ## Networking issues
 
+### Restricted outbound connectivity
+
+Make sure the URLs listed below are added to your allowlist.
+
+#### Proxy URLs used by appliance agents and services
+
+|**Service**|**Port**|**URL**|**Direction**|**Notes**|
+|--|--|--|--|--|
+|Microsoft container registry | 443 | `https://mcr.microsoft.com`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images for installation. |  
+|Azure Arc Identity service | 443 | `https://*.his.arc.azure.com` | Appliance VM IP and Control Plane IP need outbound connection. | Manages identity and access control for Azure resources |  
+|Azure Arc configuration service | 443 | `https://*.dp.kubernetesconfiguration.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used for Kubernetes cluster configuration.|
+|Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and Control Plane IP need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
+|Guest Notification service| 443 | `https://guestnotificationservice.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used to connect on-prem resources to Azure.|
+|SFS API endpoint | 443 | msk8s.api.cdp.microsoft.com | Host machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
+|Resource bridge (appliance) Dataplane service| 443 | `https://*.dp.prod.appliances.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Communicate with resource provider in Azure.|
+|Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, https://ecpacr.azurecr.io`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
+|Resource bridge (appliance) image download| 80 | `*.dl.delivery.mp.microsoft.com`| Host machine,  Appliance VM IP and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
+|Azure Arc for Kubernetes container image download| 443 | `https://azurearcfork8sdev.azurecr.io`|  Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
+|ADHS telemetry service | 443 | adhs.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Runs inside the appliance/mariner OS. Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any Kubernetes control plane. |
+|Microsoft events data service | 443 |v20.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
+
+#### Used by other Arc agents
+
+|**Service**|**URL**|
+|--|--|
+|Azure Resource Manager| `https://management.azure.com`|
+|Azure Active Directory| `https://login.microsoftonline.com`|
+
 ### Azure Arc resource bridge is unreachable
 
 Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if not reserved. Rebooting the Azure Arc resource bridge (preview) or VM can trigger an IP address change, resulting in failing services.
@@ -136,6 +164,16 @@ Azure Arc resource bridge must be configured for proxy so that it can connect to
 
 There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
 
+### KVA timeout error
+
+Azure Arc resource bridge is a Kubernetes management cluster that is deployed in an appliance VM directly on the on-premises infrastructure. While trying to deploy Azure Arc resource bridge, a "KVA timeout error" may appear if there is a networking problem that doesn't allow communication of the Arc Resource Bridge appliance VM to the host, DNS, network or internet. This error is typically displayed for the following reasons:
+
+- The appliance VM IP address doesn't have DNS resolution.
+- The appliance VM IP address doesn't have internet access to download the required image.
+- The host doesn't have routability to the appliance VM IP address.
+
+To resolve this error, ensure that all IP addresses assigned to the Arc Resource Bridge appliance VM can be resolved by DNS and have access to the internet, and that the host can successfully route to the IP addresses.
+
 ## Azure-Arc enabled VMs on Azure Stack HCI issues
 
 For general help resolving issues related to Azure-Arc enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
@@ -148,7 +186,7 @@ This is usually caused when trying to run commands from remote PowerShell, which
 
 To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappliance` commands must be run locally on a node in the cluster. Sign in to the node through Remote Desktop Protocol (RDP) or use a console session to run these commands.
 
-## Azure Arc-enabled VMWare VCenter issues
+## Azure Arc-enabled VMware VCenter issues
 
 ### `az arcappliance prepare` failure
 
@@ -192,7 +230,7 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 ### Insufficient permissions
 
-When deploying the resource bridge on VMWare Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
+When deploying the resource bridge on VMware Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
 
 ```
 "Datastore.AllocateSpace"
@@ -309,10 +347,12 @@ When deploying the resource bridge on VMWare Vcenter, you may get an error sayin
 
 ## Next steps
 
+[Understand recovery operations for resource bridge in Azure Arc-enabled VMware vSphere disaster scenarios](../vmware-vsphere/disaster-recovery.md)
+
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
-* Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
+- Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
-* [Open an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+- [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).

@@ -4,9 +4,9 @@ description: Learn about Azure Monitor alerts, alert rules, action processing ru
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: overview 
-ms.date: 06/09/2022
+ms.date: 07/19/2022
 ms.custom: template-overview 
-ms.reviewer: nolavime    
+ms.reviewer: harelbr    
 ---
 # What are Azure Monitor Alerts?
 
@@ -16,20 +16,20 @@ You can alert on any metric or log data source in the Azure Monitor data platfor
 
 This diagram shows you how alerts work:
 
-:::image type="content" source="media/alerts-overview/alerts-flow.png" alt-text="Graphic explaining Azure Monitor alerts.":::
+:::image type="content" source="media/alerts-overview/alerts.png"  alt-text="Graphic explaining Azure Monitor alerts." lightbox="media/alerts-overview/alerts.png":::
 
-An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. The alert rule  captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
+An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on the specified resource. The alert rule captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
  
-You create an alert rule by combining:
- - The resource(s) to be monitored.
+An alert rule combines:
+ - The resource(s) to be monitored
  - The signal or telemetry from the resource
  - Conditions
 
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
- - An **alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
- - An **action group** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
+ - **Alert processing rules** allow you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
+ - **Action groups** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods such as email, SMS, and push notifications.
      - Automation Runbooks
      - Azure functions
@@ -38,7 +38,7 @@ Once an alert is triggered, the alert is made up of:
      - Secure webhooks
      - Webhooks
      - Event hubs
-- The **alert condition** is set by the system. When an alert fires, the alert’s monitor condition is set to ‘fired’, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to ‘resolved’.
+- **Alert conditions** are set by the system. When an alert fires, the alert’s monitor condition is set to ‘fired’, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to ‘resolved’.
 - The **user response** is set by the user and doesn’t change until the user changes it. 
 
 You can see all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
@@ -55,7 +55,7 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 ## Out-of-the-box alert rules (preview)
 
-If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-page.md#alert-rule-recommendations-preview).
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal-preview).
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
@@ -63,13 +63,17 @@ If you don't have alert rules defined for the selected resource, you can [enable
 ## Azure role-based access control (Azure RBAC) for alerts
 
 You can only access, create, or manage alerts for resources for which you have permissions.
-To create an alert rule, you need to have the following permissions:
+
+To create an alert rule, you need to have:
  - Read permission on the target resource of the alert rule
  - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides)
- - Read permission on any action group associated to the alert rule (if applicable)
+ - Read permission on any action group associated with the alert rule (if applicable)
+
 These built-in Azure roles, supported at all Azure Resource Manager scopes, have permissions to and access alerts information and create alert rules:
- - monitoring contributor
- - monitoring reader 
+ - **Monitoring contributor**: can create alerts and use resources within their scope 
+ - **Monitoring reader**: can view alerts and read resources within their scope
+
+If the target action group or rule location is in a different scope than the two built-in roles, you need to create a user with the appropriate permissions. 
 
 ## Alerts and State
 

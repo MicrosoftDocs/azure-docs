@@ -46,6 +46,8 @@ To configure the integration of Way We Do into Azure AD, you need to add Way We 
 1. In the **Add from the gallery** section, type **Way We Do** in the search box.
 1. Select **Way We Do** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Way We Do
 
 Configure and test Azure AD SSO with Way We Do using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Way We Do.

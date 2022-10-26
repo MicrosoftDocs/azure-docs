@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 06/24/2022
+ms.date: 10/04/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -13,13 +13,14 @@ zone_pivot_groups: programming-languages-set-functions
 
 | Version | Support level | Description |
 | --- | --- | --- |
-| 4.x | GA | **_Recommended runtime version for functions in all languages._** Use this version to [run C# functions on .NET 6.0 and .NET Framework 4.8](functions-dotnet-class-library.md#supported-versions). |
-| 3.x | GA | Supports all languages. Use this version to [run C# functions on .NET Core 3.1 and .NET 5.0](functions-dotnet-class-library.md#supported-versions).|
+| 4.x | GA | **_Recommended runtime version for functions in all languages._** Check out [Supported language versions](#languages). |
+| 3.x | GA | Supports all languages. Check out [Supported language versions](#languages).|
 | 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
 
 > [!IMPORTANT]
-> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. For more information, see [Migrating from 3.x to 4.x](#migrating-from-3x-to-4x).  
+> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. For more information, see [Migrating from 3.x to 4.x](#migrating-from-3x-to-4x). After the deadline, function apps can be created and deployed, and existing apps continue to run. However, your apps won't be eligible for new features, security patches, performance optimizations, and support until you upgrade them to version 4.x.
+> 
 >End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all Azure Functions runtime languages.  
 >Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
 
@@ -37,11 +38,13 @@ The following table indicates which programming languages are currently supporte
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving to a later version is allowed even with apps that have existing functions. When your app has existing functions, be aware of any breaking changes between versions before moving to a later runtime version. The following sections detail changes between versions:
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving to a later version is allowed even with apps that have existing functions. When your app has existing functions, be aware of any breaking changes between versions before moving to a later runtime version. The following sections detail breaking changes between versions, including language-specific breaking changes. 
 
 + [Between 3.x and 4.x](#breaking-changes-between-3x-and-4x) 
 + [Between 2.x and 3.x](#breaking-changes-between-2x-and-3x)
 + [Between 1.x and later versions](#migrating-from-1x-to-later-versions)
+
+If you don't see your programming language, go select it from the [top of the page](#top).
 
 Before making a change to the major version of the runtime, you should first test your existing code on the new runtime version. You can verify your app runs correctly after the upgrade by deploying to another function app running on the latest major version. You can also verify your code locally by using the runtime-specific version of the [Azure Functions Core Tools](functions-run-local.md), which includes the Functions runtime. 
 
@@ -138,7 +141,7 @@ Azure Functions provides a pre-upgrade validator to help you identify potential 
 
 ### Migrate without slots
 
-The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. When your function app runs on Windows, you also need to update the `netFrameworkVersion` site setting in Azure. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
+The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -154,22 +157,41 @@ Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -N
 
 ---
 
-When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+# [Windows](#tab/windows/azure-cli)
 
-# [Azure CLI](#tab/azure-cli)
+When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
 
 ```azurecli
 az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+.NET 6 is required for function apps in any language running on Windows.
+
+# [Windows](#tab/windows/azure-powershell)
+
+When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
 
 ```azurepowershell
 Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
 ```
+
+.NET 6 is required for function apps in any language running on Windows.
+
+# [Linux](#tab/linux/azure-cli)
+
+When running .NET apps on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+
+```azurecli
+az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
+```
+
+# [Linux](#tab/linux/azure-powershell)
+
+When running .NET apps on Linux, you also need to update the `linuxFxVersion` site setting. Unfortunately, Azure PowerShell can't be used to set the `linuxFxVersion` at this time. Use the Azure CLI instead.
+
 ---
 
-In these examples, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group.
+In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group.
 
 ### Migrate using slots
 
@@ -202,13 +224,29 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. (Windows only) For function apps running on Windows, use the following command so that the runtime can run on .NET 6:
+1. Version 4.x of the Functions runtime requires .NET 6 in Windows. On Linux, .NET apps must also upgrade to .NET 6. Use the following command so that the runtime can run on .NET 6:
    
+    # [Windows](#tab/windows)
+
+    When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+
     ```azurecli
-    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
     ```
 
-    Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+    .NET 6 is required for function apps in any language running on Windows.
+
+    # [Linux](#tab/linux/azure-cli)
+
+    When running .NET functions on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+
+    ```azurecli
+    az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
+    ```
+
+    ---
+
+    In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group. 
 
 1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
@@ -252,13 +290,29 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. (Windows only) For function apps running on Windows, use the following command so that the runtime can run on .NET 6:
+1. Version 4.x of the Functions runtime requires .NET 6 in Windows. On Linux, .NET apps must also upgrade to .NET 6. Use the following command so that the runtime can run on .NET 6:
    
+    # [Windows](#tab/windows)
+
+    When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+
     ```azurecli
-    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
     ```
 
-    Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+    .NET 6 is required for function apps in any language running on Windows.
+
+    # [Linux](#tab/linux/azure-cli)
+
+    When running .NET functions on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+
+    ```azurecli
+    az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
+    ```
+
+    ---
+
+    In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group. 
 
 1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
@@ -320,11 +374,13 @@ To update your project to Azure Functions 4.x:
 
 ### Breaking changes between 3.x and 4.x
 
-The following are some changes to be aware of before upgrading a 3.x app to 4.x. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22). More changes are expected during the preview period. Subscribe to [App Service Announcements](https://github.com/Azure/app-service-announcements/issues) for updates.
+The following are key breaking changes to be aware of before upgrading a 3.x app to 4.x, including language-specific breaking changes. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22). More changes are expected during the preview period. Subscribe to [App Service Announcements](https://github.com/Azure/app-service-announcements/issues) for updates.
+
+If you don't see your programming language, go select it from the [top of the page](#top). 
 
 #### Runtime
 
-- Azure Functions Proxies are no longer supported in 4.x. You're recommended to use [Azure API Management](../api-management/import-function-app-as-api.md).
+- Azure Functions proxies is a legacy feature for versions 1.x through 3.x of the Azure Functions runtime. Support for Functions proxies is being returned in version 4.x so that you can successfully upgrade your function apps to the latest runtime version. As soon as possible, you should instead switch to integrating your function apps with Azure API Management. API Management lets you take advantage of a more complete set of features for defining, securing, managing, and monetizing your Functions-based APIs. For more information, see [API Management integration](functions-proxies.md#api-management-integration). For information about the pending return of proxies in version 4.x, [Monitor the App Service announcements page](https://github.com/Azure/app-service-announcements/issues).  
 
 - Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
@@ -376,7 +432,7 @@ Azure Functions version 3.x is highly backwards compatible to version 2.x.  Many
 
 ### Breaking changes between 2.x and 3.x
 
-The following are the language-specific changes to be aware of before upgrading a 2.x app to 3.x.
+The following are the language-specific changes to be aware of before upgrading a 2.x app to 3.x. If you don't see your programming language, go select it from the [top of the page](#top). 
 
 ::: zone pivot="programming-language-csharp"
 The main differences between versions when running .NET class library functions is the .NET Core runtime. Functions version 2.x is designed to run on .NET Core 2.2 and version 3.x is designed to run on .NET Core 3.1.  
@@ -453,7 +509,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can also choose `net6.0` or `net48` as the target framework if you're using [.NET isolated process functions](dotnet-isolated-process-guide.md). Support for `net48` is currently in preview.
+You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if you are using [.NET isolated process functions](dotnet-isolated-process-guide.md). Support for `net7.0` and `net48` is currently in preview.
 
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.

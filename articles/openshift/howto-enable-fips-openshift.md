@@ -4,8 +4,8 @@ description: Learn how to enable FIPS on an Azure Red Hat OpenShift cluster.
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 5/5/2022
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure, FIPS
 #Customer intent: I need to understand how to enable FIPS on an Azure Red Hat OpenShift cluster.
 ---

@@ -21,7 +21,7 @@ Now you're ready to run the Speech CLI to recognize speech from your microphone.
     ```
 
     > [!NOTE]
-    > The Speech CLI defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md).
+    > The Speech CLI defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md?tabs=stt-tts).
     > For example, add `--source de-DE` to recognize German speech.
 
 2. **Start recognition** - Speak into the microphone. You will see transcription of your words into text in real-time. The Speech CLI will stop after a period of silence, or when you press ctrl-C.

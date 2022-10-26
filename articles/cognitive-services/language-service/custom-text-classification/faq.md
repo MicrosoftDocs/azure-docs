@@ -65,7 +65,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 * Review the [data selection and schema design](how-to/design-schema.md) article for more information.
 
-* [Review your test set](how-to/improve-model.md) to see predicted and tagged classes side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
+* [Review your test set](how-to/view-model-evaluation.md) to see predicted and tagged classes side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
 
 ## When I retrain my model I get different results, why is this?
 

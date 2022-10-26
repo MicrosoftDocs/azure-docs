@@ -45,8 +45,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 > [!IMPORTANT]
 > Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
-> 
-
 
 ### To create Microsoft peering
 

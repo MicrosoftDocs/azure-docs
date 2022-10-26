@@ -149,6 +149,11 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ![Unity render pipeline](./media/troubleshoot-unity-pipeline.png)
 
+To fix, make sure the provided _HybridRenderingPipeline_ asset is used:
+![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./../tutorials/unity/view-remote-models/media/hybrid-rendering-pipeline.png)
+
+..as described in more detail in the [Unity tutorial to set up the project](./../tutorials/unity/view-remote-models/view-remote-models.md#adjust-the-project-settings).
+
 ## Checkerboard pattern is rendered after model loading
 
 If the rendered image looks like this:
@@ -315,7 +320,7 @@ models
 
 ## HoloLens2 'Take a Picture' (MRC) does not show any local or remote content
 
-This problem usually occurs if a project is updated from WMR to OpenXR and the project accessed the [HolographicViewConfiguration Class (Windows.Graphics.Holographic)](https://docs.microsoft.com/uwp/api/windows.graphics.holographic.holographicviewconfiguration?view=winrt-22621) settings. This API is not supported in OpenXR and must not be accessed.
+This problem usually occurs if a project is updated from WMR to OpenXR and the project accessed the [HolographicViewConfiguration Class (Windows.Graphics.Holographic)](/uwp/api/windows.graphics.holographic.holographicviewconfiguration?view=winrt-22621) settings. This API is not supported in OpenXR and must not be accessed.
 
 ## Next steps
 

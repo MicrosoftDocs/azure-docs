@@ -4,21 +4,21 @@ description: Security framework - Azure IoT Edge for Linux on Windows
 keywords: 
 author: PatAltimore
 ms.author: fcabrera
-ms.date: 03/14/2022
+ms.date: 08/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Security
+# IoT Edge for Linux on Windows security
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Azure IoT Edge for Linux on Windows benefits from all the security offerings from running on a Windows Client/Server host and ensures all the extra components keep the same security premises. This article provides information about the different security premises that are enabled by default, and some of the optional premises the user may enable.
 
 ## Virtual machine security
 
-The IoT Edge for Linux (EFLOW) curated virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner). CBL-Mariner is an internal Linux distribution for Microsoft’s cloud infrastructure and edge products and services. CBL-Mariner is designed to provide a consistent platform for these devices and services and  enhances Microsoft’s ability to stay current on Linux updates. For more information, see [CBL-Mariner security](https://github.com/microsoft/CBL-Mariner/blob/1.0/SECURITY.md). 
+The IoT Edge for Linux (EFLOW) curated virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner). CBL-Mariner is an internal Linux distribution for Microsoft's cloud infrastructure and edge products and services. CBL-Mariner is designed to provide a consistent platform for these devices and services and  enhances Microsoft's ability to stay current on Linux updates. For more information, see [CBL-Mariner security](https://github.com/microsoft/CBL-Mariner/blob/1.0/SECURITY.md). 
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -44,7 +44,7 @@ The EFLOW virtual machine is built on a four-point comprehensive security platfo
 When security vulnerabilities arise, CBL-Mariner makes the latest security patches and fixes available for being serviced through ELOW monthly updates. The virtual machine has no package manager, so it's not possible to manually download and install RPM packages. All updates to the virtual machine are installed using EFLOW A/B update mechanism. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md)
 
 ### Read-only root filesystem
-The EFLOW virtual machine is made up of two main partitions *rootfs*, and *data*. The rootFS-A or rootFS-B partitions are interchangeable and one of the two is mounted as a read-only filesystem at `/`, which means that no changes are allowed on files stored inside this partition. On the other hand, the *data* partition mounted under `/var` is readable and writeable, allowing the user to modify the content inside the partition. The data stored on this partition isn’t manipulated by the update process and hence won't be modified across updates.
+The EFLOW virtual machine is made up of two main partitions *rootfs*, and *data*. The rootFS-A or rootFS-B partitions are interchangeable and one of the two is mounted as a read-only filesystem at `/`, which means that no changes are allowed on files stored inside this partition. On the other hand, the *data* partition mounted under `/var` is readable and writeable, allowing the user to modify the content inside the partition. The data stored on this partition isn't manipulated by the update process and hence won't be modified across updates.
 
 Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory `/var/.eflow/overlays`. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, see [*overlayfs*](https://docs.kernel.org/filesystems/overlayfs.html).
 
@@ -72,10 +72,10 @@ Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specif
 | Partition | Size | Description | 
 | --------- |---------- |------------ |
 | BootEFIA | 8 MB | Firmware partition A for future GRUBless boot |
-| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
 | BootA | 192 MB | Contains the bootloader for A partition |
-| BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS A | 4 GB | One of two active/passive partitions holding the root file system |
+| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
+| BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS B | 4 GB | One of two active/passive partitions holding the root file system |
 | Unused | 4 GB | This partition is reserved for future use |
 | Log | 1 GB or 6 GB | Logs specific partition mounted under /logs |
@@ -107,9 +107,9 @@ By default, the EFLOW virtual machine uses [*iptables*](https://git.netfilter.or
 :::moniker range=">=iotedge-2020-11"
 ### Verified boot
 
-The EFLOW virtual machine supports **Verified boot** through the included *device-mapper-verity (dm-verity)* kernel feature, which provides transparent integrity checking of block devices. *dm-verity* helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine base fotware image it's the same and it wasn't altered. The virtual machine uses the *dm-verity* feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
+The EFLOW virtual machine supports **Verified boot** through the included *device-mapper-verity (dm-verity)* kernel feature, which provides transparent integrity checking of block devices. *dm-verity* helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine base software image it's the same and it wasn't altered. The virtual machine uses the *dm-verity* feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
 
-By default, this feature is enabled in the virtual machine, and can't be turned off. For more information, see [dm-verity](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/verity.html#).
+By default, this feature is disabled in the virtual machine, and can be turned on or off. For more information, see [dm-verity](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/verity.html#).
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 09/14/2022
 ms.author: makromer
 ---
 
@@ -24,12 +24,21 @@ The difference among this REST connector, [HTTP connector](connector-http.md), a
 
 ## Supported capabilities
 
-You can copy data from a REST source to any supported sink data store. You also can copy data from any supported source data store to a REST sink. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+This REST connector is supported for the following capabilities:
+
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 Specifically, this generic REST connector supports:
 
 - Copying data from a REST endpoint by using the **GET** or **POST** methods and copying data to a REST endpoint by using the **POST**, **PUT** or **PATCH** methods.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **user-assigned managed identity**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Service Principal**, **OAuth2 Client Credential**, **System Assigned Managed Identity** and **User Assigned Managed Identity**.
 - **[Pagination](#pagination-support)** in the REST APIs.
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
@@ -85,8 +94,9 @@ The following properties are supported for the REST linked service:
 
 For different authentication types, see the corresponding sections for details.
 - [Basic authentication](#use-basic-authentication)
-- [AAD service principal authentication](#use-aad-service-principal-authentication)
+- [Service Principal authentication](#use-service-principal-authentication)
 - [OAuth2 Client Credential authentication](#use-oauth2-client-credential-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
 - [User-assigned managed identity authentication](#use-user-assigned-managed-identity-authentication)
 - [Anonymous authentication](#using-authentication-headers)
 
@@ -123,7 +133,8 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 }
 ```
 
-### Use AAD service principal authentication
+
+### Use Service Principal authentication
 
 Set the **authenticationType** property to **AadServicePrincipal**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -132,8 +143,8 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes |
 | servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
-| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| aadResourceId | Specify the Microsoft Azure Active Directory (Azure AD) resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
 **Example**                                                                          
 
@@ -151,7 +162,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
                 "type": "SecureString"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+            "aadResourceId": "<Azure AD resource URL e.g. https://management.core.windows.net>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -196,12 +207,40 @@ Set the **authenticationType** property to **OAuth2ClientCredential**. In additi
 }
 ```
 
-### Use user-assigned managed identity authentication
+### <a name="managed-identity"></a> Use system-assigned managed identity authentication
+
 Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+
+**Example**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Use user-assigned managed identity authentication
+Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| aadResourceId | Specify the Azure AD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 
 
@@ -215,7 +254,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
         "typeProperties": {
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
-            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "aadResourceId": "<Azure AD resource URL e.g. https://management.core.windows.net>",
             "credential": {
                 "referenceName": "credential1",
                 "type": "CredentialReference"
@@ -671,14 +710,14 @@ Response 2：
 
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-1.png" alt-text="Screenshot showing the End Condition setting for Example 4.1."::: 
 
-- **Example 4.2: The pagination ends when the value of the specific node in response dose not exist** 
+- **Example 4.2: The pagination ends when the value of the specific node in response does not exist** 
 
     The REST API returns the last response in the following structure:
 
     ```json
     {}
     ```
-    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
+    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response does not exist.
         
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the End Condition setting for Example 4.2."::: 
 

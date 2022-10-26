@@ -2,14 +2,14 @@
 title: Quickstart - Access & create new tenant - Azure AD
 description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 12/22/2021
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.custom: it-pro, seodec18, fasttrack-edit, mode-other
 ms.collection: M365-identity-device-management
 ---
@@ -24,7 +24,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create a new tenant for your organization
 
 After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
-
+>[!Important]
+>If users with the business need to create tenants are unable to create them, review your user settings page to ensure that **Tenant Creation** is not switched off. If it is switched off, reach out to your Global Administrator to provide those who need it with access to the Tenant Creator role.
 ### To create a new tenant
 
 1. Sign in to your organization's [Azure portal](https://portal.azure.com/).
@@ -71,13 +72,13 @@ If you're not going to continue to use this application, you can delete the tena
 - Ensure that you're signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal. Switch to the target directory if needed.
 - Select **Azure Active Directory**, and then on the **Contoso - Overview** page, select **Delete directory**.
 
-    The tenant and its associated information is deleted.
+    The tenant and its associated information are deleted.
 
     ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## Next steps
 
-- Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
+- Change or add other domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
 
 - Add users, see [Add or delete a new user](add-users-azure-active-directory.md)
 

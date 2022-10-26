@@ -1,10 +1,8 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Data Lake Analytics
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Data Lake Analytics. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 07/06/2022
+ms.date: 10/12/2022
 ms.topic: sample
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-lake-analytics
 ms.custom: subject-policy-compliancecontrols
 ---

@@ -7,11 +7,14 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 11/09/2021
+ms.date: 08/23/2022
 ms.topic: conceptual
 ---
 
 # LUIS role-based access control
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
@@ -42,6 +45,12 @@ Use the following table to determine access needs for your LUIS application.
 
 These custom roles only apply to authoring (Language Understanding Authoring) and not prediction resources (Language Understanding).
 
+> [!NOTE]
+> * *Owner* and *Contributor* roles take priority over the custom LUIS roles.
+> * Azure Active Directory (Azure AAD) is only used with custom LUIS roles.
+> * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in LUIS portal.
+
+
 ### Cognitive Services LUIS reader
 
 A user that should only be validating and reviewing LUIS applications, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets (utterances, intents, entities) to notify the app developers of any changes that need to be made, but do not have direct access to make them.
@@ -68,7 +77,7 @@ A user that should only be validating and reviewing LUIS applications, typically
         * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
 
       All the APIs under: 
-        * [LUIS Endpoint APIs v2.0](https://chinaeast2.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
+        * [LUIS Endpoint APIs v2.0](/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2)
         * [LUIS Endpoint APIs v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
         * [LUIS Endpoint APIs v3.0-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
 
@@ -116,6 +125,9 @@ A user that is responsible for building and modifying LUIS application, as a col
 :::row-end:::
 
 ### Cognitive Services LUIS owner
+
+> [!NOTE]
+> * If you are assigned as an *Owner* and *LUIS Owner* you will be be shown as *LUIS Owner* in LUIS portal.
 
 These users are the gatekeepers for LUIS applications in a production environment. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments.
 

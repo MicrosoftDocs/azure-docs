@@ -3,7 +3,7 @@ title: Develop Azure Functions by using Visual Studio Code
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, vscode-azure-extension-update-complete
 ms.date: 06/19/2022
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -211,7 +211,7 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 
 ## Add a function to your project
 
-You can add a new function to an existing project by using one of the predefined Functions triggers templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
+You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
 
 The results of this action depend on your project's language:
 
@@ -233,7 +233,11 @@ A new folder is created in the project. The folder contains a new function.json 
 
 # [Python](#tab/python)
 
-A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
+The results depend on the Python programming model. For more information, see the [Azure Functions Python developer guide](./functions-reference-python.md). 
+
+**Python v1**: A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
+
+**Python v2**: New function code is added either to the default function_app.py file or to another Python file you selected. 
 
 ---
 
@@ -337,7 +341,7 @@ The following steps publish your project to a new function app created with adva
     | ------ |  ----------- |
     | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
     | Select a runtime stack. | Choose the language version on which you've been running locally. |
-    | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux |
+    | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux. |
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
     | Select a hosting plan. | Choose **Consumption** for serverless [Consumption plan hosting](consumption-plan.md), where you're only charged when your functions run. |

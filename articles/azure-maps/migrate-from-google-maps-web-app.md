@@ -34,9 +34,9 @@ You will also learn:
 If migrating an existing web application, check to see if it is using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you do not want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps tile services ([road tiles](/rest/api/maps/render/getmaptile)
 \| [satellite tiles](/rest/api/maps/render/getmapimagerytile)). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
-* Cesium - A 3D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentation](https://www.cesium.com/)
-* Leaflet – Lightweight 2D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentation](https://leafletjs.com/)
-* OpenLayers - A 2D map control for the web that supports projections. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentation](https://openlayers.org/)
+* Cesium - A 3D map control for the web. [Code sample](https://samples.azuremaps.com/?sample=render-azure-maps-in-cesium) \| [Documentation](https://www.cesium.com/)
+* Leaflet – Lightweight 2D map control for the web. [Code sample](https://samples.azuremaps.com/?sample=render-azure-maps-in-leaflet) \| [Documentation](https://leafletjs.com/)
+* OpenLayers - A 2D map control for the web that supports projections. [Code sample](https://samples.azuremaps.com/?sample=render-azure-maps-in-openlayers) \| [Documentation](https://openlayers.org/)
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
@@ -75,7 +75,7 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 
 The following are some key differences between the Google Maps and Azure Maps Web SDKs, to be aware of:
 
-- In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is available. Embed the Web SDK package into apps. For more information, see this [documentation](how-to-use-map-control.md). This package also includes TypeScript definitions.
+- In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is available. Embed the Web SDK package into apps. For more information, see this [documentation](how-to-use-map-control.md). This package also includes TypeScript definitions.
 - You first need to create an instance of the Map class in Azure Maps. Wait for the maps `ready` or `load` event to fire before programmatically interacting with the map. This order will ensure that all the map resources have been loaded and are ready to be accessed.
 - Both platforms use a similar tiling system for the base maps. The tiles in Google Maps are 256 pixels in dimension; however, the tiles in Azure Maps are 512 pixels in dimension. To get the same map view in Azure Maps as Google Maps, subtract Google Maps zoom level by the number one in Azure Maps.
 - Coordinates in Google Maps are referred to as `latitude,longitude`, while Azure Maps uses `longitude,latitude`. The Azure Maps format is aligned with the standard `[x, y]`, which is followed by most GIS platforms.
@@ -87,7 +87,7 @@ The following are some key differences between the Google Maps and Azure Maps We
 
 ## Web SDK side-by-side examples
 
-This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](how-to-use-map-control.md).
+This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [npm module](how-to-use-map-control.md).
 
 **Topics**
 
@@ -461,7 +461,7 @@ value in Google Maps is relative to the top-left corner of the image.
 var marker = new google.maps.Marker({
     position: new google.maps.LatLng(51.5, -0.2),
     icon: {
-        url: 'https://azuremapscodesamples.azurewebsites.net/Common/images/icons/ylw-pushpin.png',
+        url: 'https://samples.azuremaps.com/images/icons/ylw-pushpin.png',
         anchor: new google.maps.Point(5, 30)
     },
     map: map
@@ -479,7 +479,7 @@ To customize an HTML marker, pass an HTML `string` or `HTMLElement` to the `html
 
 ```javascript
 map.markers.add(new atlas.HtmlMarker({
-    htmlContent: '<img src="https://azuremapscodesamples.azurewebsites.net/Common/images/icons/ylw-pushpin.png" style="pointer-events: none;" />',
+    htmlContent: '<img src="https://samples.azuremaps.com/images/icons/ylw-pushpin.png" style="pointer-events: none;" />',
     anchor: 'top-left',
     pixelOffset: [-5, -30],
     position: [-0.2, 51.5]
@@ -522,7 +522,7 @@ Symbol layers in Azure Maps support custom images as well. First, load the image
             map.events.add('ready', function () {
 
                 //Load the custom image icon into the map resources.
-                map.imageSprite.add('my-yellow-pin', 'https://azuremapscodesamples.azurewebsites.net/Common/images/icons/ylw-pushpin.png').then(function () {
+                map.imageSprite.add('my-yellow-pin', 'https://samples.azuremaps.com/images/icons/ylw-pushpin.png').then(function () {
 
                     //Create a data source and add it to the map.
                     datasource = new atlas.source.DataSource();
@@ -784,9 +784,9 @@ map.events.add('click', marker, function () {
 **Additional resources:**
 
 - [Add a popup](map-add-popup.md)
-- [Popup with Media Content](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
-- [Popups on Shapes](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
-- [Reusing Popup with Multiple Pins](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
+- [Popup with Media Content](https://samples.azuremaps.com/?sample=popup-with-media-content)
+- [Popups on Shapes](https://samples.azuremaps.com/?sample=popups-on-shapes)
+- [Reusing Popup with Multiple Pins](https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins)
 - [Popup class](/javascript/api/azure-maps-control/atlas.popup)
 - [Popup options](/javascript/api/azure-maps-control/atlas.popupoptions)
 
@@ -1384,7 +1384,7 @@ If you click on one of the traffic icons in Azure Maps, additional information i
 **Additional resources:**
 
 * [Show traffic on the map](map-show-traffic.md)
-* [Traffic overlay options](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
+* [Traffic overlay options](https://samples.azuremaps.com/?sample=traffic-overlay-options)
 
 ### Add a ground overlay
 
@@ -1655,9 +1655,9 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
 The following are some additional code samples related to Google Maps migration:
 
 * [Drawing tools](map-add-drawing-toolbar.md)
-* [Limit Map to Two Finger Panning](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Limit%20Map%20to%20Two%20Finger%20Panning)
-* [Limit Scroll Wheel Zoom](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Limit%20Scroll%20Wheel%20Zoom)
-* [Create a Fullscreen Control](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Create%20a%20Fullscreen%20Control)
+* [Limit Map to Two Finger Panning](https://samples.azuremaps.com/?sample=limit-map-to-two-finger-panning)
+* [Limit Scroll Wheel Zoom](https://samples.azuremaps.com/?sample=limit-scroll-wheel-zoom)
+* [Create a Fullscreen Control](https://samples.azuremaps.com/?sample=fullscreen-control)
 
 **Services:**
 
@@ -1665,7 +1665,7 @@ The following are some additional code samples related to Google Maps migration:
 * [Search for points of interest](map-search-location.md)
 * [Get information from a coordinate (reverse geocode)](map-get-information-from-coordinate.md)
 * [Show directions from A to B](map-route.md)
-* [Search Autosuggest with JQuery UI](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Search%20Autosuggest%20and%20JQuery%20UI)
+* [Search Autosuggest with JQuery UI](https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui)
 
 ## Google Maps V3 to Azure Maps Web SDK class mapping
 

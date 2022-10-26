@@ -61,7 +61,7 @@ The first thing you have to do to build an application in Azure Machine Learning
     $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
     name: TeamWorkspace
     location: WestUS2
-    friendly_name: team-ml-workspace
+    display_name: team-ml-workspace
     description: A workspace for training machine learning models
     tags:
       purpose: training
@@ -114,13 +114,11 @@ Like workspaces and compute targets, training jobs are defined using resource te
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: 
-    local_path: src
+code: src
 command: >
     python train.py
-environment: azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1
-compute:
-    target: azureml:gpu-cluster
+environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:48
+compute: azureml:gpu-cluster
 experiment_name: tensorflow-mnist-example
 description: Train a basic neural network with TensorFlow on the MNIST dataset.
 ```
@@ -132,7 +130,7 @@ To submit the training job:
 1. Open the *job.yml* file.
 1. Right-click the file in the text editor and select **Azure ML: Execute YAML**.
 
-At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
+At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Job in Azure portal**.
 
 When the dialog requesting to open an external website appears, select **Open**.
 

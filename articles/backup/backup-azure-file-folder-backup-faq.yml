@@ -31,6 +31,11 @@ sections:
           How long are vault credentials valid?
         answer: |
           Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
+          
+      - question: |
+          Why do I need to update my MARS agent for the vault credentials to work?
+        answer: |
+          A new parameter is added to the vault credentials file. It can be parsed correctly only with MARS agent version 2.0.9249.0 and above.
 
       - question: |
           What characters are allowed for the passphrase?

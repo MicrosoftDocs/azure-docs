@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 09/15/2022
 ms.author: aahi
 ---
 
@@ -24,7 +24,14 @@ The Language service provides support through a REST API, and client libraries i
 
 ## Client libraries (Azure SDK)
 
-The Language service provides three namespaces for using the available features. Depending on which features and programming language you're using, you will need to download one or more of the following packages.  
+The Language service provides three namespaces for using the available features. Depending on which features and programming language you're using, you will need to download one or more of the following packages, and have the following framework/language version support:
+
+|Framework/Language  | Minimum supported version  |
+|---------|---------|
+|.NET     | .NET Framework 4.6.1 or newer, or .NET (formerly .NET Core) 2.0 or newer.       |
+|Java     | v8 or later        |
+|JavaScript     | v14 LTS or later        |
+|Python| v3.7 or later        |
 
 ### Azure.AI.TextAnalytics  
 
@@ -47,12 +54,12 @@ The `Azure.AI.TextAnalytics` namespace enables you to use the following Language
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
-|Reference documentation |Samples  |
-|---------|---------|
-| [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
-| [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
-| [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |
-[Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) |
+| Language → Latest GA version |Reference documentation |Samples  |
+|---------|---------|---------|
+| [C#/.NET → v5.2.0](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0) | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
+| [Java → v5.2.0](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
+| [JavaScript → v5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |
+| [Python → v5.2.0](https://pypi.org/project/azure-ai-textanalytics/5.2.0/) |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme) | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) |
 
 
 ### Azure.AI.Language.Conversations 
@@ -71,10 +78,10 @@ The `Azure.AI.Language.Conversations` namespace enables you to use the following
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
-| Reference documentation |Samples  |
-|---------|---------|
-| [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
-|  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
+| Language → Latest GA version | Reference documentation |Samples  |
+|---------|---------|---------|
+| [C#/.NET → v1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0) | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
+| [Python → v1.0.0](https://pypi.org/project/azure-ai-language-conversations/) |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
 
 ### Azure.AI.Language.QuestionAnswering 
 
@@ -86,11 +93,10 @@ The `Azure.AI.Language.QuestionAnswering` namespace enables you to use the follo
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
-|Reference documentation  |Samples  |
-|---------|---------|
-| [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
-| [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
-
+| Language → Latest GA version |Reference documentation  |Samples  |
+|---------|---------|---------|
+| [C#/.NET → v1.0.0](https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering/1.0.0#readme-body-tab) | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
+| [Python → v1.0.0](https://pypi.org/project/azure-ai-language-questionanswering/1.0.0/) | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
 
 # [REST API](#tab/rest-api)
 
@@ -157,6 +163,7 @@ As you use this API in your application, see the following reference documentati
 * [Prebuilt API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) - Use the prebuilt runtime API to answer specified question using text provided by users.
 * [Custom authoring API](/rest/api/cognitiveservices/questionanswering/question-answering-projects) - Create a knowledge base to answer questions.
 * [Custom runtime API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) - Query and knowledge base to generate an answer.
+
 
 ---
 

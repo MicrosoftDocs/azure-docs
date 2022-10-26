@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 06/27/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -137,12 +137,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
-  custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](../how-to/extension-for-vscode.md#create-policy-definition-from-constraint-template) to create a
-  custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
-  GateKeeper v3
-  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use
   of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
@@ -152,7 +147,6 @@ The following Resource Provider modes are fully supported:
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
-- `Microsoft.Kubernetes.Data` for Azure Policy components that target [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md) resources such as pods, namespaces, and ingresses.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -185,7 +179,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 
 ## Parameters
 
-Parameters help simplify your policy management by reducing the number of policy definitions. Think 
+Parameters help simplify your policy management by reducing the number of policy definitions. Think
 of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,

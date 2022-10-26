@@ -4,16 +4,18 @@ description: Create a Dynamics 365 apps on Dataverse and Power Apps offer on Mic
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
-ms.date: 06/29/2022
+author: trkeya
+ms.author: trkeya
+ms.date: 07/18/2022
 ---
 
 # Create a Dynamics 365 apps on Dataverse and Power Apps offer
 
-This article describes how to create a _Dynamics 365 apps on Dataverse and Power Apps_ offer. Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
+This article describes how to create a _Dynamics 365 apps on Dataverse and Power Apps_ offer. 
 
 ## Before you begin
+
+Before you can publish a Dynamics 365 apps on Dataverse and Power Apps offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
@@ -62,9 +64,6 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
     - Select **Yes** to sell through Microsoft and have Microsoft host transactions on your behalf. 
     
         If you choose this option, the Enable app license management through Microsoft check box is enabled and cannot be changed.
-
-        > [!NOTE]
-        > This capability is currently in Public Preview.
 
     - Select **No**, if you prefer to only list your offer through the marketplace and process transactions independently.
 

@@ -5,10 +5,13 @@ author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 06/12/2019
+ms.date: 08/22/2022
 ms.author: alkohli
 ---
 # Configure MPIO on a StorSimple host running CentOS
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+
 This article explains the steps required to configure Multipathing IO (MPIO) on your Centos 6.6 host server. The host server is connected to your Microsoft Azure StorSimple device for high availability via iSCSI initiators. It describes in detail the automatic discovery of multipath devices and the specific setup only for StorSimple volumes.
 
 This procedure is applicable to all the models of StorSimple 8000 series devices.

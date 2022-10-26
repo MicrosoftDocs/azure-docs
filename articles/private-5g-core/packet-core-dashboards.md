@@ -41,6 +41,9 @@ We'll go through the common concepts and operations you'll need to understand be
 
 You can access the following packet core dashboards:
 
+> [!TIP]
+> Some packet core dashboards display different panels depending on whether the packet core instance supports 5G or 4G user equipment (UEs).
+
 - The **Overview dashboard** displays important *key performance indicators* (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
@@ -54,9 +57,6 @@ You can access the following packet core dashboards:
     :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core Alerts dashboard. Panels related to currently active alerts are shown." lightbox="media/packet-core-dashboards/packet-core-alerts-dashboard.png":::
 
 - The **Device and Session Statistics dashboard** provides information about the device and session procedures being processed by the packet core instance.
-
-    > [!IMPORTANT] 
-    > The **Device and Session Statistics dashboard** only displays metrics for packet core instances that support 5G UEs. It does not currently display any metrics related to 4G activity. 
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png" alt-text="Screenshot of the Device and Session Statistics dashboard. It shows panels for device authentication, device registration, device context, and P D U session procedures." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
 
@@ -72,7 +72,11 @@ You can access the following packet core dashboards:
 
     - The **HTTP stats dashboard** for each network function shows statistics for the HTTP requests and responses shown by that network function. You can use the **Serving Endpoint**, **Client Operation**, and **Server Operation** filters to control which operations are shown.
     
-    :::image type="content" source="media/packet-core-dashboards/packet-core-http-stats-dashboard.png" alt-text="Screenshot of the H T T P stats dashboard. Panels related to H T T P statistics for the Session Management Function are shown." lightbox="media/packet-core-dashboards/packet-core-http-stats-dashboard.png":::  
+    :::image type="content" source="media/packet-core-dashboards/packet-core-http-stats-dashboard.png" alt-text="Screenshot of the H T T P stats dashboard. Panels related to H T T P statistics for the Session Management Function are shown." lightbox="media/packet-core-dashboards/packet-core-http-stats-dashboard.png":::
+
+    - The **4G Interfaces dashboard** displays request and response statistics recorded by each of the packet core instance's 4G interfaces. Note that this dashboard is only available for packet core instances supporting 4G devices.
+
+    :::image type="content" source="media/packet-core-dashboards/packet-core-4g-interfaces-dashboard.png" alt-text="Screenshot of the 4G Interfaces dashboard. Panels related to activity on the packet core instance's 4G interfaces are shown." lightbox="media/packet-core-dashboards/packet-core-4g-interfaces-dashboard.png":::  
 
 ## Panels and rows
 

@@ -2,9 +2,9 @@
 title: Featurization with automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn the data featurization settings in Azure Machine Learning and how to customize those features for your automated ML experiments.
-author: blackmist
-ms.author: larryfr
-ms.reviewer: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -344,7 +344,7 @@ In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use
 
 Automated ML takes the following steps for BERT. 
 
-1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
 
@@ -386,6 +386,6 @@ automl_settings = {
     * For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train.md).
     * For a low-code or no-code experience: [Create your automated ML experiments in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
-* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).
 
-* Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).
+* Learn more about [how to train a regression model by using automated machine learning](./v1/how-to-auto-train-models-v1.md) or [how to train by using automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).

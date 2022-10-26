@@ -3,7 +3,7 @@ title: Save a query in Azure Monitor Log Analytics (preview)
 description: Describes how to save a query in Log Analytics.
 ms.subservice: logs
 ms.topic: article
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: roygal
 ms.date: 06/22/2022
@@ -32,7 +32,7 @@ To save a query to a query pack, select **Save as Log Analytics Query** from the
 
 When you save a query to a query pack, the following dialog box is displayed where you can provide values for the query properties. The query properties are used for filtering and grouping of similar queries to help you find the query you're looking for. See [Query properties](queries.md#query-properties) for a detailed description of each property.
 
-Most users should leave the option to **Save to the default query pack** which will save the query in the [default query pack](query-packs.md#default-query-pack). Uncheck this box if there are other query packs in your subscription. See [Query packs in Azure Monitor Logs (preview)](query-packs.md) for details on creating a new query pack.
+Most users should leave the option to **Save to the default query pack** which will save the query in the [default query pack](query-packs.md#default-query-pack). Uncheck this box if there are other query packs in your subscription. See [Query packs in Azure Monitor Logs](query-packs.md) for details on creating a new query pack.
 
 [![Save query dialog](media/save-query/save-query-dialog.png)](media/save-query/save-query-dialog.png#lightbox)
 

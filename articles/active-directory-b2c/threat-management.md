@@ -55,7 +55,7 @@ The smart lockout feature uses many factors to determine when an account should 
 - Passwords such as 12456! and 1234567! (or newAccount1234 and newaccount1234) are so similar that the algorithm interprets them as human error and counts them as a single try.
 - Larger variations in pattern, such as 12456! and ABCD2!, are counted as separate tries.
 
-When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
+When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as `https://password-gen.com/`.
 
 When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 
@@ -69,4 +69,3 @@ To obtain information about locked-out accounts, you can check the Active Direct
 ![Section of Azure AD sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
 
 To learn about viewing the sign-in activity report in Azure Active Directory, see [Sign-in activity report error codes](../active-directory/reports-monitoring/concept-sign-ins.md).
-

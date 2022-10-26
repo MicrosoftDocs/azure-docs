@@ -19,6 +19,8 @@ Azure IoT Central provides rich analytics capabilities to analyze historical tre
 > [!NOTE]
 > Only users in a role that have the necessary permissions can view, create, edit, and delete queries. To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
 
+To learn how to query devices by using the IoT Central REST API, see [How to use the IoT Central REST API to query devices.](../core/howto-query-with-rest-api.md)
+
 ## Understand the data explorer UI
 
 The analytics user interface has three main components:

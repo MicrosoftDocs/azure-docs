@@ -3,7 +3,7 @@ title: What's new in Azure Monitor for Azure Virtual Desktop?
 description: New features and product updates in Azure Monitor for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/09/2021
+ms.date: 08/16/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -27,6 +27,28 @@ There are three numbers in each version of Azure Monitor for Azure Virtual Deskt
 For example, a release with a version number of 1.2.31 is on the first major release, the second minor release, and patch number 31.
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
+
+## Version 1.2.2
+
+This update was released in July 2022 and has the following changes:
+
+- Updated checkpoint queries for LaunchExecutable.
+
+## Version 1.2.1
+
+This update was released in June 2022 and has the following changes:
+
+- Updated templates for Configuration Workbook to be available via the gallery rather than external GitHub.
+
+## Version 1.2.0
+
+This update was released in May 2022 and has the following changes:
+
+- Updated language for connection performance to "time to be productive" for clarity.
+
+- Improved and expanded **Connection Details** flyout panel with additional information on connection history for selected users.
+
+- Added a fix for duplication of some data.
 
 ## Version 1.1.10
 

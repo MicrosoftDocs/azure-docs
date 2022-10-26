@@ -2,7 +2,10 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 10/26/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
+
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -318,7 +321,6 @@ For many scenarios, disable registry access from public networks. This configura
 
 ### Disable public access - CLI
 
-
 > [!NOTE]
 >If the public access is disabled, the `az acr build` commands will no longer work.
 
@@ -337,6 +339,16 @@ Consider the following options to execute the `az acr build` successfully.
 1. Assign a [dedicated agent pool.](./tasks-agent-pools.md) 
 2. If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to the [firewall access rules.](./container-registry-firewall-access-rules.md#allow-access-by-ip-address-range)
 3. Create an ACR task with a managed identity, and enable trusted services to [access network restricted ACR.](./allow-access-trusted-services.md#example-acr-tasks)
+
+## Disable access to a container registry using a service endpoint 
+
+> [!IMPORTANT]
+> The container registry does not support enabling both private link and service endpoint features configured from a virtual network.
+
+Once the registry has public access disabled and private link configured, you can disable the service endpoint access to a container registry from a virtual network by [removing virtual network rules.](container-registry-vnet.md#remove-network-rules)
+
+* Run [`az acr network-rule list`](/cli/azure/acr/network-rule#az-acr-network-rule-list) command to list the existing network rules.
+* Run [`az acr network-rule remove`](/cli/azure/acr/network-rule#az-acr-network-rule-remove) command to remove the network rule. 
 
 ## Validate private link connection
 

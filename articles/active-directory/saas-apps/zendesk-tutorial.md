@@ -48,6 +48,8 @@ To configure the integration of Zendesk into Azure AD, you need to add Zendesk f
 1. In the **Add from the gallery** section, type **Zendesk** in the search box.
 1. Select **Zendesk** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Zendesk
 
 Configure and test Azure AD SSO with Zendesk using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Zendesk.
@@ -128,6 +130,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Zendesk SSO
 
+You can set up one SAML configuration for team members and a second SAML configuration for end users.
+
 1. To automate the configuration within **Zendesk**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
 	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
@@ -136,18 +140,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup Zendesk manually, open a new web browser window and sign into your Zendesk company site as an administrator and perform the following steps:
+1. If you want to set up Zendesk manually, open a new web browser window and sign into your Zendesk company site as an administrator and perform the following steps:
 
-1. In the **Zendesk Admin Center**, Go to the **Account -> Security -> Single sign-on** page and click **Configure** in the **SAML**.
+1. In the **Zendesk Admin Center**, go to **Account -> Security -> Single sign-on**, then click **Create SSO configuration** and select **SAML**.
 
-	![Screenshot shows the Zendesk Admin Center with Security settings selected.](./media/zendesk-tutorial/settings.png "Security")
+	![Screenshot shows the Zendesk Admin Center with Security settings selected.](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zendesk_create_sso_configuration.png "Security")
 
 1. Perform the following steps in the **Single sign-on** page.
 
-	![Single sign-on](./media/zendesk-tutorial/saml-configuration.png "Single sign-on")
+	![Single sign-on](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zendesk_saml_configuration_settings.png "Single sign-on")
 
-    a. Check the **Enabled**.
-    
+    a. In **Configuration name**, enter a name for your configuration. Up to two SAML and two JWT configurations are possible.
+
     b. In **SAML SSO URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
     c. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.
@@ -155,6 +159,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     d. In **Remote logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
     e. Click **Save**.
+
+After creating your SAML configuration, you must activate it by assigning it to end users or team members.
+
+1. In the **Zendesk Admin Center**, go to **Account -> Security** and select either **Team member authentication** or **End user authentication**.
+
+1. If you're assigning the configuration to team members, select **External authentication** to show the authentication options. These options are already displayed for end users.
+
+1. Click the **Single sign-on (SSO)** option in the **External authentication** section, then select the name of the SSO configuration you want to use.
+
+1. Select the primary SSO method for this group of users if you have more than one authentication method assigned to the group. This option sets the default method used when users go to a page that requires authentication.
+
+1. Click **Save**.
 
 ### Create Zendesk test user
 

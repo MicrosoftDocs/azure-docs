@@ -4,7 +4,7 @@ metadata:
   description: Answers for frequently asked questions related to the Azure Container Registry service 
   author: sajayantony
   ms.topic: faq
-  ms.date: 09/17/2021
+  ms.date: 10/11/2022
   ms.author: sajaya
 title: Frequently asked questions - Azure Container Registry
 summary: |
@@ -108,13 +108,13 @@ sections:
           If you are on bash:
           
           ```azurecli
-          az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
+          az acr manifest list-metadata --name myRepository --registry myRegistry --query "[?tags[0]==null].digest" --output tsv  | xargs -I% az acr repository delete --name myRegistry ---image myRepository@%
           ```
           
           For PowerShell:
           
           ```azurecli
-          az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
+          az acr manifest list-metadata --name myRepository --repository myRegistry --query "[?tags[0]==null].digest" --output tsv | %{ az acr repository delete --name myRegistry --image myRepository@$_ }
           ```
           
           > [!NOTE] 
@@ -555,7 +555,7 @@ sections:
       - question:  |
           How will enabling the Azure built-in policy for ACR blocks enabling admin credentials?
         answer: |
-          The following [Azure built-policy](/azure/container-registry/policy-reference), when set to respective policy status, will block the user from enabling admin user on their registry.
+          The following [Azure built-policy](./policy-reference.md), when set to respective policy status, will block the user from enabling admin user on their registry.
           
           | Azure built-in policy | Policy status | Admin status |
           |---|---|---|

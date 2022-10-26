@@ -3,9 +3,9 @@ title: Onboard to Microsoft Defender for Cloud with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.custom: mode-api
+ms.custom: mode-api, ignite-2022
 ---
-# Automate onboarding of Microsoft Defender for Cloud using PowerShell
+# Quickstart: Automate onboarding of Microsoft Defender for Cloud using PowerShell
 
 You can secure your Azure workloads programmatically, using the Microsoft Defender for Cloud PowerShell module. Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks. This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources, all of which must be secured from the beginning.
 
@@ -19,7 +19,7 @@ In this example, we will enable Defender for Cloud on a subscription with ID: d0
  
 2. Set the Log Analytics workspace to which the Log Analytics agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
-3. Activate Defender for Cloud’s automatic agent provisioning which [deploys the Log Analytics agent](enable-data-collection.md#auto-provision-mma).
+3. Activate Defender for Cloud’s automatic agent provisioning which [deploys the Log Analytics agent](working-with-log-analytics-agent.md).
 
 5. Set the organization’s [CISO as the security contact for Defender for Cloud alerts and notable events](configure-email-notifications.md).
 

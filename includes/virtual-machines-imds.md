@@ -254,7 +254,11 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2021-02-01
 - 2021-03-01
 - 2021-05-01
+- 2021-08-01
 - 2021-10-01
+- 2021-11-01
+- 2021-11-15
+- 2021-12-13
 
 ### Swagger
 
@@ -340,10 +344,13 @@ Schema breakdown:
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
+| `additionalCapabilities.hibernationEnabled` | Identifies if hibernation is enabled on the VM | 2021-11-01†
 | `customData` | This feature is deprecated and disabled [in IMDS](#frequently-asked-questions). It has been superseded by `userData` | 2019-02-01
 | `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
 | `extendedLocation.type` | Type of the extended location of the VM. | 2021-03-01
 | `extendedLocation.name` | Name of the extended location of the VM | 2021-03-01
+| `host.id` | Name of the host of the VM. Note that a VM will either have a host or a hostGroup but not both. | 2021-11-15†
+| `hostGroup.id` | Name of the hostGroup of the VM. Note that a VM will either have a host or a hostGroup but not both. | 2021-11-15†
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
 | `location` | Azure Region the VM is running in | 2017-04-02
@@ -367,6 +374,8 @@ Schema breakdown:
 | `sku` | Specific SKU for the VM image | 2017-04-02
 | `securityProfile.secureBootEnabled` | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
 | `securityProfile.virtualTpmEnabled` | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
+| `securityProfile.encryptionAtHost` | Identifies if [Encryption at Host](../articles/virtual-machines/disks-enable-host-based-encryption-portal.md) is enabled on the VM | 2021-11-01†
+| `securityProfile.securityType` | Identifies if the VM is a [Trusted VM](../articles/virtual-machines/trusted-launch.md) or a [Confidential VM](../articles/confidential-computing/confidential-vm-overview.md) | 2021-12-13†
 | `storageProfile` | See Storage Profile below | 2019-06-01
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
 | `tags` | [Tags](../articles/azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
@@ -378,6 +387,8 @@ Schema breakdown:
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
 | `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02
 | `zone` | [Availability Zone](../articles/availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+
+† This version is not fully available yet and may not be supported in all regions.
 
 **Storage profile**
 
@@ -430,6 +441,17 @@ Data | Description | Version introduced |
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk | 2019-06-01
 
 \* These fields are only populated for Ultra Disks; they will be empty strings from non-Ultra Disks.
+
+The encryption settings blob contains data about how the disk is encrypted (if it is encrypted):
+
+Data | Description | Version introduced |
+|------|-----------|--------------------|
+| `diskEncryptionKey.sourceVault.id` | The location of the disk encryption key | 2021-11-01†
+| `diskEncryptionKey.secretUrl` | The location of the secret | 2021-11-01†
+| `keyEncryptionKey.sourceVault.id` | The location of the key encryption key | 2021-11-01†
+| `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01† 
+
+\† This version is not fully available yet and may not be supported in all regions.
 
 The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
 If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.yml), this value is 0. 
@@ -660,6 +682,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
       "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
+    "additionalCapabilities": {
+        "hibernationEnabled": "false"
+    },
+    "hostGroup": {
+      "id": "testHostGroupId"
+    },    
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -694,7 +722,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
     "securityProfile": {
         "secureBootEnabled": "true",
-        "virtualTpmEnabled": "false"
+        "virtualTpmEnabled": "false",
+        "encryptionAtHost": "true",
+        "securityType": "TrustedLaunch"
     },
     "sku": "2019-Datacenter",
     "storageProfile": {
@@ -736,7 +766,19 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "option": "Local"
             },
             "encryptionSettings": {
-                "enabled": "false"
+              "enabled": "false",
+              "diskEncryptionKey": {
+                "sourceVault": {
+                  "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                },
+                "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+              },
+              "keyEncryptionKey": {
+                "sourceVault": {
+                  "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                },
+                "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+              }
             },
             "image": {
                 "uri": ""
@@ -778,6 +820,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
       "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
+    "additionalCapabilities": {
+        "hibernationEnabled": "false"
+    },
+    "hostGroup": {
+      "id": "testHostGroupId"
+    }, 
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -812,7 +860,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
     "securityProfile": {
         "secureBootEnabled": "true",
-        "virtualTpmEnabled": "false"
+        "virtualTpmEnabled": "false",
+        "encryptionAtHost": "true",
+        "securityType": "TrustedLaunch"
     },
     "sku": "18.04-LTS",
     "storageProfile": {
@@ -854,7 +904,19 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "option": "Local"
             },
             "encryptionSettings": {
-                "enabled": "false"
+              "enabled": "false",
+              "diskEncryptionKey": {
+                "sourceVault": {
+                  "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                },
+                "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+              },
+              "keyEncryptionKey": {
+                "sourceVault": {
+                  "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                },
+                "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+              }
             },
             "image": {
                 "uri": ""
@@ -1017,9 +1079,6 @@ GET /metadata/attested/document
 }
 ```
 
-> [!NOTE]
-> Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
-
 The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of document. It contains the certificate used for signing along with certain VM-specific details.
 
 For VMs created by using Azure Resource Manager, the document includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images.
@@ -1181,7 +1240,7 @@ The `nonce` in the signed document can be compared if you provided a `nonce` par
 
 In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Azure rolls over the certificates, which is standard PKI practice. You must update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
 
-You can find the intermediate certificates in the [PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
+You can find the intermediate certificates on [this page](../articles/security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
 
 > [!NOTE]
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.

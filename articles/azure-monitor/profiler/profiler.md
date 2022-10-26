@@ -2,7 +2,7 @@
 title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 07/15/2022
 ms.reviewer: jogrima
 ---
 
@@ -17,7 +17,7 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 > For more information about supported runtime, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 
-## Pre-requisites
+## Prerequisites
 
 - An [Azure App Services ASP.NET/ASP.NET Core app](../../app-service/quickstart-dotnetcore.md).
 - [Application Insights resource](../app/create-new-resource.md) connected to your App Service app. 
@@ -38,6 +38,10 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 
 ## Enable Application Insights and Profiler
 
+### For Application Insights and App Service in the same subscription
+
+If your Application Insights resource is in the same subscription as your App Service:
+
 1. Under **Settings** in the left side menu, select **Application Insights**.
 
    :::image type="content" source="./media/profiler/app-insights-menu.png" alt-text="Screenshot of selecting Application Insights from the left side menu.":::
@@ -55,9 +59,9 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 
    :::image type="content" source="./media/profiler/enable-profiler.png" alt-text="Screenshot of enabling Profiler on your app.":::
 
-## Enable Profiler using app settings
+### For Application Insights and App Service in different subscriptions
 
-If your Application Insights resource is in a different subscription from your App Service, you'll need to enable Profiler manually by creating app settings for your Azure App Service. You can automate the creation of these settings using a template or other means. The settings needed to enable the profiler:
+If your Application Insights resource is in a different subscription from your App Service, you'll need to enable Profiler manually by creating app settings for your Azure App Service. You can automate the creation of these settings using a template or other means. The settings needed to enable the Profiler:
 
 |App Setting    | Value    |
 |---------------|----------|
@@ -70,7 +74,7 @@ Set these values using:
 - [Azure PowerShell](/powershell/module/az.websites/set-azwebapp)
 - [Azure CLI](/cli/azure/webapp/config/appsettings)
 
-## Enable Profiler for other clouds
+## Enable Profiler for regional clouds
 
 Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
 
@@ -83,7 +87,7 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 
 Application Insights Profiler supports Azure AD authentication for profiles ingestion. For all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
 
-Profiler only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
+Profiler only supports Azure AD authentication when you reference and configure Azure AD using the [Application Insights SDK](../app/asp-net-core.md#configure-the-application-insights-sdk) in your application.
 
 To enable Azure AD for profiles ingestion:
 
@@ -99,15 +103,15 @@ To enable Azure AD for profiles ingestion:
 
    For System-Assigned Identity:
 
-   |App Setting    | Value    |
-   |---------------|----------|
-   |APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD    |
+   | App Setting    | Value    |
+   | -------------- |--------- |
+   | APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
 
    For User-Assigned Identity:
 
-   |App Setting    | Value    |
-   |---------------|----------|
-   |APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD;ClientId={Client id of the User-Assigned Identity}    |
+   | App Setting   | Value    |
+   | ------------- | -------- |
+   | APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
 
 ## Disable Profiler
 
@@ -130,5 +134,6 @@ We recommend that you have Profiler enabled on all your apps to discover any per
 Profiler's files can be deleted when using WebDeploy to deploy changes to your web application. You can prevent the deletion by excluding the App_Data folder from being deleted during deployment. 
 
 ## Next steps
-
-* [Working with Application Insights in Visual Studio](../app/visual-studio.md)
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)

@@ -11,10 +11,10 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 07/05/2022
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
-# Detect adult content
+# Adult content detection
 
 Computer Vision can detect adult material in images so that developers can restrict the display of these images in their software. Content flags are applied with a score between zero and one so developers can interpret the results according to their own preferences.
 
@@ -33,6 +33,14 @@ The "adult" classification contains several different categories:
 
 ## Use the API
 
+#### [Version 3.2](#tab/3-2)
+
 You can detect adult content with the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. When you add the value of `Adult` to the **visualFeatures** query parameter, the API returns three boolean properties&mdash;`isAdultContent`, `isRacyContent`, and `isGoryContent`&mdash;in its JSON response. The method also returns corresponding properties&mdash;`adultScore`, `racyScore`, and `goreScore`&mdash;which represent confidence scores between zero and one for each respective category.
+
+#### [Version 4.0](#tab/4-0)
+
+You can detect adult content with the [Analyze Image](https://aka.ms/vision-4-0-ref) API. When you add the value of `Adult` to the **features** query parameter, the API returns three properties&mdash;`adult`, `racy`, and `gore`&mdash;in its JSON response. Each of these properties contains a boolean value and confidence scores between zero and one.
+
+---
 
 - [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
