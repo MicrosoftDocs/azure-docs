@@ -847,6 +847,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/export-power-bi.md",
+            "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs.md",
             "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
             "redirect_document_id": false
@@ -5269,6 +5274,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/essentials/quick-collect-activity-log-arm.md",
             "redirect_url": "/azure/azure-monitor/essentials/resource-manager-diagnostic-settings#diagnostic-setting-for-activity-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-alert.md",
+            "redirect_url": "/azure/azure-monitor/app/availability-standard-tests",
             "redirect_document_id": false
         },
         {

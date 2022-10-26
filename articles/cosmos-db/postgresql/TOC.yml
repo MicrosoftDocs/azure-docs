@@ -96,7 +96,7 @@
           href: concepts-row-level-security.md
           displayName: row, level, security, rls, hyperscale
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
+          href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/cosmos-db/toc.json?toc=/azure/cosmos-db/toc.json
     - name: Administration
       items:
         - name: Scheduled maintenance
@@ -118,6 +118,8 @@
       items:
         - name: Monitoring
           href: concepts-monitoring.md
+        - name: Performance tuning
+          href: concepts-performance-tuning.md
         - name: Audit logs
           href: concepts-audit.md
     - name: Columnar storage
@@ -128,6 +130,8 @@
       href: howto-connect.md
     - name: Ingest data
       items:
+        - name: Azure Blob Storage (ABS)
+          href: howto-ingest-azure-blob-storage.md
         - name: Azure Stream Analytics (ASA)
           href: howto-ingest-azure-stream-analytics.md
         - name: Azure Data Factory (ADF)
@@ -152,6 +156,8 @@
         - name: Access database logs
           href: howto-logging.md
           displayName: log, hyperscale
+        - name: Useful diagnostic queries
+          href: howto-useful-diagnostic-queries.md
     - name: Scale
       items:
         - name: Cluster size

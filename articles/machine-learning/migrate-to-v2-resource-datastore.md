@@ -88,9 +88,9 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
         description="Datastore pointing to a blob container using SAS token.",
         account_name="mytestblobstore",
         container_name="data-container",
-        credentials={
-            "sas_token": "?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
-        },
+        credentials=SasTokenCredentials(
+            sas_token= "?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
+        ),
     )
     
     ml_client.create_or_update(store)

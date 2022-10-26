@@ -38,7 +38,7 @@ Use either the Azure PowerShell module or the Azure CLI to register your subscri
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
-Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
+Register-AzProviderFeature -FeatureName ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
 ```
 
 It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
@@ -180,4 +180,4 @@ az elastic-san volume create --elastic-san-name $sanName -g $resourceGroupName -
 
 ## Next steps
 
-Now that you've deployed an Elastic SAN, [Connect to Elastic SAN (preview) volumes](elastic-san-connect.md).
+Now that you've deployed an Elastic SAN, Connect to Elastic SAN (preview) volumes from either [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-linux.md) clients.

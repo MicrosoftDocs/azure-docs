@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/24/2022
 ms.custom: cosmos-db-video, ignite-2022
 adobe-target: true
 ---
@@ -22,7 +22,7 @@ Azure Cosmos DB is a fully managed NoSQL database for modern app development. Az
 
 ## APIs in Azure Cosmos DB
 
-Azure Cosmos DB offers multiple database APIs, which include NoSQL, MongoDB, Cassandra, Gremlin, and Table. By using these APIs, you can model real world data using documents, key-value, graph, and column-family data models. These APIs allow your applications to treat Azure Cosmos DB as if it were various other databases technologies, without the overhead of management, and scaling approaches. Azure Cosmos DB helps you to use the ecosystems, tools, and skills you already have for data modeling and querying with its various APIs.
+Azure Cosmos DB offers multiple database APIs, which include NoSQL, MongoDB, PostgreSQL Cassandra, Gremlin, and Table. By using these APIs, you can model real world data using documents, key-value, graph, and column-family data models. These APIs allow your applications to treat Azure Cosmos DB as if it were various other databases technologies, without the overhead of management, and scaling approaches. Azure Cosmos DB helps you to use the ecosystems, tools, and skills you already have for data modeling and querying with its various APIs.
 
 All the APIs offer automatic scaling of storage and throughput, flexibility, and performance guarantees. There's no one best API, and you may choose any one of the APIs to build your application. This article will help you choose an API based on your workload and team requirements.
 
@@ -30,9 +30,9 @@ All the APIs offer automatic scaling of storage and throughput, flexibility, and
 
 API for NoSQL is native to Azure Cosmos DB.
 
-API for MongoDB, Cassandra, Gremlin, and Table implement the wire protocol of open-source database engines. These APIs are best suited if the following conditions are true:
+API for MongoDB, PostgreSQL, Cassandra, Gremlin, and Table implement the wire protocol of open-source database engines. These APIs are best suited if the following conditions are true:
 
-* If you have existing MongoDB, Cassandra, or Gremlin applications
+* If you have existing MongoDB, PostgreSQL Cassandra, or Gremlin applications
 * If you don't want to rewrite your entire data access layer
 * If you want to use the open-source developer ecosystem, client-drivers, expertise, and resources for your database
 * If you want to use the Azure Cosmos DB core features such as:
@@ -49,6 +49,9 @@ You can build new applications with these APIs or migrate your existing data. To
 Based on your workload, you must choose the API that fits your requirement. The following image shows a flow chart on how to choose the right API when building new apps or migrating existing apps to Azure Cosmos DB:
 
 :::image type="content" source="./media/choose-api/choose-api-decision-tree.png" alt-text="Decision tree to choose an API in Azure Cosmos DB." lightbox="./media/choose-api/choose-api-decision-tree.png":::
+
+> [!NOTE]
+> This decision tree will be updated soon to include API for PostgreSQL.
 
 ## <a id="coresql-api"></a> API for NoSQL
 
@@ -70,6 +73,14 @@ The features that Azure Cosmos DB provides, that you don't have to compromise on
 * Transparent replication between operational and analytical stores
 
 You can use your existing MongoDB apps with API for MongoDB by just changing the connection string. You can move any existing data using native MongoDB tools such as mongodump & mongorestore or using our Azure Database Migration tool. Tools, such as the MongoDB shell, [MongoDB Compass](mongodb/connect-using-compass.md), and [Robo3T](mongodb/connect-using-robomongo.md), can run queries and work with data as they do with native MongoDB. To learn more, see [API for MongoDB](mongodb/introduction.md) article.
+
+## API for PostgreSQL
+
+Azure Cosmos DB for PostgreSQL is a managed service for running PostgreSQL at any scale, with the [Citus open source](https://github.com/citusdata/citus) superpower of distributed tables. It stores data either on a single node, or distributed in a multi-node configuration.
+
+Azure Cosmos DB for PostgreSQL is built on native PostgreSQL--rather than a PostgreSQL fork--and lets you choose any major database versions supported by the PostgreSQL community. It's ideal for starting on a single-node database with rich indexing, geospatial capabilities, and JSONB support. Later, if your performance needs grow, you can add nodes to the cluster with zero downtime.
+
+If you’re looking for a managed open source relational database with high performance and geo-replication, Azure Cosmos DB for PostgreSQL is the recommended choice. To learn more, see the [Azure Cosmos DB for PostgreSQL introduction](postgresql/introduction.md).
 
 ## <a id="cassandra-api"></a> API for Apache Cassandra
 
@@ -98,8 +109,6 @@ The Azure Cosmos DB API for Table stores data in key/value format. If you're cur
 
 Applications written for Azure Table storage can migrate to the API for Table with little code changes and take advantage of premium capabilities. To learn more, see [API for Table](table/introduction.md) article.
 
-## API for PostgreSQL
-
 ## Capacity planning when migrating data
 
 Trying to do capacity planning for a migration to Azure Cosmos DB for NoSQL or MongoDB from an existing database cluster? You can use information about your existing database cluster for capacity planning.
@@ -111,6 +120,7 @@ Trying to do capacity planning for a migration to Azure Cosmos DB for NoSQL or M
 
 * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
 * [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-create-portal.md)
 * [Get started with Azure Cosmos DB for Cassandra](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-dotnet.md)
 * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)

@@ -30,24 +30,29 @@ The following services are generally available for Customer Lockbox:
 - Azure Cognitive Search
 - Azure Cognitive Services
 - Azure Container Registry
-- Azure Database for MySQL
-- Azure Databricks
 - Azure Data Box
 - Azure Data Explorer
 - Azure Data Factory
+- Azure Database for MySQL
 - Azure Database for PostgreSQL
+- Azure Databricks
+- Azure Edge Zone Platform Storage
 - Azure Functions
 - Azure HDInsight
+- Azure Health Bot
 - Azure Intelligent Recommendations
 - Azure Kubernetes Service
 - Azure Monitor
-- Azure Storage
+- Azure Spring Apps
 - Azure SQL Database
 - Azure SQL managed Instance
+- Azure Storage
 - Azure subscription transfers
 - Azure Synapse Analytics
 - Azure Unified Vision Service
+- Microsoft Energy Data Services 
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
+
 
 ### Public Preview
 The following services are currently in preview for Customer Lockbox:

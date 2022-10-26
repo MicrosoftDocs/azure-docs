@@ -21,12 +21,12 @@ This article provides guidance on how to configure hybrid DNS resolution by usin
 
 ## Azure DNS Private Resolver
 
-The [Azure DNS Private Resolver](dns-private-resolver-overview.md) is a service that can resolve on-premises DNS queries for Azure DNS private zones. Previously, it was necessary to [deploy a VM-based custom DNS resolver](/azure/hdinsight/connect-on-premises-network), or use non-Microsoft DNS, DHCP, and IPAM (DDI) solutions to perform this function.
+The [Azure DNS Private Resolver](dns-private-resolver-overview.md) is a service that can resolve on-premises DNS queries for Azure DNS private zones. Previously, it was necessary to [deploy a VM-based custom DNS resolver](../hdinsight/connect-on-premises-network.md), or use non-Microsoft DNS, DHCP, and IPAM (DDI) solutions to perform this function.
 
 Benefits of using the Azure DNS Private Resolver service vs. VM-based resolvers or DDI solutions include:
 - Zero maintenance: Unlike VM or hardware based solutions, the private resolver doesn't require software updates, vulnerability scans, or security patching. The private resolver service is fully managed.
 - Cost reduction: Azure DNS Private Resolver is a multi-tenant service and can cost a fraction of the expense that is required to use and license multiple VM-based DNS resolvers.
-- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](/azure/availability-zones/az-overview) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
+- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](../availability-zones/az-overview.md) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
 - DevOps friendly: Traditional DNS solutions are hard to integrate with DevOps workflows as these often require manual configuration for every DNS change. Azure DNS private resolver provides a fully functional ARM interface that can be easily integrated with DevOps workflows.
 
 ## DNS forwarding ruleset

@@ -101,12 +101,8 @@
       href: about-client-address-pools.md
     - name: P2S global and hub profiles
       href: global-hub-profile.md
-    - name: P2S client address pools
-      items:
-      - name: About address pools
-        href: about-client-address-pools.md
-      - name: User groups - assign client-specific addresses
-        href: user-groups-about.md
+    - name: User groups - assign client-specific addresses 
+      href: user-groups-about.md
   - name: Virtual hub settings
     href: hub-settings.md
   - name: Gateway settings
