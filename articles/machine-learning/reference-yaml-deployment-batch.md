@@ -60,11 +60,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic (MLflow)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nyc-taxi-mlflow-deployment.yml":::
 
 ## YAML: custom model and scoring code
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml":::
 
 ## Next steps
 
