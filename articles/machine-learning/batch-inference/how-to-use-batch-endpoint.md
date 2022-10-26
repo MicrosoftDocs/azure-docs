@@ -379,7 +379,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. On __Instance count__, enter the number of compute instances you want for the deployment. In this case, we will use 2.
     1. Click on __Next__.
 
-        :::image type="content" source="media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen":::
+        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen":::
     
     1. Complete the wizard.
 
@@ -872,4 +872,7 @@ ml_client.compute.begin_delete(name=compute_name)
 
 ## Next steps
 
-* [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
+* [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md).
+* [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md).
+* [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md).
+* [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md).
