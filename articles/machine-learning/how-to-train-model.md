@@ -229,7 +229,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     }"
     ```
 
-1. Register a versioned reference to the training script for use with a job. In this case, the script would be located at `https://azuremlexamples.blob.core.windows.net/testjob`. This `testjob` is the folder in Blob storage that contains the training script and any dependencies needed by the script. In the following example, the ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
+1. Register a versioned reference to the training script for use with a job. In this example, the script is located at `https://azuremlexamples.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob`. This `testjob` is the folder in Blob storage that contains the training script and any dependencies needed by the script. In the following example, the ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
 
     ```bash
     TRAIN_CODE=$(curl --location --request PUT "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/codes/train-lightgbm/versions/1?api-version=$API_VERSION" \
@@ -238,7 +238,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     --data-raw "{
             \"properties\": {
             \"description\": \"Train code\",
-            \"codeUri\": \"https://larrystore0912.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob\"
+            \"codeUri\": \"https://azuremlexamples.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob\"
         }
     }" | jq -r '.id')
     ```
