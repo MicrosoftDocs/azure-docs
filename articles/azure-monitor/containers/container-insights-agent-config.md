@@ -51,7 +51,7 @@ To configure and deploy your ConfigMap configuration file to your cluster:
 
 1. Download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and save it as *container-azm-ms-agentconfig.yaml*.
 
-1. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and environmental variables:
+1. Edit the ConfigMap YAML file with your customizations to collect stdout, stderr, and environmental variables:
 
     - To exclude specific namespaces for stdout log collection, configure the key/value by using the following example:
     `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
@@ -86,7 +86,7 @@ Errors related to applying configuration changes are also available for review. 
 
 - From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with error severity for configuration errors. If there are no errors, the entry in the table will have data with severity info, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence, and count in the last hour.
 
-After you correct the errors in the ConfigMap, save the yaml file and apply the updated ConfigMap by running the following command: `kubectl apply -f <configmap_yaml_file.yaml`.
+After you correct the errors in the ConfigMap, save the YAML file and apply the updated ConfigMap by running the following command: `kubectl apply -f <configmap_yaml_file.yaml`.
 
 ## Apply updated ConfigMap
 
