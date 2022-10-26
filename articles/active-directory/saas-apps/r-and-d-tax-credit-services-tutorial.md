@@ -49,6 +49,8 @@ To configure the integration of R and D Tax Credit Services into Azure AD, you n
 1. In the **Add from the gallery** section, type **R and D Tax Credit Services** in the search box.
 1. Select **R and D Tax Credit Services** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for R and D Tax Credit Services
 
 Configure and test Azure AD SSO with R and D Tax Credit Services using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in R and D Tax Credit Services.

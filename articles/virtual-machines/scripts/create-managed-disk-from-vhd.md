@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create a managed disk from a VHD file in 
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.devlang: azurecli
 ms.topic: sample

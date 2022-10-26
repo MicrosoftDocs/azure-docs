@@ -65,7 +65,7 @@ az disk create --resource-group “ExampleRg” --name “ExampleDataDisk1” --
 
 az disk create --resource-group “ExampleRg” --name “ExampleDataDisk1” --sku Premium_LRS --size-gb 128 --source $dataDisk2RestorePoint
 ```
-Once you have created the disks, [create a new VM](/azure/virtual-machines/scripts/create-vm-from-managed-os-disks.md) and [attach these restored disks](/azure/virtual-machines/linux/add-disk.md#attach-an-existing-disk) to the newly created VM.
+Once you have created the disks, [create a new VM](./scripts/create-vm-from-managed-os-disks.md) and [attach these restored disks](./linux/add-disk.md#attach-an-existing-disk) to the newly created VM.
 
 ## Next steps
-[Learn more](/azure/virtual-machines/backup-recovery.md) about Backup and restore options for virtual machines in Azure.
+[Learn more](./backup-recovery.md) about Backup and restore options for virtual machines in Azure.

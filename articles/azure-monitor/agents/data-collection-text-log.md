@@ -17,6 +17,7 @@ To complete this procedure, you need the following:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac) .
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - An agent with supported log file as described in the next section.
+- Azure Monitor collects entries from log files created by IIS, so you must configure IIS for logging. Azure Monitor only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging. It does not collect logs in NCSA or IIS native format. Configure IIS logs in Azure Monitor from the Agent configuration menu for the Log Analytics agent. There is no configuration required other than selecting Collect W3C format IIS log files.
 
 ## Log files supported
 IIS logs must be in W3C format. Other log files must meet the following criteria to be collected:
@@ -46,7 +47,7 @@ The custom table must be created before you can send data to it. When you create
 Use the **Tables - Update** API to create the table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. Modify this schema to collect a different table. 
 
 > [!IMPORTANT]
-> Custom tables must use a suffix of *_CL*.
+> Custom tables have a suffix of *_CL*; for example, *tablename_CL*. The *tablename_CL* in the DataFlows Streams must match the *tablename_CL* name in the Log Analytics workspace.
 
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
@@ -179,6 +180,9 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
     **Data collection rule for text log**
     
     See [Structure of a data collection rule in Azure Monitor (preview)](../essentials/data-collection-rule-structure.md#custom-logs) if you want to modify the text log DCR.
+    
+    > [!IMPORTANT]
+    > Custom tables have a suffix of *_CL*; for example, *tablename_CL*. The *tablename_CL* in the DataFlows Streams must match the *tablename_CL* name in the Log Analytics workspace.
 
     ```json
     {
@@ -514,7 +518,7 @@ do
     $randomContent = New-Guid
     $logRecord = "$(Get-Date -format s)Z Record number $count with random content $randomContent"
     $logRecord | Out-File "$logFolder\\$logFileName" -Encoding utf8 -Append
-    Sleep $sleepSeconds
+    Start-Sleep $sleepSeconds
 }
 while ($true)
 

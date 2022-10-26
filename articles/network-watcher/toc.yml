@@ -13,6 +13,9 @@
     href: diagnose-vm-network-traffic-filtering-problem-powershell.md
   - name: Diagnose VM traffic filter problem - Azure CLI
     href: diagnose-vm-network-traffic-filtering-problem-cli.md
+  - name: Configure NSG flow logs using Bicep
+    displayName: Resource Manager,arm,template
+    href: quickstart-configure-network-security-group-flow-logs-from-bicep.md
   - name: Configure NSG flow logs using ARM template
     displayName: Resource Manager
     href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
@@ -22,7 +25,7 @@
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
     href: connection-monitor.md
-  - name: Monitor communication with virtual machine scale set  
+  - name: Monitor communication with virtual machine scale set
     href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
@@ -58,7 +61,7 @@
     href: network-watcher-troubleshoot-overview.md
   - name: Variable packet capture
     href: network-watcher-packet-capture-overview.md
-  - name: Traffic Analytics overview 
+  - name: Traffic Analytics overview
     items:
     - name: Overview
       href: traffic-analytics.md
@@ -86,6 +89,14 @@
   items:
   - name: Configure Network Watcher
     href: network-watcher-create.md
+  - name: Connection Monitor using Azure Monitor agent
+    items: 
+    - name: Monitor connectivity using AMA
+      href: azure-monitor-agent-with-connection-monitor.md
+    - name: Install Azure connected machine agent
+      href: connection-monitor-connected-machine-agent.md
+    - name: Install Azure Monitor agent
+      href: connection-monitor-install-azure-monitor-agent.md
   - name: Create Connection Monitor
     items:
     - name: Using Azure portal
@@ -93,7 +104,7 @@
     - name: Using ARMClient
       href: connection-monitor-create-using-template.md
     - name: Using PowerShell
-      href: connection-monitor-create-using-powershell.md 
+      href: connection-monitor-create-using-powershell.md
   - name: Migrate to Connection Monitor
     items:
     - name: From Network Performance Monitor

@@ -80,7 +80,7 @@ workloadSetting: description
 ```
 
 ```json
-"workloadSetting": "[variables('demoVar'))]"
+"workloadSetting": "[variables('description'))]"
 ```
 
 ## Strings

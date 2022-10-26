@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devplatv2, cliv2, event-tier1-build-2022
-ms.reviewer: laobri
-ms.author: larryfr
-author: blackmist
+ms.reviewer: mopeakande 
+author: santiagxf 
+ms.author: fasantia
 ms.date: 03/31/2022
 #Customer intent: As an ML Deployment Pro, I want to figure out why my batch endpoint doesn't run so that I can fix it.
 ---
@@ -65,7 +65,7 @@ Because of the distributed nature of batch scoring jobs, there are logs from sev
 
 - `~/logs/job_progress_overview.txt`: This file provides high-level information about the number of mini-batches (also known as tasks) created so far and the number of mini-batches processed so far. As the mini-batches end, the log records the results of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-- `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. This log provides information on task creation, progress monitoring, the run result.
+- `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. This log provides information on task creation, progress monitoring, the job result.
 
 For a concise understanding of errors in your script there is:
 

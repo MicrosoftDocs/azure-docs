@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 # Use pronunciation assessment
 
-In this article, you'll learn how to use pronunciation assessment through the Speech SDK.
+In this article, you'll learn how to evaluate pronunciation with the Speech-to-Text capability through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you'll apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 ::: zone pivot="programming-language-go"
 > [!NOTE]
@@ -27,12 +27,15 @@ You can get pronunciation assessment scores for:
 - Full text
 - Words
 - Syllable groups
-- Phonemes in SAPI or IPA format
+- Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
 > [!NOTE]
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md#pronunciation-assessment) and [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
+> The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
+> 
+> Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
 >
-> The syllable groups, IPA phonemes, and spoken phoneme features of pronunciation assessment are currently only available for the en-US locale.
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
+
 
 ## Configuration parameters
 
@@ -43,7 +46,8 @@ This table lists some of the key configuration parameters for pronunciation asse
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. | 
 | `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text.| 
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | 
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. |
+| `ScenarioId` | A GUID indicating a customized point system. |
 
 You must create a `PronunciationAssessmentConfig` object with the reference text, grading system, and granularity. Enabling miscue and other configuration settings are optional. 
 
@@ -141,7 +145,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md#pronunciation-assessment), you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format, and for the `en-US` locale, you can also get the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format. 
+For `en-US` locale, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
@@ -345,7 +349,7 @@ using (var speechRecognizer = new SpeechRecognizer(
 
 ::: zone pivot="programming-language-cpp"
 
-Word, syllable, and phoneme results aren't available via SDK objects with the Speech SDK foc C++. Word, syllable, and phoneme results are only available in the JSON string.
+Word, syllable, and phoneme results aren't available via SDK objects with the Speech SDK for C++. Word, syllable, and phoneme results are only available in the JSON string.
 
 ```cpp
 auto speechRecognizer = SpeechRecognizer::FromConfig(
@@ -366,7 +370,7 @@ auto pronunciationAssessmentResultJson = speechRecognitionResult->Properties.Get
 ::: zone-end 
 
 ::: zone pivot="programming-language-java"
-For Android application development, the word, syllable, and phoneme results are available via SDK objects with the Speech SDK foc Java. The results are also available in the JSON string. For Java Runtime (JRE) application development, the word, syllable, and phoneme results are only available in the JSON string.
+For Android application development, the word, syllable, and phoneme results are available via SDK objects with the Speech SDK for Java. The results are also available in the JSON string. For Java Runtime (JRE) application development, the word, syllable, and phoneme results are only available in the JSON string.
 
 ```Java
 SpeechRecognizer speechRecognizer = new SpeechRecognizer(
@@ -487,7 +491,7 @@ This table lists some of the key pronunciation assessment results.
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
-| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. |
+| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.|
 
 ### JSON result example
 
@@ -505,7 +509,6 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 	"Offset": 7500000,
 	"Duration": 13800000,
 	"DisplayText": "Hello.",
-	"SNR": 34.879055,
 	"NBest": [
 		{
 			"Confidence": 0.975003,

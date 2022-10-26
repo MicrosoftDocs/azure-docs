@@ -61,7 +61,7 @@ The following filtering parameters are available:
 | **parentprocess_has_any** | dynamic | Filter only process events for which the target process name, which includes the entire process path, has any of the listed values. The length of the list is limited to 10,000 items.  |
 | **targetusername_has** or **actorusername_has** | string| Filter only process events for which the target username (for process create events), or actor username (for process terminate events) has any of the listed values. The length of the list is limited to 10,000 items. |
 | **dvcipaddr_has_any_prefix** | dynamic | Filter only process events for which the device IP address matches any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.| 
-| **dvchostname_has_any**| dynamic | Filter only process events for which the device hostname  has any of the listed values. The length of the list is limited to 10,000 items. | 
+| **dvchostname_has_any**| dynamic | Filter only process events for which the device hostname, or device FQDN is available,  has any of the listed values. The length of the list is limited to 10,000 items. | 
 | **eventtype**| string | Filter only process events of the specified type. |
 
 
@@ -242,6 +242,7 @@ The process event schema references the following entities, which are central to
 | **TargetProcessGuid**              | Optional    | String     |A generated unique identifier (GUID) of the target process. Enables identifying the process across systems.   <br><br>  Example:  `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  |
 | **TargetProcessIntegrityLevel**    | Optional    | String     |   Every process has an integrity level that is represented in its token. Integrity levels determine the process level of protection or access. <br><br> Windows defines the following integrity levels: **low**, **medium**, **high**, and **system**. Standard users receive a **medium** integrity level and elevated users receive a **high** integrity level. <br><br> For more information, see [Mandatory Integrity Control - Win32 apps](/windows/win32/secauthz/mandatory-integrity-control). |
 | **TargetProcessTokenElevation**    | Optional    | String     |Token type indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the process that was created or terminated.   <br><br>    Example:  `None`     |
+| **TargetProcessStatusCode**    | Optional    | String     | The exit code returned by the target process when terminated. This field is valid only for process termination events. For consistency, the field type is string, even if value provided by the operating system is numeric.     |
 
 
 ## Schema updates

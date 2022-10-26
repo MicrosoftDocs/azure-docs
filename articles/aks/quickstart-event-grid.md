@@ -1,5 +1,5 @@
 ---
-title: Subscribe to Azure Kubernetes Service events with Azure Event Grid  (Preview)
+title: Subscribe to Azure Kubernetes Service events with Azure Event Grid
 description: Use Azure Event Grid to subscribe to Azure Kubernetes Service events
 services: container-service
 author: zr-msft
@@ -8,69 +8,16 @@ ms.date: 07/12/2021
 ms.author: zarhoads
 ---
 
-# Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid (Preview)
+# Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid
 
 Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a publish-subscribe model.
 
 In this quickstart, you'll create an AKS cluster and subscribe to AKS events.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
-
-### Register the `EventgridPreview` preview feature
-
-To use the feature, you must also enable the `EventgridPreview` feature flag on your subscription.
-
-### [Azure CLI](#tab/azure-cli)
-
-Register the `EventgridPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EventgridPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EventgridPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-Register the `EventgridPreview` feature flag by using the [Register-AzProviderPreviewFeature][register-azproviderpreviewfeature] cmdlet, as shown in the following example:
-
-```azurepowershell-interactive
-Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.ContainerService -Name EventgridPreview
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [Get-AzProviderPreviewFeature][get-azproviderpreviewfeature] cmdlet:
-
-```azurepowershell-interactive
-Get-AzProviderPreviewFeature -ProviderNamespace Microsoft.ContainerService -Name EventgridPreview |
- Format-Table -Property Name, @{name='State'; expression={$_.Properties.State}}
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [Register-AzResourceProvider][register-azresourceprovider] command:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
-```
-
-[!INCLUDE [event-grid-register-provider-powershell.md](../../includes/event-grid-register-provider-powershell.md)]
-
----
 
 ## Create an AKS cluster
 
@@ -267,12 +214,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [new-azeventhub]: /powershell/module/az.eventhub/new-azeventhub
 [az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
 [new-azeventgridsubscription]: /powershell/module/az.eventgrid/new-azeventgridsubscription
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[register-azproviderpreviewfeature]: /powershell/module/az.resources/register-azproviderpreviewfeature
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[get-azproviderpreviewfeature]: /powershell/module/az.resources/get-azproviderpreviewfeature
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[register-azresourceprovider]: /powershell/module/az.resources/register-azresourceprovider
 [az-group-delete]: /cli/azure/group#az_group_delete
 [sp-delete]: kubernetes-service-principal.md#other-considerations
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup

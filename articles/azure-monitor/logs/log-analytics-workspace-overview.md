@@ -3,7 +3,7 @@ title: Log Analytics workspace overview
 description: Overview of Log Analytics workspace, which stores data for Azure Monitor Logs.
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/15/2022
+ms.date: 10/01/2022
 ---
 
 # Log Analytics workspace overview
@@ -27,20 +27,23 @@ Each workspace contains multiple tables that are organized into separate columns
 
 [![Diagram that shows the Azure Monitor Logs structure.](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
 
+> [!WARNING]
+> Table names are used for billing purposes so they should not contain sensitive information.
+
 ## Cost
 
-There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the data plan of each table, as described in [Log data plans (preview)](#log-data-plans-preview).
+There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the data plan of each table, as described in [Log data plans (preview)](#log-data-plans).
 
 For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). For guidance on how to reduce your costs, see [Azure Monitor best practices - Cost management](../best-practices-cost.md). If you're using your Log Analytics workspace with services other than Azure Monitor, see the documentation for those services for pricing information.
 
-## Log data plans (preview)
+## Log data plans
 
-By default, all tables in a workspace are **Analytics** tables, which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** to reduce the cost of storing high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features.
+By default, all tables in a workspace are **Analytics** tables, which are available to all features of Azure Monitor and any other services that use the workspace. You can configure [certain tables as **Basic Logs**](basic-logs-configure.md#which-tables-support-basic-logs) to reduce the cost of storing high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features.
 
-The following table summarizes the two plans. For more information on Basic Logs and how to configure them, see [Configure Basic Logs in Azure Monitor (preview)](basic-logs-configure.md).
+The following table summarizes the two plans. For more information on Basic Logs and how to configure them, see [Configure Basic Logs in Azure Monitor](basic-logs-configure.md).
 
 > [!NOTE]
-> Basic Logs are in public preview. You can currently work with Basic Logs tables in the Azure portal and use a limited number of other components. The Basic Logs feature isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+> The Basic Logs feature isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 | Category | Analytics Logs | Basic Logs |
 |:---|:---|:---|
@@ -60,9 +63,6 @@ For example, you might have [diagnostic settings](../essentials/diagnostic-setti
 ## Data retention and archive
 
 Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time after which it's either removed or archived with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your cost for data retention.
-
-> [!NOTE]
-> Archive is currently in public preview.
 
 To access archived data, you must first retrieve data from it in an Analytics Logs table by using one of the following methods:
 

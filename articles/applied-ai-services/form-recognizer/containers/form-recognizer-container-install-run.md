@@ -7,10 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 10/20/2022
 ms.author: lajanuar
-keywords: on-premises, Docker, container, identify
-ms.custom: ignite-fall-2021
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Install and run Form Recognizer v2.1-preview containers
@@ -21,7 +21,7 @@ ms.custom: ignite-fall-2021
 >
 > * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
-Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
+Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
 In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you'll also need the **Read** OCR container).
 
@@ -76,7 +76,8 @@ The following table lists the supporting container(s) for each Form Recognizer c
 
 #### Recommended CPU cores and memory
 
-> [!Note]
+> [!NOTE]
+>
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
 ##### Read, Layout, and Prebuilt containers
@@ -132,7 +133,7 @@ Below is a self-contained `docker compose`  example to run the Form Recognizer L
 ```yml
 version: "3.9"
 services:
-azure-cognitive-service-layout:
+  azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
     environment:
@@ -146,6 +147,7 @@ azure-cognitive-service-layout:
 networks:
   ocrvnet:
     driver: bridge
+
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
@@ -592,7 +594,7 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 
 ### Connect to Azure
 
-The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. See the [Cognitive Services container FAQ](../../../cognitive-services/containers/container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
+The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run, but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. See the [Cognitive Services container FAQ](../../../cognitive-services/containers/container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
 ### Billing arguments
 

@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 08/11/2022
 ---
 # How to get lineage from Power BI into Microsoft Purview
 

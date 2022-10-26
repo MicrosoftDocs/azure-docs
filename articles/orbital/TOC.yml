@@ -7,6 +7,8 @@ items:
     href: overview.md
   - name: What is the Space Partner Community?
     href: space-partner-program-overview.md
+  - name: What is Azure Orbital Analytics?
+    href: overview-analytics.md  
 - name: Quickstart
   items:
   - name: Register a spacecraft
@@ -23,6 +25,8 @@ items:
     href: license-spacecraft.md
   - name: Integrate partner network ground stations
     href: partner-network-integration.md 
+  - name: Configure the RF chain
+    href: modem-chain.md 
   - name: Receive real-time telemetry
     href: receive-real-time-telemetry.md
   - name: Update the spacecraft TLE
@@ -44,4 +48,8 @@ items:
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md
   - name: Spacecraft object
-    href: spacecraft-object.md  
+    href: spacecraft-object.md
+  - name: Organize spaceborne geospatial data with STAC
+    href: organize-stac-data.md
+  - name: Process Synthetic Aperture Radar (SAR) data
+    href: sar-reference-architecture.md  

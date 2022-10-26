@@ -10,7 +10,7 @@ ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: vmahtani
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
@@ -52,7 +52,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within minutes after a critical event. 
 
 > [!NOTE] 
-> Teams and SharePoint Online do not support user risk events.
+> SharePoint Online doesn't support user risk events.
 
 ### Conditional Access policy evaluation
 
@@ -121,7 +121,7 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 
 ### User condition change flow
 
-In the following example, a Conditional Access administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
+In the following example, a Conditional Access Administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
 
 ![User condition event flow](./media/concept-continuous-access-evaluation/user-condition-change-flow.png)
 

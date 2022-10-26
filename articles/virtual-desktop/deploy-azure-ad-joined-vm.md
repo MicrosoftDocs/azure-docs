@@ -3,11 +3,11 @@ title: Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure
 description: How to configure and deploy Azure AD joined VMs in Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
-manager: lizross
+manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 08/24/2022
 ms.author: helohr
 ---
 
@@ -28,13 +28,12 @@ User accounts can be cloud-only or synced users from the same Azure AD tenant.
 
 ## Known limitations
 
-The following known limitations may impact access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication.
+The following known limitations may affect access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication.
 
 - Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs.
 - Azure AD-joined VMs don't currently support external identities, such as Azure AD Business-to-Business (B2B) and Azure AD Business-to-Consumer (B2C).
 - Azure AD-joined VMs can only access Azure Files file shares for synced users using Azure AD Kerberos.
 - The Windows Store client doesn't currently support Azure AD-joined VMs.
-- Azure Virtual Desktop doesn't currently support single sign-on for Azure AD-joined VMs.
 
 ## Deploy Azure AD-joined VMs
 
@@ -61,7 +60,7 @@ This section explains how to access Azure AD-joined VMs from different Azure Vir
 
 ### Connect using the Windows Desktop client
 
-The default configuration supports connections from Windows 11 or Windows 10 using the [Windows Desktop client](user-documentation/connect-windows-7-10.md). You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
+The default configuration supports connections from Windows 11 or Windows 10 using the [Windows Desktop client](users/connect-windows.md). You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
 
 - The local PC is Azure AD-joined to the same Azure AD tenant as the session host
 - The local PC is hybrid Azure AD-joined to the same Azure AD tenant as the session host
@@ -77,6 +76,10 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 
 You can use Azure AD Multi-Factor Authentication with Azure AD-joined VMs. Follow the steps to [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) and note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
+### Single sign-on
+
+You can enable a single sign-on experience using Azure AD authentication when accessing Azure AD-joined VMs. Follow the steps to [Configure single sign-on](configure-single-sign-on.md) to provide a seamless connection experience.
+
 ## User profiles
 
 You can use FSLogix profile containers with Azure AD-joined VMs when you store them on Azure Files while using synced user accounts. For more information, see [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md).
@@ -87,8 +90,10 @@ While you don't need an Active Directory to deploy or access your Azure AD-joine
 
 ## Next steps
 
-Now that you've deployed some Azure AD joined VMs, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session, check out these articles:
+Now that you've deployed some Azure AD joined VMs, we recommend enabling single sign-on before connecting with a supported Azure Virtual Desktop client to test it as part of a user session. To learn more, check out these articles:
 
-- [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md)
-- [Connect with the web client](user-documentation/connect-web.md)
+- [Configure single sign-on](configure-single-sign-on.md)
+- [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md)
+- [Connect with the Windows Desktop client](users/connect-windows.md)
+- [Connect with the web client](users/connect-web.md)
 - [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md)

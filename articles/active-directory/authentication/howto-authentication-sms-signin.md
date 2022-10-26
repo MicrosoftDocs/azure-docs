@@ -1,15 +1,15 @@
 ---
-title: SMS-based user sign in for Azure Active Directory
-description: Learn how to configure and enable users to sign in to Azure Active Directory using SMS
+title: SMS-based user sign-in for Azure Active Directory
+description: Learn how to configure and enable users to sign-in to Azure Active Directory using SMS
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/10/2022
+ms.date: 08/08/2022
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: anjusingh
 
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Configure and enable users for SMS-based authentication using Azure Active Directory 
 
-To simplify and secure sign in to applications and services, Azure Active Directory (Azure AD) provides multiple authentication options. SMS-based authentication lets users sign in without providing, or even knowing, their user name and password. After their account is created by an identity administrator, they can enter their phone number at the sign-in prompt. They receive an authentication code via text message that they can provide to complete the sign in. This authentication method simplifies access to applications and services, especially for Frontline workers.
+To simplify and secure sign-in to applications and services, Azure Active Directory (Azure AD) provides multiple authentication options. SMS-based authentication lets users sign-in without providing, or even knowing, their user name and password. After their account is created by an identity administrator, they can enter their phone number at the sign-in prompt. They receive an authentication code via text message that they can provide to complete the sign-in. This authentication method simplifies access to applications and services, especially for Frontline workers.
 
 This article shows you how to enable SMS-based authentication for select users or groups in Azure AD. For a list of apps that support using SMS-based sign-in, see [App support for SMS-based authentication](how-to-authentication-sms-supported-apps.md).
 
@@ -45,7 +45,7 @@ Here are some known issues:
 * SMS-based authentication isn't recommended for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 * If a user's default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If the default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
-* SMS-based authentication has reached general availability, and we are working to remove the **(Preview)** label in the Azure portal.
+* SMS-based authentication has reached general availability, and we're working to remove the **(Preview)** label in the Azure portal.
 
 
 ## Enable the SMS-based authentication method
@@ -59,14 +59,15 @@ There are three main steps to enable and use SMS-based authentication in your or
 
 First, let's enable SMS-based authentication for your Azure AD tenant.
 
-1. Sign in to the [Azure portal][azure-portal] as a *global administrator*.
-1. Search for and select **Azure Active Directory**.
-1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Security > Authentication methods > Authentication method policy**.
-
-    [![Browse to and select the Authentication method policy window in the Azure portal.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
-
+1. Sign-in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
+1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Under the **Manage** menu header, select **Authentication methods** >  **Policies**.
 1. From the list of available authentication methods, select **Text message**.
-1. Set **Enable** to *Yes*.
+
+    ![Screenshot that shows how to select the text message authentication method.](./media/howto-authentication-sms-signin/select-text-message-policy.png)
+
+
+1. Set **Enable** to *Yes*. Then select the **Target users**.
 
     ![Enable text authentication in the authentication method policy window](./media/howto-authentication-sms-signin/enable-text-authentication-method.png)
 
@@ -78,16 +79,13 @@ With SMS-based authentication enabled in your Azure AD tenant, now select some u
 
 1. In the text message authentication policy window, set **Target** to *Select users*.
 1. Choose to **Add users or groups**, then select a test user or group, such as *Contoso User* or *Contoso SMS Users*.
-
-    [![Choose users or groups to enable for SMS-based authentication in the Azure portal.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
-
 1. When you've selected your users or groups, choose **Select**, then **Save** the updated authentication method policy.
 
 Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Make sure you have the appropriate licenses for the users you enable in the authentication method policy, especially when you enable the feature for large groups of users.
 
 ## Set a phone number for user accounts
 
-Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign in. The user can [set this phone number themselves](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) in *My Account*, or you can assign the phone number using the Azure portal. Phone numbers can be set by *global admins*, *authentication admins*, or *privileged authentication admins*.
+Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign-in. The user can [set this phone number themselves](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) in *My Account*, or you can assign the phone number using the Azure portal. Phone numbers can be set by *global admins*, *authentication admins*, or *privileged authentication admins*.
 
 When a phone number is set for SMS-sign, it's also then available for use with [Azure AD Multi-Factor Authentication][tutorial-azure-mfa] and [self-service password reset][tutorial-sspr].
 
@@ -127,13 +125,13 @@ To test the user account that's now enabled for SMS-based sign-in, complete the 
 
 ## Troubleshoot SMS-based sign-in
 
-The following scenarios and troubleshooting steps can used if you have problems with enabling and using SMS-based sign in. 
+The following scenarios and troubleshooting steps can used if you have problems with enabling and using SMS-based sign-in. 
 For a list of apps that support using SMS-based sign-in, see [App support for SMS-based authentication](how-to-authentication-sms-supported-apps.md).
 
 
 ### Phone number already set for a user account
 
-If a user has already registered for Azure AD Multi-Factor Authentication and / or self-service password reset (SSPR), they already have a phone number associated with their account. This phone number is not automatically available for use with SMS-based sign-in.
+If a user has already registered for Azure AD Multi-Factor Authentication and / or self-service password reset (SSPR), they already have a phone number associated with their account. This phone number isn't automatically available for use with SMS-based sign-in.
 
 A user that has a phone number already set for their account is displayed a button to *Enable for SMS sign-in* in their **My Profile** page. Select this button, and the account is enabled for use with SMS-based sign-in and the previous Azure AD Multi-Factor Authentication or SSPR registration.
 
@@ -152,7 +150,7 @@ If you receive an error when you try to set a phone number for a user account in
 ## Next steps
 
 - For a list of apps that support using SMS-based sign-in, see [App support for SMS-based authentication](how-to-authentication-sms-supported-apps.md).
-- For additional ways to sign in to Azure AD without a password, such as the Microsoft Authenticator App or FIDO2 security keys, see [Passwordless authentication options for Azure AD][concepts-passwordless].
+- For more ways to sign-in to Azure AD without a password, such as the Microsoft Authenticator App or FIDO2 security keys, see [Passwordless authentication options for Azure AD][concepts-passwordless].
 - You can also use the Microsoft Graph REST API to [enable][rest-enable] or [disable][rest-disable] SMS-based sign-in.
 
 

@@ -199,4 +199,4 @@ When doing side-by-side deployments in Azure Functions or Azure App Service, we 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle performance and scale issues](durable-functions-perf-and-scale.md)
+> [Learn about using and choosing storage providers](durable-functions-storage-providers.md)

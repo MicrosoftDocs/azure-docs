@@ -56,15 +56,13 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create water quality monitoring application
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab:
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/iot-central-government-tab-overview1.png" alt-text="Application template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab.
 
 1. Select **Create app** under **Water quality monitoring**.
 
@@ -108,8 +106,6 @@ As a builder, you can customize views on the dashboard for use by operators.
 
 1. Select **Edit** to customize the **Wide World water quality dashboard** pane. You can customize the dashboard by selecting commands on the **Edit** menu. After the dashboard is in edit mode, you can add new tiles, or you can configure the existing files.
 
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/edit-dashboard.png" alt-text="Edit your dashboard.":::
-
 1. Select **+ New** to create a new dashboard that you can configure. You can have multiple dashboards and can navigate among them from the dashboard menu.
 
 ## Explore a water quality monitoring device template
@@ -129,7 +125,7 @@ To view the device template:
 
 Practice customizing the following device template settings:
 
-1. From the device template menu, select **Customize**.
+1. Navigate to the **Water Quality Monitor** device template.
 1. Go to the **Temperature** telemetry type.
 1. Change the **Display name** value to **Reported temperature**.
 1. Change the unit of measurement, or set **Min value** and **Max value**.
@@ -137,9 +133,9 @@ Practice customizing the following device template settings:
 
 #### Add a cloud property
 
-1. From the device template menu, select **Cloud properties**.
-1. To add a new cloud property, select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device. One example of such a property is an alert threshold specific to installation area, asset information, or maintenance information.
-1. Enter **Installation area** as the **Display name** and choose **String** as the **Schema**.
+1. Navigate to the **Water Quality Monitor** device template, and select **+ Add capability**.
+1. In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device. One example of such a property is an alert threshold specific to installation area, asset information, or maintenance information.
+1. Enter **Installation area** as the **Display name**, select **Cloud property** as the **Capability type** and choose **String** as the **Schema**.
 1. Select **Save**.
 
 ### Explore views
@@ -164,8 +160,6 @@ The water quality monitoring application you created from the application templa
 ### View the devices
 
 1. Select **Devices** on the leftmost pane of your application.
-
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-devices.png" alt-text="Devices":::
 
 1. Select one simulated device.
 
@@ -194,8 +188,6 @@ The water quality monitoring application you created has two preconfigured rules
 ### View rules
 
 1. Select **Rules** on the leftmost pane of your application.
-
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-rules.png" alt-text="Rules":::
 
 1. Select **High pH alert**, which is one of the preconfigured rules in the application.
 

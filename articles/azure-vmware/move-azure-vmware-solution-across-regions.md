@@ -1,7 +1,7 @@
 ---
 title: Move Azure VMware Solution resources across regions
 description: This article describes how to move Azure VMware Solution resources from one Azure region to another.  
-ms.custom: subject-moving-resources
+ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 04/11/2022
@@ -89,7 +89,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 - VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
 
 >[!TIP]
->You can use [Azure Resource Mover](../resource-mover/move-region-within-resource-group.md?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json) to verify and migrate the list of supported resources to move across regions, which are dependent on Azure VMware Solution.
+>You can use [Azure Resource Mover](../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json) to verify and migrate the list of supported resources to move across regions, which are dependent on Azure VMware Solution.
 
 ### Locate the source ExpressRoute circuit ID
 
@@ -304,7 +304,7 @@ To this point, you've migrated the workloads to the target environment. These ap
 
 - Published through the public IP feature in vWAN.
 
-Public IP is typically the destination NAT translated into the Azure firewall. With DNAT rules, firewall policy would translate the public IP address request to a private address (webserver) with a port. For more information, see [How to use the public IP functionality in Azure Virtual WAN](./enable-public-internet-access.md).
+Public IP is typically the destination NAT translated into the Azure firewall. With DNAT rules, firewall policy would translate the public IP address request to a private address (webserver) with a port. For more information, see [How to use the public IP functionality in Azure Virtual WAN](./enable-public-ip-nsx-edge.md).
 
 >[!NOTE]
 >SNAT is by default configured in Azure VMware Solution, so you must enable SNAT from Azure VMware Solution private cloud connectivity settings under the Manage tab.

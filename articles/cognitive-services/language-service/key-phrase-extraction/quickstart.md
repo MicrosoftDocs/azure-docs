@@ -3,13 +3,13 @@ title: "Quickstart: Use the Key Phrase Extraction client library"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using the Key Phrase Extraction API.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/21/2022
-ms.author: aahi
+ms.date: 08/15/2022
+ms.author: jboback
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-key-phrase, ignite-fall-2021, mode-api
 keywords: text mining, key phrase

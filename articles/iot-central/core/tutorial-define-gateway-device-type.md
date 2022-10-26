@@ -329,4 +329,4 @@ In this tutorial, you learned how to:
 Next you can learn how to:
 
 > [!div class="nextstepaction"]
-> [Add an Azure IoT Edge device to your Azure IoT Central application](/learn/modules/connect-iot-edge-device-to-iot-central/)
+> [Add an Azure IoT Edge device to your Azure IoT Central application](/training/modules/connect-iot-edge-device-to-iot-central/)

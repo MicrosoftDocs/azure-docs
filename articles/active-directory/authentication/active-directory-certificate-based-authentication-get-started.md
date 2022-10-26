@@ -10,11 +10,11 @@ ms.date: 05/04/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: annaba
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+
 ---
 # Get started with certificate-based authentication in Azure Active Directory with federation
 
@@ -37,7 +37,7 @@ This topic:
 
 To configure CBA with federation, the following statements must be true:
 
-- CBA with federation is only supported for Federated environments for browser applications, native clients using modern authentication (ADAL), or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for federated and managed accounts. To configure Azure AD CBA without needing federation, see [How to configure Azure AD certificate-based authentication](how-to-certificate-based-authentication.md).
+- CBA with federation is only supported for Federated environments for browser applications, native clients using modern authentication, or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for federated and managed accounts. To configure Azure AD CBA without needing federation, see [How to configure Azure AD certificate-based authentication](how-to-certificate-based-authentication.md).
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
 - Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
 - You must have at least one certificate authority configured in Azure Active Directory. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.

@@ -72,6 +72,9 @@ $vm | Update-AzVM
 
 - Ensure that DHCP is enabled inside the guest VM. This is required to get the host or fabric address from DHCP for the IaaS VM Agent and extensions to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell, and make sure the DHCP option inside the VM is enabled. [Learn more](../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
 
+- Running the VM Agent in a "Nested Virtualization" VM might lead to unpredictable behavior, hence it's not supported in that Dev/Test scenario.
+
+
 
 ## Detect the VM Agent
 

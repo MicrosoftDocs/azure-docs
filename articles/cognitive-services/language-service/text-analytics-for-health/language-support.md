@@ -8,32 +8,121 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 9/5/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # Language support for Text Analytics for health
 
-> [!NOTE]
-> * The container uses different model versions than the API endpoints and SDK.
-> * Languages are added as new model versions are released. The current [model versions](how-to/call-api.md#specify-the-text-analytics-for-health-model) for Text Analytics for health are:
->    * API and SDK: `2021-05-15`
->    * Container: `2021-03-01`
-
 Use this article to learn which natural languages are supported by Text Analytics for health and its Docker container. 
 
-## REST API and client library
+## Hosted API Service
 
-| Language | Language code | Starting with v3 model version: | Notes |
-|:---------|:-------------:|:-----------------------------------------:|:-----:|
-| English  |     `en`      |                API endpoint and client library: 2019-10-01                 |       |
+The hosted API service supports English language, model version 03-01-2022. Additional languages, English, Spanish, French, German Italian, Portuguese and Hebrew are supported with model version 2022-08-15-preview.
+
+When structuring the API request, the relevant language tags must be added for these languages: 
+
+```
+English – “en”
+Spanish – “es”
+French  - “fr”
+German – “de”
+Italian – “it”
+Portuguese – “pt”
+Hebrew – “he”
+```
+```json
+json
+
+{
+    "analysisInput": {
+        "documents": [
+            {
+                "text": "El médico prescrió 200 mg de ibuprofeno.",
+                "language": "es",
+                "id": "1"
+            }
+        ]
+    },
+    "tasks": [
+        {
+            "taskName": "analyze 1",
+            "kind": "Healthcare",
+        }
+    ]
+}
+```
 
 ## Docker container
 
-| Language | Language code | Starting with v3 model version: | Notes |
-|:---------|:-------------:|:-----------------------------------------:|:-----:|
-| English  |     `en`      |                Container: 2020-04-16                |       |
+The docker container supports English language, model version 03-01-2022. 
+Additional languages are also supported when using a docker container to deploy the API: Spanish, French, German Italian, Portuguese and Hebrew. This functionality is currently in preview, model version 2022-08-15-preview.
+Full details for deploying the service in a container can be found [here](../text-analytics-for-health/how-to/use-containers.md).
+
+In order to download the new container images from the Microsoft public container registry, use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command, as follows :
+
+For English, Spanish, Italian, French, German and Portuguese:
+
+```
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/latin
+```
+
+For Hebrew:
+
+```
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/semitic
+```
+
+
+When structuring the API request, the relevant language tags must be added for these languages: 
+
+```
+English – “en”
+Spanish – “es”
+French  - “fr”
+German – “de”
+Italian – “it”
+Portuguese – “pt”
+Hebrew – “he”
+```
+
+The following json is an example of a JSON file attached to the Language request's POST body, for a Spanish document:
+
+```json
+json
+
+{
+    "analysisInput": {
+        "documents": [
+            {
+                "text": "El médico prescrió 200 mg de ibuprofeno.",
+                "language": "es",
+                "id": "1"
+            }
+        ]
+    },
+    "tasks": [
+        {
+            "taskName": "analyze 1",
+            "kind": "Healthcare",
+        }
+    ]
+}
+```
+## Details of the supported model versions for each language:
+
+
+| Language Code       | Model Version: |  Featured Tag | Specific Tag |
+|:--------------------|:-------------:|:-------------------:|:------------------:|
+| en                  |  2022-03-01   |      latest         |   3.0.59413252-onprem-amd64    | 
+| en,es,it,fr,de,pt   |  2022-08-15-preview  |      latin         |   3.0.60903415-latin-onprem-amd64    | 
+| he                  |  2022-08-15-preview   |      semitic         |   3.0.60903415-semitic-onprem-amd64   | 
+
+
+
+
+
 
 ## See also
 

@@ -77,6 +77,8 @@ Secure your IIoT solution by using the following IoT Central features:
 
 - Ensure safe, secure data exports with Azure Active Directory managed identities.
 
+- Use audit logs to track activity in your IoT Central application.
+
 ## Patterns
 
 :::image type="content" source="media/concepts-iiot-architecture/automation-pyramid.svg" alt-text="Diagram that shows the five levels of the automation pyramid." border="false":::
