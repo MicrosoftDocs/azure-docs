@@ -21,7 +21,7 @@ The `az containerapp up` command is a streamlined way to create and deploy conta
 - Custom domains
 - Storage mounts
 
-To customize your container app's resource or scaling settings, you can use the "up" command and then the `az containerapp update` command to change these settings.  The `az containerapp up` command isn't an abbreviation of the `az containerapp update` command.  
+To customize your container app's resource or scaling settings, you can use the "up" command and then the `az containerapp update` command to change these settings.  Note that the `az containerapp up` command isn't an abbreviation of the `az containerapp update` command.  
 
 The "up" command can create or use existing resources including:
 
@@ -29,9 +29,9 @@ The "up" command can create or use existing resources including:
 - Azure Container Registry
 - Container Apps environment and Log Analytics workspace
 
-The command can build and push a container image to an Azure Container Registry (ACR) if you provide local source code or a GitHub repo.  When you're working from a GitHub repo, it creates a GitHub Action that automatically builds and pushes a new container image when you commit changes to your GitHub repo.
+The command can build and push a container image to an Azure Container Registry (ACR) when you provide local source code or a GitHub repo.  When you're working from a GitHub repo, it creates a GitHub Action that automatically builds and pushes a new container image when you commit changes to your GitHub repo.
 
- If you need to customize the Container App environment, use the `az containerapp environment create` command to create your environment.  If you don't provide an existing environment, the "up" command looks for one in your resource group and, if found, uses that environment.  If not found, it creates an environment with a Log Analytics workspace.
+ If you need to customize the Container App environment, first create the environment using the `az containerapp environment create` command.  If you don't provide an existing environment, the "up" command looks for one in your resource group and, if found, uses that environment.  If not found, it creates an environment with a Log Analytics workspace.
 
 To learn more about the `az containerapp up` command and its options, see [`az containerapp up`](/cli/azure/containerapp#az_containerapp_up).
 
