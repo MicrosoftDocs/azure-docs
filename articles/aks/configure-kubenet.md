@@ -315,4 +315,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
 [Create an AKS cluster with user-assigned managed identities]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identities
-[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#Bring-your-own-control-plane-managed-identity
+[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-managed-identity
