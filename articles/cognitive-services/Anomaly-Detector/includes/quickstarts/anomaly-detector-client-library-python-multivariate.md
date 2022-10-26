@@ -17,7 +17,7 @@ Get started with the Anomaly Detector multivariate client library for Python. Fo
 Use the Anomaly Detector multivariate client library for Python to:
 
 * Detect system level anomalies from a group of time series.
-* When any individual time series won't tell you much and you have to look at all signals to detect a problem.
+* When any individual time series won't tell you much, and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
 ## Prerequisites
@@ -87,7 +87,7 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 ### Download sample data
 
-This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip)
+This quickstart uses the `sample_data_5_3000.zip` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip)
 
  You can also download the sample data by running:
 
@@ -98,7 +98,7 @@ curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multi
 ### Generate SAS URL
 
 1. Create an <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
-2. From within your storage account create a new storage container with the Public access level to **private**.
+2. From within your storage account, create a new storage container with the Public access level to **private**.
 3. Open your container and select upload. Upload the sample_data_5 zip file from the previous step.
     :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../../media/quickstart/upload-zip.png":::
 4. Select the `...` to open the context menu next to your newly uploaded zip file and select **Generate SAS**.
@@ -106,11 +106,15 @@ curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multi
 5. Select **Generate SAS Token and URL**.
 6. Copy the SAS URL into the code below as string value for the `data_source` variable.
 
+
+   > [!NOTE]
+   > The steps above are the bare minimum to generate a SAS URL. For a more in-depth article on the process, we recommend consulting this [Form Recognizer article](../../../../applied-ai-services/form-recognizer/create-sas-tokens.md)
+
 ### Create a new Python application
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of quickstart.py with the following code. Modify the code to add the environment variable names for your key, endpoint, and the data_source. If you are using the environment variable names from the earlier steps in the quickstart the only change you need to make is to the `data_source`:
+2. Replace the contents of quickstart.py with the following code. Modify the code to add the environment variable names for your key, endpoint, and the data_source. If you're using the environment variable names from the earlier steps in the quickstart, the only change you need to make is to the `data_source`:
 
 ```python
 import os
@@ -125,7 +129,7 @@ from azure.core.exceptions import HttpResponseError
 
 SUBSCRIPTION_KEY = os.environ["ANOMALY_DETECTOR_API_KEY"]
 ANOMALY_DETECTOR_ENDPOINT = os.environ["ANOMALY_DETECTOR_ENDPOINT"]
-data_source ="https://contoso.blob.core.windows.net/temp-test/sample_data_5.zip?sp=r&st=2022-10-11T19:08:04Z&se=2022-10-14T03:08:04Z&spr=https&sv=2021-06-08&sr=b&sig=GUID"
+data_source ="https://contoso.blob.core.windows.net/temp-test/sample_data_5_3000.zip?sp=r&st=2022-10-11T19:08:04Z&se=2022-10-14T03:08:04Z&spr=https&sv=2021-06-08&sr=b&sig=GUID"
 
 ad_client = AnomalyDetectorClient(AzureKeyCredential(SUBSCRIPTION_KEY), ANOMALY_DETECTOR_ENDPOINT)
 model_list = list(ad_client.list_multivariate_model(skip=0, top=10000))
