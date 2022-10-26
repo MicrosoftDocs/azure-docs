@@ -75,7 +75,7 @@ After the support team receives your request for a host quota, it takes up to fi
 
 Azure VMware Solution requires a /22 CIDR network, for example, `10.0.0.0/22`. This address space is carved into smaller network segments (subnets) and used for Azure VMware Solution management segments, including: vCenter Server, VMware HCX, NSX-T Data Center, and vMotion functionality. The diagram highlights Azure VMware Solution management IP address segments.
 
-:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Diagram showing Azure VMware Solution management IP address segments." border="false":::  
+:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Diagram showing Azure VMware Solution management IP address segments."lightbox="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" border="false":::  
 
 >[!IMPORTANT]
 >The /22 CIDR network address block shouldn't overlap with any existing network segment you already have on-premises or in Azure. For details of how the /22 CIDR network is broken down per private cloud, see [Routing and subnet considerations](tutorial-network-checklist.md#routing-and-subnet-considerations).
@@ -86,13 +86,13 @@ Like with any VMware vSphere environment, the VMs must connect to a network segm
 
 For the initial deployment, identify a single network segment (IP network), for example, `10.0.4.0/24`. This network segment is used primarily for testing purposes during the initial deployment.  The address block shouldn't overlap with any network segments on-premises or within Azure and shouldn't be within the /22 network segment already defined.
   
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false" lightbox="media/pre-deployment/nsx-segment-diagram.png":::
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads."lightbox="media/pre-deployment/nsx-segment-diagram.png" border="false":::
 
 ## Define the virtual network gateway
 
 Azure VMware Solution requires an Azure Virtual Network and an ExpressRoute circuit. Define whether you want to use an *existing* OR *new* ExpressRoute virtual network gateway. If you decide to use a *new* virtual network gateway, you'll create it after creating your private cloud. It's acceptable to use an existing ExpressRoute virtual network gateway. For planning purposes, make a note of which ExpressRoute virtual network gateway you'll use.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution."lightbox="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" border="false":::
 
 >[!IMPORTANT]
 >You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
