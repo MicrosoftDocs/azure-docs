@@ -21,7 +21,7 @@ Before you begin your SQL Managed Instance deployment, make sure you have these 
 
 - An Active Directory domain
 - A deployed Azure Arc data controller
-- A deployed [customer-managed keytab Active Directory connector](deploy-customer-managed-keytab-active-directory-connector.md) or a [system-managed keytab Active Directory connector](deploy-system-managed-keytab-active-directory-connector.md)
+- A deployed Active Directory connector with [customer-managed keytab](deploy-customer-managed-keytab-active-directory-connector.md) or a [system-managed keytab](deploy-system-managed-keytab-active-directory-connector.md)
 
 ## Connector requirements
 
