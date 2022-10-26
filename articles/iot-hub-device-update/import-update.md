@@ -129,11 +129,11 @@ For example:
 
 ```azurecli
 az iot du update stage \
-    --account device-update-001 \
-    --instance my-instance \
+    --account deviceUpdate001 \
+    --instance myInstance \
     --manifest-path /my/apt/manifest/file.importmanifest.json \
-    --storage-account device-update-storage \
-    --storage-container device-update-demo
+    --storage-account deviceUpdateStorage \
+    --storage-container deviceUpdateDemo
     --overwrite --then-import
 ```
 
@@ -141,17 +141,17 @@ If you have multiple import manifests, you can include them all in a single comm
 
 ```azurecli
 az iot du update stage \
-    --account device-update-001 \
-    --instance my-instance \
+    --account deviceUpdate001 \
+    --instance myInstance \
     --manifest-path /my/apt/manifest/parent.importmanifest.json \
     --manifest-path /my/apt/manifest/child1.importmanifest.json \
     --manifest-path /my/apt/manifest/child2.importmanifest.json \
-    --storage-account device-update-storage \
-    --storage-container device-update-demo
+    --storage-account deviceUpdateStorage \
+    --storage-container deviceUpdateDemo
     --overwrite --then-import
 ```
 
-If you don't use the `--then-import` flag, the output of the `stage` command includes a prompt to run the `import` command, including pre-populated arguments.
+If you don't use the `--then-import` flag, the output of the `stage` command includes a prompt to run [az iot du update import](/cli/azure/iot/du/update#az-iot-du-update-import), including pre-populated arguments.
 
 Use [az iot du update list](/cli/azure/iot/du/update#az-iot-du-update-list) to verify that your update or updates were successfully imported.
 

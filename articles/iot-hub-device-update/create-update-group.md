@@ -108,7 +108,11 @@ For both `update` commands, the `--tags` argument accepts either inline json or 
 For example:
 
 ```azurecli
-az iot hub module-twin update --hub-name <IoT Hub name> --device-id <device name> --module-id <module name> --tags `{"ADUGroup": "<custom_tag_value"}'
+az iot hub module-twin update \
+    --hub-name <IoT Hub name> \
+    --device-id <device name> \
+    --module-id <module name> \
+    --tags `{"ADUGroup": "<custom_tag_value"}'
 ```
 
 ---
@@ -147,7 +151,9 @@ Groups are automatically created based on the tags assigned as well as the compa
 Use [az iot du device group list](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) to view all device groups in a Device Update instance.
 
 ```azurecli
-az iot du device group list --account <Device Update account name> --instance <Device Update instance name>
+az iot du device group list \
+    --account <Device Update account name> \
+    --instance <Device Update instance name>
 ```
 
 You can use the `--order-by` argument to order the groups returned based on aspects like group ID, count of devices, or count of subgroups with new updates available.
@@ -177,7 +183,10 @@ The optional `--best-updates` flag returns a list of the best available updates 
 The optional `--update-compliance` flag returns compliance information for the device group, including how many devices are on their latest update, how many need new updates, and how many are in progress for a new update.
 
 ```azurecli
-az iot du device group show --account <Device Update account name> --instance <Device Update instance name> --group-id <value of the ADUGroup tag for this group>
+az iot du device group show \
+    --account <Device Update account name> \
+    --instance <Device Update instance name> \
+    --group-id <value of the ADUGroup tag for this group>
 ```
 
 ---

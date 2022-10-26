@@ -64,10 +64,10 @@ In order to use the remote log collection feature, you must first link an Azure 
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot device-update instance create](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-create) command to configure diagnostics for your Device Update instance.
+Use the [az iot du instance create](/cli/azure/iot/du/instance#az-iot-du-instance-create) command to configure diagnostics for your Device Update instance.
 
 >[!TIP]
->You can use the `az iot device-update instance create` command on an existing Device Update instances and it will configure the instance with the updated parameters.
+>You can use the `az iot du instance create` command on an existing Device Update instances and it will configure the instance with the updated parameters.
 
 Replace the following placeholders with your own information:
 
@@ -76,7 +76,7 @@ Replace the following placeholders with your own information:
 * *\<storage_id>*: The resource ID of the storage account where the diagnostics logs will be stored. You can retrieve the resource ID by using the [az storage show](/cli/azure/storage/account#az-storage-account-show) command and querying for the ID value: `az storage account show -n <storage_name> --query id`.
 
 ```azurecli-interactive
-az iot device-update instance update --account <account_name> --instance <instance_name> --set enableDiagnostics=true diagnosticStorageProperties.resourceId=<storage_id>
+az iot du instance update --account <account_name> --instance <instance_name> --set enableDiagnostics=true diagnosticStorageProperties.resourceId=<storage_id>
 ```
 
 ---
