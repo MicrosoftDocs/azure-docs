@@ -34,7 +34,7 @@ This glossary provides a brief description of important terms and concepts for t
 |Term | Description | Learn more | 
 |--|--|--|
 |**Cacls** | Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files.| [Access control lists](https://docs.microsoft.com/windows/win32/secauthz/access-control-lists)|
-|**CIS Benchmark** | (kubernetes) Center for Internet Security benchmark| [CIS](https://docs.microsoft.com/azure/aks/cis-kubernetes)|
+|**CIS Benchmark** | (Kubernetes) Center for Internet Security benchmark| [CIS](https://docs.microsoft.com/azure/aks/cis-kubernetes)|
 |**CORS**| cross origin resource sharing, an HTTP feature that enables a web application running under one domain to access resources in another domain.| [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)|
 |**CNCF**|Cloud Native Computing Foundation|[Build CNCF projects by using Azure Kubernetes service](https://docs.microsoft.com/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)|
 |**CSPM**|Cloud Security Posture Management| [Video: CSPM with Azure](https://docs.microsoft.com/shows/azure-friday/cloud-security-posture-management-cspm-with-azure-security-center)|
@@ -55,7 +55,7 @@ This glossary provides a brief description of important terms and concepts for t
 ## F
 | Term | Description | Learn more | 
 |--|--|--|
-|**FIT**| File Integrity Monitoring | [FIT in Microsoft Defender for Clpud](https://docs.microsoft.com/azure/defender-for-cloud/file-integrity-monitoring-overview)|
+|**FIM**| File Integrity Monitoring | [FIM in Microsoft Defender for Cloud](https://docs.microsoft.com/azure/defender-for-cloud/file-integrity-monitoring-overview)|
 **FTP** | File Transfer Protocol | [Deploy content using FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp?tabs=portal)|
 
 ## G
@@ -72,7 +72,7 @@ This glossary provides a brief description of important terms and concepts for t
 ## K
 | Term | Description | Learn more|
 |--|--|--|
-**KQL**|Kusto Query Language- a tool to explore your data and discover patterns, identify anomalies and outliers, create statistical modeling, and more.| [KQL OVerview](https://docs.microsoft.com/azure/data-explorer/kusto/query/)|
+**KQL**|Kusto Query Language-a tool to explore your data and discover patterns, identify anomalies and outliers, create statistical modeling, and more.| [KQL Overview](https://docs.microsoft.com/azure/data-explorer/kusto/query/)|
 
 ## L
 |Term | Description | Learn more |
@@ -88,6 +88,12 @@ This glossary provides a brief description of important terms and concepts for t
 |**MITRE ATT&CK**| a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.|[MITRE ATT&CK](https://attack.mitre.org/)|
 **MMA**| Microsoft Monitoring Agent, aka Log Analytics Agent|[Log Analytics Agent Overview](https://docs.microsoft.com/azure/azure-monitor/agents/log-analytics-agent)|
 
+## N
+| Term | Description | Learn more |
+|--|--|--|
+|**NGAV**| Next Generation Anti-Virus | 
+**NIST** | National Institute of Standards and Technology|[National Institute of Standards and Technology](https://www.nist.gov/)
+
 ## R
 | Term | Description | Learn more |
 |--|--|--|
@@ -95,11 +101,14 @@ This glossary provides a brief description of important terms and concepts for t
 |**RBAC**| Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. | [RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)|
 |**RDP** | Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device.| [RDP Bandwidth Requirements](https://docs.microsoft.com/azure/virtual-desktop/rdp-bandwidth)|
 |**Recommendations**|Recommendations secure your workloads with step-by-step actions that protect your workloads from known security risks.| [Security Recommendations](https://docs.microsoft.com/azure/defender-for-cloud/security-policy-concept)|
+**Regulatory Compliance** | Regulatory compliance refers to the discipline and process of ensuring that a company follows the laws enforced by governing bodies in their geography or rules required | [Regulatory Compliance Overview](/azure/cloud-adoption-framework/govern/policy-compliance/regulatory-compliance) |
+
 
 ## S
 |Term| Description| Learn more|
 |--|--|--|
 |**Secure Score**|Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score that represents your current security situation: the higher the score, the lower the identified risk level.|[Secure Score Overview](https://review.docs.microsoft.com/azure/defender-for-cloud/secure-score-security-controls?branch=pr-en-us-208374)|
+|**Security Initiative** | A collection of Azure Policy Definitions, or rules, that are grouped together towards a specific goal or purpose. | [What are security policies, initiatives, and recommendations?](https://learn.microsoft.com/azure/defender-for-cloud/security-policy-concept)
 |**Security Policy**| An Azure rule about specific security conditions that you want controlled.|[Understanding Security Policies](https://review.docs.microsoft.com/azure/defender-for-cloud/security-policy-concept?branch=pr-en-us-208374)|
 |**SOAR**| Security Orchestration Automated Response, a collection of software tools designed to collect data about security threats from multiple sources and respond to low-level security events without human assistance.| [SOAR](https://docs.microsoft.com/azure/sentinel/automation)|
 
