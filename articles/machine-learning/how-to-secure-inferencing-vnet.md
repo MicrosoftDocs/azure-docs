@@ -10,7 +10,6 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 09/06/2022
-ms.custom: 
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks

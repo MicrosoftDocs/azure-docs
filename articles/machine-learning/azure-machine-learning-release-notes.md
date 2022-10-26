@@ -211,7 +211,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     +  AutoML training now supports numpy version 1.19
     +  Fix AutoML reset index logic for ensemble models in automl_setup_model_explanations API
     +  In AutoML, use lightgbm surrogate model instead of linear surrogate model for sparse case after latest lightgbm version upgrade
-    +  All internal intermediate artifacts that are produced by AutoML are now stored transparently on the parent run (instead of being sent to the default workspace blob store). Users should be able to see the artifacts that AutoML generates under the 'outputs/` directory on the parent run.
+    +  All internal intermediate artifacts that are produced by AutoML are now stored transparently on the parent run (instead of being sent to the default workspace blob store). Users should be able to see the artifacts that AutoML generates under the `outputs/` directory on the parent run.
 
  
 ## 2022-01-24 
