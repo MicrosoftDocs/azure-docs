@@ -17,13 +17,13 @@ ms.custom: template-concept
 
 Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
-- [Azure Government](/azure/azure-government/documentation-government-welcome)
+- [Azure Government](../../azure-government/documentation-government-welcome.md)
 
 This page is updated monthly, so revisit it regularly.
 
 
 
-## September 2022
+## October 2022
 
 ### General Availability - Azure AD certificate-based authentication
 
@@ -64,6 +64,8 @@ You can now create or update dynamic device groups using the following propertie
 For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices) 
  
 ---
+
+## September 2022
 
 
 ### General Availability - No more waiting, provision groups on demand into your SaaS applications.

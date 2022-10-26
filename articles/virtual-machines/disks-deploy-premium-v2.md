@@ -24,6 +24,7 @@ Azure Premium SSD v2 is designed for IO-intense enterprise workloads that requir
 
 ## Prerequisites
 
+- [Sign up](https://aka.ms/PremiumSSDv2AccessRequest) for access to Premium SSD v2.
 - Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps). 
 
 ## Determine region availability programmatically

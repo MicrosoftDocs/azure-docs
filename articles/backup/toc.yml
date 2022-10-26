@@ -594,7 +594,7 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Multi-user authorization using Resource Guard
+    - name: Configure Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
     - name: Manage Immutable vaults
       href: backup-azure-immutable-vault-how-to-manage.md
