@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/24/2022
+ms.date: 10/25/2022
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -75,7 +75,7 @@ Azure NetApp Files supports [`CHANGE_NOTIFY` response](/openspecs/windows_protoc
 
 Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/ms-smb2/e215700a-102c-450a-a598-7ec2a99cd82c). This response is for the client’s request that comes in the form of a [`LOCK` request](/openspecs/windows_protocols/ms-smb2/6178b960-48b6-4999-b589-669f88e9017d).  
 
-Azure NetApp Files also supports [breaking file locks](break-file-locks.md).
+Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
 
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 
