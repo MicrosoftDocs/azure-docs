@@ -11119,6 +11119,11 @@
             "redirect_document_id": false
         },
         {
+		    "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-deploy-arc-data-controller.md",
+		    "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-azure-portal",
+		    "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/databox-online/data-box-edge-manage-access-power-connectivity-mode.md",
             "redirect_url": "/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
             "redirect_document_id": false
@@ -29259,7 +29264,5 @@
             "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
             "redirect_document_id": false
         }
-
     ]
 }
-

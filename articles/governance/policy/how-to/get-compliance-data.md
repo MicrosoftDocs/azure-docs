@@ -2,7 +2,7 @@
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
 author: timwarner-msft
-ms.date: 08/05/2022
+ms.date: 10/26/2022
 ms.topic: how-to
 ms.author: timwarner
 ---
@@ -39,7 +39,7 @@ operations of the Azure Policy Insights REST API, see
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
-- A policy or initiative is newly assigned to a scope. It takes around 30 minutes for the assignment
+- A policy or initiative is newly assigned to a scope. It takes around five minutes for the assignment
   to be applied to the defined scope. Once it's applied, the evaluation cycle begins for resources
   within that scope against the newly assigned policy or initiative and depending on the effects
   used by the policy or initiative, resources are marked as compliant, non-compliant, or exempt. A

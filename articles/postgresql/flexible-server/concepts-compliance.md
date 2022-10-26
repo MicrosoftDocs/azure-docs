@@ -25,7 +25,7 @@ industry specific, and region/country specific. Compliance offerings are based o
 
  Azure Database for PostgreSQL - Flexible Server has achieved a comprehensive set of national, regional, and industry-specific compliance certifications in our Azure public cloud to help you comply with requirements governing the collection and use of your data.
 
-[!div class="mx-tableFixed"]
+> [!div class="mx-tableFixed"]
 > | **Certification**| **Applicable To** | 
 > |---|---|
 > |HIPAA and HITECH Act (U.S.)     | Healthcare|
