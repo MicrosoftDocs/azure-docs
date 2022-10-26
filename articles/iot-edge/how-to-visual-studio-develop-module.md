@@ -1,5 +1,5 @@
 ---
-title: Develop and debug Azure IoT Edge modules in Visual Studio
+title: Develop and debug Azure IoT Edge modules using Visual Studio
 description: Use Visual Studio to develop a custom IoT Edge module and deploy to an IoT device.
 services: iot-edge
 author: PatAltimore
@@ -24,14 +24,6 @@ You can choose either the **Azure IoT Edge Dev Tool** CLI or the **Azure IoT Edg
 ## Prerequisites
 
 This article assumes that you use a machine running Windows as your development machine. 
-
-* To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-* To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer. For more information, see, [Windows containers](support.md#windows-containers).
-:::moniker-end
-<!-- end 1.1 -->
 
 * Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workloads options.
 
@@ -91,10 +83,14 @@ This article assumes that you use a machine running Windows as your development 
   ```
 
 * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. For example, install [Docker Community Edition](https://docs.docker.com/install/).
+* To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+* To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer. For more information, see, [Windows containers](support.md#windows-containers).
+
 * Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
+
 :::moniker-end
 <!-- end 1.1 -->
 

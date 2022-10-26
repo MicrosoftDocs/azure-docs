@@ -1,5 +1,5 @@
 ---
-title: Develop and debug modules for Azure IoT Edge
+title: Develop and debug modules Azure IoT Edge modules using VS Code
 description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
 services: iot-edge
 author: PatAltimore
