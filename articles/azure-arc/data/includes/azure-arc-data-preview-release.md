@@ -17,13 +17,13 @@ The current test release published on October 25, 2022.
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
 |`arcdata` Azure CLI extension version|1.4.8 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc enabled Kubernetes helm chart extension version|1.13.0|
-|ArcData extension for Azure Data Studio<br/>`arc`<br/>`azcli`|*No Changes*<br/>1.5.4 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.5.4 ([Download](https://aka.ms/ads-azcli-ext))|
+|Arcdata extension for Azure Data Studio<br/>`arc`<br/>`azcli`|*No Changes*<br/>1.5.4 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.5.4 ([Download](https://aka.ms/ads-azcli-ext))|
 
 
 
 New for this release:
-- ArcData controller
-  - Support database as resource in Azure ArcData resource provider 
+- Arcdata controller
+  - Support database as resource in Azure Arcdata resource provider 
 
 <!--
 - Arc-enabled SQL managed instance
