@@ -3,13 +3,13 @@ title: Transfer data with the Data Movement library for .NET
 titleSuffix: Azure Storage
 description: Use the Data Movement library to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 06/16/2020
-ms.author: tamram
+ms.author: pauljewell
 ms.subservice: common
 ms.custom: devx-track-csharp
 ---
