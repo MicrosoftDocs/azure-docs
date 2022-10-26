@@ -59,12 +59,12 @@ productDirectory:
           url: index-web-app.yml
           #url: web-app-quickstart.md
           imageSrc: ../active-directory/develop/media/hub/app-type-web.svg
-          summary: A traditional, or "classic," web app whose code runs on a server, returning page data for the browser to render such as Node.js, ASP.NET or Java.
+          summary: A web app whose code runs on a server, returning page data for the browser to render such as Node.js, ASP.NET or Java.
         - title: Web API
           url: index-web-api.yml
           #url: web-api-quickstart.md
           imageSrc: ../active-directory/develop/media/hub/app-type-api.svg
-          summary: A RESTful web service accessed by applications or other web APIs that are protected by Azure AD B2C.
+          summary: A RESTful web service that is accessed by any app type or other web APIs, and is protected by Azure AD B2C.
         ## ROW 2 ######################
         - title: Desktop app
           url: index-desktop.yml
