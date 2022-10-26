@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 26/10/2022
+ms.date: 10/26/2022
 ms.author: kengaderdus
 ms.custom: engagement-fy23
 ms.subservice: B2C
