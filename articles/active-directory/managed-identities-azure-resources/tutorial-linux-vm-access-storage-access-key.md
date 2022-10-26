@@ -116,6 +116,7 @@ The CURL response gives you the list of Keys:
 ```bash 
 {"keys":[{"keyName":"key1","permissions":"Full","value":"iqDPNt..."},{"keyName":"key2","permissions":"Full","value":"U+uI0B..."}]} 
 ```
+
 Create a sample blob file to upload to your blob storage container. On a Linux VM, you can do this with the following command. 
 
 ```bash
