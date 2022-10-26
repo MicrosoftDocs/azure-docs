@@ -20,7 +20,7 @@ recommendations: false
 
 ## How business card data extraction works
 
-Business cards are a great way of representing a business or a professional. The company logo, fonts and background images found in business cards help the company branding and differentiate it from others. Applying OCR and machine-learning based techqniues to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integrated into them for the benefit of their users.
+Business cards are a great way of representing a business or a professional. The company logo, fonts and background images found in business cards help the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integrated into them for the benefit of their users.
 
 ## Form Recognizer Business Card model
 
