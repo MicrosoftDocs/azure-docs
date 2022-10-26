@@ -417,7 +417,7 @@ The configuration wizard starts automatically after you run this command.
 For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Manage SSL and TLS certificates
-
+### Set up SSL certificates by CLI
 Use the following command to import SSL and TLS certificates to the sensor from the CLI.
 
 To use this command:
@@ -447,6 +447,29 @@ root@xsense:/# cyberx-xsense-certificate-import
 ```
 
 <!--better example with attributes showing and also response?-->
+
+### Restore default self-signed certificate by CLI
+Use this command in order to restore the default self-signed certificates on the appliance (This should be used only for troubleshooting and not production environments).
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |   `cyberx-xsense-create-self-signed-certificate`      |   No attributes     |
+
+For example, for the *cyberx* user:
+
+```bash
+root@xsense:/# cyberx-xsense-create-self-signed-certificate
+Creating a self-signed certificate for Apache2...
+random directory name for the new certificate is 348
+Generating a RSA private key
+................+++++
+....................................+++++
+writing new private key to '/var/cyberx/keys/certificates/348/apache.key'
+-----
+executing a query to add the certificate to db
+finished
+root@xsense:/#
+```
 
 ## Upgrade sensor software from CLI
 
