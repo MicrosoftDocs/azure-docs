@@ -1302,6 +1302,9 @@ items:
         href: containers/container-insights-prometheus-metrics-addon.md
       - name: Send to Logs
         href: containers/container-insights-prometheus-monitoring-addon.md
+      - name: Enable
+        displayName: Prometheus
+        href: essentials/prometheus-metrics-enable.md
     - name: Configure
       items:
       - name: Agent management
