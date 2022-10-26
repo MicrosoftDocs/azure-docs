@@ -59,7 +59,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Bulgarian                        | `bg-BG`      |   |      |   | ✔ |   |
 | Catalan                          | `ca-ES`      |   |      |   | ✔ |   |
 | Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔   | ✔ | ✔ | ✔ |
-| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\1|   | ✔ | ✔ |
+| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*|   | ✔ | ✔ |
 | Chinese (Traditional)            | `zh-Hant`    |   |      |   | ✔ |  |
 | Croatian                         | `hr-HR`      |   |      |   | ✔ |  |
 | Czech                            | `cs-CZ`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
@@ -67,12 +67,12 @@ This section describes languages supported by Azure Video Indexer API.
 | Dutch                            | `nl-NL`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English Australia                | `en-AU`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English United Kingdom           | `en-GB`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| English United States            | `en-US`      | ✔ |  ✔\1 | ✔\2 | ✔ | ✔ |
+| English United States            | `en-US`      | ✔ |  ✔\* | ✔\* | ✔ | ✔ |
 | Estonian                         | `et-EE`      |   |       |   | ✔ |   |
 | Fijian                           | `en-FJ`      |   |       |   | ✔ |  |
 | Filipino                         | `fil-PH`     |   |       |   | ✔ |  |
 | Finnish                          | `fi-FI`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| French                           | `fr-FR`      | ✔ |  ✔\1 | ✔\2 | ✔ | ✔ |
+| French                           | `fr-FR`      | ✔ |  ✔\* | ✔\* | ✔ | ✔ |
 | French (Canada)                  | `fr-CA`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | German                           | `de-DE`      | ✔ |  ✔ \1| ✔ \2| ✔ | ✔ |
 | Greek                            | `el-GR`      |   |       |   | ✔ |   |
@@ -81,8 +81,8 @@ This section describes languages supported by Azure Video Indexer API.
 | Hindi                            | `hi-IN`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | Hungarian                        | `hu-HU`      |   |       |   | ✔ |  |
 | Indonesian                       | `id-ID`      |   |       |   | ✔ |  |
-| Italian                          | `it-IT`      | ✔ | ✔\1  |  ✔ | ✔ | ✔ |
-| Japanese                         | `ja-JP`      | ✔ | ✔\1  |  ✔ | ✔ | ✔ |
+| Italian                          | `it-IT`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
+| Japanese                         | `ja-JP`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
 | Kiswahili                        | `sw-KE`      |   |       |   | ✔ |  |
 | Korean                           | `ko-KR`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Latvian                          | `lv-LV`      |   |       |   | ✔ |  |
@@ -93,16 +93,16 @@ This section describes languages supported by Azure Video Indexer API.
 | Norwegian                        | `nb-NO`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
 | Persian                          | `fa-IR`      | ✔ |      |   | ✔ | ✔ |
 | Polish                           | `pl-PL`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| Portuguese                       | `pt-BR`      | ✔ | ✔\1  |  ✔ | ✔ | ✔ |
+| Portuguese                       | `pt-BR`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
 | Portuguese (Portugal)            | `pt-PT`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Romanian                         | `ro-RO`      |   |       |   | ✔ |  |
-| Russian                          | `ru-RU`      | ✔ | ✔\1   |  ✔ | ✔ | ✔ |
+| Russian                          | `ru-RU`      | ✔ | ✔\*   |  ✔ | ✔ | ✔ |
 | Samoan                           | `en-WS`      |   |       |   | ✔ |  |
 | Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |       |   | ✔ |  |
 | Serbian (Latin)                  | `sr-Latn-RS` |   |       |   | ✔ |  |
 | Slovak                           | `sk-SK`      |   |       |   | ✔ |  |
 | Slovenian                        | `sl-SI`      |   |       |   | ✔ |  |
-| Spanish                          | `es-ES`      | ✔ | ✔\1  | ✔\2  | ✔ | ✔ |
+| Spanish                          | `es-ES`      | ✔ | ✔\*  | ✔\*  | ✔ | ✔ |
 | Spanish (Mexico)                 | `es-MX`      | ✔ |       |   | ✔ | ✔ |
 | Swedish                          | `sv-SE`      | ✔ |  ✔    |  ✔ | ✔ | ✔ |
 | Tamil                            | `ta-IN`      |   |        |  | ✔ | |
@@ -113,13 +113,10 @@ This section describes languages supported by Azure Video Indexer API.
 | Urdu                             | `ur-PK`      |    |      |   | ✔ |  |
 | Vietnamese                       | `vi-VN`      | ✔  |  ✔  | ✔  | ✔ |  |
 
-\*By default the marked (by \1 or/and by \2) are supported by LID or/and MLID. When using the API call to [upload a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), you can specify to use other supported languages (see the table above) when auto-detecting one or more languages by Language identification (LID) or Multi-language identification (MLID) by using `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by Language identification (LID) or Multi-language identification (MLID).
+\*By default, languages marked by ***** are supported by LID or/and MLID auto-detection. When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with API, you can specify to use other supported languages (see the table above) to auto-detect one or more languages by language identification (LID) or multi-language identification (MLID) by using `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by Language identification (LID) or Multi-language identification (MLID).
 
-Setting the `customLanguages` parameter would replace the default languages supported by Language identification (LID) and by Multi-language identification (MLID).
-
-\1Default languages supported by Language identification (LID). 
-
-\2Default languages supported by Multi-language identification (MLID). 
+> [!NOTE]
+> Setting the `customLanguages` parameter would replace the default languages supported by language identification (LID) and by multi-language identification (MLID).
 
 ## Language support in frontend experiences
 
