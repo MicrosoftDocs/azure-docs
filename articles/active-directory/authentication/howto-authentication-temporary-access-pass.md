@@ -23,7 +23,8 @@ Users can bootstrap Passwordless methods in one of two ways:
 - Using existing Azure AD Multi-Factor Authentication methods 
 - Using a Temporary Access Pass (TAP) 
 
-A Temporary Access Pass is a time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones such as Microsoft Authenticator or even Windows Hello. 
+A Temporary Access Pass is a time-limited passcode that can be configured for multi or single use to allow users to onboard other authentication methods including passwordless methods such as Microsoft Authenticator, FIDO2 or Windows Hello for Business.
+
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
 
 This article shows you how to enable and use a Temporary Access Pass in Azure AD using the Azure portal. 
@@ -71,9 +72,9 @@ To configure the Temporary Access Pass authentication method policy:
 After you enable a policy, you can create a Temporary Access Pass for a user in Azure AD. 
 These roles can perform the following actions related to a Temporary Access Pass.
 
-- Global Administrator can create, delete, view a Temporary Access Pass on any user (except themselves)
-- Privileged Authentication Administrators can create, delete, view a Temporary Access Pass on admins and members (except themselves)
-- Authentication Administrators can create, delete, view a Temporary Access Pass on members  (except themselves)
+- Global Administrators can create, delete, and view a Temporary Access Pass on any user (except themselves)
+- Privileged Authentication Administrators can create, delete, and view a Temporary Access Pass on admins and members (except themselves)
+- Authentication Administrators can create, delete, and view a Temporary Access Pass on members  (except themselves)
 - Global Reader can view the Temporary Access Pass details on the user (without reading the code itself).
 
 1. Sign in to the Azure portal as either a Global administrator, Privileged Authentication administrator, or Authentication administrator. 

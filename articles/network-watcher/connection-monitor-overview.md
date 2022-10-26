@@ -68,18 +68,18 @@ The following sections provide details for these steps.
  
 Connection Monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
 
-### Agents for Azure virtual machines and virtual machine scale sets 
+### Agents for Azure Virtual Machines and virtual machine scale sets 
 
-To make Connection Monitor recognize your Azure VMs or virtual machine scale sets as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure virtual machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
+To make Connection Monitor recognize your Azure VMs or virtual machine scale sets as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure Virtual Machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
 
-You can install the Network Watcher extension when you [create a VM](./connection-monitor.md#create-the-first-vm) or when you [create a VM scale set](./connection-monitor-virtual-machine-scale-set.md#create-a-vm-scale-set). Follow similar steps for enabling the  You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
+You can install the Network Watcher extension when you [create a VM](./connection-monitor.md#create-the-first-vm) or when you [create a VM scale set](./connection-monitor-virtual-machine-scale-set.md#create-a-virtual-machine-scale-set). Follow similar steps for enabling the  You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection Monitor detects this issue and shows it as a diagnostics message in the topology. To enable connection monitoring, ensure that the NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
 
 If you wish to escape the installation process for enabling Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of Network Watcher extensions on your Azure VMs and VM scale sets.
 
  > [!Note]
- > In the case the virtual machine scale sets is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale sets as endpoints. In-case the virtual machine scale sets is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
+ > In the case the virtual machine scale sets is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale sets as endpoints. In-case the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
  > As Connection Monitor now supports unified auto enablement of monitoring extensions, user can consent to auto upgradation of VM scale set with auto enablement of Network Watcher extension during the creation on Connection Monitor for VM scale sets with manual upgradation. 
 
 ### Agents for on-premises machines
@@ -457,7 +457,7 @@ The migration helps produce the following results:
 * Agents and firewall settings work as is. No changes are required. 
 
 * Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the latest Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
-* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent > ChecksFailedPercent and AverageRoundtripMs > RoundTripTimeMs.
+* Azure Virtual Machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent > ChecksFailedPercent and AverageRoundtripMs > RoundTripTimeMs.
 * Data monitoring:
    * **Alerts**: Migrated automatically to the new metrics.
    * **Dashboards and integrations**: Require manually editing of the metrics set. 

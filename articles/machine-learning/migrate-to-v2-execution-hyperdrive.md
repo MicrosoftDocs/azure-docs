@@ -1,19 +1,19 @@
 ---
-title: 'Migrate from v1 to v2: '
+title: Upgrade hyperparameter tuning to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade hyperparameter tuning from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: SturgeonMi
-ms.author: sgilley
+ms.author: xunwan 
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate hyperparameter tuning from SDK v1 to SDK v2
+# Upgrade hyperparameter tuning to SDK v2
 
 In SDK v2, tuning hyperparameters are consolidated into jobs.
 

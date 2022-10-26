@@ -39,7 +39,7 @@ In this tutorial, you perform the following tasks:
 
 * Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-* Optionally, install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer). This tool helps you observe the messages as they arrive at your IoT hub.
+* Optionally, install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer). This tool helps you observe the messages as they arrive at your IoT hub. This article uses Azure IoT Explorer.
 
 # [Azure portal](#tab/portal)
 
@@ -112,15 +112,14 @@ Now that you have a device ID and key, use the sample code to start sending devi
    dotnet restore
    ```
 
-1. In an editor of your choice, open the `Paramaters.cs` file. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
+1. In an editor of your choice, open the `Parameters.cs` file. This file shows the parameters that are supported by the sample. Only the `PrimaryConnectionString` parameter will be used in this article when running the sample. Review the code in this file. No changes are needed.
+
 1. Build and run the sample code using the following command:
 
-    * Replace `<myDeviceId>` with the device ID that you assigned when registering the device.
-    * Replace `<iotHubUri>` with the hostname of your IoT hub, which takes the format `IOTHUB_NAME.azure-devices.net`.
-    * Replace `<deviceKey>` with the device key that you copied from the device identity information.
+   Replace `<myDevicePrimaryConnectionString>` with your primary connection string from your device in your IoT hub.
 
     ```cmd
-    dotnet run --d <myDeviceId> --u <iotHubUri> --k <deviceKey>
+    dotnet run --PrimaryConnectionString <myDevicePrimaryConnectionString>
     ```
 
 1. You should start to see messages printed to output as they are sent to IoT Hub. Leave this program running for the duration of the tutorial.
@@ -166,7 +165,7 @@ Now, use that connection string to configure IoT Explorer for your IoT hub.
 1. Select **Save**.
 1. Once you connect to your IoT hub, you should see a list of devices. Select the device ID that you created for this tutorial.
 1. Select **Telemetry**.
-1. Select **Start**.
+1. With your device still running, select **Start**. If you're device is not running you won't see telemetry.
 
    ![Start monitoring device telemetry in IoT Explorer.](./media/tutorial-routing/iot-explorer-start-monitoring-telemetry.png)
 
@@ -174,7 +173,7 @@ Now, use that connection string to configure IoT Explorer for your IoT hub.
 
    ![View messages arriving at IoT hub on the built-in endpoint.](./media/tutorial-routing/iot-explorer-view-messages.png)
 
-Watch the incoming messages for a few moments to verify that you see three different types of messages: normal, storage, and critical.
+   Watch the incoming messages for a few moments to verify that you see three different types of messages: normal, storage, and critical. After seeing this, you can stop your device.
 
 These messages are all arriving at the default built-in endpoint for your IoT hub. In the next sections, we're going to create a custom endpoint and route some of these messages to storage based on the message properties. Those messages will stop appearing in IoT Explorer because messages only go to the built-in endpoint when they don't match any other routes in IoT hub.
 
@@ -215,7 +214,7 @@ Create an Azure Storage account and a container within that account, which will 
 
 1. In the storage account menu, select **Containers** from the **Data storage** section.
 
-1. Select **Container** to create a new container.
+1. Select **+ Container** to create a new container.
 
    ![Create a storage container](./media/tutorial-routing/create-storage-container.png)
 
@@ -263,11 +262,11 @@ Now set up the routing for the storage account. In this section you define a new
 
 1. Select **Message Routing** from the **Hub settings** section of the menu.
 
-1. In the **Routes** tab, select **Add**.
+1. In the **Routes** tab, select **+ Add**.
 
    ![Add a new message route.](./media/tutorial-routing/add-route.png)
 
-1. Select **Add endpoint** next to the **Endpoint** field, then select **Storage** from the dropdown menu.
+1. Select **+ Add endpoint** next to the **Endpoint** field, then select **Storage** from the dropdown menu.
 
    ![Add a new endpoint for a route.](./media/tutorial-routing/add-storage-endpoint.png)
 
@@ -345,7 +344,9 @@ Once the route is created in IoT Hub and enabled, it will immediately start rout
 
 ### Monitor the built-in endpoint with IoT Explorer
 
-Return to the IoT Explorer session on your development machine. Recall that the IoT Explorer monitors the built-in endpoint for your IoT hub. That means that now you should be seeing only the messages that are *not* being routed by the custom route we created. Watch the incoming messages for a few moments and you should only see messages where `level` is set to `normal` or `critical`.
+Return to the IoT Explorer session on your development machine. Recall that the IoT Explorer monitors the built-in endpoint for your IoT hub. That means that now you should be seeing only the messages that are *not* being routed by the custom route we created. 
+
+Start the sample again by running the code. Watch the incoming messages for a few moments and you should only see messages where `level` is set to `normal` or `critical`.
 
 ### View messages in the storage container
 
@@ -361,7 +362,9 @@ Verify that the messages are arriving in the storage container.
 
    ![Find routed messages in storage.](./media/tutorial-routing/view-messages-in-storage.png)
 
-1. Download the JSON file and confirm that it contains messages from your device that have the `level` property set to `storage`.
+1. Select the JSON file, then select **Download** to download the JSON file. Confirm that the file contains messages from your device that have the `level` property set to `storage`.
+
+1. Stop running the sample.
 
 ## Clean up resources
 

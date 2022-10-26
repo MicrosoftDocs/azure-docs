@@ -24,6 +24,9 @@ This article details the Windows and Linux operating systems supported and syste
 ### Operating system updates
 Update management center (preview) supports operating system updates for both Windows and Linux.
 
+> [!NOTE]
+> Update management center (preview) doesn't support driver Updates. 
+
 ### First party updates on Windows
 By default, the Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. You can configure this option if you have downloaded and copied the latest [Administrative template files](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) available for Windows 2016 and later.
 

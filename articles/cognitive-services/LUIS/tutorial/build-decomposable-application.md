@@ -12,6 +12,9 @@ ms.date: 01/10/2022
 
 # Build a decomposable LUIS application
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 In this tutorial, you will be able to create a telecom LUIS application that can predict different user intentions. By the end of the tutorial, we should have a telecom application that can predict user intentions based on text provided by users.
 
 We will be handling different user scenarios (intents) such as:

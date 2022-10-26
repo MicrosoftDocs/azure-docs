@@ -690,6 +690,13 @@ The below table lists the properties supported by SQL Server source. You can edi
 | Query | If you select Query as input, specify a SQL query to fetch data from source, which overrides any table you specify in dataset. Using queries is a great way to reduce rows for testing or lookups.<br><br>**Order By** clause is not supported, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table that you can use in data flow.<br>Query example: `Select * from MyTable where customerId > 1000 and customerId < 2000`| No | String | query |
 | Batch size | Specify a batch size to chunk large data into reads. | No | Integer | batchSize |
 | Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
+| Enable incremental extract | Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed. | No | - |- |
+| Incremental date column | When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table. | No | - |- |
+| Enable native change data capture(Preview) | Use this option to tell ADF to only process delta data captured by [SQL change data capture technology](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) since the last time that the pipeline executed. With this option, the delta data including row insert, update and deletion will be loaded automatically without any incremental date column required. You need to [enable change data capture](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) on SQL Server before using this option in ADF. For more information about this option in ADF, see [native change data capture](#native-change-data-capture). | No | - |- |
+| Start reading from beginning | Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on. | No | - |- |
+
+
+
 
 > [!TIP]
 > The [common table expression (CTE)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15&preserve-view=true) in SQL is not supported in the mapping data flow **Query** mode, because the prerequisite of using this mode is that queries can be used in the SQL query FROM clause but CTEs cannot do this.
@@ -820,6 +827,73 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 
 >[!NOTE]
 >Currently, SQL Server [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported for source transformation in mapping data flows.
+
+
+## Native change data capture
+
+Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store.  What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
+
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. If you do want to change the pipeline name or activity name but still keep the checkpoint to get changed data from the last run automatically, please use your own Checkpoint key in dataflow activity to achieve that.
+
+When you debug the pipeline, this feature works the same. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you first time trigger your published pipeline, it automatically restarts from the beginning or gets changes from now on.
+
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
+
+### Example 1:
+
+When you directly chain a source transform referenced to SQL CDC enabled dataset with a sink transform referenced to a database in a mapping dataflow, the changes happened on SQL source will be automatically applied to the target database, so that you will easily get data replication scenario between databases. You can use update method in sink transform to select whether you want to allow insert, allow update or allow delete on target database. The example script in mapping dataflow is as below.
+
+```json
+source(output(
+		id as integer,
+		name as string
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	enableNativeCdc: true,
+	netChanges: true,
+	skipInitialLoad: false,
+	isolationLevel: 'READ_UNCOMMITTED',
+	format: 'table') ~> source1
+source1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:true,
+	insertable:true,
+	updateable:true,
+	upsertable:true,
+	keys:['id'],
+	format: 'table',
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true,
+	errorHandlingOption: 'stopOnFirstError') ~> sink1
+```
+
+### Example 2:
+
+If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types.  The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to process the delta data.
+
+```json
+source(output(
+		id as integer,
+		name as string
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	enableNativeCdc: true,
+	netChanges: true,
+	skipInitialLoad: false,
+	isolationLevel: 'READ_UNCOMMITTED',
+	format: 'table') ~> source1
+source1 derive(operationType = iif(isInsert(1), 1, iif(isUpdate(1), 2, 3))) ~> derivedColumn1
+derivedColumn1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> sink1
+```
+
+### Known limitation:
+
+*    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
 
 ## Troubleshoot connection issues
 

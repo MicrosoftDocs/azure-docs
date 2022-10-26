@@ -1,12 +1,12 @@
 ---
 title: Register a client application in Azure Active Directory for the Azure Health Data Services
 description: How to register a client application in the Azure AD and how to add a secret and API permissions to the Azure Health Data Services
-author: mcevoy-building7
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 09/02/2022
-ms.author: v-smcevoy
+ms.author: mikaelw
 ---
 
 # Register a client application in Azure Active Directory

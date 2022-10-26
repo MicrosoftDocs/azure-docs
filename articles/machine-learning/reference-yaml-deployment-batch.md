@@ -7,11 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
-author: blackmist
-ms.author: larryfr
+ms.reviewer: mopeakande 
+author: santiagxf 
+ms.author: fasantia
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
 ---
 
 # CLI (v2) batch deployment YAML schema
@@ -61,11 +60,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic (MLflow)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nyc-taxi-mlflow-deployment.yml":::
 
 ## YAML: custom model and scoring code
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml":::
 
 ## Next steps
 

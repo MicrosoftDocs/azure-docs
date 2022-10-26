@@ -1,7 +1,7 @@
 ---
-title: Migrate parallel run step from SDK v1 to SDK v2
+title: Upgrade parallel run step to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate parallel run step from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade parallel run step from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate parallel run step from SDK v1 to SDK v2
+# Upgrade parallel run step to SDK v2
 
 In SDK v2, "Parallel run step" is consolidated into job concept as `parallel job`. Parallel job keeps the same target to empower users to accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. On top of parallel run step, v2 parallel job provides extra benefits:
 
@@ -21,7 +21,7 @@ In SDK v2, "Parallel run step" is consolidated into job concept as `parallel job
 - Simplify input schema, which replaces `Dataset` as input by using v2 `data asset` concept. You can easily use your local files or blob directory URI as the inputs to parallel job.
 - More powerful features are under developed in v2 parallel job only. For example, resume the failed/canceled parallel job to continue process the failed or unprocessed mini-batches by reusing the successful result to save duplicate effort.
 
-To migrate your current sdk v1 parallel run step to v2, you'll need to 
+To upgrade your current sdk v1 parallel run step to v2, you'll need to 
 
 - Use `parallel_run_function` to create parallel job by replacing `ParallelRunConfig` and `ParallelRunStep` in v1.
 - Migrate your v1 pipeline to v2. Then invoke your v2 parallel job as a step in your v2 pipeline. See [how to migrate pipeline from v1 to v2](migrate-to-v2-execution-pipeline.md) for the details about pipeline migration.

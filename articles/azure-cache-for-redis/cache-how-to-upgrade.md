@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 09/29/2022
 ms.custom: template-how-to 
 ---
 
@@ -15,7 +15,13 @@ ms.custom: template-how-to
 
 Azure Cache for Redis supports upgrading the version of your Azure Cache for Redis from Redis 4 to Redis 6. Upgrading is permanent, and it might cause a brief connection issue similar to regular monthly maintenance. As a precautionary step, we recommend exporting the data from your existing Redis 4 cache and testing your client application with a Redis 6 cache in a lower environment before upgrading.
 
-For more information, see [here](cache-how-to-import-export-data.md) for details on how to export.
+For more details on how to export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+
+> [!IMPORTANT]
+> As announced in [What's new](cache-whats-new.md#upgrade-your-azure-cache-for-redis-instances-to-use-redis-version-6-by-june-30-2023), we'll retire version 4 for Azure Cache for Redis instances on June 30, 2023. Before that date, you need to upgrade any of your cache instances to version 6.
+>
+> For more information on the retirement of Redis 4, see [Retirements](cache-retired-features.md).
+>
 
 ## Prerequisites
 
@@ -25,7 +31,7 @@ For more information, see [here](cache-how-to-import-export-data.md) for details
 
 - Upgrading a Basic tier cache results in brief unavailability and data loss.
 - Upgrading on geo-replicated cache isn't supported. You must manually unlink the cache instances before upgrading.
-- Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to virtual machine scale set before upgrading. For more information, see [Caches with a dependency on Cloud Services (classic)](/azure/azure-cache-for-redis/cache-faq) for details on cloud services hosted caches.
+- Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to virtual machine scale set before upgrading. For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml) for details on cloud services hosted caches.
 
 ### Check the version of a cache
 
