@@ -19,11 +19,6 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [Break file locks](break-file-locks.md) (Preview)
-    
-    <!-- TK from PM -->
-    You do not need to register this feature to break file locks. 
-
 ## October 2022
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview) 

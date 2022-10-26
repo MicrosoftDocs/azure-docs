@@ -321,6 +321,8 @@
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot volume errors
       href: troubleshoot-volumes.md
+    - name: Troubleshoot file locks
+      href: Troubleshoot-file-locks.md
     - name: Troubleshoot application volume group errors
       href: troubleshoot-application-volume-groups.md
     - name: Troubleshoot snapshot policy errors
@@ -329,8 +331,6 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
-    - name: Break file locks
-      href: break-file-locks.md
 - name: Reference
   items:
   - name: REST
