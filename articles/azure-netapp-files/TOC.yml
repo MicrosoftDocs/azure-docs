@@ -223,8 +223,6 @@
         href: configure-unix-permissions-change-ownership-mode.md
       - name: Configure network features for a volume
         href: configure-network-features.md
-      - name: Break file locks
-        href: break-file-locks.md
     - name: Mount volumes
       items:
       - name: Mount an NFS volume for Windows or Linux VMs
@@ -331,6 +329,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Break file locks
+      href: break-file-locks.md
 - name: Reference
   items:
   - name: REST
