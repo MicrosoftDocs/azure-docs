@@ -23,12 +23,12 @@ The Azure OpenAI service provides REST API access to OpenAI's powerful language 
 | Feature | Azure OpenAI |
 | --- | --- |
 | Models available | GPT-3 base series <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
-| Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* available by request |
-| Billing Model| Coming Soon |
+| Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* available by request. Please open a support request|
+| Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 | Virtual network support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
 | UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
-| Regional availability | South Central US <br> West Europe |
+| Regional availability | East US <br> South Central US <br> West Europe |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
 ## Responsible AI

@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 07/22/2022
 ms.custom: contperf-fy21q1, ignite-2022
 ---
-# What is Azure Cognitive Search?
+# What's Azure Cognitive Search?
 
 Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers infrastructure, APIs, and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 

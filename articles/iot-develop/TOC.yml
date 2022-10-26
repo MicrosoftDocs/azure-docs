@@ -43,8 +43,6 @@
         href: tutorial-connect-device.md
       - name: Interact with a device from your solution
         href: tutorial-service.md
-    - name: Securely connect IoT devices to the cloud
-      href: /training/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Use MQTT to connect a device
@@ -174,11 +172,11 @@
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+        href: https://github.com/Azure-Samples/azure-iot-samples-csharp
       - name: Node.js
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
       - name: Java
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+        href: https://github.com/Azure-Samples/azure-iot-samples-java
       - name: Python
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
       - name: iOS Platform

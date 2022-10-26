@@ -61,7 +61,9 @@
     - name: High availability
       items:
         - name: Availability zones
-          href: automation-availability-zones.md        
+          href: automation-availability-zones.md
+        - name: Disaster recovery for Automation accounts 
+          href: automation-disaster-recovery.md        
 - name: How-to guides
   items:
     - name: Automation Account

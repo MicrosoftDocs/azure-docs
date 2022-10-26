@@ -181,7 +181,7 @@ Get-ADUser $userObject -properties KerberosEncryptionType
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-You've now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in [Assign access permissions](#assign-access-permissions-to-an-identity) to use an identity and [Configure NTFS permissions over SMB sections](#configure-windows-acls).
+You've now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in [Assign share-level permissions to an identity](#assign-share-level-permissions-to-an-identity) and [Configure Windows ACLs](#configure-windows-acls).
 
 ## Next steps
 

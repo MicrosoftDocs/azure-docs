@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: larryfr
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.date: 05/24/2022
 ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
@@ -90,9 +90,9 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 > [!TIP]
 > One of the batch deployments will serve as the default deployment for the endpoint. The default deployment will be used to do the actual batch scoring when the endpoint is invoked. Learn more about [batch endpoints and batch deployment](concept-endpoints.md#what-are-batch-endpoints).
 
-The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint). In the repository, this file is located at `/cli/endpoints/batch/batch-endpoint.yml`.
+The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint). In the repository, this file is located at `/cli/endpoints/batch/mnist-endpoint.yml`.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-endpoint.yml":::
 
 The following table describes the key properties of the endpoint YAML. For the full batch endpoint YAML schema, see [CLI (v2) batch endpoint YAML schema](./reference-yaml-endpoint-batch.md).
 
@@ -111,9 +111,9 @@ To create a batch deployment, you need all the following items:
 
 For more information about how to reference an Azure ML entity, see [Referencing an Azure ML entity](reference-yaml-core-syntax.md#referencing-an-azure-ml-entity).
 
-The example repository contains all the required files. The following YAML file defines a batch deployment with all the required inputs and optional settings. You can include this file in your CLI command to [create your batch deployment](#create-a-batch-deployment). In the repository, this file is located at `/cli/endpoints/batch/nonmlflow-deployment.yml`.
+The example repository contains all the required files. The following YAML file defines a batch deployment with all the required inputs and optional settings. You can include this file in your CLI command to [create your batch deployment](#create-a-batch-deployment). In the repository, this file is located at `/cli/endpoints/batch/mnist-torch-deployment.yml`.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml":::
 
 For the full batch deployment YAML schema, see [CLI (v2) batch deployment YAML schema](./reference-yaml-deployment-batch.md).
 
@@ -281,9 +281,9 @@ Notice that `--set-default` isn't used. If you `show` the batch endpoint again, 
 
 The example uses a model (`/cli/endpoints/batch/autolog_nyc_taxi`) trained and tracked with MLflow. `scoring_script` and `environment` can be auto generated using model's metadata, no need to specify in the YAML file. For more about MLflow, see [Train and track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md).
 
-Below is the YAML file the example uses to deploy an MLflow model, which only contains the minimum required properties. The source file in repository is `/cli/endpoints/batch/mlflow-deployment.yml`.
+Below is the YAML file the example uses to deploy an MLflow model, which only contains the minimum required properties. The source file in repository is `/cli/endpoints/batch/nyc-taxi-mlflow-deployment.yml`.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nyc-taxi-mlflow-deployment.yml":::
 
 > [!NOTE]
 > `scoring_script` and `environment` auto generation only supports Python Function model flavor and column-based model signature.

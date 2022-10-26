@@ -30,7 +30,7 @@ All Azure API Management pricing tiers are available for use with Azure Static W
 
 To link an Azure API Management service as the API backend for a static web app, follow these steps:
 
-1. In the Azure portal, navigate to the static web app.
+1. In the Azure portal, go to the static web app.
 
 1. Select **APIs** from the navigation menu.
 
@@ -69,13 +69,13 @@ The linking process also automatically applies the following configuration to yo
 * The linked static web app is configured to include the subscription's primary key and a valid access token when proxying requests to the API Management service.
 
 > [!IMPORTANT]
-> Changing the *validate-jwt* policy or regenerating the subscription's primary key will prevent your static web app from proxying requests to the API Management service. Do not modify or delete the subscription or product associated with your static web app while they are linked.
+> Changing the *validate-jwt* policy or regenerating the subscription's primary key prevents your static web app from proxying requests to the API Management service. Do not modify or delete the subscription or product associated with your static web app while they are linked.
 
 ## Unlink an Azure API Management service
 
 To unlink an Azure API Management service from a static web app, follow these steps:
 
-1. In the Azure portal, navigate to the static web app.
+1. In the Azure portal, go to the static web app.
 
 1. Locate the environment that you want to unlink and select the API Management service name.
 

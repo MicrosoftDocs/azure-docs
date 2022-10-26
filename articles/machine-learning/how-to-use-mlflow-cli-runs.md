@@ -3,11 +3,11 @@ title: Track ML experiments and models with MLflow
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models with MLflow
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: nibaccam
 ms.date: 04/08/2022
 ms.topic: how-to
 ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2, devplatv2, event-tier1-build-2022
@@ -277,7 +277,7 @@ To register and view a model from a job, use the following steps:
     mlflow.register_model(model_uri,"registered_model_name")
     ```
 
-1. View the registered model in your workspace with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+1. View the registered model in your workspace with [Azure Machine Learning studio](https://ml.azure.com).
 
     In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
 
@@ -294,7 +294,7 @@ To register and view a model from a job, use the following steps:
 
 ## Example files
 
-[Using MLflow (Jupyter Notebooks)](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/notebooks/using-mlflow)
+[Using MLflow (Jupyter Notebooks)](https://github.com/Azure/azureml-examples/tree/main/v1/notebooks/using-mlflow)
 
 ## Limitations
 
