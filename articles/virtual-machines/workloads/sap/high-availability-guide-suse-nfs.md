@@ -367,7 +367,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
              on-io-error       detach;
         }
         net {
-            protocol C;
             fencing  resource-and-stonith;  
         }
         on <b>prod-nfs-0</b> {
@@ -396,7 +395,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
              on-io-error       detach;
         }
         net {
-            protocol C;
             fencing  resource-and-stonith;  
         }
         on <b>prod-nfs-0</b> {
