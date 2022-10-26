@@ -1,6 +1,6 @@
 ---
-title: Import an OpenAPI specification using the Azure portal | Microsoft Docs
-description: Learn how to import an OpenAPI specification with API Management.
+title: Import an OpenAPI specification to Azure API Management | Microsoft Docs
+description: Learn how to import an OpenAPI specification to an API Management instance using the Azure portal, Azure CLI, or Azure PowerShell.
 services: api-management
 author: dlepow
 
@@ -13,9 +13,9 @@ ms.custom: engagement-fy23
 ---
 # Import an OpenAPI specification
 
-This article shows how to import an "OpenAPI specification" backend API residing at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. The article also shows how to test the API Management API.
-
 In this article, you learn how to import an OpenAPI specification to API Management using either the Azure portal, Azure CLI, or Azure PowerShell.
+
+An example OpenAPI specification backend resides at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. 
 
 ## Prerequisites
 
@@ -65,6 +65,8 @@ az apim api import --path $APIPath --resource-group $ResourceGroupName \
     --specification-format $SpecificationFormat --specification-url $SpecificationURL
 ```
 
+After importing the API, if needed, you can update the settings by using the [az apim api update]() command.
+
 #### [PowerShell](#tab/powershell)
 
 The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*.
@@ -86,6 +88,8 @@ $context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -Ser
 # Import API
 $api = Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
 ```
+
+After importing the API, if needed, you can update the settings by using the [Update-AzApiManagement API]() cmdlet.
 ---
 
 > [!NOTE]
