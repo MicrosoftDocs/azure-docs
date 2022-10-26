@@ -83,7 +83,7 @@ See how data, including time and date of transactions, merchant information, and
 |--------|:----------------------|:---------|
 |Receipt| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
 
-## Receipt fields extracted
+## Field extraction
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|
