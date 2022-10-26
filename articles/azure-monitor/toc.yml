@@ -45,8 +45,6 @@ items:
       href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
       href: app/tutorial-performance.md
-    - name: Alert on application health
-      href: app/tutorial-alert.md
     - name: Understand application users
       href: app/tutorial-users.md
     - name: Dashboard with application data
@@ -1550,8 +1548,6 @@ items:
       items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
     - name: Dashboards
       items:
       - name: Dashboard using log data
