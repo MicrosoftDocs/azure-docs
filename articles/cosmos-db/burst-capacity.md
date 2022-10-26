@@ -47,57 +47,7 @@ To check whether an Azure Cosmos DB account is eligible for the preview, you can
 ### Preview eligibility criteria
 To enroll in the preview, your Azure Cosmos DB account must meet all the following criteria:
   - Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Burst capacity doesn't apply to serverless accounts.
-  - If you're using API for NoSQL, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When burst capacity is enabled on your account, all requests sent from non .NET SDKs, or older .NET SDK versions won't be accepted.
-    - There are no SDK or driver requirements to use the feature with API for Cassandra, Gremlin, or MongoDB.
-  - Your Azure Cosmos DB account isn't using any unsupported connectors
-    - Azure Data Factory
-    - Azure Stream Analytics
-    - Logic Apps
-    - Azure Functions
-    - Azure Search
-    - Azure Cosmos DB Spark connector
-    - Azure Cosmos DB data migration tool
-    - Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
-
-### SDK requirements (API for NoSQL and Table only)
-#### API for NoSQL
-For API for NoSQL accounts, burst capacity is supported only in the latest version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use burst capacity with API for Gremlin, Cassandra, or MongoDB.
-
-Find the latest version of the supported SDK:
-
-| SDK | Supported versions | Package manager link |
-| --- | --- | --- |
-| **.NET SDK v3** | *>= 3.27.0* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/> |
-
-Support for other API for NoSQL SDKs is planned for the future.
-
-> [!TIP]
-> You should ensure that your application has been updated to use a compatible SDK version prior to enrolling in the preview. If you're using the legacy .NET V2 SDK, follow the [.NET SDK v3 migration guide](sql/migrate-dotnet-v3.md). 
-
-#### Table  API
-For API for Table accounts, burst capacity is supported only when using the latest version of the Tables SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. The legacy SDK with namespace `Microsoft.Azure.CosmosDB.Table` isn't supported. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/MigrationGuide.md) to upgrade to the latest SDK.
-
-| SDK | Supported versions | Package manager link |
-| --- | --- | --- |
-| **Azure Tables client library for .NET** | *>= 12.0.0* | <https://www.nuget.org/packages/Azure.Data.Tables/> |
-| **Azure Tables client library for Java** | *>= 12.0.0* | <https://mvnrepository.com/artifact/com.azure/azure-data-tables> |
-| **Azure Tables client library for JavaScript** | *>= 12.0.0* | <https://www.npmjs.com/package/@azure/data-tables> |
-| **Azure Tables client library for Python** | *>= 12.0.0* | <https://pypi.org/project/azure-data-tables/> |
-
-### Unsupported connectors
-
-If you enroll in the preview, the following connectors will fail.
-
-* Azure Data Factory<sup>1</sup>
-* Azure Stream Analytics<sup>1</sup>
-* Logic Apps<sup>1</sup>
-* Azure Functions<sup>1</sup>
-* Azure Search<sup>1</sup>
-* Azure Cosmos DB Spark connector<sup>1</sup>
-* Azure Cosmos DB data migration tool
-* Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
-
-<sup>1</sup>Support for these connectors is planned for the future.
+  - Your Azure Cosmos DB account is using API for NoSQL, Cassandra, Gremlin, MongoDB, or Table.
 
 ## Next steps
 

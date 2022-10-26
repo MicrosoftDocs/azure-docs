@@ -39,7 +39,7 @@ This section describes languages supported by Azure Video Indexer API.
     - Frame patterns (Only to Hebrew as of now)
 - Language customization
 
-| **Language**                   | **Code**       | **Transcription** | **LID**   | **MLID**  | **Translation** | **Customization** (language model) |
+| **Language**                   | **Code**       | **Transcription** | **LID**   | **MLID**  | **Translation** | **Customization** (language model)  |
 |:------------------------------:|:--------------:|:--------------------:|:-------:|:-------:|:-------------:|:---------------:|
 | Afrikaans                        | `af-ZA`      |   |   |    |  | ✔ |
 | Arabic (Israel)                  | `ar-IL`      | ✔ |   |   |  | ✔ |
@@ -50,7 +50,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Arabic (Palestinian Authority)   | `ar-PS`      | ✔ |   |   | ✔ | ✔ |
 | Arabic (Qatar)                   | `ar-QA`      | ✔ | ✔  | ✔  | ✔ | ✔ |
 | Arabic (Saudi Arabia)            | `ar-SA`      | ✔ | ✔  | ✔  | ✔ | ✔ |
-| Arabic (United Arab Emirates)    | `ar-AE`      | ✔ | ✔  | ✔  | ✔ | ✔ |
+| Arabic (United Arab Emirates)    | `ar-AE`      | ✔ |   |   | ✔ | ✔ |
 | Arabic Egypt                     | `ar-EG`      | ✔ | ✔  | ✔  | ✔ | ✔ |
 | Arabic Modern Standard (Bahrain) | `ar-BH`      | ✔ | ✔  | ✔  | ✔ | ✔ |
 | Arabic Syrian Arab Republic      | `ar-SY`      | ✔ | ✔  | ✔  | ✔ | ✔ |
