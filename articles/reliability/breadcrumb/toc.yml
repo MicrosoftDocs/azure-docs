@@ -1,7 +1,13 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
+items:
+- name: Learn
+  href: /
   items:
-  - name: Reliability
-    tocHref: /azure/reliability/
-    topicHref: /azure/reliability/index
+    - name: Azure
+      href: /azure/
+      items:
+      - name: Reliability
+        tocHref: /azure/azure-sql/database/
+        topicHref: /azure/reliability/index.yml
+      - name: Reliability
+        tocHref: /route-server/
+        topicHref: /azure/reliability/index.yml

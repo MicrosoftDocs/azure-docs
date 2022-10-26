@@ -94,7 +94,7 @@
     - name: SQL Database
       items:
       - name: Availability zones with SQL Database general purpose tier
-        href: /azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability
+        href: /azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Availability zones with SQL Database premium & business critical tiers
         href: /azure/azure-sql/database/high-availability-sla#premium-and-business-critical-service-tier-zone-redundant-availability
     - name: Storage
