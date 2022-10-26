@@ -167,7 +167,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### ILogger logs
 
-The default configuration collects `ILogger` `Warning` logs and more severe logs. Review the FAQ to [customize this configuration](../faq.yml).
+The default configuration collects `ILogger` `Warning` logs and more severe logs. Review [this FAQ](#how-do-i-customize-ilogger-logs-collection) to customize this behaviour.
 
 ### Dependencies
 
