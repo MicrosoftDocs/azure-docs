@@ -26,7 +26,7 @@ You can set up a new Nuxt project using `npx nuxi init nuxt-app`. Instead of usi
 
 1. Create a new repository under your GitHub account from a template repository.
 1. Go to [http://github.com/staticwebdev/nuxt-3-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxt-3-starter/generate)
-1. Name the repository **nuxtjs-starter**.
+1. Name the repository **nuxt-3-starter**.
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
     ```bash
