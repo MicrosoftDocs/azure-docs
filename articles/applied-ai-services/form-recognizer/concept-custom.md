@@ -113,7 +113,7 @@ Try extracting data from your specific or unique documents using custom models. 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-## Custom document model extraction types
+## Custom model extraction summary
 
 This table compares the supported data extraction areas:
 
