@@ -278,8 +278,16 @@ items:
         href: onboard-partner.md
       - name: Subscribe to partner events
         href: subscribe-to-partner-events.md
-      - name: Subscribe to Auth0 events
-        href: auth0-how-to.md
+      - name: Subscribe to SAP events
+        href: subscribe-to-sap-events.md        
+      - name: Auth0
+        items:
+        - name: Subscribe to Auth0 events
+          href: auth0-how-to.md
+        - name: Send Auth0 events to Azure Blob Storage
+          href: auth0-log-stream-blob-storage.md
+        - name: Send Auth0 events to Azure Application Insights
+          href: auth0-log-stream-app-insights.md
       - name: Subscribe to Microsoft Graph API events
         href: subscribe-to-graph-api-events.md
       - name: Enable managed identity for a partner topic

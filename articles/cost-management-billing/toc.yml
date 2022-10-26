@@ -69,8 +69,6 @@
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
-    - name: Migrate from EA reporting to Azure Resource Manager APIs
-      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -85,7 +83,7 @@
         href: reservations/reservation-discount-app-service.md?toc=/azure/cost-management-billing/toc.json
       - name: Azure Cache for Redis
         href: reservations/understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Cosmos DB
+      - name: Azure Cosmos DB
         href: reservations/understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for MariaDB
         href: reservations/understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/toc.json
@@ -399,8 +397,6 @@
       href: manage/mca-check-azure-credits-balance.md
     - name: Track your Microsoft Azure Consumption Commitment
       href: manage/track-consumption-commitment.md
-    - name: Migrate from EA reporting to Azure Resource Manager APIs
-      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Purchase and administer reservations
     items:
     - name: Determine what to purchase
@@ -415,7 +411,7 @@
         href: reservations/prepay-app-service.md?toc=/azure/cost-management-billing/toc.json
       - name: Azure Cache for Redis reservation
         href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
-      - name: Cosmos DB
+      - name: Azure Cosmos DB
         href: /azure/data-explorer
       - name: Databricks
         href: reservations/prepay-databricks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json

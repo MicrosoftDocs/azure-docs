@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Enable Azure Peering Service on a Direct peering by using PowerShell
 
-This article describes how to enable [Azure Peering Service](/articles/peering-service/about.md) on a Direct peering by using PowerShell cmdlets and the Azure Resource Manager deployment model.
+This article describes how to enable [Azure Peering Service](../peering-service/about.md) on a Direct peering by using PowerShell cmdlets and the Azure Resource Manager deployment model.
 
 If you prefer, you can complete this guide by using the Azure [portal](howto-peering-service-portal.md).
 

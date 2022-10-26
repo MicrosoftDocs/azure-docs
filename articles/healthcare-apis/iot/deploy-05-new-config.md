@@ -1,12 +1,12 @@
 ---
 title: Configuring the MedTech service for deployment using the Azure portal - Azure Health Data Services
 description: In this article, you'll learn how to configure the MedTech service for manual deployment using the Azure portal.
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/30/2022
-ms.author: v-smcevoy
+ms.date: 10/10/2022
+ms.author: jasteppe
 ---
 
 # Part 2: Configure the MedTech service for manual deployment using the Azure portal
@@ -42,7 +42,6 @@ Follow these six steps to fill in the Basics tab configuration:
     The Event Hubs Namespace is the name of the **Event Hubs Namespace** that you previously deployed. For this example, we'll use `eh-azuredocsdemo` with our MedTech service device messages.
 
     > [!TIP]
-    >
     > For information about deploying an Azure Event Hubs Namespace, see [Create an Event Hubs Namespace](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
     >
     > For more information about Azure Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
@@ -52,7 +51,6 @@ Follow these six steps to fill in the Basics tab configuration:
    The Event Hubs name is the name of the event hub that you previously deployed within the Event Hubs Namespace. For this example, we'll use `devicedata` with our MedTech service device messages.  
 
    > [!TIP]
-   >
    > For information about deploying an Azure event hub, see [Create an event hub](../../event-hubs/event-hubs-create.md#create-an-event-hub).
 
 4. Enter the **Consumer group**.
@@ -64,15 +62,14 @@ Follow these six steps to fill in the Basics tab configuration:
 6. By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
 
    > [!IMPORTANT]
-   >
    > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
    >
    > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
    >
    > Examples:
-
+   >
    > - Two MedTech services accessing the same device message event hub.
-
+   >
    > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 The Basics tab should now look like this after you have filled it out:
@@ -112,7 +109,7 @@ To begin configuring destination mapping, go to the Create MedTech service page 
 
 Under the **Destination** tab, use these values to enter the destination properties for your MedTech service instance:
 
-- First, enter the name of your **FHIR server** using the following four steps:
+- First, enter the name of your **Fast Healthcare Interoperability Resources (FHIR&#174;) server** using the following four steps:
 
   1. The **FHIR Server** name (also known as the **FHIR service**) can be located by using the **Search** bar at the top of the screen. 
   1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-03-new-manual.md#deploy-the-fhir-service).

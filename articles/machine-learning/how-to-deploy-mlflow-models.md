@@ -5,8 +5,9 @@ description: Learn to deploy your MLflow model to the deployment targets support
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: fasantia
 author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.date: 06/06/2022
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022

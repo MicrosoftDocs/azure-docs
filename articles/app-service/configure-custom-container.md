@@ -35,18 +35,18 @@ For your custom Windows image, you must choose the right [parent image (base ima
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):20H2
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):ltsc2019
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-20H2
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-ltsc2019
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-1809
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-1809
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-1809
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-1809
+- [https://mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/windows/servercore:ltsc2022)
+- [https://mcr.microsoft.com/windows/servercore:ltsc2019](https://mcr.microsoft.com/windows/servercore:ltsc2019)
+- [https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022](https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019](https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019)
+- [https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-1809](https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-1809)
+- [https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-1809](https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-1809)
+- [https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-1809](https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-1809)
+- [https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-1809](https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-1809)
 
 ::: zone-end
 

@@ -4,7 +4,8 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 09/12/2022
+ms.custom: ignite-2022
+ms.date: 09/13/2022
 ms.author: robb
 ms.reviewer: priyamishra
 ---
@@ -78,13 +79,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|CACompliantDeviceSuccessCount|Yes|CACompliantDeviceSuccessCount|Count|Count|CA compliant device success count for Azure AD|No Dimensions|
-|CAManagedDeviceSuccessCount|No|CAManagedDeviceSuccessCount|Count|Count|CA domain join device success count for Azure AD|No Dimensions|
-|MFAAttemptCount|No|MFAAttemptCount|Count|Count|MFA attempt count for Azure AD|No Dimensions|
-|MFAFailureCount|No|MFAFailureCount|Count|Count|MFA failure count for Azure AD|No Dimensions|
-|MFASuccessCount|No|MFASuccessCount|Count|Count|MFA success count for Azure AD|No Dimensions|
-|SamlFailureCount|Yes|SamlFailureCount|Count|Count|Saml token failure count for relying party scenario|No Dimensions|
-|SamlSuccessCount|Yes|SamlSuccessCount|Count|Count|Saml token success count for relying party scenario|No Dimensions|
+|ThrottledRequests|No|ThrottledRequests|Count|Average|azureADMetrics type metric|No Dimensions|
 
 
 ## Microsoft.AnalysisServices/servers
@@ -123,7 +118,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |qpu_metric|Yes|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|ServerResourceType|
 |QueryPoolBusyThreads|Yes|Query Pool Busy Threads|Count|Average|Number of busy threads in the query thread pool.|ServerResourceType|
 |QueryPoolIdleThreads|Yes|Threads: Query pool idle threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|ServerResourceType|
-|QueryPoolJobQueueLength|Yes|Threads: Query pool job queue length|Count|Average|Number of jobs in the queue of the query thread pool.|ServerResourceType|
+|QueryPoolJobQueueLength|Yes|Threads: Query pool job queue lengt|Count|Average|Number of jobs in the queue of the query thread pool.|ServerResourceType|
 |Quota|Yes|Memory: Quota|Bytes|Average|Current memory quota, in bytes. Memory quota is also known as a memory grant or memory reservation.|ServerResourceType|
 |QuotaBlocked|Yes|Memory: Quota Blocked|Count|Average|Current number of quota requests that are blocked until other memory quotas are freed.|ServerResourceType|
 |RowsConvertedPerSec|Yes|Processing: Rows converted per sec|CountPerSecond|Average|Rate of rows converted during processing.|ServerResourceType|
@@ -227,7 +222,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IngressFailedRequests|Yes|Failed Requests|Count|Average|Count of failed requests by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressRequests|Yes|Requests|Count|Average|Count of requests by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressResponseStatus|Yes|Response Status|Count|Average|HTTP response status returned by Azure Spring Cloud. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories|Hostname, HttpStatus|
-|IngressResponseTime|Yes|Response Time|Seconds|Average|Http response time return by Azure Spring Cloud|Hostname, HttpStatus||jvm.gc.max.data.size|Yes|jvm.gc.max.data.size|Bytes|Average|Max size of old generation memory pool|Deployment, AppName, Pod|
+|IngressResponseTime|Yes|Response Time|Seconds|Average|Http response time return by Azure Spring Cloud|Hostname, HttpStatus|
+|jvm.gc.max.data.size|Yes|jvm.gc.max.data.size|Bytes|Average|Max size of old generation memory pool|Deployment, AppName, Pod|
 |jvm.gc.memory.allocated|Yes|jvm.gc.memory.allocated|Bytes|Maximum|Incremented for an increase in the size of the young generation memory pool after one GC to before the next|Deployment, AppName, Pod|
 |jvm.gc.memory.promoted|Yes|jvm.gc.memory.promoted|Bytes|Maximum|Count of positive increases in the size of the old generation memory pool before GC to after GC|Deployment, AppName, Pod|
 |jvm.gc.pause.total.count|Yes|jvm.gc.pause.total.count|Count|Total|GC Pause Count|Deployment, AppName, Pod|
@@ -265,7 +261,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |tomcat.threads.current|Yes|tomcat.threads.current|Count|Total|Tomcat Current Thread Count|Deployment, AppName, Pod|
 |total-requests|Yes|total-requests|Count|Average|Total number of requests in the lifetime of the process|Deployment, AppName, Pod|
 |working-set|Yes|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
-
 
 ## Microsoft.Automation/automationAccounts
 
@@ -327,13 +322,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WaitingForStartTaskNodeCount|No|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|No Dimensions|
 
 
-## Microsoft.BatchAI/workspaces 
+## Microsoft.BatchAI/workspaces
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|No|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiJobEvent|BaiJobEvent|No|
 
-|Category|Category Display Name|Costs To Export| 
-|---|---|---| 
-|BaiClusterEvent|BaiClusterEvent|No| 
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No| 
-|BaiJobEvent|BaiJobEvent|No| 
 
 ## microsoft.bing/accounts
 
@@ -448,205 +443,203 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allConnectionsClosedPerSecond|Yes|Connections Closed Per Second (Instance Based)|CountPerSecond|Maximum|The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). For more details, see https://aka.ms/redis/metrics.|ShardId, Primary, Ssl|
-|allConnectionsCreatedPerSecond|Yes|Connections Created Per Second (Instance Based)|CountPerSecond|Maximum|The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). For more details, see https://aka.ms/redis/metrics.|ShardId, Primary, Ssl|
-|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allgetcommands|Yes|Gets (Instance Based)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allpercentprocessortime|Yes|CPU (Instance Based)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allserverLoad|Yes|Server Load (Instance Based)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allsetcommands|Yes|Sets (Instance Based)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|alltotalcommandsprocessed|Yes|Total Operations  (Instance Based)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|alltotalkeys|Yes|Total Keys (Instance Based)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allusedmemory|Yes|Used Memory (Instance Based)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allusedmemorypercentage|Yes|Used Memory Percentage (Instance Based)|Percent|Maximum|The percentage of cache memory used for key/value pairs. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allusedmemoryRss|Yes|Used Memory RSS (Instance Based)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|cachehits|Yes|Cache Hits|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|cachehits0|Yes|Cache Hits (Shard 0)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits1|Yes|Cache Hits (Shard 1)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits2|Yes|Cache Hits (Shard 2)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits3|Yes|Cache Hits (Shard 3)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits4|Yes|Cache Hits (Shard 4)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits5|Yes|Cache Hits (Shard 5)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits6|Yes|Cache Hits (Shard 6)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits7|Yes|Cache Hits (Shard 7)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits8|Yes|Cache Hits (Shard 8)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachehits9|Yes|Cache Hits (Shard 9)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average|The latency to the cache in microseconds. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|cachemisses|Yes|Cache Misses|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|cachemisses0|Yes|Cache Misses (Shard 0)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses1|Yes|Cache Misses (Shard 1)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses2|Yes|Cache Misses (Shard 2)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses3|Yes|Cache Misses (Shard 3)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses4|Yes|Cache Misses (Shard 4)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses5|Yes|Cache Misses (Shard 5)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses6|Yes|Cache Misses (Shard 6)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses7|Yes|Cache Misses (Shard 7)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses8|Yes|Cache Misses (Shard 8)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemisses9|Yes|Cache Misses (Shard 9)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cachemissrate|Yes|Cache Miss Rate|Percent|Total|The % of get requests that miss. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId|
-|cacheRead0|Yes|Cache Read (Shard 0)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead1|Yes|Cache Read (Shard 1)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead2|Yes|Cache Read (Shard 2)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead3|Yes|Cache Read (Shard 3)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead4|Yes|Cache Read (Shard 4)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead5|Yes|Cache Read (Shard 5)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead6|Yes|Cache Read (Shard 6)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead7|Yes|Cache Read (Shard 7)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead8|Yes|Cache Read (Shard 8)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheRead9|Yes|Cache Read (Shard 9)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId|
-|cacheWrite0|Yes|Cache Write (Shard 0)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite1|Yes|Cache Write (Shard 1)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite2|Yes|Cache Write (Shard 2)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite3|Yes|Cache Write (Shard 3)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite4|Yes|Cache Write (Shard 4)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite5|Yes|Cache Write (Shard 5)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite6|Yes|Cache Write (Shard 6)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite7|Yes|Cache Write (Shard 7)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite8|Yes|Cache Write (Shard 8)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|cacheWrite9|Yes|Cache Write (Shard 9)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients|Yes|Connected Clients|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|connectedclients0|Yes|Connected Clients (Shard 0)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients1|Yes|Connected Clients (Shard 1)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients2|Yes|Connected Clients (Shard 2)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients3|Yes|Connected Clients (Shard 3)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients4|Yes|Connected Clients (Shard 4)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients5|Yes|Connected Clients (Shard 5)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients6|Yes|Connected Clients (Shard 6)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients7|Yes|Connected Clients (Shard 7)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients8|Yes|Connected Clients (Shard 8)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|connectedclients9|Yes|Connected Clients (Shard 9)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|errors|Yes|Errors|Count|Maximum|The number errors that occurred on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, ErrorType|
-|evictedkeys|Yes|Evicted Keys|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|evictedkeys0|Yes|Evicted Keys (Shard 0)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys1|Yes|Evicted Keys (Shard 1)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys2|Yes|Evicted Keys (Shard 2)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys3|Yes|Evicted Keys (Shard 3)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys4|Yes|Evicted Keys (Shard 4)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys5|Yes|Evicted Keys (Shard 5)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys6|Yes|Evicted Keys (Shard 6)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys7|Yes|Evicted Keys (Shard 7)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys8|Yes|Evicted Keys (Shard 8)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|evictedkeys9|Yes|Evicted Keys (Shard 9)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys|Yes|Expired Keys|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|expiredkeys0|Yes|Expired Keys (Shard 0)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys1|Yes|Expired Keys (Shard 1)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys2|Yes|Expired Keys (Shard 2)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys3|Yes|Expired Keys (Shard 3)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys4|Yes|Expired Keys (Shard 4)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys5|Yes|Expired Keys (Shard 5)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys6|Yes|Expired Keys (Shard 6)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys7|Yes|Expired Keys (Shard 7)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys8|Yes|Expired Keys (Shard 8)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|expiredkeys9|Yes|Expired Keys (Shard 9)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands|Yes|Gets|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|getcommands0|Yes|Gets (Shard 0)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands1|Yes|Gets (Shard 1)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands2|Yes|Gets (Shard 2)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands3|Yes|Gets (Shard 3)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands4|Yes|Gets (Shard 4)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands5|Yes|Gets (Shard 5)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands6|Yes|Gets (Shard 6)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands7|Yes|Gets (Shard 7)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands8|Yes|Gets (Shard 8)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|getcommands9|Yes|Gets (Shard 9)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond|Yes|Operations Per Second|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|operationsPerSecond0|Yes|Operations Per Second (Shard 0)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond1|Yes|Operations Per Second (Shard 1)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond2|Yes|Operations Per Second (Shard 2)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond3|Yes|Operations Per Second (Shard 3)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond4|Yes|Operations Per Second (Shard 4)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond5|Yes|Operations Per Second (Shard 5)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond6|Yes|Operations Per Second (Shard 6)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond7|Yes|Operations Per Second (Shard 7)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond8|Yes|Operations Per Second (Shard 8)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|operationsPerSecond9|Yes|Operations Per Second (Shard 9)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime|Yes|CPU|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|percentProcessorTime0|Yes|CPU (Shard 0)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime1|Yes|CPU (Shard 1)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime2|Yes|CPU (Shard 2)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime3|Yes|CPU (Shard 3)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime4|Yes|CPU (Shard 4)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime5|Yes|CPU (Shard 5)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime6|Yes|CPU (Shard 6)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime7|Yes|CPU (Shard 7)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime8|Yes|CPU (Shard 8)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|percentProcessorTime9|Yes|CPU (Shard 9)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad|Yes|Server Load|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|serverLoad0|Yes|Server Load (Shard 0)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad1|Yes|Server Load (Shard 1)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad2|Yes|Server Load (Shard 2)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad3|Yes|Server Load (Shard 3)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad4|Yes|Server Load (Shard 4)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad5|Yes|Server Load (Shard 5)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad6|Yes|Server Load (Shard 6)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad7|Yes|Server Load (Shard 7)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad8|Yes|Server Load (Shard 8)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|serverLoad9|Yes|Server Load (Shard 9)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands|Yes|Sets|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|setcommands0|Yes|Sets (Shard 0)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands1|Yes|Sets (Shard 1)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands2|Yes|Sets (Shard 2)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands3|Yes|Sets (Shard 3)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands4|Yes|Sets (Shard 4)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands5|Yes|Sets (Shard 5)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands6|Yes|Sets (Shard 6)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands7|Yes|Sets (Shard 7)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands8|Yes|Sets (Shard 8)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|setcommands9|Yes|Sets (Shard 9)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed|Yes|Total Operations|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|totalcommandsprocessed0|Yes|Total Operations (Shard 0)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed1|Yes|Total Operations (Shard 1)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed2|Yes|Total Operations (Shard 2)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed3|Yes|Total Operations (Shard 3)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed4|Yes|Total Operations (Shard 4)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed5|Yes|Total Operations (Shard 5)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed6|Yes|Total Operations (Shard 6)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed7|Yes|Total Operations (Shard 7)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed8|Yes|Total Operations (Shard 8)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalcommandsprocessed9|Yes|Total Operations (Shard 9)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys|Yes|Total Keys|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|totalkeys0|Yes|Total Keys (Shard 0)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys1|Yes|Total Keys (Shard 1)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys2|Yes|Total Keys (Shard 2)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys3|Yes|Total Keys (Shard 3)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys4|Yes|Total Keys (Shard 4)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys5|Yes|Total Keys (Shard 5)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys6|Yes|Total Keys (Shard 6)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys7|Yes|Total Keys (Shard 7)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys8|Yes|Total Keys (Shard 8)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|totalkeys9|Yes|Total Keys (Shard 9)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory|Yes|Used Memory|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|usedmemory0|Yes|Used Memory (Shard 0)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory1|Yes|Used Memory (Shard 1)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory2|Yes|Used Memory (Shard 2)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory3|Yes|Used Memory (Shard 3)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory4|Yes|Used Memory (Shard 4)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory5|Yes|Used Memory (Shard 5)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory6|Yes|Used Memory (Shard 6)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory7|Yes|Used Memory (Shard 7)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory8|Yes|Used Memory (Shard 8)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemory9|Yes|Used Memory (Shard 9)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum|The percentage of cache memory used for key/value pairs. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|usedmemoryRss|Yes|Used Memory RSS|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|ShardId|
-|usedmemoryRss0|Yes|Used Memory RSS (Shard 0)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss1|Yes|Used Memory RSS (Shard 1)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss2|Yes|Used Memory RSS (Shard 2)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss3|Yes|Used Memory RSS (Shard 3)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss4|Yes|Used Memory RSS (Shard 4)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss5|Yes|Used Memory RSS (Shard 5)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss6|Yes|Used Memory RSS (Shard 6)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss7|Yes|Used Memory RSS (Shard 7)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss8|Yes|Used Memory RSS (Shard 8)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|usedmemoryRss9|Yes|Used Memory RSS (Shard 9)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
+|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
+|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allgetcommands|Yes|Gets (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allpercentprocessortime|Yes|CPU (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allserverLoad|Yes|Server Load (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allsetcommands|Yes|Sets (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alltotalcommandsprocessed|Yes|Total Operations  (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alltotalkeys|Yes|Total Keys (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allusedmemory|Yes|Used Memory (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
+|allusedmemorypercentage|Yes|Used Memory Percentage (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allusedmemoryRss|Yes|Used Memory RSS (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
+|cachehits|Yes|Cache Hits|Count|Total||ShardId|
+|cachehits0|Yes|Cache Hits (Shard 0)|Count|Total||No Dimensions|
+|cachehits1|Yes|Cache Hits (Shard 1)|Count|Total||No Dimensions|
+|cachehits2|Yes|Cache Hits (Shard 2)|Count|Total||No Dimensions|
+|cachehits3|Yes|Cache Hits (Shard 3)|Count|Total||No Dimensions|
+|cachehits4|Yes|Cache Hits (Shard 4)|Count|Total||No Dimensions|
+|cachehits5|Yes|Cache Hits (Shard 5)|Count|Total||No Dimensions|
+|cachehits6|Yes|Cache Hits (Shard 6)|Count|Total||No Dimensions|
+|cachehits7|Yes|Cache Hits (Shard 7)|Count|Total||No Dimensions|
+|cachehits8|Yes|Cache Hits (Shard 8)|Count|Total||No Dimensions|
+|cachehits9|Yes|Cache Hits (Shard 9)|Count|Total||No Dimensions|
+|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average||ShardId|
+|cachemisses|Yes|Cache Misses|Count|Total||ShardId|
+|cachemisses0|Yes|Cache Misses (Shard 0)|Count|Total||No Dimensions|
+|cachemisses1|Yes|Cache Misses (Shard 1)|Count|Total||No Dimensions|
+|cachemisses2|Yes|Cache Misses (Shard 2)|Count|Total||No Dimensions|
+|cachemisses3|Yes|Cache Misses (Shard 3)|Count|Total||No Dimensions|
+|cachemisses4|Yes|Cache Misses (Shard 4)|Count|Total||No Dimensions|
+|cachemisses5|Yes|Cache Misses (Shard 5)|Count|Total||No Dimensions|
+|cachemisses6|Yes|Cache Misses (Shard 6)|Count|Total||No Dimensions|
+|cachemisses7|Yes|Cache Misses (Shard 7)|Count|Total||No Dimensions|
+|cachemisses8|Yes|Cache Misses (Shard 8)|Count|Total||No Dimensions|
+|cachemisses9|Yes|Cache Misses (Shard 9)|Count|Total||No Dimensions|
+|cachemissrate|Yes|Cache Miss Rate|Percent|cachemissrate||ShardId|
+|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||ShardId|
+|cacheRead0|Yes|Cache Read (Shard 0)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead1|Yes|Cache Read (Shard 1)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead2|Yes|Cache Read (Shard 2)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead3|Yes|Cache Read (Shard 3)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead4|Yes|Cache Read (Shard 4)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead5|Yes|Cache Read (Shard 5)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead6|Yes|Cache Read (Shard 6)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead7|Yes|Cache Read (Shard 7)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead8|Yes|Cache Read (Shard 8)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead9|Yes|Cache Read (Shard 9)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum||ShardId|
+|cacheWrite0|Yes|Cache Write (Shard 0)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite1|Yes|Cache Write (Shard 1)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite2|Yes|Cache Write (Shard 2)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite3|Yes|Cache Write (Shard 3)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite4|Yes|Cache Write (Shard 4)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite5|Yes|Cache Write (Shard 5)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite6|Yes|Cache Write (Shard 6)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite7|Yes|Cache Write (Shard 7)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite8|Yes|Cache Write (Shard 8)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite9|Yes|Cache Write (Shard 9)|BytesPerSecond|Maximum||No Dimensions|
+|connectedclients|Yes|Connected Clients|Count|Maximum||ShardId|
+|connectedclients0|Yes|Connected Clients (Shard 0)|Count|Maximum||No Dimensions|
+|connectedclients1|Yes|Connected Clients (Shard 1)|Count|Maximum||No Dimensions|
+|connectedclients2|Yes|Connected Clients (Shard 2)|Count|Maximum||No Dimensions|
+|connectedclients3|Yes|Connected Clients (Shard 3)|Count|Maximum||No Dimensions|
+|connectedclients4|Yes|Connected Clients (Shard 4)|Count|Maximum||No Dimensions|
+|connectedclients5|Yes|Connected Clients (Shard 5)|Count|Maximum||No Dimensions|
+|connectedclients6|Yes|Connected Clients (Shard 6)|Count|Maximum||No Dimensions|
+|connectedclients7|Yes|Connected Clients (Shard 7)|Count|Maximum||No Dimensions|
+|connectedclients8|Yes|Connected Clients (Shard 8)|Count|Maximum||No Dimensions|
+|connectedclients9|Yes|Connected Clients (Shard 9)|Count|Maximum||No Dimensions|
+|errors|Yes|Errors|Count|Maximum||ShardId, ErrorType|
+|evictedkeys|Yes|Evicted Keys|Count|Total||ShardId|
+|evictedkeys0|Yes|Evicted Keys (Shard 0)|Count|Total||No Dimensions|
+|evictedkeys1|Yes|Evicted Keys (Shard 1)|Count|Total||No Dimensions|
+|evictedkeys2|Yes|Evicted Keys (Shard 2)|Count|Total||No Dimensions|
+|evictedkeys3|Yes|Evicted Keys (Shard 3)|Count|Total||No Dimensions|
+|evictedkeys4|Yes|Evicted Keys (Shard 4)|Count|Total||No Dimensions|
+|evictedkeys5|Yes|Evicted Keys (Shard 5)|Count|Total||No Dimensions|
+|evictedkeys6|Yes|Evicted Keys (Shard 6)|Count|Total||No Dimensions|
+|evictedkeys7|Yes|Evicted Keys (Shard 7)|Count|Total||No Dimensions|
+|evictedkeys8|Yes|Evicted Keys (Shard 8)|Count|Total||No Dimensions|
+|evictedkeys9|Yes|Evicted Keys (Shard 9)|Count|Total||No Dimensions|
+|expiredkeys|Yes|Expired Keys|Count|Total||ShardId|
+|expiredkeys0|Yes|Expired Keys (Shard 0)|Count|Total||No Dimensions|
+|expiredkeys1|Yes|Expired Keys (Shard 1)|Count|Total||No Dimensions|
+|expiredkeys2|Yes|Expired Keys (Shard 2)|Count|Total||No Dimensions|
+|expiredkeys3|Yes|Expired Keys (Shard 3)|Count|Total||No Dimensions|
+|expiredkeys4|Yes|Expired Keys (Shard 4)|Count|Total||No Dimensions|
+|expiredkeys5|Yes|Expired Keys (Shard 5)|Count|Total||No Dimensions|
+|expiredkeys6|Yes|Expired Keys (Shard 6)|Count|Total||No Dimensions|
+|expiredkeys7|Yes|Expired Keys (Shard 7)|Count|Total||No Dimensions|
+|expiredkeys8|Yes|Expired Keys (Shard 8)|Count|Total||No Dimensions|
+|expiredkeys9|Yes|Expired Keys (Shard 9)|Count|Total||No Dimensions|
+|getcommands|Yes|Gets|Count|Total||ShardId|
+|getcommands0|Yes|Gets (Shard 0)|Count|Total||No Dimensions|
+|getcommands1|Yes|Gets (Shard 1)|Count|Total||No Dimensions|
+|getcommands2|Yes|Gets (Shard 2)|Count|Total||No Dimensions|
+|getcommands3|Yes|Gets (Shard 3)|Count|Total||No Dimensions|
+|getcommands4|Yes|Gets (Shard 4)|Count|Total||No Dimensions|
+|getcommands5|Yes|Gets (Shard 5)|Count|Total||No Dimensions|
+|getcommands6|Yes|Gets (Shard 6)|Count|Total||No Dimensions|
+|getcommands7|Yes|Gets (Shard 7)|Count|Total||No Dimensions|
+|getcommands8|Yes|Gets (Shard 8)|Count|Total||No Dimensions|
+|getcommands9|Yes|Gets (Shard 9)|Count|Total||No Dimensions|
+|operationsPerSecond|Yes|Operations Per Second|Count|Maximum||ShardId|
+|operationsPerSecond0|Yes|Operations Per Second (Shard 0)|Count|Maximum||No Dimensions|
+|operationsPerSecond1|Yes|Operations Per Second (Shard 1)|Count|Maximum||No Dimensions|
+|operationsPerSecond2|Yes|Operations Per Second (Shard 2)|Count|Maximum||No Dimensions|
+|operationsPerSecond3|Yes|Operations Per Second (Shard 3)|Count|Maximum||No Dimensions|
+|operationsPerSecond4|Yes|Operations Per Second (Shard 4)|Count|Maximum||No Dimensions|
+|operationsPerSecond5|Yes|Operations Per Second (Shard 5)|Count|Maximum||No Dimensions|
+|operationsPerSecond6|Yes|Operations Per Second (Shard 6)|Count|Maximum||No Dimensions|
+|operationsPerSecond7|Yes|Operations Per Second (Shard 7)|Count|Maximum||No Dimensions|
+|operationsPerSecond8|Yes|Operations Per Second (Shard 8)|Count|Maximum||No Dimensions|
+|operationsPerSecond9|Yes|Operations Per Second (Shard 9)|Count|Maximum||No Dimensions|
+|percentProcessorTime|Yes|CPU|Percent|Maximum||ShardId|
+|percentProcessorTime0|Yes|CPU (Shard 0)|Percent|Maximum||No Dimensions|
+|percentProcessorTime1|Yes|CPU (Shard 1)|Percent|Maximum||No Dimensions|
+|percentProcessorTime2|Yes|CPU (Shard 2)|Percent|Maximum||No Dimensions|
+|percentProcessorTime3|Yes|CPU (Shard 3)|Percent|Maximum||No Dimensions|
+|percentProcessorTime4|Yes|CPU (Shard 4)|Percent|Maximum||No Dimensions|
+|percentProcessorTime5|Yes|CPU (Shard 5)|Percent|Maximum||No Dimensions|
+|percentProcessorTime6|Yes|CPU (Shard 6)|Percent|Maximum||No Dimensions|
+|percentProcessorTime7|Yes|CPU (Shard 7)|Percent|Maximum||No Dimensions|
+|percentProcessorTime8|Yes|CPU (Shard 8)|Percent|Maximum||No Dimensions|
+|percentProcessorTime9|Yes|CPU (Shard 9)|Percent|Maximum||No Dimensions|
+|serverLoad|Yes|Server Load|Percent|Maximum||ShardId|
+|serverLoad0|Yes|Server Load (Shard 0)|Percent|Maximum||No Dimensions|
+|serverLoad1|Yes|Server Load (Shard 1)|Percent|Maximum||No Dimensions|
+|serverLoad2|Yes|Server Load (Shard 2)|Percent|Maximum||No Dimensions|
+|serverLoad3|Yes|Server Load (Shard 3)|Percent|Maximum||No Dimensions|
+|serverLoad4|Yes|Server Load (Shard 4)|Percent|Maximum||No Dimensions|
+|serverLoad5|Yes|Server Load (Shard 5)|Percent|Maximum||No Dimensions|
+|serverLoad6|Yes|Server Load (Shard 6)|Percent|Maximum||No Dimensions|
+|serverLoad7|Yes|Server Load (Shard 7)|Percent|Maximum||No Dimensions|
+|serverLoad8|Yes|Server Load (Shard 8)|Percent|Maximum||No Dimensions|
+|serverLoad9|Yes|Server Load (Shard 9)|Percent|Maximum||No Dimensions|
+|setcommands|Yes|Sets|Count|Total||ShardId|
+|setcommands0|Yes|Sets (Shard 0)|Count|Total||No Dimensions|
+|setcommands1|Yes|Sets (Shard 1)|Count|Total||No Dimensions|
+|setcommands2|Yes|Sets (Shard 2)|Count|Total||No Dimensions|
+|setcommands3|Yes|Sets (Shard 3)|Count|Total||No Dimensions|
+|setcommands4|Yes|Sets (Shard 4)|Count|Total||No Dimensions|
+|setcommands5|Yes|Sets (Shard 5)|Count|Total||No Dimensions|
+|setcommands6|Yes|Sets (Shard 6)|Count|Total||No Dimensions|
+|setcommands7|Yes|Sets (Shard 7)|Count|Total||No Dimensions|
+|setcommands8|Yes|Sets (Shard 8)|Count|Total||No Dimensions|
+|setcommands9|Yes|Sets (Shard 9)|Count|Total||No Dimensions|
+|totalcommandsprocessed|Yes|Total Operations|Count|Total||ShardId|
+|totalcommandsprocessed0|Yes|Total Operations (Shard 0)|Count|Total||No Dimensions|
+|totalcommandsprocessed1|Yes|Total Operations (Shard 1)|Count|Total||No Dimensions|
+|totalcommandsprocessed2|Yes|Total Operations (Shard 2)|Count|Total||No Dimensions|
+|totalcommandsprocessed3|Yes|Total Operations (Shard 3)|Count|Total||No Dimensions|
+|totalcommandsprocessed4|Yes|Total Operations (Shard 4)|Count|Total||No Dimensions|
+|totalcommandsprocessed5|Yes|Total Operations (Shard 5)|Count|Total||No Dimensions|
+|totalcommandsprocessed6|Yes|Total Operations (Shard 6)|Count|Total||No Dimensions|
+|totalcommandsprocessed7|Yes|Total Operations (Shard 7)|Count|Total||No Dimensions|
+|totalcommandsprocessed8|Yes|Total Operations (Shard 8)|Count|Total||No Dimensions|
+|totalcommandsprocessed9|Yes|Total Operations (Shard 9)|Count|Total||No Dimensions|
+|totalkeys|Yes|Total Keys|Count|Maximum||ShardId|
+|totalkeys0|Yes|Total Keys (Shard 0)|Count|Maximum||No Dimensions|
+|totalkeys1|Yes|Total Keys (Shard 1)|Count|Maximum||No Dimensions|
+|totalkeys2|Yes|Total Keys (Shard 2)|Count|Maximum||No Dimensions|
+|totalkeys3|Yes|Total Keys (Shard 3)|Count|Maximum||No Dimensions|
+|totalkeys4|Yes|Total Keys (Shard 4)|Count|Maximum||No Dimensions|
+|totalkeys5|Yes|Total Keys (Shard 5)|Count|Maximum||No Dimensions|
+|totalkeys6|Yes|Total Keys (Shard 6)|Count|Maximum||No Dimensions|
+|totalkeys7|Yes|Total Keys (Shard 7)|Count|Maximum||No Dimensions|
+|totalkeys8|Yes|Total Keys (Shard 8)|Count|Maximum||No Dimensions|
+|totalkeys9|Yes|Total Keys (Shard 9)|Count|Maximum||No Dimensions|
+|usedmemory|Yes|Used Memory|Bytes|Maximum||ShardId|
+|usedmemory0|Yes|Used Memory (Shard 0)|Bytes|Maximum||No Dimensions|
+|usedmemory1|Yes|Used Memory (Shard 1)|Bytes|Maximum||No Dimensions|
+|usedmemory2|Yes|Used Memory (Shard 2)|Bytes|Maximum||No Dimensions|
+|usedmemory3|Yes|Used Memory (Shard 3)|Bytes|Maximum||No Dimensions|
+|usedmemory4|Yes|Used Memory (Shard 4)|Bytes|Maximum||No Dimensions|
+|usedmemory5|Yes|Used Memory (Shard 5)|Bytes|Maximum||No Dimensions|
+|usedmemory6|Yes|Used Memory (Shard 6)|Bytes|Maximum||No Dimensions|
+|usedmemory7|Yes|Used Memory (Shard 7)|Bytes|Maximum||No Dimensions|
+|usedmemory8|Yes|Used Memory (Shard 8)|Bytes|Maximum||No Dimensions|
+|usedmemory9|Yes|Used Memory (Shard 9)|Bytes|Maximum||No Dimensions|
+|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum||ShardId|
+|usedmemoryRss|Yes|Used Memory RSS|Bytes|Maximum||ShardId|
+|usedmemoryRss0|Yes|Used Memory RSS (Shard 0)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss1|Yes|Used Memory RSS (Shard 1)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss2|Yes|Used Memory RSS (Shard 2)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss3|Yes|Used Memory RSS (Shard 3)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss4|Yes|Used Memory RSS (Shard 4)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss5|Yes|Used Memory RSS (Shard 5)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss6|Yes|Used Memory RSS (Shard 6)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss7|Yes|Used Memory RSS (Shard 7)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss8|Yes|Used Memory RSS (Shard 8)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss9|Yes|Used Memory RSS (Shard 9)|Bytes|Maximum||No Dimensions|
 
 
 ## Microsoft.Cache/redisEnterprise
@@ -733,7 +726,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 |UsedCapacity|Yes|Used capacity|Bytes|Average|Account used capacity|No Dimensions|
 
 
@@ -750,7 +743,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
 ## Microsoft.ClassicStorage/storageAccounts/fileServices
@@ -760,7 +753,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication, FileShare|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication, FileShare|
 |FileCapacity|No|File Capacity|Bytes|Average|The amount of storage used by the storage account's File service in bytes.|FileShare|
-|FileCount|No|File Count|Count|Average|The number of files in the storage account's File service.|FileShare|
+|FileCount|No|File Count|Count|Average|The number of file in the storage account's File service.|FileShare|
 |FileShareCount|No|File Share Count|Count|Average|The number of file shares in the storage account's File service.|No Dimensions|
 |FileShareQuota|No|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |FileShareSnapshotCount|No|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
@@ -768,7 +761,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication, FileShare|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication, FileShare|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication, FileShare|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication, FileShare|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, FileShare|
 
 
 ## Microsoft.ClassicStorage/storageAccounts/queueServices
@@ -783,7 +776,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |QueueMessageCount|Yes|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account's Queue service.|No Dimensions|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
 ## Microsoft.ClassicStorage/storageAccounts/tableServices
@@ -796,9 +789,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |TableCapacity|Yes|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|No Dimensions|
-|TableCount|Yes|Table Count|Count|Average|The number of tables in the storage account's Table service.|No Dimensions|
+|TableCount|Yes|Table Count|Count|Average|The number of table in the storage account's Table service.|No Dimensions|
 |TableEntityCount|Yes|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|No Dimensions|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
 ## Microsoft.Cloudtest/hostedpools
@@ -1523,6 +1516,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|broker.msgs.delivered|Yes|Broker: Messages Delivered (Preview)|Count|Total|Total number of messages delivered by the broker|Result, FailureReasonCategory, QoS, TopicSpaceName|
+|broker.msgs.delivery.throttlingLatency|Yes|Broker: Message delivery latency from throttling (Preview)|Milliseconds|Average|The average egress message delivery latency due to throttling|No Dimensions|
+|broker.msgs.published|Yes|Broker: Messages Published (Preview)|Count|Total|Total number of messages published to the broker|Result, FailureReasonCategory, QoS|
 |c2d.commands.egress.abandon.success|Yes|C2D messages abandoned|Count|Total|Number of cloud-to-device messages abandoned by the device|No Dimensions|
 |c2d.commands.egress.complete.success|Yes|C2D message deliveries completed|Count|Total|Number of cloud-to-device message deliveries completed successfully by the device|No Dimensions|
 |c2d.commands.egress.reject.success|Yes|C2D messages rejected|Count|Total|Number of cloud-to-device messages rejected by the device|No Dimensions|
@@ -1584,6 +1580,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |jobs.listJobs.success|Yes|Successful calls to list jobs|Count|Total|The count of all successful calls to list jobs.|No Dimensions|
 |jobs.queryJobs.failure|Yes|Failed job queries|Count|Total|The count of all failed calls to query jobs.|No Dimensions|
 |jobs.queryJobs.success|Yes|Successful job queries|Count|Total|The count of all successful calls to query jobs.|No Dimensions|
+|mqtt.connections|Yes|MQTT: New Connections (Preview)|Count|Total|The number of new connections per IoT Hub|SessionType, MqttEndpoint|
+|mqtt.sessions|Yes|MQTT: New Sessions (Preview)|Count|Total|The number of new sessions per IoT Hub|SessionType, MqttEndpoint|
+|mqtt.sessions.dropped|Yes|MQTT: Dropped Sessions (Preview)|Percent|Average|The rate of dropped sessions per IoT Hub|DropReason|
+|mqtt.subscriptions|Yes|MQTT: New Subscriptions (Preview)|Count|Total|The number of subscriptions|Result, FailureReasonCategory, OperationType, TopicSpaceName|
 |RoutingDataSizeInBytesDelivered|Yes|Routing Delivery Message Size in Bytes (preview)|Bytes|Total|The total size in bytes of messages delivered by IoT hub to an endpoint. You can use the EndpointName and EndpointType dimensions to view the size of the messages in bytes delivered to your different endpoints. The metric value increases for every message delivered, including if the message is delivered to multiple endpoints or if the message is delivered to the same endpoint multiple times.|EndpointType, EndpointName, RoutingSource|
 |RoutingDeliveries|Yes|Routing Deliveries (preview)|Count|Total|The number of times IoT Hub attempted to deliver messages to all endpoints using routing. To see the number of successful or failed attempts, use the Result dimension. To see the reason of failure, like invalid, dropped, or orphaned, use the FailureReasonCategory dimension. You can also use the EndpointName and EndpointType dimensions to understand how many messages were delivered to your different endpoints. The metric value increases by one for each delivery attempt, including if the message is delivered to multiple endpoints or if the message is delivered to the same endpoint multiple times.|EndpointType, EndpointName, FailureReasonCategory, Result, RoutingSource|
 |RoutingDeliveryLatency|Yes|Routing Delivery Latency (preview)|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into an endpoint. You can use the EndpointName and EndpointType dimensions to understand the latency to your different endpoints.|EndpointType, EndpointName, RoutingSource|
@@ -1730,7 +1730,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |AddRegion|Yes|Region Added|Count|Count|Region Added|Region|
 |AutoscaleMaxThroughput|No|Autoscale Max Throughput|Count|Maximum|Autoscale Max Throughput|DatabaseName, CollectionName|
-|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc https://learn.microsoft.com/azure/cosmos-db/concepts-limits. After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
+|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Azure Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more information, see [Azure Cosmos DB service quotas](../../cosmos-db/concepts-limits.md). After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|No|Cassandra Connection Closures|Count|Total|Number of Cassandra connections that were closed, reported at a 1 minute granularity|Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|No|Cassandra Connector Average ReplicationLatency|MilliSeconds|Average|Cassandra Connector Average ReplicationLatency|No Dimensions|
 |CassandraConnectorReplicationHealthStatus|No|Cassandra Connector Replication Health Status|Count|Count|Cassandra Connector Replication Health Status|NotStarted, ReplicationInProgress, Error|
@@ -2147,11 +2147,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Availability|No|Overall Vault Availability|Percent|Average|Vault requests availability|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 |ServiceApiHit|Yes|Total Service Api Hits|Count|Count|Number of total service api hits|ActivityType, ActivityName|
-|ServiceApiLatency|No|Overall Service Api Latency|Milliseconds|Average|Overall latency of service api requests|ActivityType, ActivityName, StatusCode, StatusCodeClass|
-|ServiceApiResult|Yes|Total Service Api Results|Count|Count|Gets the available metrics for a Managed HSM pool|ActivityType, ActivityName, StatusCode, StatusCodeClass|
-
 
 ## Microsoft.KeyVault/vaults
 
@@ -2335,8 +2331,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |GpuUtilization|Yes|GpuUtilization|Count|Average|Percentage of utilization on a GPU node. Utilization is reported at one minute intervals.|Scenario, runId, NodeId, DeviceId, ClusterName|
 |GpuUtilizationMilliGPUs|Yes|GpuUtilizationMilliGPUs|Count|Average|Utilization of a GPU device in milli-GPUs. Utilization is aggregated in one minute intervals.|RunId, InstanceId, DeviceId, ComputeName|
 |GpuUtilizationPercentage|Yes|GpuUtilizationPercentage|Count|Average|Utilization percentage of a GPU device. Utilization is aggregated in one minute intervals.|RunId, InstanceId, DeviceId, ComputeName|
-|IBReceiveMegabytes|Yes|IBReceiveMegabytes|Count|Average|Network data received over InfiniBand in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName|
-|IBTransmitMegabytes|Yes|IBTransmitMegabytes|Count|Average|Network data sent over InfiniBand in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName|
+|IBReceiveMegabytes|Yes|IBReceiveMegabytes|Count|Average|Network data received over InfiniBand in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName, DeviceId|
+|IBTransmitMegabytes|Yes|IBTransmitMegabytes|Count|Average|Network data sent over InfiniBand in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName, DeviceId|
 |Idle Cores|Yes|Idle Cores|Count|Average|Number of idle cores|Scenario, ClusterName|
 |Idle Nodes|Yes|Idle Nodes|Count|Average|Number of idle nodes. Idle nodes are the nodes which are not running any jobs but can accept new job if available.|Scenario, ClusterName|
 |Leaving Cores|Yes|Leaving Cores|Count|Average|Number of leaving cores|Scenario, ClusterName|
@@ -2346,8 +2342,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Model Deploy Succeeded|Yes|Model Deploy Succeeded|Count|Total|Number of model deployments that succeeded in this workspace|Scenario|
 |Model Register Failed|Yes|Model Register Failed|Count|Total|Number of model registrations that failed in this workspace|Scenario, StatusCode|
 |Model Register Succeeded|Yes|Model Register Succeeded|Count|Total|Number of model registrations that succeeded in this workspace|Scenario|
-|NetworkInputMegabytes|Yes|NetworkInputMegabytes|Count|Average|Network data received in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName|
-|NetworkOutputMegabytes|Yes|NetworkOutputMegabytes|Count|Average|Network data sent in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName|
+|NetworkInputMegabytes|Yes|NetworkInputMegabytes|Count|Average|Network data received in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName, DeviceId|
+|NetworkOutputMegabytes|Yes|NetworkOutputMegabytes|Count|Average|Network data sent in megabytes. Metrics are aggregated in one minute intervals.|RunId, InstanceId, ComputeName, DeviceId|
 |Not Responding Runs|Yes|Not Responding Runs|Count|Total|Number of runs not responding for this workspace. Count is updated when a run enters Not Responding state.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
 |Not Started Runs|Yes|Not Started Runs|Count|Total|Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
 |Preempted Cores|Yes|Preempted Cores|Count|Average|Number of preempted cores|Scenario, ClusterName|
@@ -2712,7 +2708,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes Out|No Dimensions|
+|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes In |No Dimensions|
 |PEBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|No Dimensions|
 
 
@@ -3312,9 +3308,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
-|SuccessE2ELatency|Yes|Success E2E Latency|MilliSeconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
-|SuccessServerLatency|Yes|Success Server Latency|MilliSeconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication, TransactionType|
+|SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
+|SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 |UsedCapacity|Yes|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
 
 
@@ -3332,7 +3328,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
 ## Microsoft.Storage/storageAccounts/fileServices
@@ -3351,7 +3347,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication, FileShare|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication, FileShare|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication, FileShare|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication, FileShare|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, FileShare|
 
 
 ## Microsoft.Storage/storageAccounts/queueServices
@@ -3366,7 +3362,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |QueueMessageCount|Yes|Queue Message Count|Count|Average|The number of unexpired queue messages in the storage account.|No Dimensions|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
 ## Microsoft.Storage/storageAccounts/tableServices
@@ -3381,7 +3377,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TableCapacity|Yes|Table Capacity|Bytes|Average|The amount of Table storage used by the storage account.|No Dimensions|
 |TableCount|Yes|Table Count|Count|Average|The number of tables in the storage account.|No Dimensions|
 |TableEntityCount|Yes|Table Entity Count|Count|Average|The number of table entities in the storage account.|No Dimensions|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different types of response.|ResponseType, GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
 ## Microsoft.StorageCache/caches
@@ -3466,7 +3462,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |LateInputEvents|Yes|Late Input Events|Count|Total|Late Input Events|LogicalName, PartitionId, ProcessorInstance, NodeName|
 |OutputEvents|Yes|Output Events|Count|Total|Output Events|LogicalName, PartitionId, ProcessorInstance, NodeName|
 |OutputWatermarkDelaySeconds|Yes|Watermark Delay|Seconds|Maximum|Watermark Delay|LogicalName, PartitionId, ProcessorInstance, NodeName|
-|ProcessCPUUsagePercentage|Yes|CPU % Utilization (Preview)|Percent|Maximum|CPU % Utilization (Preview)|LogicalName, PartitionId, ProcessorInstance, NodeName|
+|ProcessCPUUsagePercentage|Yes|CPU % Utilization|Percent|Maximum|CPU % Utilization|LogicalName, PartitionId, ProcessorInstance, NodeName|
 |ResourceUtilization|Yes|SU (Memory) % Utilization|Percent|Maximum|SU (Memory) % Utilization|LogicalName, PartitionId, ProcessorInstance, NodeName|
 
 
@@ -3475,7 +3471,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |BuiltinSqlPoolDataProcessedBytes|No|Data processed (bytes)|Bytes|Total|Amount of data processed by queries|No Dimensions|
-|BuiltinSqlPoolLoginAttempts|No|Login attempts|Count|Total|Count of login attempts that succeeded or failed|Result|
+|BuiltinSqlPoolLoginAttempts|No|Login attempts|Count|Total|Count of login attempts that succeded or failed|Result|
 |BuiltinSqlPoolRequestsEnded|No|Requests ended|Count|Total|Count of Requests that succeeded, failed, or were cancelled|Result|
 |IntegrationActivityRunsEnded|No|Activity runs ended|Count|Total|Count of integration activities that succeeded, failed, or were cancelled|Result, FailureType, Activity, ActivityType, Pipeline|
 |IntegrationPipelineRunsEnded|No|Pipeline runs ended|Count|Total|Count of integration pipeline runs that succeeded, failed, or were cancelled|Result, FailureType, Pipeline|
@@ -3570,7 +3566,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |DWULimit|No|DWU limit|Count|Maximum|Service level objective of the SQL pool|No Dimensions|
 |DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
 |DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
-|LocalTempDBUsedPercent|No|Local tempdb used percentage|Percent|Maximum|Local tempdb utilization across all compute nodes - values are emitted every five minutes|No Dimensions|
+|LocalTempDBUsedPercent|No|Local tempdb used percentage|Percent|Maximum|Local tempdb utilization across all compute nodes - values are emitted every five minute|No Dimensions|
 |MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the SQL pool|No Dimensions|
 |QueuedQueries|No|Queued queries|Count|Total|Cumulative count of requests queued after the max concurrency limit was reached|IsUserDefined|
 |WLGActiveQueries|No|Workload group active queries|Count|Total|The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system|IsUserDefined, WorkloadGroup|
@@ -3761,7 +3757,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see - https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see: https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
 |FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
@@ -3807,7 +3803,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see - https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see: https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
 |FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
