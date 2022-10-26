@@ -1,6 +1,6 @@
 # How to Connect to App Instance for troubleshooting
 
-While ASC tries to offer managed troubleshooting approaches as much as possible, it may not be sufficient sometimes as some customers would like to: 
+While Azure Spring Apps tries to offer managed troubleshooting approaches as much as possible, it may not be sufficient sometimes as some customers would like to: 
 
 * Directly leverage the JDK tools. 
 * Diagnose against an app’s backing services in terms of network connection, API call latency and etc for both VNET and non-VNET instances. 
