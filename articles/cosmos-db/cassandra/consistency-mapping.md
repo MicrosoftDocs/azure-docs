@@ -63,7 +63,7 @@ Unlike Apache and DSE Cassandra, Azure Cosmos DB durably commits a quorum write 
 | `TWO` | Local region | `Eventual` |
 | `THREE` | Local region | `Eventual` |
 
-Always durably commits a quorum write by default, hence all read consistencies can be made use of.
+Azure Cosmos DB API for Cassandra always durably commits a quorum write by default, hence all read consistencies can be made use of.
 
 ### `TWO` write consistency in Apache Cassandra
 
