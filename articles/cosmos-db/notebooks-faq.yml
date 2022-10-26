@@ -1,9 +1,8 @@
 ### YamlMime:FAQ
 metadata:
   title: |
-
-  ms.custom: ignite-2022
     Frequently asked questions about Jupyter Notebooks in Azure Cosmos DB (preview)
+  ms.custom: ignite-2022
   description: |
     Frequently asked questions about built-in Jupyter Notebooks support in Azure Cosmos DB.
   ms.service: cosmos-db
