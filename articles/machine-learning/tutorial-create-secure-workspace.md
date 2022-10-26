@@ -48,7 +48,7 @@ After completing this tutorial, you'll have the following architecture:
 > [!TIP]
 > The Azure Batch Service listed on the diagram is a back-end service required by the compute clusters and compute instances.
 
-:::image type="content" source="./media/tutorial-create-secure-workspace/create-secure-vnet-end-state.svg" alt-text="Diagram of the final architecture created through this tutorial.":::
+:::image type="content" source="./media/tutorial-create-secure-workspace/create-secure-vnet-end-state.svg" alt-text="Diagram of the final architecture created through this tutorial." lightbox="./media/tutorial-create-secure-workspace/create-secure-vnet-end-state.png":::
 
 ## Prerequisites
 
