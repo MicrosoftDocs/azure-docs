@@ -41,11 +41,11 @@ items:
       items:
       - name: Device mappings overview
         href: how-to-use-device-mappings.md
-      - name: Calculated Functions mappings
+      - name: CalculatedContentTemplate mappings
         href: how-to-use-calculated-functions-mappings.md
       - name: IotJsonPathContentTemplate mappings
         href: how-to-use-iot-jsonpath-content-mappings.md
-    - name: Custom Functions
+    - name: Custom functions
       href: how-to-use-custom-functions.md  
     - name: Destination
       expanded: false

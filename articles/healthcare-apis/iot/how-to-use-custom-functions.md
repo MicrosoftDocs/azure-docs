@@ -9,7 +9,7 @@ ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
-# How to use MedTech service custom functions with device mappings
+# How to use custom functions with device mappings
 
 Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-use-device-mappings.md) during the device message [normalization](iot-data-flow.md#normalize) process.
 
