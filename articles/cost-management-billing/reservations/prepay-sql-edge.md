@@ -26,14 +26,13 @@ You can buy SQL Edge reserved capacity from the [Azure portal](https://portal.az
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the **Purchase Reservations** pane, select **Azure SQL Edge**.
 4. Fill in the required fields as described in the following table:  
-    | **Field** | **Description** |
-    | --- | --- |
-    | **Scope** | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). <br>If you select:<br> **Shared**, the reservation discount is applied to SQL Edge devices running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.<br>**Management Group** , the reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.<br>**Single subscription** , the reservation discount is applied to the SQL Edge devices in this subscription.<br>**Single resource group** , the reservation discount is applied to the SQL Edge devices in the selected subscription and the selected resource group within that subscription. |
-    | **Subscription** | The subscription used to pay for the capacity reservation. The subscription payment method is charged the upfront costs for the reservation.<br> For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.<br>- For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method. |
-    | **Region** | The Azure region that's covered by the capacity reservation. |
-    | **Billing frequency** | Indicates how often the account is billed for the reservation. Options include _Monthly_ or _Upfront_. |
-    | **Term** | One year or three years. |
-
+   | **Field** | **Description** |
+   | --- | --- |
+   | **Scope** | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). <br>If you select:<br> **Shared**, the reservation discount is applied to SQL Edge devices running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.<br>**Management Group**, the reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.<br>**Single subscription**, the reservation discount is applied to the SQL Edge devices in this subscription.<br>**Single resource group**, the reservation discount is applied to the SQL Edge devices in the selected subscription and the selected resource group within that subscription. |
+   | **Subscription** | The subscription used to pay for the capacity reservation. The subscription payment method is charged the upfront costs for the reservation.<br> For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.<br> For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method. |
+   | **Region** | The Azure region that's covered by the capacity reservation. |
+   | **Billing frequency** | Indicates how often the account is billed for the reservation. Options include _Monthly_ or _Upfront_. |
+   | **Term** | One year or three years. |
 1. Add the product to the cart.
 2. Choose a quantity, which is the number of prepaid SQL Edge deployments that can get the billing discount.
 3. Review your selections and purchase.
