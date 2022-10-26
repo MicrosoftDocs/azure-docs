@@ -14,7 +14,7 @@ ms.date: 10/26/2022
 1. At the same Bash terminal, go into your forked repository for this website search example:
 
     ```bash
-    cd azure-search-javascript-samples/search-website-functions-v4
+    cd azure-search-javascript-samples
     ```
 
 1. Use the Visual Studio Code command, `code .` to open your forked repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.
