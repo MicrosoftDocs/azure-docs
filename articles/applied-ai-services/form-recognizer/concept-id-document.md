@@ -109,7 +109,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
+    :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
 
 1. Download the JSON output file to view the detailed results.
 
@@ -277,6 +277,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 * Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ::: moniker-end
+
 ## Next steps
 
 ::: moniker range="form-recog-3.0.0"
