@@ -59,7 +59,7 @@ To complete the scenario in this tutorial, you need:
 1. In the left menu, under **Manage**, select **Users**.
 1. Select **New guest user**.
 
-    ![Screenshot showing where to select the New guest user option](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option.":::
 
 1. Under **Identity**, enter the email address of the external user. Optionally, include a name and welcome message.
 
