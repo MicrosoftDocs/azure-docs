@@ -550,7 +550,7 @@ Follow these steps to validate your network settings.
 1. Go to the **Diagnostic tests** page and select the tests as shown below.
 1. Select **Run test**.
    
-   ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)  
+   ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)
 
 1. Review test results to ensure that status shows **Healthy** for each test that was run.
 
