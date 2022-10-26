@@ -83,7 +83,7 @@ The available tools depends on the tier of your service and deployment type of t
 
 | Tier | Deployment Type | Common tools | JDK tools | Notes |
 | -- | -- | -- | -- | -- |
-| Basic / Standard tier | Source code / Jar | Y |  (for java workloads only)  | |
+| Basic / Standard tier | Source code / Jar | Y | Y (for java workloads only)  | |
 | Basic / Standard tier | Custom Image | N | N | Up to your installed toolset |
 | Enterprise Tier | Source code / Artifacts | Y (for full OS stack)<br>N (for base OS stack) | Y (for java workloads only) | Depends on the os stack of your builder |
 | Enterprise Tier | Custom Image | N | N | Up to your installed toolset |
