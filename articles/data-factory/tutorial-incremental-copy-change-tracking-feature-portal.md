@@ -18,13 +18,13 @@ In this tutorial, you create an Azure Data Factory with a pipeline that loads de
 You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
-> * Prepare the source data store
+> * Prepare the source data store.
 > * Create a data factory.
 > * Create linked services.
 > * Create source, sink, and change tracking datasets.
-> * Create, run, and monitor the full copy pipeline
-> * Add or update data in the source table
-> * Create, run, and monitor the incremental copy pipeline
+> * Create, run, and monitor the full copy pipeline.
+> * Add or update data in the source table.
+> * Create, run, and monitor the incremental copy pipeline.
 
 ## Overview
 In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. In some cases, the changed data within a period in your source data store can be easily to sliced up (for example, LastModifyTime, CreationTime). In some cases, there is no explicit way to identify the delta data from last time you processed the data. The Change Tracking technology supported by data stores such as Azure SQL Database and SQL Server can be used to identify the delta data.  This tutorial describes how to use Azure Data Factory with SQL Change Tracking technology to incrementally load delta data from Azure SQL Database into Azure Blob Storage.  For more concrete information about SQL Change Tracking technology, see [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
@@ -155,7 +155,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 1. Select **V2** for the **version**.
 1. Select the **Region** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-1. Select **Next : Git configuration** and setup the repository following the instructions in [Configuration method 4: During factory creation](/azure/data-factory/source-control) or select **Configure Git later** checkbox .
+1. Select **Next : Git configuration** and setup the repository following the instructions in [Configuration method 4: During factory creation](/azure/data-factory/source-control) or select **Configure Git later** checkbox.
     ![Create Data Factory - Git Configuration.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu-git-configuration1.png)
 1. Select **Review + create**.     
 7. Click **Create**.      
@@ -172,9 +172,9 @@ You create linked services in a data factory to link your data stores and comput
 ### Create Azure Storage linked service.
 In this step, you link your Azure Storage Account to the data factory.
 
-1. 1. Navigate to **Linked services** in **Connections** under **Manage** tab and click **+ New** or click on **Create linked service** button .
+1. Navigate to **Linked services** in **Connections** under **Manage** tab and click **+ New** or click on **Create linked service** button.
    ![New connection button.](new-connection-button-storage1.png)
-2. In the **New Linked Service** window, select **Azure Blob Storage**, and click **Continue**.
+1. In the **New Linked Service** window, select **Azure Blob Storage**, and click **Continue**.
 
 1. In the **New Linked Service** window, do the following steps:
 1. Enter **AzureStorageLinkedService** for the **Name** field.
@@ -187,17 +187,17 @@ In this step, you link your Azure Storage Account to the data factory.
 In this step, you link your database to the data factory.
 
 1. Select **Linked services** under **Connections**, and click **+ New**.
-2. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**.
-3. In the **New Linked Service** window, do the following steps:
+1. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**.
+1. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for the **Name** field.
     2. Select your server for the **Server name** field.
-1- Select your database for the **Database name** field.
-1- Select the authentication type for the **Authentication type** field.
-1- We are using SQL authentication for this demo ,enter name of the user for the **User name** field.
-1- Enter password for the user for the **Password** field or provide the **Azure Key Vault - AKV linked service** name , **Secret name** and **secret version**.
-1- Click **Test connection** to test connection.
-1- Click **Create** to create the linked service.![Azure SQL Database linked service settings.](media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-setting.png)
+1. Select your database for the **Database name** field.
+1. Select the authentication type for the **Authentication type** field.
+1. We are using SQL authentication for this demo, enter name of the user for the **User name** field.
+1. Enter password for the user for the **Password** field or provide the **Azure Key Vault - AKV linked service** name, **Secret name** and **secret version**.
+1. Click **Test connection** to test connection.
+1. Click **Create** to create the linked service.![Azure SQL Database linked service settings.](media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-setting.png)
 ## Create datasets
 In this step, you create datasets to represent data source, data destination. and the place to store the SYS_CHANGE_VERSION.
 
@@ -213,6 +213,7 @@ In this step, you create a dataset to represent the source data.
 1. Select **dbo.data_source_table** for **Table name.**
 1. Select the radio button to **Import schema** for **From connection/store**.
 1. Click **OK**.
+
    ![Source Dataset Properties.](media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-properties.png)  
 
 ### Create a dataset to represent data copied to sink data store.
@@ -232,10 +233,10 @@ In this step, you create a dataset to represent the data that is copied from the
 
    ![Sink dataset - Properties.](media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-properties1.png)
 1. The dataset will be visible in the treeview, do the following steps:
-   1. In **Connection** tab , click in the text box field for **File name** .**Add dynamic content** option will appear, click on it .
+   1. In **Connection** tab, click in the text box field for **File name**. **Add dynamic content** option will appear, click on it.
        ![Sink Dataset - Setting dynamic file path.](media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-filepath.png)
    1. Click on **Add dynamic content[Alt+Shift+D].**
-   1. **Pipeline expression builder**  window will appear. Paste the following in the text box filed , @concat('Incremental-',pipeline().RunId,'.csv')
+   1. **Pipeline expression builder**  window will appear. Paste the following in the text box filed, @concat('Incremental-',pipeline().RunId,'.csv')
    1. Click **OK**.
 ### Create a dataset to represent change tracking data
 In this step, you create a dataset for storing the change tracking version.  You created the table table_store_ChangeTracking_version as part of the prerequisites.
@@ -251,7 +252,7 @@ In this step, you create a dataset for storing the change tracking version.  You
 ## Create a pipeline for the full copy
 In this step, you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
 
-1. 1. Click **+ (plus)** in the left pane, and click **Pipeline > Pipeline**.
+1. Click **+ (plus)** in the left pane, and click **Pipeline > Pipeline**.
    ![Screenshot shows the Pipeline option for a data factory.](new-pipeline-menu1.png)
 1. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **FullCopyPipeline**.
 1. In the **Activities** toolbox, expand **Move & transform**, and drag-drop the **Copy** activity to the pipeline designer surface or search the **copy data** activity in search bar under **Activities**, and set the name **FullCopyActivity**.
@@ -267,12 +268,12 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 ### Run the full copy pipeline
 1. Click **Add** **trigger** on the toolbar for the pipeline, and click **Trigger Now**.
    ![Screenshot shows the Trigger Now option selected from the Trigger menu.](media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu1.png)
-1. Click **OK** on the Pipeline run window .
+1. Click **OK** on the Pipeline run window.
 	
    ![Pipeline run confirmation with parameter check.](media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-pipeline-run-confirmation.png)
 ### Monitor the full copy pipeline
 
-1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. Hover on the pipeline run to get the option to **Rerun** or check **consumption** .
+1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. Hover on the pipeline run to get the option to **Rerun** or check **consumption**.
    ![Screenshot shows pipeline runs for a data factory.](monitor-full-copy-pipeline-run1.png)
 1. To view activity runs associated with the pipeline run, click the pipeline name from **Pipeline name** column. There is only one activity in the pipeline, so you see only one entry in the list. To switch back to the pipeline runs view, click **All** **pipeline runs** link at the top.
 ### Review the results
@@ -280,19 +281,7 @@ You see a file named `incremental-<GUID>.csv` in the `incchgtracking` folder of 
 ![Output file from full copy.](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file1.png)
 The file should have the data from your database:
 
-
-
-
-
-
-
-
-
-
-
 ```
-
-
 
 PersonID,Name,Age
 1,"aaaa",21
@@ -342,11 +331,13 @@ In this step, you create a pipeline with the following activities, and run it pe
    1. Select **SourceDataset** for the **Source Dataset** field.
    2. Select **Query** for **Use Query**.
    3. Enter the following SQL query for **Query**.
-```sql
-SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-```
+   
+      ```sql
+      SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+      ```
 
-   ![Screenshot shows a query added to the Settings tab in the Properties window.](media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+
+      ![Screenshot shows a query added to the Settings tab in the Properties window.](media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. In the **Activities** toolbox, expand **Move & transform**, drag-drop the **Copy** **data** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store.
 8. Switch to the **Source** tab in the **Properties** window, and do the following steps:
 
@@ -354,11 +345,11 @@ SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
    2. Select **Query** for **Use Query**.
    3. Enter the following SQL query for **Query**.
 
-```sql
-select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-```
+      ```sql
+      SELECT data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) AS CT ON data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+      ```
 
-   ![Copy Activity - source settings.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![Copy Activity - source settings.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
    
 9. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field.
 
@@ -384,8 +375,8 @@ select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, 
 
 14. Click **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window by clicking **Close**.
 15. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish All** button. Wait until you see the **Publishing succeeded** message.
-16. 
-![Screenshot shows the Publish All button for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)  
+
+    ![Screenshot shows the Publish All button for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)  
 
 ### Run the incremental copy pipeline
 1. Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
