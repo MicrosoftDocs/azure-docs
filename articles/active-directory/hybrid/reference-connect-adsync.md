@@ -24,15 +24,16 @@ The following documentation provides reference information for the ADSync.psm1 P
  This cmdlet resets the password for the service account and updates it both in Azure AD and in the sync engine.
 
  ### SYNTAX
+
   #### byIdentifier
-   ```powershell
+  ```powershell
      Add-ADSyncADDSConnectorAccount [-Identifier] <Guid> [-EACredential <PSCredential>] [<CommonParameters>]
-   ```
+  ```
 
  #### byName
-   ```powershell
+ ```powershell
      Add-ADSyncADDSConnectorAccount [-Name] <String> [-EACredential <PSCredential>] [<CommonParameters>]
-   ```
+ ```
 
  ### DESCRIPTION
  This cmdlet resets the password for the service account and updates it both in Azure AD and in the sync engine.
@@ -115,10 +116,10 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
    
-   ```powershell
-     Disable-ADSyncExportDeletionThreshold [[-AADCredential] <PSCredential>] [-WhatIf] [-Confirm]
+ ```powershell
+    Disable-ADSyncExportDeletionThreshold [[-AADCredential] <PSCredential>] [-WhatIf] [-Confirm]
      [<CommonParameters>]
-   ```
+ ```
 
  ### DESCRIPTION
  Disables feature for deletion threshold at Export stage.
@@ -126,9 +127,9 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### EXAMPLES
 
  #### Example 1
-   ```powershell
+ ```powershell
      PS C:\> Disable-ADSyncExportDeletionThreshold -AADCredential $aadCreds
-   ```
+ ```
 
  Uses the provided AAD Credentials to disable the feature for export deletion threshold.
 
@@ -137,7 +138,7 @@ The following documentation provides reference information for the ADSync.psm1 P
   #### -AADCredential
   The AAD credential.
 
-   ```yaml
+  ```yaml
      Type: PSCredential
      Parameter Sets: (All)
      Aliases:
