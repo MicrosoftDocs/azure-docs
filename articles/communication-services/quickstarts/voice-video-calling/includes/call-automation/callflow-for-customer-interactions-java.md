@@ -167,8 +167,8 @@ public class Controller {
         List<CallAutomationEventBase> acsEvents = EventHandler.parseEventList(requestBody);
 
         for (CallAutomationEventBase acsEvent : acsEvents) {
-            if (acsEvent instanceof CallConnectedEvent) {
-                CallConnectedEvent event = (CallConnectedEvent) acsEvent;
+            if (acsEvent instanceof CallConnected) {
+                CallConnectedEvent event = (CallConnected) acsEvent;
 
                 // Call was answered and is now established
                 String callConnectionId = event.getCallConnectionId();
@@ -187,8 +187,8 @@ public class Controller {
                         .getCallMediaAsync()
                         .startRecognizing(recognizeOptions)
                         .block();
-            } else if (acsEvent instanceof RecognizeCompletedEvent) {
-                RecognizeCompletedEvent event = (RecognizeCompletedEvent) acsEvent;
+            } else if (acsEvent instanceof RecognizeCompleted) {
+                RecognizeCompletedEvent event = (RecognizeCompleted) acsEvent;
 
                 // This RecognizeCompleted correlates to the previous action as per the OperationContext value
                 if (event.getOperationContext().equals("MainMenu")) {
