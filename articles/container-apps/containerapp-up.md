@@ -59,14 +59,14 @@ To learn more about the `az containerapp up` command and its options, see [`az c
     az extension add --name containerapp --upgrade
     ```
 
-1. Now that the current extension or module is installed, register the `Microsoft.App` namespace if it hasn't been registered.
+1. Now that the current extension or module is installed, register the `Microsoft.App` namespace.
 
     
     ```azurecli
     az provider register --namespace Microsoft.App
     ```
 
-1. Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you haven't registered it before.
+1. Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace.
 
     
     ```azurecli
@@ -81,8 +81,8 @@ In this example, the `az containerapp up` command:
 
 1. Creates a resource group.
 1. Creates an environment and Log Analytics workspace.
-1. Creates and deploy a container app pulling the image from a private registry.
-1. Sets ingress to external with a target port to the specified value.
+1. Creates and deploys a container app that pulls the image from a public registry.
+1. Sets ingress to external with a target port set to the specified value.
 
 Run the following command to deploy a container app from an existing image.  Replace the \<Placeholders\> with your values. 
 
@@ -90,12 +90,11 @@ Run the following command to deploy a container app from an existing image.  Rep
 az containerapp up \
   --name <CONTAINER_APP_NAME> \
   --image <REGISTRY_SERVER>/<IMAGE_NAME>:<TAG> \
-
   --ingress external \
   --target-port <PORT_NUMBER> 
 ```
 
-You can use the `up` command to redeploy a container app that uses an existing image.  In this example, the command uses existing resources to redeploy a container app.
+You can use the `up` command to redeploy a container app. If you want to redeploy with a new image, you can use the `--image` option to specify a new image. 
 
 ```azurecli
 az containerapp up \
@@ -109,7 +108,7 @@ az containerapp up \
 
 ## Deploy from local source code
 
-When you use the `up` command to deploy from a local source, it builds the container image, pushes it to a registry, and deploys the container app.  It creates the registry in Azure Container Registry if you don't provide one.  You can also use the command to redeploy your container app with a new image.
+When you use the `up` command to deploy from a local source, it builds the container image, pushes it to a registry, and deploys the container app.  It creates the registry in Azure Container Registry if you don't provide one.  
 
 The command can build the image with or without a Dockerfile.  If building without a Dockerfile, there are two requirements:
 
@@ -161,7 +160,7 @@ To use the `az containerapp up` command to redeploy your container app with an u
 
 When you use the `az containerapp up` command to deploy from a GitHub repository, it creates a GitHub Actions workflow to build the container image and deploy the container app.  It creates a registry in Azure Container Registry if you don't have one.
 
-If your repository contains a Dockerfile, the `up` command builds the image using the Dockerfile.  If the Dockerfile includes the EXPOSE instruction, the command configures the container app's ingress and target port using the information in the Dockerfile.
+When your repository contains a Dockerfile, the `up` command builds the image using the Dockerfile.  When the Dockerfile includes the EXPOSE instruction, the command configures the container app's ingress and target port using the information in the Dockerfile.
 
 The following example shows how to deploy a container app from a GitHub repository.  
 
@@ -172,7 +171,8 @@ In the example, the `az containerapp up` command:
 1. Creates a registry in Azure Container Registry.
 1. Builds the container image (using the Dockerfile if it exists). 
 1. Pushes the image to the registry.
-1. Creates and deploy a container app.
+1. Creates and deploys the container app.
+1. Creates a GitHub Actions workflow to build the container image and deploy the container app when future changes are pushed to the GitHub repository.
 
 To deploy an app from a GitHub repository, run the following command:
 
@@ -182,7 +182,7 @@ az containerapp up \
   --repo <GitHub repository URL>
 ```
 
-Because the `up` creates a GitHub Actions workflow, rerunning it to deploy changes to your app's image will have the unwanted effect of creating multiple workflows.  Instead, push changes to GitHub, and the workflow is automatically built and the app is redeployed.  To change the workflow, edit the workflow file in GitHub.
+Because the `up` command creates a GitHub Actions workflow, rerunning it to deploy changes to your app's image will have the unwanted effect of creating multiple workflows.  Instead, push changes to your GitHub repository, and the GitHub workflow will automatically build and deploy your app.  To change the workflow, edit the workflow file in GitHub.
 
 ## Next steps
 
