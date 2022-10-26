@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, health-fy23
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -275,7 +275,8 @@ If a client attempts to specify a scope when uploading a blob to a container tha
 
 When you upload a blob, you can specify an encryption scope for that blob, or use the default encryption scope for the container, if one has been specified.
 
-When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob.
+> [!NOTE]
+> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot change the access tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 # [Portal](#tab/portal)
 
