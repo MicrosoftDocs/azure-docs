@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/11/2022
+ms.date: 10/26/2022
 ms.author: mbullwin
 ---
 
@@ -100,9 +100,9 @@ curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multi
 1. Create an <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
 2. From within your storage account create a new storage container with the Public access level to **private**.
 3. Open your container and select upload. Upload the sample_data_5 zip file from the previous step.
-    :::image type="content" source="../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../media/quickstart/upload-zip.png":::
+    :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../media/quickstart/upload-zip.png":::
 4. Select the `...` to open the context menu next to your newly uploaded zip file and select **Generate SAS**.
-     :::image type="content" source="../media/quickstart/generate-access.png" alt-text="Screenshot of the Blob storage context menu with Generate SAS highlighted." lightbox="../media/quickstart/generate-access.png":::
+     :::image type="content" source="../../media/quickstart/generate-access.png" alt-text="Screenshot of the Blob storage context menu with Generate SAS highlighted." lightbox="../media/quickstart/generate-access.png":::
 5. Select **Generate SAS Token and URL**.
 6. Copy the SAS URL into the code below as string value for the `data_source` variable.
 
@@ -179,9 +179,9 @@ for i in r.results:
 
 Run the application with the `python` command on your quickstart file
 
-    ```console
-    python quickstart.py
-    ```
+```console
+python quickstart.py
+```
 
 ### Output
 
@@ -231,10 +231,9 @@ timestamp: 2021-01-02 13:22:00+00:00, is_anomaly: True , anomaly score: 0.5010, 
 
 We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
 
-# Clean up resources
+## Clean up resources
 
 If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets&preserve-view=true) you created if you no longer intend to use them.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
