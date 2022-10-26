@@ -40,9 +40,9 @@ During the preview phase, the NuGet package can be obtained by configuring your 
 
 From the Azure portal, locate your Communication Service resource.
 
-1. Click on the Keys section to obtain your connection string.
+1. Select on the Keys section to obtain your connection string.
 :::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
-2. Then click on the Phone numbers section to obtain your ACS phone number.
+2. Then select on the Phone numbers section to obtain your ACS phone number.
 
 ## Update Program.cs
 
@@ -147,7 +147,7 @@ Install and run Ngrok with the following command: `ngrok http <port>`. This comm
 
 ## Set up environment variables
 
-Some environment variables are used in the shown code snippet, please configure them in <PROJECT_ROOT>\appsettings.json file.
+Some environment variables are used in the shown code snippet, configure them in <PROJECT_ROOT>\appsettings.json file.
 
 ``` json
 {
@@ -163,10 +163,10 @@ Some environment variables are used in the shown code snippet, please configure 
 }
 ```
 
-Please input phone number with country code, for example: +18001234567
+Input phone number with country code, for example: +18001234567
 
 In this quick-start, participantToAdd used in the code snippet is assumed to be an ACS User MRI.
 
 ## Run the app
 
-Open .csproj file in your project with Visual Studio, and then click Run button or press F5 on your keyboard.
+Open Your_Project_Name.csproj file in your project with Visual Studio, and then select Run button or press F5 on your keyboard.

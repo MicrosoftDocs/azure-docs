@@ -74,9 +74,9 @@ This section is for adding references for packages that will be used in the foll
 
 From the Azure portal, locate your Communication Service resource.
 
-1. Click on the Keys section to obtain your connection string.
+1. Select on the Keys section to obtain your connection string.
 :::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
-2. Then click on the Phone numbers section to obtain your ACS phone number.
+2. Then select on the Phone numbers section to obtain your ACS phone number.
 
 ## Add Controller.java
 
@@ -218,7 +218,7 @@ Install and run Ngrok with the following command: `ngrok http <port>`. This comm
 
 ## Set up environment variables
 
-Some environment variables are used in the shown code snippet, please configure them in <PROJECT_ROOT>\src\main\resources\application.properties file.
+Some environment variables are used in the shown code snippet, configure them in <PROJECT_ROOT>\src\main\resources\application.properties file.
 
 ```java
 connectionString=Your_ACS_resource_connection_string
@@ -228,7 +228,7 @@ mediaSource=The_media_prompt_source
 participantToAdd=The_participant_to_be_added_after_recognizing_tones
 ```
 
-Please input phone number with country code, for example: +18001234567
+Input phone number with country code, for example: +18001234567
 
 In this quick-start, participantToAdd used in the code snippet is assumed to be an ACS User MRI.
 
