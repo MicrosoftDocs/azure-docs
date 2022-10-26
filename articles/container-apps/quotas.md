@@ -18,7 +18,7 @@ To request an increase in quota amounts for your container app, [submit a suppor
 
 | Feature | Scope | Default | Is Configurable<sup>1</sup> | Remarks |
 |--|--|--|--|--|
-| Environments | For a subscription per region | 5 | Yes | |
+| Environments | Region | 5 | Yes | |
 | Container Apps | Environment | 20 | Yes | |
 | Revisions | Container app | 100 | No | |
 | Replicas | Revision | 30 | Yes | |
