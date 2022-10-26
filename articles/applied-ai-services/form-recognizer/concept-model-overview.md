@@ -30,7 +30,7 @@ Azure Form Recognizer includes several machine-learning based document processin
 | [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
 | [Invoice](#invoice)  | Automate invoice processing for English and Spanish invoices. |
 | [Receipt](#receipt)  | Extract receipt data from English receipts.|
-| [Identity (ID) document](#identity-id-document)  | Extract identity (ID) fields from US driver licenses and international passports. |
+| [Identity document (ID)](#identity-id-document)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
 | [Custom models](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
@@ -116,7 +116,7 @@ Use the receipt model to scan sales receipts for merchant name, dates, line item
 > [!div class="nextstepaction"]
 > [Learn more: receipt model](concept-receipt.md)
 
-### Identity (ID) document
+### Identity document (ID)
 
 [:::image type="icon" source="media/studio/id-document.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
