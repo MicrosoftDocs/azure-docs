@@ -167,7 +167,7 @@ For more information, see: [What are Lifecycle Workflows? (Public Preview)](../g
 **Service category:** Access Reviews     
 **Product capability:** Identity Governance   
 
-This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group, and leverages the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see: For more information, see: [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md).
+This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group, and leverages the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see: [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md).
 
 ---
 
@@ -259,6 +259,7 @@ For more information about how to better secure your organization by using autom
 
 
 ---
+
 
 ## September 2022 
 
