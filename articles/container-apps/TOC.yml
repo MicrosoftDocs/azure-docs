@@ -9,32 +9,29 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Deploy your first container app
-      expanded: true
-      items:
-      - name: With a sample container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: quickstart-portal.md
-        - name: Command line
-          href: get-started.md
-      - name: With an existing container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: get-started-existing-container-image-portal.md
-        - name: Command line
-          href: get-started-existing-container-image.md
-      - name: With code on your local machine
-        expanded: true
-        items:
-        - name: Command line
-          href: quickstart-code-to-cloud.md
-        - name: Visual Studio
-          href: deploy-visual-studio.md
-        - name: Visual Studio Code
-          href: deploy-visual-studio-code.md
+  - name: With a sample container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: quickstart-portal.md
+    - name: Command line
+      href: get-started.md
+  - name: With an existing container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: get-started-existing-container-image-portal.md
+    - name: Command line
+      href: get-started-existing-container-image.md
+  - name: With code on your local machine
+    expanded: true
+    items:
+    - name: Command line
+      href: quickstart-code-to-cloud.md
+    - name: Visual Studio
+      href: deploy-visual-studio.md
+    - name: Visual Studio Code
+      href: deploy-visual-studio-code.md
 - name: Concepts
   items:
     - name: Environment

@@ -32,7 +32,7 @@ To create a container in the [Azure portal](https://portal.azure.com), follow th
 
 1. In the portal navigation pane on the left side of the screen, select **Storage accounts** and choose a storage account. If the navigation pane isn't visible, select the menu button to toggle its visibility.
 
-    :::image type="content" source="media/blob-containers-portal/menu-expand-sml.png" alt-text="Screenshot of the Azure Portal homepage showing the location of the Menu button in the browser." lightbox="media/blob-containers-portal/menu-expand-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/menu-expand-sml.png" alt-text="Screenshot of the Azure portal homepage showing the location of the Menu button in the browser." lightbox="media/blob-containers-portal/menu-expand-lrg.png":::
 
 1. In the navigation pane for the storage account, scroll to the **Data storage** section and select **Containers**.
 1. Within the **Containers** pane, select the **+ Container** button to open the **New container** pane.
@@ -107,7 +107,7 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 1. Select the checkbox next to the name of the container for which you'll generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Generate SAS** to display the **Generate SAS** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings within the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal." lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
 
 1. Within the **Generate SAS** pane, select the **Account key** value for the **Signing method** field.
 1. In the **Signing method** field, select **Account key**. Choosing the account key will result in the creation of a service SAS.
@@ -137,11 +137,11 @@ Configuring a stored access policy is a two-step process: the policy must first 
 1. Select the checkbox next to the name of the container for which you'll generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Access policy** to display the **Access policy** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings within the Azure portal." lightbox="media/blob-containers-portal/select-container-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings in the Azure portal." lightbox="media/blob-containers-portal/select-container-policy-lrg.png":::
 
 1. Within the **Access policy** pane, select **+ Add policy** in the **Stored access policies** section to display the **Add policy** pane. Any existing policies will be displayed in either the appropriate section.
 
-    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to add a stored access policy settings within the Azure portal." lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to add a stored access policy in the Azure portal." lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
 
 1. Within the **Add policy** pane, select the **Identifier** box and add a name for your new policy.
 1. Select the **Permissions** field, then select the check boxes corresponding to the permissions desired for your new policy.
@@ -151,7 +151,7 @@ Configuring a stored access policy is a two-step process: the policy must first 
     > [!CAUTION]
     > Although your policy is now displayed in the **Stored access policy** table, it is still not applied to the container. If you navigate away from the **Access policy** pane at this point, the policy will *not* be saved or applied and you will lose your work.
 
-    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing how to define a stored access policy within the Azure portal." lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing how to create a stored access policy within the Azure portal." lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
 
 1. In the **Access policy** pane, select **+ Add policy** to define another policy, or select **Save** to apply your new policy to the container. After creating at least one stored access policy, you'll be able to associate other secure access signatures (SAS) with it.
 
@@ -183,7 +183,7 @@ To acquire a lease using the Azure portal, follow these steps:
 1. Select the checkbox next to the name of the container for which you'll acquire a lease.
 1. Select the container's **More** button (**...**), and select **Acquire lease** to request a new lease and display the details in the **Lease status** pane.
 
-    :::image type="content" source="media/blob-containers-portal/acquire-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings within the Azure portal." lightbox="media/blob-containers-portal/acquire-container-lease-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/acquire-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal." lightbox="media/blob-containers-portal/acquire-container-lease-lrg.png":::
 
 1. The **Container** and **Lease ID** property values of the newly requested lease are displayed within the **Lease status** pane. Copy and paste these values in a secure location. They'll only be displayed once and can't be retrieved after the pane is closed.
 
