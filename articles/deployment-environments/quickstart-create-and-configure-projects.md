@@ -37,10 +37,10 @@ In this quickstart, you learn how to:
 To create a project in your dev center:
 
 1. In the [Azure portal](https://portal.azure.com/), go to Azure Deployment Environments.
-1. In the left menu under **Configure**, select **Projects**.
-1. In **Projects**, select **Create**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/project-create.png" alt-text="Screenshot that shows how to create a project in a dev center.":::
+1. In the left menu under **Configure**, select **Projects**.
+
+1. In **Projects**, select **Create**.
 
 1. In **Create a project**, on the **Basics** tab, enter or select the following information:
 
