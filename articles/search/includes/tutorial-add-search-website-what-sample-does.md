@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 10/26/2022
 ---
 This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the search index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the search index, of the book. 
 

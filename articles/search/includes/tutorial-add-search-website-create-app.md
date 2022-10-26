@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 10/26/2022
 ---
 
 Deploy the search-enabled website as an Azure Static web app. This deployment includes both the React app and the Function app.  
@@ -56,7 +56,27 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     :::code language="yml" source="tutorial-add-search-website-github-action.yml" highlight="17-22":::
 
-1. If your action file doesn't contain the correct settings, update those values name in the file, then commit that change and push back to your GitHub fork. This push back to your fork creates a new build and deploy to your Static web app.
+1. If your action file doesn't contain the correct settings, update those values name in the file, then commit that change and push back to your GitHub fork. 
+
+    Add action file changes.
+
+    ```bash
+    git add *.yml 
+    ```
+
+    Commit changes to local repository.
+
+    ```bash
+    git commit -m "update action for Static web app" 
+    ```
+
+    Push changes to GitHub.
+
+    ```bash
+    git push origin main 
+    ```
+
+    The updated action in your fork creates a new build and deploy to your Static web app.
 
 ## Get Cognitive Search query key in Visual Studio Code
 

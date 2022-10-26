@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/20/2022
+ms.date: 10/26/2022
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -43,13 +43,13 @@ Install the following for your local development environment.
     - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) or a Docker container.  
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
-    - [Azure Cognitive Search 0.2.0+](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
+    - [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - Optional:
     - This tutorial doesn't run the Azure Function API locally. If you intend to run it locally, you need to install [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash) globally with the following bash command: 
     
     ```bash
-    npm install -g azure-functions-core-tools
+    npm install -g azure-functions-core-tools@4
     ```
 
 ## Fork and clone the search sample with git

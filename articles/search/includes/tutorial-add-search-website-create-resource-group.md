@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 10/26/2022
 ---
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
