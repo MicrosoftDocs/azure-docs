@@ -70,7 +70,7 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Screenshot of sample newspaper page processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Form Recognizer studio.":::
 
 > [!div class="nextstepaction"]
 >
