@@ -111,13 +111,13 @@ The following are the current limitations and known issues with PowerShell runbo
 > [!NOTE]
 > Currently, PowerShell 7.2 (preview) runtime version is supported in five regions for Cloud jobs only: West Central US, East US, South Africa North, North Europe, and Australia Southeast.
 
--  You must be familiar with PowerShell scripting.
+- You must be familiar with PowerShell scripting.
 - The Azure Automation internal PowerShell cmdlets are not supported on a Linux Hybrid Runbook Worker. You must import the `automationassets` module at the beginning of your Python runbook to access the Automation account shared resources (assets) functions. 
 - For the PowerShell 7 runtime version, the module activities are not extracted for the imported modules.
 - *PSCredential* runbook parameter type is not supported in PowerShell 7 runtime version.
 - PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) for more details.
 - PowerShell 7.x currently does not support signed runbooks.
-- Source control integration doesn't support PowerShell 7.1. Also, PowerShell 7.1 runbooks in source control gets created in Automation account as Runtime 5.1.
+- Source control integration doesn't support PowerShell 7.2 (preview). Also, PowerShell 7.2 (preview) runbooks in source control gets created in Automation account as Runtime 5.1.
 - Currently, only cloud jobs are supported for PowerShell 7.2 (preview) runtime versions. 
 - Custom packages for PowerShell 7.2 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages are not imported into automation account. 
 - Logging job operations to the Log Analytics workspace through linked workspace or diagnostics settings are not supported. 
@@ -142,16 +142,14 @@ The following are the current limitations and known issues with PowerShell runbo
       $VerbosePreference = “Continue” 
  
       $ProgressPreference = “Continue”
-
  ```
 ---
-
 
 ## PowerShell Workflow runbooks
 
 PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md). You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation. 
 
->[!NOTE]
+> [!NOTE]
 > PowerShell 7.1 (preview) and PowerShell 7.2 (preview) do not support Workflow runbooks.
 
 ### Advantages
