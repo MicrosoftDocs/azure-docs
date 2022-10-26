@@ -27,9 +27,55 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2022
 
+- [Heads up: Name fields removed from Azure AD Identity Protection connector](#heads-up-name-fields-removed-from-azure-ad-identity-protection-connector)
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
 - [IoT device entity page (Preview)](#iot-device-entity-page-preview)
+
+### Heads up: Name fields removed from Azure AD Identity Protection connector
+
+As of **September 30 2022**, alerts coming from the Azure Activity Directory Information Protection connector will no longer contain the following fields:
+
+- Name
+- UPNSuffix
+- DisplayName
+- ExtendedProperties["UserAccount"]
+- CompromisedEntity
+- ExtendedProperties["UserPrincipalName”]
+
+Customers wishing to use the fields that have been removed are advised to utilize the UEBA solution that provides a way to access the data through the IdentityInfo table.
+
+The following query shows an example of retrieving the removed information by joining the SecurityAlert table with the IdentityInfo table:
+
+```kusto
+SecurityAlert
+| where TimeGenerated > ago(7d)
+| where ProductName == "Azure Active Directory Identity Protection"
+| mv-expand Entity = todynamic(Entities)
+| where Entity.Type == "account"
+| extend AadTenantId = tostring(Entity.AadTenantId)
+| extend AadUserId = tostring(Entity.AadUserId)
+| join kind=inner (
+    IdentityInfo
+    | where TimeGenerated > ago(14d)
+    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName
+    | extend UserPrincipalNameIdentityInfo = AccountUPN
+    | extend UserNameIdentityInfo = AccountDisplayName
+    | where isnotempty(AccountDisplayName) and isnotempty(UserPrincipalNameIdentityInfo)
+    | project AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo, UserNameIdentityInfo
+    )
+    on
+    $left.AadTenantId == $right.AccountTenantId,
+    $left.AadUserId == $right.AccountObjectId
+| extend CompromisedEntity = iff(CompromisedEntity == "N/A" or isempty(CompromisedEntity), UserPrincipalNameIdentityInfo, CompromisedEntity)
+| project-away AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo
+```
+
+More information on joining the tables to enable enrichment of the removed fields to the UserPeerAnalytics table, please refer to the following link, where you can find example KQL query.
+
+If you don’t use the UEBA solution, and you want to activate it, log in to the portal using an account with Global Administrator or System Administrator privileges, browse to Sentinel in the relevant workspace and follow instructions here.
+
+There is no need to configure the behavior analytics for the IdentityInfo table.
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
