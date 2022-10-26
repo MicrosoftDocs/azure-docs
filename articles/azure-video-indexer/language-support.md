@@ -74,7 +74,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Finnish                          | `fi-FI`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
 | French                           | `fr-FR`      | ✔ |  ✔\* | ✔\* | ✔ | ✔ |
 | French (Canada)                  | `fr-CA`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
-| German                           | `de-DE`      | ✔ |  ✔ \1| ✔ \2| ✔ | ✔ |
+| German                           | `de-DE`      | ✔ |  ✔ \*| ✔ \*| ✔ | ✔ |
 | Greek                            | `el-GR`      |   |       |   | ✔ |   |
 | Haitian                          | `fr-HT`      |   |       |   | ✔ |   |
 | Hebrew                           | `he-IL`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
