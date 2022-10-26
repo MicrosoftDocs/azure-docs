@@ -194,6 +194,7 @@ Now build and run the code:
 go build
 go run independent-identification
 ```
+
 ## Perform independent verification
 
 Follow these steps to create a new GO module.

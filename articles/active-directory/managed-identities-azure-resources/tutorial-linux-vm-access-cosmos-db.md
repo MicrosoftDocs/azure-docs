@@ -68,6 +68,7 @@ To gain access to the Azure Cosmos DB account access keys from the Resource Mana
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
+
 The response includes the details of the system-assigned managed identity (note the principalID as it is used in the next section):
 
 ```output  
