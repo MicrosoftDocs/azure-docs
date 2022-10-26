@@ -3,7 +3,7 @@ title: Device Update for Azure IoT Hub log collection | Microsoft Docs
 description: Device Update for IoT Hub enables remote collection of diagnostic logs from connected IoT devices.
 author: lichris
 ms.author: lichris
-ms.date: 06/23/2022
+ms.date: 10/26/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -14,37 +14,33 @@ Learn how to initiate a Device Update for IoT Hub log operation and view collect
 
 ## Prerequisites
 
-# [Azure portal](#tab/portal)
-
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
 * An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub and implementing the Diagnostic Interface.
 * An [Azure Blob storage account](../storage/common/storage-account-create.md) under the same subscription as your Device Update for IoT Hub account.
 
 > [!NOTE]
 > The remote log collection feature is currently compatible only with devices that implement the Diagnostic Interface and are able to upload files to Azure Blob storage. The reference agent implementation also expects the device to write log files to a user-specified file path on the device.
+
+# [Azure portal](#tab/portal)
+
+Supported browsers:
+
+* [Microsoft Edge](https://www.microsoft.com/edge)
+* Google Chrome
 
 # [Azure CLI](#tab/cli)
 
-* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
+An Azure CLI environment:
 
-* An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub and implementing the Diagnostic Interface.
+* Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-* An [Azure Blob storage account](../storage/common/storage-account-create.md) under the same subscription as your Device Update for IoT Hub account.
+  [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-* An Azure CLI environment:
+* Or, if you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
 
-  * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-
-    [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
-
-  * Or, if you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
-
-    * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
-    * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
-    * When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
-
-> [!NOTE]
-> The remote log collection feature is currently compatible only with devices that implement the Diagnostic Interface and are able to upload files to Azure Blob storage. The reference agent implementation also expects the device to write log files to a user-specified file path on the device.
+  * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
+  * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
+  * When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
 
 ---
 
@@ -105,6 +101,8 @@ The relevant parameter "maxKilobytesToUploadPerLogPath" will apply to each logCo
 
 Log operations are a service-driven action that you can instruct your IoT devices to perform through the Device Update service. For a more detailed explanation of how log operations function, see [Device update diagnostics](device-update-diagnostics.md).
 
+# [Azure portal](#tab/portal)
+
 1. Navigate to your IoT Hub and select the **Updates** tab under the **Device Management** section of the navigation pane.
 
 2. Select the **Diagnostics** tab in the UI. If you don't see a Diagnostics tab, make sure you're using the newest version of the Device Update for IoT Hub user interface. If you see "Diagnostics must be enabled for this Device Update instance," make sure you've linked an Azure Blob storage account with your Device Update instance.
@@ -121,6 +119,39 @@ Log operations are a service-driven action that you can instruct your IoT device
 
 8. In the log operation details, you can view the device-specific status and see the log location path. This path corresponds to the virtual directory path within your Azure Blob storage account where the diagnostic logs have been uploaded.
 
+# [Azure CLI](#tab/cli)
+
+Use the [az iot du device log collect](/cli/azure/iot/du/device/log#az-iot-du-device-log-collect) command to configure a diagnostics log collection operation.
+
+The `device log collect` command takes the following arguments:
+
+* `--account`: The Device Update account name.
+* `--instance`: The Device Update instance name.
+* `--log-collection-id`: A name for the log collection operation.
+* `--agent-id`: Key=value pairs that identify a target Device Update agent for this log collection operation. Use `deviceId=<device name>` if the agent has a device identity. Use `deviceId=<device name> moduleId=<module name>` if the agent has a module identity. You can use the `--agent-id` parameter multiple times to target multiple devices.
+
+For example:
+
+```azurecli
+az iot du device log collect \
+    --account <Device Update account name> \
+    --instance <Device Update instance name> \
+    --log-collection-id <log collection name} \
+    --agent-id deviceId=<device name> \
+    --agent-id deviceId=<device name> moduleId=<module name>
+```
+
+Use [az iot du device log show](/cli/azure/iot/du/device/log#az-iot-du-device-log-show) to view the details of a specific diagnostic log collection operation.
+
+```azurecli
+az iot du device log show \
+    --account <Device Update account name> \
+    --instance <Device Update instance name> \
+    --log-collection-id <log collection name>
+```
+
+---
+
 ## View and export collected diagnostic logs
 
 1. Once your log operation has succeeded, navigate to your Azure Blob storage account.
@@ -131,7 +162,7 @@ Log operations are a service-driven action that you can instruct your IoT device
 
 4. Use the log location path from the log operation details to navigate to the correct directory containing the logs. By default, the remote log collection feature instructs targeted devices to upload diagnostic logs using the following directory path model: **Blob storage container/Target device ID/Log operation ID/On-device log path**
 
-5. If you haven't modified the diagnostic component of the DU agent, the device will respond to any log operation by attempting to upload two plaintext log files: the DU agent diagnostic log ("aduc.log"), and the DO agent diagnostic log ("do-agent.log"). You can learn more about which log files the DU reference agent collects by reading the [Device update diagnostics](device-update-diagnostics.md) concept page.
+5. If you haven't modified the diagnostic component of the Device Update agent, the device will respond to any log operation by attempting to upload two plaintext log files: the Device Update agent diagnostic log ("aduc.log"), and the DO agent diagnostic log ("do-agent.log"). You can learn more about which log files the Device Update reference agent collects by reading the [Device Update diagnostics](device-update-diagnostics.md) concept page.
 
 6. You can view the log file's contents by selecting the file name, then selecting the menu element (ellipsis) and clicking **View/edit**. You can also download or delete the log file by selecting the respectively labeled options.
 
