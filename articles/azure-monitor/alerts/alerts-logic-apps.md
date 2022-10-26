@@ -12,7 +12,7 @@ ms.reviewer: edbaynash
 
 This article shows you how to create a Logic App and integrate it with an Azure Monitor Alert.
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) allow you to build and customize workflows for integration. Use Logic Apps to customize your alert notifications.
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) allows you to build and customize workflows for integration. Use Logic Apps to customize your alert notifications.
  
 + Customize the alerts email, using your own email subject and body format. 
 + Customize the alert metadata by looking up tags for affected resources or fetching a log query search result. 
@@ -106,10 +106,19 @@ In this example, we'll use the following steps to create a Logic App that uses t
     :::image type="content" source="./media/alerts-logic-apps/choose-operation-outlook.png" alt-text="A screenshot showing add action page of the logic apps designer with Office 365 Outlook selected":::
 1. Select **Send an email (V2)** from the list of actions.
 1. Sign into Office 365 when prompted to create a connection.
+1. Create the email **Body** by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.   
+For example:
+    - Enter *An alert has monitoring condition:* then select **monitorCondition** from the **Dynamic content** list.
+    - Then enter *Date fired:* and select **firedDateTime** from the **Dynamic content** list. 
+    - Enter *Affected resources:* and select **alterTargetIDs** from the **Dynamic content** list.  
+    
+1. In the **Subject** field, create the subject text by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.  
+For example:
+     - Enter *Alert:* and select **alertRule** from the **Dynamic content** list.
+     - Then enter *with severity:* and select **severity** from the **Dynamic content** list
+     - Enter  *has condition:* and select **monitorCondition** from the **Dynamic content** list.  
+          
 1. Enter the email address to send the alert to in the **To** field.
-1. In the **Subject** field, create the subject text by entering static text and choosing fields from the **Dynamic content** list. For example, enter *Alert **alertRule**, with severity **severity**  has **monitorCondition**.*     
-The fields **alertRule**, **severity**, and **monitorCondition** are fields from the **Dynamic content** list.
-1. Create the body text by entering static text and choosing fields from the **Dynamic content** list. for example, enter *An alert has **monitorCondition**, on **firedDateTime** with the following details: - Affected resource: **alterTargetIDs**.*
 1. Select **Save**
    :::image type="content" source="./media/alerts-logic-apps/configure-email.png" alt-text="A screenshot showing the parameters tab for the send email action.":::
 
@@ -129,7 +138,7 @@ To trigger your Logic app, create an action group, then create an alert that use
 :::image type="content" source="./media/alerts-logic-apps/create-action-group.png" alt-text="A screenshot showing the actions tab of a create action group page, using a logic app":::
 1. In the **Actions** tab under **Action type**, select **Logic App**.
 1. In the **Logic App** section, select your logic app from the dropdown.
-1. Set **Enable common alert schema** to *Yes*. If you select *No* the alert type will determine which schema is used. For more information see [context specific alert schemas](./alerts-non-common-schema-definitions.md).
+1. Set **Enable common alert schema** to *Yes*. If you select *No*, the alert type will determine which alert schema is used. For more information about alert schemas, see [Context specific alert schemas](./alerts-non-common-schema-definitions.md).
 1. Select **OK**.
 1. Enter a name in the **Name** field.
 1. Select **Review + create**, the **Create**.
