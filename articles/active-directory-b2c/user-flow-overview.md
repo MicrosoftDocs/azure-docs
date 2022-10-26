@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/24/2021
+ms.date: 10/24/2022
 ms.custom: project-no-code, engagement-fy23
 ms.author: kengaderdus
 ms.subservice: B2C
