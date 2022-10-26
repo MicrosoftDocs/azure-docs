@@ -42,8 +42,8 @@ az ml job show --name <job_name> --query interaction_endpoints.Studio.endpoint -
 ```
 
 1. Open the job in studio using the value returned by the above command. 
-1. Choose **batchscoring**
-1. Open the **Outputs + logs** tab 
+1. Choose __batchscoring__
+1. Open the __Outputs + logs__ tab 
 1. Choose the log(s) you wish to review
 
 ### Understand log structure
@@ -112,9 +112,9 @@ The following table contains common problems and solutions you may see during ba
 
 ### No module named 'azureml'
 
-__Reason__: Azure Machine Learning Batch Deployments require the pakage `azureml-core` to be installed.
+__Reason__: Azure Machine Learning Batch Deployments require the package `azureml-core` to be installed.
 
-__Solution__: Add `azureml-core` to you conda dependencies file.
+__Solution__: Add `azureml-core` to your conda dependencies file.
 
 ### Output already exists
 
