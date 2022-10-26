@@ -40,6 +40,6 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.mg)
+- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)
