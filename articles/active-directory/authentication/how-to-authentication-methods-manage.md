@@ -61,7 +61,7 @@ In our example, Contoso has the following groups set for each method.
 
 ## Add MFA and SSPR policy settings to the Authentication methods policy
 
-After you audit settings, update Authentication methods policy to reflects all settings from your audit. This task can be done by an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).  
+After you capture information from each policy, update Authentication methods policy to match all of the settings from your audit. This task can be done by an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).  
 
 You might need to adjust some settings to account for differences between the policies. For example, the Contoso MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. In this case, Contoso needs to adjust the Authentication methods policy accordingly for each method.  
 
@@ -87,7 +87,7 @@ For example, let's suppose SMS is disabled in the Authentication methods policy 
 
 ## Migration complete
 
-After update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
+After you update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
 
 When you determine that SSPR works as expected and you no longer need the legacy SSPR policy, you can change the migration process to **Migration Complete**. In this mode, Azure AD ignores the legacy MFA and SSPR policies for authentication and only follows the Authentication methods policy. Any changes made to the legacy policies are ignored if **Migration Complete** is set.
 
