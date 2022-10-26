@@ -100,9 +100,9 @@ curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multi
 1. Create an <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
 2. From within your storage account create a new storage container with the Public access level to **private**.
 3. Open your container and select upload. Upload the sample_data_5 zip file from the previous step.
-    :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../media/quickstart/upload-zip.png":::
+    :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../../media/quickstart/upload-zip.png":::
 4. Select the `...` to open the context menu next to your newly uploaded zip file and select **Generate SAS**.
-     :::image type="content" source="../../media/quickstart/generate-access.png" alt-text="Screenshot of the Blob storage context menu with Generate SAS highlighted." lightbox="../media/quickstart/generate-access.png":::
+     :::image type="content" source="../../media/quickstart/generate-access.png" alt-text="Screenshot of the Blob storage context menu with Generate SAS highlighted." lightbox="../../media/quickstart/generate-access.png":::
 5. Select **Generate SAS Token and URL**.
 6. Copy the SAS URL into the code below as string value for the `data_source` variable.
 
