@@ -35,9 +35,9 @@ In this example, we'll use the following steps to create a Logic App that uses t
 1. On the Logic Apps Designer page, select **When a HTTP request is received**
 :::image type="content" source="./media/alerts-logic-apps/logic-apps-designer.png" alt-text="A screenshot showing the Logic Apps designer start page":::
 1. Select the **When a HTTP request is received** tile
-1. Paste the common alert schema into the **Request Body JSON Schema** field from the following JSON.
-```json
- {
+1. Paste the common alert schema into the **Request Body JSON Schema** field from the following JSON:
+    ```json
+     {
         "type": "object",
         "properties": {
             "schemaId": {
@@ -101,7 +101,7 @@ In this example, we'll use the following steps to create a Logic App that uses t
             }
         }
     }
- ```
+    ```
 7. Select the **+** icon to insert a new step.
 :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step":::
 
@@ -127,7 +127,8 @@ For example:
      - Enter  *has condition:* and select **monitorCondition** from the **Dynamic content** list.  
           
 1. Enter the email address to send the alert to in the **To** field.
-1. Select **Save**
+1. Select **Save**  
+
    :::image type="content" source="./media/alerts-logic-apps/configure-email.png" alt-text="A screenshot showing the parameters tab for the send email action.":::
 
 You've created a Logic App that will send an email to the specified address, with details from the alert that triggered it. 
@@ -168,14 +169,14 @@ To trigger your Logic app, create an action group, then create an alert that use
 1. Select a **Subscription**, **Resource group** and **Region**.
 1. Enter an **Actions group name** and **Display name**
 1. Select the **Actions** tab.
-:::image type="content" source="./media/alerts-logic-apps/create-action-group.png" alt-text="A screenshot showing the actions tab of a create action group page, using a logic app":::
+:::image type="content" source="./media/alerts-logic-apps/create-action-group.png" alt-text="A screenshot showing the actions tab of a create action group page":::
 1. In the **Actions** tab under **Action type**, select **Logic App**.
 1. In the **Logic App** section, select your logic app from the dropdown.
 1. Set **Enable common alert schema** to *Yes*. If you select *No*, the alert type will determine which alert schema is used. For more information about alert schemas, see [Context specific alert schemas](./alerts-non-common-schema-definitions.md).
 1. Select **OK**.
 1. Enter a name in the **Name** field.
 1. Select **Review + create**, the **Create**.
-:::image type="content" source="./media/alerts-logic-apps/create-action-group-actions.png" alt-text="A screenshot showing the actions tab of a create action group page, using a logic app":::
+:::image type="content" source="./media/alerts-logic-apps/create-action-group-actions.png" alt-text="A screenshot showing the Logic Apps blade of a create action group, actions tab":::
 
 ## Test your action  group.
 
