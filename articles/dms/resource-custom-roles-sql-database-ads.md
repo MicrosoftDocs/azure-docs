@@ -1,5 +1,5 @@
 ---
-title: "Custom roles for SQL Server to Azure SQL Database (Preview) migrations using ADS"
+title: "Custom roles for SQL Server to Azure SQL Database (Preview) migrations using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure SQL Database (Preview) migrations.
 services: database-migration
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.date: 09/28/2022
 ---
 
-# Custom roles for SQL Server to Azure SQL Database (Preview) migrations using ADS
+# Custom roles for SQL Server to Azure SQL Database (Preview) migrations using Azure Data Studio
 
 This article explains how to set up a custom role in Azure for Database Migrations. The custom role will only have the permissions necessary to create and run a Database Migration Service with Azure SQL Database (Preview) as a target. 
 
@@ -26,8 +26,8 @@ The AssignableScopes section of the role definition json string allows you to co
         "roleName": "DmsCustomRoleDemoForSqlDB",
         "description": "",
         "assignableScopes": [
-            "/subscriptions/<sqlDbSubscription>/resourceGroups/<sqlDbRG>",
-            "/subscriptions/<DMSSubscription>/resourceGroups/<dmsServiceRG>"
+            "/subscriptions/<SQLDatabaseSubscription>/resourceGroups/<SQLDatabaseResourceGroup>",
+            "/subscriptions/<DatabaseMigrationServiceSubscription>/resourceGroups/<DatabaseMigrationServiceResourceGroup>"
         ],
         "permissions": [
             {
