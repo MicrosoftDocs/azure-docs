@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 10/27/2022
 ms.author: allensu
 
 ---
