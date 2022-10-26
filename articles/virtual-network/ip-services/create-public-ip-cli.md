@@ -32,6 +32,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
     --name QuickStartCreateIP-rg \
     --location eastus2
 ```
+## Create public IP
 
 # [**Standard SKU**](#tab/create-public-ip-standard)
 

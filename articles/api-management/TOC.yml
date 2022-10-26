@@ -360,6 +360,8 @@
           href: api-management-howto-log-event-hubs.md
         - name: Log requests with Azure Application Insights
           href: api-management-howto-app-insights.md
+        - name: Visualize data using Managed Grafana
+          href: visualize-using-managed-grafana-dashboard.md
       - name: Troubleshoot
         items:
           - name: Diagnose issues in production
