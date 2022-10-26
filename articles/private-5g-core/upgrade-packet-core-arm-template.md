@@ -40,7 +40,7 @@ We recommend upgrading your packet core instance during a maintenance window or 
 
 A typical upgrade takes around 60 minutes if you have a high-bandwidth connection to Azure. On a limited 1 Mbps connection, this can increase to <><!-- TODO: add estimated time --> minutes. In addition to this time, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
 
-- Refer to the release notes for the current version of packet core and whether it's supported by the version your Azure Stack Edge (ASE) is currently running.
+- Refer to the [release notes](azure-private-5g-core-release-notes-2209.md) for the current version of packet core and whether it's supported by the version your Azure Stack Edge (ASE) is currently running.
 - If your ASE version is incompatible with the latest packet core, you'll need to upgrade ASE first.
   - If you're upgrading from a packet core version that the current version of ASE supports, you can upgrade ASE and packet core independently.
   - If you're upgrading from a packet core version that isn't supported by the current version of ASE, it's possible that packet core won't operate normally with the new ASE version. In this case, we recommend planning a maintenance window that allows you time to fully upgrade both ASE and packet core. Refer to [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update) for how long the ASE upgrade will take.
