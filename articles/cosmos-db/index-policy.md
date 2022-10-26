@@ -3,7 +3,8 @@ title: Azure Cosmos DB indexing policies
 description:  Learn how to configure and change the default indexing policy for automatic indexing and greater performance in Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: sidandrews
@@ -11,14 +12,14 @@ ms.reviewer: jucocchi
 ---
 
 # Indexing policies in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 In Azure Cosmos DB, every container has an indexing policy that dictates how the container's items should be indexed. The default indexing policy for newly created containers indexes every property of every item and enforces range indexes for any string or number. This allows you to get good query performance without having to think about indexing and index management upfront.
 
 In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its *indexing mode*, and include or exclude *property paths*.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB API for MongoDB](mongodb/mongodb-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB API for NoSQL. Learn about indexing in [Azure Cosmos DB API for MongoDB](mongodb/indexing.md)
 
 ## Indexing mode
 
@@ -28,7 +29,7 @@ Azure Cosmos DB supports two indexing modes:
 - **None**: Indexing is disabled on the container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) until complete.
 
 > [!NOTE]
-> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmoslazyindexing@microsoft.com (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmoslazyindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index documents as they are written.
 

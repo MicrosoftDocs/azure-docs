@@ -5,12 +5,12 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.custom: synapse-cosmos-db
+ms.date: 09/29/2022
+ms.custom: synapse-cosmos-db, ignite-2022
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB is a cloud native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
@@ -22,6 +22,9 @@ You might be curious to understand what industry use cases can leverage this clo
 
 > [!NOTE]
 > Azure Synapse Link for Azure Cosmos DB targets the scenario where enterprise teams are looking to run near real-time analytics. These analytics are run without ETL over operational data generated across transactional applications built on Azure Cosmos DB. This does not replace the need for a separate data warehouse when there are traditional data warehouse requirements such as workload management, high concurrency, persistence aggregates across multiple data sources.
+
+> [!NOTE]
+> Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, click [here](configure-synapse-link.md).
 
 ## Supply chain analytics, forecasting & reporting
 

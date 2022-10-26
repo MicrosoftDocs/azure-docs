@@ -5,6 +5,7 @@ metadata:
   services: azure-monitor
   ms.topic: faq
   ms.service: azure-monitor
+  ms.custom: ignite-2022
   author: bwren
   ms.author: bwren
   ms.date: 06/23/2022
@@ -350,7 +351,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support private links?
         answer: |
-          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent).
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-azure-monitor-agent).
 
       - question: |
           Does AMA support AuditD logs on linux, or AUOMS?
@@ -895,13 +896,9 @@ sections:
           The **Other processes** includes:
           
           - Self-managed or managed Kubernetes non-containerized processes
-          
           - Container Run-time processes
-          
           - Kubelet
-          
           - System processes running on your node
-          
           - Other non-Kubernetes workloads running on node hardware or VM
           
       - question: |

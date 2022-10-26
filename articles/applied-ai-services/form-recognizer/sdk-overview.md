@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/09/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,10 +27,10 @@ Form Recognizer SDK supports the following languages and platforms:
 
 | Language → SDK version | Package| Azure Form Recognizer SDK |Supported API version| Platform support |
 |:----------------------:|:----------|:----------| :----------------|-----------------|
-|[.NET/C# → 4.0.0 (latest GA release)](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)  | [Azure SDK for .NET](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
-|[Java → 4.0.0 (latest GA release)](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer) | [Azure SDK for Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript → 4.0.0 (latest GA release)](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python → 3.2.0 (latest GA release)](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)| [Azure SDK for Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)| [**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+|[.NET/C# → 4.0.0 (latest GA release)](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)  | [Azure SDK for .NET](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
+|[Java → 4.0.0 (latest GA release)](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java#set-up) |[Maven](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer) | [Azure SDK for Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
+|[JavaScript → 4.0.0 (latest GA release)](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[Python → 3.2.0 (latest GA release)](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)| [Azure SDK for Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)| [**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## Supported Clients
 
@@ -480,7 +480,7 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### 4. Build your application
 
-First, you'll create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-v3-sdk-rest-api.md) in a language of your choice.
+First, you'll create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
 
 ## Help options
 
@@ -489,7 +489,7 @@ The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overf
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Try a Form Recognizer quickstart**](quickstarts/get-started-v3-sdk-rest-api.md)
+> [**Try a Form Recognizer quickstart**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
 > [**Explore the Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

@@ -386,6 +386,8 @@
       items:
       - name: N8identity
         href: partner-n8identity.md
+      - name: Grit IAM B2B2C
+        href: partner-grit-iam.md
       - name: Saviynt 
         href: partner-saviynt.md
       - name: WhoIAM Rampart
@@ -554,6 +556,10 @@
           href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
+      - name: Identity verification tools
+        items:
+        - name: Grit IEF editor 
+          href: partner-grit-editor.md
   # Automate
   - name: Automate 
     items:

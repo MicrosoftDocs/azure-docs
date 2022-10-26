@@ -2,12 +2,12 @@
 title: API versioning for DICOM service - Azure Health Data Services
 description: This guide gives an overview of the API version policies for the DICOM service. 
 services: healthcare-apis
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/11/2022
-ms.author: v-smcevoy
+ms.author: mmitrik
 ---
 
 # API versioning for DICOM service

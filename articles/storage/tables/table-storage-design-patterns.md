@@ -10,7 +10,7 @@ ms.date: 06/24/2021
 ms.author: tamram
 ms.subservice: tables
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Table design patterns
 
@@ -645,7 +645,7 @@ Notice how this example expects the entity it retrieves to be of type **Employee
 
 ### Retrieving multiple entities using LINQ
 
-You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos Table Standard Library.
+You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos DB Table Standard Library.
 
 ```azurecli
 dotnet add package Microsoft.Azure.Cosmos.Table

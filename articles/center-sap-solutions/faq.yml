@@ -46,12 +46,13 @@ sections:
                 ACSS supports the following capabilities at this time.
 
                 - Deployment of infrastructure for SAP S4/HANA systems
-                - Software installation of SAP S4/HANA 1909 SPS 03
-                - Registration of an existing Linux based ABAP/NetWeaver SAP system on Azure
+                - Software installation of SAP S4/HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00
+                - Registration of an existing Windows and Linux based ABAP/NetWeaver SAP system on Azure
                 - Monitoring the health and status of an SAP system
                 - Creating a new AMS provider or integrating an existing one
                 - Starting and stopping an SAP System
                 - Quality checks and recommendations for an SAP system with Azure Advisor
+                - Analyze the cost of running the SAP System in Azure [non-shared resources only]
 
                 ACSS doesn't allow customization of the names of the Azure 
                 resources deployed through it. ACSS follows a prescriptive naming convention for all Azure resources deployed.
@@ -72,7 +73,7 @@ sections:
                 for SAP solutions:
 
                 - SAP systems running on SAP NetWeaver or ABAP stack
-                - SAP systems running on SUSE and RHEL Linux Operating Systems
+                - SAP systems running on Windows, SUSE and RHEL Linux Operating Systems
                 - SAP systems running on HANA, DB2, SQL Server, Oracle, Max DB, SAP ASE databases
 
       - question:  What are the prerequisites to deploy a new SAP system with ACSS?

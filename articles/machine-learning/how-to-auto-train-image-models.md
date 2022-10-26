@@ -1,13 +1,13 @@
 ---
 title: Set up AutoML for computer vision 
 titleSuffix: Azure Machine Learning
-description: Set up Azure Machine Learning automated ML to train computer vision models  with the CLI v2 and Python SDK v2 (preview).
+description: Set up Azure Machine Learning automated ML to train computer vision models  with the CLI v2 and Python SDK v2.
 services: machine-learning
 author: swatig007
 ms.author: swatig
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 07/13/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
@@ -20,10 +20,8 @@ ms.date: 07/13/2022
 > * [v1](v1/how-to-auto-train-image-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2 (preview).
+In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
 
 Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md).
 
@@ -42,7 +40,7 @@ Automated ML supports model training for computer vision tasks like image classi
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* The Azure Machine Learning Python SDK v2 (preview) installed.
+* The Azure Machine Learning Python SDK v2 installed.
 
     To install the SDK you can either,  
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
@@ -56,10 +54,7 @@ Automated ML supports model training for computer vision tasks like image classi
        ```python
        pip install azure-ai-ml
        ```
-  
-    > [!NOTE]
-    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
-
+   
 ---
 
 ## Select your task type
@@ -110,7 +105,7 @@ If your training data is in a different format (like, pascal VOC or COCO), you c
 > The training data needs to have at least 10 images in order to be able to submit an AutoML run. 
 
 > [!Warning]
-> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. As of now, the UI doesn't recognize the StreamInfo datatype, which is the datatype used for image URLs in JSONL format.  
+> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. 
 
 
 ### JSONL schema samples
@@ -125,7 +120,7 @@ Field| Description
 
 The following is a sample JSONL file for image classification:
 
-```python
+```json
 {
       "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
@@ -150,7 +145,7 @@ The following is a sample JSONL file for image classification:
 
   The following code is a sample JSONL file for object detection:
 
-  ```python
+  ```json
   {
       "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
@@ -547,7 +542,7 @@ image_object_detection_job = automl.image_object_detection(
     training_data=my_training_data_input,
     validation_data=my_validation_data_input,
     target_column_name="label",
-    primary_metric="mean_average_precision",
+    primary_metric=ObjectDetectionPrimaryMetrics.MEAN_AVERAGE_PRECISION,
     tags={"my_custom_tag": "My custom value"},
 )
 
@@ -782,6 +777,75 @@ If you want to use tiling, and want to control tiling behavior, the following pa
 ###  Test the deployment
 Please check this [Test the deployment](./tutorial-auto-train-image-models.md#test-the-deployment) section to test the deployment and visualize the detections from the model.
 
+## Large datasets
+
+If you're using AutoML to train on large datasets, there are some experimental settings that may be useful.
+
+> [!IMPORTANT]
+> These settings are currently in public preview. They are provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### Multi-GPU and multi-node training
+
+By default, each model trains on a single VM. If training a model is taking too much time, using VMs that contain multiple GPUs may help. The time to train a model on large datasets should decrease in roughly linear proportion to the number of GPUs used. (For instance, a model should train roughly twice as fast on a VM with two GPUs as on a VM with one GPU.) If the time to train a model is still high on a VM with multiple GPUs, you can increase the number of VMs used to train each model. Similar to multi-GPU training, the time to train a model on large datasets should also decrease in roughly linear proportion to the number of VMs used. When training a model across multiple VMs, be sure to use a compute SKU that supports [InfiniBand](how-to-train-distributed-gpu.md#infiniband) for best results. You can configure the number of VMs used to train a single model by setting the `node_count_per_trial` property of the AutoML job.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+properties:
+  node_count_per_trial: "2"
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+Multi-node training is supported for all tasks. The `node_count_per_trial` property can be specified using the task-specific `automl` functions. For instance, for object detection:
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(
+    ...,
+    properties={"node_count_per_trial": 2}
+)
+```
+---
+
+### Streaming image files from storage
+
+By default, all image files are downloaded to disk prior to model training. If the size of the image files is greater than available disk space, the run will fail. Instead of downloading all images to disk, you can select to stream image files from Azure storage as they're needed during training. Image files are streamed from Azure storage directly to system memory, bypassing disk. At the same time, as many files as possible from storage are cached on disk to minimize the number of requests to storage.
+
+> [!NOTE]
+> If streaming is enabled, ensure the Azure storage account is located in the same region as compute to minimize cost and latency.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+training_parameters:
+  advanced_settings: >
+    {"stream_image_files": true}
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"stream_image_files": true}'
+)
+```
+---
+
 
 ## Example notebooks
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
@@ -804,5 +868,5 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ---
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 * [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

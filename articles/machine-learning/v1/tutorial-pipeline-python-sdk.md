@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/28/2022
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
@@ -17,7 +17,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!NOTE]
-> For a tutorial that uses SDK v2 to build a pipeline, see [Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 (preview) in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
+> For a tutorial that uses SDK v2 to build a pipeline, see [Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
 
 In this tutorial, you learn how to build an [Azure Machine Learning pipeline](../concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
@@ -92,7 +92,7 @@ workspace = Workspace.from_config()
 ```
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment-v1.md).
 
 ## Create the infrastructure for your pipeline 
 

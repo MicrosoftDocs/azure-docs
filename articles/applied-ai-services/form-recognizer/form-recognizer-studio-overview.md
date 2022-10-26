@@ -54,7 +54,7 @@ The studio supports Form Recognizer v3.0 models and v3.0 model training. Previou
 
     :::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
 
-1. After you've tried Form Recognizer Studio, use the [**C#**](quickstarts/get-started-v3-sdk-rest-api.md), [**Java**](quickstarts/get-started-v3-sdk-rest-api.md), [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md) or [**Python**](quickstarts/get-started-v3-sdk-rest-api.md) client libraries or the [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md) to get started incorporating Form Recognizer models into your own applications.
+1. After you've tried Form Recognizer Studio, use the [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**Python**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) client libraries or the [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to get started incorporating Form Recognizer models into your own applications.
 
    To learn more about each model, *see* concepts pages.
 

@@ -1,21 +1,22 @@
 ---
-title: "Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps"
-description: Learn to access data in Cosmos DB using Mongoose from an Azure Static Web Apps API function.
+title: "Tutorial: Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps"
+description: Learn to access data in Azure Cosmos DB using Mongoose from an Azure Static Web Apps API function.
 author: GeekTrainer
 ms.author: chrhar
 ms.service: static-web-apps
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 01/25/2021
 ---
 
-# Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps
+# Tutorial: Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps
 
-[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Allowing you to design a data structure and enforce validation, Mongoose provides all the tooling necessary to interact with databases that support the MongoDB API. [Cosmos DB](../cosmos-db/mongodb-introduction.md) supports the necessary MongoDB APIs and is available as a back-end server option on Azure.
+[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Allowing you to design a data structure and enforce validation, Mongoose provides all the tooling necessary to interact with databases that support the MongoDB API. [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb-introduction.md) supports the necessary MongoDB APIs and is available as a back-end server option on Azure.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a Cosmos DB serverless account
+> - Create an Azure Cosmos DB serverless account
 > - Create Azure Static Web Apps
 > - Update application settings to store the connection string
 
@@ -30,16 +31,16 @@ If you don’t have an Azure subscription, create a [free trial account](https:/
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a Cosmos DB serverless database
+## Create an Azure Cosmos DB serverless database
 
-Begin by creating a [Cosmos DB serverless](../cosmos-db/serverless.md) account. By using a serverless account, you only pay for the resources as they are used and avoid needing to create a full infrastructure.
+Begin by creating an [Azure Cosmos DB serverless](../cosmos-db/serverless.md) account. By using a serverless account, you only pay for the resources as they are used and avoid needing to create a full infrastructure.
 
-1. Navigate to [https://portal.azure.com](https://portal.azure.com)
+1. Navigate to the [Azure portal](https://portal.azure.com)
 2. Select **Create a resource**
 3. Enter **Azure Cosmos DB** in the search box
 4. Select **Azure Cosmos DB**
 5. Select **Create**
-6. If prompted, under **Azure Cosmos DB API for MongoDB** select **Create**
+6. If prompted, under **Azure Cosmos DB for MongoDB** select **Create**
 7. Configure your Azure Cosmos DB Account with the following information
     - Subscription: Choose the subscription you wish to use
     - Resource: Select **Create new**, and set the name to **aswa-mongoose**
@@ -47,7 +48,7 @@ Begin by creating a [Cosmos DB serverless](../cosmos-db/serverless.md) account. 
     - Location: **West US 2**
     - Capacity mode: **Serverless (preview)**
     - Version: **4.0**
-:::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Create new Cosmos DB instance":::
+:::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Create new Azure Cosmos DB instance":::
 8. Select **Review + create**
 9. Select **Create**
 
@@ -92,7 +93,7 @@ In order to allow the web app to communicate with the database, the database con
 1. Select **Home** in the upper left corner of the Azure portal (or navigate back to [https://portal.azure.com](https://portal.azure.com))
 2. Select **Resource groups**
 3. Select **aswa-mongoose**
-4. Select the name of your database account - it will have a type of **Azure Cosmos DB API for Mongo DB**
+4. Select the name of your database account - it will have a type of **Azure Cosmos DB for Mongo DB**
 5. Under **Settings** select **Connection String**
 6. Copy the connection string listed under **PRIMARY CONNECTION STRING**
 7. In the breadcrumbs, select **aswa-mongoose**

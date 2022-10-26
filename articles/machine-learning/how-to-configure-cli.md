@@ -10,7 +10,7 @@ author: s-polly
 ms.author: scottpolly
 ms.date: 04/08/2022
 ms.reviewer: nibaccam
-ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
+ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Install and set up the CLI (v2)
@@ -22,7 +22,7 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 > * [v1](v1/reference-azure-machine-learning-cli.md)
 > * [v2 (current version)](how-to-configure-cli.md)
 
-The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
+The `ml` extension to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Check the Azure CLI extensions you've installed:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
-Remove any existing installation of the of `ml` extension and also the CLI v1 `azure-cli-ml` extension:
+Remove any existing installation of the `ml` extension and also the CLI v1 `azure-cli-ml` extension:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 
@@ -140,7 +140,7 @@ If your Azure Machine Learning workspace uses a private endpoint and virtual net
 
 ## Next steps
 
-- [Train models using CLI (v2)](how-to-train-cli.md)
+- [Train models using CLI (v2)](how-to-train-model.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
 - [Explore Azure Machine Learning with examples](samples-notebooks.md)

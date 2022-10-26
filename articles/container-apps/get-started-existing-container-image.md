@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Deploy an existing container image with the Azure CLI'
-description: Deploy an existing container image to Azure Container Apps with the Azure CLI.
+title: 'Quickstart: Deploy an existing container image with the command line'
+description: Deploy an existing container image to Azure Container Apps with the Azure CLI or PowerShell.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -11,7 +11,7 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
 
-# Quickstart: Deploy an existing container image with the Azure CLI
+# Quickstart: Deploy an existing container image with the command line
 
 The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manual cloud infrastructure configuration and complex container orchestrators.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)'
+title: 'Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2'
 titleSuffix: Azure Machine Learning
 description: Build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
-# Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)
+# Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -270,7 +270,7 @@ Create a `MLClient` object to manage Azure Machine Learning services.
 [!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration json file to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration json file to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
 
 #### Submit pipeline job to workspace
 

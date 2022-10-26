@@ -13,6 +13,9 @@ ms.topic: conceptual
 
 # LUIS role-based access control
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
 ## Enable Azure Active Directory authentication 

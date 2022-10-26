@@ -16,9 +16,9 @@ sections:
   - name: General
     questions:
       - question: |
-          Can I get Azure Synapse link for SQL in my existing Azure Synapse workspace?
+          Can I get Azure Synapse Link for SQL in my existing Azure Synapse workspace?
         answer: |
-          You can get Azure Synapse link for SQL when your Azure Synapse workspace is created after May 24th, 2022.  The support for Synapse workspaces created before May 24th, 2022 will be coming soon. When you see the error code: SynapseLinkStorageResourceNotProvisioned, it indicates that you are using the Synapse workspaces created before May 24th, 2022.
+          You can get Azure Synapse Link for SQL when your Azure Synapse workspace is created after May 24th, 2022.  The support for Synapse workspaces created before May 24th, 2022 will be coming soon. When you see the error code: SynapseLinkStorageResourceNotProvisioned, it indicates that you are using the Synapse workspaces created before May 24th, 2022.
       - question: |
           Can I use Azure Synapse Link for SQL to replicate data to Azure Synapse SQL serverless pool as the destination store?
         answer: |
@@ -26,7 +26,7 @@ sections:
       - question: |
           Does Azure Synapse Link for SQL support Azure SQL Managed Instance as a source store?
         answer: |
-          No, currently Azure Synapse link for SQL supports Azure SQL Database and SQL Server 2022 as the source stores only.
+          No, currently Azure Synapse Link for SQL supports Azure SQL Database and SQL Server 2022 as the source stores only.
       - question: |
           Do I need to stop the link connection when I want to add or remove tables to be replicated?
         answer: |
@@ -47,7 +47,7 @@ sections:
       - question: |
           Can I select managed virtual network in Synapse workspace with Synapse managed private endpoints which allow the link connection to privately connect to the source database?
         answer: |
-          No, you cannot. You need to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace in order to use Azure Synapse Link for SQL. Managed virtual network support in Azure Synapse link for SQL will be coming soon.
+          Yes, you can. Similar like all the workloads in Synapse. You can enable Synapse link for SQL in Azure Synapse-managed virtual network to replicate data from SQL to Synapse in a secure manner.  You can protect against data exfiltration by allowing outbound connectivity from the managed virtual network only to approved targets using managed private endpoints.
       - question: |
           What is the best practice to select the core counts to replicate tables from source store to Synapse dedicated SQL pool when creating a link connection?
         answer: |

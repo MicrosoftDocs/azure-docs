@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -20,7 +20,7 @@ recommendations: false
 
 Form Recognizer v3.0  introduces several new features and capabilities:
 
-* [Form Recognizer REST API](quickstarts/get-started-v3-sdk-rest-api.md) has been redesigned for better usability.
+* [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, and key-value pairs, from forms and documents.
 * [**Custom neural model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.

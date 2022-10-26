@@ -267,7 +267,7 @@
                 href: ./rest-api-postman.md
         - name: Azure CLI
           href: /cli/azure/appconfig
-    - name: Bicep & ARM template
+    - name: Deployment
       href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions

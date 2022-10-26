@@ -8,7 +8,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-2022
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
@@ -87,7 +87,7 @@ When you try to connect to source in the Azure Database Migration service projec
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-to-azure-sql.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-to-azure-sql.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-to-azure-sql.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Azure Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-to-azure-sql.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## Lock wait timeout error when migrating a MySQL database to Azure DB for MySQL
 

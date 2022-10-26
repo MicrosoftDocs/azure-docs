@@ -139,7 +139,7 @@ The only information available to users for the new account is usage and billing
 
 ### Remaining product credits
 
-If you have a Visual Studio or Microsoft Partner Network product, you get monthly credits. Your credit doesn't carry forward with the product in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The product uses the Visual Studio credit that's available in the user's account. For more information, see [Transferring Visual Studio and Partner Network subscriptions](billing-subscription-transfer.md#transfer-visual-studio-and-partner-network-subscriptions).
+If you have a Visual Studio or Microsoft Cloud Partner Program product, you get monthly credits. Your credit doesn't carry forward with the product in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The product uses the Visual Studio credit that's available in the user's account. For more information, see [Transferring Visual Studio and Partner Network subscriptions](billing-subscription-transfer.md#transfer-visual-studio-and-partner-network-subscriptions).
 
 ### Users keep access to transferred resources
 

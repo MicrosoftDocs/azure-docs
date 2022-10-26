@@ -1,12 +1,12 @@
 ---
 title: Configure an Azure Compute Gallery
-titleSuffix: Microsoft Dev Box
+titleSuffix: Microsoft Dev Box Preview
 description: 'Learn how to create a repository for managing and sharing Dev Box images.'
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/28/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
@@ -149,5 +149,5 @@ You can detach galleries from dev centers so that their images can no longer be 
 The gallery will be detached from the dev center. The gallery and its images won't be deleted, and you can reattach it if necessary. 
 
 ## Next steps
-Learn more about Microsoft Dev Box:
-- [Microsoft Dev Box key concepts](./concept-dev-box-concepts.md)
+Learn more about Microsoft Dev Box Preview:
+- [Microsoft Dev Box Preview key concepts](./concept-dev-box-concepts.md)

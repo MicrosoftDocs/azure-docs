@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 10/12/2022
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 ---
 
@@ -21,7 +21,7 @@ Azure Logic Apps supports the [*system-assigned* managed identity](../active-dir
 
 * A logic app resource can share the same user-assigned identity across a group of other logic app resources.
 
-This article shows how to enable and set up a managed identity for your logic app and provides an example for how use the identity for authentication. Unlike the system-assigned identity, which you don't have to manually create, you *do* have to manually create the user-assigned identity. This article shows how to create a user-assigned identity using the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
+This article shows how to enable and set up a managed identity for your logic app and provides an example for how to use the identity for authentication. Unlike the system-assigned identity, which you don't have to manually create, you *do* have to manually create the user-assigned identity. This article shows how to create a user-assigned identity using the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
 | Tool | Documentation |
 |------|---------------|
@@ -58,7 +58,7 @@ The following table lists the connectors that support using a managed identity i
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
-| Managed | - Azure AD <br>- Azure AD Identity Protection <br>- Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure VM <br>- HTTP with Azure AD <br>- SQL Server |
+| Managed | - Azure AD Identity Protection <br>- Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure VM <br>- HTTP with Azure AD <br>- SQL Server |
 
 ### [Standard](#tab/standard)
 
@@ -66,8 +66,8 @@ The following table lists the connectors that support using a managed identity i
 
 | Connector type | Supported connectors |
 |----------------|----------------------|
-| Built-in | - Azure Event Hubs <br>- Azure Service Bus <br>- HTTP <br>- HTTP + Webhook <br>- SQL Server <br><br>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed connector | - Azure AD <br>- Azure AD Identity Protection <br>- Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure VM <br>- HTTP with Azure AD <br>- SQL Server |
+| Built-in | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- Azure Queues <br>- Azure Tables <br>- HTTP <br>- HTTP + Webhook <br>- SQL Server <br><br>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
+| Managed connector | - Azure AD Identity Protection <br>- Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure VM <br>- HTTP with Azure AD <br>- SQL Server |
 
 ---
 

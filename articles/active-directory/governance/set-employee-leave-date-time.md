@@ -27,9 +27,6 @@ In delegated scenarios, the signed-in user needs the Global Administrator role t
 
 Updating the employeeLeaveDateTime requires the User-LifeCycleInfo.ReadWrite.All application permission.
 
->[!NOTE]
-> The User-LifeCycleInfo.ReadWrite.All permissions is currently hidden and cannot be configured in Graph Explorer or the API permission blade of app registrations.
-
 ## Set employeeLeaveDateTime via PowerShell
 To set the employeeLeaveDateTime for a user using PowerShell enter the following information:
 

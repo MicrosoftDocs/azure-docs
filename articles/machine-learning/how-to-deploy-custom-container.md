@@ -55,8 +55,10 @@ cd azureml-examples/cli
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/sdk/endpoints/online/custom-container
+cd azureml-examples/sdk
 ```
+
+See also [the example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container.ipynb) but note that `3. Test locally` section in the notebook assumes to run under the `azureml-examples/sdk` directory.
 
 ---
 

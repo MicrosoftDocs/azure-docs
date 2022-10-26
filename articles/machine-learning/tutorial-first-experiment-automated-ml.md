@@ -10,9 +10,8 @@ author: blackmist
 ms.author: larryfr
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, ignite-2022
+#Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
 # Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio
@@ -32,7 +31,7 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-* For a code first example of an object detection model, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md),
+* For a code first example of an object detection model, see the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md),
 
 ## Prerequisites
 

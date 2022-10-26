@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: cesardl
 author: CESARDELATORRE
 ms.date: 03/15/2022
-ms.custom: automl, event-tier1-build-2022
+ms.custom: automl, event-tier1-build-2022, ignite-2022
 ---
 
 # Automated machine learning (AutoML)?
@@ -318,7 +318,7 @@ Tutorials are end-to-end introductory examples of AutoML scenarios.
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](../tutorial-first-experiment-automated-ml.md).
 
-+ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model (preview) with AutoML and Python (v1)](../tutorial-auto-train-image-models.md).
++ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model (preview) with AutoML and Python (v1)](./tutorial-auto-train-image-models-v1.md).
    
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 

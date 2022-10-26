@@ -21,7 +21,7 @@ In this how-to guide, you'll learn how to upload and install all the required co
 
 - An Azure subscription.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which the VIS exists.
-- Grant the ACSS application **Azure SAP Workloads Management**, **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
+- A **User-assigned managed identity** with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
@@ -84,7 +84,7 @@ Before you can download the software, set up an Azure Storage account for storin
 
     1. Select **Create**.
     
- 1. Grant the ACSS application *Azure SAP Workloads Management* **Storage Blob Data Reader** and **Reader and Data Access** role access on this storage account.
+ 1. Grant the **User-assigned managed identity**, which was used during infrastructure deployment, **Storage Blob Data Reader** and **Reader and Data Access** role access on this storage account.
 
 
 ### Download SAP media

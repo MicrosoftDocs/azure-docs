@@ -37,10 +37,13 @@ A test configuration uses the following keys:
 | `splitAllCSVs` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
 | `secrets` | object |  | List of secrets that the Apache JMeter script references. |
 | `secrets.name` | string |  | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
-| `secrets.value` | string |  | URI for the Azure Key Vault secret. |
+| `secrets.value` | string |  | URI (secret identifier) for the Azure Key Vault secret. |
 | `env` | object |  | List of environment variables that the Apache JMeter script references. |
 | `env.name` | string |  | Name of the environment variable. This name should match the secret name that you use in the Apache JMeter script. |
 | `env.value` | string |  | Value of the environment variable. |
+| `certificates` | object |  | List of client certificates for authenticating with application endpoints in the JMeter script. |
+| `certificates.name` | string |  | Name of the certificate. |
+| `certificates.value` | string |  | URI (secret identifier) for the certificate in Azure Key Vault. |
 | `keyVaultReferenceIdentity` | string |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. |
 
 The following YAML snippet contains an example load test configuration:
@@ -66,10 +69,15 @@ env:
     value: my-value
 secrets:
   - name: my-secret
-    value: https://akv-contoso.vault.azure.net/secrets/MySecret
+    value: https://akv-contoso.vault.azure.net/secrets/MySecret/abc1234567890def12345
+certificates:
+  - name: my-certificate
+    value: https://akv-contoso.vault.azure.net/certificates/MyCertificate/abc1234567890def12345
 keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
 ```
 
 ## Next steps
 
-Learn how to build [automated regression testing in your CI/CD workflow](tutorial-cicd-azure-pipelines.md).
+- Learn how to build [automated regression testing in your CI/CD workflow](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
+- Learn how to [load test secured endpoints](./how-to-test-secured-endpoints.md).

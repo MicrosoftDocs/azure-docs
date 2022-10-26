@@ -41,8 +41,8 @@ ms.author: victorh
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules|100||
-|WAF IP address ranges per match condition|540<br><br>600 - with CRS 3.2 or newer|
-| Maximum WAF exclusions per Application Gateway|40||
+|WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or newer|
+| Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or newer|
 
 <sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.
 

@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Run post-call transcription analysis
 
-Follow these steps to run post-call transcription analysis:
+Follow these steps to build and run the post-call transcription analysis quickstart code example.
 
 1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/java/jre/console/call-center/"  title="Copy the samples"  target="_blank">scenarios/java/jre/call-center/</a> sample files from GitHub into your project directory. The `pom.xml` file that you created in [environment setup](#set-up-the-environment) must also be in this directory.
 1. Open a command prompt and run this command to compile the project files. 

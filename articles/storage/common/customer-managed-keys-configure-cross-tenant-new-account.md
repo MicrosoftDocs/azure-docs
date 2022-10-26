@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 10/04/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -111,11 +111,37 @@ To configure cross-tenant customer-managed keys for a new storage account in the
 
 ### [PowerShell](#tab/azure-powershell)
 
-N/A
+To configure cross-tenant customer-managed keys for a new storage account in PowerShell, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview), version 4.4.2-preview.
+
+Next, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
+
+Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```azurepowershell
+$accountName = "<account-name>"
+$kvUri = "<key-vault-uri>"
+$keyName = "<keyName>"
+$location = "<location>"
+$multiTenantAppId = "<application-id>"
+
+$userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName $rgName
+
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -Name $accountName `
+    -Kind StorageV2 `
+    -SkuName Standard_LRS `
+    -Location $location `
+    -UserAssignedIdentityId $userIdentity.Id `
+    -IdentityType SystemAssignedUserAssigned `
+    -KeyName $keyName `
+    -KeyVaultUri $kvUri `
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id `
+    -KeyVaultFederatedClientId $multiTenantAppId 
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
-N/A
+To configure cross-tenant customer-managed keys for a new storage account in Azure CLI, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ---
 

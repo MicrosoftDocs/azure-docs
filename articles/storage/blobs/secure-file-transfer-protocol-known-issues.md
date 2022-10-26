@@ -36,6 +36,17 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 
 The unsupported client list above is not exhaustive and may change over time.
 
+## Client settings
+
+To transfer files to or from Azure storage via client applications, see the following recommended client settings.
+
+- WinSCP
+
+  - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename** option.
+  
+  > [!CAUTION]
+  > Leaving this option enabled can cause failures or degraded performance during large file uploads.
+
 ## Unsupported operations
 
 | Category | Unsupported operations |

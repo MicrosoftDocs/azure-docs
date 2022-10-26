@@ -9,18 +9,12 @@ ms.author: lochen
 author: cloga
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, ignite-2022
 ---
 
 # Schedule machine learning pipeline jobs (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as retrain models or do batch predictions regularly to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI and SDK.
 

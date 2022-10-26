@@ -806,13 +806,7 @@ state appears in the Azure portal:
 
 ![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
 
-When a policy definition with `manual` effect is assigned, you have the option to include **evidence**, which refers to optional supplemental information which supports the custom compliance attestation. Evidence itself is stored in Azure Storage, and you can specify the storage blob container in the [policy assignment's metadata](../concepts/assignment-structure.md#metadata) under the property `evidenceStorages`. Further details of the evidence file are described in the attestation JSON resource.
-
-### Attestations
-
-`Microsoft.PolicyInsights/attestations`, called an Attestation resource, is a new proxy resource type
- that sets the compliance states for targeted resources in a manual policy. Learn more about
-the attestation resource by reading [Azure Policy attestation structure](attestation-structure.md).
+When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
 
 ## Modify
 

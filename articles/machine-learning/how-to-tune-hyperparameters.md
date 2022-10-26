@@ -423,7 +423,7 @@ To see how the parameter values are received, parsed, and passed to the training
 
 ## Submit hyperparameter tuning experiment
 
-After you define your hyperparameter tuning configuration, [submit the experiment](/python/api/azureml-core/azureml.core.experiment%28class%29#submit-config--tags-none----kwargs-):
+After you define your hyperparameter tuning configuration, [submit the job](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-create-or-update):
 
 ```Python
 # submit the sweep

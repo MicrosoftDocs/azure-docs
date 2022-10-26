@@ -36,7 +36,7 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Microsoft Developer Network (MSDN)** | MSDN Platforms<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018 |
 | **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | October 2, 2018 |
 | **Pay-As-You-Go** | Pay-As-You-Go Dev/Test         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | October 2, 2018 |
-| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018 |
+| **Pay-As-You-Go** | Microsoft Cloud Partner Program      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018 |
 | **Pay-As-You-Go** | Free Trial<sup>3</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | October 2, 2018 |
 | **Pay-As-You-Go** | Azure in Open<sup>3</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | October 2, 2018 |
 | **Pay-As-You-Go** | Azure Pass<sup>3</sup>         | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | October 2, 2018 |

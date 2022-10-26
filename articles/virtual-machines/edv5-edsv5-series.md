@@ -91,8 +91,8 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 <sup>5</sup> Edsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 <sup>6</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E104ids_v5** results in higher IOPs and MBps than standard premium disks:
-- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/4000 
-- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/4000
+- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 120000/4000 
+- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 120000/4000
 
 
 

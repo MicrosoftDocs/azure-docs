@@ -10,7 +10,7 @@ author: swatig007
 ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 10/06/2021
-ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Train an object detection model (preview) with AutoML and Python (v1)
@@ -49,7 +49,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) section of the notebook. 
 
-This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection) if you wish to run it in your own [local environment](../how-to-configure-environment.md#local). To get the required packages,
+This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection) if you wish to run it in your own [local environment](how-to-configure-environment-v1.md). To get the required packages,
 * Run `pip install azureml`
 * [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment)
 
@@ -493,8 +493,8 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Deployed your model
 > * Visualized detections
 
-* [Learn more about computer vision in automated ML (preview)](../concept-automated-ml.md#computer-vision-preview).
-* [Learn how to set up AutoML to train computer vision models with Python (preview)](../how-to-auto-train-image-models.md).
+* [Learn more about computer vision in automated ML](../concept-automated-ml.md#computer-vision).
+* [Learn how to set up AutoML to train computer vision models with Python](../how-to-auto-train-image-models.md).
 * [Learn how to configure incremental training on computer vision models](../how-to-auto-train-image-models.md#incremental-training-optional).
 * See [what hyperparameters are available for computer vision tasks](../reference-automl-images-hyperparameters.md).
 * Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 01/18/2022
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -520,6 +520,6 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](../tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](../tutorial-auto-train-image-models.md).
 * [Make predictions with ONNX on computer vision models from AutoML](../how-to-inference-onnx-automl-image-models.md) 
 * [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/16/2022
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, ignite-2022
 ---
 
 # Use authentication credential secrets in Azure Machine Learning jobs
@@ -81,4 +81,4 @@ Before following the steps in this article, make sure you have the following pre
 
 ## Next steps
 
-For an example of submitting a training job using the Azure Machine Learning Python SDK v2 (preview), see [Train models with the Python SDK v2](how-to-train-sdk.md).
+For an example of submitting a training job using the Azure Machine Learning Python SDK v2, see [Train models with the Python SDK v2](how-to-train-sdk.md).

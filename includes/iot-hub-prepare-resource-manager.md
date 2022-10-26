@@ -12,7 +12,7 @@ Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you contin
 
 The following steps show how to set up authentication for your app to register with Azure Active Directory. You can run these commands in a standard PowerShell session. Registering with Azure Active Directory is necessary to authenticate any future REST calls. For more information, see [How and why applications are added to Azure AD](/azure/active-directory/develop/active-directory-how-applications-are-added).
 
-1. Sign in to your Azure subscription using the following command:
+1. Sign in to your Azure subscription using the following command. If you're using PowerShell in Azure Cloud Shell you're already signed in, so you can skip this step.
 
     ```powershell
     Connect-AzAccount
@@ -26,10 +26,10 @@ The following steps show how to set up authentication for your app to register w
    Get-AzSubscription
    ```
 
-   Select the subscription you want to use. You can use either the subscription name or `Id` from the output of the previous command.
+   Select the subscription you want to use. You can use either the `Name` or `Id` from the output of the previous command.
 
    ```powershell
-   Select-AzSubscription -SubscriptionName "{your-subscription-name}"
+   Select-AzSubscription -SubscriptionName "{your subscription Name or Id}"
    ```
 
 1. Save your `Id` and `TenantId` for later.

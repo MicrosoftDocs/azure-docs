@@ -5,6 +5,7 @@ description: Troubleshoot connectivity issues with Virtual Network NAT.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 08/29/2022
 ms.author: allensu
@@ -94,7 +95,7 @@ Once the custom UDR is removed from the routing table, the NAT gateway public IP
 
 ### Private IPs are used to connect to Azure services by Private Link 
 
-[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Storage, SQL, or Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you'll notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.  
+[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Azure Storage, Azure SQL, or Azure Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you'll notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.
 
 To check which Private Endpoints you have set up with Private Link: 
 
@@ -189,5 +190,3 @@ To learn more about NAT gateway, see:
 * [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) 
 * [NAT gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource) 
 * [Metrics and alerts for NAT gateway resources](/azure/virtual-network/nat-gateway/nat-metrics) 
-
-
