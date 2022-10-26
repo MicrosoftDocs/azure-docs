@@ -1,7 +1,7 @@
 ---
 title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
-author: dkamstra
+author: jacegummersall
 ms.topic: conceptual
 ms.date: 09/07/2022
 ms.author: jagummersall
@@ -197,7 +197,7 @@ You might have a limited number of Azure app actions per action group.
 
 ### Email
 
-Ensure that your email filtering is configured appropriately. Emails are sent from the following email addresses:
+Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:
  
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com

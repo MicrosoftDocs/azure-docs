@@ -175,8 +175,11 @@ Now that you've created the required resources, use the command below to create 
 
 # [CLI](#tab/cli) 
 
-Use the following command to create a data history connection. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`.
-The command uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+Use the command in this section to create a data history connection. 
+
+By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`. You can also see the full list of optional parameters, including how to specify a table name and more, in its reference documentation: [az dt data-history connection create adx](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx).
+
+The command below uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
 az dt data-history connection create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace

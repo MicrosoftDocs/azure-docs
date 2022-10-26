@@ -3,8 +3,8 @@ title: Train models with the Azure ML Python SDK (v1) (preview)
 titleSuffix: Azure Machine Learning
 description: Add compute resources (compute targets) to your workspace to use for machine learning training and inference with SDK v1.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core

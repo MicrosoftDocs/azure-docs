@@ -4,8 +4,9 @@ titleSuffix: Azure Machine Learning
 description: 'Learn to how view costs for a managed online endpoint in Azure Machine Learning.'
 services: machine-learning
 ms.service: machine-learning
-author: sdgilley
-ms.author: sgilley
+author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
 ms.subservice: core
 ms.date: 05/03/2021
 ms.topic: conceptual
@@ -15,8 +16,6 @@ ms.custom: how-to, deploy, devplatv2, event-tier1-build-2022
 # View costs for an Azure Machine Learning managed online endpoint (preview)
 
 Learn how to view costs for a managed online endpoint (preview). Costs for your endpoints will accrue to the associated workspace. You can see costs for a specific endpoint using tags.
-
-
 
 > [!IMPORTANT]
 > This article only applies to viewing costs for Azure Machine Learning managed online endpoints (preview). Managed online endpoints are different from other resources since they must use tags to track costs. For more information on viewing the costs of other Azure resources, see [Quickstart: Explore and analyze costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
