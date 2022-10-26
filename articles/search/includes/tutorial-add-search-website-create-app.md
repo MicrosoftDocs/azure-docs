@@ -42,7 +42,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     Wait until the build and deployment complete before continuing. This may take a minute or two to finish. 
 
-1. When the resource is created, it creates a GitHub action file in your forked repository. The action file is in the `./.github/workflows` directory on your remote fork. To continue working on this project, you need to sync your local fork with your remote fork. Use Git in the Visual Studio Code integrated terminal to sync your local forked repository:
+1. When the resource is created, it creates a GitHub action file on GitHub but doesn't pull that file down to your local computer. To continue working on this project, you need to sync your local fork with your remote fork. Use Git in the Visual Studio Code integrated terminal to sync your local forked repository:
 
     ```bash
     git pull origin main
@@ -50,6 +50,8 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     * _origin_ refers to your forked repo. 
     * _main_ refers to the default branch.
+
+    The GitHub action file is in the local directory for the sample at the `./.github/workflows` directory. 
 
 1. In Visual Studio file explorer, open up your GitHub deployment action file. The file path and name _something_ looks `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
 1. The _part_ of the YAML file relevant to the Static web app is shown below:
