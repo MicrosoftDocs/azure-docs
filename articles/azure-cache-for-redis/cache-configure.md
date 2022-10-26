@@ -282,11 +282,12 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 The **Private Endpoint** section allows you to configure the private endpoint settings for your cache. Private endpoint is supported on all cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 
-For more information, see [Azure Cache for Redis with Azure Private Link](./cache-private-link.md).
+For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md).
 
 ### Firewall
 
-Firewall rules configuration is available for all Azure Cache for Redis tiers.
+- Firewall rules configuration is available for all Basic, Standard, and Premium tiers.
+- Firewall rules configuration isn't available for Enterprise nor Enterprise Flash tiers.
 
 Select **Firewall** to view and configure firewall rules for cache.
 
@@ -527,7 +528,7 @@ For more information about databases, see [What are Redis databases?](cache-deve
 
 ## Redis commands not supported in Azure Cache for Redis
 
-Configuration and management of Azure Cache for Redis instances is managed by Microsoft, which makes disables the following commands. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
+Configuration and management of Azure Cache for Redis instances is managed by Microsoft, which disables the following commands. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
 
 - ACL
 - BGREWRITEAOF

@@ -110,7 +110,7 @@ You can try this script in the [Azure Cloud Shell](overview.md). Be sure to upda
 
 ```powershell
 # This script requires an application registration that's granted Microsoft Graph API permission
-# https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started
+# https://learn.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started
 
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID

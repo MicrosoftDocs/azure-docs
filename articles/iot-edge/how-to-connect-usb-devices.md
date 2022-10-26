@@ -90,7 +90,7 @@ The following steps provide a sample EFLOW PowerShell cmdlet to attach a USB dev
     Remove-EflowUSBDevices -busid <busid>
     ```
 > [!IMPORTANT]
-> The attachment from the EFLOW VM to the USB device does not persist across reboots. To attach the USB device after reboot, you may need to create a bash script that runs during startup and connects the device using the `usbip` bash command. For more information about how to attach the device on the EFLOW VM side, see [Add-EflowUSBDevices](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util/eflow-usbip/EflowUtil.psm1).
+> The attachment from the EFLOW VM to the USB device does not persist across reboots. To attach the USB device after reboot, you may need to create a bash script that runs during startup and connects the device using the `usbip` bash command. For more information about how to attach the device on the EFLOW VM side, see [Add-EflowUSBDevices](https://github.com/Azure/iotedge-eflow/blob/main/eflow-util/eflow-usbip/EflowUtil-Usbip.psm1).
 
 To learn more about how USB over IP, see the [Connecting USB devices to WSL](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works) and the [usbipd-win repo on GitHub](https://github.com/dorssel/usbipd-win/wiki).
 

@@ -3,7 +3,7 @@ title: Back up an app
 description: Learn how to restore backups of your apps in Azure App Service or configure custom backups. Customize backups by including the linked database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 09/09/2022 
+ms.date: 10/24/2022 
 ms.custom: seodec18
 
 ---
@@ -17,8 +17,8 @@ Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **
 > [!NOTE]
 > Support in App Service environments (ASE) V2 and V3 is in preview. For App Service environments:
 > 
-> - Backups can be restored to a target app within the ASE itself, not in another ASE.
-> - Backups can be restored to a target app in another App Service plan in the ASE.
+> - Automatic backups can be restored to a target app within the ASE itself, not in another ASE.
+> - Custom backups can be restored to a target app in another ASE, such as from a V2 ASE to a V3 ASE.
 > - Backups can be restored to target app of the same OS platform as the source app.
 
 ## Automatic vs custom backups
@@ -27,7 +27,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 ||Automatic backups | Custom backups |
 |-|-|-|
-| Pricing tiers | **Standard**, **Premium**. | **Standard**, **Premium**, **Isolated**. |
+| Pricing tiers | **Basic**, **Standard**, **Premium**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |

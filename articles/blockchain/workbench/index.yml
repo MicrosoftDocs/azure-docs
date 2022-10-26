@@ -30,7 +30,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Follow the learning path for blockchain
-            url: /learn/paths/ethereum-blockchain-development
+            url: /training/paths/ethereum-blockchain-development
           - text: Watch the beginner's blockchain series
             url: /shows/Beginners-Series-to-Blockchain/
       - linkListType: deploy

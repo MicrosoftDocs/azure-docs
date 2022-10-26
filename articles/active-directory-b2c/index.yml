@@ -51,7 +51,7 @@ landingContent:
           - text: Authentication library
             url: ../active-directory/develop/msal-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
           - text: 'Build a web site: HTML, CSS, JavaScript'
-            url: /learn/modules/build-simple-website/
+            url: /training/modules/build-simple-website/
 
   # Card
   - title: Common use cases

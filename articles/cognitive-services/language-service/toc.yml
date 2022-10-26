@@ -14,6 +14,8 @@ items:
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
     href: language-studio.md
+  - name: Language support
+    href: concepts/language-support.md
 - name: Samples
   items:
   - name: Developer overview
@@ -106,6 +108,8 @@ items:
       href: custom-text-classification/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-text-classification/fail-over.md
+    - name: Deploy to multiple regions
+      href: concepts/custom-features/multi-region-deployment.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -113,6 +117,8 @@ items:
     - name: Accepted data formats
       href: custom-text-classification/concepts/data-formats.md
       displayName: Data representation
+    - name: Project versioning
+      href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
@@ -206,6 +212,10 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Accepted data formats
         href: custom-named-entity-recognition/concepts/data-formats.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
   - name: Reference
     items:
     - name: Glossary
@@ -264,10 +274,14 @@ items:
         href: conversational-language-understanding/how-to/call-api.md
       - name: Back up and recover your models
         href: conversational-language-understanding/how-to/fail-over.md
+      - name: Migrate from LUIS
+        href: conversational-language-understanding/how-to/migrate-from-luis.md
   - name: Concepts
     items:
-      - name: Backwards compatibility with LUIS
-        href: conversational-language-understanding/concepts/backwards-compatibility.md
+      - name: Best practices
+        href: conversational-language-understanding/concepts/best-practices.md
+      - name: Multilingual projects
+        href: conversational-language-understanding/concepts/multiple-languages.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
@@ -276,6 +290,8 @@ items:
         href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
   - name: Tutorials
     items:
       - name: Use Bot Framework
@@ -299,7 +315,7 @@ items:
       - name: SDK
         items:
         - name: C#
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
 - name: Entity linking
@@ -337,9 +353,9 @@ items:
     - name: REST API
       items:
         - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-07-01-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
+          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-10-01-preview)
+          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -418,9 +434,9 @@ items:
     - name: REST API
       items:
         - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-07-01-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
+          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-10-01-preview)
+          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -504,9 +520,9 @@ items:
     - name: REST API
       items:
         - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-07-01-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
+          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-10-01-preview)
+          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -573,6 +589,8 @@ items:
     items:
     - name: Recognized entity categories
       href: named-entity-recognition/concepts/named-entity-categories.md 
+    - name: Entity resolution
+      href: named-entity-recognition/concepts/entity-resolutions.md
   - name: Tutorials
     items:
     - name: Extract information in Excel using Power Automate 
@@ -582,9 +600,9 @@ items:
     - name: REST API
       items:
         - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-07-01-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
+          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-10-01-preview)
+          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -657,6 +675,12 @@ items:
         href: orchestration-workflow/concepts/none-intent.md
       - name: Data formats
         href: orchestration-workflow/concepts/data-formats.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering
@@ -678,7 +702,7 @@ items:
       - name: SDK
         items:
         - name: C#
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
 - name: Personally Identifiable Information (PII) detection
@@ -727,9 +751,9 @@ items:
     - name: REST API
       items:
         - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-07-01-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
+          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-10-01-preview)
+          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -850,6 +874,8 @@ items:
       href: question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
       href: question-answering/tutorials/multiple-domains.md
+    - name: Add your Question Answering project to Power Virtual Agents
+      href: question-answering/tutorials/power-virtual-agents.md
   - name: Reference
     items: 
     - name: General
@@ -918,15 +944,15 @@ items:
   - name: Tutorials
     items:
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /learn/modules/python-flask-build-ai-web-app/
+      href: /training/modules/python-flask-build-ai-web-app/
   - name: Reference
     items:
     - name: REST API
       items:
         - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-07-01-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
+          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-10-01-preview)
+          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -1012,9 +1038,9 @@ items:
     - name: REST API
       items:
         - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-07-01-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
+          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-10-01-preview)
+          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -1075,7 +1101,7 @@ items:
     - name: REST API
       items:
         - name: Document summarization
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze
+          href: https://go.microsoft.com/fwlink/?linkid=2211684
         - name: Conversation summarization
           href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs
@@ -1093,7 +1119,7 @@ items:
       - name: Conversation summarization
         items:
         - name: .NET
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?preserve-view=true&view=azure-dotnet-preview
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview
 - name: Concepts
@@ -1128,9 +1154,11 @@ items:
       items:
       - name: Overview
         displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers, Post-Call Analytics
-        href: /azure/cognitive-services/speech-service/call-center-overview?context=/azure/cognitive-services/language-service/context/context
+        href: ../speech-service/call-center-overview.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+      - name: Post-call transcription and analytics quickstart
+        href: ../speech-service/call-center-quickstart.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
       - name: Ingestion Client
-        href: /azure/cognitive-services/speech-service/ingestion-client?context=/azure/cognitive-services/language-service/context/context
+        href: ../speech-service/ingestion-client.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
@@ -1148,10 +1176,10 @@ items:
     - name: Learn modules
       items:
       - name: Explore natural language processing
-        href: /learn/paths/explore-natural-language-processing
+        href: /training/paths/explore-natural-language-processing
       - name: Build a question answering solution
-        href: /learn/paths/build-qna-solution
+        href: /training/paths/build-qna-solution
       - name: Extract insights from text with the Language service
-        href: /learn/modules/extract-insights-text-with-text-analytics-service/
+        href: /training/modules/extract-insights-text-with-text-analytics-service/
       - name: Build custom text analytics solutions
-        href: /learn/paths/build-custom-text-analytics
+        href: /training/paths/build-custom-text-analytics

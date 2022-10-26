@@ -173,6 +173,43 @@ The file name or location is incorrect, or the location isn't reachable.
 
 Ensure that the file is reachable. Verify that the name and location are correct.
 
+### Authorization error creating disk
+
+The Azure Image Builder build fails with an authorization error that looks like the following:
+
+#### Error
+
+```text
+Attempting to deploy created Image template in Azure fails with an 'The client '6df325020-fe22-4e39-bd69-10873965ac04' with object id '6df325020-fe22-4e39-bd69-10873965ac04' does not have authorization to perform action 'Microsoft.Compute/disks/write' over scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/disks/proxyVmDiskWin_<timestamp>' or the scope is invalid. If access was recently granted, please refresh your credentials.' 
+```
+#### Cause
+
+This error is caused when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image.  
+
+#### Solution
+
+You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app by using the CLI command or portal instructions below.
+
+First, validate that the service principal is associated with Azure Image Builder's first party app by using the following CLI command:
+```azurecli-interactive
+az ad sp show --id {servicePrincipalName, or objectId}
+```
+
+Then, to implement this solution using CLI, use the following command:
+```azurecli-interactive
+az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor 
+```
+
+To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current).
+
+For [Step 1: Identify the needed scope](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-1-identify-the-needed-scope): The needed scope is your resource group. 
+
+For [Step 3: Select the appropriate role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-3-select-the-appropriate-role): The role is Contributor. 
+
+For [Step 4: Select who needs access](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder” 
+
+Then proceed to [Step 6: Assign role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-6-assign-role) to assign the role.
+
 ## Troubleshoot build failures
 
 For image build failures, get the error from the `lastrunstatus`, and then review the details in the *customization.log* file.

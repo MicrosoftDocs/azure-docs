@@ -7,10 +7,12 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 08/01/2022
 ---
 
 # Connect to on-premises file systems from Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 With the File System connector, you can create automated integration workflows in Azure Logic Apps that manage files on an on-premises file share, for example:
 

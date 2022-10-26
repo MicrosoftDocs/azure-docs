@@ -105,7 +105,7 @@ From the Azure portal, you can view the Azure AD Audit logs. Download logs as co
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** - Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
-* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
+* **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** - Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, engagement-fy23
 ms.date: 09/13/2022
 ---
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Add a Bing Maps action that gets the travel time for a route.
 > * Add an action that creates a variable, converts the travel time from seconds to minutes, and stores that result in the variable.
 > * Add a condition that compares the travel time against a specified limit.
-> * Add an action that sends you email if the travel time exceeds the limit.
+> * Add an action that sends an email if the travel time exceeds the limit.
 
 When you're done, your workflow looks similar to the following high level example:
 
@@ -129,9 +129,9 @@ Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-ap
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **On these days** | Monday,Tuesday,Wednesday,Thursday,Friday | This setting is available only when you set the **Frequency** to **Week**. |
-   | **At these hours** | 7,8,9 | This setting is available only when you set the **Frequency** to **Week** or **Day**. For this recurrence, select the hours of the day. This example runs at the `7`, `8`, and `9`-hour marks. |
-   | **At these minutes** | 0,15,30,45 | This  setting is available only when you set the **Frequency** to **Week** or **Day**. For this recurrence, select the minutes of the day. This example starts at the zero-hour mark and runs every 15 minutes. |
+   | **On these days** | Monday, Tuesday, Wednesday, Thursday, Friday | This setting is available only when you set the **Frequency** to **Week**. |
+   | **At these hours** | 7, 8, 9 | This setting is available only when you set the **Frequency** to **Week** or **Day**. For this recurrence, select the hours of the day. This example runs at the `7`, `8`, and `9`-hour marks. |
+   | **At these minutes** | 0, 15, 30, 45 | This  setting is available only when you set the **Frequency** to **Week** or **Day**. For this recurrence, select the minutes of the day. This example starts at the zero-hour mark and runs every 15 minutes. |
    ||||
 
    This trigger fires every weekday, every 15 minutes, starting at 7:00 AM and ending at 9:45 AM. The **Preview** box shows the recurrence schedule. For more information, see [Schedule tasks and workflows](../connectors/connectors-native-recurrence.md) and [Workflow actions and triggers](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
@@ -282,7 +282,7 @@ Now, add an action that sends you email when the travel time exceeds your limit.
 
 1. In the condition's **True** branch, select **Add an action**.
 
-1. Under **Choose an operation**, select **Standard**. In the search box, enter **send email**. The list returns many results, so to help you filter list, first select the email connector that you want.
+1. Under **Choose an operation**, select **Standard**. In the search box, enter **send email**. The list returns many results, so to help you filter the list, first select the email connector that you want.
 
    For example, if you have an Outlook email account, select the connector for your account type:
 

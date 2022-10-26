@@ -44,12 +44,12 @@ For a complete voice assistant experience, the application will need a dialog se
 
 These are the requirements to create a basic dialog service using Direct Line Speech.
 
-- **Speech resource:** A subscription for Cognitive Speech Services for speech-to-text and text-to-speech conversions. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
+- **Speech resource:** A resource for Cognitive Speech Services for speech-to-text and text-to-speech conversions. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 - **Bot Framework bot:**  A bot created using Bot Framework version 4.2 or above that's subscribed to [Direct Line Speech](./direct-line-speech.md) to enable voice input and output. [This guide](./tutorial-voice-enable-your-bot-speech-sdk.md) contains step-by-step instructions to make an "echo bot" and subscribe it to Direct Line Speech. You can also go [here](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) for steps on how to create a customized bot, then follow the same steps [here](./tutorial-voice-enable-your-bot-speech-sdk.md) to subscribe it to Direct Line Speech, but with your new bot rather than the "echo bot".
 
 ## Try out the sample app
 
-With your Speech Services subscription key and echo bot's bot ID, you're ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample). Follow the instructions in the readme to run the app and enter your credentials.
+With your Speech resource key and echo bot's bot ID, you're ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample). Follow the instructions in the readme to run the app and enter your credentials.
 
 ## Create your own voice assistant for Windows
 
