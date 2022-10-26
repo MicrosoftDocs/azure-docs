@@ -13,14 +13,13 @@ ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
-# Set up AutoML to train a natural language processing model (preview)
+# Set up AutoML to train a natural language processing model 
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
 > * [v1](./v1/how-to-auto-train-nlp-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-nlp-models.md)
  
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 or the Azure Machine Learning CLI v2. 
 
@@ -61,7 +60,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
     To install the SDK you can either, 
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
@@ -195,8 +194,8 @@ For CLI v2 AutoML jobs you configure your experiment in a YAML file like the fol
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-For AutoML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
 
+For AutoML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
 ```Python
 # general job parameters
 compute_name = "gpu-cluster"
@@ -267,6 +266,7 @@ You can also run your NLP experiments with distributed training on an Azure ML c
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
+
 This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment setup. Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
 
 ```python
@@ -294,6 +294,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 # [Python SDK](#tab/python)
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 
 With the `MLClient` created earlier, you can run this `CommandJob` in the workspace.
 
@@ -327,14 +328,16 @@ See the following sample YAML files for each NLP task.
 
 See the sample notebooks for detailed code examples for each NLP task. 
 
-* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-text-classification-multiclass-task-sentiment.ipynb)
+* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-text-classification-multiclass-task-sentiment.ipynb)
 * [Multi-label text classification](
-https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multilabel-task-paper-categorization/automl-nlp-text-classification-multilabel-task-paper-cat.ipynb)
-* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-named-entity-recognition-task/automl-nlp-text-ner-task.ipynb)
+https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multilabel-task-paper-categorization/automl-nlp-text-classification-multilabel-task-paper-cat.ipynb)
+* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-named-entity-recognition-task/automl-nlp-text-ner-task.ipynb)
 
 ---
 
 ## Model sweeping and hyperparameter tuning (preview) 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 AutoML NLP allows you to provide a list of models and combinations of hyperparameters, via the hyperparameter search space in the config. Hyperdrive generates several child runs, each of which is a fine-tuning run for a given NLP model and set of hyperparameter values that were chosen and swept over based on the provided search space.
 

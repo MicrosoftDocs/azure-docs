@@ -23,6 +23,7 @@ Here are some examples of how to do **Point reads** with each SDK:
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com-azure-cosmos-cosmoscontainer-(t)readitem(java-lang-string-com-azure-cosmos-models-partitionkey-com-azure-cosmos-models-cosmositemrequestoptions-java-lang-class(t)))
 - [Node.js SDK](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item)
+- [Go SDK](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#ContainerClient.ReadItem)
 
 **SQL queries** - You can query data by writing queries using the Structured Query Language (SQL) as a JSON query language. Queries always cost at least 2.3 request units and, in general, will have a higher and more variable latency than point reads. Queries can return many items.
 
@@ -34,6 +35,7 @@ Here are some examples of how to do **SQL queries** with each SDK:
 - [Java SDK](../samples-java.md#query-examples)
 - [Node.js SDK](../samples-nodejs.md#item-examples)
 - [Python SDK](../samples-python.md#item-examples)
+- [Go SDK](../samples-go.md#item-examples)
 
 The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure portal.
 
