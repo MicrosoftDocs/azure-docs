@@ -57,6 +57,7 @@ To generate a self-signed certificate,
 
    ```powershell
     $cert | ft Thumbprint
+   ```
 
 1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you will remove the `.pfx` and `.crt` files as well, once the certificate and private key have been uploaded to the Azure Automation and Azure AD services.
 
@@ -110,12 +111,12 @@ Next, you will create an app registration in Azure AD, so that Azure AD will rec
 
 1. Select each of the permissions that your Azure Automation account will require, then select **Add permissions**.
 
- * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
- * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
- * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
- * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
+   * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
+   * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
+   * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
+   * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
 
-10. Select **Grant admin permissions** to give your app those permissions.
+1. Select **Grant admin permissions** to give your app those permissions.
 
 ## Create Azure Automation variables
 
@@ -148,7 +149,7 @@ Import-Module Microsoft.Graph.Authentication
 $ClientId = Get-AutomationVariable -Name 'ClientId'
 $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
-Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
+Connect-MgGraph -clientId $ClientId -tenantId $TenantId -certificatethumbprint $Thumbprint
 ```
 
 5. Select **Test pane**, and select **Start**.  Wait a few seconds for the Azure Automation processing of your runbook script to complete.
@@ -186,7 +187,7 @@ You can also add input parameters to your runbook, by adding a `Param` section a
 ```powershell
 Param
 (
-   [String]$AccessPackageAssignmentId
+    [String] $AccessPackageAssignmentId
 )
 ```
 

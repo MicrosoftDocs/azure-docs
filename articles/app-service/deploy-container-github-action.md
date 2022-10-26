@@ -102,8 +102,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
 1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
-/providers/Microsoft.Web/sites/
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/
     ```
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
@@ -152,6 +151,7 @@ When you configure the workflow file later, you use the secret for the input `cr
   with:
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
+
 # [OpenID Connect](#tab/openid)
 
 You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
@@ -278,6 +278,7 @@ jobs:
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         images: 'mycontainer.azurecr.io/myapp:${{ github.sha }}'
 ```
+
 # [Service principal](#tab/service-principal)
 
 ```yaml
@@ -360,6 +361,7 @@ jobs:
       run: |
         az logout
 ```
+
 ---
 
 ## Next steps
