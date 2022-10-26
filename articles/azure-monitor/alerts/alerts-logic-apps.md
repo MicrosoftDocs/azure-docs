@@ -6,6 +6,9 @@ ms.topic: conceptual
 ms.date: 09/07/2022
 ms.author: edbaynash
 ms.reviewer: edbaynash
+
+# Customer intent: As an administrator I want to create a logic app that is triggered by an alert so that I can send emails or Teams messages when an alert is fired.
+
 ---
 
 # Customize alert notifications using Logic Apps 
@@ -20,7 +23,7 @@ This article shows you how to create a Logic App and integrate it with an Azure 
 
 In this example, we'll use the following steps to create a Logic App that uses the [common alerts schema](./alerts-common-schema.md) to send details from the alert. The example uses the following steps:
 
-1. [Create a Logic App](#create-a-logic-app)
+1. [Create a Logic App](#create-a-logic-app) for sending an email or a Teams post.
 1. [Create an alert action group](#create-an-action-group) that triggers the logic app
 1. [Create a rule](#create-a-rule-using-your-action-group) the uses the action group.
 ## Create a Logic App
@@ -101,8 +104,13 @@ In this example, we'll use the following steps to create a Logic App that uses t
  ```
 7. Select the **+** icon to insert a new step.
 :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step":::
+
+Send an email or post a Teams message.
+
+## [Send an email](#tab/send-email)
+
 1. In the search field, search for *outlook*.
-1. Select the **Office 365 Outlook**. 
+1. Select **Office 365 Outlook**. 
     :::image type="content" source="./media/alerts-logic-apps/choose-operation-outlook.png" alt-text="A screenshot showing add action page of the logic apps designer with Office 365 Outlook selected":::
 1. Select **Send an email (V2)** from the list of actions.
 1. Sign into Office 365 when prompted to create a connection.
@@ -122,9 +130,34 @@ For example:
 1. Select **Save**
    :::image type="content" source="./media/alerts-logic-apps/configure-email.png" alt-text="A screenshot showing the parameters tab for the send email action.":::
 
-You've created a Logic App that will send an email to the specified address, with details from the HTTP request that triggered it. 
+You've created a Logic App that will send an email to the specified address, with details from the alert that triggered it. 
 
 The next step is to create an action group to trigger your Logic App.
+
+## [Post a Teams message](#tab/send-teams-message)
+
+1. In the search field, search for *Microsoft Teams*.
+1. Select **Microsoft Teams**
+    :::image type="content" source="./media/alerts-logic-apps/choose-operation-teams.png" alt-text="A screenshot showing add action page of the logic apps designer with Microsoft Teams selected":::
+1. Select **Post a message in a chat or channel** from the list of actions.
+1. Sign into Teams when prompted to create a connection.
+1. Select *User*  from the **Post as** dropdown.
+1. Select *Group chat* from the **Post in** dropdown.
+1. Select your group from the **Group chat** dropdown.
+1. Create the message text in the **Message** field by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.  
+    For example:
+    - Enter *Alert:* then select **alertRule** from the **Dynamic content** list.
+    - Enter *with severity:* and select **severity** from the **Dynamic content** list.
+    - Enter *was fired at:* and select **firedDateTime** from the **Dynamic content** list.
+    - Add more fields according to your requirements.
+1. Select **Save**
+    :::image type="content" source="./media/alerts-logic-apps/configure-teams-message.png" alt-text="A screenshot showing the parameters tab for the post a message in a chat or channel action.":::
+
+You've created a Logic App that will send a Teams message to the specified group, with details from the alert that triggered it. 
+
+The next step is to create an action group to trigger your Logic App.
+
+---
 
 ## Create an action group
 
