@@ -12,7 +12,7 @@ In addition to the default scrape targets that Azure Monitor Prometheus agent sc
 
 The 2 configmaps that can be used for custom target scraping are -
 - ama-metrics-prometheus-config - When a configmap with this name is created, the scraping of custom targets is done by the replicaset.
-- ama-metrics-prometheus-config-node - When a configmap with this name is created, the scraping of custom targets is done by each daemonset. See [Advanced Setup](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset) for more details .
+- ama-metrics-prometheus-config-node - When a configmap with this name is created, the scraping of custom targets is done by each daemonset. See [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset) for more details .
 
 ## Create Prometheus configuration file
 Create a Prometheus scrape configuration file named `prometheus-config`. See the [configuration tips and examples](prometheus-metrics-scrape-configuration.md#prometheus-configuration-tips-and-examples) for more details on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://aka.ms/azureprometheus-promio) scrape configuration [reference](https://aka.ms/azureprometheus-promioconfig-scrape). Your config file will list the scrape configs under the section `scrape_configs` and can optionally use the global section for setting the global `scrape_interval`, `scrape_timeout`, and `external_labels`. 
