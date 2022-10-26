@@ -319,7 +319,7 @@ dfToReadFromQuery1.show()
 dfToReadFromQuery2.show()
 ```
 
-##### [Python](#tab/python1)
+##### [Python](#tab/python2)
 
 ```python
 # Add required imports
@@ -368,7 +368,7 @@ dfToReadFromQuery2.show()
 
 #### Read from a table using basic authentication
 
-##### [Scala](#tab/scala2)
+##### [Scala](#tab/scala3)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -403,7 +403,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-##### [Python](#tab/python2)
+##### [Python](#tab/python3)
 
 ```python
 # Add required imports
@@ -442,7 +442,7 @@ dfToReadFromTable.show()
 
 #### Read from a query using basic authentication
 
-##### [Scala](#tab/scala2)
+##### [Scala](#tab/scala4)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -498,7 +498,7 @@ dfToReadFromQuery1.show()
 dfToReadFromQuery2.show()
 ```
 
-##### [Python](#tab/python2)
+##### [Python](#tab/python4)
 
 ```python
 # Add required imports
