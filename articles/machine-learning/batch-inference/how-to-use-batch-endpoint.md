@@ -379,7 +379,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. On __Instance count__, enter the number of compute instances you want for the deployment. In this case, we will use 2.
     1. Click on __Next__.
 
-        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen":::
+        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen.":::
     
     1. Complete the wizard.
 
@@ -414,7 +414,7 @@ A deployment is a set of resources required for hosting the model that does the 
     
     In the wizard, click on __Create__ to start the deployment process.
     
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 
 1. Check batch endpoint and deployment details.
@@ -441,7 +441,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. Select the batch endpoint you want to get details from.
     1. In the endpoint page, you will see all the details of the endpoint along with all the deployments available.
         
-        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details":::
+        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
     
 ## Invoke the batch endpoint to start a batch scoring job
 
@@ -467,16 +467,16 @@ job = ml_client.batch_endpoints.invoke(
 1. Select the batch endpoint you just created.
 1. Click on __Create job__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job.":::
 
 1. Click on __Next__.
 1. On __Select data source__, select the data input you want to use. For this example, select __Datastore__ and in the section __Path__ enter the full URL `https://pipelinedata.blob.core.windows.net/sampledata/mnist`. Notice that this only works because the given path has public access enabled. In general, you will need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option.":::
 
 1. Start the job.
 
@@ -526,19 +526,19 @@ job = ml_client.batch_endpoints.invoke(
 1. Select the batch endpoint you just created.
 1. Click on __Create job__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
 1. Click on __Next__.
 1. Check the option __Override deployment settings__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
 
 1. You can now configure __Output file name__ and some extra properties of the deployment execution. Just this execution will be affected.
 1. On __Select data source__, select the data input you want to use.
 1. On __Configure output location__, check the option __Enable output configuration__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Screenshot of optionally configuring output location":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Screenshot of optionally configuring output location.":::
 
 1. Configure the __Blob datastore__ where the outputs should be placed.
 
@@ -582,13 +582,13 @@ job = ml_client.batch_endpoints.invoke(
 1. Select the batch endpoint you just created.
 1. Click on __Create job__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
 1. Click on __Next__.
 1. Check the option __Override deployment settings__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
 
 1. Configure the job parameters. Only the current job execution will be affected by this configuration.
 
@@ -619,7 +619,7 @@ ml_client.jobs.get(job.name)
 1. Select the batch endpoint you want to monitor.
 1. Click on the tab __Jobs__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
 
 1. You will see a list of the jobs created for the selected endpoint.
 1. Select the last job that is running.
@@ -639,11 +639,11 @@ Follow the below steps to view the scoring results in Azure Storage Explorer whe
 1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
 1. From __Data outputs__, select the icon to open __Storage Explorer__.
 
-:::image type="content" source="../media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location" lightbox="../media/how-to-use-batch-endpoint/view-data-outputs.png" :::
+:::image type="content" source="../media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="../media/how-to-use-batch-endpoint/view-data-outputs.png" :::
 
 The scoring results in Storage Explorer are similar to the following sample page:
 
-:::image type="content" source="../media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output" lightbox="../media/how-to-use-batch-endpoint/scoring-view.png":::
+:::image type="content" source="../media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="../media/how-to-use-batch-endpoint/scoring-view.png":::
 
 ## Adding deployments to an endpoint
 
@@ -728,7 +728,7 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
     1. Select the existing batch endpoint where you want to add the deployment.
     1. Click on __Add deployment__.
 
-        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Screenshot of add new deployment option":::
+        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Screenshot of add new deployment option.":::
 
     1. On the model list, select the model `mnist` and click on __Next__.
     1. On the deployment configuration page, give the deployment a name.
@@ -768,7 +768,6 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
     # [studio](#tab/studio)
     
     In the wizard, click on __Create__ to start the deployment process.
-    ---
 
 
 ### Test a non-default batch deployment
@@ -825,7 +824,7 @@ az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name
 1. Select the batch endpoint you want to configure.
 1. Click on __Update default deployment__.
     
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Screenshot of updating default deployment":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Screenshot of updating default deployment.":::
 
 1. On __Select default deployment__, select the name of the deployment you want to be the default one.
 1. Click on __Update__.
