@@ -278,6 +278,8 @@ items:
         href: onboard-partner.md
       - name: Subscribe to partner events
         href: subscribe-to-partner-events.md
+      - name: Subscribe to SAP events
+        href: subscribe-to-sap-events.md        
       - name: Auth0
         items:
         - name: Subscribe to Auth0 events

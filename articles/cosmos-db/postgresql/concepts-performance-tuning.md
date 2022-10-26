@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 10/25/2022
 ---
 
 # Performance tuning
