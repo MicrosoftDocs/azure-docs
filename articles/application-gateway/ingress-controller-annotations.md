@@ -5,11 +5,11 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/18/2022
+ms.date: 10/26/2022
 ms.author: greglin
 ---
 
-# Annotations for Application Gateway Ingress Controller 
+# Annotations for Application Gateway Ingress Controller
 
 ## Introductions
 
@@ -44,7 +44,7 @@ appgw.ingress.kubernetes.io/backend-path-prefix: <path prefix>
 ### Example
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-bkprefix
@@ -57,13 +57,17 @@ spec:
   - http:
       paths:
       - path: /hello/
+        pathType: Exact
         backend:
-          serviceName: go-server-service
-          servicePort: 80
+          service:
+            name: go-server-service
+            port:
+              number: 80
 ```
+
 In the example above, we have defined an ingress resource named `go-server-ingress-bkprefix` with an annotation `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . The annotation tells application gateway to create an HTTP setting, which will have a path prefix override for the path `/hello` to `/test/`.
 
-> [!NOTE] 
+> [!NOTE]
 > In the above example we have only one rule defined. However, the annotations are applicable to the entire ingress resource, so if a user had defined multiple rules, the backend path prefix would be set up for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
 
 ## TLS Redirect
@@ -83,7 +87,7 @@ appgw.ingress.kubernetes.io/ssl-redirect: "true"
 ### Example
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-redirect
@@ -101,8 +105,10 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: websocket-repeater
-          servicePort: 80
+          service:
+            name: websocket-repeater
+            port:
+              number: 80
 ```
 
 ## Connection Draining
@@ -120,7 +126,7 @@ appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
 ### Example
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-drain
@@ -134,9 +140,12 @@ spec:
   - http:
       paths:
       - path: /hello/
+        pathType: Exact
         backend:
-          serviceName: go-server-service
-          servicePort: 80
+          service:
+            name: go-server-service
+            port:
+              number: 80
 ```
 
 ## Cookie Based Affinity
@@ -152,7 +161,7 @@ appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
 ### Example
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-affinity
@@ -165,9 +174,12 @@ spec:
   - http:
       paths:
       - path: /hello/
+        pathType: Exact
         backend:
-          serviceName: go-server-service
-          servicePort: 80
+          service:
+            name: go-server-service
+            port:
+              number: 80
 ```
 
 ## Request Timeout
@@ -183,7 +195,7 @@ appgw.ingress.kubernetes.io/request-timeout: "20"
 ### Example
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
@@ -196,9 +208,12 @@ spec:
   - http:
       paths:
       - path: /hello/
+        pathType: Exact
         backend:
-          serviceName: go-server-service
-          servicePort: 80
+          service:
+            name: go-server-service
+            port:
+              number: 80
 ```
 
 ## Use Private IP
@@ -209,15 +224,16 @@ This annotation allows us to specify whether to expose this endpoint on Private 
 > * Application Gateway doesn't support multiple IPs on the same port (example: 80/443). Ingress with annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` and another with `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` will cause AGIC to fail in updating the Application Gateway.
 > * For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` will be ignored. This will reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
 
-
 ### Usage
+
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
 ### Example
+
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
@@ -230,9 +246,12 @@ spec:
   - http:
       paths:
       - path: /hello/
+        pathType: Exact
         backend:
-          serviceName: go-server-service
-          servicePort: 80
+          service:
+            name: go-server-service
+            port:
+              number: 80
 ```
 
 ## Backend Protocol
@@ -244,13 +263,15 @@ This annotation allows us to specify the protocol that Application Gateway shoul
 > * Make sure to not use port 80 with HTTPS and port 443 with HTTP on the Pods.
 
 ### Usage
+
 ```yaml
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```
 
 ### Example
+
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
@@ -263,9 +284,12 @@ spec:
   - http:
       paths:
       - path: /hello/
+        pathType: Exact
         backend:
-          serviceName: go-server-service
-          servicePort: 443
+          service:
+            name: go-server-service
+            port:
+              number: 443
 ```
 
 ## Rewrite Rule Set
