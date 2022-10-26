@@ -113,10 +113,10 @@ This section describes languages supported by Azure Video Indexer API.
 | Urdu                             | `ur-PK`      |    |      |   | ✔ |  |
 | Vietnamese                       | `vi-VN`      | ✔  |  ✔  | ✔  | ✔ |  |
 
-\*By default, languages marked by * are supported by LID or/and MLID auto-detection. When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with API, you can specify to use other supported languages (see the table above) to auto-detect one or more languages by language identification (LID) or multi-language identification (MLID) by using `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by language identification (LID) or multi-language identification (MLID).
+\*By default, languages marked with * (in the table above) are supported by language identification (LID) or/and multi-language identification (MLID) auto-detection. When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API, you can specify to use other supported languages, from the table above, by using `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
 
 > [!NOTE]
-> To change the default languages, set the `customLanguages` parameter. Setting the parameter, will replace the default languages supported by language identification (LID) and by multi-language identification (MLID).
+> To change the default languages to auto-detect one or more languages by LID or MLID, set the `customLanguages` parameter. 
 
 ## Language support in frontend experiences
 
