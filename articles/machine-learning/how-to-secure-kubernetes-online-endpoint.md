@@ -31,13 +31,13 @@ TLS and SSL both rely on *digital certificates*, which help with encryption and 
 
 This is the general process to secure an online endpoint:
 
-1. Get a [domain name](#get-a-domain-name).
+1. [Get a domain name](#get-a-domain-name).
 
-1. Get a [digital certificate](#get-a-tlsssl-certificate).
+1. [Get a digital certificate](#get-a-tlsssl-certificate).
 
 1. [Configure TLS/SSL in the Azure Machine Learning extension](#configure-tlsssl-in-the-azure-machine-learning-extension).
 
-1. [Update your DNS with FQDN to point to the online endpoint](#update-your-dns-with-fqdn).
+1. [Update your DNS with an FQDN to point to the online endpoint](#update-your-dns-with-an-fqdn).
 
 > [!IMPORTANT]
 > You need to purchase your own certificate to get a domain name or TLS/SSL certificate, and then configure them in the Azure Machine Learning extension. For more detailed information, see the following sections of this article.
@@ -46,21 +46,21 @@ This is the general process to secure an online endpoint:
 
 If you don't already own a domain name, purchase one from a *domain name registrar*. The process and price differ among registrars. The registrar provides tools to manage the domain name. You use these tools to map a fully qualified domain name (FQDN) (such as `www.contoso.com`) to the IP address that hosts your online endpoint. 
 
-For more information on how to get the IP address of your online endpoints, see the [Update your DNS with FQDN](#update-your-dns-with-fqdn) section of this article.
+For more information on how to get the IP address of your online endpoints, see the [Update your DNS with an FQDN](#update-your-dns-with-an-fqdn) section of this article.
 
 ## Get a TLS/SSL certificate
 
-There are many ways to get a TLS/SSL certificate (digital certificate). The most common is to purchase one from a *certificate authority* (CA). Regardless of where you get the certificate, you need the following files:
+There are many ways to get a TLS/SSL certificate (digital certificate). The most common is to purchase one from a *certificate authority*. Regardless of where you get the certificate, you need the following files:
 
-- **Certificate**. The certificate must contain the full certificate chain, and it must be PEM encoded.
-- **Key**. The key must also be PEM encoded.
+- A certificate that contains the full certificate chain and is PEM encoded
+- A key that's PEM encoded
 
 > [!NOTE]
 > An SSL key in a PEM file with passphrase protection is not supported.
 
 When you request a certificate, you must provide the FQDN of the address that you plan to use for the online endpoint (for example, `www.contoso.com`). The address that's stamped into the certificate and the address that the clients use are compared to verify the identity of the online endpoint. If those addresses don't match, the client gets an error message.
 
-For more information on how to configure IP banding with an FQDN, see the [Update your DNS with FQDN](#update-your-dns-with-fqdn) section of this article.
+For more information on how to configure IP banding with an FQDN, see the [Update your DNS with an FQDN](#update-your-dns-with-an-fqdn) section of this article.
 
 > [!TIP]
 > If the certificate authority can't provide the certificate and key as PEM-encoded files, you can use a tool like [OpenSSL](https://www.openssl.org/) to change the format.
@@ -72,7 +72,7 @@ For more information on how to configure IP banding with an FQDN, see the [Updat
 
 For a Kubernetes online endpoint that's set to use inference HTTPS for secure connections, you can enable TLS termination with deployment configuration settings when you [deploy the Azure Machine Learning extension](how-to-deploy-managed-online-endpoints.md) in a Kubernetes cluster. 
 
-At deployment time for the Azure Machine Learning extension, the `allowInsecureConnections` configuration setting is `False` by default. You need to specify either the `sslSecret` configuration setting or a combination of `sslKeyPemFile` and `sslCertPemFile` configuration-protected settings to ensure successful extension deployment. Otherwise, you can set `allowInsecureConnections=True` to support HTTP and disable TLS termination.
+At deployment time for the Azure Machine Learning extension, the `allowInsecureConnections` configuration setting is `False` by default. To ensure successful extension deployment, you need to specify either the `sslSecret` configuration setting or a combination of `sslKeyPemFile` and `sslCertPemFile` configuration-protected settings. Otherwise, you can set `allowInsecureConnections=True` to support HTTP and disable TLS termination.
 
 > [!NOTE]
 > To support the HTTPS online endpoint, `allowInsecureConnections` must be set to `False`.
@@ -104,7 +104,7 @@ type: Opaque
 
 For more information on configuring `sslSecret`, see [Reference for configuring a Kubernetes cluster for Azure Machine Learning](reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl).
 
-After you save the secret in your cluster, you can use the following CLI command to specify `sslSecret` as the name of this Kubernetes secret. (This command will work only if you're using AKS.)
+After you save the secret in your cluster, you can use the following Azure CLI command to specify `sslSecret` as the name of this Kubernetes secret. (This command will work only if you're using AKS.)
 
 ```azurecli
    az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config inferenceRouterServiceType=LoadBalancer sslSecret=<Kubernetes secret name> sslCname=<ssl cname> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
@@ -124,7 +124,7 @@ The following example demonstrates how to use the Azure CLI to specify PEM files
 > - A PEM file with passphrase protection is not supported.
 > - Both `sslCertPemFIle` and `sslKeyPemFIle` use configuration-protected parameters. They don't configure `sslSecret` and `sslCertPemFile`/`sslKeyPemFile` at the same time.
 
-## Update your DNS with FQDN
+## Update your DNS with an FQDN
 
 For model deployment on a Kubernetes online endpoint with a custom certificate, you must update your DNS record to point to the IP address of the online endpoint. The Azure Machine Learning inference router service (`azureml-fe`) provides this IP address. For more information about `azureml-fe`, see [Managed Azure Machine Learning inference router](how-to-kubernetes-inference-routing-azureml-fe.md).
 
@@ -168,7 +168,7 @@ TLS/SSL certificates expire and must be renewed. Typically, this happens every y
       az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config inferenceRouterServiceType=LoadBalancer sslSecret=<Kubernetes secret name> sslCname=<ssl cname> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
    ``` 
    
-   If you directly configured the PEM files in extension deployment command before, you need to run the extension update command and specify the new PEM file's path:
+   If you directly configured the PEM files in the extension deployment command before, you need to run the extension update command and specify the new PEM file's path:
 
    ```azurecli
       az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
@@ -180,7 +180,7 @@ To disable TLS for a model deployed to Kubernetes:
 
 1. Update the Azure Machine Learning extension with `allowInsercureconnection` set to `True`.
 1. Remove the `sslCname` configuration setting, along with the `sslSecret` or `sslPem` configuration settings.
-1. Run the following CLI command in your Kubernetes cluster, and then perform an update. This command assumes that you're using AKS.
+1. Run the following Azure CLI command in your Kubernetes cluster, and then perform an update. This command assumes that you're using AKS.
 
    ```azurecli
       az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableInference=True inferenceRouterServiceType=LoadBalancer allowInsercureconnection=True --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
