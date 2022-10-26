@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 10/26/2022
 ms.custom: ignite-fall-2021
 
 #Customer intent: As a developer, I want to create an automated integration workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -145,10 +145,13 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
-   > [!TIP]
-   > If you get a validation error after this step, open and review the error details. For example, 
-   > if your selected region reaches a quota for resources that you're trying to create, you might 
-   > have to try a different region.
+   > [!NOTE]
+   >
+   > The **Runtime stack** property is read only, non-configurable, and automatically set during creation.
+   >
+   > If you get a validation error during this step, open and review the error details. 
+   > For example, if your selected region reaches a quota for resources that you're 
+   > trying to create, you might have to try a different region.
 
    After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
 
