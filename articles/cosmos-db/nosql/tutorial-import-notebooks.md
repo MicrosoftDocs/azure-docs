@@ -77,6 +77,9 @@ Instead of creating new notebooks each time you start a workspace, you can impor
 
 ## Push notebook changes to GitHub
 
+> [!TIP]
+> Currently, temporary workspaces will be de-allocated if left idle for 20 minutes. The maximum amount of usage time per day is 60 minutes. These limits are subject to change in the future.
+
 To save your work permanently, save your notebooks back to the GitHub repository. In this section, you'll persist your changes from the temporary workspace to GitHub as a new commit.
 
 1. Select **Save** to create a commit for your change to the notebook.
