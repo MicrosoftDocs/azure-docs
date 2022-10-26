@@ -234,7 +234,7 @@ To create a container with a default encryption scope in the Azure portal, first
 1. In the **Encryption scope** drop-down, select the default encryption scope for the container.
 1. To require that all blobs in the container use the default encryption scope, select the checkbox to **Use this encryption scope for all blobs in the container**. If this checkbox is selected, then an individual blob in the container cannot override the default encryption scope.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot showing container with default encryption scope":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot showing container with default encryption scope" lightbox="media/encryption-scope-manage/create-container-default-encryption-scope.png":::
 
 # [PowerShell](#tab/powershell)
 
