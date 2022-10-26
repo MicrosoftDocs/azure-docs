@@ -22,7 +22,7 @@ Intelligent Document Processing (IDP) refers to capturing, transforming, and pro
 
 IDP solutions can extract data from structured documents with pre-defined layouts like a tax form, unstructured or free-form documents like a contract, and semi-structured documents. They have a wide variety of benefits spanning knowledge mining, business process automation, and industry-specific applications. Examples include invoice processing, medical claims processing, and contracts workflow automation.
 
-# What is Azure Form Recognizer?
+## What is Azure Form Recognizer?
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
