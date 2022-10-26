@@ -21,7 +21,7 @@ At a high-level, the connector provides the following capabilities:
   * Read large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and views.
   * Comprehensive predicate push down support, where filters on DataFrame get mapped to corresponding SQL predicate push down.
   * Support for column pruning.
-  * Support for query pushdown.
+  * Support for query push down.
 * Write to Azure Synapse Dedicated SQL Pool:
   * Ingest large volume data to Internal and External table types.
   * Supports following DataFrame save mode preferences:
