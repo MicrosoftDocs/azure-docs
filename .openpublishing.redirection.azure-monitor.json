@@ -5459,7 +5459,7 @@
         ,
         {
             "source_path_from_root": "/articles/automation/migrate-oms-update-deployments.md",
-            "redirect_url": "/azure/azure-monitor/terminology.md#april-2018---retirement-of-operations-management-suite-brand",
+            "redirect_url": "/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand",
             "redirect_document_id": false
         }
         ,
