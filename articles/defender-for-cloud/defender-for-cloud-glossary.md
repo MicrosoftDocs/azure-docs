@@ -13,8 +13,8 @@ This glossary provides a brief description of important terms and concepts for t
 ## A
 | Term | Description | Learn more |
 |--|--|--|
-|**AAC**|Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. |[Adaptive Application Controls](https://docs.microsoft.com/Azure/defender-for-cloud/adaptive-application-controls)|
-| **ACR Tasks** | a suite of features within Azure container registry | [ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)| 
+|**AAC**|Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. |[Adaptive Application Controls] 
+| **ACR Tasks** | a suite of features within Azure container registry | [ACR Tasks](../azure/container-registry/container-registry-tasks-overview)| 
 |**ADO**|Azure DevOps provides developer services for allowing teams to plan work, collaborate on code development, and build and deploy applications.|[What is Azure DevOps?](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) |
 |**AKS**| Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications.| [Kubernetes Concepts](https://docs.microsoft.com/azure-stack/aks-hci/kubernetes-concepts)|
 |**Alerts**| Alerts defend your workloads in real-time so you can react immediately and prevent security events from developing.|[Security alerts and incidents](https://docs.microsoft.com/azure/defender-for-cloud/alerts-overview)|
