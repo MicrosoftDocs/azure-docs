@@ -190,7 +190,7 @@ To view the encryption scopes for a storage account in the Azure portal, navigat
 
 To view details for a customer-managed key, including the key URI and version and whether the key version is automatically updated, follow the link in the **Key** column.
 
-:::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="Screenshot showing details for a key used with an encryption scope":::
+:::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="Screenshot showing details for a key used with an encryption scope" lightbox="media/encryption-scope-manage/customer-managed-key-details-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
