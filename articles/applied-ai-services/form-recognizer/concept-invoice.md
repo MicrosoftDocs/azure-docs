@@ -87,7 +87,7 @@ See how data, including customer information, vendor details, and line items, is
 |Invoice | <ul><li>Portuguese—pt</li></ul>| Portuguese (Portugal)—pt|
 |Invoice | <ul><li>Dutch—nl</li></ul>| Dutch (Netherlands)—nl|
 
-## Invoice fields extraction
+## Field extraction
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:---:|
@@ -121,7 +121,7 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
 
-### Invoice line items extraction
+### Line items
 
 Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg))
 
@@ -139,7 +139,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
-### Invoice key-value pairs extraction 
+### Key-value pairs 
 
 The prebuilt invoice **2022-06-30** and later releases support returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
