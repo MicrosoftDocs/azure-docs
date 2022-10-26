@@ -35,7 +35,7 @@ This is the general process to secure an online endpoint:
 
 1. Get a [digital certificate](#get-a-tlsssl-certificate).
 
-1. [Configure TLS/SSL in the Azure Machine Learning extension](#configure-tlsssl-in-azureml-extension).
+1. [Configure TLS/SSL in the Azure Machine Learning extension](#configure-tlsssl-in-the-azure-machine-learning-extension).
 
 1. [Update your DNS with FQDN to point to the online endpoint](#update-your-dns-with-fqdn).
 
@@ -70,7 +70,7 @@ For more information on how to configure IP banding with an FQDN, see the [Updat
 
 ## Configure TLS/SSL in the Azure Machine Learning extension
 
-For a Kubernetes online endpoint that's set to use inference HTTPS for secure connections, you can enable TLS termination with deployment configuration settings when you [deploy the Azure Machine Learning extension](how-to-deploy-managed-online-endpoints.md) in an Kubernetes cluster. 
+For a Kubernetes online endpoint that's set to use inference HTTPS for secure connections, you can enable TLS termination with deployment configuration settings when you [deploy the Azure Machine Learning extension](how-to-deploy-managed-online-endpoints.md) in a Kubernetes cluster. 
 
 At deployment time for the Azure Machine Learning extension, the `allowInsecureConnections` configuration setting is `False` by default. You need to specify either the `sslSecret` configuration setting or a combination of `sslKeyPemFile` and `sslCertPemFile` configuration-protected settings to ensure successful extension deployment. Otherwise, you can set `allowInsecureConnections=True` to support HTTP and disable TLS termination.
 
