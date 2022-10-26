@@ -48,7 +48,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added spark job support.
   - Added shm_size and docker_args to job.
 - `az ml compute`
-  - Compuate instance supports managed identity.
+  - Compute instance supports managed identity.
   - Added idle shutdown time support for compute instance.
 - `az ml online-deployment`
   - Added support for data collection for eventhub and data storage.
