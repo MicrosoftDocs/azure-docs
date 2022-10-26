@@ -27,9 +27,16 @@ After a guest user has redeemed your invitation for B2B collaboration, there mig
 
 To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
+## Required Azure AD role.
+To perform the below actions you will need to login with or activate either of these privilaged roles.
+1. [Guest Inviter](https://docs.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#guest-inviter) (Least privileged) 
+2. [User administrator](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#user-administrator)
+3. [Global administrator](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#global-administrator)
+
+
 ## Use the Azure portal to reset redemption status
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Azure Active Directory**.
 1. Select **Users**.
 1. In the list, select the user's name to open their user profile.
