@@ -82,7 +82,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 ## Field extractions
 
-Below are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extacts the below fields in the `documents.*.fields`. It also extracts all the text in the documents, words, lines and styles which will be included in the JSON output in the different sections.  
+Below are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extracts the below fields in the `documents.*.fields`. It also extracts all the text in the documents, words, lines and styles which will be included in the JSON output in the different sections.  
    * `pages.*.words`
    * `pages.*.lines`
    * `paragraphs`
