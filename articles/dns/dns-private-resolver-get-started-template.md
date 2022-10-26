@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create an Azure DNS Private resolver - Azure Resource Manager template (ARM template)'
+title: 'Quickstart: Create an Azure DNS Private Resolver - Azure Resource Manager template (ARM template)'
 titleSuffix: Azure DNS Private resolver
-description: Learn how to create Azure DNS private resolver. This article is a step-by-step quickstart to create and manage your first Azure DNS private resolver using Azure Resource Manager template (ARM template).
+description: Learn how to create Azure DNS Private Resolver. This article is a step-by-step quickstart to create and manage your first Azure DNS Private Resolver using Azure Resource Manager template (ARM template).
 services: dns
 author: aarunraaj
 ms.author: arselvar
@@ -9,12 +9,12 @@ ms.date: 10/07/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
-#Customer intent: As an administrator or developer, I want to learn how to create Azure DNS private resolver using ARM template so I can use Azure DNS private resolver as forwarder..
+#Customer intent: As an administrator or developer, I want to learn how to create Azure DNS Private Resolver using ARM template so I can use Azure DNS Private Resolver as forwarder..
 ---
 
 # Quickstart: Create an Azure DNS Private Resolver using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure DNS private resolver.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure DNS Private Resolver.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -85,25 +85,25 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 1. The resource group should contain the following resources:
 
-    :::image type="content" source="./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png" alt-text="DNS private resolver deployment resource group":::
+    [ ![View resource records](./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png)](./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png#lightbox)
 
 1. Select the DNS private resolver service to verify the provisioning and current state.
 
-    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-page.png" alt-text="Azure DNS private resolver":::
+   [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-page.png)](./media/dns-resolver-getstarted-template/resolver-page_new.png#lightbox)
 
 1. Select the Inbound Endpoints and Outbound Endpoints to verify that the endpoints are created and the outbound endpoint is associated with the forwarding ruleset.
 
-    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png" alt-text="DNS private resolver inbound endpoint":::
+    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png)](./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png#lightbox)
 
-    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png" alt-text="DNS private resolver outbound endpoint":::
+    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png)](./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png#lightbox)
 
 1. Select the **Associated ruleset** from the outbound endpoint page to verify the forwarding ruleset and rules creation.
 
-    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png" alt-text="DNS private resolver forwarding rulesets":::
+    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png)](./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png#lightbox)
 
 1. Verify the resolver Virtual network is linked with forwarding ruleset.
 
-    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-vnet-link.png" alt-text="DNS private resolver VNET link":::
+    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-vnet-link.png)](./media/dns-resolver-getstarted-template/resolver-vnet-link.png#lightbox)
 
 ## Next steps
 
