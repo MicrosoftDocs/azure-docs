@@ -269,7 +269,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 1. Create an activation object and set the activationKey property.
 
    ```azurepowershell
-   $activation = New-Object PsObject -Property @{AtivationKey=$ActivationKey; ServiceEncryptionKey=""}
+   $activation = New-Object PsObject -Property @{ActivationKey=$ActivationKey; ServiceEncryptionKey=""}
    ```
 
 1. Create a package with the activation object and activation key.
