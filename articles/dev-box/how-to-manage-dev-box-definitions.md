@@ -28,19 +28,17 @@ To manage a dev box definition, you need the following permissions:
 
 |Action|Permission required|
 |-----|-----|
-|Create, delete, or update dev box definition|Owner or Contributor permissions on an Azure Subscription or a specific resource group. </br> DevCenter Project Admin for the project.|
-
+|Create, delete, or update dev box definition|Owner, Contributor, or Write permissions on the dev center where you want to create the dev box definition. |
 
 ## Sources of images
 
-When you create a dev box definition, you can choose a preconfigured image from the Marketplace, or a custom image from an attached Azure Compute Gallery.
+When you create a dev box definition, you can choose a preconfigured image from the Azure Marketplace, or a custom image from an attached Azure Compute Gallery.
 
-#### Marketplace
-The Marketplace gives you quick, easy access to various images, including images that are preconfigured with productivity tools like Microsoft Teams and provide optimal performance.
+#### Azure Marketplace
+The Azure Marketplace gives you quick, easy access to various image, including images that are preconfigured with productivity tools like Microsoft Teams and provide optimal performance.
 
-When selecting a Marketplace image, consider using either of these two images:
- - Windows 11 Enterprise + Microsoft 365 Apps 21H2
- - Windows 10 Enterprise + Microsoft 365 Apps 21H2
+When selecting a Marketplace image, consider using an image that has the latest version of Windows 11 Enterprise and the Microsoft 365 Apps installed. 
+
 #### Azure Compute Gallery
 An Azure Compute Gallery enables you to store and manage a collection of custom images. You can build an image to your dev team's exact requirements, and store it in a gallery. To use the custom image while creating a dev box definition, attach the gallery that stores it to your dev center. Learn how to attach a gallery here: [Configure an Azure Compute Gallery](how-to-configure-azure-compute-gallery.md).
 
@@ -59,7 +57,7 @@ If you don't have an available dev center, follow the steps in [Quickstart: Conf
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, type *devcenter* and then select **Dev centers** from the list.
+1. In the search box, type *dev center* and then select **Dev centers** from the list.
 
    :::image type="content" source="./media/how-to-manage-dev-box-definitions/discover-devcenter.png" alt-text="Screenshot showing a search for devcenter from the Azure portal search box.":::
 
@@ -73,17 +71,42 @@ If you don't have an available dev center, follow the steps in [Quickstart: Conf
 
    |Name|Value|
    |----|----|
-   |**Name**|Enter a descriptive name for your dev box definition.|
-   |**Image**|Select the base operating system for the dev box. You can select an image from the marketplace or from an Azure Compute Gallery. Consider using one of the suggested Marketplace images below.|
+   |**Name**|Enter a descriptive name for your dev box definition. Note that you can't change the dev box definition name after it's created. |
+   |**Image**|Select the base operating system for the dev box. You can select an image from the Marketplace or from an Azure Compute Gallery.|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|
+   |**Compute**|Select the compute combination for your dev box definition.|
+   |**Storage**|Select the amount of storage for your dev box definition.|
 
-   Suggested Marketplace images:
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Screenshot showing the create dev box definition page with suggested images highlighted.":::
+   :::image type="content" source="./media/how-to-manage-dev-box-definitions/create-dev-box-definition-page.png" alt-text="Screenshot showing the Create dev box definition page.":::
 
 1. Select **Create**.
 
+## Update a dev box definition
+
+Over time, your needs for dev boxes will change. You may want to move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions may no longer be appropriate for your needs. You can update a dev box definition, so that new dev boxes will use the new settings.
+
+You can update the image, image version, compute, and storage settings for a dev box definition. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, type *devcenter* and then select **Dev centers** from the list.
+
+   :::image type="content" source="./media/how-to-manage-dev-box-definitions/discover-devcenter.png" alt-text="Screenshot showing a search for devcenter from the Azure portal search box.":::
+
+1. Open the dev center that contains the dev box definition you want to update, and then select **Dev box definitions**.
+  
+   :::image type="content" source="./media/how-to-manage-dev-box-definitions/select-dev-box-definitions.png" alt-text="Screenshot showing the dev center overview page with Dev box definitions highlighted.":::
+  
+1. Select the dev box definition(s) you want to update and then select the edit button. 
+ 
+   :::image type="content" source="./media/how-to-manage-dev-box-definitions/update-dev-box-definition.png" alt-text="Screenshot of the list of existing dev box definitions, with the edit button highlighted.":::
+
+1. On the Edit *dev box definition name* page, you can select a new image, change the image version, change the compute, or modify the storage available.
+ 
+   :::image type="content" source="./media/how-to-manage-dev-box-definitions/update-dev-box-definition-page.png" alt-text="Screenshot of the edit dev box definition page.":::
+
+1. When you have made your updates, select **Save**.
 ## Delete a dev box definition
-Over time, your needs for dev boxes will change. You may want top move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions may no longer be appropriate for your needs. 
 
 You can delete a dev box definition when you no longer want to use it. Deleting a dev box definition is permanent, and can't be undone. Dev box definitions can't be deleted if they are in use by one or more dev box pools. 
 
