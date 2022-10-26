@@ -42,7 +42,7 @@ Smart lockout can be integrated with hybrid deployments that use password hash s
 When using [pass-through authentication](../hybrid/how-to-connect-pta.md), the following considerations apply:
 
 * The Azure AD lockout threshold is **less** than the AD DS account lockout threshold. Set the values so that the AD DS account lockout threshold is at least two or three times greater than the Azure AD lockout threshold.
-* The Azure AD lockout duration must be set longer than the AD DS reset account lockout counter after duration. The Azure AD duration is set in seconds, while the AD duration is set in minutes.
+* The Azure AD lockout duration must be set longer than the AD DS account lockout duration. The Azure AD duration is set in seconds, while the AD duration is set in minutes.
 
 For example, if you want your Azure AD smart lockout duration to be higher than AD DS, then Azure AD would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds). If you want your Azure AD lockout threshold to be 5, then you want your on-premises AD lockout threshold to be 10.  This configuration would ensure smart lockout prevents your on-premises AD accounts from being locked out by brute force attacks on your Azure AD accounts.
 
