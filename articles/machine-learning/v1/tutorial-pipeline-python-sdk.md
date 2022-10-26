@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/28/2022
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
@@ -17,7 +17,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!NOTE]
-> For a tutorial that uses SDK v2 to build a pipeline, see [Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 (preview) in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
+> For a tutorial that uses SDK v2 to build a pipeline, see [Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
 
 In this tutorial, you learn how to build an [Azure Machine Learning pipeline](../concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
@@ -92,7 +92,7 @@ workspace = Workspace.from_config()
 ```
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment-v1.md).
 
 ## Create the infrastructure for your pipeline 
 
@@ -172,7 +172,7 @@ The above code specifies a dataset that is based on the output of a pipeline ste
 
 The code that you've executed so far has create and controlled Azure resources. Now it's time to write code that does the first step in the domain. 
 
-If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
+If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
 If you're working from scratch, create a subdirectory called `keras-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
 
@@ -269,7 +269,7 @@ Once the data has been converted from the compressed format to CSV files, it can
 
 With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, and so on) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
 
-:::code language="python" source="~/azureml-examples-v2samplesreorg/v1/python-sdk/tutorials/using-pipelines/keras-mnist-fashion/train.py" highlight="16-19,84-89,104-119":::
+:::code language="python" source="~/azureml-examples-main/v1/python-sdk/tutorials/using-pipelines/keras-mnist-fashion/train.py" highlight="16-19,84-89,104-119":::
 
 Most of this code should be familiar to ML developers: 
 

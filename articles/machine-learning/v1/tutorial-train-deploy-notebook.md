@@ -8,6 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
+ms.reviewer: sgilley
 ms.date: 09/14/2022
 ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -37,8 +38,7 @@ Learn how to take the following actions:
 
 ## Run a notebook from your workspace
 
-Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](../how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
-
+Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment-v1.md) if you prefer to have control over your environment, packages, and dependencies.
 
 ## Clone a notebook folder
 
@@ -50,25 +50,21 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. On the left, select **Notebooks**.
 
-1. Select the **Open terminal** tool to open a terminal window.
+1. At the top, select the **Samples** tab.
 
-    :::image type="content" source="media/tutorial-train-deploy-notebook/open-terminal.png" alt-text="Screenshot: Open terminal from Notebooks section.":::
+1. Open the **SDK v1** folder.
 
-1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md)  to use if it's not already selected.  Start the compute instance if it is stopped.
+1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
 
-1. In the terminal window, clone the MachineLearningNotebooks repository:
+    :::image type="content" source="media/tutorial-train-deploy-notebook/clone-tutorials.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
 
-    ```bash
-    git clone --depth 1  https://github.com/Azure/MachineLearningNotebooks
-    ```
-
-1. If necessary, refresh the list of files with the **Refresh** tool to see the newly cloned folder under your user folder.
+1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
 
 ## Open the cloned notebook
 
-1. Open the **MachineLearningNotebooks** folder that was cloned into your **Files** section.
+1. Open the **tutorials** folder that was cloned into your **User files** section.
 
-1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **MachineLearningNotebooks/tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
+1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
 
     :::image type="content" source="media/tutorial-train-deploy-notebook/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
 
@@ -90,7 +86,7 @@ You may see a few install warnings.  These can safely be ignored.
 
 ## Run the notebook
 
-This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](../how-to-configure-environment.md#local). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
+This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment-v1.md). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  

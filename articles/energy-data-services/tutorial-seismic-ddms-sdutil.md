@@ -13,11 +13,9 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Seismic store sdutil
 
-A command line python utility designed to easily interact with seismic store. 
+Sdutil is a command line python utility tool designed to easily interact with seismic store. The seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider by managing generic datasets as multi-independent objects. This provides a generic, reliable, and better performing solution to handle data in cloud storage.
 
-Seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider, by managing generic datasets as multi-independent objects and, therefore, provides a generic, reliable and a better performed solution to handle data on a cloud storage.
-
-The **sdutil** is an intuitive command line utility tool to interact with seismic store and perform some basic operations like upload or download datasets to or from seismic store, manage users, list folders content and more.
+**Sdutil** is an intuitive command line utility tool to interact with seismic store and perform some basic operations like upload or download datasets to or from seismic store, manage users, list folders content and more.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -35,28 +33,24 @@ Linux
 
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz)
 
-Unix
+Unix/Mac
 
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz)
 - Apple Xcode C++ Build Tools
 
-Other requirements are addressed in the INSTALLATION section below.
-
-## Installation
-
-Follow the directions in the sdutil documentation for [running sdutil in Azure environments](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env).
-
-The utility requires other modules noted in [requirements.txt](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/requirements.txt). You could either install the modules as is or install them in virtualenv to keep your host clean from package conflicts. if you don't want to install them in a virtual environment jump directly to the step 3.
+The utility requires other modules noted in [requirements.txt](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/requirements.txt). You could either install the modules as is or install them in virtualenv to keep your host clean from package conflicts. If you don't want to install them in a virtual environment, skip the four virtual environment commands below. Additionally, if you are using Mac instead of Ubuntu or WSL - Ubuntu 20.04, either use `homebrew` instead of `apt-get` as your package manager, or manually install `apt-get`.
 
 ```bash
   # check if virtualenv is already installed
   virtualenv --version
 
-  # if not install it via pip
+  # if not install it via pip or apt-get
   pip install virtualenv
+  # or sudo apt-get install python3-venv for WSL
 
   # create a virtual environment for sdutil
   virtualenv sdutilenv
+  # or python3 -m venv sdutilenv for WSL
 
   # activate the virtual environemnt
   Windows:    sdutilenv/Scripts/activate  
@@ -66,7 +60,7 @@ The utility requires other modules noted in [requirements.txt](https://community
 Install required dependencies:
 
 ```bash
-  # run it from the extracted sdutil folder
+  # run this from the extracted sdutil folder
   pip install -r requirements.txt
 ```
 
@@ -74,74 +68,91 @@ Install required dependencies:
 
 ### Configuration
 
-1. Replace/edit `config.yaml` in `sdlib/config.yaml` by this [config-azure.yaml](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/docs/config-azure.yaml)
+1. Clone the [sdutil repository](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) from the community Azure Stable branch and open in your favorite editor.
 
-2. Update three values in `config.yaml`:
-  ```yaml
-    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3", "appkey": ""}}}'
-    - url: '<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3'
-    - "refresh_token": "<refresh-token-for-your-env>"
-  ```
-  
-  > [!NOTE] 
-  > Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
+2. Replace the contents of `config.yaml` in the `sdlib` folder with the following yaml and fill in the three templatized values (two instances of `<meds-instance-url>` and one `<put refresh token here...>`):
+
+    ```yaml
+    seistore:
+      service: '{"azure": {"azureGlabEnv":{"url": "https://<meds-instance-url>/seistore-svc/api/v3", "appkey": ""}}}'
+      url: 'https://<meds-instance-url>/seistore-svc/api/v3'
+      cloud_provider: 'azure'
+      env: 'glab'
+      auth-mode: 'JWT Token'
+      ssl_verify: False
+    auth_provider:
+      azure: '{
+            "provider": "azure",
+            "authorize_url": "https://login.microsoftonline.com/",
+            "oauth_token_host_end": "/oauth2/token",
+            "scope_end":"/.default openid profile offline_access",
+            "redirect_uri":"http://localhost:8080",
+            "login_grant_type": "refresh_token",
+            "refresh_token": "<put refresh token here from auth_token.http authorize request>"
+            }'
+    azure:
+      empty: 'none'
+    ```
+    
+    > [!NOTE] 
+    > Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
 
 3. Export or set below environment variables
 
-  ```bash
-    export AZURE_TENANT_ID=check-env-provisioning-team-as-specific-to-cluster
-    export AZURE_CLIENT_ID=check-env-provisioning-team-as-specific-to-cluster
-    export AZURE_CLIENT_SECRET=check-env-provisioning-team-as-specific-to-cluster
-  ```
+    ```bash
+      export AZURE_TENANT_ID=<your-tenant-id>
+      export AZURE_CLIENT_ID=<your-client-id>
+      export AZURE_CLIENT_SECRET=<your-client-secret>
+    ```
 
 ### Running the Tool
 
-Run the utility from the extracted utility folder by typing:
+1. Run the utility from the extracted utility folder by typing:
 
-```bash
-  python sdutil
-```
+    ```bash
+      python sdutil
+    ```
 
-If no arguments are specified, this menu will be displayed:
+    If no arguments are specified, this menu will be displayed:
 
-```code
-  Seismic Store Utility
+    ```code
+      Seismic Store Utility
 
-  > python sdutil [command]
+      > python sdutil [command]
 
-  available commands:
+      available commands:
 
-  * auth    : authentication utilities
-  * unlock  : remove a lock on a seismic store dataset
-  * version : print the sdutil version
-  * rm      : delete a subproject or a space separated list of datasets
-  * mv      : move a dataset in seismic store
-  * config  : manage the utility configuration
-  * mk      : create a subproject resource
-  * cp      : copy data to(upload)/from(download)/in(copy) seismic store
-  * stat    : print information like size, creation date, legal tag(admin) for a space separated list of tenants, subprojects or datasets
-  * patch   : patch a seismic store subproject or dataset
-  * app     : application authorization utilities
-  * ls      : list subprojects and datasets
-  * user    : user authorization utilities
-```
+      * auth    : authentication utilities
+      * unlock  : remove a lock on a seismic store dataset
+      * version : print the sdutil version
+      * rm      : delete a subproject or a space separated list of datasets
+      * mv      : move a dataset in seismic store
+      * config  : manage the utility configuration
+      * mk      : create a subproject resource
+      * cp      : copy data to(upload)/from(download)/in(copy) seismic store
+      * stat    : print information like size, creation date, legal tag(admin) for a space separated list of tenants, subprojects or datasets
+      * patch   : patch a seismic store subproject or dataset
+      * app     : application authorization utilities
+      * ls      : list subprojects and datasets
+      * user    : user authorization utilities
+    ```
 
-At first usage time, the utility required to be initialized by invoking the sdutil config init command.
+2. If this is your first time using the tool, you must run the sdutil config init command to initialize the configuration.
 
-```bash
-  python sdutil config init
-```
+    ```bash
+      python sdutil config init
+    ```
 
-Before start using the utility and perform any operation, you must sign-in the system. When you run the following sign-in command, sdutil will open a sign-in page in a web browser.
+3. Before you start using the utility and performing any operations, you must sign in the system. When you run the following sign in command, sdutil will open a sign in page in a web browser.
 
-```bash
-  python sdutil auth login
-```
+    ```bash
+      python sdutil auth login
+    ```
 
-Once you've successfully logged in, your credentials will be valid for a week. You don't need to sign in again unless the credentials expired (after one week), in this case the system will require you to sign in again.
+    Once you've successfully logged in, your credentials will be valid for a week. You don't need to sign in again unless the credentials expired (after one week), in this case the system will require you to sign in again.
 
-> [!NOTE]
-> If you aren't getting the "sign-in Successful!" message, make sure your three environment variables are set and you've followed all steps in the "Configuration" section above.
+    > [!NOTE]
+    > If you aren't getting the "sign in Successful!" message, make sure your three environment variables are set and you've followed all steps in the "Configuration" section above.
 
 ## Seistore Resources
 
@@ -173,7 +184,7 @@ Every resource can be addressed by using the corresponding sdpath section
 
 ## Subprojects
 
-A subproject in Seismic Store is a working unit where datasets can be saved. The system can handles multiple subprojects under a tenant project.
+A subproject in Seismic Store is a working unit where datasets can be saved. The system can handle multiple subprojects under a tenant project.
 
 A subproject resource can be created by a **Tenant Admin Only** with the following sdutil command:
 
@@ -192,7 +203,7 @@ A subproject resource can be created by a **Tenant Admin Only** with the followi
 
 ## Users Management
 
-To be able to use seismic store, a user must be registered/added to at least a subproject resource with a role that defines their access level. Seismic Store support three different roles scoped at subproject level:
+To be able to use seismic store, a user must be registered to at least a subproject resource with a role that defines their access level. Seismic store supports two different roles scoped at subproject level:
 
 - **admin**: read/write access + users management.
 - **viewer**: read/list access
@@ -212,7 +223,7 @@ A user can be registered by a **Subproject Admin Only** with the following sduti
 
 ## Usage Examples
 
-An example of how to use sdutil to manage datasets with seismic store. For this example, we'll use sd://gtc/carbon as subproject resource
+The following is an example of how to use sdutil to manage datasets with the seismic store. For this example, `sd://gtc/carbon` is used as the subproject resource
 
 ```bash
   # create a new file
@@ -270,13 +281,13 @@ Regression tests
 
 **How can I generate a new utility command?**
 
-run the command generation script (`./command_gen.py`) to automatically generate the base infrastructure for integrate new command in the sdutil utility. A folder with the command infrastructure will be created in sdlib/cmd/new_command_name
+Run the command generation script (`./command_gen.py`) to automatically generate the base infrastructure for integrate new command in the sdutil utility. A folder with the command infrastructure will be created in sdlib/cmd/new_command_name
 
 ```bash
   ./scripts/command_gen.py new_command_name
 ```
 
-How can I delete all files in a directory?
+**How can I delete all files in a directory?**
 
 ```bash
   ./sdutil ls -lr sd://tenant/subproject/your/folder/here | xargs -r ./sdutil rm --idtoken=x.xxx.x
@@ -284,98 +295,61 @@ How can I delete all files in a directory?
 
 **How can I generate the utility changelog?**
 
-run the changelog script (`./changelog-generator.sh`) to automatically generate the utility changelog
+Run the changelog script (`./changelog-generator.sh`) to automatically generate the utility changelog
 
 ```bash
   ./scripts/changelog-generator.sh
 ```
 
-## Setup and usage for Microsoft Energy Data Services
+## Usage for Microsoft Energy Data Services
 
-Below steps are for windows subsystem linux - ubuntu 20.04
-Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdutil
+Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your MEDS instance.
 
-- Download the source code from community [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable/) Azure Stable branch.
+1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
 
-- In case python virtual env isn't installed, use below commands else skip to next section
+2. Run below commands to sign in, list, upload and download files in the seismic store.
 
-  ```bash
-    sudo apt-get update
-    sudo apt-get install python3-venv 
-  ```
+    1. Initialize
 
-- create new venv and install package
+       ```code
+         (sdutilenv) > python sdutil config init
+         [one] Azure
+         Select the cloud provider: **enter 1**
+         Insert the Azure (azureGlabEnv) application key: **just press enter--no need to provide a key**
 
-  ```bash
-    #create new virtual env with name : sdutilenv
-    python3 -m venv sdutilenv
+         sdutil successfully configured to use Azure (azureGlabEnv)
 
-    #activate the virtual end
-    source sdutilenv/bin/Activate
+         Should display sign in success message. Credentials expiry set to 1 hour.
+       ```
 
-    #install python package for sdutil
-    pip install -r requirements.txt
-  ```
+    2. Sign in
 
-- replace/edit config.yaml in sdlib/config.yaml by this [config-azure.yaml](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/docs/config-azure.yaml)
+       ```bash
+         python sdutil config init
+         python sdutil auth login
+       ```
 
-- You need to Update three values in `config.yaml`:
-  ```yaml
-    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3", "appkey": ""}}}'
-    - url: '<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3'
-    - "refresh_token": "<refresh-token-for-your-env>"
-  ```
+    3. List files in your seismic store
 
-  > [!NOTE] 
-  > Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
+       ```bash
+         python sdutil ls sd://<tenant> # e.g. sd://<instance-name>-<datapartition>
+         python sdutil ls sd://<tenant>/<subproject> # e.g. sd://<instance-name>-<datapartition>/test
+       ```
 
-- Export or set below environment variables
+    4. Upload a file from your local machine to the seismic store
 
-  ```bash
-    export AZURE_TENANT_ID=check-env-provisioning-team-as-specific-to-cluster
-    export AZURE_CLIENT_ID=check-env-provisioning-team-as-specific-to-cluster
-    export AZURE_CLIENT_SECRET=check-env-provisioning-team-as-specific-to-cluster
-  ```
+       ```bash
+         python sdutil cp local-dir/file-name-at-source.txt sd://<datapartition>/test/file-name-at-destination.txt
+       ```
 
-- Run below commands to sign-in, list, upload and download
+    5. Download a file from the seismic store to your local machine
 
-  ```bash
-    python sdutil config init
-    python sdutil auth login
-  ```
+       ```bash
+         python sdutil cp sd://<datapartition>/test/file-name-at-ddms.txt local-dir/file-name-at-destination.txt
+       ```
 
-- SAMPLE
-  ```code
-    (sdutilenv) > python sdutil config init
-    [one] Azure
-    Select the cloud provider: **enter 1**
-    Insert the Azure (azureGlabEnv) application key: **just press enter--no need to provide a key**
-
-    sdutil successfully configured to use Azure (azureGlabEnv)
-
-    Should display sign-in success message. Credentials expiry set to 1 hour.
-  ```
-- list files
-
-  ```bash
-    python sdutil ls sd://<tenant> e.g. sd://<datapartition>
-    python sdutil ls sd://<tenant>/<subproject> e.g. sd://<datapartition>/test
-  ```
-
-- upload file
-
-  ```bash
-    python sdutil cp local-dir/file-name-at-source.txt sd://<datapartition>/test/file-name-at-destination.txt
-  ```
-
-- download file
-
-  ```bash
-    python sdutil cp sd://<datapartition>/test/file-name-at-ddms.txt local-dir/file-name-at-destination.txt
-  ```
-
-  > [!NOTE]
-  > Don't use `cp` command to download VDS files. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+       > [!NOTE]
+       > Don't use `cp` command to download VDS files. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 OSDU&trade; is a trademark of The Open Group.
 

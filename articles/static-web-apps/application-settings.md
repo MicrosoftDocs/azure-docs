@@ -70,7 +70,7 @@ You can configure application settings via the Azure portal or with the Azure CL
 
 The Azure portal provides an interface for creating, updating and deleting application settings.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 
 1. Open your static web app.
 

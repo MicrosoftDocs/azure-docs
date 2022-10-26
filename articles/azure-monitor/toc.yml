@@ -26,7 +26,7 @@ items:
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
   - name: Forward syslog data to workspace
-    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -45,8 +45,6 @@ items:
       href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
       href: app/tutorial-performance.md
-    - name: Alert on application health
-      href: app/tutorial-alert.md
     - name: Understand application users
       href: app/tutorial-users.md
     - name: Dashboard with application data
@@ -223,22 +221,39 @@ items:
     - name: Prometheus metrics
       items: 
       - name: Overview
+        displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: Rule groups
+        displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Remote-write
+        displayName: Prometheus
+        href: essentials/prometheus-remote-write-managed-identity.md
+      - name: Configure Grafana
+        displayName: Prometheus
+        href: essentials/prometheus-grafana.md
       - name: Troubleshoot collection
+        displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md
       - name: Customize collection
         items:
         - name: Default configuration
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-default.md
+        - name: High scale
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-scrape-scale.md
         - name: Custom configuration
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration.md
         - name: Create, validate and troubleshoot custom scrape config
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration-minimal.md
         - name: Send to multiple metric workspaces
+          displayName: Prometheus
           href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics explorer
       items:
@@ -356,6 +371,8 @@ items:
         href: logs/query-optimization.md
       - name: Functions
         href: logs/functions.md
+      - name: Detect and analyze anomalies
+        href: logs/kql-machine-learning-azure-monitor.md
       - name: Parse text data
         href: logs/parse-text.md
       - name: Computer groups
@@ -494,7 +511,7 @@ items:
       items:
       - name: Using the VM extension
         href: agents/azure-monitor-agent-manage.md
-      - name: Using Windows client installer (preview)
+      - name: Using Windows client installer
         href: agents/azure-monitor-agent-windows-client.md
     - name: Configure
       items:
@@ -586,7 +603,7 @@ items:
               href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
           - name: Send to Event Hubs
             href: agents/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Log Analytics
+          - name: Send to Logs
             href: agents/diagnostics-extension-logs.md
           - name: Send to Application Insights
             href: agents/diagnostics-extension-to-application-insights.md
@@ -1272,14 +1289,14 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
-    - name: Collect Prometheus metrics
+    - name: Prometheus metrics
       items: 
       - name: Overview
         href: containers/container-insights-prometheus.md
+      - name: Send to Prometheus
+        href: containers/container-insights-prometheus-metrics-addon.md
       - name: Send to Logs
         href: containers/container-insights-prometheus-monitoring-addon.md
-      - name: Send to managed Prometheus
-        href: containers/container-insights-prometheus-metrics-addon.md
     - name: Configure
       items:
       - name: Agent management
@@ -1316,10 +1333,10 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Create log alert rules
-        href: containers/container-insights-log-alerts.md
       - name: Create metric alert rules
         href: containers/container-insights-metric-alerts.md
+      - name: Create log alert rules
+        href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
     - name: Disable monitoring
@@ -1347,7 +1364,13 @@ items:
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
-      href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Overview
+        href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: Topology
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        href: ../network-watcher/network-insights-troubleshooting.md
     - name: Key Vault
       href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Storage
@@ -1355,6 +1378,8 @@ items:
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md 
   - name: Logs ingestion API
     items:
     - name: Overview
@@ -1455,7 +1480,9 @@ items:
       - name: Move from View Designer to Workbooks
         href: visualize/workbooks-view-designer-conversion-overview.md
       - name: Sample JSON to covert View Designer views
-        href: visualize/workbooks-view-designer-conversions.md 
+        href: visualize/workbooks-view-designer-conversions.md
+    - name: Retrieve legacy workbooks
+      href: visualize/workbooks-retrieve-legacy-workbooks.md
     - name: Access Troubleshooting guides
       href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
@@ -1521,8 +1548,6 @@ items:
       items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
     - name: Dashboards
       items:
       - name: Dashboard using log data

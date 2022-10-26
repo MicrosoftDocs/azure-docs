@@ -4,7 +4,8 @@ description: An introduction to Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 04/20/2022

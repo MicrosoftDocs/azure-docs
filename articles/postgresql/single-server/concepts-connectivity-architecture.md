@@ -27,7 +27,7 @@ As client connects to the database, the connection string to the server resolves
 
 The gateway service is hosted on group of stateless compute nodes sitting behind an IP address, which your client would reach first when trying to connect to an Azure Database for PostgreSQL server.
 
-As part of ongoing service maintenance, we will periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant connectivity experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for PostgreSQL servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. The older gateway hardware continues serving existing servers but are planned for decommissioning in future. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if
+As part of ongoing service maintenance, we'll periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant connectivity experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for PostgreSQL servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. The older gateway hardware continues serving existing servers but are planned for decommissioning in future. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if
 
 * You hard code the gateway IP addresses in the connection string of your application. It is **not recommended**.You should use fully qualified domain name (FQDN) of your server in the format `<servername>.postgres.database.azure.com`, in the connection string for your application. 
 * You do not update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings.
@@ -36,7 +36,7 @@ The following table lists the gateway IP addresses of the Azure Database for Pos
 
 * **Gateway IP addresses:** This column lists the current IP addresses of the gateways hosted on the latest generation of hardware. If you are provisioning a new server, we recommend that you open the client-side firewall to allow outbound traffic for the IP addresses listed in this column.
 * **Gateway IP addresses (decommissioning):** This column lists the IP addresses of the gateways hosted on an older generation of hardware that is being decommissioned right now. If you are provisioning a new server, you can ignore these IP addresses. If you have an existing server, continue to retain the outbound rule for the firewall for these IP addresses as we have not decommissioned it yet. If you drop the firewall rules for these IP addresses, you may get connectivity errors. Instead, you are expected to proactively add the new IP addresses listed in Gateway IP addresses column to the outbound firewall rule as soon as you receive the notification for decommissioning. This will ensure when your server is migrated to latest gateway hardware, there is no interruptions in connectivity to your server.
-* **Gateway IP addresses (decommissioned):** This columns lists the IP addresses of the gateway rings, which are decommissioned and are no longer in operations. You can safely remove these IP addresses from your outbound firewall rule.
+* **Gateway IP addresses (decommissioned):** This column lists the IP addresses of the gateway rings, which are decommissioned and are no longer in operations. You can safely remove these IP addresses from your outbound firewall rule.
 
 | **Region name** | **Gateway IP addresses** |**Gateway IP addresses (decommissioning)** | **Gateway IP addresses (decommissioned)** |
 |:----------------|:-------------------------|:-------------------------------------------|:------------------------------------------|
@@ -102,26 +102,26 @@ Only Gateway nodes will be decommissioned. When users connect to their servers, 
 
 Ping your server's FQDN, for example  ``ping xxx.postgres.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway. Contrarily, if the returned Ip address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
 
-You may also test by [PSPing](/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 3306 and ensure that return IP address isn't one of the decommissioning IP addresses
+You may also test by [PSPing](/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 5432 and ensure that return IP address isn't one of the decommissioning IP addresses
 
 ### How do I know when the maintenance is over and will I get another notification when old IP addresses are decommissioned?
 
-You will receive an email to inform you when we will start the maintenance work. The maintenance can take up to one month depending on the number of servers we need to migrate in al regions. Please prepare your client to connect to the database server using the FQDN or using the new IP address from the table above.
+You will receive an email to inform you when we'll start the maintenance work. The maintenance can take up to one month depending on the number of servers we need to migrate in al regions. Please prepare your client to connect to the database server using the FQDN or using the new IP address from the table above.
 
-### What do I do if my client applications are still connecting to old gateway server ?
+### What do I do if my client applications are still connecting to old gateway server?
 
 This indicates that your applications connect to server using static IP address instead of FQDN. Review connection strings and connection pooling setting, AKS setting, or even in the source code.
 
 ### Is there any impact for my application connections?
 
-This maintenance is just a DNS change, so it is transparent to the client. Once the DNS cache is refreshed in the client (automatically done by operation system), all the new connection will connect to the new IP address and all the existing connection will still working fine until the old IP address fully get decommissioned, which usually several weeks later. And the retry logic is not required for this case, but it is good to see the application have retry logic configured. Please either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
+This maintenance is just a DNS change, so it is transparent to the client. Once the DNS cache is refreshed in the client (automatically done by operation system), all the new connections will connect to the new IP address and all the existing connections will still be working fine until the old IP address gets fully decommissioned, which is usually several weeks later. And the retry logic is not required for this case, but it is good to see the application have retry logic configured. Please either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
 This maintenance operation will not drop the existing connections. It only makes the new connection requests go to new gateway ring.
 
 ### Can I request for a specific time window for the maintenance? 
 
 As the migration should be transparent and no impact to customer's connectivity, we expect there will be no issue for majority of users. Review your application proactively and ensure that you either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
 
-### I am using private link, will my connections get affected?
+### I'm using private link, will my connections get affected?
 
 No, this is a gateway hardware decommission and have no relation to private link or private IP addresses, it will only affect public IP addresses mentioned under the decommissioning IP addresses.
 

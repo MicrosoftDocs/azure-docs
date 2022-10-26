@@ -2,11 +2,11 @@
 title: Azure Monitor overview
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
 ms.topic: overview
+ms.custom: ignite-2022
 author: rboucher
 ms.author: robb
 ms.date: 09/01/2022
 ms.reviewer: robb
-
 ---
 
 # Azure Monitor overview

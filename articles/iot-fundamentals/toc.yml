@@ -59,11 +59,11 @@
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
     - name: Node.js
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure-Samples/azure-iot-samples-java
     - name: Python
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
     - name: iOS Platform

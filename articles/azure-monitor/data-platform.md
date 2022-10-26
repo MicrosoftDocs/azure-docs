@@ -4,6 +4,7 @@ description: Overview of the Azure Monitor data platform and collection of obser
 author: bwren
 ms.topic: conceptual
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 07/28/2022
 ms.reviewer: bwren

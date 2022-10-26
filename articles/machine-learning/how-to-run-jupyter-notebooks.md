@@ -8,6 +8,7 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 02/28/2022
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
@@ -222,7 +223,7 @@ Use the kernel dropdown on the right to change to any of the installed kernels.
 
 ## Manage packages
 
-Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently-running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently-running kernel).
+Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently running kernel).
 
 ### Status indicators
 
@@ -248,7 +249,7 @@ An indicator next to the **Kernel** dropdown shows its status.
 Find details about your compute instances on the **Compute** page in [studio](https://ml.azure.com).
 
 ## Useful keyboard shortcuts
-Similar to Jupyter Notebooks, Azure Machine Learning Studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Azure Machine Learning Studio notebooks support the following two modes for a given code cell: command mode and edit mode.
+Similar to Jupyter Notebooks, Azure Machine Learning studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Azure Machine Learning studio notebooks support the following two modes for a given code cell: command mode and edit mode.
 
 ### Command mode shortcuts
 
@@ -345,11 +346,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * **Expired token**: If you run into an expired token issue, sign out of your Azure ML studio, sign back in, and then restart the notebook kernel.
 
-* **File upload limit**: When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
-
-    * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
-    * Use [Azure Data Factory](v1/how-to-data-ingest-adf.md) to create a data ingestion pipeline.
-
+* **File upload limit**: When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use the SDK to upload the data to a datastore. For more information, see [Create data assets](how-to-create-data-assets.md?tabs=Python-SDK).
 
 ## Next steps
 
