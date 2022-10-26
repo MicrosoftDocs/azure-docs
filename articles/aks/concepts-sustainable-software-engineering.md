@@ -112,7 +112,7 @@ An up-to-date cluster avoids unnecessary performance issues and ensures you bene
 
 Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-policies) provide additional and supported functionality to your cluster while allowing you to benefit from the latest performance improvements and energy optimizations throughout your cluster lifecycle.
 
-* Ensure you install [Keda](/azure/aks/integrations#available-add-ons) as an add-on and [GitOps & Dapr](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as extensions.
+* Ensure you install [KEDA](/azure/aks/integrations#available-add-ons) as an add-on and [GitOps & Dapr](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as extensions.
 
 ### Containerize your workload where applicable
 
