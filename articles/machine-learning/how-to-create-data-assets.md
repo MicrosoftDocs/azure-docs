@@ -60,7 +60,6 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 
 > [!NOTE]
 > When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
-> 
 
 
 ## Data asset types
@@ -230,9 +229,10 @@ In this section, we show you how to create a data asset when the type is an `mlt
 ### The MLTable file
 
 The MLTable file is a file that provides the specification of the data's schema so that the `mltable` *engine* can materialize the data into an in-memory object (Pandas/Dask/Spark).
->
->[!NOTE] This file needs to be named exactly as `MLTable`.
->
+
+> [!NOTE]
+> This file needs to be named exactly as `MLTable`.
+
 An *example* MLTable file is provided below:
 
 ```yml
@@ -298,7 +298,7 @@ path: <path>
 ```
 
 > [!NOTE]
->  The path points to the **folder** containing the MLTable artifact.
+> The path points to the **folder** containing the MLTable artifact.
 
 Next, create the data asset using the CLI:
 
