@@ -76,7 +76,8 @@ Consider the following recommendations when you select logic apps for export:
 
 - For the organization and number of workflows per logic app, review [Best practices and recommendations](create-single-tenant-workflows-azure-portal.md#best-practices-and-recommendations).
 
-## Export Consumption-based workflows to a local project
+## Export Consumption workflows to a local project
+
 
 ### Select logic apps for export
 
