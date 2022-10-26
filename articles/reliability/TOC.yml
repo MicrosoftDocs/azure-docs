@@ -12,39 +12,39 @@
     items:
     - name: Overview
       href: az-migration-overview.md
-    - name: Guides
+    - name: Migration guides by service
       items:
-      - name: API Management
+      - name: Azure API Management
         href: migrate-api-mgt.md
-      - name: App Configuration
+      - name: Azure App Configuration
         href: migrate-app-configuration.md
-      - name: App Service Environment
+      - name: Azure App Service Environment
         href: migrate-app-service-environment.md
-      - name: App Service
+      - name: Azure App Service
         href: migrate-app-service.md
-      - name: Application Gateway
+      - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure Functions
         href: migrate-functions.md
-      - name: Cache for Redis
+      - name: Azure Cache for Redis
         href: migrate-cache-redis.md
-      - name: Cognitive Search
+      - name: Azure Cognitive Search
         href: migrate-search-service.md
-      - name: Container instances
+      - name: Azure Container instances
         href: migrate-container-instances.md
-      - name: Load Balancer 
+      - name: Azure Load Balancer 
         href: migrate-load-balancer.md
-      - name: Log Analytics workspaces
+      - name: Azure Log Analytics workspaces
         href: migrate-monitor-log-analytics.md
-      - name: Recovery Services vault
+      - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
-      - name: Storage accounts
+      - name: Azure Storage accounts
         href: migrate-storage.md
-      - name: Virtual Machines and virtual machine scale sets
+      - name: Azure Virtual Machines and virtual machine scale sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
-  - name: Quickstart guides
+  - name: Availability zone quickstarts by service
     items:
     - name: Virtual machines
       items:
@@ -240,7 +240,6 @@
       href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
     - name: Azure VPN Gateway
       href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md
-
 - name: Service availability
   items:
   - name: Availability of services by category

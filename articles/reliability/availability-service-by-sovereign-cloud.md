@@ -17,7 +17,7 @@ Although availability of services across Azure regions depends on a region's typ
 Azure regional services are presented in the following tables by sovereign cloud. Note that some services are non-regional, which means that they're available globally regardless of region. Non-regional services are not mentioned in these tables. For information and a complete list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 
-## China
+## Microsoft Azure operated by 21Vianet
 
 ### AI + machine learning
 
@@ -25,8 +25,8 @@ This section outlines variations and considerations when using Azure Bot Service
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-|Azure Machine learning| See [Azure Machine Learning feature availability across Azure China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: Azure China Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
+|Azure Machine learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
+| Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
 
 ### Media
 
@@ -44,7 +44,7 @@ This section outlines variations and considerations when using Networking servic
 |---------|--------|------------|
 | Private Link| <li>For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).<li>For Private DNS zone names, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#government). |
 
-### China REST endpoints
+### Azure in China REST endpoints
 
 | REST endpoint | Global Azure | Azure China |
 |---------------|--------------|------------------|
