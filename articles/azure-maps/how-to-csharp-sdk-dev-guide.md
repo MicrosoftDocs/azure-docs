@@ -1,5 +1,5 @@
 ---
-title: How to create Azure Maps applications using C#
+title: How to create Azure Maps applications using the C# REST SDK
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
 author: stevemunk
@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# C# SDK Developers Guide
+# C# REST SDK Developers Guide
 
 The Azure Maps C# SDK supports all of the functionality provided in the [Azure Maps Rest API][Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article will help you get started building location-aware applications that incorporate the power of Azure Maps.
 
@@ -41,9 +41,7 @@ cd MapsDemo
 
 ### Install required packages
 
-Each of the different
-
-To use Azure Maps C# SDK, we need to install all the packages we need. Azure Maps separate the packages into different services like search, routing, rendering and geolocation. Since the Azure Maps C# SDK is in public preview, you need to add the `--prerelease` flag:
+To use Azure Maps C# SDK, we need to install the required packages. Each of the Azure Maps services including search, routing, rendering and geolocation are each in their own package. Since the Azure Maps C# SDK is in public preview, you need to add the `--prerelease` flag:
 
 ```powershell
 dotnet add package Azure.Maps.Rendering --prerelease
@@ -72,7 +70,7 @@ using Azure.Maps.Search;
 using Azure.Maps.Search.Models; 
 
 // Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("MY_AZURE_MAPS_KEY"); 
+var credential = new AzureKeyCredential("Azure_Maps_Subscription_key"); 
 var client = new MapsSearchClient(credential); 
 
 SearchAddressResult searchResult = client.FuzzySearch( 
@@ -160,7 +158,7 @@ Call the `SearchAddress` method to get the coordinate of an address. Modify the 
 
 ```csharp
 // Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("MY_AZURE_MAPS_KEY");
+var credential = new AzureKeyCredential("Azure_Maps_Subscription_key");
 var client = new MapsSearchClient(credential);
 
 SearchAddressResult searchResult = client.SearchAddress(
@@ -228,7 +226,7 @@ Response<ReverseSearchAddressBatchOperation> manualPollingResult = manualPolling
 printReverseBatchAddresses(manualPollingResult.Value);
 ```
 
-The third method is to use the operation ID to get the operation results. The LRO results will be cached on the server side for 14 days:
+The third method requires the operation ID to get the results, which will be cached on the server side for 14 days:
 
 ```csharp
     ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
@@ -236,7 +234,8 @@ The third method is to use the operation ID to get the operation results. The LR
     // Get batch results by ID 
     string operationId = longRunningOperation.Value.Id;
 
-    // A few days later, create a new operation and get the result from server
+    // After the LRO completes, create a new operation
+    // to get the results from the server
     ReverseSearchAddressBatchOperation newOperation = new ReverseSearchAddressBatchOperation(client, operationId);
     Response<ReverseSearchAddressBatchOperation> newOperationResult = newOperation.WaitForCompletion();
 
@@ -252,7 +251,7 @@ using Azure.Maps.Search;
 using Azure.Maps.Search.Models;
 
 // Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("MY_AZURE_MAPS_KEY");
+var credential = new AzureKeyCredential("Azure_Maps_Subscription_key");
 var client = new MapsSearchClient(credential);
 
 var queries = new List<ReverseSearchAddressQuery>()
@@ -316,5 +315,5 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
 [geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.geolocation/README.md
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
-[FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch?view=azure-dotnet-preview
-[Azure.Maps Namespace]: https://learn.microsoft.com/en-us/dotnet/api/azure.maps?view=azure-dotnet-preview
+[FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
+[Azure.Maps Namespace]: https://learn.microsoft.com/dotnet/api/azure.maps
