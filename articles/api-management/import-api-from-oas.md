@@ -45,7 +45,7 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/cli)
 
-The following example uses the [az apim api import](/cli/azure/apim/api?view=azure-cli-latest#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. By default, the imported API requires a subscription to be called.
+The following example uses the [az apim api import](/cli/azure/apim/api?view=azure-cli-latest#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. 
 
 ```azurecli-interactive
 # API Management service-specific details
@@ -55,7 +55,7 @@ ResourceGroupName="myResourceGroup"
 
 # API-specific details
 
-APIId="MyAPI"
+APIId="demo-conference-api"
 APIPath="myapi"
 SpecificationFormat="OpenAPI"
 SpecificationURL="https://conferenceapi.azurewebsites.net/?format=json"
@@ -80,10 +80,10 @@ $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
 # API-specific details
+$apiId = "demo-conference-api"
+$apiPath = "myapi"
 $specificationFormat = "OpenAPI"
 $specificationUrl = "https://conferenceapi.azurewebsites.net/?format=json"
-$apiId = "MyAPI"
-$apiPath = "myapi"
 
 # Get context of the API Management instance. 
 $context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
