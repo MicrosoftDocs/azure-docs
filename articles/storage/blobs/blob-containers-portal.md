@@ -107,7 +107,7 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 1. Select the checkbox next to the name of the container for which you'll generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Generate SAS** to display the **Generate SAS** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal." lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
 
 1. Within the **Generate SAS** pane, select the **Account key** value for the **Signing method** field.
 1. In the **Signing method** field, select **Account key**. Choosing the account key will result in the creation of a service SAS.
