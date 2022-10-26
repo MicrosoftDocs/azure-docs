@@ -37,7 +37,7 @@ Use the REST API parameter `api-version=2022-06-30-preview` when using the API o
 
 ### New Prebuilt Contract model
 
-A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. Contracts is currenlty in preview, please request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
+A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. Contracts is currently in preview, please request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
 
 ### Region expansion for training custom neural models 
 
