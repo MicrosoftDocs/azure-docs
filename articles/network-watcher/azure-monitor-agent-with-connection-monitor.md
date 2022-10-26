@@ -38,7 +38,7 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-To install agents for Azure virtual machines and virtual machine scale sets, see the "Agents for Azure Virtual Machines and virtual machine scale sets" section of [Monitor network connectivity by using Connection Monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
+To install agents for Azure virtual machines and virtual machine scale sets, see the "Agents for Azure virtual machines and virtual machine scale sets" section of [Monitor network connectivity by using Connection Monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
 
 ### Agents for on-premises machines
 
@@ -46,9 +46,9 @@ To make Connection Monitor recognize your on-premises machines as sources for mo
 
 * Enable your hybrid endpoints to [Azure Arc-enabled servers](../azure-arc/overview.md).
 
-* Connect hybrid machines by installing [Azure Connected Machine agent](../azure-arc/servers/overview.md) on each machine.
+* Connect hybrid machines by installing the [Azure Connected Machine agent](../azure-arc/servers/overview.md) on each machine.
 
-  This agent doesn't deliver any other functionality, and it doesn't replace Azure Monitor Agent. Azure Connected Machine agent simply enables you to manage the Windows and Linux machines that are hosted outside of Azure on your corporate network or other cloud providers. 
+  This agent doesn't deliver any other functionality, and it doesn't replace Azure Monitor Agent. The Azure Connected Machine agent simply enables you to manage the Windows and Linux machines that are hosted outside of Azure on your corporate network or other cloud providers. 
 
 * [Install Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) to enable the Network Watcher extension.
 
@@ -56,7 +56,7 @@ To make Connection Monitor recognize your on-premises machines as sources for mo
 
 ## Coexistence with other agents
 
-Azure Monitor Agent can coexist with (that is, run side by side on the same machine as) the legacy Log Analytics agents. You can continue to use their existing functionality during evaluation or migration. 
+Azure Monitor Agent can coexist with, or run side by side on the same machine as, the legacy Log Analytics agents. You can continue to use their existing functionality during evaluation or migration. 
 
 Although this coexistence allows you to begin the transition, there are certain limitations. Keep in mind the following considerations:
 
@@ -70,4 +70,4 @@ Although this coexistence allows you to begin the transition, there are certain 
 
 ## Next steps 
 
-- [Install the Azure Connected machine agent](connection-monitor-connected-machine-agent.md)
+- [Install the Azure Connected Machine agent](connection-monitor-connected-machine-agent.md)
