@@ -43,7 +43,7 @@ If this decision helper is enabled by the creator of the access review, reviewer
 
 The following image has an example of an organization's reporting structure in a cosmetics company: 
 
-![Screenshot that shows a fictitious hierarchial organization chart for a cosmetics company](./media/review-recommendations-group-access-reviews/org-chart-example.png)
+![Screenshot that shows a fictitious hierarchial organization chart for a cosmetics company.](./media/review-recommendations-group-access-reviews/org-chart-example.png)
 
 Based on the reporting structure in the example image, users who are statistically significant amount of distance away from other users within the group, would get a "Deny" recommendation by the system if  the User-to-Group Affiliation recommendation was selected by the reviewer for group access reviews. 
 
