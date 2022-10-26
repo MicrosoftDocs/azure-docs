@@ -222,11 +222,11 @@ Use these commands to create the resource:
 
 1. Select **Continue**.
 
-1. If you have selected snapshot share type, you can configure snapshot schedule to provide updates of your data to your data consumer. 
+1. If you have selected snapshot share type, you can configure snapshot schedule to provide updates of your data to your data consumer.
 
    :::image type="content" source="./media/enable-snapshots.png" alt-text="Screenshot of the settings page, showing the snapshot toggle enabled.":::
 
-1. Select a start time and recurrence interval. 
+1. Select a start time and recurrence interval.
 
 1. Select **Continue**.
 
@@ -259,7 +259,7 @@ Use these commands to create the resource:
    ```azurecli
    az datashare invitation create --resource-group testresourcegroup \
      --name DataShareInvite --share-name ContosoMarketplaceDataShare \
-     --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
+     --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam.com"
    ```
 
 ### [PowerShell](#tab/powershell)
@@ -294,7 +294,7 @@ Use these commands to create the resource:
 1. Run the [New-AzDataShare](/powershell/module/az.datashare/new-azdatashare) command to create your Data Share:
 
    ```azurepowershell
-   New-AzDataShare -ResourceGroupName <String> -AccountName <String> -Name <String> -ShareKind "CopyBased" -Description <String> -TermsOfUse <String>
+   New-AzDataShare -ResourceGroupName <String> -AccountName <String> -Name <String> -Description <String> -TermsOfUse <String>
    ```
 
 1. Use the [New-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatasharereceivedinvitation) command to create the invitation for the specified address:
