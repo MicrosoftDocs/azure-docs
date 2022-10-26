@@ -316,4 +316,4 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.geolocation/README.md
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 [FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
-[Azure.Maps Namespace]: https://learn.microsoft.com/dotnet/api/azure.maps
+[Azure.Maps Namespace]: /dotnet/api/azure.maps
