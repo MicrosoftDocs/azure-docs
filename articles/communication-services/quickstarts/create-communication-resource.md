@@ -131,7 +131,7 @@ az communication delete --name "acsResourceName" --resource-group "resourceGroup
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
 
 > [!Note]
-> Resource deletion is **permanent** and no data, including event gird filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
 
 ## Next steps
 
