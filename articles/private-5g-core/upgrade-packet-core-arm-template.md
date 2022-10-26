@@ -24,7 +24,7 @@ If your environment meets the prerequisites, you're familiar with using ARM temp
 
 ## Prerequisites
 
-- Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally. <!-- Should we include this advice, so they have a healthy state to roll back to in case there are issues post-upgrade? -->
+- You must have a running packet core. Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Identify the name of the site that hosts the packet core instance you want to upgrade.
 
@@ -40,7 +40,8 @@ We recommend upgrading your packet core instance during a maintenance window or 
 
 A typical upgrade takes around 60 minutes if you have a high-bandwidth connection to Azure. On a limited 1 Mbps connection, this can increase to <><!-- TODO: add estimated time --> minutes. In addition to this time, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
 
-- Refer to the release notes for the current version of packet core and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, you'll need to upgrade ASE first.
+- Refer to the release notes for the current version of packet core and whether it's supported by the version your Azure Stack Edge (ASE) is currently running.
+- If your ASE version is incompatible with the latest packet core, you'll need to upgrade ASE first.
   - If you're upgrading from a packet core version that the current version of ASE supports, you can upgrade ASE and packet core independently.
   - If you're upgrading from a packet core version that isn't supported by the current version of ASE, it's possible that packet core won't operate normally with the new ASE version. In this case, we recommend planning a maintenance window that allows you time to fully upgrade both ASE and packet core. Refer to [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update) for how long the ASE upgrade will take.
 - Review [Restore backed up deployment information](#restore-backed-up-deployment-information) and [Verify upgrade](#verify-upgrade) for the post-upgrade steps you'll need to follow to ensure your deployment is fully operational. Make sure your upgrade plan allows sufficient time for these steps. <!-- Can we be more helpful here and estimate how long these should take? -->
@@ -54,8 +55,7 @@ The following list contains data that will get lost over a packet core upgrade. 
 1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
 2. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
 3. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
-4. If you have data that you directly entered into the packet core instance during installation, this will be lost over upgrade. Note down your relevant packet core configuration and save it in a secure location. <!-- TODO: clarify what data this could be -->
-5. Gather a list of your devices and sessions. After the upgrade, you'll need to re-register your devices and recreate any sessions.
+4. Most UEs will automatically re-register and recreate any sessions after the upgrade completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
 ### Upgrade ASE
 
@@ -103,8 +103,7 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
 2. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
 3. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
-4. If you backed up any packet core configuration, follow <><!-- TODO: link to relevant procedure --> to restore it.
-5. Re-register your devices and recreate any sessions.
+4. If you have UEs that require manual operations to recover from a packet core outage, follow their recovery steps.
 
 ### Verify upgrade
 
