@@ -1721,6 +1721,8 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
+  - name: Update management center (preview)
+    href: ../update-center/index.yml
   - name: Maintenance
     items:
     - name: Overview
