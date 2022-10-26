@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/28/2022
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, sdkv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

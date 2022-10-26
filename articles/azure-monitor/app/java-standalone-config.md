@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 10/24/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -440,7 +440,7 @@ This feature is in preview, starting from 3.4.2.
 
 Starting from version 3.3.0, `LoggingLevel` isn't captured by default as part of the Traces custom dimension because that data is already captured in the `SeverityLevel` field.
 
-If needed, you can re-enable the previous behavior:
+If needed, you can temporarily re-enable the previous behavior:
 
 ```json
 {
@@ -449,8 +449,6 @@ If needed, you can re-enable the previous behavior:
   }
 }
 ```
-
-We will remove this configuration option in 4.0.0.
 
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 

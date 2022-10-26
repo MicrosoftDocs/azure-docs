@@ -5,7 +5,7 @@ description: Learn about the different models that are available in Azure OpenAI
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 06/24/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -15,7 +15,7 @@ keywords:
 
 # Azure OpenAI models
 
-The service provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI.
+The service provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Please refer to the capability table at the bottom for a full breakdown. 
 
 | Model family | Description |
 |--|--|
@@ -151,6 +151,56 @@ Similar to text search embedding models, there are two input types supported by 
 | Code search and relevance | `code-search-ada-code-001` <br> `code-search-ada-text-001` <br> `code-search-babbage-code-001` <br> `code-search-babbage-text-001` |
 
 When using our Embeddings models, keep in mind their limitations and risks.
+
+## Model Summary table and region availability
+
+### GPT-3 Models
+|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  --- | --- | --- | --- | --- |
+| Ada | 	Yes	| No	|	N/A	| East US, South Central US, West Europe |
+| Text-Ada-001 | Yes | No | East US, South Central US, West Europe | N/A |
+| Babbage | Yes | No | N/A | East US, South Central US, West Europe |
+| Text-Babbage-001 | Yes | No | East US, South Central US, West Europe | N/A |
+| Curie | Yes | No | N/A | East US, South Central US, West Europe |
+| Text-curie-001 | Yes | No | East US, South Central US, West Europe | N/A |
+| Davinci* | Yes | No | N/A | East US, South Central US, West Europe |
+| Text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
+| Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
+| Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
+
+\*Models available by request only. Please open a support request.
+
+### Codex Models
+|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  --- | --- | --- | --- | --- |
+| Code-Cushman-001* | Yes | No | South Central US, West Europe | East US, South Central US, West Europe |
+| Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
+| Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
+
+\*Models available for Fine-tuning by request only. Please open a support request.
+
+
+
+### Embeddings Models
+|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  --- | --- | --- | --- | --- |
+| text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
+| text-similarit-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-babbage-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-babbage-query-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-curie-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-curie-query-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-davinci-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-davinci-query-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-ada-code-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-ada-text-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-babbage-code-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-babbage-text-001 | No | Yes | South Central US, West Europe | N/A |
+ 	
 
 ## Next steps
 
