@@ -127,7 +127,9 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (Residence permit card)</li></ul></br>|English (United States)—en-US|
+|ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (permanent resident card)</li></ul></br>|English (United States)—en-US|
+
+::: moniker range="form-recog-3.0.0"
 
 ## Field extractions
 
@@ -238,6 +240,43 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+### ID document field extractions
+
+|Name| Type | Description | Standardized output|
+|:-----|:----|:----|:----|
+|  DateOfIssue | Date | Issue date  | yyyy-mm-dd |
+|  Height | String | Height of the holder.  | |
+|  Weight | String | Weight of the holder.  | |
+|  EyeColor | String | Eye color of the holder.  | |
+|  HairColor | String | Hair color of the holder.  | |
+|  DocumentDiscriminator | String | Document discriminator is a security code that identifies where and when the license was issued.  | |
+| Endorsements | String | More driving privileges granted to a driver such as Motorcycle or School bus.  | |
+| Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
+| VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
+|  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
+|  DateOfBirth | Date | DOB | yyyy-mm-dd |
+|  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
+|  DocumentNumber | String | Relevant passport number, driver's license number, etc. |  |
+|  FirstName | String | Extracted given name and middle initial if applicable |  |
+|  LastName | String | Extracted surname |  |
+|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
+|  Sex | String | Possible extracted values include "M", "F" and "X" | |
+|  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  DocumentType | String | Document type, for example, Passport, Driver's License, Social security card and more | "passport" |
+|  Address | String | Extracted address, address is also parsed to its components - address, city, state, country, zip code ||
+|  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
+
+### Migration guide and REST API v3.0
+
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
+
+::: moniker-end
 ## Next steps
 
 ::: moniker range="form-recog-3.0.0"
