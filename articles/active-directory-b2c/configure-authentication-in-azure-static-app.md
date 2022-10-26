@@ -136,10 +136,9 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
       const { clientPrincipal } = payload;
       return clientPrincipal;
     }
-  
+    
     await getUserInfo();
     ```
-
 
 > [!TIP]
 > If you can't run the above JavaScript code in your browser, navigate to the following URL `https://<app-name>.azurewebsites.net/.auth/me`. Replace the `<app-name>` with your Azure Web App.
