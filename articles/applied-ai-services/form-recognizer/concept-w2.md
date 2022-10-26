@@ -73,7 +73,7 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 |--------|:----------------------|:---------|
 |prebuilt-tax.us.w2|<ul><li>English (United States)</li></ul>|English (United States)—en-US|
 
-## W-2 form fields extraction
+## Field extraction
 
 |Name| Box | Type | Description | Standardized output|
 |:-----|:----|:----|:----|:----|
