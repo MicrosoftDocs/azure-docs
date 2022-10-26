@@ -274,7 +274,7 @@ dfToReadFromTable.show()
 > * Table name and query cannot be specified at the same time.
 > * Only select queries are allowed. DDL and DML SQLs are not allowed.
 > * The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
-> *  Read from a query is only available in Spark 3. It is not available in Spark 2.4.
+> * Read from a query is only available in Spark 3. It is not available in Spark 2.4.
 
 ##### [Scala](#tab/scala2)
 
@@ -285,30 +285,33 @@ import org.apache.spark.sql.DataFrame
 import com.microsoft.spark.sqlanalytics.utils.Constants
 import org.apache.spark.sql.SqlAnalyticsConnector._
 
-// Name of the SQL Dedicated Pool or database where to run the query
-// Database can be specified as a Spark Config or as a Constant - Constants.DATABASE
-spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
 
 // Read from a query
 // Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
 val dfToReadFromQuery1:DataFrame = spark.read.
+    // Name of the SQL Dedicated Pool or database where to run the query
+    // Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+     option(Constants.DATABASE, "<database_name>").
     //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
     //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
     option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
     //Defaults to storage path defined in the runtime configurations
     option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
     //query from which data will be read
-    .option(Constants.QUERY, "select x, count(*) as cnt from table group by x")
+    .option(Constants.QUERY, "select <column_name>, count(*) as cnt from <schema_name>.<table_name> group by <column_name>")
     synapsesql()
 
 val dfToReadFromQuery2:DataFrame = spark.read.
+     // Name of the SQL Dedicated Pool or database where to run the query
+     // Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+     option(Constants.DATABASE, "<database_name>")
     //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
     //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
     option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
     //Defaults to storage path defined in the runtime configurations
     option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
     //query from which data will be read
-    .synapsesql("select x, count(*) as cnt from table group by x")
+    .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
 
 
 //Show contents of the dataframe
@@ -331,24 +334,30 @@ spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
 # Read from a query
 # Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
 dfToReadFromQuery1 = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
                      # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
                      # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
                      .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
                      # Defaults to storage path defined in the runtime configurations
                      .option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
                      # query from which data will be read
-                     .option(Constants.QUERY, "select x, count(*) as cnt from table group by x")
+                     .option(Constants.QUERY, "select <column_name>, count(*) as cnt from <schema_name>.<table_name> group by <column_name>")
                      .synapsesql()
 )
 
 dfToReadFromQuery2 = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
                      # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
                      # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
                      .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
                      # Defaults to storage path defined in the runtime configurations
                      .option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
                      # query from which data will be read
-                     .synapsesql("select x, count(*) as cnt from table group by x")
+                     .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
 )
 
 # Show contents of the dataframe
@@ -378,7 +387,7 @@ val dfToReadFromTable:DataFrame = spark.read.
     //Set user's password to the database
     option(Constants.PASSWORD, "<user_password>").
     //Set name of the data source definition that is defined with database scoped credentials.
-    //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+    //Data extracted from the table will be staged to the storage path defined on the data source's location setting.
     option(Constants.DATA_SOURCE, "<data_source_name>").
     //Three-part table name from where data will be read.
     synapsesql("<database_name>.<schema_name>.<table_name>").
@@ -413,7 +422,7 @@ dfToReadFromTable = (spark.read
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
                      # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
-                     # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+                     # Data extracted from the table will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Three-part table name from where data will be read.
                      .synapsesql("<database_name>.<schema_name>.<table_name>")
@@ -449,6 +458,9 @@ spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
 // Read from a query
 // Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
 val dfToReadFromQuery1:DataFrame = spark.read.
+     //Name of the SQL Dedicated Pool or database where to run the query
+     //Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+      option(Constants.DATABASE, "<database_name>").
     //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
     //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
     option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
@@ -460,10 +472,13 @@ val dfToReadFromQuery1:DataFrame = spark.read.
     //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
     option(Constants.DATA_SOURCE, "<data_source_name>").
     //Query where data will be read.  
-    option(Constants.QUERY, "select x, count(*) as cnt from table group by x" ).
+    option(Constants.QUERY, "select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>" ).
     synapsesql()
 
 val dfToReadFromTQuery2:DataFrame = spark.read.
+     //Name of the SQL Dedicated Pool or database where to run the query
+     //Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+      option(Constants.DATABASE, "<database_name>").
     //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
     //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
     option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
@@ -475,7 +490,7 @@ val dfToReadFromTQuery2:DataFrame = spark.read.
     //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
     option(Constants.DATA_SOURCE, "<data_source_name>").
     //Query where data will be read.  
-    synapsesql("select x, count(*) as cnt from table group by x")
+    synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
     
 
 //Show contents of the dataframe
@@ -498,6 +513,9 @@ spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
 # Read from a query
 # Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
 dfToReadFromQuery1 = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
                      # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
                      # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
                      .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
@@ -510,11 +528,14 @@ dfToReadFromQuery1 = (spark.read
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Query from where data will be read.
-                     .option(Constants.QUERY, "select x, count(*) as cnt from table group by x")
+                     .option(Constants.QUERY, "select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
                      .synapsesql()
                     )
 
 dfToReadFromQuery2 = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
                      # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
                      # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
                      .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
@@ -526,7 +547,7 @@ dfToReadFromQuery2 = (spark.read
                      # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
-                     .synapsesql("select x, count(*) as cnt from table group by x")
+                     .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
                     )
 
 # Show contents of the dataframe
