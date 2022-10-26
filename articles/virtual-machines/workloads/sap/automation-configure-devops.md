@@ -327,7 +327,7 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | Branch                             | main                                    |                                                                                             |
 | S-Username                         | `<SAP Support user account name>`       |                                                                                             |
 | S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon.                                   |
-| `tf_version`                       | 1.2.8                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
+| `tf_version`                       | 1.3.0                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
 
 Save the variables.
 
