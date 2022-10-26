@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 10/26/2022
 ms.author: victorh
 ---
 
@@ -232,8 +232,8 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 ```
 
 > [!NOTE]
-> For creating and using your own VNet and route table with `kubelet` network plugin, you need to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
-> For creating and using your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. But user-assigned managed identity is more recommended.
+> To create and use your own VNet and route table with `kubelet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. 
 
 ### Enable developer access to the API server
 
@@ -541,4 +541,4 @@ az group delete -g $RG
 - Learn more about Azure Kubernetes Service, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md).
 
 <!-- LINKS - Internal -->
-[Bring your own control plane managed identity]: ../aks/use-managed-identity.md#Bring-your-own-control-plane-managed-identity
+[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#Bring-your-own-control-plane-managed-identity
