@@ -165,10 +165,6 @@
     items:
     - name: Troubleshooting guide
       href: dns-troubleshoot.md
-  - name: Private Resolver
-    items:
-    - name: Resolve Azure and on-premises domains
-      href: private-resolver-hybrid-dns.md
 - name: Reference
   items:
   - name: Public DNS
