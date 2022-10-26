@@ -18,7 +18,7 @@ ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
-Learn how to use batch endpoints to do batch scoring. Batch endpoints provide a convenient way to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](../concept-endpoints.md).
+Batch endpoints provide a convenient way to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](../concept-endpoints.md).
 
 Use batch endpoints when:
 
@@ -28,6 +28,8 @@ Use batch endpoints when:
 > * You don't have low latency requirements.
 > * You can take advantage of parallelization.
 
+In this article, you will learn how to use batch endpoints to do batch scoring.
+
 ## Prerequisites
 
 [!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
@@ -36,32 +38,11 @@ Use batch endpoints when:
 
 [!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
-Set your endpoint name. Replace `YOUR_ENDPOINT_NAME` with a unique name within an Azure region.
-
-# [Azure ML CLI](#tab/cli)
-
-```azurecli
-ENDPOINT_NAME="<YOUR_ENDPOINT_NAME>"
-```
-
-# [Azure ML SDK for Python](#tab/sdk)
-
-```python
-endpoint_name="<YOUR_ENDPOINT_NAME>"
-```
-
-# [studio](#tab/studio)
-
-*You will configure the name of the endpoint later.*
-
----
-
-> [!NOTE]
-> Batch endpoint names need to be unique within an Azure region. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
-
 ### Create compute
 
-Batch endpoint runs only on cloud computing resources. The cloud computing resource is a reusable virtual computer cluster. Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>`.
+Batch endpoints run on compute clusters. They support both Azure Machine Learning Compute clusters (AmlCompute) or Kubernetes clusters. Clusters are a shared resource so one cluster can host one or many batch deployments (along with other workloads if desired). 
+
+Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>`.
 
 # [Azure ML CLI](#tab/cli)
 
@@ -84,9 +65,6 @@ ml_client.begin_create_or_update(compute_cluster)
 > [!NOTE]
 > You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](../how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
-> [!TIP]
-> Azure Machine Learning batch deployments support both Compute clusters (AmlCompute) and Kubernetes clusters.
-
 
 ### Registering the model
 
@@ -99,7 +77,7 @@ Batch Deployments can only deploy models registered in the workspace. You can sk
 # [Azure ML CLI](#tab/cli)
 
 ```azurecli
-MODEL_NAME='mnist-torch'
+MODEL_NAME='mnist'
 az ml model create --name $MODEL_NAME --type "custom_model" --path "./mnist/model/"
 ```
 
@@ -132,6 +110,29 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 
 ### Steps
 
+1. Decide on the name of the endpoint. The name of the endpoint will end-up in the URI associated with your endpoint. Because of that, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
+
+    # [Azure ML CLI](#tab/cli)
+    
+    In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
+    
+    ```azurecli
+    ENDPOINT_NAME="mnist-batch"
+    ```
+    
+    # [Azure ML SDK for Python](#tab/sdk)
+    
+    In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
+
+    ```python
+    endpoint_name="mnist-batch"
+    ```
+    
+    # [studio](#tab/studio)
+    
+    *You will configure the name of the endpoint later in the creation wizard.*
+    
+
 1. Configure your batch endpoint
 
     # [Azure ML CLI](#tab/cli)
@@ -153,10 +154,9 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     
     ```python
     # create a batch endpoint
-    endpoint_name="mybatchedp"
     endpoint = BatchEndpoint(
         name=endpoint_name,
-        description="this is a sample batch endpoint",
+        description="A batch endpoint for scoring images from the MNIST dataset.",
     )
     ```
     
@@ -312,12 +312,12 @@ A deployment is a set of resources required for hosting the model that does the 
     
     ```python
     deployment = BatchDeployment(
-        name="non-mlflow-deployment",
-        description="this is a sample non-mlflow deployment",
+        name="mnist-torch-dpl",
+        description="A deployment using Torch to solve the MNIST classification dataset.",
         endpoint_name=batch_endpoint_name,
         model=model,
         code_path="./mnist/code/",
-        scoring_script="digit_identification.py",
+        scoring_script="batch_driver.py",
         environment=env,
         compute=compute_name,
         instance_count=2,
@@ -353,7 +353,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__ > __Create__.
-    1. Give the endpoint a name, in this case `mybatchdp`. You can configure the rest of the fields or leave them blank.
+    1. Give the endpoint a name, in this case `mnist-batch`. You can configure the rest of the fields or leave them blank.
     1. Click on __Next__.
     1. On the model list, select the model `mnist` and click on __Next__.
     1. On the deployment configuration page, give the deployment a name.
@@ -364,7 +364,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. On __Max concurrency per instance__, configure the number of executors you want to have per each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
     1. Once done, click on __Next__.
     1. On environment, go to __Select scoring file and dependencies__ and click on __Browse__.
-    1. Select the scoring script file on `/mnist/code/digit_identification.py`.
+    1. Select the scoring script file on `/mnist/code/batch_driver.py`.
     1. On the section __Choose an environment__, select the environment you created a previous step.
     1. Click on __Next__.
     1. On the section __Compute__, select the compute cluster you created in a previous step.
@@ -686,7 +686,7 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
 
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__ > __Create__.
-    1. Give the endpoint a name, in this case `mybatchdp`. You can configure the rest of the fields or leave them blank.
+    1. Give the endpoint a name, in this case `mnist-batch`. You can configure the rest of the fields or leave them blank.
     1. Click on __Next__.
     1. On the model list, select the model `mnist` and click on __Next__.
     1. On the deployment configuration page, give the deployment a name.
@@ -697,7 +697,7 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
     1. On __Max concurrency per instance__, configure the number of executors you want to have per each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
     1. Once done, click on __Next__.
     1. On environment, go to __Select scoring file and dependencies__ and click on __Browse__.
-    1. Select the scoring script file on `/mnist-keras/code/digit_identification.py`.
+    1. Select the scoring script file on `/mnist-keras/code/batch_driver.py`.
     1. On the section __Choose an environment__, select the environment you created a previous step.
     1. Click on __Next__.
     1. On the section __Compute__, select the compute cluster you created in a previous step.
