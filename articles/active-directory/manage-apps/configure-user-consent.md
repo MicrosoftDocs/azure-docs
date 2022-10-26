@@ -8,10 +8,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 10/12/2022
 ms.author: yuhko
 ms.reviewer: phsignor
 ms.custom: contperf-fy21q2, contperf-fy22q2
+zone_pivot_groups: enterprise-apps-minus-aad-powershell
+
 
 #customer intent: As an admin, I want to configure how end-users consent to applications.
 ---
@@ -31,9 +33,9 @@ To configure user consent, you need:
 - A user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Global Administrator or Privileged Administrator role.
 
-# [The Azure portal](#tab/azure-portal)
-
 ## Configure user consent settings
+
+:::zone pivot="portal"
 
 To configure user consent settings through the Azure portal:
 
@@ -47,11 +49,13 @@ To configure user consent settings through the Azure portal:
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Screenshot of the 'User consent settings' pane.":::
 
-# [PowerShell](#tab/azure-powershell)
+:::zone-end
+
+:::zone pivot="ms-powershell"
 
 To choose which app consent policy governs user consent for applications, you can use the [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true) module. The cmdlets used here are included in the [Microsoft.Graph.Identity.SignIns](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.SignIns) module.
 
-#### Connect to Microsoft Graph PowerShell
+### Connect to Microsoft Graph PowerShell
 
 Connect to Microsoft Graph PowerShell using the least-privilege permission needed. For reading the current user consent settings, use *Policy.Read.All*. For reading and changing the user consent settings, use *Policy.ReadWrite.Authorization*.
 
@@ -59,7 +63,7 @@ Connect to Microsoft Graph PowerShell using the least-privilege permission neede
 Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
 ```
 
-#### Disable user consent
+### Disable user consent
 
 To disable user consent, set the consent policies that govern user consent to empty:
 
@@ -68,7 +72,7 @@ Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
     "PermissionGrantPoliciesAssigned" = @() }
 ```
 
-#### Allow user consent subject to an app consent policy
+### Allow user consent subject to an app consent policy
 
 To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
 
@@ -91,11 +95,62 @@ Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
     "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
 ```
 
----
+:::zone-end
+
+:::zone pivot="ms-graph"
+
+Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to choose which app consent policy governs user consent for applications.
+
+To disable user consent, set the consent policies that govern user consent to empty:
+
+```http
+PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
+{
+   "defaultUserRolePermissions": {
+      "permissionGrantPoliciesAssigned": []
+   }
+}
+```
+
+### Allow user consent subject to an app consent policy
+
+To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
+
+```http
+PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
+
+{
+   "defaultUserRolePermissions": {
+      "permissionGrantPoliciesAssigned": ["ManagePermissionGrantsForSelf.microsoft-user-default-legacy"]
+   }
+}
+```
+
+Replace `{consent-policy-id}` with the ID of the policy you want to apply. You can choose a [custom app consent policy](manage-app-consent-policies.md#create-a-custom-app-consent-policy) that you've created, or you can choose from the following built-in policies:
+
+| ID | Description |
+|:---|:------------|
+| microsoft-user-default-low | **Allow user consent for apps from verified publishers, for selected permissions**<br/> Allow limited user consent only for apps from verified publishers and apps that are registered in your tenant, and only for permissions that you classify as *low impact*. (Remember to [classify permissions](configure-permission-classifications.md) to select which permissions users are allowed to consent to.) |
+| microsoft-user-default-legacy | **Allow user consent for apps**<br/> This option allows all users to consent to any permission that doesn't require admin consent, for any application |
+
+For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`, use the following PATCH command:
+
+```http
+PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
+
+{
+    "defaultUserRolePermissions": {
+        "permissionGrantPoliciesAssigned": [
+            "managePermissionGrantsForSelf.microsoft-user-default-low"
+        ]
+    }
+}
+```
+
+:::zone-end
 
 > [!TIP]
 > To allow users to request an administrator's review and approval of an application that the user isn't allowed to consent to, [enable the admin consent workflow](configure-admin-consent-workflow.md). For example, you might do this when user consent has been disabled or when an application is requesting permissions that the user isn't allowed to grant.
-
 ## Next steps
 
 - [Manage app consent policies](manage-app-consent-policies.md)

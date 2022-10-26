@@ -2,10 +2,10 @@
 title: Azure Monitor service limits | Microsoft Docs
 description: Lists limits in different areas of Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2022
-
 ---
 
 # Azure Monitor service limits

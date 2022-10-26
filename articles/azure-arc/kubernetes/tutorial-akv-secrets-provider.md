@@ -3,7 +3,8 @@ title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azur
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
-ms.date: 5/26/2022
+ms.custom: ignite-2022
+ms.date: 10/12/2022
 ms.topic: tutorial
 author: mayurigupta13
 ms.author: mayg
@@ -13,7 +14,7 @@ ms.author: mayg
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). For Azure Arc-enabled Kubernetes clusters, you can install the Azure Key Vault Secrets Provider extension to fetch secrets.
 
-Benefits of the Azure Key Vault Secrets Provider extension include the folllowing:
+Benefits of the Azure Key Vault Secrets Provider extension include the following:
 
 - Mounts secrets/keys/certs to pod using a CSI Inline volume
 - Supports pod portability with the SecretProviderClass CRD
@@ -26,13 +27,17 @@ Benefits of the Azure Key Vault Secrets Provider extension include the folllowin
 
 - A cluster with a supported Kubernetes distribution that has already been [connected to Azure Arc](quickstart-connect-cluster.md). The following Kubernetes distributions are currently supported for this scenario:
   - Cluster API Azure
-  - Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)
+  - Azure Kubernetes Service (AKS) clusters on Azure Stack HCI
+  - AKS hybrid clusters provisioned from Azure
   - Google Kubernetes Engine
   - OpenShift Kubernetes Distribution
   - Canonical Kubernetes Distribution
   - Elastic Kubernetes Service
   - Tanzu Kubernetes Grid
 - Ensure you have met the [general prerequisites for cluster extensions](extensions.md#prerequisites). You must use version 0.4.0 or newer of the `k8s-extension` Azure CLI extension.
+
+> [!TIP]
+> When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Install the Azure Key Vault Secrets Provider extension on an Arc-enabled Kubernetes cluster
 

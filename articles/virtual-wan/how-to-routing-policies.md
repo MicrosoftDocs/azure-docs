@@ -36,7 +36,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or **Network Virtual Appliance** specified as part of the Routing Policy.
 
-    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will advertise a **default** route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke). This includes the **Network Virtual Appliance** that is the next hop for the Itnernet Traffic routing policy.
+    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will advertise a **default** route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke). This includes the **Network Virtual Appliance** that is the next hop for the Internet Traffic routing policy.
  
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource or Network Virtual Appliance resource that was specified in the Private Traffic Routing Policy. 
 

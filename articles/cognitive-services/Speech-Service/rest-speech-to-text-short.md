@@ -25,6 +25,8 @@ Before you use the speech-to-text REST API for short audio, consider the followi
 * [Speech translation](speech-translation.md) is not supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
 * [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md) are not supported via REST API for short audio. You should always use the [Speech to Text REST API](rest-speech-to-text.md) for batch transcription and Custom Speech.
 
+Before you use the speech-to-text REST API for short audio, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
+
 ## Regions and endpoints
 
 The endpoint for the REST API for short audio has this format:
@@ -303,6 +305,8 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
     }
 }
 ```
+
+## Authentication
 
 [!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
