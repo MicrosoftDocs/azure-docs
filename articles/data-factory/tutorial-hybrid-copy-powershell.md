@@ -119,7 +119,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
     ```powershell
     Connect-AzAccount
-    ```        
+    ```
 
 1. If you have multiple Azure subscriptions, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
@@ -160,7 +160,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
 1. To create the data factory, run the following `Set-AzDataFactoryV2` cmdlet:
 
-    ```powershell       
+    ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
     ```
 
@@ -311,7 +311,7 @@ In this step, you link your Azure storage account to the data factory.
     > [!IMPORTANT]
     > Before you save the file, replace \<accountName> and \<accountKey> with the name and key of your Azure storage account. You noted them in the [Prerequisites](#get-storage-account-name-and-account-key) section.
 
-   ```json
+    ```json
     {
         "name": "AzureStorageLinkedService",
         "properties": {
@@ -322,7 +322,7 @@ In this step, you link your Azure storage account to the data factory.
             }
         }
     }
-   ```
+    ```
 
 1. In PowerShell, switch to the *C:\ADFv2Tutorial* folder.
    ```powershell
@@ -374,7 +374,7 @@ In this step, you link your SQL Server instance to the data factory.
             }
         }
     }
-   ```    
+    ```
 
     **Using Windows authentication:**
 

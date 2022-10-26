@@ -455,8 +455,8 @@
       - name: Windows client images
         displayName: Windows, Client, find
         href: ./windows/client-images.md
-      - name: Windows 10 images
-        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows, find
+      - name: Windows 11 images
+        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Linux custom images
       items:
@@ -1721,6 +1721,8 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
+  - name: Update management center (preview)
+    href: ../update-center/index.yml
   - name: Maintenance
     items:
     - name: Overview
