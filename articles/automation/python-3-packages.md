@@ -3,7 +3,7 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/01/2021
+ms.date: 10/26/2022
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ---
@@ -33,11 +33,11 @@ The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software
 
 Select a Python version:
 
-#### [Python 3.8](#tab/py3)
+#### [Python 3.8 (preview)](#tab/py3)
 
 | Filename part | Description |
 |---|---|
-|cp38|Automation supports **Python 3.8** for Cloud Jobs.|
+|cp38|Automation supports **Python 3.8** for Cloud jobs.|
 |amd64|Azure sandbox processes are **Windows 64-bit** architecture.|
 
 For example:
@@ -55,12 +55,12 @@ Perform the following steps using a 64-bit Windows machine with Python 3.8.x and
 | Filename part | Description |
 |---|---|
 |cp310|Automation supports **Python 3.10 (preview)** for Cloud jobs.|
-|manylinux_x86_64|Azure sandbox processes are Linux based 64-bit architecture for Python 3.10 runbooks.
+|manylinux_x86_64|Azure sandbox processes are Linux based 64-bit architecture for Python 3.10 (preview) runbooks.
 
 
 For example: 
 - To import pandas - select a wheel file with a name similar as `pandas-1.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`
-- To import numpy - select a wheel file with a name similar as `numpy-1.23.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl` 
+
 
 Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using pip. Perform the following steps using a 64-bit Linux machine with Python 3.10.x and wheel package installed:
 
