@@ -498,7 +498,7 @@
       href: custom-policies-series-validate-user-input.md 
     - name: Create branching in user journeys
       href: custom-policies-series-branch-in-user-journey-using-pre-conditions.md
-    - name: Install XML extensions
+    - name: Validate custom policy files
       href: custom-policies-series-install-xml-extensions.md
   - name: Identity verification and proofing
     items: 

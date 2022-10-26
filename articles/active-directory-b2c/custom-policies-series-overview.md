@@ -36,10 +36,14 @@ This how-to guide series consists of multiple articles. We recommend that you st
 |[Write your first Azure AD B2C custom policy - Hello World!](custom-policies-series-hello-world.md) | Write your first Azure AD B2C custom policy. You'll return the message *Hello World!* in the JWT token. |
 |[Collect and manipulate user inputs by using Azure AD B2C custom policy](custom-policies-series-collect-user-input.md) | Learn how to collect inputs from users, and how to manipulate them.|
 |[Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md) | Learn how to validate user inputs by using techniques such as limiting user input options, regular expressions, predicates, and validation technical profiles|
+|[Validate custom policy files by using TrustFrameworkPolicy schema](custom-policies-series-install-xml-extensions.md)| Learn how to validate your custom files against a custom policy schema. You also learn how to easily navigate your policy files by using Azure AD B2C Visual Studio Code (VS Code) extension.|
+|[Call a REST API by using Azure AD B2C custom policy](custom-policies-series-call-rest-api.md)| Learn how to write a custom policy that integrates with your own RESTful service.|
 
 
-## Next steps
+## Next steps 
 
-- [Azure AD B2C TrustFrameworkPolicy BuildingBlocks](buildingblocks.md)
+- Learn about [Azure AD B2C TrustFrameworkPolicy BuildingBlocks](buildingblocks.md)
+ 
+- [Write your first Azure AD B2C custom policy - Hello World!](custom-policies-series-hello-world.md)
 
  
