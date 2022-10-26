@@ -23,7 +23,7 @@ To request an increase in quota amounts for your container app, [submit a suppor
 | Revisions | Container app | 100 | No | |
 | Replicas | Revision | 30 | Yes | |
 | Cores | Replica | 2 | No | Maximum number of cores that can be requested by a revision replica. |
-| Cores | Environment | 20 | Yes | Calculated by the total cores an environment can accommodate. For instance, the sum of cores requested by each active replica of all revisions in an environment. |
+| Cores | Environment | 20 | Yes | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
 
 <sup>1</sup> The **Is Configurable** column denotes that a feature maximum may be increased through a [support request](https://azure.microsoft.com/support/create-ticket/).
 
