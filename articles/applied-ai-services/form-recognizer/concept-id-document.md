@@ -12,9 +12,9 @@ ms.author: lajanuar
 recommendations: false
 ms.custom: references.regions
 ---
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 -->
 
-# Form Recognizer ID document model
+# Identity document (ID) processing
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -41,14 +41,13 @@ The following tools are supported by Form Recognizer v3.0:
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
+
 The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
 |**ID document model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 ::: moniker-end
-
-### Try Form Recognizer
 
 Extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio. You'll need the following resources:
 

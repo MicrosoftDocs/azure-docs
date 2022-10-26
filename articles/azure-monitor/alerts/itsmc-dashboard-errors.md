@@ -99,7 +99,7 @@ The following sections describe common errors that appear in the connector statu
 
 **Cause**: The IP address of the ITSM application doesn't allow ITSM connections from partner ITSM tools.
 
-**Resolution**: To allow ITSM connections from partner ITSM tools, You need to allow ActionGroup network.
+**Resolution**: To allow ITSM connections make sure ActionGroup network tag is allowed on your network.
 
 ## Authentication
 **Error**: "User Not Authenticated"
