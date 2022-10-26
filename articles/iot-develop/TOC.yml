@@ -1,4 +1,4 @@
-﻿- name: IoT device development
+- name: IoT device development
   href: index.yml
 - name: Overview
   items:
@@ -43,8 +43,6 @@
         href: tutorial-connect-device.md
       - name: Interact with a device from your solution
         href: tutorial-service.md
-    - name: Securely connect IoT devices to the cloud
-      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Use MQTT to connect a device
@@ -61,6 +59,8 @@
     href: concepts-iot-device-types.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
+  - name: IoT device selection list
+    href: iot-device-selection.md
   - name: Device models
     items:
     - name: Modeling guide
@@ -122,7 +122,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
     - name: C (Device)
-      href: /azure/iot-hub/iot-c-sdk-ref/
+      href: https://github.com/Azure/azure-iot-sdk-c/
     - name: Embedded C (Device)
       href: https://azure.github.io/azure-sdk-for-c/
     - name: Azure RTOS Middleware (Device)
@@ -172,11 +172,11 @@
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+        href: https://github.com/Azure-Samples/azure-iot-samples-csharp
       - name: Node.js
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
       - name: Java
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+        href: https://github.com/Azure-Samples/azure-iot-samples-java
       - name: Python
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
       - name: iOS Platform

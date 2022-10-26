@@ -2,11 +2,11 @@
 title: Access Azure Health Data Services using REST Client
 description: This article explains how to access the Healthcare APIs using the REST Client extension in VS Code
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
-ms.author: ginle
+ms.author: kesheth
 ---
 
 # Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code

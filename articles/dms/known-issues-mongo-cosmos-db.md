@@ -9,16 +9,14 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom:
-- "seo-lt-2019"
-- kr2b-contr-experiment
+ms.custom: seo-lt-2019, kr2b-contr-experiment, ignite-2022
 ms.topic: troubleshooting
 ms.date: 05/18/2022
 ---
 
-# Known issues with migrations from MongoDB to Azure Cosmos DB's API
+# Known issues with migrations from MongoDB to Azure Cosmos DB
 
-The following sections describe known issues and limitations associated with migrations from MongoDB to Cosmos DB's API for MongoDB.
+The following sections describe known issues and limitations associated with migrations from MongoDB to Azure Cosmos DB for MongoDB.
 
 ## Migration fails as a result of using the incorrect TLS/SSL Cert
 
@@ -26,7 +24,7 @@ This issue is apparent when a user can't connect to the MongoDB source server. D
 
 | Cause         | Resolution |
 | ------------- | ------------- |
-| Using a self-signed certificate in Azure Database Migration Service might lead to the migration failing because of the incorrect TLS/SSL certificate. The error message might include "The remote certificate is invalid according to the validation procedure." | Use a genuine certificate from CA. Connections to Cosmos DB use TLS over Mongo API. Self-signed certs are generally only used in internal tests. When you install a genuine cert from a CA authority, you can then use TLS in Azure Database Migration Service without issue. |
+| Using a self-signed certificate in Azure Database Migration Service might lead to the migration failing because of the incorrect TLS/SSL certificate. The error message might include "The remote certificate is invalid according to the validation procedure." | Use a genuine certificate from CA. Connections to Azure Cosmos DB for MongoDB connect via TLS to the MongoDB API. Self-signed certificates are generally only used in internal tests. When you install a genuine cert from a CA authority, you can then use TLS in Azure Database Migration Service without issue. |
 
 ## Unable to get the list of databases to map in DMS
 
@@ -46,5 +44,5 @@ The migration fails.
 
 ## Next steps
 
-* View the tutorial [Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS](tutorial-mongodb-cosmos-db-online.md).
-* View the tutorial [Migrate MongoDB to Azure Cosmos DB's API for MongoDB offline using DMS](tutorial-mongodb-cosmos-db.md).
+* View the tutorial [Migrate MongoDB to Azure Cosmos DB for MongoDB online using DMS](tutorial-mongodb-cosmos-db-online.md).
+* View the tutorial [Migrate MongoDB to Azure Cosmos DB for MongoDB offline using DMS](tutorial-mongodb-cosmos-db.md).

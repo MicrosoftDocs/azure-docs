@@ -1,5 +1,5 @@
 ---
-title: Manage user-assigned managed identities for an application in Azure Spring Apps (preview)
+title: Manage user-assigned managed identities for an application in Azure Spring Apps
 description: How to manage user-assigned managed identities for applications.
 author: karlerickson
 ms.author: jiec
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
-# Manage user-assigned managed identities for an application in Azure Spring Apps (preview)
+# Manage user-assigned managed identities for an application in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.

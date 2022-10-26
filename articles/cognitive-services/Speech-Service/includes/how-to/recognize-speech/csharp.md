@@ -28,7 +28,7 @@ class Program
 {
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     }
 }
 ```
@@ -67,7 +67,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromMic(speechConfig);
     }
 }
@@ -99,7 +99,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromFile(speechConfig);
     }
 }
@@ -142,7 +142,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromStream(speechConfig);
     }
 }
@@ -256,16 +256,6 @@ Task.WaitAny(new[] { stopRecognition.Task });
 
 // Make the following call at some point to stop recognition:
 // await recognizer.StopContinuousRecognitionAsync();
-```
-
-### Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`EnableDictation`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation) method on [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig):
-
-```csharp
-speechConfig.EnableDictation();
 ```
 
 ## Change the source language

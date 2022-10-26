@@ -75,6 +75,9 @@ Azure Database for MySQL Flexible Server provides the **Replication lag in secon
 
 If you see increased replication lag, refer to [troubleshooting replication latency](./../howto-troubleshoot-replication-latency.md) to troubleshoot and understand possible causes.
 
+>[!IMPORTANT]
+>Read Replica on HA server uses storage based replication technology, which no longer uses 'SLAVE_IO_RUNNING' metric available in MySQL's 'SHOW SLAVE STATUS' command. The value of it will always be displayed as "No" and is not indicative of replication status.
+
 ## Stop replication
 
 You can stop replication between a source and a replica. After replication is stopped between a source server and a read replica, the replica becomes a standalone server. The data in the standalone server is the data that was available on the replica at the time the stop replication command was started. The standalone server doesn't catch up with the source server.
@@ -138,7 +141,6 @@ If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas
 
 | Scenario | Limitation/Consideration |
 |:-|:-|
-| Replica on server with HA enabled | Not supported |
 | Replica on server in Burstable Pricing Tier| Not supported |
 | Cross region read replication | Not supported |
 | Pricing | The cost of running the replica server is based on the region where the replica server is running |

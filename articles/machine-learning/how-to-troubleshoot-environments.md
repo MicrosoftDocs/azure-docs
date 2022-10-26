@@ -9,7 +9,7 @@ author: edebar01
 ms.author:  ericadebarge
 ms.date: 03/01/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-python, event-tier1-build-2022
+ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 ---
 
 # Troubleshooting environment image builds using troubleshooting log error messages
@@ -234,7 +234,7 @@ It's best to use newer, non-deprecated versions.
             "conda-forge"
         ],
         "dependencies": [
-            "python=3.6.2"
+            "python=3.8"
         ],
     },
     "condaDependenciesFile": null,
@@ -245,8 +245,10 @@ It's best to use newer, non-deprecated versions.
 - See [PythonSection class](https://aka.ms/azureml/environment/environment-python-section)
 
 #### **"Python version missing"**
+*V1*
+
 - A Python version must be specified in the environment definition 
-- A Python version can be added by adding Python as a conda package, specifying the version:
+- A Python version can be added by adding Python as a conda package, specifying the version (this is specific to SDK V1):
 
 ```python
 from azureml.core.environment import CondaDependencies
@@ -331,7 +333,7 @@ image builds on the environment
 #### **"R section is deprecated"**
 - The Azure Machine Learning SDK for R will be deprecated by the end of 2021 to make way for an improved R training and deployment
 experience using Azure Machine Learning CLI 2.0
-- See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started with the Public Preview edition of the 2.0 CLI
+- See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started with the edition CLI 2.0.
 
 ## *Image build problems*
 
