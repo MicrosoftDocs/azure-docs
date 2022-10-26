@@ -274,7 +274,7 @@ dfToReadFromTable.show()
 > * Table name and query cannot be specified at the same time.
 > * Only select queries are allowed. DDL and DML SQLs are not allowed.
 > * The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
-> * Read from a query is only available in Spark 3. It is not available in Spark 2.4.
+> * Read from a query is only available in Spark 3.1 and 3.2. It is not available in Spark 2.4.
 
 ##### [Scala](#tab/scala2)
 
@@ -288,7 +288,7 @@ import org.apache.spark.sql.SqlAnalyticsConnector._
 
 // Read from a query
 // Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
-val dfToReadFromQuery1:DataFrame = spark.read.
+val dfToReadFromQueryAsOption:DataFrame = spark.read.
     // Name of the SQL Dedicated Pool or database where to run the query
     // Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
      option(Constants.DATABASE, "<database_name>").
@@ -301,7 +301,7 @@ val dfToReadFromQuery1:DataFrame = spark.read.
     .option(Constants.QUERY, "select <column_name>, count(*) as cnt from <schema_name>.<table_name> group by <column_name>")
     synapsesql()
 
-val dfToReadFromQuery2:DataFrame = spark.read.
+val dfToReadFromQueryAsArgument:DataFrame = spark.read.
      // Name of the SQL Dedicated Pool or database where to run the query
      // Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
      option(Constants.DATABASE, "<database_name>")
@@ -315,8 +315,8 @@ val dfToReadFromQuery2:DataFrame = spark.read.
 
 
 //Show contents of the dataframe
-dfToReadFromQuery1.show()
-dfToReadFromQuery2.show()
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
 ```
 
 ##### [Python](#tab/python2)
@@ -333,7 +333,7 @@ spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
 
 # Read from a query
 # Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
-dfToReadFromQuery1 = (spark.read
+dfToReadFromQueryAsOption = (spark.read
                      # Name of the SQL Dedicated Pool or database where to run the query
                      # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
                      .option(Constants.DATABASE, "<database_name>")
@@ -347,7 +347,7 @@ dfToReadFromQuery1 = (spark.read
                      .synapsesql()
 )
 
-dfToReadFromQuery2 = (spark.read
+dfToReadFromQueryAsArgument = (spark.read
                      # Name of the SQL Dedicated Pool or database where to run the query
                      # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
                      .option(Constants.DATABASE, "<database_name>")
@@ -361,8 +361,8 @@ dfToReadFromQuery2 = (spark.read
 )
 
 # Show contents of the dataframe
-dfToReadFromQuery1.show()
-dfToReadFromQuery2.show()
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
 ```
 ---
 
@@ -457,7 +457,7 @@ spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
 
 // Read from a query
 // Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
-val dfToReadFromQuery1:DataFrame = spark.read.
+val dfToReadFromQueryAsOption:DataFrame = spark.read.
      //Name of the SQL Dedicated Pool or database where to run the query
      //Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
       option(Constants.DATABASE, "<database_name>").
@@ -475,7 +475,7 @@ val dfToReadFromQuery1:DataFrame = spark.read.
     option(Constants.QUERY, "select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>" ).
     synapsesql()
 
-val dfToReadFromTQuery2:DataFrame = spark.read.
+val dfToReadFromQueryAsArgument:DataFrame = spark.read.
      //Name of the SQL Dedicated Pool or database where to run the query
      //Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
       option(Constants.DATABASE, "<database_name>").
@@ -494,8 +494,8 @@ val dfToReadFromTQuery2:DataFrame = spark.read.
     
 
 //Show contents of the dataframe
-dfToReadFromQuery1.show()
-dfToReadFromQuery2.show()
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
 ```
 
 ##### [Python](#tab/python4)
@@ -512,7 +512,7 @@ spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
 
 # Read from a query
 # Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
-dfToReadFromQuery1 = (spark.read
+dfToReadFromQueryAsOption = (spark.read
                      # Name of the SQL Dedicated Pool or database where to run the query
                      # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
                      .option(Constants.DATABASE, "<database_name>")
@@ -532,7 +532,7 @@ dfToReadFromQuery1 = (spark.read
                      .synapsesql()
                     )
 
-dfToReadFromQuery2 = (spark.read
+dfToReadFromQueryAsArgument = (spark.read
                      # Name of the SQL Dedicated Pool or database where to run the query
                      # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
                      .option(Constants.DATABASE, "<database_name>")
@@ -551,8 +551,8 @@ dfToReadFromQuery2 = (spark.read
                     )
 
 # Show contents of the dataframe
-dfToReadFromQuery1.show()
-dfToReadFromQuery2.show()
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
 
 ```
 ---
