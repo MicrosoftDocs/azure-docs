@@ -16,7 +16,7 @@ While in the edit mode, hover between two transcription lines. You'll find a gap
 
 :::image type="content" alt-text="Screenshot of how to add new transcription." source="./media/edit-transcript-lines-portal/add-new-transcription-line.png":::
 
-After clicking the add new transcription line, there will be an option to add the new text and the time stamp for the new line. Enter the text, choose the time stamp for the new line, and select **save**. Default timestamp is the gap between the previous and next transcript line. 
+After clicking the add new transcription line, there will be an option to add the new text and the time stamp for the new line. Enter the text, choose the time stamp for the new line, and select **save**. The default time stamp is the gap between the previous and next transcript line. 
 
 :::image type="content" alt-text="Screenshot of a new transcript time stamp line." source="./media/edit-transcript-lines-portal/transcript-time-stamp.png":::
 
@@ -31,7 +31,7 @@ Choose an existing line in the transcript line, click the **three dots** icon, s
 
 ## Edit existing line 
 
-While in the edit mode, select the three dots icon. The editing options were enhanced, they now contain not just the text but also the timestamp with accuracy of milliseconds. 
+While in the edit mode, select the three dots icon. The editing options were enhanced, they now contain not just the text but also the time stamp with accuracy of milliseconds. 
 
 ## Delete line 
 
@@ -39,7 +39,7 @@ Lines can now be deleted through the same three dots icon.
 
 ## Example how and when to use this feature 
 
-To consolidate two lines which you believe should appear as one. 
+To consolidate two lines, which you believe should appear as one. 
 
 1. Go to line number 2, select edit. 
 1. Copy the text 

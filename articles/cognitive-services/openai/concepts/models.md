@@ -1,11 +1,11 @@
 ---
-title: Azure OpenAI Models
+title: Azure OpenAI models
 titleSuffix: Azure OpenAI
-description: Learn about the different AI models that are available. 
+description: Learn about the different models that are available in Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 06/24/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -13,41 +13,62 @@ recommendations: false
 keywords: 
 ---
 
-# Azure OpenAI Models
+# Azure OpenAI models
 
-The service provides access to many different models. Models describe a family of models and are broken out as follows:
+The service provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Please refer to the capability table at the bottom for a full breakdown. 
 
-|Modes | Description|
+| Model family | Description |
 |--|--|
-| GPT-3 series | A set of GPT-3 models that can understand and generate natural language |
-| Codex Series | A set of models that can understand and generate code, including translating natural language to code |
-| Embeddings Series | An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently we offer three families of embedding models for different functionalities: text search, text similarity and code search |
+| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. |
+| [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
+| [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
+
+## Model capabilities
+
+Each model family has a series of models that are further distinguished by capability. These capabilities are typically identified by names, and the alphabetical order of these names generally signifies the relative capability and cost of that model within a given model family. For example, GPT-3 models use names such as Ada, Babbage, Curie, and Davinci to indicate relative capability and cost. Davinci is more capable (at a higher cost) than Curie, which in turn is more capable (at a higher cost) than Babbage, and so on.
+
+> [!NOTE]
+> Any task that can be performed by a less capable model like Ada can be performed by a more capable model like Curie or Davinci.
 
 ## Naming convention
 
-Azure OpenAI's models follow a standard naming convention: `{task}-{model name}-{version #}`. For example, our most powerful natural language model is called `text-davinci-001` and a codex series model would look like `code-cushman-001`.
+Azure OpenAI's model names typically correspond to the following standard naming convention:
 
-> Older versions of the GPT-3 models are available as `ada`, `babbage`, `curie`, `davinci` and do not follow these conventions. These models are primarily intended to be used for fine-tuning and search.
+`{family}-{capability}[-{input-type}]-{identifier}`
+
+| Element | Description |
+| --- | --- |
+| `{family}` | The model family of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
+| `{capability}` | The relative capability of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
+| `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
+| `{identifier}` | The version identifier of the model. |
+
+For example, our most powerful GPT-3 model is called `text-davinci-002`, while our most powerful Codex model is called `code-davinci-002`.
+
+> Older versions of the GPT-3 models are available, named `ada`, `babbage`, `curie`, and `davinci`. These older models do not follow the standard naming conventions, and they are primarily intended for fine tuning. For more information, see [Learn how to customize a model for your application](../how-to/fine-tuning.md).
 
 ## Finding what models are available
 
 You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](../reference.md#models).
 
+## Finding the right model
 
-## GPT-3 Series
+We recommend starting with the most capable model in a model family because it's the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
 
-The GPT-3 models can understand and generate natural language. The service offers four model types with different levels of power suitable for different tasks. Davinci is the most capable model, and Ada is the fastest. Going forward these models are named with the following convention: `text-{model name}-XXX` where `XXX` refers to a numerical value for different versions of the model. Currently the latest versions are:
+## GPT-3 models
 
-- text-ada-001
-- text-babbage-001
-- text-curie-001
-- text-davinci-001
+The GPT-3 models can understand and generate natural language. The service offers four model capabilities, each with different levels of power and speed suitable for different tasks. Davinci is the most capable model, while Ada is the fastest. The following list represents the latest versions of GPT-3 models, ordered by increasing capability.
 
-While Davinci is the most capable, the other models provide significant speed advantages. Our recommendation is for users to start with Davinci while experimenting since it will produce the best results and validate the value our service can provide. Once you have a prototype working, you can then optimize your model choice with the best latency - performance tradeoff for your application.
+- `text-ada-001`
+- `text-babbage-001`
+- `text-curie-001`
+- `text-davinci-002`
 
-### Davinci
+While Davinci is the most capable, the other models provide significant speed advantages. Our recommendation is for users to start with Davinci while experimenting, because it will produce the best results and validate the value our service can provide. Once you have a prototype working, you can then optimize your model choice with the best latency/performance balance for your application.
 
-Davinci is the most capable model and can perform any task the other models can perform and often with less instruction. For applications requiring deep understanding of the content, like summarization for a specific audience and creative content generation, Davinci is going to produce the best results. These increased capabilities require more compute resources, so Davinci costs more and isn't as fast as the other models.
+### <a id="gpt-3-davinci"></a>Davinci
+
+Davinci is the most capable model and can perform any task the other models can perform, often with less instruction. For applications requiring deep understanding of the content, like summarization for a specific audience and creative content generation, Davinci produces the best results. The increased capabilities provided by Davinci require more compute resources, so Davinci costs more and isn't as fast as other models.
 
 Another area where Davinci excels is in understanding the intent of text. Davinci is excellent at solving many kinds of logic problems and explaining the motives of characters. Davinci has been able to solve some of the most challenging AI problems involving cause and effect.
 
@@ -55,13 +76,13 @@ Another area where Davinci excels is in understanding the intent of text. Davinc
 
 ### Curie
 
-Curie is extremely powerful, yet very fast. While Davinci is stronger when it comes to analyzing complicated text, Curie is quite capable for many nuanced tasks like sentiment classification and summarization. Curie is also good at answering questions and performing Q&A and as a general service chatbot.
+Curie is powerful, yet fast. While Davinci is stronger when it comes to analyzing complicated text, Curie is capable for many nuanced tasks like sentiment classification and summarization. Curie is also good at answering questions and performing Q&A and as a general service chatbot.
 
 **Use for**: Language translation, complex classification, text sentiment, summarization
 
 ### Babbage
 
-Babbage can perform straightforward tasks like simple classification. It’s also quite capable when it comes to Semantic Search ranking how well documents match up with search queries.
+Babbage can perform straightforward tasks like simple classification. It’s also capable when it comes to semantic search,  ranking how well documents match up with search queries.
 
 **Use for**: Moderate classification, semantic search classification
 
@@ -69,60 +90,117 @@ Babbage can perform straightforward tasks like simple classification. It’s als
 
 Ada is usually the fastest model and can perform tasks like parsing text, address correction and certain kinds of classification tasks that don’t require too much nuance. Ada’s performance can often be improved by providing more context.
 
-**Use For** Parsing text, simple classification, address correction, keywords
+**Use for**: Parsing text, simple classification, address correction, keywords
 
-> [!NOTE]
-> Any task performed by a faster model like Ada can be performed by a more powerful model like Curie or Davinci.
-
-## Codex Series
+## Codex models
 
 The Codex models are descendants of our base GPT-3 models that can understand and generate code. Their training data contains both natural language and billions of lines of public code from GitHub.
 
-They’re most capable in Python and proficient in over a dozen languages including JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
+They’re most capable in Python and proficient in over a dozen languages, including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell. The following list represents the latest versions of Codex models, ordered by increasing capability.
 
-Currently we only offer one codex model: `code-cushman-001`.
+- `code-cushman-001`
+- `code-davinci-002`
 
-## Embeddings Models
+### <a id="codex-davinci"></a>Davinci
 
-Currently we offer three families of embedding models for different functionalities: text search, text similarity and code search. Each family includes up to four models across a spectrum of capabilities:
+Similar to GPT-3, Davinci is the most capable Codex model and can perform any task the other models can perform, often with less instruction. For applications requiring deep understanding of the content, Davinci produces the best results. These increased capabilities require more compute resources, so Davinci costs more and isn't as fast as other models.
 
-Ada (1024 dimensions),
-Babbage (2048 dimensions),
-Curie (4096 dimensions),
-Davinci (12,288 dimensions).
-Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is significantly faster and cheaper.
+### Cushman
 
-These embedding models are specifically created to be good at a particular task.
+Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyzing complicated tasks, Cushman is a capable model for many code generation tasks. Cushman typically runs faster and cheaper than Davinci, as well.
 
-### Similarity embeddings
+## Embeddings models
+
+Currently, we offer three families of Embeddings models for different functionalities: 
+
+- [Similarity](#similarity-embedding)
+- [Text search](#text-search-embedding)
+- [Code search](#code-search-embedding)
+
+Each family includes models across a range of capability. The following list indicates the length of the numerical vector returned by the service, based on model capability:
+
+- Ada: 1024 dimensions
+- Babbage: 2048 dimensions
+- Curie: 4096 dimensions
+- Davinci: 12288 dimensions
+
+Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is both faster and cheaper.
+
+### Similarity embedding
 
 These models are good at capturing semantic similarity between two or more pieces of text.
 
-| USE CASES | AVAILABLE MODELS |
+| Use cases | Models |
 |---|---|
-| Clustering, regression, anomaly detection, visualization |Text-similarity-ada-001, <br> text-similarity-babbage-001, <br> text-similarity-curie-001, <br> text-similarity-davinci-001 <br>|
+| Clustering, regression, anomaly detection, visualization | `text-similarity-ada-001` <br> `text-similarity-babbage-001` <br> `text-similarity-curie-001` <br> `text-similarity-davinci-001` <br>|
 
-### Text search embeddings
+### Text search embedding
 
-These models help measure whether long documents are relevant to a short search query. There are two types: one for embedding the documents to be retrieved, and one for embedding the search query.
+These models help measure whether long documents are relevant to a short search query. There are two input types supported by this family: `doc`, for embedding the documents to be retrieved, and `query`, for embedding the search query.
 
-| USE CASES | AVAILABLE MODELS |
+| Use cases | Models |
 |---|---|
-| Search, context relevance, information retrieval | text-search-ada-doc-001, <br> text-search-ada-query-001 <br> text-search-babbage-doc-001, <br> text-search-babbage-query-001, <br> text-search-curie-doc-001, <br> text-search-curie-query-001, <br> text-search-davinci-doc-001, <br> text-search-davinci-query-001 <br> |
+| Search, context relevance, information retrieval | `text-search-ada-doc-001` <br> `text-search-ada-query-001` <br> `text-search-babbage-doc-001` <br> `text-search-babbage-query-001` <br> `text-search-curie-doc-001` <br> `text-search-curie-query-001` <br> `text-search-davinci-doc-001` <br> `text-search-davinci-query-001` <br> |
 
-### Code search embeddings
+### Code search embedding
 
-Similarly to search embeddings, there are two types: one for embedding code snippets to be retrieved and one for embedding natural language search queries.
+Similar to text search embedding models, there are two input types supported by this family: `code`, for embedding code snippets to be retrieved, and `text`, for embedding natural language search queries.
 
-| USE CASES | AVAILABLE MODELS |
+| Use cases | Models |
 |---|---|
-| Code search and relevance | code-search-ada-code-001, <br> code-search-ada-text-001, <br> code-search-babbage-code-001, <br> code-search-babbage-text-001 |
+| Code search and relevance | `code-search-ada-code-001` <br> `code-search-ada-text-001` <br> `code-search-babbage-code-001` <br> `code-search-babbage-text-001` |
 
-When using our embedding models, please keep in mind their limitations and risks.
+When using our Embeddings models, keep in mind their limitations and risks.
 
-## Finding the right model
+## Model Summary table and region availability
 
-We recommend starting with our Davinci model since it will be the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with Davinci if you’re not concerned about cost and speed or move onto Curie or another model and try to optimize around its capabilities.
+### GPT-3 Models
+|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  --- | --- | --- | --- | --- |
+| Ada | 	Yes	| No	|	N/A	| East US, South Central US, West Europe |
+| Text-Ada-001 | Yes | No | East US, South Central US, West Europe | N/A |
+| Babbage | Yes | No | N/A | East US, South Central US, West Europe |
+| Text-Babbage-001 | Yes | No | East US, South Central US, West Europe | N/A |
+| Curie | Yes | No | N/A | East US, South Central US, West Europe |
+| Text-curie-001 | Yes | No | East US, South Central US, West Europe | N/A |
+| Davinci* | Yes | No | N/A | East US, South Central US, West Europe |
+| Text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
+| Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
+| Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
+
+\*Models available by request only. Please open a support request.
+
+### Codex Models
+|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  --- | --- | --- | --- | --- |
+| Code-Cushman-001* | Yes | No | South Central US, West Europe | East US, South Central US, West Europe |
+| Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
+| Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
+
+\*Models available for Fine-tuning by request only. Please open a support request.
+
+
+
+### Embeddings Models
+|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  --- | --- | --- | --- | --- |
+| text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
+| text-similarit-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-babbage-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-babbage-query-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-curie-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-curie-query-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-davinci-doc-001 | No | Yes | South Central US, West Europe | N/A |
+| text-search-davinci-query-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-ada-code-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-ada-text-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-babbage-code-001 | No | Yes | South Central US, West Europe | N/A |
+| code-search-babbage-text-001 | No | Yes | South Central US, West Europe | N/A |
+ 	
 
 ## Next steps
 

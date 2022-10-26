@@ -80,9 +80,11 @@ FROM    sys.database_role_members rm
 JOIN    sys.database_principals AS r ON rm.role_principal_id = r.principal_id
 JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
+```
 
---for each row returned run
-sp_droprolemember '[Resource Class]', membername
+```sql
+--for each row returned run in the previous query
+EXEC sp_droprolemember '[Resource Class]', membername;
 ```
 
 ## Next steps

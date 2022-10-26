@@ -4,7 +4,7 @@ description: How to optimize your membership rules to automatically populate gro
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity

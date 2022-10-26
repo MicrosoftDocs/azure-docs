@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
@@ -36,17 +36,15 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 The following steps will help create a Conditional Access policy to require devices accessing resources be marked as compliant with your organization's Intune compliance policies.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-   1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
    1. If you must exclude specific applications from your policy, you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
-   1. Select **Done**.
 1. Under **Access controls** > **Grant**.
    1. Select **Require device to be marked as compliant** and **Require Hybrid Azure AD joined device**
    1. **For multiple controls** select **Require one of the selected controls**.

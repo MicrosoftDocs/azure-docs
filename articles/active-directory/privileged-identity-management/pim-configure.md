@@ -4,7 +4,7 @@ description: Provides an overview of Azure AD Privileged Identity Management (PI
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity

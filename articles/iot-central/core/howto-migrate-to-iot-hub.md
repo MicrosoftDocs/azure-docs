@@ -110,7 +110,7 @@ npm install
 npm start
 ```
 
-After the migrator app starts, navigate to [http://localhost:3000](http://localhost:3000) to view the tool.
+After the migrator app starts, navigate to `http://localhost:3000` to view the tool.
 
 ## Migrate devices
 

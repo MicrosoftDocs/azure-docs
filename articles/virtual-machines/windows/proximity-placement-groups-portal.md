@@ -22,6 +22,8 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 > [!NOTE]
 > Proximity placement groups cannot be used with dedicated hosts.
 >
+> Intent for proximity placement groups is not supported on Azure portal. Use ARM templates or other client tools like Powershell or CLI to provide intent for proximity placement groups.
+>
 > If you want to use availability zones together with placement groups, you need to make sure that the VMs in the placement group are also all in the same availability zone.
 >
 

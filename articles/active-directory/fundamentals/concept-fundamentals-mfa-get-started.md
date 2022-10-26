@@ -10,7 +10,7 @@ ms.date: 03/18/2020
 
 ms.author: barclayn
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management

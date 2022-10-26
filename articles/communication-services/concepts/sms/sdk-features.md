@@ -20,7 +20,7 @@ Azure Communication Services SMS SDKs can be used to add SMS messaging to your a
 
 ## SMS SDK capabilities
 
-The following list presents the set of features which are currently available in our SDKs.
+The following list presents the set of features that are currently available in our SDKs.
 
 | Group of features | Capability                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |

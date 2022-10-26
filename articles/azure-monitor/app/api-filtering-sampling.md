@@ -479,6 +479,21 @@ public void Initialize(ITelemetry telemetry)
     }
 }
 ```
+
+#### Control the client IP address used for gelocation mappings
+
+The following sample initializer sets the client IP which will be used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
+
+```csharp
+public void Initialize(ITelemetry telemetry)
+{
+    var request = telemetry as RequestTelemetry;
+    if (request == null) return true;
+    request.Context.Location.Ip = "{client ip address}"; // Could utilize System.Web.HttpContext.Current.Request.UserHostAddress;   
+    return true;
+}
+```
+
 ## ITelemetryProcessor and ITelemetryInitializer
 
 What's the difference between telemetry processors and telemetry initializers?

@@ -6,7 +6,7 @@ ms.author: umaheshwari
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to 
-ms.date: 04/14/2022 
+ms.date: 09/01/2022 
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 ---
 
@@ -24,14 +24,13 @@ Examples of phrases include:
 
 Phrase lists are simple and lightweight:
 - **Just-in-time**: A phrase list is provided just before starting the speech recognition, eliminating the need to train a custom model. 
-- **Lightweight**: You don't need a large data set. Simply provide a word or phrase to give it importance.
+- **Lightweight**: You don't need a large data set. Simply provide a word or phrase to boost its recognition.
 
-You can use phrase lists with the [Speech Studio](speech-studio-overview.md), [Speech SDK](quickstarts/setup-platform.md), or [Speech Command Line Interface (CLI)](spx-overview.md). The Batch transcription API does not support phrase lists. 
+You can use phrase lists with the [Speech Studio](speech-studio-overview.md), [Speech SDK](quickstarts/setup-platform.md), or [Speech Command Line Interface (CLI)](spx-overview.md). The [Batch transcription API](batch-transcription.md) doesn't support phrase lists.
 
-There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use a phrase list: 
+You can use phrase lists with both standard and [custom speech](custom-speech-overview.md). There are some situations where training a custom model that includes phrases is likely the best option to improve accuracy. For example, in the following cases you would use Custom Speech: 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
-- If you need a phrase list for languages that are not currently supported. 
-- If you use a custom endpoint. Phrase lists can't be used with custom endpoints. 
+- If you need a phrase list for languages that are not currently supported.
 
 ## Try it in Speech Studio
 
@@ -61,62 +60,57 @@ Now try Speech Studio to see how phrase list can improve recognition accuracy.
 ## Implement phrase list
 
 ::: zone pivot="programming-language-csharp"
-With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. 
 
 ```csharp
 var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
 phraseList.AddPhrase("Contoso");
 phraseList.AddPhrase("Jessie");
 phraseList.AddPhrase("Rehaan");
-phraseList.Clear();
 ```
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. 
 
 ```cpp
 auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);
 phraseListGrammar->AddPhrase("Contoso");
 phraseListGrammar->AddPhrase("Jessie");
 phraseListGrammar->AddPhrase("Rehaan");
-phraseListGrammar->Clear();
 ```
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. 
 
 ```java
 PhraseListGrammar phraseList = PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Contoso");
 phraseList.addPhrase("Jessie");
 phraseList.addPhrase("Rehaan");
-phraseList.clear();
 ```
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. 
 
 ```javascript
 const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Contoso");
 phraseList.addPhrase("Jessie");
 phraseList.addPhrase("Rehaan");
-phraseList.clear();
 ```
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+With the [Speech SDK](speech-sdk.md) you can add phrases individually and then run speech recognition. 
 
 ```Python
 phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
 phrase_list_grammar.addPhrase("Contoso")
 phrase_list_grammar.addPhrase("Jessie")
 phrase_list_grammar.addPhrase("Rehaan")
-phrase_list_grammar.clear()
 ```
 ::: zone-end
 

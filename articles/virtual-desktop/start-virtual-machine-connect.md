@@ -3,7 +3,7 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 10/18/2022
 ms.author: helohr
 manager: femila
 ms.custom: subject-rbac-steps
@@ -27,13 +27,13 @@ To use Start VM on Connect, make sure you follow these guidelines:
 
 - You can only configure Start VM on Connect on existing host pools. You can't enable it at the same time you create a new host pool.
 - The following Remote Desktop clients support Start VM on Connect:
-    - The [web client](./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
-    - The [Windows client](./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 1.2.2061 or later)
-    - The [Android client](./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.0.10 or later)
-    - The [macOS client](./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.6.4 or later)
-    - The [iOS client](./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.5 or later)
-    - The [Microsoft Store client](./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.2005.0 or later)
-    - Thin clients listed in [Thin client support](./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+    - The [Windows client](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 1.2.2061 or later)
+    - The [Web client](./users/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+    - The [macOS client](./users/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.6.4 or later)
+    - The [iOS and iPadOS client](./users/connect-ios-ipados.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.5 or later)
+    - The [Android and Chrome OS client](./users/connect-android-chrome-os.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.0.10 or later)
+    - The [Microsoft Store client](./users/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.2005.0 or later)
+    - Thin clients listed in [Thin client support](./users/connect-thin-clients.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - If you want to configure Start VM on Connect using PowerShell, you'll need to have [the Az.DesktopVirtualization PowerShell module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization) (version 2.1.0 or later) installed on the device you use to run the commands.
 - You must grant Azure Virtual Desktop access to power on session host VMs, check their status, and report diagnostic information. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
@@ -85,7 +85,7 @@ To assign the *Desktop Virtualization Power On Contributor* role with the Azure 
 > 1. Add the role assignment:
 >
 >    ```powershell
->    New-AzRoleAssignment -RoleDefinitionName "Azure Virtual Desktop Start VM on Connect" -ObjectId $objId -Scope /subscriptions/$subId
+>    New-AzRoleAssignment -RoleDefinitionName "Desktop Virtualization Power On Contributor" -ObjectId $objId -Scope /subscriptions/$subId
 >    ```
 
 ## Enable or disable Start VM on Connect
@@ -98,7 +98,7 @@ To configure Start VM on Connect using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Host pools**, then select the name of the host pool where you want to enable the setting.
 
@@ -106,7 +106,7 @@ To configure Start VM on Connect using the Azure portal:
 
 1. In the configuration section, you'll see **Start VM on connect**. Select **Yes** to enable it, or **No** to disable it.
 
-1. Select **Save**. The new setting is applied.
+2. Select **Save** to apply the settings.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -143,6 +143,9 @@ You need to make sure you have the names of the resource group and host pool you
       ```
 
 ---
+
+>[!NOTE]
+>In pooled host pools, Start VM on Connect will start a VM every five minutes at most. If other users try to sign in during this five-minute period while there aren't any available resources, Start VM on Connect won't start a new VM. Instead, the users trying to sign in will receive an error message that says, "No resources available."
 
 ## Troubleshooting
 

@@ -1,7 +1,6 @@
 ---
 title: Azure Event Grid trigger for Azure Functions
 description: Learn to run code when Event Grid events in Azure Functions are dispatched.
-
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
@@ -11,10 +10,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Event Grid trigger for Azure Functions
 
-Use the function trigger to respond to an event sent to an event grid topic. To learn how to work with the Event Grid trigger.
-
-
-For information on setup and configuration details, see the [overview](./functions-bindings-event-grid.md).
+Use the function trigger to respond to an event sent by an [Event Grid source](../event-grid/overview.md). You must have an event subscription to the source to receive events. To learn how to create an event subscription, see [Create a subscription](event-grid-how-tos.md#create-a-subscription). For information on binding setup and configuration, see the [overview](./functions-bindings-event-grid.md).
 
 > [!NOTE]
 > Event Grid triggers aren't natively supported in an internal load balancer App Service Environment (ASE). The trigger uses an HTTP request that can't reach the function app without a gateway into the virtual network.
@@ -226,7 +222,7 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
   }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from EventGrid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from Event Grid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
@@ -492,6 +488,7 @@ For explanations of the common and event-specific properties, see [Event propert
 
 ## Next steps
 
+* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-functions-eventgrid-extension/issues)
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-output.md)
 
 [EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent

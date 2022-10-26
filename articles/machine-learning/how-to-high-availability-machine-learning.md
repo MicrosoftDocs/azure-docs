@@ -20,23 +20,24 @@ To maximize your uptime, plan ahead to maintain business continuity and prepare 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. We recommend having a disaster recovery plan in place for handling regional service outages. In this article, you'll learn how to:
 
 * Plan for a multi-regional deployment of Azure Machine Learning and associated resources.
+* Maximize chances to recover logs, notebooks, docker images, and other metadata.
 * Design for high availability of your solution.
 * Initiate a failover to another region.
 
-> [!NOTE]
-> Azure Machine Learning itself does not provide automatic failover or disaster recovery.
+> [!IMPORTANT]
+> Azure Machine Learning itself does not provide automatic failover or disaster recovery. Backup and restore of workspace metadata such as run history is unavailable.
 
 In case you have accidentally deleted your workspace or corresponding components, this article also provides you with currently supported recovery options.
 
 ## Understand Azure services for Azure Machine Learning
 
-Azure Machine Learning depends on multiple Azure services and has several layers. Some of these services are provisioned in your (customer) subscription. You're responsible for the high-availability configuration of these services. Other services are created in a Microsoft subscription and  managed by Microsoft. 
+Azure Machine Learning depends on multiple Azure services. Some of these services are provisioned in your subscription. You're responsible for the high-availability configuration of these services. Other services are created in a Microsoft subscription and are managed by Microsoft. 
 
 Azure services include:
 
 * **Azure Machine Learning infrastructure**: A Microsoft-managed environment for the Azure Machine Learning workspace.
 
-* **Associated resources**: Resources provisioned in your subscription during Azure Machine Learning workspace creation. These resources include Azure Storage, Azure Key Vault, Azure Container Registry, and Application Insights. You're responsible for configuring high-availability settings for these resources.
+* **Associated resources**: Resources provisioned in your subscription during Azure Machine Learning workspace creation. These resources include Azure Storage, Azure Key Vault, Azure Container Registry, and Application Insights.
   * Default storage has data such as model, training log data, and dataset.
   * Key Vault has credentials for Azure Storage, Container Registry, and data stores.
   * Container Registry has a Docker image for training and inferencing environments.
@@ -136,7 +137,10 @@ By keeping your data storage isolated from the default storage the workspace use
 * Attach the same storage instances as datastores to the primary and secondary workspaces.
 * Make use of geo-replication for data storage accounts and maximize your uptime.
 
-### Manage machine learning artifacts as code
+### Manage machine learning assets as code
+
+> [!NOTE]
+> Backup and restore of workspace metadata such as run history, models and environments is unavailable. Specifying assets and configurations as code using YAML specs, will help you re-recreate assets across workspaces in case of a disaster.
 
 Jobs in Azure Machine Learning are defined by a job specification. This specification includes dependencies on input artifacts that are managed on a workspace-instance level, including environments, datasets, and compute. For multi-region job submission and deployments, we recommend the following practices:
 
@@ -149,7 +153,7 @@ Jobs in Azure Machine Learning are defined by a job specification. This specific
 
 * Manage configurations as code.
 
-    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml(v1)-folder-attach).
+    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml(v1)-folder-attach).
     * Use job submission helpers such as [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
     * Use [Environments.save_to_directory()](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) to save your environment definitions.
     * Use a Dockerfile if you use custom Docker images.
@@ -160,7 +164,7 @@ Jobs in Azure Machine Learning are defined by a job specification. This specific
 
 ### Continue work in the failover workspace
 
-When your primary workspace becomes unavailable, you can switch over the secondary workspace to continue experimentation and development. Azure Machine Learning does not automatically submit jobs to the secondary workspace if there is an outage. Update your code configuration to point to the new workspace resource. We recommend to avoiding hardcoding workspace references. Instead, use a [workspace config file](how-to-configure-environment.md#workspace) to minimize manual user steps when changing workspaces. Make sure to also update any automation, such as continuous integration and deployment pipelines to the new workspace.
+When your primary workspace becomes unavailable, you can switch over the secondary workspace to continue experimentation and development. Azure Machine Learning does not automatically submit jobs to the secondary workspace if there is an outage. Update your code configuration to point to the new workspace resource. We recommend to avoiding hardcoding workspace references. Instead, use a [workspace config file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file) to minimize manual user steps when changing workspaces. Make sure to also update any automation, such as continuous integration and deployment pipelines to the new workspace.
 
 Azure Machine Learning cannot sync or recover artifacts or metadata between workspace instances. Dependent on your application deployment strategy, you might have to move artifacts or recreate experimentation inputs such as dataset objects in the failover workspace in order to continue job submission. In case you have configured your primary workspace and secondary workspace resources to share associated resources with geo-replication enabled, some objects might be directly available to the failover workspace. For example, if both workspaces share the same docker images, configured datastores, and Azure Key Vault resources. The following diagram shows a configuration where two workspaces share the same images (1), datastores (2), and Key Vault (3).
 
@@ -198,4 +202,4 @@ If you accidentally deleted your workspace it is currently not possible to recov
 
 ## Next steps
 
-To deploy Azure Machine Learning with associated resources with your high-availability settings, use an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/).
+To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](./tutorial-create-secure-workspace-template.md).

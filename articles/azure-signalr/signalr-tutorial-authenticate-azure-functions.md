@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to authenticate Azure SignalR Servi
 author: vicancy
 ms.service: signalr
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 08/17/2022
 ms.author: lianwei
 ms.devlang: javascript
 ms.custom: devx-track-js
@@ -282,7 +282,7 @@ The web app also requires an HTTP API to send chat messages. You will create an 
 
 ## Create and run the chat client web user interface
 
-The chat application's UI is a simple single page application (SPA) created with the Vue JavaScript framework. It will be hosted separately from the function app. Locally, you will run the web interface using the Live Server VS Code extension.
+The chat application's UI is a simple single page application (SPA) created with the Vue JavaScript framework using [ASP.NET Core SignalR JavaScript client](/aspnet/core/signalr/javascript-client). It will be hosted separately from the function app. Locally, you will run the web interface using the Live Server VS Code extension.
 
 1. In VS Code, create a new folder named **content** at the root of the main project folder.
 

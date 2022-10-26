@@ -131,7 +131,7 @@ The information in the rest of this document provides information on what featur
 * Model Profiling does not support 4 CPUs in the US-Arizona region.   
 * Sample notebooks may not work in Azure Government if it needs access to public data.
 * IP addresses: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
-* For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do extra setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](how-to-trigger-published-pipeline.md).
+* For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do extra setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](v1/how-to-trigger-published-pipeline.md).
 * Firewalls: When using an Azure Government region, add the following hosts to your firewall setting:
 
     * For Arizona use: `usgovarizona.api.ml.azure.us`

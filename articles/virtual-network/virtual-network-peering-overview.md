@@ -53,8 +53,7 @@ Addresses can be resized in the following ways:
 - Adding address ranges to a virtual network
 - Deleting address ranges from a virtual network
 
-Synching of virtual network peers can be performed through the Azure portal or with Azure PowerShell. 
-To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.md).
+Synching of virtual network peers can be performed through the Azure portal or with Azure PowerShell. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation. To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.md).
 > [!IMPORTANT]
 > This feature doesn't support scenarios where the virtual network to be updated is peered with: 
 > * A classic virtual network

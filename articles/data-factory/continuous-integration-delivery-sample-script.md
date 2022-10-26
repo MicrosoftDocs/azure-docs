@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 10/25/2022 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -22,11 +22,13 @@ The following sample demonstrates how to use a pre- and post-deployment script w
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 >[!WARNING]
->If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
->
+>Make sure to use **PowerShell Core** in ADO task to run the script
 
 ## Pre- and post-deployment script
 The sample scripts to stop/ start triggers and update global parameters during release process (CICD) are located in the [Azure Data Factory Official GitHub page](https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2/ContinuousIntegrationAndDelivery).
+
+> [!NOTE]
+> Use the [PrePostDeploymentScript.Ver2.ps1](https://github.com/Azure/Azure-DataFactory/blob/main/SamplesV2/ContinuousIntegrationAndDelivery/PrePostDeploymentScript.Ver2.ps1) if you would like to turn off/ on only the triggers that have been modified instead of turning all triggers off/ on during CI/CD.
 
 
 ## Script execution and parameters
@@ -42,7 +44,7 @@ When running a pre-deployment script, you will need to specify a variation of th
 When running a post-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
-  
+
 > [!NOTE]
 > The `-deleteDeployment` flag is used to specify the deletion of the ADF deployment entry from the deployment history in ARM.
 

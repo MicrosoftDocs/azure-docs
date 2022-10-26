@@ -8,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 06/29/2022
 ms.author: jianleishen
-ms.custom: synapse
+ms.custom: synapse, ignite-2022
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
@@ -22,7 +22,7 @@ This article describes how to troubleshoot connectors in Azure Data Factory and 
 You can refer to the troubleshooting pages for each connector to see problems specific to it with explanations of their causes and recommendations to resolve them.
 
 - [Azure Blob Storage](connector-troubleshoot-azure-blob-storage.md)
-- [Azure Cosmos DB (including SQL API connector)](connector-troubleshoot-azure-cosmos-db.md)
+- [Azure Cosmos DB (including Azure Cosmos DB for NoSQL connector)](connector-troubleshoot-azure-cosmos-db.md)
 - [Azure Data Lake (Gen1 and Gen2)](connector-troubleshoot-azure-data-lake.md)
 - [Azure Database for PostgreSQL](connector-troubleshoot-postgresql.md)
 - [Azure Files storage](connector-troubleshoot-azure-files.md)

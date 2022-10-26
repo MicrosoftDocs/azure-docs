@@ -183,9 +183,9 @@ To test the custom domain, navigate to it in the browser.
 
 ## Renew the domain
 
-The App Service domain you bought is valid for one year from the time of purchase. By default, the domain is configured to renew automatically by charging your payment method for the next year. You can manually renew your domain name.
+The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically which will charge your payment method when your domain renews the following year. You can also manually renew your domain name.
 
-If you want to turn off automatic renewal, or if you want to manually renew your domain, follow the steps here.
+If you want to configure automatic renewal, or if you want to manually renew your domain, follow the steps here.
 
 1. In the search bar, search for and select **App Service Domains**.
 
@@ -193,7 +193,7 @@ If you want to turn off automatic renewal, or if you want to manually renew your
 
 1. In the **App Service Domains** section, select the domain you want to configure.
 
-1. From the left navigation of the domain, select **Domain renewal**. To stop renewing your domain automatically, select **Off**. The setting takes effect immediately.
+1. From the left navigation of the domain, select **Domain renewal**. To start renewing your domain automatically, select **On**, otherwise select **Off**. The setting takes effect immediately. If automatic renewal is enabled, on the day after your domain expiration date, Azure attempts to bill you for the domain name renewal.
 
     ![Screenshot that shows the option to automatically renew your domain.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
@@ -201,21 +201,9 @@ If you want to turn off automatic renewal, or if you want to manually renew your
     > When navigating away from the page, disregard the "Your unsaved edits will be discarded" error by clicking **OK**.
     >
 
-To manually renew your domain, select **Renew domain**. However, this button is not active until [90 days before the domain's expiration](#when-domain-expires).
+To manually renew your domain, select **Renew domain**. However, this button is not active until 90 days before the domain's expiration date.
 
-If your domain renewal is successful, you receive an email notification within 24 hours.
-
-## When domain expires
-
-Azure deals with expiring or expired App Service domains as follows:
-
-* If automatic renewal is disabled: 90 days before domain expiration, a renewal notification email is sent to you and the **Renew domain** button is activated in the portal.
-* If automatic renewal is enabled: On the day after your domain expiration date, Azure attempts to bill you for the domain name renewal.
-* If an error occurs during automatic renewal (for example, your card on file is expired), or if automatic renewal is disabled and you allow the domain to expire, Azure notifies you of the domain expiration and parks your domain name. You can [manually renew](#renew-the-domain) your domain.
-* On the 4th and 12th days day after expiration, Azure sends you additional notification emails. You can [manually renew](#renew-the-domain) your domain. On the 5th day after expiration, DNS resolution stops for the expired domain.
-* On the 19th day after expiration, your domain remains on hold but becomes subject to a redemption fee. You can call customer support to renew your domain name, subject to any applicable renewal and redemption fees.
-* On the 25th day after expiration, Azure puts your domain up for auction with a domain name industry auction service. You can call customer support to renew your domain name, subject to any applicable renewal and redemption fees.
-* On the 30th day after expiration, you're no longer able to redeem your domain.
+If your domain renewal is successful, you receive an email notification within 24 hours. 
 
 <a name="custom"></a>
 

@@ -4,7 +4,7 @@ description: Step-by-step tutorial for how to create your first access package u
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -262,7 +262,7 @@ To set up group writeback for Microsoft 365 groups in access packages, you must 
 
 - Set up group writeback in the Azure Active Directory admin center. 
 - The Organizational Unit (OU) that will be used to set up group writeback in Azure AD Connect Configuration.
-- Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-v2.md#enable-group-writeback-using-azure-ad-connect) for Azure AD Connect. 
+- Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-enable.md) for Azure AD Connect. 
  
 Using group writeback, you can now sync Microsoft 365 groups that are part of access packages to on-premises Active Directory. To sync the groups, follow the steps below: 
 

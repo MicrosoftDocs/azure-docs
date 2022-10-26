@@ -25,7 +25,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 For information on quota and region availability for ACI, see [Quotas and region availability for Azure Container Instances](../../container-instances/container-instances-quotas.md) article.
 
 > [!IMPORTANT]
-> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](../how-to-troubleshoot-deployment-local.md)
+> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](how-to-troubleshoot-deployment-local.md)
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -36,6 +36,8 @@ For information on quota and region availability for ACI, see [Quotas and region
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -107,9 +109,9 @@ See [how to manage resources in VS Code](../how-to-manage-resources-vscode.md).
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
-* [Deployment troubleshooting](../how-to-troubleshoot-deployment.md)
-* [Update the web service](../how-to-deploy-update-web-service.md)
-* [Use TLS to secure a web service through Azure Machine Learning](../how-to-secure-web-service.md)
-* [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
+* [Update the web service](how-to-deploy-update-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights.md)
-* [Collect data for models in production](../how-to-enable-data-collection.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)

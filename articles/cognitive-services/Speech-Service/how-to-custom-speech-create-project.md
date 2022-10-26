@@ -15,7 +15,7 @@ zone_pivot_groups: speech-studio-cli-rest
 
 # Create a Custom Speech project
 
-Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md). For example, you might create a project for English in the United States.
+Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
 
 ## Create a project
 
@@ -34,9 +34,6 @@ To create a Custom Speech project, follow these steps:
 
 Select the new project by name or select **Go to project**. You will see these menu items in the left panel: **Speech datasets**, **Train custom models**, **Test models**, and **Deploy models**. 
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Create-a-project&Section=Create-a-project" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -51,9 +48,6 @@ Here's an example Speech CLI command that creates a project:
 ```azurecli-interactive
 spx csr project create --name "My Project" --description "My Project Description" --language "en-US"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Create-a-project&Section=Create-a-project" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -93,7 +87,7 @@ spx help csr project
 
 ::: zone pivot="rest-api"
 
-To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `locale` property. This should be the locale of the contained datasets. The locale can't be changed later.
 - Set the required `displayName` property. This is the project name that will be displayed in the Speech Studio.
@@ -107,9 +101,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US"
 } '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/projects"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Create-a-project&Section=Create-a-project" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

@@ -3,8 +3,8 @@ title: What are access reviews? - Azure Active Directory | Microsoft Docs
 description: Using Azure Active Directory access reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
 ms.date: 10/29/2020
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1

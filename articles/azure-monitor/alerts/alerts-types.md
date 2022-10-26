@@ -1,11 +1,11 @@
 ---
-title: Types of Azure Monitor Alerts
+title: Types of Azure Monitor alerts
 description: This article explains the different types of Azure Monitor alerts and when to use each type. 
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 04/26/2022
-ms.custom: template-concept 
+ms.date: 09/14/2022
+ms.custom: template-concept, ignite-2022
 ms.reviewer: harelbr
 ---
 
@@ -15,6 +15,7 @@ This article describes the kinds of Azure Monitor alerts you can create, and hel
 
 There are four types of alerts:
 - [Metric alerts](#metric-alerts)
+- [Prometheus alerts](#prometheus-alerts-preview)
 - [Log alerts](#log-alerts)
 - [Activity log alerts](#activity-log-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
@@ -25,10 +26,10 @@ This table can help you decide when to use what type of alert. For more detailed
 
 |Alert Type  |When to Use |Pricing Information|
 |---------|---------|---------|
-|Metric alert|Metric alerts are useful when you want to be alerted about data that requires little or no manipulation.  Metric data is stored in the system already pre-computed, so metric alerts are less expensive than log alerts. If the data you want to monitor is available in metric data, using metric alerts is recommended.|Each metrics alert rule is charged based on the number of time-series that are monitored. |
-|Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts. Log alerts are more expensive than metric alerts.|Each Log Alert rule is billed based the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost). Additionally, for Log Alerts configured for [at scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost will also depend on the number of time series created by the dimensions resulting from your query. | 
+|Metric alert|Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. We recommend using metric alerts if the data you want to monitor is available in metric data.|Each metric alert rule is charged based on the number of time-series that are monitored. |
+|Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost). Additionally, for log alerts configured for [at scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. | 
 |Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
-
+|Prometheus alerts (preview)| Prometheus alerts are primarily used for alerting on performance and health of Kubernetes clusters (including AKS). The alert rules are based on PromQL, which is an open source query language. | There is no charge for Prometheus alerts during the preview period. |
 ## Metric alerts
 
 A metric alert rule monitors a resource by evaluating conditions on the resource metrics at regular intervals. If the conditions are met, an alert is fired. A metric time-series is a series of metric values captured over a period of time.
@@ -46,7 +47,7 @@ Metric alert rules include these features:
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
-- A single resource, such as a VM. See this article for supported resource types.
+- A single resource, such as a VM. See [this article](alerts-metric-near-real-time.md) for supported resource types.
 - [Multiple resources](#monitor-multiple-resources) of the same type in the same Azure region, such as a resource group.
 
 ### Multiple conditions
@@ -83,6 +84,7 @@ The platform metrics for these services in the following Azure clouds are suppor
 | Azure Cache for Redis        | Yes      | Yes    | Yes |
 | Azure Stack Edge devices     | Yes      | Yes    | Yes |
 | Recovery Services vaults     | Yes      | No     | No  |
+| Azure Database for PostgreSQL - Flexible Servers     | Yes      | Yes    | Yes |
 
   > [!NOTE]
   > Multi-resource metric alerts are not supported for the following scenarios:
@@ -183,6 +185,10 @@ As data comes into Application Insights from your web app, Smart Detection compa
 While metric alerts tell you there might be a problem, Smart Detection starts the diagnostic work for you, performing much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 Smart detection works for web apps hosted in the cloud or on your own servers that generate application requests or dependency data.
+
+## Prometheus alerts (preview)
+
+Prometheus alerts are based on metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). They fire when the results of a PromQL query resolves to true. Prometheus alerts are displayed and managed like other alert types when they fire, but they are configured with a Prometheus rule group. See [Rule groups in Azure Monitor managed service for Prometheus](../essentials/prometheus-rule-groups.md) for details.
 
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).

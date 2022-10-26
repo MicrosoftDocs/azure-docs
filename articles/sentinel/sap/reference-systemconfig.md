@@ -179,6 +179,10 @@ extractuseremail = <True/False>
 apiretry = <True/False>
 auditlogforcexal = <True/False>
 auditlogforcelegacyfiles = <True/False>
+azure_resource_id = <Azure _ResourceId>
+# Used to force a specific resource group for the SAP tables in Log Analytics, useful for applying RBAC on SAP data
+# example - /subscriptions/1234568-qwer-qwer-qwer-123456789/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.compute/virtualmachines/VIRTUAL_MACHINE_NAME
+# for more information - https://learn.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_resourceid.
 
 timechunk = <value>
 # Default timechunk value is 60 (minutes). For certain tables, the data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
@@ -210,6 +214,8 @@ PAHI_FULL = <True/False>
 AGR_AGRS_FULL = <True/False>
 USRSTAMP_FULL = <True/False>
 USRSTAMP_INCREMENTAL = <True/False>
+SNCSYSACL_FULL = <True/False> (Preview)
+USRACL_FULL = <True/False> (Preview)
 ```
 ## Next steps
 

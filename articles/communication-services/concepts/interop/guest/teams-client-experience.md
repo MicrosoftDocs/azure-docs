@@ -13,6 +13,9 @@ ms.subservice: teams-interop
 # Experience for users in Teams client
 Teams external user joining Teams meeting with Azure Communication Services SDKs will be represented in Teams client as any other Teams anonymous user. Teams external users will be marked as "external" in the participant's lists as Teams clients. As Teams anonymous users, their capabilities in the Teams meeting will be limited regardless of the assigned Teams meeting role.
 
+
+![A diagram that shows how external user on Azure Communication Services connects to Teams meeting.](../media/desktop-client-external-user-joins-teams-meeting.png)
+
 ## Next steps
 
 - [Authenticate as Teams external user](../../../quickstarts/access-tokens.md)

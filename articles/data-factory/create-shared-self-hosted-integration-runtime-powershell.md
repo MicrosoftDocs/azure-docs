@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 01/26/2022
+ms.date: 09/22/2022
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
@@ -22,7 +22,7 @@ You can reuse an existing self-hosted integration runtime infrastructure that yo
 
 To see an introduction and demonstration of this feature, watch the following 12-minute video:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### Terminology
 

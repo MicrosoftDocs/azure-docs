@@ -69,7 +69,7 @@ A benefit of using an App Service Environment instead of a multi-tenant service 
 App Service Environment v3 differs from earlier versions in the following ways:
 
 - There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want. 
-- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. 
+- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. In this case, each App Service Plan on the App Service Environment will need to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../availability-zones/migrate-app-service-environment.md).
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant. 
 - Scaling is much faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multi-tenant service, it's a lot faster.
 - Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
@@ -87,7 +87,7 @@ With App Service Environment v3, the pricing model varies depending on the type 
 
 - **App Service Environment v3**: If the App Service Environment is empty, there's a charge as though you have one instance of Windows I1v2. The one instance charge isn't an additive charge but is applied only if the App Service Environment is empty.
 - **Zone redundant App Service Environment v3**: There's a minimum charge of nine instances. There's no added charge for availability zone support if you have nine or more App Service plan instances. If you have fewer than nine instances (of any size) across App Service plans in the zone redundant App Service Environment, the difference between nine and the running instance count is charged as additional Windows I1v2 instances.
-- **Dedicated host App Service Environment v3**: With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a small percentage of the Isolated v2 rate per core.
+- **Dedicated host App Service Environment v3**: With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a specialized Isolated v2 rate per vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance.
 
 Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service](../../cost-management-billing/reservations/reservation-discount-app-service.md). The pricing, along with Reserved Instance pricing, is available at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) under the Isolated v2 plan.
 
@@ -97,46 +97,46 @@ App Service Environment v3 is available in the following regions:
 
 ### Azure Public:
 
-| Region               | Normal and dedicated host   | Availability zone support   |
-| -------------------- | :-------------------------: | :-------------------------: |
-| Australia East       | x                           | x                           |
-| Australia Southeast  | x                           |                             |
-| Brazil South         | x                           | x                           |
-| Canada Central       | x                           | x                           |
-| Canada East          | x                           |                             |
-| Central India        | x                           | x                           |
-| Central US           | x                           | x                           |
-| East Asia            | x                           | x                           |
-| East US              | x                           | x                           |
-| East US 2            | x                           | x                           |
-| France Central       | x                           | x                           |
-| Germany West Central | x                           | x                           |
-| Japan East           | x                           | x                           |
-| Korea Central        | x                           | x                           |
-| North Central US     | x                           |                             |
-| North Europe         | x                           | x                           |
-| Norway East          | x                           | x                           |
-| South Africa North   | x                           | x                           |
-| South Central US     | x                           | x                           |
-| Southeast Asia       | x                           | x                           |
-| Sweden Central       | x                           | x                           |
-| Switzerland North    | x                           | x                           |
-| UAE North            | x                           |                             |
-| UK South             | x                           | x                           |
-| UK West              | x                           |                             |
-| West Central US      | x                           |                             |
-| West Europe          | x                           | x                           |
-| West US              | x                           |                             |
-| West US 2            | x                           | x                           |
-| West US 3            | x                           | x                           |
+| Region               | Normal and dedicated host    | Availability zone support   |
+| -------------------- | :--------------------------: | :-------------------------: |
+| Australia East       | ✅                           | ✅                          |
+| Australia Southeast  | ✅                           |                             |
+| Brazil South         | ✅                           | ✅                          |
+| Canada Central       | ✅                           | ✅                          |
+| Canada East          | ✅                           |                             |
+| Central India        | ✅                           | ✅                          |
+| Central US           | ✅                           | ✅                          |
+| East Asia            | ✅                           | ✅                          |
+| East US              | ✅                           | ✅                          |
+| East US 2            | ✅                           | ✅                          |
+| France Central       | ✅                           | ✅                          |
+| Germany West Central | ✅                           | ✅                          |
+| Japan East           | ✅                           | ✅                          |
+| Korea Central        | ✅                           | ✅                          |
+| North Central US     | ✅                           |                             |
+| North Europe         | ✅                           | ✅                          |
+| Norway East          | ✅                           | ✅                          |
+| South Africa North   | ✅                           | ✅                          |
+| South Central US     | ✅                           | ✅                          |
+| Southeast Asia       | ✅                           | ✅                          |
+| Sweden Central       | ✅                           | ✅                          |
+| Switzerland North    | ✅                           | ✅                          |
+| UAE North            | ✅                           |                             |
+| UK South             | ✅                           | ✅                          |
+| UK West              | ✅                           |                             |
+| West Central US      | ✅                           |                             |
+| West Europe          | ✅                           | ✅                          |
+| West US              | ✅                           |                             |
+| West US 2            | ✅                           | ✅                          |
+| West US 3            | ✅                           | ✅                          |
 
 ### Azure Government:
 
 | Region               | Normal and dedicated host   | Availability zone support   |
 | -------------------- | :-------------------------: | :-------------------------: |
-| US Gov Texas         | x                           |                             |
-| US Gov Arizona       | x                           |                             |
-| US Gov Virginia      | x                           |                             |
+| US Gov Texas         | ✅                           |                             |
+| US Gov Arizona       | ✅                           |                             |
+| US Gov Virginia      | ✅                           |                             |
 
 ## App Service Environment v2
 

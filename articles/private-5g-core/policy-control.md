@@ -31,7 +31,7 @@ A *QoS profile* has two main components.
   The required parameters for each 5QI value are pre-configured in the Next Generation Node B (gNB).
 
 > [!NOTE]
-> Azure Private 5G Core does not support dynamically assigned 5QI, where specific QoS characteristics are signalled to the gNB during QoS flow creation.
+> Azure Private 5G Core does not support dynamically assigned 5QI, where specific QoS characteristics are signaled to the gNB during QoS flow creation.
 
 - An *allocation and retention priority (ARP) value*. The ARP value defines a QoS flow's importance. It controls whether a particular QoS flow should be retained or preempted when there's resource constraint in the network, based on its priority compared to other QoS flows. The QoS profile may also define whether the QoS flow can preempt or be preempted by another QoS flow.
 
@@ -63,7 +63,14 @@ A *service* is a representation of a set of QoS characteristics that you want to
 
 Each service includes:
 
-- A set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS flow or EPS bearer to bind to matching SDFs. You can specify the following QoS settings on a service:
+- One or more *data flow policy rules*, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have:
+
+  - One or more *data flow templates*, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address, and target port. The target IP address and port refer to the component on the data network's end of the connection.
+  - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
+  - A precedence value, which the packet core instance can use to rank data flow policy rules by importance.
+
+- Optionally, a set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS flow or EPS bearer to bind to matching SDFs. If you don't configure QoS characteristics, the default characteristics of the parent SIM policy will be used instead.  
+You can specify the following QoS settings on a service:
 
   - The maximum bit rate (MBR) for uplink traffic (away from the UE) across all matching SDFs.
   - The MBR for downlink traffic (towards the UE) across all matching SDFs.
@@ -71,12 +78,6 @@ Each service includes:
   - A 5QI value. This is mapped to a QCI value when used in 4G networks.
   - A preemption capability setting. This setting determines whether the QoS flow or EPS bearer created for this service can preempt another QoS flow or EPS bearer with a lower ARP priority level.
   - A preemption vulnerability setting. This setting determines whether the QoS flow or EPS bearer created for this service can be preempted by another QoS flow or EPS bearer with a higher ARP priority level.
-
-- One or more *data flow policy rules*, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have:
-
-  - One or more *data flow templates*, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address, and target port. The target IP address and port refer to the component on the data network's end of the connection.
-  - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
-  - A precedence value, which the packet core instance can use to rank data flow policy rules by importance. 
 
 ### SIM policies
 

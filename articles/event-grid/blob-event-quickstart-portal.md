@@ -68,9 +68,12 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
     
     ![Navigate to web site.](./media/blob-event-quickstart-portal/web-site.png)
 
-6. Confirm that you see the site but no events have been posted to it yet.
+6. Confirm that you see the site but no events have been posted to it yet. 
 
    ![View new site.](./media/blob-event-quickstart-portal/view-site.png)
+
+    > [!IMPORTANT]
+    > Keep the Azure Event Grid Viewer window open so that you can see events as they are posted. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -109,7 +112,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 You trigger an event for the Blob storage by uploading a file. The file doesn't need any specific content. The articles assumes you have a file named testfile.txt, but you can use any file.
 
 1. In the Azure portal, navigate to your Blob storage account, and select **Containers** on the let menu.
-1. Select **+ Container**. Give you container a name, and use any access level, and select **Create**. 
+1. Select **+ Container**. Give your container a name, and use any access level, and select **Create**. 
 
    ![Add container.](./media/blob-event-quickstart-portal/add-container.png)
 1. Select your new container.

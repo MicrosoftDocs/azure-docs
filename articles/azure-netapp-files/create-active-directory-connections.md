@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 09/27/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -36,9 +36,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
 * The Azure NetApp Files AD connection admin account must have the following properties: 
     * It must be an AD DS domain user account in the same domain where the Azure NetApp Files machine accounts are created. 
     * It must have the permission to create machine accounts (for example, AD domain join) in the AD DS organizational unit path specified in the **Organizational unit path option** of the AD connection. 
-    * It cannot be a [Group Managed Service Account](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview.md).
+    * It cannot be a [Group Managed Service Account](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
-* The AD connection admin account supports DES, Kerberos AES-128, and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files machine account creation (for example, AD domain join operations).
+* The AD connection admin account supports Kerberos AES-128 and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files machine account creation (for example, AD domain join operations).
 
 * To enable the AES encryption on the Azure NetApp Files AD connection admin account, you must use an AD domain user account that is a member of one of the following AD DS groups: 
 
@@ -53,7 +53,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     >[!NOTE]
     >It's not recommended or required to add the Azure NetApp Files AD admin account to the AD domain groups listed above. Nor is it recommended or required to grant `msDS-SupportedEncryptionTypes` write permission to the AD admin account.  
 
-    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used. If AES encryption is not set, DES encryption will be used by default.   
+    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used.
 
 * To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
 
@@ -64,8 +64,16 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     `KerberosEncryptionType` is a multivalued parameter that supports AES-128 and AES-256 values. 
 
-* For more information, see the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
+    For more information, refer to the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
 
+* If you have a requirement to enable and disable certain Kerberos encryption types for Active Directory computer accounts for domain-joined Windows hosts used with Azure NetApp Files, you must use the Group Policy  `Network Security: Configure Encryption types allowed for Kerberos`.
+
+    Do not set the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes`. Doing this will break Kerberos authentication with Azure NetApp Files for the Windows host where this registry key was manually set.
+
+    >[!NOTE]
+    >The default policy setting for `Network Security: Configure Encryption types allowed for Kerberos` is `Not Defined`. When this policy setting is set to `Not Defined`, all encryption types except DES will be available for Kerberos encryption. You have the option to enable support for only certain Kerberos encryption types (for example, `AES128_HMAC_SHA1` or `AES256_HMAC_SHA1`). However, the default policy should be sufficient in most cases when enabling AES encryption support with Azure NetApp Files.
+
+    For more information, refer to [Network security: Configure encryption types allowed for Kerberos](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) or [Windows Configurations for Kerberos Supported Encryption Types](/archive/blogs/openspecification/windows-configurations-for-kerberos-supported-encryption-type)
 
 ## Create an Active Directory connection
 
@@ -90,7 +98,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         If you use Azure AD DS (AAD DS), you should use the IP addresses of the AAD DS domain controllers for Primary DNS and Secondary DNS respectively. 
     * **AD DNS Domain Name (required)**  
        This is the fully qualified domain name of the AD DS that will be used with Azure NetApp Files (for example, `contoso.com`).
-    * **AD Site Name**  
+    * **AD Site Name (required)**  
         This is the AD DS site name that will be used by Azure NetApp Files for domain controller discovery.  
         
          >[!NOTE]
@@ -113,12 +121,12 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         If you're using Azure NetApp Files with Azure Active Directory Domain Services (AAD DS), the organizational unit path is `OU=AADDC Computers`
 
-        ![Screenshot of the Join Active Directory input fields.](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+        :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-join-active-directory.png" alt-text="Screenshot of the Join Active Directory input fields.":::
 
     * <a name="aes-encryption"></a>**AES Encryption**    
         This option enables AES encryption authentication support for the admin account of the AD connection. 
 
-        ![Screenshot of the AES description field which is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
+        ![Screenshot of the AES description field. The field is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
         
         See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
           ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
@@ -211,7 +219,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
         |  `SeTakeOwnershipPrivilege`  |  Take ownership of files or other objects. |  
         |  `SeSecurityPrivilege`  |  Manage log operations. |  
-        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  |  <!-- tHIS option IS REMOVED -->
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  | 
 
     * Credentials, including your **username** and **password**
 
@@ -270,7 +278,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the three dots (`...`) at the end of the row. Select **Reset Active Directory Account**.
 :::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
+:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
 
 ## Next steps  
 

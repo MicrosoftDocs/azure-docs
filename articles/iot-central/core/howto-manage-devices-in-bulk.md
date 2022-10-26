@@ -7,11 +7,14 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/22/2022
 ms.topic: how-to
+ms.custom: contperf-fy23q1
 ---
 
 # Manage devices in bulk in your Azure IoT Central application
 
 You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. You can also use CSV files to import and export devices in bulk. This article shows you how to get started with using jobs in your own application and how to use the import and export features.
+
+To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-jobs-with-rest-api.md)
 
 ## Create and run a job
 
@@ -31,8 +34,6 @@ The following example shows you how to create and run a job to set the light thr
 
     To configure a **Property** job, select a property and set its new value. A property job can set multiple properties. To configure a **Command** job, choose the command to run. To configure a **Change device template** job, select the device template to assign to the devices in the device group.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/configure-job.png" alt-text="Screenshot that shows selections for creating a property job called Set Light Threshold":::
-
     Select **Save and exit** to add the job to the list of saved jobs on the **Jobs** page. You can later return to a job from the list of saved jobs.
 
 1. Select **Next** to move to the **Delivery Options** page. The **Delivery Options** page lets you set the delivery options for this job: **Batches** and **Cancellation threshold**.
@@ -41,9 +42,7 @@ The following example shows you how to create and run a job to set the light thr
 
     The cancellation threshold lets you automatically cancel a job if the number of errors exceeds your set limit. The threshold can apply to all the devices in the job, or to individual batches.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/job-wizard-delivery-options.png" alt-text="Screenshot of job wizard delivery options page":::
-
-1. Select **Next** to move to the **Schedule** page. The **Schedule** page lets you enable a schedule to run the job in the future:
+1. Select **Next** to move to the **Schedule** page. The **Schedule** page lets you enable a schedule to run the job in the future.
 
     Choose a recurrence option for the schedule. You can set up a job to run:
 
@@ -60,8 +59,6 @@ The following example shows you how to create and run a job to set the light thr
 
     Scheduled jobs always run on the devices in a device group, even if the device group membership changes over time.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/job-wizard-schedule.png" alt-text="Screenshot of job wizard schedule options page":::
-
 1. Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Schedule** to schedule the job:
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/job-wizard-schedule-review.png" alt-text="Screenshot of scheduled job wizard review page":::
@@ -70,11 +67,7 @@ The following example shows you how to create and run a job to set the light thr
 
     On this page, you can **Unschedule** the job or **Edit** the scheduled job. You can return to a scheduled job from the list of scheduled jobs.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/job-schedule-details.png" alt-text="Screenshot of scheduled job details page":::
-
 1. In the job wizard, you can choose to not schedule a job, and run it immediately. The following screenshot shows a job without a schedule that's ready to run immediately. Select **Run** to run the job:
-
-    :::image type="content" source="media/howto-manage-devices-in-bulk/job-wizard-schedule-immediate.png" alt-text="Screenshot of job wizard review page":::
 
 1. A job goes through *pending*, *running*, and *completed* phases. The job execution details contain result metrics, duration details, and a device list grid.
 
@@ -90,8 +83,6 @@ The following example shows you how to create and run a job to set the light thr
 ## Manage jobs
 
 To stop a running job, open it and select **Stop**. The job status changes to reflect that the job is stopped. The **Summary** section shows which devices have completed, have failed, or are still pending.
-
-:::image type="content" source="media/howto-manage-devices-in-bulk/manage-job.png" alt-text="Screenshot that shows a running job and the button for stopping a job":::
 
 When a job is in a stopped state, you can select **Continue** to resume running the job. The job status changes to reflect that the job is now running again. The **Summary** section continues to update with the latest progress.
 
@@ -214,8 +205,6 @@ To bulk export devices from your application:
 1. On the left pane, choose the device template from which you want to export the devices.
 
 1. Select the devices that you want to export and then select the **Export** action.
-
-    :::image type="content" source="media/howto-manage-devices-in-bulk/export-1.png" alt-text="Screenshot showing export action settings.":::
 
 1. The export process starts. You can track the status using the **Device Operations** panel.
 

@@ -4,7 +4,7 @@ description: Learn how to assign Azure resource roles in Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign Azure resource roles in Privileged Identity Management
 
-With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, can manage the built-in Azure resource roles, and custom roles, including (but not limited to):
+With Azure AD Privileged Identity Management (Azure AD PIM), part of Microsoft Entra, can manage the built-in Azure resource roles, and custom roles, including (but not limited to):
 
 - Owner
 - User Access Administrator
@@ -33,12 +33,20 @@ Privileged Identity Management support both built-in and custom Azure roles. For
 
 ## Role assignment conditions
 
-You can use the Azure attribute-based access control (Azure ABAC) preview to place resource conditions on eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using Azure attribute-based access control conditions in PIM enables you not only to limit a user’s role permissions to a resource using fine-grained conditions, but also to use PIM to secure the role assignment with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Azure attribute-based access control public preview](../../role-based-access-control/conditions-overview.md).
+You can use the Azure attribute-based access control (Azure ABAC) to add conditions on eligible role assignments using Azure AD PIM for Azure resources. With Azure AD PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in Azure AD PIM enables you not only to limit a user's role permissions to a resource using fine-grained conditions, but also to use Azure AD PIM to secure the role assignment with a time-bound setting, approval workflow, audit trail, and so on.
 
 >[!Note]
 >When a role is assigned, the assignment:
->- Can't be assign for a duration of less than five minutes
+>- Can't be assigned for a duration of less than five minutes
 >- Can't be removed within five minutes of it being assigned
+
+Currently, the following built-in roles can have conditions added:
+
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
+
+For more information, see [What is Azure attribute-based access control (Azure ABAC)](../../role-based-access-control/conditions-overview.md).
 
 ## Assign a role
 
@@ -73,11 +81,11 @@ Follow these steps to make a user eligible for an Azure resource role.
 
     ![Screenshot of add assignments settings pane.](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
-    Privileged Identity Management for Azure resources provides two distinct assignment types:
+    Azure AD PIM for Azure resources provides two distinct assignment types:
 
-    - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
+    - **Eligible** assignments require the member to activate the role before using it. Administrator may require role member to perform certain actions before role activation which might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
 
-    - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned ready to use.
+    - **Active** assignments don't require the member to activate the role before usage. Members assigned as active have the privileges assigned ready to use. This type of assignment is also available to customers that don't use Azure AD PIM.
 
 1. To specify a specific assignment duration, change the start and end dates and times.
 
@@ -207,7 +215,7 @@ Follow these steps to update or remove an existing role assignment.
 
     :::image type="content" source="./media/pim-resource-roles-assign-roles/resources-update-remove.png" alt-text="Screenshot demonstrates how to update or remove role assignment." lightbox="./media/pim-resource-roles-assign-roles/resources-update-remove.png":::
 
-1. To add or update a condition to refine Azure resource access, select **Add** or **View/Edit** in the **Condition** column for the role assignment. Currently, the Storage Blob Data Owner, Storage Blob Data Reader, and the Blob Storage Blob Data Contributor roles in Privileged Identity Management are the only two roles supported as part of the [Azure attribute-based access control public preview](../../role-based-access-control/conditions-overview.md).
+1. To add or update a condition to refine Azure resource access, select **Add** or **View/Edit** in the **Condition** column for the role assignment. Currently, the Storage Blob Data Owner, Storage Blob Data Reader, and Storage Blob Data Contributor roles in Azure AD PIM are the only roles that can have conditions added.
 
 1. Select **Add expression** or **Delete** to update the expression. You can also select **Add condition** to add a new condition to your role.
 

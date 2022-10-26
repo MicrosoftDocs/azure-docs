@@ -112,6 +112,9 @@ Isolate your app into a new App Service plan when:
 - You want to scale the app independently from the other apps in the existing plan.
 - The app needs resource in a different geographical region.
 
+> [!NOTE]
+>  An active slot is also classified as an active app as it too is competing for resources on the same App Service Plan.
+
 This way you can allocate a new set of resources for your app and gain greater control of your apps.
 
 ## Manage an App Service plan

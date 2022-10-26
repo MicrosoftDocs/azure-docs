@@ -12,10 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2021
+ms.date: 08/19/2022
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to administer your StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ![setup process flow](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
 
 ## Overview

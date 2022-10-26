@@ -4,7 +4,7 @@ description: Get an overview of Azure Active Directory entitlement management an
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -50,6 +50,7 @@ Azure AD entitlement management can help address these challenges.  To learn mor
 Here are some of capabilities of entitlement management:
 
 - Control who can get access to applications, groups, Teams and SharePoint sites, with multi-stage approval, and ensure users don't retain access indefinitely through time-limited assignments and recurring access reviews.
+- Give users access automatically to those resources, based on the user's properties like department or cost center, and remove a user's access when those properties change (preview).
 - Delegate to non-administrators the ability to create access packages. These access packages contain resources that users can request, and the delegated access package managers can define policies with rules for which users can request, who must approve their access, and when access expires.
 - Select connected organizations whose users can request access.  When a user who isn't yet in your directory requests access, and is approved, they're automatically invited into your directory and assigned access.  When their access expires, if they have no other access package assignments, their B2B account in your directory can be automatically removed.
 
@@ -93,7 +94,7 @@ You can have policies for users to request access. In these kinds of policies, a
 - The approval process and the users that can approve or deny access
 - The duration of a user's access assignment, once approved, before the assignment expires
 
-You can also have policies for users to be assigned access, either by an administrator or automatically.
+You can also have policies for users to be assigned access, either by an administrator or [automatically](entitlement-management-access-package-auto-assignment-policy.md).
 
 The following diagram shows an example of the different elements in entitlement management. It shows one catalog with two example access packages.
 
@@ -137,23 +138,21 @@ To better understand entitlement management and its documentation, you can refer
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialized clouds, such as Azure Germany, and Azure China 21Vianet, aren't currently available for use.
-
 ### How many licenses must you have?
 
 Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
 
-- Member users who **can** request an access package.
-- Member users who <u>request</u> an access package.
-- Member users who <u>approve requests</u> for an access package.
-- Member users who <u>review assignments</u> for an access package. 
-- Member users who have a <u>direct assignment</u> to an access package.
+- Member users who *can* request an access package.
+- Member users who *request* an access package.
+- Member users who *approve requests* for an access package.
+- Member users who *review assignments* for an access package.
+- Member users who have a *direct assignment* or an *automatic assignment* to an access package.
 
 For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
-- Guest users who <u>request</u> an access package. 
-- Guest users who <u>approve requests</u> for an access package.
-- Guest users who <u>review assignments</u> for an access package.
-- Guest users who have a <u>direct assignment</u> to an access package. 
+- Guest users who *request* an access package.
+- Guest users who *approve requests* for an access package.
+- Guest users who *review assignments* for an access package.
+- Guest users who have a *direct assignment* to an access package.
 
 Azure AD Premium P2 licenses are **not** required for the following tasks:
 

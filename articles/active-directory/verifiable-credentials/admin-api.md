@@ -4,7 +4,7 @@ titleSuffix: Microsoft Entra Verified ID
 description: Learn how to manage your verifiable credential deployment using Admin API.
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
@@ -59,7 +59,9 @@ Content-type: application/json
 
 {
     "id": "f5bf2fc6-7135-4d94-a6fe-c26e4543bc5a",
-    "servicePrincipal": "90e10a26-94cd-49d6-8cd7-cacb10f00686",
+    "verifiableCredentialServicePrincipalId": "90e10a26-94cd-49d6-8cd7-cacb10f00686",
+    "verifiableCredentialRequestServicePrincipalId": "870e10a26-94cd-49d6-8cd7-cacb10f00fe",
+    "verifiableCredentialAdminServicePrincipalId": "760e10a26-94cd-49d6-8cd7-cacb10f00ab",
     "status": "Enabled"
 }
 ```
@@ -827,12 +829,22 @@ The response contains the following properties
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [idTokenAttestation](#idtokenattestation-type) or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) and/or [accessTokenAttestation](#accesstokenattestation-type) (array) | describing supported inputs for the rules |
+|`attestations`| [attestions](#attestations-type)| describing supported inputs for the rules |
 |`validityInterval` | number | this value shows the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
 |`customStatusEndpoint`| [customStatusEndpoint] (#customstatusendpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
 
 If the property `customStatusEndpoint` property isn't specified then the `anonymous` status endpoint is used.
+
+#### attestations type
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|`idTokens`| [idTokenAttestation](#idtokenattestation-type) (array) (optional) | describes id token inputs|
+|`idTokenHints`| [idTokenHintAttestation](#idtokenhintattestation-type) (array) (optional) | describes id token hint inputs |
+|`presentations`| [verifiablePresentationAttestation](#verifiablepresentationattestation-type) (array) (optional) | describes verifiable presentations inputs |
+|`selfIssued`| [selfIssuedAttestation](#selfissuedattestation-type) (array) (optional) | describes self issued inputs |
+|`accessTokens`| [accessTokenAttestation](#accesstokenattestation-type) (array) (optional) | describes access token inputs |
 
 #### idTokenAttestation type
 
@@ -956,9 +968,9 @@ example:
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`url`| string (url) | url of the logo (optional if image is specified) |
+|`uri`| string (uri) | uri of the logo (optional if image is specified) |
 |`description` | string | the description of the logo |
-|`image` | string | the base-64 encoded image (optional if url is specified) |
+|`image` | string | the base-64 encoded image (optional if uri is specified) |
 
 #### displayConsent type
 
@@ -1038,9 +1050,9 @@ Don't supply a request body for this method.
 
 example message:
 
-```
+```json
 {
-    value:
+    "value":
     [
         {
             "id": "ZjViZjJmYzYtNzEzNS00ZDk0LWE2ZmUtYzI2ZTQ1NDNiYzVhPHNjcmlwdD5hbGVydCgneWF5IScpOzwvc2NyaXB0Pg",
@@ -1048,7 +1060,7 @@ example message:
             "authorityId": "ffea7eb3-0000-1111-2222-000000000000",
             "status": "Enabled",
             "issueNotificationEnabled": false,
-            "manifestUrl" : "https:/...",
+            "manifestUrl" : "https://...",
             "rules": "<rules JSON>",
             "displays": [{<display JSON}]
         },
@@ -1058,7 +1070,7 @@ example message:
             "authorityId": "cc55ba22-0000-1111-2222-000000000000",
             "status": "Enabled",
             "issueNotificationEnabled": false,
-            "manifestUrl" : "https:/...",
+            "manifestUrl" : "https://...",
             "rules": "<rules JSON>",
             "displays": [{<display JSON}]
         }

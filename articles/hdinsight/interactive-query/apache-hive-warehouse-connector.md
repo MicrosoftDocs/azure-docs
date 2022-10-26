@@ -91,7 +91,7 @@ value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.
 
     | Configuration | Value |
     |----|----|
-    |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster's storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container. |
+    |`spark.datasource.hive.warehouse.load.staging.dir`| If you are using ADLS Gen2 Storage Account, use `abfss://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.dfs.core.windows.net/tmp`<br>If you are using Azure Blob Storage Account, use `wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster's storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| The value you obtained earlier from **HiveServer2 Interactive JDBC URL** |
     |`spark.datasource.hive.warehouse.metastoreUri`| The value you obtained earlier from **hive.metastore.uris**. |
     |`spark.security.credentials.hiveserver2.enabled`|`true` for YARN cluster mode and `false` for YARN client mode. |
