@@ -29,7 +29,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 ## Inactive user recommendations
 A user is considered 'inactive' if they have not signed into the tenant within the last 30 days. This behavior is adjusted for reviews of application assignments, which checks each user's last activity in the app as opposed to the entire tenant. When inactive user recommendations are enabled for an access review, the last sign-in date for each user will be evaluated once the review starts, and any user that has not signed-in within 30 days will be given a recommended action of Deny. Additionally, when these decision helpers are enabled, reviewers will be able to see the last sign-in date for all users being reviewed. This sign-in date (as well as the resulting recommendation) is determined when the review begins and will not get updated while the review is in-progress.
 
-## User-to-Group Affiliation (Preview)
+## User-to-Group Affiliation (preview)
 Making the review experience easier and more accurate empowers IT admins and reviewers to make more informed decisions. This Machine Learning based recommendation opens the journey to automate access reviews, thereby enabling intelligent automation and reducing access rights attestation fatigue.
 
 User-to-Group Affiliation in an organization’s chart is defined as two or more users who share similar characteristics in an organization's reporting structure.
@@ -43,7 +43,7 @@ If this decision helper is enabled by the creator of the access review, reviewer
 
 The following image has an example of an organization's reporting structure in a cosmetics company: 
 
-![Example hierarchial organization chart for a cosmetics company](./media/review-recommendations-group-access-reviews/org-chart-example.png)
+![Screenshot that shows a fictitious hierarchial organization chart for a cosmetics company](./media/review-recommendations-group-access-reviews/org-chart-example.png)
 
 Based on the reporting structure in the example image, users who are statistically significant amount of distance away from other users within the group, would get a "Deny" recommendation by the system if  the User-to-Group Affiliation recommendation was selected by the reviewer for group access reviews. 
 
