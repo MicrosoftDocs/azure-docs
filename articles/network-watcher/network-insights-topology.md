@@ -43,8 +43,14 @@ To view a topology, follow these steps:
 3. In the **All services** screen, enter **Monitor** in the **Filter services** search box and select it from the search result. 
 4. Under **Insights**, select **Networks**. 
 5. In the **Networks** screen that appears, select **Topology**.
+
+   :::image type="content" source="./media/network-insights-topology/topology-start-screen.png" alt-text="Screenshot of Topology screen.":::
+
 6. Select **Scope** to define the scope of the Topology. 
+
 7. In the **Select scope** pane, select the list of **Subscriptions**, **Resource groups**, and **Locations** of the resources for which you want to view the topology. Select **Save**.
+
+   :::image type="content" source="./media/network-insights-topology/topology-scope.png" alt-text="Screenshot of selecting the scope.":::
 
    The duration to render the topology may vary depending on the number of subscriptions selected.
 8. Select the [**Resource type**](#supported-resource-types) that you want to include in the topology and select **Apply**.
@@ -61,19 +67,32 @@ To add a region, follow these steps:
 1. Hover on **Regions** under **Azure Regions**.
 2. From the list of **Hidden Resources**, select the regions to be added and select **Add to View**.
 
+   :::image type="content" source="./media/network-insights-topology/add-resources.png" alt-text="Screenshot of adding regions.":::
+
 You can view the resources in the added region as part of the topology.
 
 ## Drilldown resources
 
 To drill down to the basic unit of each network, select the plus sign on each resource. When you hover on the resource, you can see the details of that resource. Selecting a resource displays a pane on the right with a summary of the resource. 
 
+:::image type="content" source="./media/network-insights-topology/resource-details.png" alt-text="Screenshot of resource details.":::
+
 Drilling down into Azure resources such as Application Gateways and Firewalls displays the resource view diagram of that resource. 
+
+:::image type="content" source="./media/network-insights-topology/drill-down.png" alt-text="Screenshot of resource hierarchy.":::
 
 ## Integration with diagnostic tools
 
-When you drill down to a VM within the topology, the summary pane contains the **Insights + Diagnostics** section from where you can find the next hop. Follow these steps to find the next hop.
+When you drill down to a VM within the topology, the summary pane contains the **Insights + Diagnostics** section from where you can find the next hop. 
+
+:::image type="content" source="./media/network-insights-topology/resource-summary.png" alt-text="Screenshot of resource summary pane.":::
+
+Follow these steps to find the next hop.
+
 1. Click **Next hop** and enter the destination IP address. 
 2. Select **Check Next Hop**. The [Next hop](network-watcher-next-hop-overview.md) checks if the destination IP address is reachable from the source VM.
+
+   :::image type="content" source="./media/network-insights-topology/next-hop.png" alt-text="Screenshot of the next hop option.":::
 
 ## Next steps
 
