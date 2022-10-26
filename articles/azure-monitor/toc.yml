@@ -227,7 +227,7 @@ items:
         href: essentials/prometheus-metrics-overview.md
       - name: Enable
         displayName: Prometheus
-        href: essentials/prometheus-metrics-enable.md
+        href: essentials/prometheus-metrics-overview.md
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -1295,16 +1295,7 @@ items:
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
     - name: Prometheus metrics
-      items: 
-      - name: Overview
-        href: containers/container-insights-prometheus.md
-      - name: Send to Prometheus
-        href: containers/container-insights-prometheus-metrics-addon.md
-      - name: Send to Logs
-        href: containers/container-insights-prometheus-monitoring-addon.md
-      - name: Enable
-        displayName: Prometheus
-        href: essentials/prometheus-metrics-enable.md
+      href: containers/container-insights-prometheus.md
     - name: Configure
       items:
       - name: Agent management

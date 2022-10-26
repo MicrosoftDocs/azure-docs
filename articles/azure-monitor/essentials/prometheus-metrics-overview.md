@@ -15,6 +15,9 @@ Azure Monitor managed service for Prometheus is a component of [Azure Monitor Me
 > [!IMPORTANT] 
 > Azure Monitor managed service for Prometheus is intended for storing information about service health of customer machines and applications. It is not intended for storing any data classified as Personal Identifiable Information (PII) or End User Identifiable Information (EUII). We strongly recommend that you do not send any sensitive information (usernames, credit card numbers etc.) into Azure Monitor managed service for Prometheus fields like metric names, label names, or label values.
 
+## Enable
+The only requirement to enable Azure Monitor managed service for Prometheus is to create an [Azure Monitor workspace](azure-monitor-workspace-overview.md), which is where Prometheus metrics are stored. Once this workspace is created, you can onboard services that collect Prometheus metrics such as Container insights for your AKS cluster as described in [Send Kubernetes metrics to Azure Monitor managed service for Prometheus with Container insights](../containers/container-insights-prometheus-metrics-addon.md).
+
 ## Data sources
 Azure Monitor managed service for Prometheus can currently collect data from any of the following data sources.
 

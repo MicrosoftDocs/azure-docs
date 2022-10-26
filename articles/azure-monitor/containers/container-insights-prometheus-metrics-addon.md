@@ -7,15 +7,17 @@ ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Send metrics to Azure Monitor managed service for Prometheus with Container insights (preview)
-This article describes how to configure Container insights to send Prometheus metrics from an Azure Kubernetes cluster to Azure Monitor managed service for Prometheus. This includes installing the metrics addon for Container insights.
+# Collect Prometheus metrics from AKS cluster (preview)
+This article describes how to configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus.
+
+Container insights to send Prometheus metrics from an Azure Kubernetes cluster to Azure Monitor managed service for Prometheus. This includes installing the metrics addon for Container insights.
 
 > [!NOTE]
 > TTo enable collection of Prometheus metrics without enabling other data collection by Container insights, see [Enable Azure Monitor managed service for Prometheus (preview)](../containers/container-insights-prometheus-metrics-addon.md). This article contains other 
 
 ## Prerequisites
 
-- The cluster must be [onboarded to Container insights](container-insights-enable-aks.md).
+- You must either have an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) or [create a new one](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
 - The cluster must use [managed identity authentication](container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
