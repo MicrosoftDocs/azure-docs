@@ -45,6 +45,8 @@ POST /aliases?api-version=2021-04-30-preview
 
 ### [**Azure portal**](#tab/portal)
 
+Follow the steps below to create an index alias in the Azure portal.
+
 1. Navigate to your search service in the [Azure portal](https://portal.azure.com).
 1. Find and select **Aliases**
 1. Select **+ Add Alias**
@@ -66,7 +68,7 @@ SearchAlias myAlias = new SearchAlias("my-alias", "hotel-quickstart-index");
 adminClient.CreateAlias(myAlias);
 ```
 
-Index Aliases are also supported in the latest preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.6.0-beta.1/jar), [Python](https://pypi.org/project/azure-search-documents/11.4.0b1/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.8).
+Index aliases are also supported in the latest preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.6.0-beta.1/jar), [Python](https://pypi.org/project/azure-search-documents/11.4.0b1/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.8).
 
 ---
 
