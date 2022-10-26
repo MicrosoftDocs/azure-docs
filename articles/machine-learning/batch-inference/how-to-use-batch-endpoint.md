@@ -199,7 +199,7 @@ Batch deployments require a scoring script that indicates how the given model sh
 
 In this case, we are deploying a model that read image files representing digits and outputs the corresponding digit. The scoring script looks as follows:
 
-:::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/digit_identification.py" :::
+:::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/batch_driver.py" :::
 
 ### Understanding the scoring script
 
@@ -361,7 +361,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. On __Output file name__, ensure the batch scoring output file is the one you need. Default is `predictions.csv`.
     1. On __Mini batch size__, adjust the size of the files that will be included on each mini-batch. This will control the amount of data your scoring script receives per each batch.
     1. On __Scoring timeout (seconds)__, ensure you are giving enough time for your deployment to score a given batch of files. If you increase the number of files, you usually have to increase the timeout value too. More expensive models (like those based on deep learning), may require high values in this field.
-    1. On __Max concurrency per instance__, configure the amount of executors you want to have per each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
+    1. On __Max concurrency per instance__, configure the number of executors you want to have per each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
     1. Once done, click on __Next__.
     1. On environment, go to __Select scoring file and dependencies__ and click on __Browse__.
     1. Select the scoring script file on `/mnist/code/digit_identification.py`.
@@ -556,7 +556,7 @@ job = ml_client.batch_endpoints.invoke(
 1. Check the option __Override deployment settings__.
 1. Configure the job parameters. Only the current job execution will be affected by this configuration.
 
---
+---
 
 ### Monitor batch scoring job execution progress
 
@@ -694,7 +694,7 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
     1. On __Output file name__, ensure the batch scoring output file is the one you need. Default is `predictions.csv`.
     1. On __Mini batch size__, adjust the size of the files that will be included on each mini-batch. This will control the amount of data your scoring script receives per each batch.
     1. On __Scoring timeout (seconds)__, ensure you are giving enough time for your deployment to score a given batch of files. If you increase the number of files, you usually have to increase the timeout value too. More expensive models (like those based on deep learning), may require high values in this field.
-    1. On __Max concurrency per instance__, configure the amount of executors you want to have per each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
+    1. On __Max concurrency per instance__, configure the number of executors you want to have per each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
     1. Once done, click on __Next__.
     1. On environment, go to __Select scoring file and dependencies__ and click on __Browse__.
     1. Select the scoring script file on `/mnist-keras/code/digit_identification.py`.
