@@ -241,7 +241,7 @@ Open the *Application* folder in Visual Studio Code. Run the application by usin
 
 ## Push the Docker container image to Azure Container Registry
 
-1. To create a container image from the **Explorer** tab in Visual Studio Code, right-click **Dockerfile** and then select **Build Image**. 
+1. To create a container image from the **Explorer** tab in Visual Studio Code, right-click **Dockerfile**, and then select **Build Image**. 
 
     :::image type="content" source="./media/tutorial-deploy-app-bicep-aks/context-menu-build-docker-image.png" alt-text="Screenshot of the context menu in Visual Studio Code with the Build Image option selected.":::
 
@@ -255,7 +255,7 @@ Open the *Application* folder in Visual Studio Code. Run the application by usin
 
 1. Wait for Visual Studio Code to push the container image to Azure Container Registry.
 
-## Prepare deployment YAML
+## Prepare the deployment YAML
 
 Use the following YAML template to create an *akstododeploy.yml* file. Replace the `{ACR name}`, `{Image name}`, `{Version}`, and `{resource group name}` placeholders with your own values.
 
@@ -312,7 +312,7 @@ spec:
     targetPort: 80
 ```
 
-## Apply deployment YAML
+## Apply the deployment YAML
 
 Use `kubectl apply` again to deploy the application pods and expose the pods via a load balancer:
 
