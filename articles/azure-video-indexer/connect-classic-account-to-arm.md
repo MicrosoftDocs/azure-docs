@@ -75,7 +75,7 @@ Before the end of the 30 days of transition state, you can remove access from us
     |**Subscription**| The subscription currently contains the classic account and other related resources such as the Media Services.|
     |**Resource Group**|Select an existing resource or create a new one. The resource group must be the same location as the classic account being connected|
     |**Azure Video Indexer account** (radio button)| Select the *"Connecting an existing classic account"*.|
-    |**Existing account ID**| Enter the ID of existing Azure Video Indexer classic account.|
+    |**Existing account ID**|Select an existing Azure Video Indexer account from the dropdown.|
     |**Resource name**|Enter the name of the new Azure Video Indexer account. Default value would be the same name the account had as classic.|
     |**Location**|The geographic region can't be changed in the connect process, the connected account must stay in the same region. |
     |**Media Services account name**|The original Media Services account name that was associated with classic account.|

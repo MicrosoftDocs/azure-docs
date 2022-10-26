@@ -2,6 +2,8 @@
 title: How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
+author: bmansheim
+ms.author: benmansheim
 ms.custom: ignite-2022
 zone_pivot_groups: k8s-host
 ms.date: 07/25/2022
