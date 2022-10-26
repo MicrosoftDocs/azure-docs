@@ -1,5 +1,13 @@
 # How to Connect to App Instance for troubleshooting
 
+While ASC tries to offer managed troubleshooting approaches as much as possible, it may not be sufficient sometimes as some customers would like to: 
+
+* Directly leverage the JDK tools. 
+* Diagnose against an app’s backing services in terms of network connection, API call latency and etc for both VNET and non-VNET instances. 
+* Diagnosis of storage (capacity and performance) and CPU/memory 
+
+This feature enable you to access the shell environment inside your application instances and do some advanced troubleshooting.
+
 ## Prerequisites
 * Azure CLI and Spring Apps extension are installed.
 * App already deployed.
@@ -75,9 +83,9 @@ The available tools depends on the tier of your service and deployment type of t
 
 | Tier | Deployment Type | Common tools | JDK tools | Notes |
 | -- | -- | -- | -- | -- |
-| Basic / Standard tier | Source code / Jar | Y | Y | |
+| Basic / Standard tier | Source code / Jar | Y |  (for java workloads only)  | |
 | Basic / Standard tier | Custom Image | N | N | Up to your installed toolset |
-| Enterprise Tier | Build Serivce | Y | Y (for java workloads only) | |
+| Enterprise Tier | Source code / Artifacts | Y (for full OS stack)<br>N (for base OS stack) | Y (for java workloads only) | Depends on the os stack of your builder |
 | Enterprise Tier | Custom Image | N | N | Up to your installed toolset |
 
 
