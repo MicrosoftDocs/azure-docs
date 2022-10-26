@@ -124,7 +124,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select the **SAML** tab.
 
-1. In the **Organization SAML Settings** section, perform the following steps:
+1. In the **SAML Certificate** section, perform the following steps:
 
     ![Screenshot of Organization SAML Settings section](./media/veracode-tutorial/saml.png "Administration")
 
@@ -132,18 +132,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. For **Assertion Signing Certificate**, select **Choose File** to upload your downloaded certificate from the Azure portal.
 
-    c. For **Self Registration**, select **Enable Self Registration**.
+    c. Note the values of the three URLs (**SAML Assertion URL**, **SAML Audience URL**, **Relaystate URL**). 
 
-1. In the **Self Registration Settings** section, perform the following steps, and then select **Save**:
+    d. Click **Save**.
 
-    ![Screenshot of Self Registration Settings section, with various options highlighted](./media/veracode-tutorial/save.png "Administration")
+1. Select the **JIT Proisioning** tab.
 
-    a. For **New User Activation**, select **No Activation Required**.
+    ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/jit-1.png "JIT Provisioning")
 
-    b. For **User Data Updates**, select **Preference Veracode User Data**.
+1. In the **Organization Settings** section, toggle the **Configure Default Setings for Just-in-Time user provisoining** setting to **On**. 
 
-    c. For **SAML Attribute Details**, select the following:
-      * **User Roles**
+1. In the **Basic Settings** section, for **User Data Updates**, select **Prefer Veracode User Data**.
+
+1. In the **Access Settings** section, under **User Roles**, select from the following (*Note*: For more information about Veracode user roles, see the [Veracode Documentation](https://docs.veracode.com/r/c_role_permissions)):
+
+    ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/jit-2.png "JIT Provisioning")
+
       * **Policy Administrator**
       * **Reviewer**
       * **Security Lead**
@@ -151,8 +155,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
       * **Submitter**
       * **Creator**
       * **All Scan Types**
-      * **Team Memberships**
-      * **Default Team**
 
 ### Create Veracode test user
 
