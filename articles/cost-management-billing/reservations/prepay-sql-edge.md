@@ -27,9 +27,9 @@ You can buy SQL Edge reserved capacity from the [Azure portal](https://portal.az
 3. Select **Add** and then in the **Purchase Reservations** pane, select **Azure SQL Edge**.
 4. Select a scope. The reservation's scope can cover one subscription or multiple subscriptions (shared scope):
     - **Shared** - The reservation discount is applied to SQL Edge devices running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.
-    - **Management Group**, the reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
-    - **Single subscription**, the reservation discount is applied to the SQL Edge devices in this subscription.
-    - **Single resource group**, the reservation discount is applied to the SQL Edge devices in the selected subscription and the selected resource group within that subscription. 
+    - **Management Group** - The reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
+    - **Single subscription** - The reservation discount is applied to the SQL Edge devices in this subscription.
+    - **Single resource group** - The reservation discount is applied to the SQL Edge devices in the selected subscription and the selected resource group within that subscription. 
 5. Select a **Subscription**. The subscription used to pay for the capacity reservation. The subscription payment method is charged the upfront costs for the reservation.
     - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
     - For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method. 
