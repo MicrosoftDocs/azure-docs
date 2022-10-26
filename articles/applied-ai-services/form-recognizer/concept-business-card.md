@@ -1,7 +1,7 @@
 ---
 title: Business card data extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: OCR and machine learning based business card recognition model in Form Recognizer extracts key data from business cards.
+description: OCR and machine learning based business card scanning in Form Recognizer extracts key data from business cards.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -18,7 +18,9 @@ recommendations: false
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-Business cards reading
+## How business card data extraction works
+
+Business cards are a great way of representing a business or a professional. The company logo, fonts and background images found in business cards help the company branding and differentiate it from others. Applying OCR and machine-learning based techqniues to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integrated into them for the benefit of their users.
 
 ## Form Recognizer Business Card model
 
@@ -42,7 +44,7 @@ The following tools are supported by Form Recognizer v2.1:
 |----------|-------------------------|
 |**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-### Try Form Recognizer
+### Try business card data extraction
 
 See how data, including name, job title, address, email, and company name, is extracted from business cards using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
@@ -92,7 +94,7 @@ See how data, including name, job title, address, email, and company name, is ex
 |Business card (v3.0 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
 |Business card (v2.1 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li> | Autodetected |
 
-## Field extractions
+## Business card fields extraction
 
 |Name| Type | Description |Standardized output |
 |:-----|:----|:----|:----:|
