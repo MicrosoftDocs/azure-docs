@@ -198,8 +198,6 @@ The following steps deploy and test the application.
 
    Paste the value of **cmdToConnectToCluster** into a bash shell.
 
-1. Add RBAC for Kubernetes Authorization and create role assignments for logged in user, as detailed [here](/azure/aks/manage-azure-rbac#integrate-azure-rbac-into-an-existing-cluster). 
-
 1. Apply the DB secret.
 
    ```bash
