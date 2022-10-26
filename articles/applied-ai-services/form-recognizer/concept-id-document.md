@@ -80,7 +80,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 |--------|:----------------------|:---------|
 |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (Residence permit card)</li></ul></br>|English (United States)—en-US|
 
-## Identity document (ID) fields extractions
+## Field extractions
 
 Below are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extacts the below fields in the `documents.*.fields`. It also extracts all the text in the documents, words, lines and styles which will be included in the JSON output in the different sections.  
    * `pages.*.words`
