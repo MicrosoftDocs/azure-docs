@@ -128,9 +128,11 @@ To create an action group:
 When you create or edit an Azure alert rule, use an action group, which has an ITSM action. When the alert triggers, the work item is created or updated in the ITSM tool.
 
 > [!NOTE]
-> For information about the pricing of the ITSM action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for action groups.
+> * For information about the pricing of the ITSM action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for action groups.
 >
-> The short description field in the alert rule definition is limited to 40 characters when you send it by using the ITSM action.
+> * The short description field in the alert rule definition is limited to 40 characters when you send it by using the ITSM action.
+>
+> * In case you have policies for inbound traffic for your ServiceNow instances, add ActionGroup service tag to allowList.
 
 ## Next steps
 
