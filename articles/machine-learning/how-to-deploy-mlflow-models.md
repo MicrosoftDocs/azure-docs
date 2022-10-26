@@ -556,7 +556,7 @@ To learn more, review these articles:
 - [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
+- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Access Azure resources with an online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)
