@@ -32,7 +32,7 @@ This article introduces you to the architecture of the Azure IoT device SDK for 
 
 ## SDK architecture
 
-You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](/azure/iot-hub/iot-c-sdk-ref/).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://github.com/Azure/azure-iot-sdk-c/).
 
 The latest version of the libraries can be found in the **main** branch of the repository:
 

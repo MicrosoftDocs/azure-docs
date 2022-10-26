@@ -71,6 +71,7 @@ Follow these steps to create a new GO module.
     }
     
     func main() {
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         speechKey :=  os.Getenv("SPEECH_KEY")
         speechRegion := os.Getenv("SPEECH_REGION")
     
@@ -147,6 +148,9 @@ Run the following commands to create a `go.mod` file that links to components ho
 go mod init speech-synthesis
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Now build and run the code:
 

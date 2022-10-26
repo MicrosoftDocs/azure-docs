@@ -2,8 +2,10 @@
 title: Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 03/08/2022
-ms.custom: references_regions
+author: bmansheim
+ms.author: benmansheim
+ms.date: 10/23/2022
+ms.custom: references_regions, ignite-2022
 ---
 
 # Feature coverage for machines
@@ -126,16 +128,15 @@ For information about when recommendations are generated for each of these solut
 | - [Recommendation exemption rules](./exempt-resource.md)                                                                                                      | Public Preview | Not Available                  | Not Available                  |
 | - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                    | GA             | GA                             | GA                             |
 | - [Email notifications for security alerts](./configure-email-notifications.md)                                                                               | GA             | GA                             | GA                             |
-| - [Auto provisioning for agents and extensions](./enable-data-collection.md)                                                                                  | GA             | GA                             | GA                             |
+| - [Deployment of agents and extensions](monitoring-components.md)                                                                                  | GA             | GA                             | GA                             |
 | - [Asset inventory](./asset-inventory.md)                                                                                                                     | GA             | GA                             | GA                             |
 | - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                               | GA             | GA                             | GA                             |
-| - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                | GA             | Not Available                  | Not Available                  |
+| - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                | GA             | GA                  | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
 | - [Microsoft Defender for Servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
 | - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA                             |
 | - [Microsoft Defender for container registries](./defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
-| - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-containers-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[10](#footnote4)</sup>                                                  | GA             | GA                             | GA                             |
 | - [Defender extension for Azure Arc-enabled Kubernetes clusters, servers or data services](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup> | Public Preview | Not Available                  | Not Available                  |
@@ -152,7 +153,7 @@ For information about when recommendations are generated for each of these solut
 | - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                                    | GA             | GA                             | GA                             |
 | - [File Integrity Monitoring](./file-integrity-monitoring-overview.md)                                                                                        | GA             | GA                             | GA                             |
 | - [Adaptive application controls](./adaptive-application-controls.md)                                                                                         | GA             | GA                             | GA                             |
-| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                                               | GA             | Not Available                  | Not Available                  |
+| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                                               | GA             | GA                 | Not Available                  |
 | - [Docker host hardening](./harden-docker-hosts.md)                                                                                                           | GA             | GA                             | GA                             |
 | - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                                          | GA             | Not Available                  | Not Available                  |
 | - [Regulatory compliance dashboard & reports](./regulatory-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                                | GA             | GA                             | GA                             |
@@ -183,6 +184,6 @@ For information about when recommendations are generated for each of these solut
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).

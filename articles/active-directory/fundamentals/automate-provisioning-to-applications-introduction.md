@@ -19,15 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Introduction
 
-These articles are for:
-
-* Architects
-
-* Microsoft partners
-
-* IT professionals
-
-The article provides information for decision makers addressing identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they're working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
+The article helps architects, Microsoft partners, and IT professionals with information addressing identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they're working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
 
 Employees in an organization rely on many applications to perform their work. These applications often require IT admins or application owners to provision accounts before an employee can start accessing them. Organizations also need to manage the lifecycle of these accounts and keep them up to date with the latest information and remove accounts when users don't require them anymore.
 
@@ -37,12 +29,12 @@ Thousands of organizations are running Azure AD cloud-hosted services, with its 
 
 ![Typical deployment of MIM](media/automate-user-provisioning-to-applications-introduction/typical-mim-deployment.png)
 
- Use the following table to find content specific to your scenario. For example, if you want employee and contractor identities management from an HR system to Active Directory (AD) or Azure Active Directory (Azure AD), follow the link to *Connect identities with your system of record*.
+ Use the following table to find content specific to your scenario. For example, if you want employee and contractor identities management from an HR system to Active Directory Domain Services (AD DS) or Azure Active Directory (Azure AD), follow the link to *Connect identities with your system of record*.
 
 | What | From | To | Read |
 | - | - | - | - |
 | Employees and contractors| HR systems| AD and Azure AD| [Connect identities with your system of record](automate-provisioning-to-applications-solutions.md) |
-| Existing AD users and groups| AD| Azure AD| [Synchronize identities between Azure AD and Active Directory](automate-provisioning-to-applications-solutions.md) |
+| Existing AD users and groups| AD DS| Azure AD| [Synchronize identities between Azure AD and Active Directory](automate-provisioning-to-applications-solutions.md) |
 | Users, groups| Azure AD| SaaS and on-prem apps| [Automate provisioning to non-Microsoft applications](../governance/entitlement-management-organization.md) |
 | Access rights| Azure AD Identity Governance| SaaS and on-prem apps| [Entitlement management](../governance/entitlement-management-overview.md) |
 | Existing users and groups| AD, SaaS and on-prem apps| Identity governance (so I can review them)| [Azure AD Access reviews](../governance/access-reviews-overview.md) |
@@ -83,7 +75,7 @@ In this example, the organization has users spread across multiple on-premises H
 
 ![Advanced hybrid deployment model](media/automate-user-provisioning-to-applications-introduction/hybrid-advanced.png)
 
-1. MIM imports user information from each HR stem. MIM determines which users are needed for those employees in different directories. MIM provisions those identities in Active Directory.
+1. MIM imports user information from each HR stem. MIM determines which users are needed for those employees in different directories. MIM provisions those identities in AD DS.
 
 2. Azure AD Connect Sync then synchronizes those users and groups to Azure AD and provides users access to their resources.
 

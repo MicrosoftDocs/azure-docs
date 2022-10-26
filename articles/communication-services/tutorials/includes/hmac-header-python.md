@@ -41,11 +41,11 @@ The following steps describe how to construct the authorization header.
 
 ### Create a new Python script
 
-Open Visual Studio Code or other IDE or editor of your choice and create a new file named `SignHmacTutorial.py`. Save this file to a known folder.
+Open Visual Studio Code or other IDE or editor of your choice and create a new file named `sign_hmac_tutorial.py`. Save this file to a known folder.
 
 ## Add necessary imports
 
-Update the `SignHmacTutorial.py` script with the following code to begin.
+Update the `sign_hmac_tutorial.py` script with the following code to begin.
 
 ```python
 import base64
@@ -60,7 +60,7 @@ from urllib import request
 
 For this example, we'll sign a request to create a new identity by using the Communication Services Authentication API [(version `2021-03-07`)](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/communication/data-plane/Identity/stable/2021-03-07).
 
-Add the following code to the `SignHmacTutorial.py` script.
+Add the following code to the `sign_hmac_tutorial.py` script.
 
 - Replace `resource_endpoint_name` with your real resource endpoint name value. This value can be found in Overview section of your Azure Communication Services resource. It's the value of "Endpoint" after "https://".
 - Replace `resource_endpoint_secret` with your real resource endpoint secret value. This value can be found in Keys section of your Azure Communication Services resource. It's the value of "Key" - either primary or secondary.
@@ -75,15 +75,15 @@ secret = "resource_endpoint_secret"
 request_uri = f"{resource_endpoint}{path_and_query}"
 
 # Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body.
-scopes = ["chat"]
+body = { "createTokenWithScopes": ["chat"] }
 
-serialized_body = json.dumps(scopes)
+serialized_body = json.dumps(body)
 content = serialized_body.encode("utf-8")
 ```
 
 ## Create a content hash
 
-The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to `SignHmacTutorial.py` script.
+The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to `sign_hmac_tutorial.py` script.
 
 ```python
 def compute_content_hash(content):
@@ -141,7 +141,7 @@ We'll now construct the string that we'll add to our authorization header.
 1. Compute the signature.
 1. Concatenate the string, which will be used in the authorization header.
  
-Add the following code to the `SignHmacTutorial.py` script.
+Add the following code to the `sign_hmac_tutorial.py` script.
 
 ```python
 # Specify the 'x-ms-date' header as the current UTC timestamp according to the RFC1123 standard
@@ -173,6 +173,9 @@ request_headers["x-ms-content-sha256"] = content_hash
 
 # Add authorization header.
 request_headers["Authorization"] = authorization_header
+
+# Add content type header.
+request_headers["Content-Type"] = "application/json"
 ```
 
 ## Test the client

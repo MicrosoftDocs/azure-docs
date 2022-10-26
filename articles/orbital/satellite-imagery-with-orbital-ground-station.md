@@ -176,7 +176,7 @@ Alternatively, you can upload your installation binaries to a container in Azure
 ### Install IPOPP
 
 ```console
-tar --C $INSTALL_DIR -xzf DRL-IPOPP_4.1.tar.gz
+tar -xvzf DRL-IPOPP_4.1.tar.gz --directory $INSTALL_DIR
 chmod -R 755 $INSTALL_DIR/IPOPP
 $INSTALL_DIR/IPOPP/install_ipopp.sh -installdir $INSTALL_DIR/drl -datadir $INSTALL_DIR/data -ingestdir $INSTALL_DIR/data/ingest
 ```

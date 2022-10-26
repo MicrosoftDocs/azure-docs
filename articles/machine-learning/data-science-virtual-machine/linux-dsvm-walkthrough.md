@@ -32,7 +32,7 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains 4,601 examples. The dataset is a convenient size for demonstrating some of the key features of the DSVM because it keeps the resource requirements modest.
 
 > [!NOTE]
-> This walkthrough was created by using a D2 v2-size Linux DSVM (Ubuntu 18.04 Edition). You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
+> This walkthrough was created by using a D2 v2-size Linux DSVM. You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
 
 If you need more storage space, you can create additional disks and attach them to your DSVM. The disks use persistent Azure storage, so their data is preserved even if the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your DSVM, complete the steps in [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The steps for adding a disk use the Azure CLI, which is already installed on the DSVM. You can complete the steps entirely from the DSVM itself. Another option to increase storage is to use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 

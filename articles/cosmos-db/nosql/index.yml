@@ -1,0 +1,47 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB for NoSQL documentation
+summary: Azure Cosmos DB for NoSQL accounts provide support for querying items using the Structured Query Language (SQL) syntax.
+
+metadata:
+  title: Azure Cosmos DB for NoSQL
+  description: Azure Cosmos DB for NoSQL accounts provide support for querying items using the Structured Query Language (SQL) syntax.
+  services: service
+  ms.service: cosmos-db
+  ms.subservice: nosql
+  ms.custom: ignite-2022
+  ms.topic: landing-page
+  ms.collection: collection
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: markjbrown
+  ms.date: 05/24/2022
+landingContent:
+  - title: Use Azure Cosmos DB for NoSQL 
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage your data using a .NET Console app 
+            url: quickstart-dotnet.md
+          - text: Manage your data using a JavaScript app
+            url: quickstart-nodejs.md     
+      - linkListType: concept
+        links:       
+          - text: Getting started with SQL queries
+            url: query/getting-started.md  
+          - text: What is change feed? 
+            url: ../change-feed.md       
+      - linkListType: tutorial
+        links:
+          - text: Build a .NET web app to manage your data
+            url: tutorial-dotnet-web-app.md
+          - text: Java app with Async SDK
+            url: quickstart-java.md
+          - text: Query data with SQL queries
+            url: tutorial-query.md
+      - linkListType: how-to-guide
+        links:
+          - text: Tune query performance 
+            url: query-metrics.md
+          - text: Define stored procedures, triggers, UDFs
+            url: how-to-write-stored-procedures-triggers-udfs.md      

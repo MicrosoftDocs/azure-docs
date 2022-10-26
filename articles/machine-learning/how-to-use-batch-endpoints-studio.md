@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.date: 08/03/2022
 ms.custom: how-to, studio, managed-batch-endpoints, event-tier1-build-2022
 ---

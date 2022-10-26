@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: overview
-ms.date: 09/23/2022
+ms.date: 09/29/2022
 ms.author: jricketts
 ms.custom:
   - it-pro
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 This article presents solutions that enable you to:
 
 * Connect identities with your system of record
-* Synchronize identities between Active Directory (AD) and Azure Active Directory (Azure AD)
+* Synchronize identities between Active Directory Domain Services (AD DS) and Azure Active Directory (Azure AD)
 * Automate provisioning of users into non-Microsoft applications  
 
 ## Connect identities with your system of record
@@ -31,17 +31,17 @@ In most designs, the human resources (HR) system is the source-of-authority for 
 
 ### Synchronizing identities with cloud HR
 
-The Azure AD provisioning service enables organizations to [bring identities from popular HR systems](../app-provisioning/what-is-hr-driven-provisioning.md) (examples: [Workday](../saas-apps/workday-inbound-tutorial.md) and [SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)), into Azure AD directly, or into Active Directory Domain Services. This provisioning capability enables new hires to access the resources they need from the first day of work.
+The Azure AD provisioning service enables organizations to [bring identities from popular HR systems](../app-provisioning/what-is-hr-driven-provisioning.md) (examples: [Workday](../saas-apps/workday-inbound-tutorial.md) and [SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)), into Azure AD directly, or into AD DS. This provisioning capability enables new hires to access the resources they need from the first day of work.
 
 ### On-premises HR + joining multiple data sources
 
-To create a full user profile for an employee identity, organizations often merge information from multiple HR systems, databases, and other user data stores. MIM provides a rich set of [connectors](https://learn.microsoft.com/microsoft-identity-manager/supported-management-agents) and integration solutions interoperating with heterogeneous platforms.
+To create a full user profile for an employee identity, organizations often merge information from multiple HR systems, databases, and other user data stores. MIM provides a rich set of [connectors](https://learn.microsoft.com/microsoft-identity-manager/supported-management-agents) and integration solutions interoperating with heterogeneous platforms both on-premises and in the cloud.
 
-MIM offers [rule extension](/previous-versions/windows/desktop/forefront-2010/ms698810(v=vs.100)?redirectedfrom=MSDN) and [workflow capabilities](https://microsoft.github.io/MIMWAL/) features for advanced scenarios requiring data transformation and consolidation from multiple sources. These connectors, rule extensions, and workflow capabilities enable organizations to aggregate user data in the MIM metaverse to form a single identity for each user. The identity can be [provisioned into downstream systems](/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms) such as Active Directory Domain Services.
+MIM offers [rule extension](/previous-versions/windows/desktop/forefront-2010/ms698810(v=vs.100)?redirectedfrom=MSDN) and [workflow capabilities](https://microsoft.github.io/MIMWAL/) features for advanced scenarios requiring data transformation and consolidation from multiple sources. These connectors, rule extensions, and workflow capabilities enable organizations to aggregate user data in the MIM metaverse to form a single identity for each user. The identity can be [provisioned into downstream systems](/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms) such as AD DS.
 
 ![Systems of record model](media/automate-user-provisioning-to-applications-solutions/system-of-record.png)
 
-## Synchronize identities between Active Directory and Azure AD
+## Synchronize identities between Active Directory Domain Services (AD DS) and Azure AD
 
 As customers move applications to the cloud, and integrate with Azure AD, users often need accounts in Azure AD, and AD to access the applications for their work. Here are five common scenarios in which objects need to be synchronized between AD and Azure AD.
 
@@ -49,17 +49,17 @@ The scenarios are divided by the direction of synchronization needed, and are li
 
 Use the numbered sections in the next two section to cross reference the following table.
 
-**Synchronize identities from AD into Azure AD**
+**Synchronize identities from AD DS into Azure AD**
 
 1. For users in AD that need access to Office 365 or other applications that are connected to Azure AD, Azure AD Connect cloud sync is the first solution to explore. It provides a lightweight solution to create users in Azure AD, manage password rests, and synchronize groups. Configuration and management are primarily done in the cloud, minimizing your on-premises footprint. It provides high-availability and automatic failover, ensuring password resets and synchronization continue, even if there's an issue with on-premises servers.
 
-1. For complex, large-scale AD to Azure AD sync needs such as synchronizing groups over 50 K and device sync, customers can use Azure AD Connect sync to meet their needs.
+1. For complex, large-scale AD to Azure AD sync needs such as synchronizing groups over 50,000 and device sync, customers can use Azure AD Connect sync to meet their needs.
 
-**Synchronize identities from Azure AD into AD**
+**Synchronize identities from Azure AD into AD DS**
 
 As customers transition identity management to the cloud, more users and groups are created directly in Azure AD. However, they still need a presence on-premises in AD DS to access various resources.
 
-3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to on-premises Windows-Integrated Authentication or Kerberos-based applications.
+3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD DS](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to [on-premises Windows-Integrated Authentication or Kerberos-based applications](https://learn.microsoft.com/azure/active-directory/external-identities/hybrid-cloud-to-on-premises). Alternatively, customers can user [PowerShell scripts](https://github.com/Azure-Samples/B2B-to-AD-Sync) to automate the creation of guest accounts on-premises. 
 
 1. When a group is created in Azure AD, it can be automatically synchronized to AD DS using [Azure AD Connect sync](../hybrid/how-to-connect-group-writeback-v2.md).
 
@@ -67,17 +67,17 @@ As customers transition identity management to the cloud, more users and groups 
 
 |No.| What | From | To | Technology |
 | - | - | - | - | - |
-| 1 |Users, groups| AD| Azure AD| [Azure AD Connect Cloud Sync](https://learn.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync) |
-| 2 |Users, groups, devices| AD| Azure AD| [Azure AD Connect Sync](https://learn.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) |
-| 3 |Groups| Azure AD| AD| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
-| 4 |Guest accounts| Azure AD| AD| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
+| 1 |Users, groups| AD DS| Azure AD| [Azure AD Connect Cloud Sync](https://learn.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync) |
+| 2 |Users, groups, devices| AD DS| Azure AD| [Azure AD Connect Sync](https://learn.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) |
+| 3 |Groups| Azure AD| AD DS| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
+| 4 |Guest accounts| Azure AD| AD DS| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario), [PowerShell](https://github.com/Azure-Samples/B2B-to-AD-Sync)|
 | 5 |Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
 
 The table depicts common scenarios and the recommended technology.
 
 ## Automate provisioning users into non-Microsoft applications
 
-After identities are in Azure AD through HR-provisioning or Azure AD Connect Could Sync / Azure AD Connect Sync, the employee can use the identity to access Teams, SharePoint, and Microsoft 365 applications. However, employees still need access to many Microsoft applications to perform their work.
+After identities are in Azure AD through HR-provisioning or Azure AD Connect cloud sync / Azure AD Connect sync, the employee can use the identity to access Teams, SharePoint, and Microsoft 365 applications. However, employees still need access to many Microsoft applications to perform their work.
 
 ![Automation decision matrix](media/automate-user-provisioning-to-applications-solutions/automate-provisioning-decision-matrix.png)
 
@@ -134,7 +134,7 @@ After users are provisioned into Azure AD, use Lifecycle Workflows (LCW) to auto
 
 ### Reconcile changes made directly in the target system
 
-Organizations often need a complete audit trail of what users have access to applications containing data subject to regulation. To provide an audit trail, any access provided to a user directly must be traceable through the system of record. MIM provides the [reconciliation capabilities](/microsoft-identity-manager/mim-how-provision-users-adds) to detect changes made directly in a target system and roll back the changes. In addition to detecting changes in target applications, MIM can import identities from third party applications to Azure AD. These applications often augment the set of user records that originated in the HR system.
+Organizations often need a complete audit trail of what users have access to applications containing data subject to regulation. To provide an audit trail, any access provided to a user directly must be traceable through the system of record. MIM provides the reconciliation capabilities to detect changes made directly in a target system and roll back the changes. In addition to detecting changes in target applications, MIM can import identities from third party applications to Azure AD. These applications often augment the set of user records that originated in the HR system.
 
 ### Next steps
 

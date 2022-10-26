@@ -29,7 +29,7 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope-default.bicep" highlight="4" :::
 
 > [!TIP]
-> Ensure you use the smallest scope required for your requirements.
+> Use the smallest scope that you need to meet your requirements.
 >
 > For example, if you need to grant a managed identity access to a single storage account, it's good security practice to create the role assignment at the scope of the storage account, not at the resource group or subscription scope.
 

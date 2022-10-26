@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/23/2022
+ms.date: 10/12/2022
 ms.custom: generated
 ---
 
@@ -62,6 +62,9 @@ The following table provides a brief description of each built-in role. Click th
 > | [Data Box Contributor](#data-box-contributor) | Lets you manage everything under Data Box Service except giving access to others. | add466c9-e687-43fc-8d98-dfcf8d720be5 |
 > | [Data Box Reader](#data-box-reader) | Lets you manage Data Box Service except creating order or editing order details and giving access to others. | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | [Data Lake Analytics Developer](#data-lake-analytics-developer) | Lets you submit, monitor, and manage your own jobs but not create or delete Data Lake Analytics accounts. | 47b7735b-770e-4598-a7da-8b91488b4c88 |
+> | [Elastic SAN Owner](#elastic-san-owner) | Allows for full access to all resources under Azure Elastic SAN including changing network security policies to unblock data path access | 80dcbedb-47ef-405d-95bd-188a1b4ac406 |
+> | [Elastic SAN Reader](#elastic-san-reader) | Allows for control path read access to Azure Elastic SAN | af6a70f8-3c9f-4105-acf1-d719e9fca4ca |
+> | [Elastic SAN Volume Group Owner](#elastic-san-volume-group-owner) | Allows for full access to a volume group in Azure Elastic SAN including changing network security policies to unblock data path access | a8281131-f312-4f34-8d98-ae12be9f0d23 |
 > | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Storage Account Backup Contributor](#storage-account-backup-contributor) | Lets you perform backup and restore operations using Azure Backup on the storage account. | e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1 |
 > | [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
@@ -110,6 +113,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [AcrPush](#acrpush) | Push artifacts to or pull artifacts from a container registry. | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | [AcrQuarantineReader](#acrquarantinereader) | Pull quarantined images from a container registry. | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | [AcrQuarantineWriter](#acrquarantinewriter) | Push quarantined images to or pull quarantined images from a container registry. | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
+> | [Azure Kubernetes Fleet Manager RBAC Admin](#azure-kubernetes-fleet-manager-rbac-admin) | This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
+> | [Azure Kubernetes Fleet Manager RBAC Cluster Admin](#azure-kubernetes-fleet-manager-rbac-cluster-admin) | Lets you manage all resources in the fleet manager cluster. | 18ab4d3d-a1bf-4477-8ad9-8359bc988f69 |
+> | [Azure Kubernetes Fleet Manager RBAC Reader](#azure-kubernetes-fleet-manager-rbac-reader) | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces. | 30b27cfc-9c84-438e-b0ce-70e35255df80 |
+> | [Azure Kubernetes Fleet Manager RBAC Writer](#azure-kubernetes-fleet-manager-rbac-writer) | Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces. | 5af6afb3-c06c-4fa4-8848-71a8aee05683 |
 > | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | [Azure Kubernetes Service Contributor Role](#azure-kubernetes-service-contributor-role) | Grants access to read and write Azure Kubernetes Service clusters | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
@@ -1820,6 +1827,8 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/delete | Deletes the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/undelete/action | Perform undelete of soft-deleted Backup Instance. Backup Instance moves from SoftDeleted to ProtectionStopped state. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
@@ -1904,6 +1913,8 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/backupInstances/delete",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/deletedBackupInstances/read",
+        "Microsoft.DataProtection/backupVaults/deletedBackupInstances/undelete/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
@@ -2011,6 +2022,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
@@ -2022,7 +2034,11 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Subscription |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read |  |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2109,6 +2125,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.Support/*",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/deletedBackupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
@@ -2120,7 +2137,11 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
-        "Microsoft.DataProtection/providers/operations/read"
+        "Microsoft.DataProtection/operations/read",
+        "Microsoft.DataProtection/backupVaults/validateForBackup/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2185,7 +2206,7 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
@@ -2201,7 +2222,7 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read |  |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2265,7 +2286,7 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
         "Microsoft.DataProtection/locations/getBackupStatus/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/write",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
-        "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/deletedBackupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
@@ -2281,7 +2302,7 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
-        "Microsoft.DataProtection/providers/operations/read"
+        "Microsoft.DataProtection/operations/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2568,6 +2589,147 @@ Lets you submit, monitor, and manage your own jobs but not create or delete Data
     }
   ],
   "roleName": "Data Lake Analytics Developer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Elastic SAN Owner
+
+Allows for full access to all resources under Azure Elastic SAN including changing network security policies to unblock data path access
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ElasticSan](resource-provider-operations.md#microsoftelasticsan)/elasticSans/* |  |
+> | [Microsoft.ElasticSan](resource-provider-operations.md#microsoftelasticsan)/locations/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to all resources under Azure Elastic SAN including changing network security policies to unblock data path access",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/80dcbedb-47ef-405d-95bd-188a1b4ac406",
+  "name": "80dcbedb-47ef-405d-95bd-188a1b4ac406",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ElasticSan/elasticSans/*",
+        "Microsoft.ElasticSan/locations/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Elastic SAN Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Elastic SAN Reader
+
+Allows for control path read access to Azure Elastic SAN
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ElasticSan](resource-provider-operations.md#microsoftelasticsan)/elasticSans/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for control path read access to Azure Elastic SAN",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/af6a70f8-3c9f-4105-acf1-d719e9fca4ca",
+  "name": "af6a70f8-3c9f-4105-acf1-d719e9fca4ca",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ElasticSan/elasticSans/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Elastic SAN Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Elastic SAN Volume Group Owner
+
+Allows for full access to a volume group in Azure Elastic SAN including changing network security policies to unblock data path access
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | [Microsoft.ElasticSan](resource-provider-operations.md#microsoftelasticsan)/elasticSans/volumeGroups/* |  |
+> | [Microsoft.ElasticSan](resource-provider-operations.md#microsoftelasticsan)/locations/asyncoperations/read | Polls the status of an asynchronous operation. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to a volume group in Azure Elastic SAN including changing network security policies to unblock data path access",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a8281131-f312-4f34-8d98-ae12be9f0d23",
+  "name": "a8281131-f312-4f34-8d98-ae12be9f0d23",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read",
+        "Microsoft.ElasticSan/elasticSans/volumeGroups/*",
+        "Microsoft.ElasticSan/locations/asyncoperations/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Elastic SAN Volume Group Owner",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -4764,6 +4926,370 @@ Push quarantined images to or pull quarantined images from a container registry.
     }
   ],
   "roleName": "AcrQuarantineWriter",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Admin
+
+This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/statefulsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/authorization.k8s.io/localsubjectaccessreviews/write | Writes localsubjectaccessreviews |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/cronjobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/jobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/configmaps/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/endpoints/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/rbac.authorization.k8s.io/rolebindings/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/rbac.authorization.k8s.io/roles/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/secrets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/services/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/434fb43a-c01c-447e-9f67-c3ad923cfaba",
+  "name": "434fb43a-c01c-447e-9f67-c3ad923cfaba",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/*",
+        "Microsoft.ContainerService/fleets/apps/deployments/*",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/*",
+        "Microsoft.ContainerService/fleets/authorization.k8s.io/localsubjectaccessreviews/write",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/*",
+        "Microsoft.ContainerService/fleets/batch/jobs/*",
+        "Microsoft.ContainerService/fleets/configmaps/*",
+        "Microsoft.ContainerService/fleets/endpoints/*",
+        "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/events/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/*",
+        "Microsoft.ContainerService/fleets/extensions/deployments/*",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/*",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/limitranges/read",
+        "Microsoft.ContainerService/fleets/namespaces/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/*",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/*",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/*",
+        "Microsoft.ContainerService/fleets/rbac.authorization.k8s.io/rolebindings/*",
+        "Microsoft.ContainerService/fleets/rbac.authorization.k8s.io/roles/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/secrets/*",
+        "Microsoft.ContainerService/fleets/serviceaccounts/*",
+        "Microsoft.ContainerService/fleets/services/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Cluster Admin
+
+Lets you manage all resources in the fleet manager cluster.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage all resources in the fleet manager cluster.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/18ab4d3d-a1bf-4477-8ad9-8359bc988f69",
+  "name": "18ab4d3d-a1bf-4477-8ad9-8359bc988f69",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Cluster Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Reader
+
+Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/statefulsets/read | Reads statefulsets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/cronjobs/read | Reads cronjobs |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/jobs/read | Reads jobs |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/configmaps/read | Reads configmaps |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/endpoints/read | Reads endpoints |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/read | Reads persistentvolumeclaims |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/serviceaccounts/read | Reads serviceaccounts |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/services/read | Reads services |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/30b27cfc-9c84-438e-b0ce-70e35255df80",
+  "name": "30b27cfc-9c84-438e-b0ce-70e35255df80",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/read",
+        "Microsoft.ContainerService/fleets/apps/deployments/read",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/read",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/read",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/read",
+        "Microsoft.ContainerService/fleets/batch/jobs/read",
+        "Microsoft.ContainerService/fleets/configmaps/read",
+        "Microsoft.ContainerService/fleets/endpoints/read",
+        "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/events/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/read",
+        "Microsoft.ContainerService/fleets/extensions/deployments/read",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/read",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/limitranges/read",
+        "Microsoft.ContainerService/fleets/namespaces/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/read",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/read",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/read",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/read",
+        "Microsoft.ContainerService/fleets/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/serviceaccounts/read",
+        "Microsoft.ContainerService/fleets/services/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Writer
+
+Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/statefulsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/cronjobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/jobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/configmaps/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/endpoints/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/secrets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/services/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5af6afb3-c06c-4fa4-8848-71a8aee05683",
+  "name": "5af6afb3-c06c-4fa4-8848-71a8aee05683",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/*",
+        "Microsoft.ContainerService/fleets/apps/deployments/*",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/*",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/*",
+        "Microsoft.ContainerService/fleets/batch/jobs/*",
+        "Microsoft.ContainerService/fleets/configmaps/*",
+        "Microsoft.ContainerService/fleets/endpoints/*",
+        "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/events/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/*",
+        "Microsoft.ContainerService/fleets/extensions/deployments/*",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/*",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/limitranges/read",
+        "Microsoft.ContainerService/fleets/namespaces/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/*",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/*",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/secrets/*",
+        "Microsoft.ContainerService/fleets/serviceaccounts/*",
+        "Microsoft.ContainerService/fleets/services/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Writer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
