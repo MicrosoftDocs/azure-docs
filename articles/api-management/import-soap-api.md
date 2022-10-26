@@ -4,7 +4,7 @@ description: Learn how to import a SOAP API to Azure API Management as a WSDL sp
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 10/26/2022
 ms.author: danlep
 
 ---

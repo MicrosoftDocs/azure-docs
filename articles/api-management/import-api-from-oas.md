@@ -1,6 +1,6 @@
 ---
 title: Import an OpenAPI specification to Azure API Management | Microsoft Docs
-description: Learn how to import an OpenAPI specification to an API Management instance using the Azure portal, Azure CLI, or Azure PowerShell.
+description: Learn how to import an OpenAPI specification to an API Management instance using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API in the Azure portal.
 services: api-management
 author: dlepow
 
@@ -13,9 +13,12 @@ ms.custom: engagement-fy23
 ---
 # Import an OpenAPI specification
 
-In this article, you learn how to import an OpenAPI specification to API Management using either the Azure portal, Azure CLI, or Azure PowerShell.
+This article shows how to import an "OpenAPI specification" backend API residing at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API. 
 
-An example OpenAPI specification backend resides at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. 
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Import an OpenAPI specification using the Azure portal, Azure CLI, or Azure PowerShell
+> * Test the API in the Azure portal
 
 ## Prerequisites
 
@@ -42,7 +45,7 @@ An example OpenAPI specification backend resides at `https://conferenceapi.azure
 
 #### [Azure CLI](#tab/cli)
 
-The following example uses the [az apim api import](/cli/azure/apim/api?view=azure-cli-latest#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*.
+The following example uses the [az apim api import](/cli/azure/apim/api?view=azure-cli-latest#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. By default, the imported API requires a subscription to be called.
 
 ```azurecli-interactive
 # API Management service-specific details
@@ -65,11 +68,11 @@ az apim api import --path $APIPath --resource-group $ResourceGroupName \
     --specification-format $SpecificationFormat --specification-url $SpecificationURL
 ```
 
-After importing the API, if needed, you can update the settings by using the [az apim api update]() command.
+After importing the API, if needed, you can update the settings by using the [az apim api update](/cli/azure/apim/api?view=azure-cli-latest#az-apim-api-update) command.
 
 #### [PowerShell](#tab/powershell)
 
-The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*.
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. 
 
 ```powershell-interactive
 # API Management service-specific details
@@ -89,11 +92,14 @@ $context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -Ser
 $api = Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
 ```
 
-After importing the API, if needed, you can update the settings by using the [Update-AzApiManagement API]() cmdlet.
+After importing the API, if needed, you can update the settings by using the [Set-AzApiManagementApi](/powershell/module/az.apimanagement/set-azapimanagementapi) cmdlet.
+
 ---
 
 > [!NOTE]
 > The API import limitations are documented in [another article](api-management-api-import-restrictions.md).
+
+[!INCLUDE [api-management-test-api-portal](../../includes/api-management-test-api-portal.md)]
 
 [!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 
@@ -102,5 +108,5 @@ After importing the API, if needed, you can update the settings by using the [Up
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and publish a product](api-management-howto-add-products.md)
-> [Transform and protect a published API](transform-api.md)
+> * [Create and publish a product](api-management-howto-add-products.md)
+> * [Transform and protect a published API](transform-api.md)
