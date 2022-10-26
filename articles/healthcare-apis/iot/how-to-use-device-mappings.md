@@ -1,6 +1,6 @@
 ---
 title: How to configure device mappings in MedTech service - Azure Health Data Services
-description: This article provides and overview and describes how to configure the MedTech service device mappings within the Azure Health Data Services. 
+description: This article provides an overview and describes how to configure the MedTech service device mappings within the Azure Health Data Services. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -11,9 +11,9 @@ ms.author: jasteppe
 
 # Device mappings overview
 
-This article provides and overview and describes how to configure the MedTech service device mappings.
+This article provides an overview and describes how to configure the MedTech service device mappings.
 
-The MedTech service requires two types of JSON-based mappings. The first type, **device mappings**, is responsible for mapping the device payloads sent to the MedTech service device message event hub end point. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
+The MedTech service requires two types of JSON-based mappings. The first type, **device mappings**, is responsible for mapping the device payloads sent to the MedTech service device message event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
 The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings**, controls the mapping for FHIR resource. The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
