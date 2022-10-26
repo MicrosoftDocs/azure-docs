@@ -29,7 +29,6 @@ To request an increase in quota amounts for your container app, [submit a suppor
 
 ## Considerations
 
-* Pay-as-you-go and trial subscriptions are limited to 1 environment per region per subscription.
 * If an environment runs out of allowed cores:
   * Provisioning times out with a failure
   * The app silently refuses to scale out
