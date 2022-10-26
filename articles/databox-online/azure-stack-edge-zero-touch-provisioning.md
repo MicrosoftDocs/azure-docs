@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/21/2022
+ms.date: 10/26/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. This method enables automated, standardized device configuration of one or more devices before they're activated.
+This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. You can automate and standardized device configuration of one or more devices before they're activated.
 
 Use this method as an alternative to the local web user interface setup sequence. You can run as many rounds of device configuration as necessary, until the device is activated. After device activation, use the Azure portal user interface or the device local web user interface to modify device configuration.
 
@@ -26,7 +26,7 @@ Use this method as an alternative to the local web user interface setup sequence
 
 ## About device setup and configuration
 
-Device setup and configuration include declarations that define the configuration for that device using a root-level "Device" identifier. Declarations supported for Azure Stack Edge devices include:
+Device setup and configuration declarations define the configuration for that device using a root-level "Device" identifier. Declarations supported for Azure Stack Edge devices include:
 - Device endpoint
 - Password
 - Certificates
@@ -57,9 +57,9 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 Before you begin, make sure that you:
 
 1. Have a client running Windows 10 or later, or Windows Server 2016 or later.
-1. Your client is running PowerShell version 5.1 or later.
+1. Are running PowerShell version 5.1 or later.
 1. Are connected to the local web UI of an Azure Stack Edge device. For more information, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
-1. Download the [PowerShell module](https://aka.ms/aseztp-ps).
+1. Have downloaded the [PowerShell module](https://aka.ms/aseztp-ps).
 
 ## Import the module and sign into the device
 
@@ -168,7 +168,7 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | To-json
    ```
 
-1. Save the device configuration to the local system as a JSON file.
+1. Save the device configuration as a JSON file.
 
    ```azurepowershell
    Get-DeviceConfiguration | To-json | Out-File "<Local path>\TestConfig2.json"
@@ -183,7 +183,7 @@ Once a config.json file has been created, as in the previous example, with the d
 > [!NOTE]
 > Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
 
-This sequence of PowerShell cmdlets signs into the device, applies the device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
+This sequence of PowerShell cmdlets signs into the device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
 Run the following cmdlets in PowerShell:
 
@@ -237,7 +237,7 @@ Run the following cmdlets in PowerShell:
    $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
    ```
 
-1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
+1. Monitor status of the operation. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
    Get-DeviceConfigurationStatus | To-json
@@ -284,7 +284,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
    ```
 
-1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
+1. Monitor status of the operation. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
    Get-DeviceConfigurationStatus | To-json
@@ -319,7 +319,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 ## Quickly fetch or change device configuration settings
 
-Use the following steps to sign into the device, fetch the status of the webProxy properties, set the webProxy properties to “isEnabled = true” and set the webProxy URI, and then fetch the status of the changed webProxy properties. After running the package, verify the new device configuration.
+Use the following steps to sign into the device, fetch the status of the webProxy properties, set the webProxy property to “isEnabled = true” and set the webProxy URI, and then fetch the status of the changed webProxy properties. After running the package, verify the new device configuration.
 
 1. Sign into the device.
 
@@ -351,7 +351,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    password       :
    ```
 
-1. Set the webProxy properties to “isEnabled = true” and set the webProxy URI.
+1. Set the webProxy property to “isEnabled = true” and set the webProxy URI.
 
    ```azurepowershell
    $p.device.webproxy.isEnabled = $true
@@ -376,13 +376,13 @@ Use the following steps to sign into the device, fetch the status of the webProx
    password       :
    ```
 
-1. Run the package with the updated webProxy properties.
+1. Run the package with updated webProxy properties.
 
    ```azurepowershell
    $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
    ```
 
-1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
+1. Monitor status of the operation. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
    Get-DeviceConfigurationStatus | To-json
@@ -408,7 +408,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
 
 ## Run device diagnostics
 
-Use the following steps to sign into the device and run device diagnostics to verify status after you apply a device setup configuration package.
+Use the following steps to sign into the device and run device diagnostics to verify status after you apply a device configuration package.
 
 1. Sign into the device.
 
