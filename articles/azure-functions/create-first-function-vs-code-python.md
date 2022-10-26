@@ -126,7 +126,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     ```
 
-    This tells the local Functions host to use the storage emulator for the storage connection currently required by the v2 model. When you publish your project to Azure, you'll instead use the default storate account. If you're instead using an Azure Storage account, set your storage account connection string here.
+    This tells the local Functions host to use the storage emulator for the storage connection currently required by the v2 model. When you publish your project to Azure, you'll instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.
 
 ## Start the emulator
 

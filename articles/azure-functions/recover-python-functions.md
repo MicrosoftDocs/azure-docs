@@ -10,7 +10,7 @@ zone_pivot_groups: python-mode-functions
 
 # Troubleshoot Python errors in Azure Functions
 
-This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Please choose your desired model from the seletor at the top of the article. The v2 model is currently in preview. For more information on Python programming models, see the [Python developer guide](./functions-reference-python.md). 
+This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Choose your desired model from the selector at the top of the article. The v2 model is currently in preview. For more information on Python programming models, see the [Python developer guide](./functions-reference-python.md). 
 
 The following is a list of troubleshooting sections for common issues in Python functions:
 
@@ -268,7 +268,7 @@ This specific error may ready:
 > `DurableTask.Netherite.AzureFunctions: Could not load file or assembly 'Microsoft.Azure.WebJobs.Extensions.DurableTask, Version=2.0.0.0, Culture=neutral, PublicKeyToken=014045d636e89289'.`
 > `The system cannot find the file specified.`
 
-The reason this error may be occuring is because of an issue with how the extension bundle was cached. To detect if this is the issue, you can run the command with `--verbose` to see more details. 
+The reason this error may be occurring is because of an issue with how the extension bundle was cached. To detect if this is the issue, you can run the command with `--verbose` to see more details. 
 
 > `func host start --verbose`
 
@@ -310,7 +310,7 @@ You may see this error in your local output as the following message:
 > `Value cannot be null. (Parameter 'provider')`
 
 This error is a result of how extensions are loaded from the bundle locally. To resolve this error, you can do one of the following:
-* Use a storage emulator such as [Azurerite](../storage/common/storage-use-azurite.md). This is a good option when you aren't planning to use a storage account in your function application.
+* Use a storage emulator such as [Azurite](../storage/common/storage-use-azurite.md). This is a good option when you aren't planning to use a storage account in your function application.
 * Create a storage account and add a connection string to the `AzureWebJobsStorage` environment variable in `localsettings.json`. Use this option when you are using a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Issue with Deployment

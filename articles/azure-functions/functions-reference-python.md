@@ -66,7 +66,7 @@ Use the Python annotations included in the [azure.functions.*](/python/api/azure
 ::: zone pivot="python-mode-decorators" 
 Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method in the `function_app.py` file.
 
-Triggers and bindings can be declared and used in a function in a decorator based approach. They are defined in the same file, `function_app.py`, as the functions. As an example, the below _function_app.py_ file represents a function trigger by an HTTP request.
+Triggers and bindings can be declared and used in a function in a decorator based approach. They're defined in the same file, `function_app.py`, as the functions. As an example, the below _function_app.py_ file represents a function trigger by an HTTP request.
 
 ```python
 @app.function_name(name="HttpTrigger1")
@@ -90,20 +90,20 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-At this time, only specific triggers and bindings are supported by the V2 programming model. Supported triggers and bindings are as follows.
+At this time, only specific triggers and bindings are supported by the v2 programming model. Supported triggers and bindings are as follows.
 
 | Type | Trigger | Input Binding | Output Binding |
 | --- | --- | --- | --- |
 | HTTP | x |   |   |
 | Timer | x |   |   |
-| Queue | x |   | x |
-| Service Bus Topic | x |   | x |
-| Service Bus Queue | x |   | x |
-| CosmosDB | x | x | x |
-| Blob | x | x | x |
-| Event Grid | x |   | x |
+| Azure Queue Storage | x |   | x |
+| Azure Service Bus Topic | x |   | x |
+| Azure Service Bus Queue | x |   | x |
+| Azure Cosmos DB | x | x | x |
+| Azure Blob Storage | x | x | x |
+| Azure Event Grid | x |   | x |
 
-To learn about known limitations with the V2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
+To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
 
 ## Alternate entry point
@@ -189,7 +189,7 @@ The main project folder (<project_root>) can contain the following files:
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
 * *.vscode/*: (Optional) Contains store VSCode configuration. To learn more, see [VSCode setting](https://code.visualstudio.com/docs/getstarted/settings).
 * *function_app.py*: This is the default location for all functions and their related triggers and bindings.
-* *additional_functions.py*: (Optional) Any additional Python files that contain functions (usually for logical grouping) that are referenced in `function_app.py` through blueprints.
+* *additional_functions.py*: (Optional) Any other Python files that contain functions (usually for logical grouping) that are referenced in `function_app.py` through blueprints.
 * *tests/*: (Optional) Contains the test cases of your function app.
 * *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains `.vscode/` to ignore your editor setting, `.venv/` to ignore local Python virtual environment, `tests/` to ignore test cases, and `local.settings.json` to prevent local app settings being published.
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
@@ -203,7 +203,7 @@ When you deploy your project to a function app in Azure, the entire contents of 
 ::: zone pivot="python-mode-decorators"
 ## Blueprints
 
-The v2 programming model introduces the concept of _blueprints_. A blueprint is a new class instantiated to register functions ourside of the core function application. The functions registered in blueprint instances are not indexed directly by function runtime. To get these blueprint functions indexed, the function app needs to register the functions from blueprint instances.
+The v2 programming model introduces the concept of _blueprints_. A blueprint is a new class instantiated to register functions outside of the core function application. The functions registered in blueprint instances aren't indexed directly by function runtime. To get these blueprint functions indexed, the function app needs to register the functions from blueprint instances.
 
 Using blueprints provides the following benefits:
 
@@ -380,20 +380,20 @@ def main(req: func.HttpRequest,
 
 When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the storage account specified is the connection string found in the AzureWebJobsStorage app setting, which is the same storage account used by the function app.
 
-Note that at this time, only specific triggers and bindings are supported by the V2 programming model. Supported triggers and bindings are as follows.
+At this time, only specific triggers and bindings are supported by the v2 programming model. Supported triggers and bindings are as follows.
 
 | Type | Trigger | Input Binding | Output Binding |
 | --- | --- | --- | --- |
 | HTTP | x |   |   |
 | Timer | x |   |   |
-| Queue | x |   | x |
-| Service Bus Topic | x |   | x |
-| Service Bus Queue | x |   | x |
-| CosmosDB | x | x | x |
-| Blob | x | x | x |
-| Event Grid | x |   | x |
+| Azure Queue Storage | x |   | x |
+| Azure Service Bus topic | x |   | x |
+| Azure Service Bus queue | x |   | x |
+| Azure Cosmos DB | x | x | x |
+| Azure Blob Storage | x | x | x |
+| Azure Event Grid | x |   | x |
 
-To learn more about defining triggers and bindings in the V2 model, see this [documentation](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
+To learn more about defining triggers and bindings in the v2 model, see this [documentation](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
 
 ::: zone-end
 
@@ -582,7 +582,7 @@ In the previous examples, a binding name `req` is used. This parameter is an [Ht
 
 From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body.
 
-The following example is from the the HTTP trigger template for Python V2 programming model. It is the sample code provided when you create a function from Core Tools or VS Code.
+The following example is from the HTTP trigger template for Python v2 programming model. It's the sample code provided when you create a function from Core Tools or VS Code.
 
 ```python
 @app.function_name(name="HttpTrigger1")
@@ -715,7 +715,7 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-You can leverage ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. The following examples demonstrate how to do so.
+You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions, which is shown in the following example: 
 
 # [ASGI](#tab/asgi)
 
@@ -872,15 +872,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For local development, application settings are [maintained in the local.settings.json file](functions-develop-local.md#local-settings-file).
 
-Note that when using the new programming model, the following app setting needs to be enabled in the file `localsettings.json` as follows.
+When using the new programming model, the following app setting needs to be enabled in the file `localsettings.json` as follows.
 
 ```json
 "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
 ```
 
-When deploying the function, this setting will not be automatically imported- the flag must be declated in Azure for the function application to run using the V2 model.
+When deploying the function, this setting won't be automatically created. You must explicitly create this setting in your function app in Azure for it to run using the v2 model.
 
-Multiple Python workers are not supported in V2 at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than 1 is not supported for the functions using the V2 model.
+Multiple Python workers aren't supported in v2 at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than 1 isn't supported for the functions using the v2 model.
 
 ::: zone-end
 
@@ -904,55 +904,9 @@ The runtime uses the available Python version, when you run it locally.
 
 To set a Python function app to a specific language version, you  need to specify the language and the version of the language in `LinuxFxVersion` field in site config. For example, to change Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
 
-To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md)
+To learn how to view and change the `linuxFxVersion` site setting, see [How to target Azure Functions runtime versions](set-runtime-version.md#manual-version-updates-on-linux).  
 
-To see the full list of supported Python versions functions apps, refer to this [article](./supported-languages.md)
-
-# [Azure CLI](#tab/azurecli-linux)
-
-You can view and set the `linuxFxVersion` from the Azure CLI.  
-
-Using the Azure CLI, view the current `linuxFxVersion` with the [az functionapp config show](/cli/azure/functionapp/config) command.
-
-```azurecli-interactive
-az functionapp config show --name <function_app> \
---resource-group <my_resource_group>
-```
-
-In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. 
-
-You see the `linuxFxVersion` in the following output, which has been truncated for clarity:
-
-```output
-{
-  ...
-  "kind": null,
-  "limits": null,
-  "linuxFxVersion": <LINUX_FX_VERSION>,
-  "loadBalancing": "LeastRequests",
-  "localMySqlEnabled": false,
-  "location": "West US",
-  "logsDirectorySizeLimit": 35,
-   ...
-}
-```
-
-You can update the `linuxFxVersion` setting in the function app with the [az functionapp config set](/cli/azure/functionapp/config) command.
-
-```azurecli-interactive
-az functionapp config set --name <FUNCTION_APP> \
---resource-group <RESOURCE_GROUP> \
---linux-fx-version <LINUX_FX_VERSION>
-```
-
-Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the Python version you want to use, prefixed by `python|` for example, `python|3.9`.
-
-You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
-
-The function app restarts after the change is made to the site config.
-
---- 
-
+For more general information, see the [Azure Functions runtime support policy](./language-support-policy.md) and [Supported languages in Azure Functions](./supported-languages.md).
 
 ## Package management
 
@@ -976,7 +930,7 @@ Project files and folders that are excluded from publishing, including the virtu
 
 There are three build actions supported for publishing your Python project to Azure: remote build, local build, and builds using custom dependencies.
 
-You can also use Azure Pipelines to build your dependencies and publish using continuous delivery (CD). To learn more, see [Continuous delivery by using Azure DevOps](functions-how-to-azure-devops.md).
+You can also use Azure Pipelines to build your dependencies and publish using continuous delivery (CD). To learn more, see [Continuous delivery with Azure Pipelines](functions-how-to-azure-devops.md).
 
 ### Remote build
 
@@ -1002,7 +956,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
-When you use the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, you can't get requirements.txt file by Core Tools, you must use the custom dependencies option for publishing.
+When you use the `--build local` option, project dependencies are read from the requirements.txt file, and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, you can't get requirements.txt file by Core Tools, you must use the custom dependencies option for publishing.
 
 We don't recommend using local builds when developing locally on Windows.
 
@@ -1273,7 +1227,6 @@ For a list of preinstalled system libraries in Python worker Docker images, see 
 
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
-| Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
 | Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## Python worker extensions  
@@ -1404,7 +1357,7 @@ Following is a list of troubleshooting guides for common issues:
 
 Following is a list of troubleshooting guides for known issues with the v2 programming model:
 
-* [Could not load file or assembly](recover-python-functions.md#troubleshoot-could-not-load-file-or-assembly)
+* [Couldn't load file or assembly](recover-python-functions.md#troubleshoot-could-not-load-file-or-assembly)
 * [Unable to resolve the Azure Storage connection named Storage](recover-python-functions.md#troubleshoot-unable-to-resolve-the-azure-storage-connection).
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
