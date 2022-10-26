@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/12/2022
+ms.date: 10/25/2022
 ms.author: victorh
 ---
 
@@ -51,24 +51,32 @@ A rule belongs to a rule collection, and it specifies which traffic is allowed o
 
 For application rules, the traffic is processed by our built-in [infrastructure rule collection](infrastructure-fqdns.md) before it's denied by default.
 
+### Inbound vs. outbound
+
+An **inbound** firewall rule protects your network from threats that originate from outside your network (traffic sourced from the Internet) and attempts to infiltrate your network inwardly.
+
+An **outbound** firewall rule protects against nefarious traffic that originates internally (traffic sourced from a private IP address within Azure) and travels outwardly. This is usually traffic from within Azure resources being redirected via the Firewall before reaching a destination.
+
+### Rule types
+
 There are three types of rules:
 
 - DNAT
 - Network
 - Application
 
-### DNAT rules
+#### DNAT rules
 
 DNAT rules allow or deny inbound traffic through the firewall public IP address(es). 
 You can use a DNAT rule when you want a public IP address to be translated into a private IP address. The Azure Firewall public IP addresses can be used to listen to inbound traffic from the Internet, filter the traffic and translate this traffic to internal resources in Azure.
 
-### Network rules
+#### Network rules
 
 Network rules allow or deny inbound, outbound, and east-west traffic based on the network layer (L3) and transport layer (L4).  
 You can use a network rule when you want to filter traffic based on IP addresses, any ports, and any protocols.
 
 
-### Application rules
+#### Application rules
 
 Application rules allow or deny outbound and east-west traffic based on the application layer (L7). 
 You can use an application rule when you want to filter traffic based on fully qualified domain names (FQDNs), URLs, and HTTP/HTTPS protocols. 
