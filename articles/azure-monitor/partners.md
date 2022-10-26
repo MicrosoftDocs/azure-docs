@@ -4,13 +4,15 @@ description: Learn about partners for Azure Monitor and how you can access docum
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/27/2022
 ms.reviewer: robb
 ---
 
 # Azure Monitor partner integrations
 
 The following partner products integrate with Azure Monitor. They're listed in alphabetical order. 
+
+This is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate additional appropropriate partners. 
 
 ## AIMS
 
