@@ -1,7 +1,7 @@
 ---
 title: Create branching in user journey by using Azure AD B2C custom policies 
 titleSuffix: Azure AD B2C
-description: Learn how to enable or disable Technical Profiles based on claims values. Learn how to branch in user journeys by using pre-conditions.      
+description: Learn how to enable or disable Technical Profiles based on claims values. Learn how to branch in user journeys.      
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -23,10 +23,11 @@ Technical Profiles also provides a `EnabledForUserJourneys` element to allow you
 
 ## Scenario overview
 
-In [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), a user needs to select either *Contoso Employee Account* or *Personal Account*. Users who select *Contoso Employee Account* can proceed without providing further information. They just need to use a valid email address. However, users who select *Personal Account* needs to provide a valid invitation access code to proceed. Hence, users who use *Personal Account* account see an extra screen to complete their journey.  
+In [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), a user needs to select either *Contoso Employee Account* or *Personal Account*. Users who select *Contoso Employee Account* can proceed without providing further information, they just need to use a valid email address. However, users who select *Personal Account* needs to provide a valid invitation access code to proceed. Hence, users who use *Personal Account* account type see an extra screen to complete their journey.  
 
-<<include decision flow chart HERE>>
+:::image type="content" source="media/custom-policies-series-branch-in-user-journey-using-pre-conditions/screenshot-of-branching-in-user-journey.png" alt-text="screenshot-of-branching-in-user-journey.":::
 
+In this article, you'll learn how to use `EnabledForUserJourneys` element inside a technical profile to create different user experiences based on a claim value. 
 
 ## Prerequisites
 
