@@ -31,7 +31,7 @@ To use spell check, you'll need the following:
 
 + [A query request](/rest/api/searchservice/preview-api/search-documents) that has "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages). Spell check works on strings passed in the "search" parameter. It's not supported for filters.
 
-Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
+Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), another web client, or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
 
 | Client library | Versions |
 |----------|----------|
