@@ -81,14 +81,14 @@ To enable the authentication method for passwordless phone sign-in, complete the
    >[!NOTE]
    >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
 
-## User registration and management of Microsoft Authenticator
+## User registration 
 
 Users register themselves for the passwordless authentication method of Azure AD by using the following steps:
 
 1. Browse to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 1. Sign in, then click **Add method** > **Authenticator app** > **Add** to add Microsoft Authenticator.
 1. Follow the instructions to install and configure the Microsoft Authenticator app on your device.
-1. Select **Done** to complete Authenticator configuration.
+1. Select **Done** to complete Microsoft Authenticator configuration.
 1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the drop-down menu for the account registered.
 1. Follow the instructions in the app to finish registering the account for passwordless phone sign-in.
 
@@ -99,11 +99,10 @@ An organization can direct its users to sign in with their phones, without using
 
 ## Sign in with passwordless credential
 
-A user can start to utilize passwordless sign-in after all the following actions are completed:
+A user can start using passwordless sign-in after all the following actions are completed:
 
 - An admin has enabled the user's tenant.
 - The user has added Microsoft Authenticator as a sign-in method.
-
 
 The first time a user starts the phone sign-in process, the user performs the following steps:
 
@@ -117,6 +116,15 @@ The user is then presented with a number. The app prompts the user to authentica
 After the user has utilized passwordless phone sign-in, the app continues to guide the user through this method. However, the user will see the option to choose another method.
 
 :::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/number.png" alt-text="Screenshot that shows an example of a browser sign-in using the Microsoft Authenticator app.":::
+
+
+## Management
+
+The Authentication methods policy is the recommended way to manage Microsoft Authenticator. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can edit this policy to enable or disable Microsoft Authenticator. Admins can include or exclude specific users and groups from using it. 
+
+Admins can also configure parameters to better control how Microsoft Authenticator can be used. For example, they can add location or app name to the sign-in request so users have greater context before they approve.  
+
+Global Administrators can also manage Microsoft Authenticator on a tenant-wide basis by using legacy MFA and SSPR policies. These policies allow Microsoft Authenticator to be enabled or disabled for all users in the tenant. There are no options to include or exclude anyone, or control how Microsoft Authenticator can be used for sign-in. 
 
 ## Known Issues
 
