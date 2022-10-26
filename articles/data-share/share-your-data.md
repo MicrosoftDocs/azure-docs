@@ -210,11 +210,11 @@ Use these commands to create the resource:
 
 1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you'll be prompted for authentication method to list tables. Select Azure Active Directory authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
-   :::image type="content" source="./media/add-datasets-updated.png" alt-text="Screenshot showing the available dataset types.":::
+   :::image type="content" source="./media/add-datasets.png" alt-text="Screenshot showing the available dataset types.":::
 
 1. Navigate to the object you would like to share and select 'Add Datasets'.
 
-   :::image type="content" source="./media/select-datasets.png" alt-text="Screenshot of the select datasets page, showing a folder selected."":::
+   :::image type="content" source="./media/select-datasets.png" alt-text="Screenshot of the select datasets page, showing a folder selected.":::
 
 1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'.
 
