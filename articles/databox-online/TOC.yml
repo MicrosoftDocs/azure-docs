@@ -380,9 +380,7 @@
           - name: Enable Arc on Kubernetes cluster
             href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
           - name: Deploy stateless app via GitOps
-            href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
-          - name: Deploy Azure Arc Data Controller
-            href: azure-stack-edge-gpu-deploy-arc-data-controller.md 
+            href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
       - name: How to
         items:
         - name: Configure MetalLB
