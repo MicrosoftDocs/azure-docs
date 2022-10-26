@@ -1,12 +1,12 @@
---- 
+---
 title: Create Data Assets
 titleSuffix: Azure Machine Learning
-description: Learn how to create Azure Machine Learning data assets. As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
+description: Learn how to create Azure Machine Learning data assets
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: contperf-fy21q1, data4ml, sdkv1, ignite-2022
+ms.custom: data4ml, ignite-2022
 ms.author: xunwan
 author: xunwan
 ms.reviewer: nibaccam
