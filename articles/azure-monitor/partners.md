@@ -384,9 +384,9 @@ For more information, see the [Turbonomic introduction](https://turbonomic.com/)
 
 ![Zenduty logo.](./media/partners/zenduty.png)
 
-Zenduty is a novel collaborative incident management platform providing end-to-end incident alerting, on-call management and response orchestration, giving teams greater control and automation over the incident management lifecycle. Zenduty is ideal for always-on services, helping teams orchestrate incident response for creating better user experiences and brand value, centralising all incoming alerts through predefined notification rules to ensure that the right people are notified at the right time.
+Zenduty is a novel collaborative incident management platform that provides end-to-end incident alerting, on-call management, and response orchestration, which gives teams greater control and automation over the incident management lifecycle. Zenduty is ideal for always-on services, helping teams orchestrate incident response for creating better user experiences and brand value and centralizing all incoming alerts through predefined notification rules to ensure that the right people are notified at the right time.
 
-Zenduty provides your NOC, SRE and application engineers with detailed context around the Azure Monitor alert along with playbooks and a complete incident command framework to triage, remediate and resolve incidents with speed.
+Zenduty provides your NOC, SRE, and application engineers with detailed context around the Azure Monitor alert along with playbooks and a complete incident command framework to triage, remediate, and resolve incidents with speed.
 
 For more information, see the [Zenduty documentation](https://docs.zenduty.com/docs/microsoftazure).
 
