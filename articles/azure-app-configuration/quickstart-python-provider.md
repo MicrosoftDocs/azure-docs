@@ -11,7 +11,7 @@ ms.date: 10/21/2022
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Create a Python app with Azure App Configuration Python provider
+# Quickstart: Create a Python app with the Azure App Configuration Python provider
 
 In this quickstart, you will use the Python provider for Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration Python provider client library](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider).
 
@@ -20,7 +20,7 @@ The Python App Configuration provider is a library running on top of the Azure S
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Create an App Configuration store
 
@@ -95,7 +95,7 @@ The Python App Configuration provider is a library running on top of the Azure S
 
 ## Configure your App Configuration connection string
 
-1. Set an environment variable named **AZURE_APP_CONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
+1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
