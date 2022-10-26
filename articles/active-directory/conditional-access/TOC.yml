@@ -37,16 +37,22 @@
     href: concept-conditional-access-report-only.md
   - name: Service dependencies
     href: service-dependencies.md
+  - name: Filter for applications
+    href: concept-filter-for-applications.md
   - name: Location conditions
     href: location-condition.md
   - name: Workload identities
     href: workload-identity.md
+  - name: Continuous access evaluation
+    items:
+    - name: CAE for users
+      href: concept-continuous-access-evaluation.md
+    - name: CAE for workload identities
+      href: concept-continuous-access-evaluation-workload.md
   - name: Filter for devices
     href: concept-condition-filters-for-devices.md
   - name: What if tool
     href: what-if-tool.md
-  - name: Continuous access evaluation
-    href: concept-continuous-access-evaluation.md
 - name: How-to guides
   expanded: true
   items:
@@ -78,6 +84,10 @@
       href: howto-conditional-access-policy-location.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
+    - name: Require MFA for Intune enrollment
+      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
+    - name: Require authentication strength for external users
+      href: howto-conditional-access-policy-authentication-strength-external.md
   - name: Configure resilience defaults
     href: resilience-defaults.md
   - name: Configure report only mode
@@ -115,13 +125,13 @@
   - name: Beta Graph APIs
     items: 
     - name: conditionalAccessPolicy API
-      href: /graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta
+      href: /graph/api/resources/conditionalaccesspolicy
     - name: namedLocation API
-      href: /graph/api/resources/namedlocation?view=graph-rest-beta
+      href: /graph/api/resources/namedlocation
     - name: countryNamedLocation API
-      href: /graph/api/resources/countrynamedlocation?view=graph-rest-beta
+      href: /graph/api/resources/countrynamedlocation
     - name: ipNamedLocation API
-      href: /graph/api/resources/ipnamedlocation?view=graph-rest-beta
+      href: /graph/api/resources/ipnamedlocation
 - name: Resources
   items:
   - name: Azure feedback forum

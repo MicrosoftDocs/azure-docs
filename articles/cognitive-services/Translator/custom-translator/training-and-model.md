@@ -1,5 +1,5 @@
 ---
-title: "Legacy: What are trainings and modeling? - Custom Translator"
+title: "Legacy: What are training and modeling? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: A model is the system, which provides translation for a specific language pair. The outcome of a successful training is a model. To train a model, three mutually exclusive data sets are required training dataset, tuning dataset, and testing dataset.
 author: laujan
@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/06/2021
 ms.author: lajanuar
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to concept of a model and training, so that I can efficiently use training, tuning and testing datasets the helps me build a translation model.
 ---
 

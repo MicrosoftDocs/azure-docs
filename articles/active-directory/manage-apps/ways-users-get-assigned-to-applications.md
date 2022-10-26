@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: ergreenl
-ms.reviewer: davidmu
 ---
 
 # Understand how users are assigned to apps

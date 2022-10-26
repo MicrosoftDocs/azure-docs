@@ -1,8 +1,10 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 09/01/2021
+ms.date: 08/29/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy definition structure
 
@@ -135,24 +137,16 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
-  custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to create a
-  custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
-  GateKeeper v3
-  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use
   of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
-The following Resource Provider mode is currently supported as a **preview**:
+The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
-- `Microsoft.ContainerService.Data` for managing admission controller rules on
-  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
-  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
-  mode is _deprecated_.
+- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -172,7 +166,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
   _deprecated_.
-- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input. 
+- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input.
 
 > [!NOTE]
 > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
@@ -216,10 +210,14 @@ A parameter has the following properties that are used in the policy definition:
     the assignment scope. There's one role assignment per role definition in the policy (or per role
     definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
-- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
-  Required when updating an existing policy definition that is assigned.
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment. Allowed value comparisons are case-sensitive.
+  assignment. Allowed value comparisons are case-sensitive. For oject-type parameters, the values must match the appropriate schema.
+- `schema`: (Optional) Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the [Json.NET Schema](https://www.newtonsoft.com/jsonschema) 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+
+### Sample Parameters
+
+#### Example 1
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter would
@@ -242,6 +240,100 @@ be used by each assignment of the policy definition to limit the accepted values
             "westus"
         ]
     }
+}
+```
+
+A sample input for this array-type parameter (without strongType) at assignment time might be ["westus", "eastus2"].
+
+#### Example 2
+
+In a more advanced scenario, you could define a policy that requires Kubernetes cluster pods to use specified labels. A parameter for that policy definition could be **labelSelector**, which would be used by each assignment of the policy definition to specify Kubernetes resources in question based on label keys and values:
+
+```json
+"parameters": {
+    "labelSelector": {
+        "type": "Object",
+        "metadata": {
+            "displayName": "Kubernetes label selector",
+            "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."
+        },
+        "defaultValue": {},
+        "schema": {
+            "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all resources.",
+            "type": "object",
+            "properties": {
+                "matchLabels": {
+                    "description": "matchLabels is a map of {key,value} pairs.",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "minProperties": 1
+                },
+                "matchExpressions": {
+                    "description": "matchExpressions is a list of values, a key, and an operator.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "description": "key is the label key that the selector applies to.",
+                                "type": "string"
+                            },
+                            "operator": {
+                                "description": "operator represents a key's relationship to a set of values.",
+                                "type": "string",
+                                "enum": [
+                                    "In",
+                                    "NotIn",
+                                    "Exists",
+                                    "DoesNotExist"
+                                ]
+                            },
+                            "values": {
+                                "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty.",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "operator"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "minItems": 1
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+}
+```
+
+A sample input for this object-type parameter at assignment time would be in JSON format, validated by the specified schema, and might be:
+
+```json
+{
+    "matchLabels": {
+        "poolID": "abc123",
+        "nodeGroup": "Group1",
+        "region": "southcentralus"
+    },
+    "matchExpressions": [
+        {
+            "key": "name",
+            "operator": "In",
+            "values": ["payroll", "web"]
+        },
+        {
+            "key": "environment",
+            "operator": "NotIn",
+            "values": ["dev"]
+        }
+    ]
 }
 ```
 

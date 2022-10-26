@@ -136,6 +136,13 @@ All prices shown below are in USD.
 Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
 
 ***
+## Direct routing pricing
+For Azure Communication Services direct routing there is a flat rate regardless of the geography:
+
+|Number type   |To make calls |To receive calls|
+|--------------|-----------|------------|
+|Direct routing|USD 0.0040/min|USD 0.0040/min        |
+
 ## Next steps
 
 In this quickstart, you learned how Telephony (PSTN) Offers are priced for Azure Communication Services.

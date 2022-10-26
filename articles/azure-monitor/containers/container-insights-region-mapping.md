@@ -4,6 +4,7 @@ description: Describes the region mappings supported between Container insights,
 ms.topic: conceptual
 ms.date: 05/27/2022
 ms.custom: references_regions
+ms.reviewer: aul
 ---
 
 # Region mappings supported by Container insights

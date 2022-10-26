@@ -7,7 +7,7 @@ ms.author: benmansheim
 author: bmansheim
 ---
 
-# Introduction to Microsoft Defender for DNS
+# Overview of Microsoft Defender for DNS
 
 Microsoft Defender for DNS provides an additional layer of protection for resources that use Azure DNS's [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) capability. 
 
@@ -38,27 +38,6 @@ A full list of the alerts provided by Microsoft Defender for DNS is on the [aler
 Microsoft Defender for DNS doesn't use any agents. 
 
 To protect your DNS layer, enable Microsoft Defender for DNS for each of your subscriptions as described in [Enable enhanced protections](enable-enhanced-security.md).
-
-
-## Respond to Microsoft Defender for DNS alerts
-
-When you receive an alert from Microsoft Defender for DNS, we recommend you investigate and respond to the alert as described below. Microsoft Defender for DNS protects all connected resources, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
-
-
-### Step 1. Contact
-
-1. Contact the resource owner to determine whether the behavior was expected or intentional.
-1. If the activity is expected, dismiss the alert.
-1. If the activity is unexpected, treat the resource as potentially compromised and mitigate as described in the next step.
-
-### Step 2. Immediate mitigation 
-
-1. Isolate the resource from the network to prevent lateral movement.
-1. Run a full antimalware scan on the resource, following any resulting remediation advice.
-1. Review installed and running software on the resource, removing any unknown or unwanted packages.
-1. Revert the machine to a known good state, reinstalling the operating system if required, and restore software from a verified malware-free source.
-1. Resolve any Microsoft Defender for Cloud recommendations for the machine, remediating highlighted security issues to prevent future breaches.
-
 
 ## Next steps
 

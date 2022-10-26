@@ -3,14 +3,14 @@ title: Azure Traffic Analytics supported regions | Microsoft Docs
 description: This article provides the list of Traffic Analytics supported regions.
 services: network-watcher
 documentationcenter: na
-author: v-ssenthilna
+author: jyothisuri
 
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2022
-ms.author: v-ssenthilna
+ms.author: jsuri
 ms.custon: references_regions
 
 ---
@@ -25,7 +25,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
       Australia East  
       Australia Southeast  
       Brazil South  
-      Brazil Southeast
+      Brazil Southeast  
       Canada Central  
       Canada East  
       Central India  
@@ -45,11 +45,11 @@ You can use traffic analytics for NSGs in any of the following supported regions
       Japan West  
       Korea Central  
       Korea South  
-      North Central US	
+      North Central US  
       North Europe   
    :::column-end:::
    :::column span="":::
-      Norway East
+      Norway East  
       South Africa North  
       South Central US  
       South India  
@@ -86,7 +86,7 @@ The Log Analytics workspace must exist in the following regions:
       Australia East  
       Australia Southeast  
       Brazil South  
-      Brazil Southeast 
+      Brazil Southeast  
       Canada East  
       Canada Central  
       Central India  

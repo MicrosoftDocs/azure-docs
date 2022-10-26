@@ -2,18 +2,18 @@
 title: Use the Azure Tables client library for Java
 description: Store structured data in the cloud using the Azure Tables client library for Java.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 12/10/2020
-author: sakash279
-ms.author: akshanka
-ms.custom: devx-track-java
+author: seesharprun
+ms.author: sidandrews
+ms.custom: devx-track-java, ignite-2022
 ---
 
 # How to use the Azure Tables client library for Java
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -21,7 +21,7 @@ ms.custom: devx-track-java
 This article shows you how to create tables, store your data, and perform CRUD operations on said data. The samples are written in Java and use the [Azure Tables client library for Java][Azure Tables client library for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
 
 > [!IMPORTANT]
-> The last version of the Azure Tables client library supporting Table Storage and Cosmos DB Table is [12+][Azure Tables client library for Java].
+> The last version of the Azure Tables client library supporting Table Storage and Azure Cosmos DB Table is [12+][Azure Tables client library for Java].
 
 ## Create an Azure service account
 
@@ -73,7 +73,7 @@ import com.azure.data.tables.models.TableTransactionActionType;
 
 ## Add your connection string
 
-You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
+You can either connect to the Azure storage account or the Azure Cosmos DB for Table account. Get the connection string based on the type of account you are using.
 
 ### Add an Azure Storage connection string
 
@@ -87,10 +87,10 @@ public final String connectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key;" +
-    "EndpointSuffix=core.windows.net;
+    "EndpointSuffix=core.windows.net";
 ```
 
-### Add an Azure Cosmos DB Table API connection string
+### Add an Azure Cosmos DB for Table connection string
 
 An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client app, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
@@ -101,7 +101,7 @@ public final String connectionString =
     "DefaultEndpointsProtocol=https;" + 
     "AccountName=your_cosmosdb_account;" + 
     "AccountKey=your_account_key;" + 
-    "TableEndpoint=https://your_endpoint;" ;
+    "TableEndpoint=https://your_endpoint;";
 ```
 
 In an app running within a role in Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*. You can access it with a call to the `System.getenv` method. Here's an example of getting the connection string from a **Setting** element named *ConnectionString* in the service configuration file:

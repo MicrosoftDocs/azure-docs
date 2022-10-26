@@ -3,6 +3,7 @@ title: HEART analytics workbook
 description: Product teams use the HEART Workbook to measure success across five user-centric dimensions to deliver better software.
 ms.topic: conceptual
 ms.date: 11/11/2021
+ms.reviewer: mmccgit
 ---
 
 # Analyzing product usage with HEART
@@ -34,7 +35,7 @@ These dimensions are measured independently, but they interact with each other a
 ## Get started
 ### Prerequisites
  - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
- - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+ - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
  - Instrument the below attributes to calculate HEART metrics:
 
   | Source          | Attribute            | Description                                |
@@ -108,7 +109,7 @@ Happiness is a user-reported dimension that measures how users feel about the pr
 
 A common approach to measure happiness is to ask users a Customer Satisfaction (CSAT) question like *How satisfied are you with this product?*. Users' responses on a three or a five-point scale (for example, *no, maybe,* and *yes*) are aggregated to create a product-level score ranging from 1-5. Since user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
 
-Common happiness metrics include values such as *Average Star Rating* and *Customer Satisfaction Score*. Send these values to Azure Monitor using one of the custom ingestion methods described in [Custom sources](../agents/data-sources.md#custom-sources).
+Common happiness metrics include values such as *Average Star Rating* and *Customer Satisfaction Score*. Send these values to Azure Monitor using one of the custom ingestion methods described in [Custom sources](../data-sources.md#custom-sources).
 
 
 
@@ -214,14 +215,14 @@ To view your saved workbook, navigate to the 'Workbooks' section under 'Monitori
 
 :::image type="content" source="media/usage-overview/workbook-view-faq.png" alt-text="Screenshot highlighting the 'Workbooks' button next to the 'Public templates' tab, where the edited copy of the workbook will be found.":::
 
-For more on editing workbook templates, refer to the [Exploring a Workbook Template](../visualize/workbooks-overview.md#exploring-a-workbook-template) page.
+For more on editing workbook templates, refer to the [Azure Workbook templates](../visualize/workbooks-templates.md) page.
 
 
  
 
 ## Next steps
 - Set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm.
-- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto Collection Plugin.
+- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
 - Learn more about [Google's HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).

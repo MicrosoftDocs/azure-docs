@@ -1,17 +1,19 @@
 ---
 title: Manage server - Azure CLI - Azure Database for MySQL
 description: Learn how to manage an Azure Database for MySQL server from the Azure CLI.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 06/20/2022
 ---
 
 # Manage an Azure Database for MySQL Single server using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article shows you how to manage your Single servers deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 

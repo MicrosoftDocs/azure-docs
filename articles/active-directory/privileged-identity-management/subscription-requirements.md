@@ -3,8 +3,8 @@ title: License requirements to use Privileged Identity Management - Azure Active
 description: Describes the licensing requirements to use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
-ms.reviewer: shaunliu
+ms.date: 07/06/2022
+ms.author: amsliu
+ms.reviewer: ilyal
 ms.custom: pim
 
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # License requirements to use Privileged Identity Management
 
-To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.
+To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have a valid license. Licenses must also be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.
 
 ## Valid licenses
 
@@ -30,10 +30,10 @@ You will need an Azure AD license to use PIM and all of it's settings. Currently
 
 ## Licenses you must have
 
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
+Ensure that your directory has Azure AD Premium P2 licenses for the following categories of users:
 
-- Users assigned as eligible to Azure AD or Azure roles managed using PIM
-- Users who are assigned as eligible members or owners of privileged access groups
+- Users with eligible and/or time-bound assignments to Azure AD or Azure roles managed using PIM
+- Users with eligible and/or time-bound assignments as members or owners of privileged access groups
 - Users able to approve or reject activation requests in PIM
 - Users assigned to an access review
 - Users who perform access reviews

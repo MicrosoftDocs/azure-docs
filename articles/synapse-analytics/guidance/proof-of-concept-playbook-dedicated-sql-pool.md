@@ -16,7 +16,7 @@ This article presents a high-level methodology for preparing and running an effe
 [!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
 > [!TIP]
-> If you're new to dedicated SQL pools, we recommend you work through the [Work with Data Warehouses using Azure Synapse Analytics](/learn/paths/work-with-data-warehouses-using-azure-synapse-analytics/) learning path.
+> If you're new to dedicated SQL pools, we recommend you work through the [Work with Data Warehouses using Azure Synapse Analytics](/training/paths/work-with-data-warehouses-using-azure-synapse-analytics/) learning path.
 
 ## Prepare for the POC
 
@@ -175,7 +175,7 @@ You can set up a POC on Azure Synapse by following these steps:
 1.	Use [this quickstart](../sql-data-warehouse/create-data-warehouse-portal.md) to provision a Synapse workspace and set up storage and permissions according to the POC test plan.
 1.	Use [this quickstart](../quickstart-create-sql-pool-portal.md) to add a dedicated SQL pool to the Synapse workspace.
 1.	Set up [networking and security](security-white-paper-introduction.md) according to your requirements. 
-1.	Grant appropriate access to POC team members. See [this article](/azure-sql/database/logins-create-manage) about authentication and authorization for accessing dedicated SQL pools.
+1.	Grant appropriate access to POC team members. See [this article](/azure/azure-sql/database/logins-create-manage) about authentication and authorization for accessing dedicated SQL pools.
 
 > [!TIP]
 > We recommend that you *develop code and unit testing* by using the DW500c service level (or below). We recommend that you *run load and performance tests* by using the DW1000c service level (or above). You can [pause compute of the dedicated SQL pool](../sql-data-warehouse/pause-and-resume-compute-portal.md) at any time to cease compute billing, which will save on costs.

@@ -58,6 +58,14 @@ You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Fun
 
 Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we will assume you have generated the function using the tutorial for Azure Blob Storage linked above.
 
+### Securing your Azure Blob Storage Container
+
+Note that the tutorial above assumes that your Azure blob storage container allows public access to the files you upload. Making your Azure storage containers public isn't recommended for real world production applications.
+
+For downloading the files you upload to Azure blob storage, you can use shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
+
+The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite) showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](../../storage/common/storage-sas-overview.md). 
+
 UI Library requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
 
 ### Set Up React App
@@ -230,7 +238,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   const fileExtension = file.name.split('.').pop();
 
   // Following is an example of calling an Azure Function to handle file upload
-  // The https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
+  // The https://learn.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
   // tutorial uses 'username' parameter to specify the storage container name.
   // Note that the container in the tutorial is private by default. To get default downloads working in
   // this sample, you need to change the container's access level to Public via Azure Portal.

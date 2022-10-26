@@ -6,12 +6,14 @@ ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-ms.date: 09/24/2021
+ms.date: 06/20/2022
 ---
 
 # Migrate Amazon RDS for MySQL to Azure Database for MySQL using Data-in Replication
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.

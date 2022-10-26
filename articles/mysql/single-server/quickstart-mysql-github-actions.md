@@ -6,13 +6,15 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
-ms.date: 05/09/2022
 ms.custom: github-actions-azure, mode-other
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/).
 

@@ -1,7 +1,6 @@
 ---
 title: Preview and subscribe to a SaaS offer in the Microsoft commercial marketplace
 description: Use Partner Center to preview and subscribe to your SaaS offer.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -55,7 +54,7 @@ If your offer is a _Contact Me_ listing, test that a lead is created as expected
 Use the following steps to preview your offer.
 
 1. Sign in to [Azure portal](https://ms.portal.azure.com/#home). Make sure you’re signed in to the Azure tenant you submitted the offer to.
-1. In Partner Center, go to the **Offer overview** page, and then select the **Azure portal preview** link under the **Go live** button.
+1. In Partner Center, go to the **Offportal.azureage, and then select the **Azure portal preview** link under the **Go live** button.
 
 ## Subscribe to a test plan
 

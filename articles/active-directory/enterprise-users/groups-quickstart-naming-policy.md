@@ -3,14 +3,14 @@ title: Group naming policy quickstart - Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro, mode-other
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Naming policy for groups in Azure Active Directory
 
-In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) organization for user-created Microsoft 365 groups, to help you sort and search your organization’s groups. For example, you could use the naming policy to:
+In this quickstart, in Azure Active Directory (Azure AD), part of Microsoft Entra, you will set up naming policy in your Azure AD organization for user-created Microsoft 365 groups, to help you sort and search your groups. For example, you could use the naming policy to:
 
 * Communicate the function of a group, membership, geographic region, or who created the group.
 * Help categorize groups in the address book.

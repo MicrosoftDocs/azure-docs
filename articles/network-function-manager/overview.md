@@ -1,11 +1,11 @@
 ---
 title: About Azure Network Function Manager
 description: Learn about Azure Network Function Manager, a fully managed cloud-native orchestration service that lets you deploy and provision network functions on Azure Stack Edge Pro with GPU for a consistent hybrid experience using the Azure portal.
-author: prmitt
+author: polarapfel
 ms.service: network-function-manager
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: prmitt
+ms.author: tobiaw
 ms.custom: ignite-fall-2021
 ---
 # What is Azure Network Function Manager?

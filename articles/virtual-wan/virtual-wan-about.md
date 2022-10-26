@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/20/2022
+ms.date: 09/22/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -117,7 +117,7 @@ Connectivity between the virtual network connections assumes, by default, a maxi
 
 Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled and BGP is supported in VPN and ExpressRoute connections. This flag can be located in the Azure Virtual WAN settings in Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
 
-### <a name="routing"></a>Custom Routing
+### <a name="routing"></a>Custom routing
 
 Virtual WAN provides advanced routing enhancements. Ability to set up custom route tables, optimize virtual network routing with route association and propagation, logically group route tables with labels and simplify numerous network virtual appliances (NVAs) or shared services routing scenarios.
 
@@ -135,26 +135,17 @@ If you have pre-existing routes in the Routing section for the hub in the Azure 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
 If you have pre-existing routes in Routing section for the hub in the Azure portal, you'll need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It's best to perform the delete step for all hubs in a virtual WAN.
 
-## Gated public preview
-
-The following features are currently in gated public preview.
-
-| Feature | Description |
-| ---------- | --------- |
-| Routing intent and policies enabling Inter-hub security | This feature allows customers to configure internet-bound, private, or inter-hub traffic flow through the Azure Firewall. For more information, see [Routing intent and policies](../virtual-wan/how-to-routing-policies.md).|
-| Hub-to-hub over ER preview link | This feature allows traffic between 2 hubs traverse through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). For more information, see [Hub-to-hub over ER preview link](virtual-wan-faq.md#expressroute-bow-tie).|
-| BGP peering with a virtual hub | This feature provides the ability for the virtual hub to pair with and directly exchange routing information through Border Gateway Protocol (BGP) routing protocol. For more information, see [BGP peering with a virtual hub](create-bgp-peering-hub-portal.md) and [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md).|
-
 ## <a name="faq"></a>FAQ
 
 For frequently asked questions, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
-## <a name="new"></a>What's new?
+## <a name="new"></a>Previews and What's new?
 
-Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
+* For information about recent releases, previews underway, preview limitations, known issues, and deprecated functionality, see [What's new?](whats-new.md)
+* Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates - Virtual WAN](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
 
 ## Next steps
 
 * [Tutorial: Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
 
-* [Learn module: Introduction to Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
+* [Learn module: Introduction to Azure Virtual WAN](/training/modules/introduction-azure-virtual-wan/)

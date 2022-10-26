@@ -2,15 +2,15 @@
 title: Add your custom domain - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add a custom domain using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/25/2019
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.reviewer: elkuzmen
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

@@ -2,12 +2,12 @@
 title: Deprecation of disaster recovery between customer-managed sites (with VMM) using Azure Site Recovery | Microsoft Docs
 description: Details about Upcoming deprecation of DR between customer owned sites using Hyper-V and between sites managed by SCVMM to Azure and alternate options
 services: site-recovery
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: sharrai 
+ms.author: v-pgaddala 
 
 ---
 # Deprecation of disaster recovery between customer-managed sites (with VMM) using Azure Site Recovery

@@ -1,30 +1,30 @@
 ---
-title: HPE ProLiant  DL20/DL20 Plus for OT monitoring in SMB deployments- Microsoft Defender for IoT
-description: Learn about the HPE ProLiant  DL20/DL20 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
+title: HPE ProLiant DL20 Gen10/DL20 Gen10 Plus (NHP 2LFF) for OT monitoring in SMB deployments- Microsoft Defender for IoT
+description: Learn about the HPE ProLiant  DL20 Gen10/DL20 Gen10 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL20/DL20 Plus for SMB deployments
+# HPE ProLiant DL20 Gen10/DL20 Gen10 Plus (NHP 2LFF) for SMB deployments
 
-This article describes the **HPE ProLiant DL20** or **HPE ProLiant DL20 Plus** appliance for OT sensors in an SBM deployment.
+This article describes the **HPE ProLiant DL20 Gen10** or **HPE ProLiant DL20 Gen10 Plus** appliance for OT sensors in an SBM deployment.
 
-The HPE ProLiant DL20 Plus is also available for the on-premises management console.
+The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises management console.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | SMB|
+|**Hardware profile** | L500|
 |**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 4x RJ45|
 |**Status** | Supported; Available as pre-configured |
 
-The following image shows a sample of the HPE ProLiant DL20 front panel:
+The following image shows a sample of the HPE ProLiant DL20 Gen10 front panel:
 
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 front panel." border="false":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 Gen10 front panel." border="false":::
 
-The following image shows a sample of the HPE ProLiant DL20 back panel:
+The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20 Gen10." border="false":::
 
 ## Specifications
 
@@ -62,9 +62,9 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-## HPE ProLiant DL20/HPE ProLiant DL20 Plus installation
+## HPE ProLiant DL20 Gen10/HPE ProLiant DL20 Gen10 Plus installation
 
-This section describes how to install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus appliance.
+This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 or HPE ProLiant DL20 Gen10 Plus appliance.
 
 Installation includes:
 
@@ -146,9 +146,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
     :::image type="content" source="../media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Screenshot that shows the second Boot Override window.":::
 
-### Install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus
+### Install Defender for IoT software on the HPE ProLiant DL20 Gen10 or HPE ProLiant DL20 Gen10 Plus
 
-This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus.
+This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 or HPE ProLiant DL20 Gen10 Plus.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
@@ -168,6 +168,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

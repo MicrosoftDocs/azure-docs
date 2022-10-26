@@ -185,4 +185,10 @@ For more information about AzCopy, see any of these articles:
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+- [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
+
+- [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
+
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

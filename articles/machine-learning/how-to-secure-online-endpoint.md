@@ -6,14 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: seramasu
-author: rsethur
-ms.date: 05/26/2022
+ms.reviewer: mopeakande
+author: jhirono
+ms.author: jhirono
+ms.date: 10/04/2022
 ms.custom: event-tier1-build-2022
 ---
 
 # Use network isolation with managed online endpoints (preview)
+
+[!INCLUDE [SDK/CLI v2](../../includes/machine-learning-dev-v2.md)]
 
 When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md). Using a private endpoint with online endpoints is currently a preview feature.
 
@@ -29,13 +31,20 @@ The following diagram shows how communications flow through private endpoints to
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and ML extension or the AzureML Python SDK v2. For more information, see the following articles:
+
+    * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+    * [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
 
 * You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
-* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](./how-to-configure-private-link.md).
 
-* The Azure Container Registry for your workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
+    The workspace can be configured to allow or disallow public network access. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access).
+
+    Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+
+* When the workspace is configured with a private endpoint, the Azure Container Registry for the workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
 
 * The Azure Container Registry and Azure Storage Account must be in the same Azure Resource Group as the workspace.
 
@@ -50,11 +59,16 @@ The following diagram shows how communications flow through private endpoints to
 ## Limitations
 
 * The `v1_legacy_mode` flag must be disabled (false) on your Azure Machine Learning workspace. If this flag is enabled, you won't be able to create a managed online endpoint. For more information, see [Network isolation with v2 API](how-to-configure-network-isolation-with-v2.md).
+
 * If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 * Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
 
 * Azure Log Analytics and Application Insights aren't supported when using network isolation with a deployment. To see the logs for the deployment, use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) command instead.
+
+* You can configure public access to a __managed online endpoint__ (_inbound_ and _outbound_). You can also configure [public access to an Azure Machine Learning workspace](how-to-configure-private-link.md#enable-public-access).
+
+    Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
 > [!NOTE]
 > Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
@@ -63,11 +77,28 @@ The following diagram shows how communications flow through private endpoints to
 
 To secure scoring requests to the online endpoint to your virtual network, set the `public_network_access` flag for the endpoint to `disabled`:
 
+# [Azure CLI](#tab/cli)
+
 ```azurecli
 az ml online-endpoint create -f endpoint.yml --set public_network_access=disabled
 ```
 
-When `public_network_access` is `disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
+# [Python SDK](#tab/python)
+
+```python
+from azure.ai.ml.entities import ManagedOnlineEndpoint
+
+endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',  
+                         description='this is a sample online endpoint', 
+                         tags={'foo': 'bar'}, 
+                         auth_mode="key", 
+                         public_network_access="disabled" 
+                         # public_network_access="enabled" 
+)
+```
+
+---
+When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
 
 ## Outbound (resource access)
 
@@ -81,9 +112,31 @@ The following are the resources that the deployment communicates with over the p
 
 When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
 
+# [Azure CLI](#tab/cli)
+
 ```azurecli
 az ml online-deployment create -f deployment.yml --set egress_public_network_access=disabled
 ```
+
+# [Python SDK](#tab/python)
+
+```python
+blue_deployment = ManagedOnlineDeployment(name='blue', 
+                                          endpoint_name='my-online-endpoint', 
+                                          model=model, 
+                                          code_configuration=CodeConfiguration(code_local_path='./model-1/onlinescoring/',
+                                                                               scoring_script='score.py'),
+                                          environment=env, 
+                                          instance_type='Standard_DS2_v2', 
+                                          instance_count=1, 
+                                          egress_public_network_access="disabled"
+                                          # egress_public_network_access="enabled" 
+) 
+                              
+ml_client.begin_create_or_update(blue_deployment) 
+```
+
+---
 
 ## Scenarios
 
@@ -92,9 +145,12 @@ The following table lists the supported configurations when configuring inbound 
 | Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
 | -------- | -------------------------------- | --------------------------------- | --------- |
 | secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 | public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
+| public inbound with public outbound | `public_network_access` is enabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
+
+> [!IMPORTANT]
+> Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
 ## End-to-end example
 
@@ -128,9 +184,9 @@ The following diagram shows the overall architecture of this example:
 
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
 
 ### Create the virtual machine jump box
 

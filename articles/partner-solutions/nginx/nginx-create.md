@@ -2,11 +2,11 @@
 title: Create an NGINX for Azure deployment
 description: This article describes how to use the Azure portal to create an instance of NGINX.
 ms.topic: quickstart
-ms.service: partner-services
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
 ms.custom: references_regions, event-tier1-build-2022
+
 ---
 
 # QuickStart: Get started with NGINX

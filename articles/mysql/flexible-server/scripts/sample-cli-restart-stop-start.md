@@ -16,7 +16,7 @@ ms.date: 02/10/2022
 This sample CLI script performs restart, start and stop operations on an Azure Database for MySQL - Flexible Server.
 
 > [!IMPORTANT]
-> When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
+> When you **Stop** the server it remains in that state for the next 30 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 30 days. You can chose to **Stop** it again if you are not using the server.
 
 During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to start the server.
 

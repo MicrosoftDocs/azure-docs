@@ -263,6 +263,7 @@ Resource Manager provides the following functions for working with strings:
 * [format](template-functions-string.md#format)
 * [guid](template-functions-string.md#guid)
 * [indexOf](template-functions-string.md#indexof)
+* [join](template-functions-string.md#join)
 * [last](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
 * [length](template-functions-string.md#length)

@@ -34,6 +34,10 @@ The following limitations currently govern the use of NRT rules:
 
 1. No more than 20 rules can be defined per customer at this time.
 
+1. By design, NRT rules will only work properly on log sources with an **ingestion delay of less than 12 hours**.
+
+    (Since the NRT rule type is supposed to approximate **real-time** data ingestion, it doesn't afford you any advantage to use NRT rules on log sources with significant ingestion delay, even if it's far less than 12 hours.)
+
 1. As this type of rule is new, its syntax is currently limited but will gradually evolve. Therefore, at this time the following restrictions are in effect:
 
     1. The query defined in an NRT rule can reference **only one table**. Queries can, however, refer to multiple watchlists and to threat intelligence feeds.
@@ -46,7 +50,7 @@ The following limitations currently govern the use of NRT rules:
 
     1. Queries can run only within a single workspace. There is no cross-workspace capability.
 
-    1. Event grouping is not configurable. NRT rules produce a single alert that groups all the applicable events.
+    1. Event grouping is now configurable to a limited degree. NRT rules can produce up to 30 single-event alerts. A rule with a query that results in more than 30 events will produce alerts for the first 29, then a 30th alert that summarizes all the applicable events.
 
 ## Next steps
 

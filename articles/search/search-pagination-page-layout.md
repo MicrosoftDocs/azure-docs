@@ -8,23 +8,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 07/22/2022
 ---
 
 # How to work with search results in Azure Cognitive Search
 
-This article explains how to work with a query response in Azure Cognitive Search. 
+This article explains how to work with a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). 
 
-The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). Parameters on the query determine:
+Parameters on the query determine:
 
++ Selection of fields within results
++ Count of matches found in the index for the query
 + Number of results in the response (up to 50, by default)
-+ Fields in each result
-+ Order of items in results
-+ Highlighting of terms within a result, matching on either the whole or partial term in the body of the result
++ Sort order of results
++ Highlighting of terms within a result, matching on either the whole or partial term in the body
 
 ## Result composition
 
-While a search document might consist of a large number of fields, typically only a few are needed to represent each document in the result set. On a query request, append `$select=<field list>` to specify which fields show up in the response. A field must be attributed as **Retrievable** in the index to be included in a result. 
+Results are tabular, composed of fields of either all "retrievable" fields, or limited to just those fields specified in the **`$select`** parameters. Rows are the matching documents.
+
+While a search document might consist of a large number of fields, typically only a few are needed to represent each document in the result set. On a query request, append `$select=<field list>` to specify which fields include in the response. A field must be attributed as "retrievable" in the index to be included in a result. 
 
 Fields that work best include those that contrast and differentiate among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the built-in hotels-sample index, it might be the "select" fields in the following example:
 
@@ -48,19 +51,30 @@ Occasionally, the substance and not the structure of results are unexpected. For
 
 + Experiment with different lexical analyzers or custom analyzers to see if it changes the query outcome. The default analyzer will break up hyphenated words and reduce words to root forms, which usually improves the robustness of a query response. However, if you need to preserve hyphens, or if strings include special characters, you might need to configure custom analyzers to ensure the index contains tokens in the right format. For more information, see [Partial term search and patterns with special characters (hyphens, wildcard, regex, patterns)](search-query-partial-matching.md).
 
+## Counting matches
+
+The count parameter returns the number of documents in the index that are considered a match for the query. To return the count, add **`$count=true`** to the query request. There is no maximum value imposed by the search service. Depending on your query and the content of your documents, the count could be as high as every document in the index.
+
+Count is accurate when the index is stable. If the system is actively adding, updating, or deleting documents, the count will be approximate, excluding any documents that aren't fully indexed.
+
+Count won't be affected by routine maintenance or other workloads on the search service. However if you have multiple partitions and a single replica, you could experience short-term fluctuations in document count (several minutes) as the partitions are restarted.
+
+> [!TIP]
+> To check indexing operations, you can confirm whether the index contains the expected number of documents by adding `$count=true` on an empty search `search=*` query. The result is the full count of documents in your index.
+>
+> When testing query syntax, `$count=true` can quickly tell you whether your modifications are returning greater or fewer results, which can be useful feedback.
+
 ## Paging results
 
-By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search, or in an arbitrary order for exact match queries (where "@searchScore=1.0").
+By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search. Otherwise, the top 50 are an arbitrary order for exact match queries (where "@searchScore=1.0").
 
 To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
-
-+ Add `$count=true` to get a count of the total number of matching documents found within an index. Depending on your query and the content of your documents, the count could be as high as every document in the index.
 
 + Return the first set of 15 matching documents plus a count of total matches: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
 + Return the second set, skipping the first 15 to get the next 15: `$top=15&$skip=15`. Repeat for the third set of 15: `$top=15&$skip=30`
 
-The results of paginated queries are not guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there is no caching or snapshot of results, such as those found in a general purpose database).
+The results of paginated queries aren't guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there is no caching or snapshot of results, such as those found in a general purpose database).
 
 Following is an example of how you might get duplicates. Assume an index with four documents:
 
@@ -95,7 +109,7 @@ A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, wh
 
 For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
 
-Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores are not always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
+Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
 | Cause | Description |
 |-----------|-------------|
@@ -105,7 +119,7 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 ### How to get consistent ordering
 
-If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as **`sortable`** can be used to order results.
+If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as "sortable" can be used to order results.
 
 Fields commonly used in an **`$orderby`** include rating, date, and location. Filtering by location requires that the filter expression calls the [**`geo.distance()` function**](search-query-odata-geo-spatial-functions.md?#order-by-examples), in addition to the field name.
 
@@ -113,7 +127,7 @@ Another approach that promotes order consistency is using a [custom scoring prof
 
 ## Hit highlighting
 
-Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match is not immediately obvious. 
+Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match isn't immediately obvious. 
 
 Notice that highlighting is applied to individual terms. There is no highlight capability for the contents of an entire field. If you want highlighting over a phrase, you'll have to provide the matching terms (or phrase) in a quote-enclosed query string. This technique is described further on in this section.
 

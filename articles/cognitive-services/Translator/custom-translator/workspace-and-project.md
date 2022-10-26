@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to concept of a project, so that I can use it efficiently.
 ---
 # What is a Custom Translator workspace?
@@ -49,8 +50,7 @@ necessary.
 The project label is used as part of the CategoryID. If the project label is
 left unset or is set identically across projects, then projects with the same
 category and *different* language pairs will share the same CategoryID. This approach is
-advantageous because it allows you or your customer to switch between
-languages when using the Text Translator API without worrying about a CategoryID that is unique to each project.
+advantageous because it allows you to switch between languages when using the  Translator API without worrying about a CategoryID that is unique to each project.
 
 For example, if I wanted to enable translations in the Technology domain from
 English to French and from French to English, I would create two
@@ -61,8 +61,7 @@ for both English and French translations without having to modify my CategoryID.
 
 If you're a language service provider and want to serve
 multiple customers with different models that retain the same category and
-language pair, then using a project label to differentiate between customers
-would be a wise decision.
+language pair, use a project label to differentiate between customers.
 
 ## Next steps
 

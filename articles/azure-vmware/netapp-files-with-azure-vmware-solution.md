@@ -2,6 +2,7 @@
 title: Attach Azure NetApp Files to Azure VMware Solution VMs
 description: Use Azure NetApp Files with Azure VMware Solution VMs to migrate and sync data across on-premises servers, Azure VMware Solution VMs, and cloud infrastructures. 
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 05/10/2022
 ---
 
@@ -13,7 +14,7 @@ Azure NetApp Files and Azure VMware Solution are created in the same Azure regio
 
 Services where Azure NetApp Files are used:
 
-- **Active Directory connections**: Azure NetApp Files supports [Active Directory Domain Services and Azure Active Directory Domain Services](../azure-netapp-files/create-active-directory-connections.md#decide-which-domain-services-to-use).
+- **Active Directory connections**: Azure NetApp Files supports [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md).
 
 - **Share Protocol**: Azure NetApp Files supports Server Message Block (SMB) and Network File System (NFS) protocols. This support means the volumes can be mounted on the Linux client and can be mapped on Windows client.
 

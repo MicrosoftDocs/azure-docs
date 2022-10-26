@@ -3,17 +3,17 @@ title: Monitor and debug with insights in Azure Cosmos DB
 description: Use metrics in Azure Cosmos DB to debug common issues and monitor the database.
 ms.author: esarroyo
 author: StefArroyo 
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 11/08/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Monitor and debug with insights in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Azure Cosmos DB provides insights for throughput, storage, consistency, availability, and latency. The Azure portal provides an aggregated view of these metrics. You can also view Azure Cosmos DB metrics from Azure Monitor API. The dimension values for the metrics such as container name are case-insensitive. So you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](./monitor-cosmos-db.md) article.
+Azure Cosmos DB provides insights for throughput, storage, consistency, availability, and latency. The Azure portal provides an aggregated view of these metrics. You can also view Azure Cosmos DB metrics from Azure Monitor API. The dimension values for the metrics such as container name are case-insensitive. So you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](./monitor.md) article.
 
 This article walks through common use cases and how Azure Cosmos DB insights can be used to analyze and debug these issues. By default, the metric insights are collected every five minutes and are kept for seven days.
 
@@ -29,7 +29,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
 1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and account management metrics for ever container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
 
-   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB performance metrics in Azure portal" lightbox="./media/use-metrics/performance-metrics.png" :::
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Azure Cosmos DB performance metrics in Azure portal" lightbox="./media/use-metrics/performance-metrics.png" :::
 
 1. The following metrics are available from the **Insights** pane:
 
@@ -85,7 +85,7 @@ If you would like to conserve index space, you can adjust the [indexing policy](
 
 ## Debug why queries are running slow
 
-In the SQL API SDKs, Azure Cosmos DB provides query execution statistics.
+In the API for NoSQL SDKs, Azure Cosmos DB provides query execution statistics.
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -110,6 +110,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 You've now learned how to monitor and debug issues using the metrics provided in the Azure portal. You may want to learn more about improving database performance by reading the following articles:
 
-* To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](./monitor-cosmos-db.md) article. 
+* To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](./monitor.md) article. 
 * [Performance and scale testing with Azure Cosmos DB](performance-testing.md)
 * [Performance tips for Azure Cosmos DB](performance-tips.md)

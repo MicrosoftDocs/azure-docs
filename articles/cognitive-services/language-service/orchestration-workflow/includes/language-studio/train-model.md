@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 To start training your model from within the [Language Studio](https://aka.ms/languageStudio):
 
-1. Select **Train model** from the left side menu.
+1. Select **Training jobs** from the left side menu.
 
 2. Select **Start a training job** from the top menu.
 

@@ -1,10 +1,12 @@
 ---
 title: Import certificates into a container
 description: Learn now to import certificate files into a Service Fabric container service.
-
-ms.topic: conceptual
-ms.date: 2/23/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Import a certificate file into a container running on Service Fabric

@@ -22,19 +22,15 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 ## Prerequisites
 
-+ A Cognitive Search service at a Standard tier (S1, S2, S3), located in one of these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe. If you have an existing S1 or greater service in one of these regions, you can enable semantic search on your service without having to create a new one.
++ A Cognitive Search service at a Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2), located in one of these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe. If you have an existing S1 or greater service in one of these regions, you can enable semantic search on your service without having to create a new one.
 
 + [Semantic search enabled on your search service](semantic-search-overview.md#enable-semantic-search). 
 
 + An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic search works best on content that is informational or descriptive.
 
-+ A search client for sending queries.
++ A search client for sending queries and updating indexes.
 
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query or use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
-
-+ A search client for updating indexes.
-
-  The search client must support preview REST APIs on the query request. You can use the Azure portal, [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
+  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), another web client, or code that makes REST calls to the preview APIs. [Search explorer](search-explorer.md) in Azure portal can be used to submit a semantic query. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
 
 + A [query request](/rest/api/searchservice/preview-api/search-documents) must include `queryType=semantic` and other parameters described in this article.
 

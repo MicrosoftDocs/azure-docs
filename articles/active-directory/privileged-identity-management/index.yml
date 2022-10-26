@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Privileged Identity Management documentation
-summary: Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables you to limit standing administrator access to privileged roles, discover who has access, and review privileged access.
+summary: Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, enables you to limit standing administrator access to privileged roles, discover who has access, and review privileged access.
 
 metadata:
   title: Privileged Identity Management documentation

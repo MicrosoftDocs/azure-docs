@@ -2,7 +2,7 @@
 title: AD FS support in MSAL.NET 
 description: Learn about Active Directory Federation Services (AD FS) support in the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/22/2022
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL.NET so I can decide if this platform meets my application development needs and requirements.

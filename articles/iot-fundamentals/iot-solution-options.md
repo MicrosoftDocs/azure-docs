@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 02/03/2022
+ms.date: 08/23/2022
 ms.author: dobett
 ---
 
@@ -36,3 +36,5 @@ For a more comprehensive explanation of the different services and platforms, an
 To learn more about the key attributes of successful IoT solutions, see the [8 attributes of successful IoT solutions](https://aka.ms/8attributes) white paper.
 
 For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
+
+To learn about the device migration tool, see [Migrate devices from Azure IoT Central to Azure IoT Hub](../iot-central/core/howto-migrate-to-iot-hub.md).

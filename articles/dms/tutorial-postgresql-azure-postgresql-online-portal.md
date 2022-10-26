@@ -3,13 +3,13 @@ title: "Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online via the A
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 services: dms
-author: rothja
-ms.author: jroth
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-2022
 ms.topic: tutorial
 ms.date: 04/11/2020
 ---
@@ -48,7 +48,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > * Storage endpoint
     > * Service bus endpoint
     >

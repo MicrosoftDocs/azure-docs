@@ -10,8 +10,8 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
+  author: greg-lindsay
+  ms.author: greglin
   ms.date: 08/19/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -33,7 +33,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Enhance your service availability and data locality
-            url: /learn/modules/distribute-load-with-traffic-manager/
+            url: /training/modules/distribute-load-with-traffic-manager/
           
          
 
@@ -100,4 +100,4 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.trafficmanager/
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/traffic-manager
+            url: /cli/azure/network/traffic-manager

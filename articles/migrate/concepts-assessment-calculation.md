@@ -205,7 +205,7 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 - The assessment considers the performance history of the server to identify the VM size and disk type in Azure.
 
 > [!NOTE] 
-> If you import serves by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
+> If you import servers by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
 
 - This method is especially helpful if you've overallocated the on-premises server, utilization is low, and you want to rightsize the Azure VM to save costs.
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.

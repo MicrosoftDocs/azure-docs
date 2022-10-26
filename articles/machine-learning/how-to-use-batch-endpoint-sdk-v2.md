@@ -1,27 +1,22 @@
 ---
-title: 'Use batch endpoints for batch scoring using Python SDK v2 (preview)'
+title: 'Use batch endpoints for batch scoring using Python SDK v2'
 titleSuffix: Azure Machine Learning
-description: In this article, learn how to create a batch endpoint to continuously batch score large data using Python SDK v2 (preview).
+description: In this article, learn how to create a batch endpoint to continuously batch score large data using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: shivanissambare
-ms.author: ssambare
+author: santiagxf
+ms.author: fasantia
 ms.reviewer: larryfr
 ms.date: 05/25/2022
-ms.custom: how-to, devplatv2, sdkv2
+ms.custom: how-to, devplatv2, sdkv2, ignite-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Use batch endpoints for batch scoring using Python SDK v2 (preview)
+# Use batch endpoints for batch scoring using Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to use batch endpoints to do batch scoring using Python SDK v2. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
@@ -39,8 +34,19 @@ In this article, you'll learn to:
 * An Azure ML workspace with computer cluster to run your batch scoring job.
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
+### Clone examples repository
 
-## 1. Connect to Azure Machine Learning workspace
+To run the examples, first clone the examples repository and change into the `sdk` directory:
+
+```bash
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples/sdk
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+
+## Connect to Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
@@ -50,6 +56,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     # import required libraries
     from azure.ai.ml import MLClient, Input
     from azure.ai.ml.entities import (
+        AmlCompute,
         BatchEndpoint,
         BatchDeployment,
         Model,
@@ -66,10 +73,10 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     ```python
-    # enter details of your AML workspace
+    # enter details of your AzureML workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
     ```
 
     ```python
@@ -118,6 +125,16 @@ To create an online endpoint, we'll use `BatchEndpoint`. This class allows user 
     ml_client.begin_create_or_update(endpoint)
     ```
 
+## Create batch compute
+
+Batch endpoint runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster. Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `cpu-cluster`.
+
+```python
+compute_name = "cpu-cluster"
+compute_cluster = AmlCompute(name=compute_name, description="amlcompute", min_instances=0, max_instances=5)
+ml_client.begin_create_or_update(compute_cluster)
+```
+
 ## Create a deployment
 
 A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `BatchDeployment` class. This class allows user to configure the following key aspects.
@@ -157,7 +174,7 @@ A deployment is a set of resources required for hosting the model that does the 
         code_path="./mnist/code/",
         scoring_script="digit_identification.py",
         environment=env,
-        compute="cpu-cluster",
+        compute=compute_name,
         instance_count=2,
         max_concurrency_per_instance=2,
         mini_batch_size=10,
@@ -180,8 +197,8 @@ A deployment is a set of resources required for hosting the model that does the 
 
 Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
-* `name` - Name of the endpoint
-* `input_path` - Path where input data is present
+* `endpoint_name` - Name of the endpoint
+* `input` - Path where input data is present
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
 1. Invoke the endpoint:
@@ -193,7 +210,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
     # invoke the endpoint for batch scoring job
     job = ml_client.batch_endpoints.invoke(
         endpoint_name=batch_endpoint_name,
-        input_data=input,
+        input=input,
         deployment_name="non-mlflow-deployment",  # name is required as default deployment is not set
         params_override=[{"mini_batch_size": "20"}, {"compute.instance_count": "4"}],
     )
@@ -218,6 +235,12 @@ Delete endpoint
 
 ```python
 ml_client.batch_endpoints.begin_delete(name=batch_endpoint_name)
+```
+
+Delete compute: optional, as you may choose to reuse your compute cluster with later deployments.
+
+```python
+ml_client.compute.begin_delete(name=compute_name)
 ```
 
 ## Next steps

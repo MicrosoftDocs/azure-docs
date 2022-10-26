@@ -141,7 +141,7 @@ If you don't see your machine in query results, it hasn't recently checked in. T
 
 If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
+For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-arent-seeing-any-linux-data).
 
 ##### Log Analytics agent for Linux not configured correctly
 

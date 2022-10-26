@@ -5,6 +5,9 @@
   - name: What is Azure Policy?
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
+  - name: Azure Policy glossary
+    displayName: policy, terminology, vocabulary, glossary
+    href: policy-glossary.md
 - name: Quickstarts
   expanded: false
   items:
@@ -59,7 +62,7 @@
     href: ./tutorials/policy-devops-pipelines.md
   - name: "Learn: Control and audit your resources by using Azure Policy"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+    href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 - name: Samples
   items:
   - name: Index
@@ -121,16 +124,22 @@
         href: ./samples/iso-27001.md
       - name: PCI DSS 3.2.1
         href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 3.2.1 v2018 Audit
+        href: ./samples/PCIv3_2_1_2018_audit.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
-      - name: New Zealand ISM Restricted
-        href: ./samples/new-zealand-ism.md
+      - name: New Zealand ISM Restricted v3.5
+        href: ./samples/NZ_ISM_Restricted_v3_5.md
       - name: NIST SP 800-53 Rev. 5
         href: ./samples/nist-sp-800-53-r5.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/nist-sp-800-53-r4.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: RBI ITF Banks v2016
+        href: ./samples/RBI_ITF_Banks_v2016.md
+      - name: RBI ITF NBFC v2017
+        href: ./samples/rbi_itf_nbfc_v2017.md
       - name: SWIFT CSCF 2021
         href: ./samples/swift-cscf-v2021.md
       - name: UK OFFICIAL and UK NHS
@@ -188,6 +197,12 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: Policy applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
+  - name: Policy attestation
+    displayName: manual policy, compliance, attestation
+    href: ./concepts/attestation-structure.md
   - name: React to policy state change events
     displayName: event grid, subject, topic, subscription
     href: ./concepts/event-overview.md
@@ -214,20 +229,6 @@
     - name: Secure AKS with Azure Policy
       displayName: aks, psp, rego, opa
       href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-  - name: Guest configuration
-    items:
-    - name: Understand Azure Policy's guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration.md
-    - name: Changes to behavior in PowerShell Desired State Configuration for guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-custom.md
-    - name: Understand Azure Policy's guest configuration assignment resources
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-assignments.md
-    - name: Remediation options for guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-policy-effects.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
@@ -246,35 +247,6 @@
   - name: Export Azure Policy resources
     displayName: github, json, definition
     href: ./how-to/export-resources.md
-  - name: Guest configuration
-    items:
-    - name: Setup a guest configuration authoring environment
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-setup.md
-    - name: Create custom guest configuration package artifacts
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create.md
-    - name: Test guest configuration package artifacts
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-test.md
-    - name: Sign guest configuration packages
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-signing.md
-    - name: Publish guest configuration packages
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-publish.md
-    - name: Create a guest configuration assignment
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-assignment.md
-    - name: Create custom guest configuration definitions
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-definition.md
-    - name: Azure Automation state configuration to guest configuration migration planning
-      displayName: powershell, dsc, automation
-      href: ./how-to/guest-configuration-azure-automation-migration.md
-    - name: Planning a change from Desired State Configuration extension for Linux to guest configuration
-      displayname: powershell, dsc, extension
-      href: ./how-to/guest-configuration-desired-state-configuration-extension-migration.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
@@ -301,10 +273,10 @@
     items:
     - name: Deploy Azure Monitor at scale
       displayName: monitor, diagnostic settings, dependency agent
-      href: ../../azure-monitor/best-practices.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+      href: ../../azure-monitor/best-practices.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
-      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Storage integration
     items:
     - name: Audit TLS with Azure Policy

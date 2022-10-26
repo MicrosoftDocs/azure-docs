@@ -91,7 +91,7 @@ For a comparison of supported features in Azure Front Door, see [Tier comparison
 
 ## Where is the service available?
 
-Azure Front Door is available in Microsoft Azure (Commercial) and Microsoft Azure Government (US).
+Azure Front Door Classic/Standard/Premium SKUs are available in Microsoft Azure (Commercial) and Azure Front Door Classic SKU is available in Microsoft Azure Government (US).
 
 ## Pricing
 
@@ -105,4 +105,4 @@ Subscribe to the RSS feed and view the latest Azure Front Door feature updates o
 
 * Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md)
 * Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
-* [Learn module: Introduction to Azure Front Door](/learn/modules/intro-to-azure-front-door/).
+* [Learn module: Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door/).

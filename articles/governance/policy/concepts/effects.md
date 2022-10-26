@@ -1,8 +1,10 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 09/01/2021
+author: timwarner-msft
+ms.date: 10/20/2022
 ms.topic: conceptual
+ms.author: timwarner
 ---
 # Understand Azure Policy effects
 
@@ -18,6 +20,7 @@ These effects are currently supported in a policy definition:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
+- [Manual (preview)](#manual-preview)
 - [Modify](#modify)
 
 The following effects are _deprecated_:
@@ -154,7 +157,7 @@ definitions as `constraintTemplate` is deprecated.
       location must be publicly accessible.
 
       > [!WARNING]
-      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+      > Don't use SAS URIs, URL tokens, or or anything else that could expose secrets in plain text.
 
     - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
       template. See
@@ -193,7 +196,7 @@ definitions as `constraintTemplate` is deprecated.
   - An _array_ that includes the
     [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
     of Kubernetes object to limit evaluation to.
-   - Defining `["*"]` for _kinds_ is disallowed.
+  - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
@@ -275,7 +278,7 @@ related resources to match.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
@@ -451,7 +454,7 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 ## DeployIfNotExists
 
 Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
-when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
+when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 > [!NOTE]
 > [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template)
@@ -497,7 +500,7 @@ related resources to match and the template deployment to execute.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
@@ -525,7 +528,7 @@ related resources to match and the template deployment to execute.
 - **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
-    [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+    [remediation - configure the policy definition](../how-to/remediate-resources.md#configure-the-policy-definition).
 - **DeploymentScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the type of deployment to be triggered. _Subscription_ indicates a
@@ -610,8 +613,11 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+> [!NOTE]
+> Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
+
+An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
+When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
@@ -742,13 +748,73 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 }
 ```
 
+## Manual (preview)
+
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
+
+> [!NOTE]
+> During Public Preview, support for manual policy is available through various Microsoft Defender
+> for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
+
+Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:
+
+- FedRAMP High
+- FedRAMP Medium
+- HIPAA
+- HITRUST
+- ISO 27001
+- Microsoft CIS 1.3.0
+- Microsoft CIS 1.4.0
+- NIST SP 800-171 Rev. 2
+- NIST SP 800-53 Rev. 4
+- NIST SP 800-53 Rev. 5
+- PCI DSS 3.2.1
+- PCI DSS 4.0
+- SOC TSP
+- SWIFT CSP CSCF v2022
+
+The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
+
+```json
+{
+  "if": {
+    "field":  "type",
+    "equals": "Microsoft.Resources/subscriptions"
+  },
+  "then": {
+    "effect": "manual",
+    "details": {
+      "defaultState": "Unknown"
+    }
+  }
+}
+```
+
+The `defaultState` property has three possible values:
+
+- **Unknown**: The initial, default state of the targeted resources.
+- **Compliant**: Resource is compliant according to your manual policy standards
+- **Non-compliant**: Resource is non-compliant according to your manual policy standards
+
+The Azure Policy compliance engine evaluates all applicable resources to the default state specified
+in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that you
+must manually attest the resource compliance state. If the effect state is unspecified, it defaults
+to `Unknown`. The `Unknown` compliance state indicates that you must attest the compliance state yourself.
+
+The following screenshot shows how a manual policy assignment with the `Unknown`
+state appears in the Azure portal:
+
+![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
+
+When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
+
 ## Modify
 
 Modify is used to add, update, or remove properties or tags on a subscription or resource during
 creation or update. A common example is updating tags on resources such as costCenter. Existing
 non-compliant resources can be remediated with a
 [remediation task](../how-to/remediate-resources.md). A single Modify rule can have any number of
-operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
+operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 The following operations are supported by Modify:
 
@@ -772,7 +838,7 @@ The following operations are supported by Modify:
 Modify evaluates before the request gets processed by a Resource Provider during the creation or
 updating of a resource. The Modify operations are applied to the request content when the **if**
 condition of the policy rule is met. Each Modify operation can specify a condition that determines
-when it's applied. Operations with conditions that are evaluated to _false_ are skipped.
+when it's applied. Operations with _false_ condition evaluations are skipped.
 
 When an alias is specified, the following additional checks are performed to ensure that the Modify
 operation doesn't change the request content in a way that causes the resource provider to reject
@@ -803,7 +869,7 @@ needed for remediation and the **operations** used to add, update, or remove tag
 - **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
-    [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+    [remediation - configure the policy definition](../how-to/remediate-resources.md#configure-the-policy-definition).
   - The role defined must include all operations granted to the
     [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
 - **conflictEffect** (optional)

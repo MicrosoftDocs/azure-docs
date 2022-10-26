@@ -11,7 +11,7 @@
     href: concept-identity-protection-security-overview.md
   - name: What are risks?
     href: concept-identity-protection-risks.md
-  - name: Identity Protection policies
+  - name: Risk-based access policies
     href: concept-identity-protection-policies.md
   - name: What is the sign-in experience?
     href: concept-identity-protection-user-experience.md
@@ -40,7 +40,7 @@
       href: howto-identity-protection-remediate-unblock.md
     - name: Export risk data
       href: howto-export-risk-data.md
-    - name: Use the Microsoft Graph API
+    - name: Use the Microsoft Graph PowerShell 
       href: howto-identity-protection-graph-api.md
   - name: Provide feedback on risk detections
     href: howto-identity-protection-risk-feedback.md

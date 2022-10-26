@@ -7,8 +7,8 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: how-to
-ms.date: 01/18/2022
+ms.topic: conceptual
+ms.date: 06/07/2022
 ms.author: mbullwin
 ---
 
@@ -23,7 +23,7 @@ The following are the basic steps needed to use MVAD:
   1. Get model status.
   1. Detect anomalies during the inference process with the trained MVAD model.
 
-To test out this feature, try this SDK [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb).
+To test out this feature, try this SDK [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). For more instructions on how to run a jupyter notebook, please refer to [Install and Run a Jupyter Notebook](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#).
 
 ## Multivariate Anomaly Detector APIs overview
 
@@ -357,10 +357,10 @@ The response contains the result status, variable information, inference paramet
 * Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
 
 * `"isAnomaly": false` indicates the current timestamp is not an anomaly.
-      * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
+      * `severity` indicates the relative severity of the anomaly and for normal data it is always 0.
       * `score` is the raw output of the model on which the model makes a decision, which could be non-zero even for normal data points.
 * `"isAnomaly": true` indicates an anomaly at the current timestamp.
-      * `severity ` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
+      * `severity` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
       * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
 * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies and diagnosing the root causes.
 
@@ -397,7 +397,7 @@ A sample request looks like following format, this case is detecting last two ti
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
         "2021-01-01T00:02:00Z"
-        //more variables
+        //more timestamps
       ],
       "values": [
         0.4551378545933972,
@@ -412,7 +412,7 @@ A sample request looks like following format, this case is detecting last two ti
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
         "2021-01-01T00:02:00Z"
-        //more variables
+        //more timestamps
       ],
       "values": [
         0.9617871613964145,
@@ -427,7 +427,7 @@ A sample request looks like following format, this case is detecting last two ti
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
         "2021-01-01T00:02:00Z"
-        //more variables        
+        //more timestamps       
       ],
       "values": [
         0.4030756879437628,
@@ -541,5 +541,5 @@ See the following example of a JSON response:
 
 ## Next steps
 
-* [What is the Multivariate Anomaly Detector API?](../overview-multivariate.md)
+* [Best practices for using the Multivariate Anomaly Detector API](../concepts/best-practices-multivariate.md)
 * [Join us to get more supports!](https://aka.ms/adadvisorsjoin)

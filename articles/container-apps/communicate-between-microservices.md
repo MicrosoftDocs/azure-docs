@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
 
-# Tutorial: Communication between microservices in Azure Container Apps Preview
+# Tutorial: Communication between microservices in Azure Container Apps
 
 Azure Container Apps exposes each container app through a domain name if [ingress](ingress.md) is enabled. Ingress endpoints for container apps within an external environment can be either publicly accessible or only available to other container apps in the same [environment](environment.md).
 
@@ -124,18 +124,18 @@ Output from the `az acr build` command shows the upload progress of the source c
 
 ::: zone pivot="docker-local"
 
-1. The following command builds a container image for the album UI and tags it with the fully qualified name of the ACR log in server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
+1. The following command builds a container image for the album UI and tags it with the fully qualified name of the ACR login server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
     # [Bash](#tab/bash)
 
     ```azurecli
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
     ---
@@ -163,13 +163,15 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-     docker push $ACR_NAME.azurecr.io/albumapp-ui . 
+
+     docker push "$ACR_NAME.azurecr.io/albumapp-ui" 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker push $ACR_NAME.azurecr.io/albumapp-ui . 
+
+    docker push "$ACR_NAME.azurecr.io/albumapp-ui"
     ```
 
     ---
@@ -230,8 +232,7 @@ az containerapp create \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
   --ingress 'external' \
-  --registry-server $ACR_NAME.azurecr.io \
-  --query configuration.ingress.fqdn
+  --registry-server $ACR_NAME.azurecr.io
 ```
 
 # [PowerShell](#tab/powershell)
@@ -241,12 +242,11 @@ az containerapp create `
   --name $FRONTEND_NAME `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
-  --image $ACR_NAME.azurecr.io/albumapp-ui  `
+  --image "$ACR_NAME.azurecr.io/albumapp-ui"  `
   --env-vars API_BASE_URL=https://$API_BASE_URL `
   --target-port 3000 `
   --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io"  `
-  --query configuration.ingress.fqdn
+  --registry-server "$ACR_NAME.azurecr.io"
 ```
 
 ---

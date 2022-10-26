@@ -46,7 +46,7 @@ az storage account create \
 
 Create a Batch account with the [az batch account create](/cli/azure/batch/account#az-batch-account-create) command. You need an account to create compute resources (pools of compute nodes) and Batch jobs.
 
-The following example creates a Batch account named *mybatchaccount* in *QuickstartBatch-rg*, and links the storage account you created.  
+The following example creates a Batch account named *mybatchaccount* in *QuickstartBatch-rg*, and links the storage account you created.
 
 ```azurecli-interactive
 az batch account create \
@@ -67,14 +67,14 @@ az batch account login \
 
 ## Create a pool of compute nodes
 
-Now that you have a Batch account, create a sample pool of Linux compute nodes using the [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) command. The following example creates a pool named *mypool* of two *Standard_A1_v2* nodes running Ubuntu 16.04 LTS. The suggested node size offers a good balance of performance versus cost for this quick example.
- 
+Now that you have a Batch account, create a sample pool of Linux compute nodes using the [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) command. The following example creates a pool named *mypool* of two *Standard_A1_v2* nodes running Ubuntu 18.04 LTS. The suggested node size offers a good balance of performance versus cost for this quick example.
+
 ```azurecli-interactive
 az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
-    --image canonical:ubuntuserver:16.04-LTS \
-    --node-agent-sku-id "batch.node.ubuntu 16.04"
+    --image canonical:ubuntuserver:18.04-LTS \
+    --node-agent-sku-id "batch.node.ubuntu 18.04"
 ```
 
 Batch creates the pool immediately, but it takes a few minutes to allocate and start the compute nodes. During this time, the pool is in the `resizing` state. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command gets the allocation state of the pool:

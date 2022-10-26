@@ -1,24 +1,24 @@
 ---
 title: Set up CI/CD pipeline with Azure Cosmos DB Emulator build task
-description: Tutorial on how to set up build and release workflow in Azure DevOps using the Cosmos DB emulator build task
+description: Tutorial on how to set up build and release workflow in Azure DevOps using the Azure Cosmos DB emulator build task
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: esarroyo
 author: StefArroyo 
-ms.reviewer: sngun
-ms.custom: devx-track-csharp
+ms.reviewer: mjbrown
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB Emulator build task in Azure DevOps
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 > [!NOTE]
-> Due to the full removal of Windows 2016 hosted runners on April 1st, 2022, this method of using the Cosmos DB emulator with build task in Azure DevOps is no longer supported. We are actively working on alternative solutions. Meanwhile, you can follow the below instructions to leverage the Azure Cosmos DB emulator which comes pre-installed when using the "windows-2019" agent type.
+> Due to the full removal of Windows 2016 hosted runners on April 1st, 2022, this method of using the Azure Cosmos DB emulator with build task in Azure DevOps is no longer supported. We are actively working on alternative solutions. Meanwhile, you can follow the below instructions to leverage the Azure Cosmos DB emulator which comes pre-installed when using the "windows-2019" agent type.
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. The emulator allows you to develop and test your application locally, without creating an Azure subscription or incurring any costs.
 
 ## PowerShell Task for Emulator
-A typical PowerShell based task that will start the Cosmos DB emulator can be scripted as follows:
+A typical PowerShell based task that will start the Azure Cosmos DB emulator can be scripted as follows:
 
 Example of a job configuration, selecting the "windows-2019" agent type.
 :::image type="content" source="./media/tutorial-setup-ci-cd/powershell-script-2.png" alt-text="Screenshot of the job configuration using windows-2019":::

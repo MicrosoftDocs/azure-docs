@@ -2,7 +2,9 @@
 title: Restrict access using a service endpoint
 description: Restrict access to an Azure container registry using a service endpoint in an Azure virtual network. Service endpoint access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 05/04/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Restrict access to a container registry using a service endpoint in an Azure virtual network
@@ -15,6 +17,7 @@ Each registry supports a maximum of 100 virtual network rules.
 
 > [!IMPORTANT]
 > Azure Container Registry now supports [Azure Private Link](container-registry-private-link.md), enabling private endpoints from a virtual network to be placed on a registry. Private endpoints are accessible from within the virtual network, using private IP addresses. We recommend using private endpoints instead of service endpoints in most network scenarios.
+> The container registry does not support enabling both private link and service endpoint features configured from a virtual network. So, we recommend running the list and removing the [network rules](container-registry-vnet.md#remove-network-rules) as required. 
 
 Configuring a registry service endpoint is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 

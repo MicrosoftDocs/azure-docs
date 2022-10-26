@@ -2,7 +2,7 @@
 title: Protecting your network resources in Microsoft Defender for Cloud
 description: This document addresses recommendations in Microsoft Defender for Cloud that help you protect your Azure network resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 10/23/2022
 ---
 # Protect your network resources
 
@@ -14,8 +14,8 @@ This article addresses recommendations that apply to your Azure resources from a
 
 The **Networking** features of Defender for Cloud include: 
 
-- Network map (requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans))
-- [Adaptive network hardening](adaptive-network-hardening.md) (requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans))
+- Network map (requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans))
+- [Adaptive network hardening](adaptive-network-hardening.md) (requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans))
 - Networking security recommendations
  
 ## View your networking resources and their recommendations
@@ -35,7 +35,7 @@ To open the Network map:
 
 1. Select **Network map**.
 
-    :::image type="content" source="./media/protect-network-resources/opening-network-map.png" alt-text="Opening the network map from the Workload protections." lightbox="./media/protect-network-resources/opening-network-map.png":::
+:::image type="content" source="media/protect-network-resources/workload-protection-network-map.png" alt-text="Screenshot showing selection of network map from workload protections." lightbox="media/protect-network-resources/workload-protection-network-map.png":::
 
 1. Select the **Layers** menu choose **Topology**.
  

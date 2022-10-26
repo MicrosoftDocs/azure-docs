@@ -35,6 +35,8 @@
       href: policy-examples.md
     - name: Policy signer certificate
       href: policy-signer-examples.md
+    - name: Attestation token
+      href: attestation-token-examples.md
 - name: Concepts
   items:
   - name: Basic concepts
@@ -58,8 +60,8 @@
         href: policy-version-1-2.md
   - name: Workflow
     href: workflow.md
-  - name: View audit logs
-    href: audit-logs.md
+  - name: View logs
+    href: view-logs.md
 - name: References
   items:
   - name: Regional availability
@@ -68,6 +70,16 @@
     href: faq.yml
   - name: REST
     href: /rest/api/attestation/
+  - name: C++ data-plane SDK
+    href: https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-security-attestation/1.0.0-beta.2/index.html
+  - name: .NET data-plane SDK
+    href: https://www.nuget.org/packages/Azure.Security.Attestation
+  - name: Java data-plane SDK
+    href: https://search.maven.org/artifact/com.azure/azure-security-attestation/1.1.2/jar
+  - name: Python data-plane SDK
+    href: https://pypi.org/project/azure-security-attestation/
+  - name: JavaScript SDK
+    href: https://www.npmjs.com/package/@azure/attestation/v/1.0.0
   - name: Azure PowerShell
     href: /powershell/module/az.attestation/#attestation
   - name: Azure CLI

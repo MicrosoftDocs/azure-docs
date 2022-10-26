@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Create a service connection in App Service with the Azure CLI
 description: Quickstart showing how to create a service connection in App Service with the Azure CLI
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 05/03/2022
+ms.date: 09/15/2022
 ms.devlang: azurecli
 ms.custom: event-tier1-build-2022
 ---
@@ -24,7 +24,7 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 ## View supported target service types
 
-Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command create and manage service connections to App Service. 
+Use the Azure CLI [az webapp connection list](/cli/azure/webapp/connection#az-webapp-connection-list) command to get a list of supported target services for App Service.
 
 ```azurecli-interactive
 az provider register -n Microsoft.ServiceLinker
@@ -35,7 +35,7 @@ az webapp connection list-support-types --output table
 
 #### [Using Access Key](#tab/Using-access-key)
 
-Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
+Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
 
 - **Source compute service resource group name:** the resource group name of the App Service.
 - **App Service name:** the name of your App Service that connects to the target service.
@@ -78,7 +78,7 @@ Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command t
 - **App Service name:** the name of your App Service that connects to the target service.
 
 ```azurecli-interactive
-az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-service-name>"
+az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-service-name>" --output table
 ```
 
 ## Next steps

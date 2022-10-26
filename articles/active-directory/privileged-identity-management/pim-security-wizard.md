@@ -3,16 +3,16 @@ title: Azure AD roles Discovery and insights (preview) in Privileged Identity Ma
 description: Discovery and insights (formerly Security Wizard) help you convert permanent Azure AD role assignments to just-in-time assignments with Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 07/29/2022
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Discovery and Insights (preview) for Azure AD roles (formerly Security Wizard)
 
-If you're starting out with Privileged Identity Management (PIM) in your Azure Active Directory (Azure AD) organization, you can use the **Discovery and insights (preview)** page to get started. This feature shows you who is assigned to privileged roles in your organization and how to use PIM to quickly change permanent role assignments into just-in-time assignments. You can view or make changes to your permanent privileged role assignments in **Discovery and Insights (preview)**. It's an analysis tool and an action tool.
+If you're starting out using Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, to manage role assignments in your organization, you can use the **Discovery and insights (preview)** page to get started. This feature shows you who is assigned to privileged roles in your organization and how to use PIM to quickly change permanent role assignments into just-in-time assignments. You can view or make changes to your permanent privileged role assignments in **Discovery and Insights (preview)**. It's an analysis tool and an action tool.
 
 ## Discovery and insights (preview)
 
@@ -36,7 +36,7 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
+1. From the left menu, select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
 
     ![Azure AD roles - Discovery and insights page showing the 3 options](./media/pim-security-wizard/new-preview-link.png)
 

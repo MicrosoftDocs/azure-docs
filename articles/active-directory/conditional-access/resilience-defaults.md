@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 09/13/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -52,6 +52,9 @@ If the required controls of a policy weren't previously satisfied, the policy is
 - Sign-in risk
 - User risk
 - Country location (resolving new IP or GPS coordinates)
+- Authentication strengths
+
+When active, the Backup Authentication Service doesn't evaluate authentication methods required by [authentication strengths](../authentication/concept-authentication-strengths.md). If you used a non-phishing-resistant authentication method before an outage, during an outage you aren't be prompted for multifactor authentication even if accessing a resource protected by a Conditional Access policy with a phishing-resistant authentication strength.
 
 ## Resilience defaults enabled
 
@@ -107,21 +110,29 @@ Sample request body:
 
 This patch operation may be deployed using Microsoft PowerShell after installation of the Microsoft.Graph.Authentication module. To install this module, open an elevated PowerShell prompt and execute
 
-`Install-Module Microsoft.Graph.Authentication`
+```powershell
+Install-Module Microsoft.Graph.Authentication
+```
 
-Connect to Microsoft Graph, requesting the required scopes –
+Connect to Microsoft Graph, requesting the required scopes:
 
-`Connect-MgGraph -Scopes Policy.Read.All,Policy.ReadWrite.ConditionalAccess,Application.Read.All -TenantId <TenantID>`
+```powershell
+Connect-MgGraph -Scopes Policy.Read.All,Policy.ReadWrite.ConditionalAccess,Application.Read.All -TenantId <TenantID>
+```
 
 Authenticate when prompted.
 
-Create the JSON body for the PATCH request –
+Create the JSON body for the PATCH request:
 
-`$patchBody = '{"sessionControls": {"disableResilienceDefaults": true}}'`
+```powershell
+$patchBody = '{"sessionControls": {"disableResilienceDefaults": true}}'
+```
 
-Execute the patch operation –
+Execute the patch operation:
 
-`Invoke-MgGraphRequest -Method PATCH -Uri https://graph.microsoft.com/beta/identity/conditionalAccess/policies/<PolicyID> -Body $patchBody`
+```powershell
+Invoke-MgGraphRequest -Method PATCH -Uri https://graph.microsoft.com/beta/identity/conditionalAccess/policies/<PolicyID> -Body $patchBody
+```
 
 ## Recommendations
 

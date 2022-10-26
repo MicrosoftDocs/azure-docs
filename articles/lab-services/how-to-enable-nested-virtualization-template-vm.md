@@ -57,3 +57,14 @@ To use the automated setup for nested virtualization with Windows Server 2016 or
 ### Using Windows tools to enable nested virtualization
 
 To configure nested virtualization for Windows Server 2016 or 2019 manually, see [Enable nested virtualization on a template virtual machine in Azure Lab Services manually](how-to-enable-nested-virtualization-template-vm-ui.md).  Instructions will also cover configuring networking so the Hyper-V VMs have internet access.
+
+### Processor compatibility
+
+The nested virtualization VM sizes may use different processors as shown in the following table:
+
+ Size | Series | Processor |
+| ---- | ----- |  ----- |
+| Medium (nested virtualization) | [Standard_D4s_v4](../virtual-machines/dv4-dsv4-series.md) |  3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel® Xeon® Platinum 8272CL (Cascade Lake) |
+| Large (nested virtualization) | [Standard_D8s_v4](../virtual-machines/dv4-dsv4-series.md) | 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel® Xeon® Platinum 8272CL (Cascade Lake) |
+
+Each time that a template VM or a student VM is stopped and started, the underlying processor may change.  To help ensure that nested VMs work consistently across processors, try enabling [processor compatibility mode](/windows-server/virtualization/hyper-v/manage/processor-compatibility-mode-hyper-v) on the nested VMs.  It's recommended to enable **Processor Compatibility** mode on the template VM's nested VMs before publishing or exporting the image.  You should also test the performance of the nested VMs with the **Processor Compatibility** mode enabled to ensure performance isn't negatively impacted.  For more information, see [ramifications of using processor compatibility mode](/windows-server/virtualization/hyper-v/manage/processor-compatibility-mode-hyper-v#ramifications-of-using-processor-compatibility-mode).

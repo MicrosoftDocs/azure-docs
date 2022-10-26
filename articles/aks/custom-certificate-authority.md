@@ -2,8 +2,8 @@
 title: Custom certificate authority (CA) in Azure Kubernetes Service (AKS) (preview)
 description: Learn how to use a custom certificate authority (CA) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: erik-ha-msft
-ms.author: erikha
+author: rayoef
+ms.author: rayoflores
 ms.topic: article
 ms.date: 4/12/2022
 ---
@@ -79,7 +79,8 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --resource-group myResourceGroup \
     --name myNodepool \
-    --enable-custom-ca-trust
+    --enable-custom-ca-trust \
+    --os-type Linux
 ```
 
 ## Configure an existing nodepool to use a custom CA
@@ -103,7 +104,7 @@ You must ensure that:
 * The secret is created in the `kube-system` namespace.
 
 ```yaml
-apiVerison: v1
+apiVersion: v1
 kind: Secret
 metadata: 
     name: custom-ca-trust-secret

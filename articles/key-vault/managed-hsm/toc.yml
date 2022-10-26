@@ -13,7 +13,8 @@ items:
     href: quick-create-cli.md
   - name: PowerShell
     href: quick-create-powershell.md
-  - name: Azure Resource Manager template
+  - name: ARM template
+    displayName: Resource Manager
     href: quick-create-template.md
 
 - name: Tutorials 
@@ -42,6 +43,8 @@ items:
 
 - name: Concepts 
   items:
+  - name: Control your data
+    href: mhsm-control-data.md
   - name: Security domain
     href: security-domain.md
   - name: Best practices
@@ -57,6 +60,8 @@ items:
   items:
   - name: Secure key release policy grammar 
     href: policy-grammar.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell
     href: /powershell/azure#key_vault
   - name: Azure CLI
@@ -79,8 +84,8 @@ items:
   items:
   - name: Third party solutions
     href: third-party-solutions.md
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability

@@ -2,9 +2,8 @@
 title: Delete and restore a blob with .NET - Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the .NET client library
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
@@ -78,7 +77,7 @@ public static async Task RestoreSnapshots(BlobContainerClient container, BlobCli
     {
         Snapshot = blobItems
                     .OrderByDescending(snapshot => snapshot.Snapshot)
-                    .ElementAtOrDefault(1)?.Snapshot
+                    .ElementAtOrDefault(0)?.Snapshot
     };
 
     // Restore the most recent snapshot by copying it to the blob.
@@ -106,7 +105,7 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
     {
         VersionId = blobItems
                     .OrderByDescending(version => version.VersionId)
-                    .ElementAtOrDefault(1)?.VersionId
+                    .ElementAtOrDefault(0)?.VersionId
     };
 
     // Restore the most recently generated version by copying it to the base blob.

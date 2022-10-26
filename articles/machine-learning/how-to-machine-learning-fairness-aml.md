@@ -207,8 +207,8 @@ The following example shows how to use the fairness package. We will upload mode
     If you complete the previous steps (uploading generated fairness insights to Azure Machine Learning), you can view the fairness dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is the same visualization dashboard provided in Fairlearn, enabling you to analyze the disparities among your sensitive feature's subgroups (e.g., male vs. female).
     Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
-    * **Experiments pane (Preview)**
-    1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
+    * **Jobs pane (Preview)**
+    1. Select **Jobs** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
     1. Select a particular experiment to view all the runs in that experiment.
     1. Select a run, and then the **Fairness** tab to the explanation visualization dashboard.
     1. Once landing on the **Fairness** tab, click on a **fairness id** from the menu on the right.

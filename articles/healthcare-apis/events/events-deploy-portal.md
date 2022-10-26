@@ -1,18 +1,18 @@
 ---
-title: Deploy Events in the Azure portal - Azure Health Data Services
+title: Deploy Events using the Azure portal - Azure Health Data Services
 description: This article describes how to deploy the Events feature in the Azure portal.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 10/21/2022
 ms.author: jasteppe
 ---
 
-# Deploy Events in the Azure portal
+# Deploy Events using the Azure portal
 
-In this quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Healthcare Interoperability Resources (FHIR&#174;) event messages.
+In this Quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Healthcare Interoperability Resources (FHIR&#174;) event messages.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ It's important that you have the following prerequisites completed before you be
     * **Name**: Provide a name for your Events subscription.
     * **System Topic Name**: Provide a name for your System Topic.
    
-   >[!NOTE]
+   > [!NOTE]
    > The first time you set up the Events feature, you will be required to enter a new **System Topic Name**. Once the system topic for the workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the workspace.
 
     * **Event types**: Type of FHIR events to send messages for (for example: create, updated, and deleted).
@@ -67,25 +67,25 @@ It's important that you have the following prerequisites completed before you be
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed events subscription."  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::    
 
-   >[!TIP]
-   >For more information about providing access using an Azure Managed identity, see [Assign a system-managed identity to an Event Grid system topic](../../event-grid/enable-identity-system-topics.md) and [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
+   > [!TIP]
+   > For more information about providing access using an Azure Managed identity, see [Assign a system-managed identity to an Event Grid system topic](../../event-grid/enable-identity-system-topics.md) and [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
    >
-   >For more information about managed identities, see [What are managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
+   > For more information about managed identities, see [What are managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
    >
-   >For more information about Azure role-based access control (Azure RBAC), see [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
+   > For more information about Azure role-based access control (Azure RBAC), see [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
 
 ## Next steps
 
 In this article, you've learned how to deploy Events in the Azure portal. 
 
-To learn how to display the Events metrics, see
+To learn how to enable the Events metrics, see
 
->[!div class="nextstepaction"]
->[How to display Events metrics](./events-display-metrics.md)
+> [!div class="nextstepaction"]
+> [How to use Events metrics](events-use-metrics.md)
 
 To learn how to export Event Grid system diagnostic logs and metrics, see
 
->[!div class="nextstepaction"]
->[How to export Events diagnostic logs and metrics](./events-display-metrics.md)
+> [!div class="nextstepaction"]
+> [How to enable Events diagnostic logs and metrics](events-enable-diagnostic-settings.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

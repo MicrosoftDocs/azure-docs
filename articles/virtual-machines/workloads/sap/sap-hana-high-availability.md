@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/24/2022
+ms.date: 10/17/2022
 ms.author: radeltch
 
 ---
@@ -492,13 +492,13 @@ The steps in this section use the following prefixes:
 
 ## Implement the Python system replication hook SAPHanaSR
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.    
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
    > [!TIP]
    > Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.       
-   > The python hook can only be implemented for HANA 2.0.        
+   > The Python hook can only be implemented for HANA 2.0.        
 
    1. Prepare the hook as `root`.  
 
@@ -530,7 +530,7 @@ This is important step to optimize the integration with the cluster and improve 
 2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR python hook
+    # Needed for SAPHanaSR Python hook
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
     EOF
     ```
@@ -629,6 +629,9 @@ sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
 sudo crm configure rsc_defaults migration-threshold=5000
 </code></pre>
+
+> [!IMPORTANT]
+> We recommend as a best practice that you only set AUTOMATED_REGISTER to **no**, while performing thorough fail-over tests, to prevent failed primary instance to automatically register as secondary. Once the fail-over tests have completed successfully, set AUTOMATED_REGISTER to **yes**, so that after takeover system replication can resume automatically.
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 

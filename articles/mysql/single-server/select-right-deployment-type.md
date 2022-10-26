@@ -1,17 +1,19 @@
 ---
 title: Selecting the right deployment type - Azure Database for MySQL
 description: This article describes what factors to consider before you deploy Azure Database for MySQL as either infrastructure as a service (IaaS) or platform as a service (PaaS).
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 08/26/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Choose the right MySQL Server option in Azure
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 With Azure, your MySQL server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has two deployment options, and there are service tiers within each deployment option. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, backups, security, monitoring, scaling or if you want to delegate these operations to Azure.
 
@@ -78,7 +80,7 @@ The main differences between these options are listed in the following table:
 | Gtid support for read replicas | Supported | Supported | User Managed |
 | Cross-region support (Geo-replication) | Yes | Not supported | User Managed |
 | Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Supported with [Data-in Replication](../flexible-server/concepts-data-in-replication.md) | User Managed |
-| Gtid support for data-in replication | Supported | Supported | User Managed |
+| Gtid support for data-in replication | Supported | Not Supported | User Managed |
 | Data-out replication | Not Supported | In preview | Supported |
 | [**Backup and Recovery**](../flexible-server/concepts-backup-restore.md) | | | |
 | Automated backups | Yes | Yes | No |

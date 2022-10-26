@@ -3,12 +3,12 @@ title: Configure immutability policies for blob versions
 titleSuffix: Azure Storage
 description: Learn how to configure an immutability policy that is scoped to a blob version. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/17/2022
-ms.author: tamram
+ms.date: 09/14/2022
+ms.author: normesta
 ms.subservice: blobs
 ---
 
@@ -17,6 +17,9 @@ ms.subservice: blobs
 Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data can't be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
 An immutability policy may be scoped either to an individual blob version or to a container. This article describes how to configure a version-level immutability policy. To learn how to configure container-level immutability policies, see [Configure immutability policies for containers](immutable-policy-configure-container-scope.md).
+
+> [!NOTE]
+> Immutability policies are not supported in accounts that have the Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 Configuring a version-level immutability policy is a two-step process:
 
@@ -272,13 +275,18 @@ To configure a default version-level immutability policy for a storage account i
 To configure a default version-level immutability policy for a container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the **Containers** page, and locate the container to which you want to apply the policy.
-1. Select the **More** button to the right of the container name, and choose **Access policy**.
-1. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
-1. Select **Time-based retention policy** and specify the retention interval.
-1. If desired, select **Allow additional protected appends** to enable writes to append blobs that are protected by an immutability policy. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
-1. Select **OK** to apply the default policy to the container.
+2. Select the **More** button to the right of the container name, and choose **Access policy**.
+3. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
+4. Select **Time-based retention policy** and specify the retention interval.
+5. Choose whether to allow protected append writes. 
 
-    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
+   The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
+
+   The **Block and append blobs** option extends this support by adding the ability to write new blocks to a block blob.  The Blob Storage API does not provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
+
+   To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-container-scope.png" alt-text="Screenshot showing how to configure immutability policy scoped to container.":::
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -553,8 +561,10 @@ To configure a legal hold on a blob version, you must first enable version-level
 To configure a legal hold on a blob version with the Azure portal, follow these steps:
 
 1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
-1. Under the **Immutable blob versions** section, select **Add policy**.
-1. Choose **Legal hold** as the policy type, and select **OK** to apply it.
+
+2. Under the **Immutable blob versions** section, select **Add policy**.
+
+3. Choose **Legal hold** as the policy type, and select **OK** to apply it.
 
 The following image shows a current version of a blob with both a time-based retention policy and legal hold configured.
 

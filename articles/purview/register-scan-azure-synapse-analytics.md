@@ -19,15 +19,15 @@ This article outlines how to register dedicated SQL pools (formerly SQL DW), and
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| No | No** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 ### Known limitations
 
-* Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated".
+* Microsoft Purview doesn't support over 800 columns in the Schema tab and it will show "Additional-Columns-Truncated".
 
 ## Prerequisites
 

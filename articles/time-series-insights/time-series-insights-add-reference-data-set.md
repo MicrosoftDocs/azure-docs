@@ -30,7 +30,7 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 ### Learn about Time Series Insight’s reference data model.</br>
 
-> [!VIDEO <https://www.youtube.com/embed/Z0NuWQUMv1o>]
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## Add a reference data set
 

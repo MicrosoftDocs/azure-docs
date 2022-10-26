@@ -1,13 +1,13 @@
 ---
-title: Use Azure Service Bus Explorer to run data operations (Preview)
+title: Use Azure Service Bus Explorer to run data operations 
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: how-to
-ms.custom: event-tier1-build-2022
-ms.date: 05/24/2022
+ms.custom: event-tier1-build-2022, ignite-2022
+ms.date: 09/26/2022
 ms.author: egrootenboer
 ---
 
-# Use Service Bus Explorer to run data operations on Service Bus (Preview)
+# Use Service Bus Explorer to run data operations on Service Bus
 Azure Service Bus allows sender and receiver client applications to decouple their business logic with the use of familiar point-to-point (Queue) and publish-subscribe (Topic-Subscription) semantics. 
 
 > [!NOTE]
@@ -47,7 +47,7 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
     :::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Screenshot of left side navigation, where entity can be selected." lightbox="./media/service-bus-explorer/queue-topics-left-navigation.png":::
 
 1. After selecting **Queues** or **Topics**, select the specific queue or topic.
-1. Select the **Service Bus Explorer (preview)** from the left navigation menu
+1. Select the **Service Bus Explorer** from the left navigation menu
 
     :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Screenshot of queue blade where Service Bus Explorer can be selected." lightbox="./media/service-bus-explorer/left-navigation-menu-selected.png":::
 
@@ -210,6 +210,9 @@ After peeking or receiving a message, we can re-send it, which will send a copy 
 1. Select the **Send** button to send the messages to the entity.
 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the re-send messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::
+    
+    > [!NOTE]
+    > If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
 
 ## Switch authentication type
 

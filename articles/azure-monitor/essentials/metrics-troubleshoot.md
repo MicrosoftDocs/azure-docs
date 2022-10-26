@@ -3,10 +3,9 @@ title: Troubleshooting Azure Monitor metric charts
 description: Troubleshoot the issues with creating, customizing, or interpreting metric charts
 author: vgorbenko
 services: azure-monitor
-
-ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: vitalyg
+ms.reviewer: vitalyg
+ms.topic: troubleshooting
+ms.date: 06/09/2022
 ---
 
 # Troubleshooting metrics charts
@@ -53,6 +52,18 @@ Collection of **Guest (classic)** metrics requires configuring the Azure Diagnos
 
 **Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [Cannot pick Guest (classic) namespace and metrics](#cannot-pick-guest-namespace-and-metrics)
 
+### Chart is segmented by a property that the metric doesn't define
+
+If you segment a chart by a property that the metric doesn't define, the chart displays no content.
+
+**Solution:** Clear the segmentation (splitting), or choose a different property.
+
+### Filter on another chart excludes all data
+
+Filters apply to all of the charts on the pane. If you set a filter on another chart, it could exclude all data from the current chart.
+
+**Solution:** Check the filters for all the charts on the pane. If you want different filters on different charts, create the charts in different panes. Save the charts as separate favorites. If you want, you can pin the charts to the dashboard so you can see them together.
+
 ## “Error retrieving data” message on dashboard
 
 This problem may happen when your dashboard was created with a metric that was later deprecated and removed from Azure. To verify that it is the case, open the **Metrics** tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
@@ -69,6 +80,42 @@ Azure metrics charts use dashed line style to indicate that there is a missing v
 
    > [!NOTE]
    > If you still prefer a line chart for your metric, moving mouse over the chart may help to assess the time granularity by highlighting the data point at the location of the mouse pointer.
+
+## Units of measure in metrics charts
+
+Azure monitor metrics uses SI based prefixes. Metrics will only be using IEC prefixes if the resource provider has chosen an appropriate unit for a metric.
+For ex: The resource provider Network interface (resource name: rarana-vm816) has no metric unit defined for "Packets Sent". The prefix used for the metric value here is k representing kilo (1000), a SI prefix. 
+![Screenshot that shows metric value with prefix kilo.](./media/metrics-troubleshoot/prefix-si.png)
+
+The resource provider Storage account (resource name: ibabichvm) has metric unit defined for "Blob Capacity" as bytes. Hence, the prefix used is mebi (1024^2), an IEC prefix.
+![Screenshot that shows metric value with prefix mebi.](./media/metrics-troubleshoot/prefix-iec.png)
+
+SI uses decimal
+
+|   Value   | abbreviation |          SI         |
+|:---------:|:------------:|:-------------------:|
+|   1000	  |  k	         | kilo                |
+|   1000^2  |  M           | mega                |
+|   1000^3  |  G	         | giga                |
+|   1000^4  |  T	         | tera                |
+|   1000^5  |  P	         | peta                |
+|   1000^6  |  E	         | exa                 |
+|   1000^7  |  Z           | zetta               |
+|   1000^8  |  Y	         | yotta               |
+
+IEC uses binary
+
+|Value | abbreviation| IEC |Legacy|     |
+|:----:|:-----------:|:---:|:----:|:---:|
+|1024  |  Ki         |kibi |	K	  | kilo|
+|1024^2|	Mi         |mebi |	M	  | mega|
+|1024^3|	Gi         |gibi |	G	  | giga|
+|1024^4|	Ti         |tebi |	T	  | tera|
+|1024^5|	Pi         |pebi |	-	  |     |
+|1024^6|	Ei         |exbi |	-	  |     |
+|1024^7|	Zi         |zebi |	-	  |     |
+|1024^8|	Yi         |yobi |  -   |     |
+
 
 ## Chart shows unexpected drop in values
 
@@ -89,13 +136,25 @@ By default, Guest (classic) metrics are stored in Azure Storage account, which y
 
 1. Confirm that [Azure Diagnostic Extension](../agents/diagnostics-extension-overview.md) is enabled and configured to collect metrics.
     > [!WARNING]
-    > You cannot use [Log Analytics agent](../agents/agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest (classic)** into a storage account.
+    > You cannot use [Log Analytics agent](../agents/log-analytics-agent.md) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest (classic)** into a storage account.
 
 1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verify that storage account isn't protected by the firewall. Azure portal needs access to storage account in order to retrieve metrics data and plot the charts.
 
 1. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+
+## Log and queries are disabled for Drill into Logs
+
+To view recommended logs and queries, you must route your diagnostic logs to Log Analytics.
+
+**Solution:** To route your diagnostic logs to Log Analytics, see [Diagnostic settings in Azure Monitor](./diagnostic-settings.md).
+
+## Only the Activity logs appear in Drill into Logs
+
+The Drill into Logs feature is only available for select resource providers. By default, activity logs are provided.
+
+**Solution:** This behavior is expected for some resource providers.
 
 ## Next steps
 

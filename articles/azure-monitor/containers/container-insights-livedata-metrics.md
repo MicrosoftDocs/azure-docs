@@ -4,6 +4,7 @@ description: This article describes the real-time view of metrics without using 
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.custom: references_regions
+ms.reviewer: aul
 ---
 
 # How to view metrics in real-time

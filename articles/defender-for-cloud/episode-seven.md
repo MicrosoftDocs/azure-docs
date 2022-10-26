@@ -7,7 +7,7 @@ ms.date: 05/29/2022
 
 # New GCP connector in Microsoft Defender for Cloud
 
-**Episode description**: In this episode of Defender for Cloud in the field, Or Serok joins Yuri Diogenes to share the new GCP Connector in Microsoft Defender for Cloud. Or explains the use case scenarios for the new connector and how the new connector works. She demonstrates the onboarding process to connect GCP with Microsoft Defender for Cloud and talks about custom assessment and the CSPM experience for multi-cloud.
+**Episode description**: In this episode of Defender for Cloud in the field, Or Serok joins Yuri Diogenes to share the new GCP Connector in Microsoft Defender for Cloud. Or explains the use case scenarios for the new connector and how the new connector works. She demonstrates the onboarding process to connect GCP with Microsoft Defender for Cloud and talks about custom assessment and the CSPM experience for multicloud
 
 <br>
 <br>

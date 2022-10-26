@@ -78,6 +78,8 @@ The Azure VM size for your nodes defines the storage CPUs, memory, size, and typ
 
 In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations][reservation-discounts]) are automatically applied.
 
+For managed disks, the default disk size and performance will be assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
+
 If you need advanced configuration and control on your Kubernetes node container runtime and OS, you can deploy a self-managed cluster using [Cluster API Provider Azure][cluster-api-provider-azure].
 
 ### Resource reservations
@@ -117,6 +119,9 @@ Two types of resources are reserved:
       - 10% of the next 8 GB of memory (up to 16 GB)
       - 6% of the next 112 GB of memory (up to 128 GB)
       - 2% of any memory above 128 GB
+
+>[!NOTE]
+> AKS reserves an additional 2GB for system process in Windows nodes that are not part of the calculated memory.
 
 Memory and CPU allocation rules:
 * Keep agent nodes healthy, including some hosting system pods critical to cluster health. 

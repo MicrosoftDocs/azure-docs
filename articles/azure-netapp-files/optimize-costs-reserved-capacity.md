@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2021
+ms.date: 10/26/2022
 ms.author: anfdocs
 ---
 # Optimize costs for Azure NetApp Files with reserved capacity

@@ -1,11 +1,11 @@
 ---
-title: Overview about connectors in Azure Logic Apps
-description: Learn about connectors to create automated integration workflows in Azure Logic Apps.
+title: Azure Logic Apps connectors overview
+description: Overview about connectors for workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 08/25/2022
 ms.custom: contperf-fy21q4
 ---
 
@@ -13,17 +13,19 @@ ms.custom: contperf-fy21q4
 
 When you build workflows using Azure Logic Apps, you can use *connectors* to help you quickly and easily access data, events, and resources in other apps, services, systems, protocols, and platforms - often without writing any code. A connector provides prebuilt operations that you can use as steps in your workflows. Azure Logic Apps provides hundreds of connectors that you can use. If no connector is available for the resource that you want to access, you can use the generic HTTP operation to communicate with the service, or you can [create a custom connector](#custom-connectors-and-apis).
 
-This overview provides a high-level introduction to connectors and how they generally work. For information about the more popular and commonly used connectors in Azure Logic Apps, review the following documentation:
+This overview provides a high-level introduction to connectors and how they generally work.
+
+## What are connectors?
+
+Technically, many connectors provide a proxy or a wrapper around an API that the underlying service uses to communicate with Azure Logic Apps. This connector provides operations that you use in your workflows to perform tasks. An operation is available either as a *trigger* or *action* with properties you can configure. Some triggers and actions also require that you first [create and configure a connection](#connection-configuration) to the underlying service or system, for example, so that you can authenticate access to a user account. For more overview information, review [Connectors overview for Azure Logic Apps, Microsoft Power Automate, and Microsoft Power Apps](/connectors).
+
+ For information about the more popular and commonly used connectors in Azure Logic Apps, review the following documentation:
 
 * [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
 * [Managed connectors in Azure Logic Apps](managed.md)
 * [Pricing and billing models in Azure Logic Apps](../logic-apps/logic-apps-pricing.md)
 * [Azure Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/)
-
-## What are connectors?
-
-Technically, a connector is a proxy or a wrapper around an API that the underlying service uses to communicate with Azure Logic Apps. This connector provides operations that you use in your workflows to perform tasks. An operation is available either as a *trigger* or *action* with properties you can configure. Some triggers and actions also require that you first [create and configure a connection](#connection-configuration) to the underlying service or system, for example, so that you can authenticate access to a user account. For more overview information, review [Connectors overview for Azure Logic Apps, Microsoft Power Automate, and Microsoft Power Apps](/connectors).
 
 ### Triggers
 
@@ -39,7 +41,7 @@ A trigger also passes along any inputs and other required data into your workflo
 
 ### Actions
 
-An *action* is an operation that follows the trigger and performs some kind of task in your workflow. You can use multiple actions in your workflow. For example, you might start the workflow with a SQL trigger that detects new customer data in an SQL database. Following the trigger, your workflow can have a SQL action that gets the customer data. Following the SQL action, your workflow can have another action, not necessarily SQL, that processes the data.
+An *action* is an operation that follows the trigger and performs some kind of task in your workflow. You can use multiple actions in your workflow. For example, you might start the workflow with a SQL trigger that detects new customer data in an SQL database. Following the trigger, your workflow can have a SQL action that gets the customer data. Following the SQL action, your workflow can have a different action that processes the data.
 
 ## Connector categories
 
@@ -110,7 +112,7 @@ For more information, review the following documentation:
 
 ### Recurrence for connection-based triggers
 
-In recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
+For recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 * Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 * Any failures or retries that the trigger incurs.

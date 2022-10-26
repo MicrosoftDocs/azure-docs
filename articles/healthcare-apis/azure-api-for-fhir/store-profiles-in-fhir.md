@@ -1,18 +1,17 @@
 ---
 title: Store profiles in Azure API for FHIR
 description: This article describes how to store profiles in Azure API for FHIR.
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: mikaelw
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Store profiles in Azure API for FHIR
 
-HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
-[FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
+HL7 Fast Healthcare Interoperability Resources (FHIR&#174;) defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications. [FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
 
 Azure API for FHIR allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
 
@@ -53,14 +52,12 @@ When a resource conforms to a profile, the profile is specified inside the `prof
 > [!NOTE]
 > Profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the profile cannot make it optional.
 
-Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. You can go to the specific IG site to learn more about the IG and the profiles defined within it.
+Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. For more information, visit the specific IG site to learn more about the IG and the profiles defined within it:
 
-|Name |URL
-|---- |----
-Us Core |<https://www.hl7.org/fhir/us/core/>
-CARIN Blue Button |<http://hl7.org/fhir/us/carin-bb/>
-Da Vinci Payer Data Exchange |<http://hl7.org/fhir/us/davinci-pdex/>
-Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
+- [US Core](https://www.hl7.org/fhir/us/core/)
+- [CARIN Blue Button](https://hl7.org/fhir/us/carin-bb)
+- [Da Vinci Payer Data Exchange](https://hl7.org/fhir/us/davinci-pdex)
+- [Argonaut](https://www.fhir.org/guides/argonaut/pd/)
 
 > [!NOTE]
 > The Azure API for FHIR does not store any profiles from implementation guides by default. You will need to load them into the Azure API for FHIR.
@@ -69,15 +66,19 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ### Storing profiles
 
-To store profiles in Azure API for FHIR, you can `POST` the `StructureDefinition` with the profile content in the body of the request.
+To store profiles in Azure API for FHIR, you can `PUT` the `StructureDefinition` with the profile content in the body of the request. An update or a conditional update are both good methods to store profiles on the FHIR service. Use the conditional update if you are unsure which to use.
 
+Standard `PUT`: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition/profile-id`
 
-`POST http://<your Azure API for FHIR base URL>/StructureDefinition`
+**or**
+
+Conditional update: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition?url=http://sample-profile-url`
 
 ```
 { 
 "resourceType" : "StructureDefinition",
 "id" : "profile-id",
+"url": "http://sample-profile-url"
 	…
 }
 ```
@@ -85,7 +86,7 @@ To store profiles in Azure API for FHIR, you can `POST` the `StructureDefinition
 For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We've included a snippet of this profile for the example.
 
 ```rest
-POST https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+PUT https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 ```
 
 ```json
@@ -170,7 +171,7 @@ The `Capability Statement` lists all possible behaviors of Azure API for FHIR. A
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
 
-For example, if you `POST` a US Core Patient profile, which starts like this:
+For example, if you save a US Core Patient profile, which starts like this:
 
 ```json
 {
@@ -207,3 +208,5 @@ In this article, you've learned about FHIR profiles. Next, you'll learn how you 
 
 >[!div class="nextstepaction"]
 >[Validate FHIR resources against profiles](validation-against-profiles.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

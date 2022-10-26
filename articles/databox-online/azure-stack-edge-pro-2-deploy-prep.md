@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/04/2022
+ms.date: 05/03/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro 2 so I can use it to transfer data to Azure. 
 ---
@@ -88,7 +88,7 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ### Create an order 
 
-You can use the Azure Edge Hardware Center to explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro 2 devices.
+You can use the Azure Edge Hardware Center to explore and order various hardware from the Azure hybrid portfolio including Azure Stack Edge Pro 2 devices.
 
 When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
 

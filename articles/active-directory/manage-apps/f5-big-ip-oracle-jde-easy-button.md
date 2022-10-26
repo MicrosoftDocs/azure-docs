@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE
+# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE 
 
 In this article, learn to secure Oracle JD Edwards (JDE) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 

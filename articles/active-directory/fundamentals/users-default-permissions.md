@@ -2,21 +2,21 @@
 title: Default user permissions - Azure Active Directory | Microsoft Docs
 description: Learn about the user permissions available in Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2021
-ms.author: ajburnle
+ms.author: barclayn
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18, contperf-fy21q1"
 ms.collection: M365-identity-device-management
 ---
-
 # What are the default user permissions in Azure Active Directory?
+
 In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user's access consists of the type of user, their [role assignments](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. 
 
 This article describes those default permissions and compares the member and guest user defaults. The default user permissions can be changed only in user settings in Azure AD.
@@ -35,9 +35,9 @@ The set of default permissions depends on whether the user is a native member of
 ------------ | --------- | ---------- | ----------
 Users and contacts | <ul><li>Enumerate the list of all users and contacts<li>Read all public properties of users and contacts</li><li>Invite guests<li>Change their own password<li>Manage their own mobile phone number<li>Manage their own photo<li>Invalidate their own refresh tokens</li></ul> | <ul><li>Read their own properties<li>Read display name, email, sign-in name, photo, user principal name, and user type properties of other users and contacts<li>Change their own password<li>Search for another user by object ID (if allowed)<li>Read manager and direct report information of other users</li></ul> | <ul><li>Read their own properties<li>Change their own password</li><li>Manage their own mobile phone number</li></ul>
 Groups | <ul><li>Create security groups<li>Create Microsoft 365 groups<li>Enumerate the list of all groups<li>Read all properties of groups<li>Read non-hidden group memberships<li>Read hidden Microsoft 365 group memberships for joined groups<li>Manage properties, ownership, and membership of groups that the user owns<li>Add guests to owned groups<li>Manage dynamic membership settings<li>Delete owned groups<li>Restore owned Microsoft 365 groups</li></ul> | <ul><li>Read properties of non-hidden groups, including membership and ownership (even non-joined groups)<li>Read hidden Microsoft 365 group memberships for joined groups<li>Search for groups by display name or object ID (if allowed)</li></ul> | <ul><li>Read object ID for joined groups<li>Read membership and ownership of joined groups in some Microsoft 365 apps (if allowed)</li></ul>
-Applications | <ul><li>Register (create) new applications<li>Enumerate the list of all applications<li>Read properties of registered and enterprise applications<li>Manage application properties, assignments, and credentials for owned applications<li>Create or delete application passwords for users<li>Delete owned applications<li>Restore owned applications</li></ul> | <ul><li>Read properties of registered and enterprise applications</li></ul> | <ul><li>Read properties of registered and enterprise applications
+Applications | <ul><li>Register (create) new applications<li>Enumerate the list of all applications<li>Read properties of registered and enterprise applications<li>List permissions granted to applications<li>Manage application properties, assignments, and credentials for owned applications<li>Create or delete application passwords for users<li>Delete owned applications<li>Restore owned applications<li>List permissions granted to applications</ul> | <ul><li>Read properties of registered and enterprise applications<li>List permissions granted to applications</ul> | <ul><li>Read properties of registered and enterprise applications</li><li>List permissions granted to applications</li></ul>
 Devices</li></ul> | <ul><li>Enumerate the list of all devices<li>Read all properties of devices<li>Manage all properties of owned devices</li></ul> | No permissions | No permissions
-Directory | <ul><li>Read all company information<li>Read all domains<li>Read all partner contracts</li></ul> | <ul><li>Read company display name<li>Read all domains</li></ul> | <ul><li>Read company display name<li>Read all domains</li></ul>
+Organization | <ul><li>Read all company information<li>Read all domains<li>Read configuration of certificate-based authentication<li>Read all partner contracts</li></ul> | <ul><li>Read company display name<li>Read all domains<li>Read configuration of certificate-based authentication</li></ul> | <ul><li>Read company display name<li>Read all domains</li></ul>
 Roles and scopes | <ul><li>Read all administrative roles and memberships<li>Read all properties and membership of administrative units</li></ul> | No permissions | No permissions
 Subscriptions | <ul><li>Read all subscriptions<li>Enable service plan memberships</li></ul> | No permissions | No permissions
 Policies | <ul><li>Read all properties of policies<li>Manage all properties of owned policies</li></ul> | No permissions | No permissions
@@ -50,17 +50,17 @@ For example, a university has many users in its directory. The admin might not w
 
 You can restrict default permissions for member users in the following ways:
 
-Permission | Setting explanation
----------- | ------------
-**Register applications** | Setting this option to **No** prevents users from creating application registrations. You can the grant the ability back to specific individuals by adding them to the application developer role.
-**Allow users to connect work or school account with LinkedIn** | Setting this option to **No** prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../enterprise-users/linkedin-user-consent.md).
-**Create security groups** | Setting this option to **No** prevents users from creating security groups. Global administrators and user administrators can still create security groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md).
-**Create Microsoft 365 groups** | Setting this option to **No** prevents users from creating Microsoft 365 groups. Setting this option to **Some** allows a set of users to create Microsoft 365 groups. Global administrators and user administrators can still create Microsoft 365 groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md).
-**Access the Azure AD administration portal** | <p>Setting this option to **No** lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. **Yes** restricts all non-administrators from accessing any Azure AD data in the administration portal.</p><p>This setting does not restrict access to Azure AD data by using PowerShell or other clients such as Visual Studio. When you set this option to **Yes** to grant a specific non-admin user the ability to use the Azure AD administration portal, assign any administrative role such as the directory reader role.</p><p>The directory reader role allows reading basic directory information. Member users have it by default. Guests and service principals don't.</p><p>This settings blocks non-admin users who are owners of groups or applications from using the Azure portal to manage their owned resources. This setting does not restrict access as long as a user is assigned a custom role (or any role) and is not just a user.</p>
-**Read other users** | This setting is available in Microsoft Graph and PowerShell only. Setting this flag to `$false` prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online.</p><p>This setting is meant for special circumstances, so we don't recommend setting the flag to `$false`.
+| Permission | Setting explanation |
+| ---------- | ------------ |
+| **Register applications** | Setting this option to **No** prevents users from creating application registrations. You can the grant the ability back to specific individuals by adding them to the application developer role. |
+| **Allow users to connect work or school account with LinkedIn** | Setting this option to **No** prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../enterprise-users/linkedin-user-consent.md). |
+| **Create security groups** | Setting this option to **No** prevents users from creating security groups. Global administrators and user administrators can still create security groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
+| **Create Microsoft 365 groups** | Setting this option to **No** prevents users from creating Microsoft 365 groups. Setting this option to **Some** allows a set of users to create Microsoft 365 groups. Global administrators and user administrators can still create Microsoft 365 groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
+| **Restrict access to Azure AD administration portal** | **What does this switch do?** <br>**No** lets non-administrators browse the Azure AD administration portal. <br>**Yes** Restricts non-administrators from browsing the Azure AD administration portal. Non-administrators who are owners of groups or applications are unable to use the Azure portal to manage their owned resources. </p><p></p><p>**What does it not do?** <br> It does not restrict access to Azure AD data using PowerShell, Microsoft GraphAPI, or other clients such as Visual Studio. <br>It does not restrict access as long as a user is assigned a custom role (or any role). </p><p></p><p>**When should I use this switch?** <br>Use this to prevent users from misconfiguring the resources that they own. </p><p></p><p>**When should I not use this switch?** <br>Do not use this switch as a security measure. Instead, create a Conditional Access policy that targets Microsoft Azure Management will block non-administrators access to [Microsoft Azure Management](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-azure-management). </p><p></p><p> **How do I grant only a specific non-administrator users the ability to use the Azure AD administration portal?** <br> Set this option to **Yes**, then assign them a role like global reader. </p><p></p><p>**Restrict access to the Entra administration portal** <br>A Conditional Access policy that targets Microsoft Azure Management will target access to all Azure management. |
+| **Read other users** | This setting is available in Microsoft Graph and PowerShell only. Setting this flag to `$false` prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online.</p><p>This setting is meant for special circumstances, so we don't recommend setting the flag to `$false`. |
 
->[!NOTE]
->It's assumed that the average user would only use the portal to access Azure AD, and not use PowerShell or the Azure CLI to access their resources. Currently, restricting access to users' default permissions occurs only when users try to access the directory within the Azure portal.
+> [!NOTE]
+> It's assumed that the average user would only use the portal to access Azure AD, and not use PowerShell or the Azure CLI to access their resources. Currently, restricting access to users' default permissions occurs only when users try to access the directory within the Azure portal.
 
 ## Restrict guest users' default permissions
 

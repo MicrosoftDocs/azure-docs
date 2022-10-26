@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ---
 
-# Durable Functions unit testing
+# Durable Functions unit testing (C#)
 
 Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
 
 > [!NOTE]
-> This article provides guidance for unit testing for Durable Functions apps targeting Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> This article provides guidance for unit testing for Durable Functions apps written in C# for the .NET in-process worker and targeting Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ durableClientMock
     // Notice that even though the HttpStart function does not call IDurableClient.CreateCheckStatusResponse() 
     // with the optional parameter returnInternalServerErrorOnFailure, moq requires the method to be set up
     // with each of the optional parameters provided. Simply use It.IsAny<> for each optional parameter
-    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>())
+    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>()))
     .Returns(new HttpResponseMessage
     {
         StatusCode = HttpStatusCode.OK,

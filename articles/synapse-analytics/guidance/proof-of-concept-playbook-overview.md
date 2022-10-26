@@ -16,7 +16,7 @@ Whether it's an enterprise data warehouse migration, a big data re-platforming, 
 The *Synapse proof of concept playbook* is a series of related articles that provide a high-level methodology for planning, preparing, and running an effective Azure Synapse Analytics POC project. The overall objective of a POC is to validate potential solutions to technical problems, such as how to integrate systems or how to achieve certain results through a specific configuration. As emphasized by this series, an effective POC validates that certain concepts have the potential for real-world production application.
 
 > [!TIP]
-> If you're new to Azure Synapse, we recommend you work through the [Introduction to Azure Synapse Analytics](/learn/modules/introduction-azure-synapse-analytics/) module.
+> If you're new to Azure Synapse, we recommend you work through the [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics/) module.
 
 ## Playbook audiences
 

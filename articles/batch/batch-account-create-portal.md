@@ -39,7 +39,11 @@ For background about Batch accounts and scenarios, see [Batch service workflow a
 
     :::image type="content" source="media/batch-account-create-portal/storage_account.png" alt-text="Screenshot of the options when creating a storage account.":::
 
-1. If desired, select **Advanced** to specify **Identity type**, **Public network access** or **Pool allocation mode**. For most scenarios, the default options are fine.
+1. If desired, select **Advanced** to specify **Identity type**, **Pool allocation mode** or **Authentication mode**. For most scenarios, the default options are fine.
+
+1. If desired, select **Networking** to configure [public network access](public-network-access.md) with your Batch account.
+
+    :::image type="content" source="media/batch-account-create-portal/batch-account-networking.png" alt-text="Screenshot of the networking options when creating a Batch account.":::
 
 1. Select **Review + create**, then select **Create** to create the account.
 
@@ -50,7 +54,7 @@ Once the account has been created, select the account to access its settings and
 > [!NOTE]
 > The name of the Batch account is its ID and can't be changed. If you need to change the name of a Batch account, you'll need to delete the account and create a new one with the intended name.
 
-:::image type="content" source="media/batch-account-create-portal/batch_blade.png" alt-text="Screenshot of the Batch account page in the Azure portal.":::
+:::image type="content" source="media/batch-account-create-portal/batch-blade.png" alt-text="Screenshot of the Batch account page in the Azure portal.":::
 
 When you develop an application with the [Batch APIs](batch-apis-tools.md#azure-accounts-for-batch-development), you need an account URL and key to access your Batch resources. (Batch also supports Azure Active Directory authentication.) To view the Batch account access information, select **Keys**.
 
@@ -127,7 +131,7 @@ Make sure to set the following parameters based on your Batch pool's configurati
 For example:
 
 ```powershell
-Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept 
+Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept
 ```
 
 

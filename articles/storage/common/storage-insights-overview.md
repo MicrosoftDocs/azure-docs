@@ -1,6 +1,7 @@
 ---
 title: Monitor Azure Storage services with Azure Monitor Storage insights | Microsoft Docs
 description: This article describes the Storage insights feature of Azure Monitor that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
+recommendations: false
 ms.topic: conceptual
 author: normesta
 ms.author: normesta
@@ -266,5 +267,3 @@ Each workbook is saved in the storage account that you saved it in. Try to find 
 - Configure [metric alerts](../../azure-monitor/alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
 
 - Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
-
-- For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).

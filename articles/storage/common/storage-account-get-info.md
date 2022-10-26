@@ -3,9 +3,9 @@ title: Get storage account configuration information
 titleSuffix: Azure Storage
 description: Use the Azure portal, PowerShell, or Azure CLI to retrieve storage account configuration properties, including the Azure Resource Manager resource ID, account location, account type, or replication SKU.
 services: storage
-author: tamram
+author: jimmart-dev
 
-ms.author: tamram
+ms.author: jammart
 ms.date: 05/26/2022
 ms.service: storage
 ms.subservice: common

@@ -1,10 +1,14 @@
 ---
 title: Understanding periodic backup configuration
 description: Use Service Fabric's periodic backup and restore feature to configure periodic backup of your Reliable stateful services or Reliable Actors.
-
-ms.topic: article
-ms.date: 2/01/2019
+ms.topic: conceptual
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Understanding periodic backup configuration in Azure Service Fabric
 
 Configuring periodic backup of your Reliable stateful services or Reliable Actors consists of the following steps:

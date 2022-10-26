@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with AirWatch | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with AirWatch'
 description: Learn how to configure single sign-on between Azure Active Directory and AirWatch.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 06/08/2022
 ms.author: jeedes
 ---
 
@@ -28,6 +28,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * AirWatch single sign-on (SSO)-enabled subscription.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
@@ -44,6 +47,8 @@ To configure the integration of AirWatch into Azure AD, you need to add AirWatch
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **AirWatch** in the search box.
 1. Select **AirWatch** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for AirWatch
 
@@ -70,14 +75,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
-    1. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
-
-    1. In the **Identifier (Entity ID)** text box, type the value as:
+   a. In the **Identifier (Entity ID)** text box, type the value as:
     `AirWatch`
 
+   b. In the **Reply URL** text box, type a URL using one of the following patterns:
+
+   | Reply URL|
+   |-----------|
+   | `https://<SUBDOMAIN>.awmdm.com/<COMPANY_CODE>` |
+   | `https://<SUBDOMAIN>.airwatchportals.com/<COMPANY_CODE>` |
+   |
+
+   c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+
 	> [!NOTE]
-	> This value is not the real. Update this value with the actual Sign-on URL. Contact [AirWatch Client support team](https://www.vmware.com/in/support/acquisitions/airwatch.html) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not the real. Update these values with the actual Reply URL and Sign-on URL. Contact [AirWatch Client support team](https://www.vmware.com/in/support/acquisitions/airwatch.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. AirWatch application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 

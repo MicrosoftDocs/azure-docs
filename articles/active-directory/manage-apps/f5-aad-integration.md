@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/12/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -166,6 +166,8 @@ Refer to the following guided configuration tutorials using Easy Button template
 - [F5-BIG-IP Easy Button for SSO to Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
 
 - [F5-BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
+
+- [F5-BIG-IP Easy Button for SSO to Oracle PeopleSoft](f5-big-ip-oracle-peoplesoft-easy-button.md)
 
 - [F5-BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
 

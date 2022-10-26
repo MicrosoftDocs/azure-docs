@@ -12,6 +12,9 @@ ms.date: 12/14/2021
 
 # Publish your active, trained app
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 When you finish building, training, and testing your active LUIS app, you make it available to your client application by publishing it to an endpoint.
 
 ## Publishing
@@ -62,5 +65,5 @@ If you need the endpoint URL, select the link or select  **Manage**  in the top 
 
 ## Next steps
 
-- See [Manage keys](../luis-how-to-azure-subscription.md) to add keys to Azure subscription key to LUIS
+- See [Manage keys](../luis-how-to-azure-subscription.md) to add keys to LUIS.
 - See [Train and test your app](/azure/cognitive-services/luis/luis-interactive-test) for instructions on how to test your published app in the test console.

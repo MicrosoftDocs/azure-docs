@@ -6,8 +6,8 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.workload: data-services
 ms.devlang: powershell
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual

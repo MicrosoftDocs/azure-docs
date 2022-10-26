@@ -4,7 +4,7 @@ description: This topic describes how to use an existing ADSync database.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.reviewer: cychua
 ms.assetid:
@@ -45,7 +45,7 @@ Important notes to take note of before you proceed:
 - The version of the Azure AD Connect used for installation must satisfy the following criteria:
 	- 1.1.613.0 or above, AND
 	- Same or higher than the version of the Azure AD Connect last used with the ADSync database. If the Azure AD Connect version used for installation is higher than the version last used with the ADSync database, then a full sync may be required.  Full sync is required if there are schema or sync rule changes between the two versions. 
-- The ADSync database used should contain a synchronization state that is relatively recent. The last synchronization activity with the existing ADSync database should be within the last three weeks.
+- The ADSync database used should contain a synchronization state that is relatively recent. The last synchronization activity with the existing ADSync database should be within the last three weeks, otherwise a full import from Azure AD will be required to update the directory watermark.
 - When installing Azure AD Connect using “use existing database” method, sign-in method configured on the previous Azure AD Connect server is not preserved. Further, you cannot configure sign-in method during installation. You can only configure sign-in method after installation is complete.
 - You cannot have multiple Azure AD Connect servers share the same ADSync database. The “use existing database” method allows you to reuse an existing ADSync database with a new Azure AD Connect server. It does not support sharing.
 

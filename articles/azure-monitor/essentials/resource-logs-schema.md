@@ -3,6 +3,7 @@ title: Azure resource logs supported services and schemas
 description: Understand the supported services and event schemas for Azure resource logs.
 ms.topic: reference
 ms.date: 05/10/2021
+ms.reviewer: lualderm
 ---
 
 # Common and service-specific schemas for Azure resource logs

@@ -26,9 +26,9 @@ Let’s us add the following words and their alterations to improve the results:
 
 |Word | Alterations|
 |--------------|--------------------------------|
-| fix problems | `troubleshoot`, `trouble-shoot`|
-| whiteboard   | `white-board`, `white board`   |
-| bluetooth    | `blue-tooth`, `blue tooth`     |
+| fix problems | `troubleshoot`, `diagnostic`|
+| whiteboard   | `white board`, `white canvas`   |
+| bluetooth    | `blue tooth`, `BT`     |
 
 ```json
 {
@@ -37,21 +37,21 @@ Let’s us add the following words and their alterations to improve the results:
             "alterations": [
                 "fix problems",
                 "troubleshoot",
-                "trouble-shoot",
+                "diagnostic",
                 ]
         },
         {
             "alterations": [
                 "whiteboard",
-                "white-board",
-                "white board"
+                "white board",
+                "white canvas"
             ]
         },
         {
             "alterations": [
                 "bluetooth",
-                "blue-tooth",
-                "blue tooth"
+                "blue tooth",
+                "BT"
             ]
         }
     ]

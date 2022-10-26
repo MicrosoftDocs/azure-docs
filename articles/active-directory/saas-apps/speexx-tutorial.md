@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/28/2022
+ms.date: 08/08/2022
 ms.author: jeedes
 
 ---
@@ -49,6 +49,8 @@ To configure the integration of Speexx into Azure AD, you need to add Speexx fro
 1. In the **Add from the gallery** section, type **Speexx** in the search box.
 1. Select **Speexx** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Speexx
 
 Configure and test Azure AD SSO with Speexx using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Speexx.
@@ -73,18 +75,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
-
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://portal.speexx.com/auth/saml/<customername>`
-    
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://portal.speexx.com/auth/saml/<customername>/adfs/postResponse`
-
-    c. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://portal.speexx.com/auth/saml/<customername>`
-
-    > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Speexx Client support team](mailto:support@speexx.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   1. In the **Identifier** text box, type a URL using the following pattern: `https://portal.speexx.com/auth/saml/<customername>`
+   1. In the **Reply URL** text box, type a URL using the following pattern: `https://portal.speexx.com/auth/saml/<customername>/adfs/postResponse`
+   1. In the **Sign-on URL** text box, type a URL using the following pattern: `https://portal.speexx.com/auth/saml/<customername>`
+   
+   > [!NOTE]
+   > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Speexx Client support team](mailto:support@speexx.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

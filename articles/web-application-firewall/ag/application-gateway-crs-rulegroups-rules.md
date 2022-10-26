@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/28/2022
+ms.date: 06/21/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -16,7 +16,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.1 by default, but you can choose to use any other supported CRS version.
+The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
 CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
@@ -35,7 +35,7 @@ The WAF protects against the following web vulnerabilities:
 
 ### OWASP CRS 3.2
 
-CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.2.0 version.
 
 > [!NOTE]
 > CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
@@ -55,12 +55,12 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-32)**|Protect against cross-site scripting attacks|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-32)**|Protect against SQL-injection attacks|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-32)**|Protect against session-fixation attacks|
-|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-32)**|Protect against JAVA attacks|
+|**[REQUEST-944-APPLICATION-ATTACK-JAVA](#crs944-32)**|Protect against JAVA attacks|
 
 
 ### OWASP CRS 3.1
 
-CRS 3.1 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.1 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.1.1 version.
 
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
@@ -84,7 +84,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 ### OWASP CRS 3.0
 
-CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
 
 |Rule group|Description|
 |---|---|
@@ -131,6 +131,8 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="general-32"></a> General
 |RuleId|Description|
 |---|---|
+|200002|Failed to Parse Request Body.|
+|200003|Multipart Request Body Strict Validation.|
 |200004|Possible Multipart Unmatched Boundary.|
 
 ### <a name="crs800-32"></a> KNOWN-CVES
@@ -183,6 +185,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920274|Invalid character in request headers (outside of very strict set)|
 |920280|Request Missing a Host Header|
 |920290|Empty Host Header|
+|920300|Request Missing an Accept Header|
 |920310|Request Has an Empty Accept Header|
 |920311|Request Has an Empty Accept Header|
 |920320|Missing User Agent Header|
@@ -237,7 +240,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -270,7 +273,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -281,7 +284,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -494,7 +497,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|Remote Command Execution = Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution = Unix Shell Code Found|
@@ -527,7 +530,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = JavaScript URI Vector|
@@ -537,7 +540,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -741,7 +744,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|Remote Command Execution = Unix Shell Expression Found|
+|932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
@@ -775,7 +778,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|

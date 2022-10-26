@@ -8,10 +8,12 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
-ms.date: 06/08/2020 
+ms.date: 06/24/2022
 ---
 
 # Customize Azure Database for PostgreSQL server parameters using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 You can list, show, and update configuration parameters for an Azure Database for PostgreSQL server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.

@@ -1,12 +1,12 @@
 ---
 title: Versioning policy and history management for Azure Health Data Services FHIR service
 description: This article describes the concepts of versioning policy and history management for Azure Health Data Services FHIR service.
-author: stevewohl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/06/2022
-ms.author: mikaelw
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Versioning policy and history management
@@ -73,4 +73,5 @@ In this article, you learned how to purge the history for resources in the FHIR 
 >[!div class="nextstepaction"]
 >[Purge history operation](purge-history.md)
 
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

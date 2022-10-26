@@ -3,12 +3,12 @@ metadata:
   title: "Azure HDInsight frequently asked questions"
   description: Frequently asked questions about HDInsight
   keywords: frequently asked questions, faq
-  author: Ramakoni1
-  ms.author: ramakoni
+  author: reachnijel
+  ms.author: nijelsf
   ms.service: hdinsight
   ms.custom: hdinsightactive,seoapr2020
   ms.topic: faq
-  ms.date: 11/20/2019
+  ms.date: 07/19/2022
 title: "Azure HDInsight: Frequently asked questions"
 summary: |
     This article provides answers to some of the most common questions about how to run [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).

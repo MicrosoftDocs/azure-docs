@@ -2,8 +2,9 @@
 title: Statsbeat in Azure Application Insights | Microsoft Docs
 description: Statistics about Application Insights SDKs and Auto-Instrumentation
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 08/24/2022
 ms.custom: references_regions
+ms.reviwer: heya
 ---
 
 # Statsbeat in Azure Application Insights
@@ -31,7 +32,7 @@ Statsbeat collects essential and non-essential metrics.
 
 #### [Java](#tab/eu-java)
 
-Statseat supports EU Data Boundary for Application Insights resources in the following regions:
+Statsbeat supports EU Data Boundary for Application Insights resources in the following regions:
 
 | Geo Name                  | Region Name            |
 |---------------------------|------------------------|
@@ -49,11 +50,38 @@ Statseat supports EU Data Boundary for Application Insights resources in the fol
 
 #### [Node](#tab/eu-node)
 
-N/A
+Statsbeat supports EU Data Boundary for Application Insights resources in the following regions:
+
+| Geo Name                  | Region Name            |
+|---------------------------|------------------------|
+| Europe                    | North Europe           |
+| Europe                    | West Europe            |
+| France                    | France Central         | 
+| France                    | France South           | 
+| Germany                   | Germany West Central   | 
+| Norway                    | Norway East            | 
+| Norway                    | Norway West            | 
+| Sweden                    | Sweden Central         | 
+| Switzerland               | Switzerland North      |
+| Switzerland               | Switzerland West       | 
 
 #### [Python](#tab/eu-python)
 
-N/A
+Statsbeat supports EU Data Boundary for Application Insights resources in the following regions:
+
+| Geo Name                  | Region Name            |
+|---------------------------|------------------------|
+| Europe                    | North Europe           |
+| Europe                    | West Europe            |
+| France                    | France Central         | 
+| France                    | France South           | 
+| Germany                   | Germany West Central   | 
+| Norway                    | Norway East            | 
+| Norway                    | Norway West            | 
+| Sweden                    | Sweden Central         | 
+| Switzerland               | Switzerland North      |
+| Switzerland               | Switzerland West       | 
+
 
 ---
 
@@ -64,11 +92,11 @@ N/A
 |Metric Name|Unit|Supported dimensions|
 |-----|-----|-----|
 |Request Success Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
-|Requests Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
+|Requests Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`|
 |Request Duration|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
-|Retry Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
-|Throttle Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
-|Exception Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
+|Retry Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, , `Status Code`|
+|Throttle Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`|
+|Exception Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Exception Type`|
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 #### Attach Statsbeat
@@ -85,7 +113,7 @@ N/A
 
 ### Non-essential Statsbeat
 
-Track the Disk I/O failure when using disk persistence for retriable telemetry
+Track the Disk I/O failure when using disk persistence for reliable telemetry.
 
 |Metric Name|Unit|Supported dimensions|
 |-----|-----|-----|
@@ -112,10 +140,17 @@ You can also disable this feature by setting the environment variable `APPLICATI
 
 #### [Node](#tab/node)
 
-N/A
+Not supported yet.
 
 #### [Python](#tab/python)
 
-N/A
+Statsbeat is enabled by default. It can be disabled by setting the environment variable <code class="notranslate">APPLICATIONINSIGHTS_STATSBEAT_DISABLED_ALL</code> to <code class="notranslate">true</code>.
+
+Metrics are sent to the following locations, to which outgoing connections must be opened in firewalls.
+
+|Location           |URL |
+|---------|---------|
+|Europe             |<code class="notranslate">westeurope-5.in.applicationinsights.azure.com</code>         |
+|Outside Europe     |<code class="notranslate">westus-0.in.applicationinsights.azure.com</code>         |
 
 ---

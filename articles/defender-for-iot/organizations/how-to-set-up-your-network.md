@@ -1,7 +1,7 @@
 ---
 title: Prepare your OT network for Microsoft Defender for IoT
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Microsoft Defender for IoT appliances.
-ms.date: 02/22/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes how to set up your OT network to work with Microsoft Defender for IoT components, including the OT network sensors, the Azure portal, and an optional on-premises management console.
 
-OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into OT/ICS/IoT risks. Sensors carry out data collection, analysis and alerting on-site, making them ideal for locations with low bandwidth or high latency.
+OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into OT/ICS/IoT risks. Sensors carry out data collection, analysis, and alerting on-site, making them ideal for locations with low bandwidth or high latency.
 
 This article is intended for personnel experienced in operating and managing OT and IoT networks, such as automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, and CIOs.
 
@@ -19,15 +19,15 @@ For assistance or support, contact [Microsoft Support](https://support.microsoft
 
 ## Prerequisites
 
-Before performing the procedures in this article, make sure that you understand your own network architecture and how you'll connect to Defender for IoT. For more information, see:
+Before performing the procedures in this article, make sure you understand your own network architecture and how you'll connect to Defender for IoT. For more information, see:
 
 - [Microsoft Defender for IoT system architecture](architecture.md)
 - [Sensor connection methods](architecture-connections.md)
-- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [Best practices for planning your OT network monitoring](best-practices/plan-network-monitoring.md)
 
 ## On-site deployment tasks
 
-Perform the steps in this section before deploying Defender for IoT on your network. 
+Perform the steps in this section before deploying Defender for IoT on your network.
 
 Make sure to perform each step methodologically, requesting the information and reviewing the data you receive. Prepare and configure your site and then validate your configuration.
 
@@ -47,7 +47,7 @@ Record the following site information:
 
 - Configuration workstation.
 
-- SSL certificates (optional but recommended).
+- TLS/SSL certificates (optional but recommended).
 
 - SMTP authentication (optional). To use the SMTP server with authentication, prepare the credentials required for your server.
 
@@ -59,22 +59,19 @@ Record the following site information:
 
 - Make sure that you can connect to the sensor management interface.
 
-- Make sure that you have a supported browser. Supported browsers include terminal software, such as PuTTY, or the latest versions of Microsoft Edge, Chrome, Firefox, or Safari (Mac only).
+- Make sure that you have terminal software (like PuTTY) or a supported browser. Supported browsers include the latest versions of Microsoft Edge, Chrome, Firefox, or Safari (Mac only).
 
     For more information, see [recommended browsers for the Azure portal](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
-- <a name="networking-requirements"></a>Make sure the required firewall rules are open on the workstation. Verify that your organizational security policy allows access as required. For more information, see [Networking requirements](#networking-requirements).
-
+- Make sure the required firewall rules are open on the workstation. Verify that your organizational security policy allows access as required. For more information, see [Networking requirements](#networking-requirements).
 
 ### Set up certificates
 
-After you've installed Defender for IoT sensor and/or on-premises management console software, a local, self-signed certificate is generated
-and used to access the sensor web application.
+After you've installed the Defender for IoT sensor or on-premises management console software, a local, self-signed certificate is generated, and used to access the sensor web application.
 
-The first time you sign in to Defender for IoT, administrator users are  prompted to provide an SSL/TLS certificate. Optional certificate validation is enabled by default.
+The first time they sign in to Defender for IoT, administrator users are prompted to provide an SSL/TLS certificate. Optional certificate validation is enabled by default.
 
 We recommend having your certificates ready before you start your deployment. For more information, see [Defender for IoT installation](how-to-install-software.md) and [About Certificates](how-to-deploy-certificates.md).
-
 
 ### Plan rack installation
 
@@ -90,7 +87,20 @@ We recommend having your certificates ready before you start your deployment. Fo
 
 1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and network taps to the Defender for IoT appliance.
 
-1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
+1. Configure, connect, and validate SPAN ports in the mirrored switches using one of the following methods:
+
+    |Method  |Description  |
+    |---------|---------|
+    |[Switch SPAN port](traffic-mirroring/configure-mirror-span.md)     |  Mirror local traffic from interfaces on the switch to a different interface on the same switch.     |
+    |[Remote SPAN (RSPAN)](traffic-mirroring/configure-mirror-rspan.md)     | Mirror traffic from multiple, distributed source ports into a dedicated remote VLAN.        |
+    |[Active or passive aggregation (TAP)](traffic-mirroring/configure-mirror-tap.md)     |     Mirror traffic by installing an active or passive aggregation terminal access point (TAP) inline to the network cable.     |
+    |[ERSPAN](traffic-mirroring/configure-mirror-erspan.md)     |   Mirror traffic with ERSPAN encapsulation when you need to extend monitored traffic across Layer 3 domains, when using specific Cisco routers and switches.      |
+    |[ESXi vSwitch](traffic-mirroring/configure-mirror-esxi.md)     |  Use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a monitoring port.       |
+    |[Hyper-V vSwitch](traffic-mirroring/configure-mirror-hyper-v.md)     | Use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a monitoring port.      |
+
+    > [!NOTE]
+    > SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.
+    >
 
 1. Connect the configured SPAN port to a computer running Wireshark, and verify that the port is configured correctly.
 
@@ -123,6 +133,7 @@ For example:
 ## Networking requirements
 
 Use the following tables to ensure that required firewalls are open on your workstation and verify that your organization security policy allows required access.
+
 ### User access to the sensor and management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
@@ -134,14 +145,16 @@ Use the following tables to ensure that required firewalls are open on your work
 
 | Protocol | Transport | In/Out | Port | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|
-| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net` |
+| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more. Connected Azure services include IoT Hub, Blob Storage, Event Hubs, and the Microsoft Download Center.<br><br>**For OT sensor versions 22.x**: Download the list from the **Sites and sensors** page in the Azure portal. Select an OT sensor with software versions 22.x or higher, or a site with one or more supported sensor versions. Then, select **More options > Download endpoint details**. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).<br><br>**For OT sensor versions 10.x**:  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`<br> `download.microsoft.com`|
+
+
 
 ### Sensor access to the on-premises management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the NTP to the on-premises management console | Sensor | On-premises management console |
-| SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
+| TLS/SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
 
 ### Other firewall rules for external services (optional)
 
@@ -158,7 +171,7 @@ Open these ports to allow extra services for Defender for IoT.
 | Proxy | TCP/UDP | In/Out | 443 | Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor | Proxy server |
 | Syslog | UDP | Out | 514 | LEEF | The logs that are sent from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
 | LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to sign in to the system | On-premises management console and Sensor | LDAPS server |
-| Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console </br></br> Port 22 from the sensor to the on-premises management console | Monitoring | Tunneling | Endpoint, Sensor | On-premises management console |
+| Tunneling | TCP | In | 9000 </br></br> In addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console </br></br> Port 22 from the sensor to the on-premises management console | Monitoring | Tunneling | Endpoint, Sensor | On-premises management console |
 
 ## Choose a cloud connection method
 
@@ -175,7 +188,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
 ### Can't connect by using a web interface
 
-1. Verify that the computer that you're trying to connect is on the same network as the appliance.
+1. Verify that the computer you're trying to connect is on the same network as the appliance.
 
 2. Verify that the GUI network is connected to the management port on the sensor.
 
@@ -185,9 +198,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
     1. Use the **support** user and password to sign in.
 
-    1. Use the command **network list** to see the current IP address. For example:
-
-        :::image type="content" source="media/how-to-set-up-your-network/list-of-network-commands.png" alt-text="Screenshot of the network list command.":::
+    1. Use the command **network list** to see the current IP address.
 
 4. If the network parameters are misconfigured, use the following procedure to change it:
 
@@ -207,7 +218,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
     1. To apply the settings, select **Y**.
 
-5. After you restart, connect with user support and use the **network list** command to verify that the parameters were changed.
+5. After you restart, connect with user support, and use the **network list** command to verify that the parameters were changed.
 
 6. Try to ping and connect from the GUI again.
 

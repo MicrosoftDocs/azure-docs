@@ -3,23 +3,25 @@ title: Collect IIS logs with Log Analytics agent in Azure Monitor
 description: Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor.  This article describes how to configure collection of IIS logs and details of the records they create in Azure Monitor.
 ms.topic: conceptual
 ms.date: 03/31/2022
+ms.reviewer: JeffWo
 
 ---
 
 # Collect IIS logs with Log Analytics agent in Azure Monitor
 Internet Information Services (IIS) stores user activity in log files that can be collected by the Log Analytics agent and stored in [Azure Monitor Logs](../data-platform.md).
 
-> [!IMPORTANT]
-> This article covers collecting IIS logs with the [Log Analytics agent](./log-analytics-agent.md). See [Collect text logs with Azure Monitor agent (preview)](../agents/data-collection-text-log.md) for details on collecting IIS logs with [Azure Monitor agent](azure-monitor-agent-overview.md).
-
 ![IIS logs](media/data-sources-iis-logs/overview.png)
+
+> [!IMPORTANT]
+> This article covers collecting IIS logs with the [Log Analytics agent](./log-analytics-agent.md), which **will be deprecated by August 2024**. Please be sure to [migrate to Azure Monitor agent](./azure-monitor-agent-manage.md) before August 2024 to continue ingesting data. See [Collect text logs with Azure Monitor agent (preview)](../agents/data-collection-text-log.md) for details on collecting IIS logs with [Azure Monitor agent](azure-monitor-agent-overview.md).
+
 
 ## Configuring IIS logs
 Azure Monitor collects entries from log files created by IIS, so you must [configure IIS for logging](/previous-versions/orphan-topics/ws.11/hh831775(v=ws.11)).
 
 Azure Monitor only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging. It does not collect logs in NCSA or IIS native format.
 
-Configure IIS logs in Azure Monitor from the [Agent configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics agent.  There is no configuration required other than selecting **Collect W3C format IIS log files**.
+Configure IIS logs in Azure Monitor from the [Agent configuration menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics agent.  There is no configuration required other than selecting **Collect W3C format IIS log files**.
 
 
 ## Data collection
