@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/06/2022
+ms.date: 10/26/2022
 ms.author: terrylan
 
 ---
@@ -296,6 +296,11 @@ You can enable the following diagnostic log categories for NSGs:
 
 ## Compute
 The section provides additional information regarding key features in this area and summary information about these capabilities.
+
+### Azure confidential computing
+[Azure confidential computing](../../confidential-computing/TOC.yml) makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the cloud infrastructure. The spectrum of option ranges from enabling "lift and shift" scenarios of existing applications, to a full control of various features of security. There are multiple deployment models supported. These different models support the wide variety of customer security requirements for modern cloud computing.
+
+For Infrastructure as a Service (IaaS), you can use [confidential virtual machines powered by AMD SEV-SNP](../../confidential-computing/confidential-vm-overview.md) or [VMs based on Intel Software Guard Extensions (SGX) application enclaves](../../confidential-computing/application-development.md). For Platform as a Service, we have multiple [container compute](../../confidential-computing/choose-confidential-containers-offerings.md) options, including integrations with [Azure Kubernetes Service (AKS)](../../confidential-computing/confidential-nodes-aks-overview.md).
 
 ### Antimalware & Antivirus
 With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Cloud Services and Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Microsoft Defender for Cloud
