@@ -38,7 +38,7 @@ let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
 let localSetupScreenViewData = SetupScreenViewData(title: "<NAV_TITLE>",
                                                                subtitle: "<NAV_SUBTITLE>")
 let localOptions = LocalOptions(participantViewData: localParticipantViewData, 
-                                navigationBarViewData: localSetupScreenViewData)
+                                setupScreenViewData: localSetupScreenViewData)
 // RemoteOptions (data sent to server)
 let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
                                   credential: <Some CommunicationTokenCredential>,
