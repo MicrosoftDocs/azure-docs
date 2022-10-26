@@ -26,7 +26,7 @@ To create your first function in the new v2 model, see one of these quickstart a
 + [Get started with Visual Studio](./create-first-function-vs-code-python.md)
 + [Get started command prompt](./create-first-function-cli-python.md)
 
-## Blob Trigger
+## Blob trigger
 
 The following code snippet defines a function triggered from Azure Blob Storage:
 
@@ -43,7 +43,7 @@ def test_function(myblob: func.InputStream):
                 f"Blob Size: {myblob.length} bytes")
 ```
 
-## Cosmos DB Trigger
+## Azure Cosmos DB trigger
 
 The following code snippet defines a function triggered from an Azure Cosmos DB (SQL API):
 
@@ -59,7 +59,7 @@ def test_function(documents: func.DocumentList) -> str:
         logging.info('Document id: %s', documents[0]['id'])
 ```
 
-## EventHub Trigger
+## Azure EventHub trigger
 
 The following code snippet defines a function triggered from an event hub instance:
 
@@ -75,7 +75,7 @@ def test_function(myhub: func.EventHubEvent):
                 myhub.get_body().decode('utf-8'))
 ```
 
-## HTTP Trigger
+## HTTP trigger
 
 The following code snippet defines an HTTP triggered function:
 
@@ -104,7 +104,7 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-## Queue Trigger
+## Azure Queue Storage trigger
 
 ```python
 import logging
@@ -118,7 +118,7 @@ def test_function(msg: func.QueueMessage):
                  msg.get_body().decode('utf-8'))
 ```
 
-## Service Bus Queue Trigger
+## Azure Service Bus queue trigger
 
 ```python
 import logging
@@ -131,7 +131,7 @@ def test_function(msg: func.ServiceBusMessage):
                  msg.get_body().decode('utf-8'))
 ```
 
-## Service Bus Topic Trigger
+## Azure Service Bus topic trigger
 
 ```python
 import logging
@@ -145,7 +145,7 @@ def test_function(message: func.ServiceBusMessage):
     logging.info("Message Body: " + message_body)
 ```
 
-## Timer Trigger
+## Timer trigger
 
 ```python
 import datetime
