@@ -18,9 +18,10 @@ The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse
 At a high-level, the connector provides the following capabilities:
 
 * Read from Azure Synapse Dedicated SQL Pool:
-  * Read large data sets from Synapse Dedicated SQL Pool Tables (Internal and External), views and select queries.
+  * Read large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and views.
   * Comprehensive predicate push down support, where filters on DataFrame get mapped to corresponding SQL predicate push down.
   * Support for column pruning.
+  * Support for query pushdown.
 * Write to Azure Synapse Dedicated SQL Pool:
   * Ingest large volume data to Internal and External table types.
   * Supports following DataFrame save mode preferences:
