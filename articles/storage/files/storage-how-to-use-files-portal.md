@@ -25,7 +25,7 @@ This Quickstart only applies to SMB Azure file shares. Standard and premium SMB 
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Get started
+## Getting started
 
 # [Portal](#tab/azure-portal)
 
