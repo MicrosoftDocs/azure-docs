@@ -11,13 +11,15 @@ ms.date: 01/07/2022
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: "engagement-fy23, it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to set up MFA requirement for B2B guest users to protect my apps and resources. 
 ---
 
 # Tutorial: Enforce multi-factor authentication for B2B guest users
 
-When collaborating with external B2B guest users, it’s a good idea to protect your apps with multi-factor authentication (MFA) policies. Then external users will need more than just a user name and password to access your resources. In Azure Active Directory (Azure AD), you can accomplish this goal with a Conditional Access policy that requires MFA for access. MFA policies can be enforced at the tenant, app, or individual guest user level, the same way that they are enabled for members of your own organization. The resource tenant is always responsible for Azure AD Multi-Factor Authentication for users, even if the guest user’s organization has Multi-Factor Authentication capabilities.
+When collaborating with external B2B guest users, it’s a good idea to protect your apps with multi-factor authentication (MFA) policies. Then external users will need more than just a user name and password to access your resources. In Azure Active Directory (Azure AD), you can accomplish this goal with a Conditional Access policy that requires MFA for access. MFA policies can be enforced at the tenant, app, or individual guest user level, the same way that they're enabled for members of your own organization. The resource tenant is always responsible for Azure AD Multi-Factor Authentication for users, even if the guest user’s organization has Multi-Factor Authentication capabilities.
 
 Example:
 
@@ -34,6 +36,7 @@ Example:
 In this tutorial, you will:
 
 > [!div class="checklist"]
+>
 > - Test the sign-in experience before MFA setup.
 > - Create a Conditional Access policy that requires MFA for access to a cloud app in your environment. In this tutorial, we’ll use the Microsoft Azure Management app to illustrate the process.
 > - Use the What If tool to simulate MFA sign-in.
@@ -46,7 +49,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this tutorial, you need:
 
-- **Access to Azure AD Premium edition**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. Note that MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
+- **Access to Azure AD Premium edition**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
 - **A valid external email account** that you can add to your tenant directory as a guest user and use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Azure portal](add-users-administrator.md).
 
 ## Create a test guest user in Azure AD
@@ -68,7 +71,7 @@ To complete the scenario in this tutorial, you need:
 ## Test the sign-in experience before MFA setup
 
 1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
-1. Note that you’re able to access the Azure portal using just your sign-in credentials. No additional authentication is required.
+1. You should be able to access the Azure portal using only your sign-in credentials. No other authentication is required.
 1. Sign out.
 
 ## Create a Conditional Access policy that requires MFA
@@ -88,20 +91,20 @@ To complete the scenario in this tutorial, you need:
 
     ![Screenshot showing the Cloud apps page and the Select option](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
-1.	On the **Select** page, choose **Microsoft Azure Management**, and then choose **Select**.
+1. On the **Select** page, choose **Microsoft Azure Management**, and then choose **Select**.
 
     ![Screenshot that highlights the Microsoft Azure Management option.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
-1.	On the **New** page, in the **Access controls** section, choose the link under **Grant**.
-1.	On the **Grant** page, choose **Grant access**, select the **Require multi-factor authentication** check box, and then choose **Select**.
+1. On the **New** page, in the **Access controls** section, choose the link under **Grant**.
+1. On the **Grant** page, choose **Grant access**, select the **Require multi-factor authentication** check box, and then choose **Select**.
 
     ![Screenshot showing the Require multi-factor authentication option](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
-1.	Under **Enable policy**, select **On**.
+1. Under **Enable policy**, select **On**.
 
     ![Screenshot showing the Enable policy option set to On](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
-1.	Select **Create**.
+1. Select **Create**.
 
 ## Use the What If option to simulate sign-in
 
@@ -114,8 +117,7 @@ To complete the scenario in this tutorial, you need:
 
     ![Screenshot showing a guest user selected](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
-1. Select the link under **Cloud apps, actions, or authentication content**. 
-. Choose **Select apps**, and then choose the link under **Select**.
+1. Select the link under **Cloud apps, actions, or authentication content**. Choose **Select apps**, and then choose the link under **Select**.
 
     ![Screenshot showing the Microsoft Azure Management app selected](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
@@ -127,7 +129,7 @@ To complete the scenario in this tutorial, you need:
 ## Test your Conditional Access policy
 
 1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
-1. You should see a request for additional authentication methods. Note that it could take some time for the policy to take effect.
+1. You should see a request for additional authentication methods. It can take some time for the policy to take effect.
 
     ![Screenshot showing the More information required message](media/tutorial-mfa/mfa-required.png)
 
