@@ -12,12 +12,11 @@ ms.custom: ignite-fall-2021
 
 [Reference documentation](/rest/api/language/text-analysis-runtime)
 
-Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you will use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
+Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you'll use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* The current version of [cURL](https://curl.haxx.se/).
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
@@ -80,7 +79,7 @@ curl -X POST "%LANGUAGE_ENDPOINT%/language/:analyze-text?api-version=2022-05-01"
 -d "@C:\Users\<myaccount>\Desktop\test_sentiment_payload.json"
 ```
 
-### Powershell
+### PowerShell
 
 ```terminal
 curl.exe -X POST $env:LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 `
