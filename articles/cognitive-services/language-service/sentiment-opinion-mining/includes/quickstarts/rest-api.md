@@ -89,9 +89,20 @@ curl.exe -X POST $env:LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-
 -d "@C:\Users\<myaccount>\Desktop\test_sentiment_payload.json"
 ```
 
-# [Linux & macOS](#tab/linux-mac)
+#### [Linux](#tab/linux)
 
-Use the following commands to send the API request using the program you're using. Replace `C:\Users\<myaccount>\Desktop\test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
+Use the following commands to send the API request using the program you're using. Replace `/home/mydir/test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
+
+```terminal
+curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
+-d "@/home/mydir/test_sentiment_payload.json"
+```
+
+#### [macOS](#tab/macos)
+
+Use the following commands to send the API request using the program you're using. Replace `/home/mydir/test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
 
 ```terminal
 curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
