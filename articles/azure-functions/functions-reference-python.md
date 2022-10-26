@@ -292,7 +292,7 @@ from ..shared_code import my_first_helper_function #(deprecated beyond top-level
 
 ::: zone-end
 
-## Triggers and Inputs
+## Triggers and inputs
 
 ::: zone pivot="python-mode-configuration"  
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're different in the `function.json` file, usage is identical in Python code.  Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
@@ -540,7 +540,7 @@ def main(req, context):
     })
 ```
 
-## HTTP Trigger and bindings
+## HTTP trigger
 
 ::: zone pivot="python-mode-configuration" 
 The HTTP trigger is defined in the function.json file. The `name` of the binding must match the named parameter in the function.
@@ -761,7 +761,7 @@ app = func.WsgiFunctionApp(app=flask_app.wsgi_app,
 ---
 
 ::: zone-end
-## Scaling and Performance
+## Scaling and performance
 
 For scaling and performance best practices for Python function apps, see the [Python scale and performance article](python-scale-performance-reference.md).
 
@@ -986,7 +986,7 @@ func azure functionapp publish <APP_NAME> --no-build
 
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
-## Unit Testing
+## Unit testing
 
 Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package isn't immediately available, be sure to install it via your `requirements.txt` file as described in the [package management](#package-management) section above.
 
@@ -1350,7 +1350,7 @@ This functionality is available only for function apps running in Premium and De
      
 ## Known issues and FAQ
 
-Following is a list of troubleshooting guides for common issues:
+The following is a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
 * [Can't import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc).
