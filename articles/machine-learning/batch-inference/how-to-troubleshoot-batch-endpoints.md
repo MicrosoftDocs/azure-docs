@@ -108,7 +108,7 @@ logger.debug("Debug log statement")
 
 ## Common issues
 
-The following table contains common problems and solutions you may see during batch endpoint development and consumption.
+The following section contains common problems and solutions you may see during batch endpoint development and consumption.
 
 ### No module named 'azureml'
 
