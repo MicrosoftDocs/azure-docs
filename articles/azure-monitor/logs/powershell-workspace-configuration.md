@@ -92,4 +92,4 @@ When you create a workspace that was deleted in the last 14 days and is in a [so
    * Create a new workspace by using the same workspace name.
 
 ## Next steps
-* [Review Log Analytics PowerShell cmdlets](/powershell/module/az.operationalinsights/) for more information on using PowerShell for configuration of Log Analytics.
+[Review Log Analytics PowerShell cmdlets](/powershell/module/az.operationalinsights/) for more information on using PowerShell for configuration of Log Analytics.

@@ -1,12 +1,12 @@
 ---
-title: Analyze usage in Log Analytics workspace in Azure Monitor
+title: Analyze usage in a Log Analytics workspace in Azure Monitor
 description: Methods and queries to analyze the data in your Log Analytics workspace to help you understand usage and potential cause for high usage.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/25/2022
 ---
  
-# Analyze usage in Log Analytics workspace
+# Analyze usage in a Log Analytics workspace
 Azure Monitor costs can vary significantly based on the volume of data being collected in your Log Analytics workspace. This volume is affected by the set of solutions using the workspace and the amount of data collected by each solution. This article provides guidance on analyzing your collected data to assist in controlling your data ingestion costs. It helps you determine the cause of higher-than-expected usage. It also helps you to predict your costs as you monitor more resources and configure different Azure Monitor features.
 
 ## Causes for higher-than-expected usage
@@ -30,7 +30,7 @@ Start your analysis with existing tools in Azure Monitor. These tools require no
 
 See the **Usage** tab for a breakdown of ingestion by solution and table. This information can help you quickly identify the tables that contribute to the bulk of your data volume. The tab also shows trending of data collection over time. You can determine if data collection steadily increased over time or suddenly increased in response to a configuration change.
 
-Select **Additional Queries** for pre-built queries that help you further understand your data patterns.
+Select **Additional Queries** for prebuilt queries that help you further understand your data patterns.
 
 ### Usage and estimated costs
 The **Data ingestion per solution** chart on the [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This information helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution.

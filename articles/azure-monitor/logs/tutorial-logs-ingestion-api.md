@@ -15,7 +15,7 @@ In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Create a custom table in a Log Analytics workspace.
-> * Create a data collection endpoint to receive data over HTTP.
+> * Create a data collection endpoint (DCE) to receive data over HTTP.
 > * Create a data collection rule (DCR) that transforms incoming data to match the schema of the target table.
 > * Create a sample application to send custom data to Azure Monitor.
 
@@ -25,7 +25,7 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need:
 
-- A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac) .
+- A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 ## Collect workspace details
@@ -104,7 +104,7 @@ Use the **Tables - Update** API to create the table with the following PowerShel
     ```
 
 ## Create a data collection endpoint
-A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics workspace where the data will be sent.
+A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics workspace where the data will be sent.
 
 1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
 
@@ -312,7 +312,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
     > [!NOTE]
     > All the properties of the DCR, such as the transformation, might not be displayed in the Azure portal even though the DCR was successfully created with those properties.
 
-## Assign permissions to DCR
+## Assign permissions to a DCR
 After the DCR has been created, the application needs to be given permission to it. Permission will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
 1. From the DCR in the Azure portal, select **Access Control (IAM)** > **Add role assignment**.
@@ -347,7 +347,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
 
     ```powershell
     ##################
-    ### Step 0: set parameters required for the rest of the script
+    ### Step 0: Set parameters required for the rest of the script.
     ##################
     #information needed to authenticate to AAD and obtain a bearer token
     $tenantId = "00000000-0000-0000-0000-000000000000"; #Tenant ID the data collection endpoint resides in
@@ -432,7 +432,7 @@ Ensure that you have the correct permissions for your application to the DCR. Yo
 ### You don't receive an error, but data doesn't appear in the workspace
 The data might take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.
 
-### IntelliSense in Log Analytics not recognizing new table
+### IntelliSense in Log Analytics doesn't recognize the new table
 The cache that drives IntelliSense might take up to 24 hours to update.
 
 ## Next steps
