@@ -48,6 +48,9 @@ The Static Web app pulls the information and files for deployment from GitHub us
     git pull origin main
     ```
 
+    * _origin_ refers to your forked repo. 
+    * _main_ refers to the default branch.
+
 1. In Visual Studio file explorer, open up your GitHub deployment action file. The file path and name _something_ looks `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
 1. The _part_ of the YAML file relevant to the Static web app is shown below:
 

@@ -11,10 +11,10 @@ ms.date: 10/21/2022
     git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-javascript-samples
     ```
 
-1. At the same Bash terminal, go into your forked repository:
+1. At the same Bash terminal, go into your forked repository for this website search example:
 
     ```bash
-    cd azure-search-javascript-samples
+    cd azure-search-javascript-samples/search-website-functions-v4
     ```
 
 1. Use the Visual Studio Code command, `code .` to open your forked repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.

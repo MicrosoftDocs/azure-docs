@@ -31,7 +31,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a configuration file
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/config.js" highlight="3,4" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/config.js" highlight="2,5" :::
 
 ## Azure Function: Search the catalog
 
