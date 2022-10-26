@@ -43,11 +43,7 @@ To view a topology, follow these steps:
 3. In the **All services** screen, enter **Monitor** in the **Filter services** search box and select it from the search result. 
 4. Under **Insights**, select **Networks**. 
 5. In the **Networks** screen that appears, select **Topology**.
-
-   :::image type="content" source="./media/network-insights-topology/topology-start-screen.png" alt-text="Screenshot of Topology screen.":::
-
 6. Select **Scope** to define the scope of the Topology. 
-
 7. In the **Select scope** pane, select the list of **Subscriptions**, **Resource groups**, and **Locations** of the resources for which you want to view the topology. Select **Save**.
 
    :::image type="content" source="./media/network-insights-topology/topology-scope.png" alt-text="Screenshot of selecting the scope.":::
@@ -56,6 +52,8 @@ To view a topology, follow these steps:
 8. Select the [**Resource type**](#supported-resource-types) that you want to include in the topology and select **Apply**.
 
 The topology containing the resources according to the scope and resource type specified, appears.
+
+:::image type="content" source="./media/network-insights-topology/topology-start-screen.png" alt-text="Screenshot of Topology screen.":::
 
 Each edge of the topology represents an association between each of the resources. In the topology, similar types of resources are grouped together. 
 
