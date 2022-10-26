@@ -1,6 +1,6 @@
 ---
-title: Device mappings in MedTech service - Azure Health Data Services
-description: This article describes how to configure and use device mapping templates with Azure Health Data Services MedTech service. 
+title: How to configure device mappings in MedTech service - Azure Health Data Services
+description: This article describes how to configure device mappings with Azure Health Data Services MedTech service. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,7 +9,7 @@ ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
-# How to use device mappings
+# How to configure device mappings
 
 This article describes how to configure the MedTech service device mappings.
 
@@ -63,7 +63,7 @@ The content payload itself is an Azure Event Hubs message, which is composed of 
 ```
 ## CollectionContentTemplate
 
-The CollectionContentTemplate is the **default** template type used by the MedTech service device mapping template and represents a list of templates that will be used during the normalization process.
+The CollectionContentTemplate is the **root** template type used by the MedTech service device mappings template and represents a list of all templates that will be used during the normalization process.
                                                              
 ### Example
 
