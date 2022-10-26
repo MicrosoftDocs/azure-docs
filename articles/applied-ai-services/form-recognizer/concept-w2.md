@@ -1,7 +1,7 @@
 ---
-title: Automated W2 form processing - Form Recognizer
+title: Automated W-2 form processing - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Use the Form Recognizer prebuilt W2 model to automate extraction of W2 form data.
+description: Use the Form Recognizer prebuilt W-2 model to automate extraction of W2 form data.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
