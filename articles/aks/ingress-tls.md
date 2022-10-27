@@ -283,7 +283,6 @@ NAMESPACE="ingress-basic"
 helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
-
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -295,7 +294,6 @@ $Namespace = "ingress-basic"
 helm upgrade nginx-ingress ingress-nginx/ingress-nginx `
   --namespace $Namespace `
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel
-
 ```
 
 ---
