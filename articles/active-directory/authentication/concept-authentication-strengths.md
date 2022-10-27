@@ -205,11 +205,7 @@ An authentication strength Conditional Access policy works together with [MFA tr
   - Email one-time pass (Guest)
   - Hardware-based OATH token
 
-- **Conditional Access What-if tool** – When running the what-if tool, it will return policies that require authentication strength correctly. However, when clicking on the authentication strength name, a name page is open with additional information about the methods the user can use. This information may be incorrect.
-
 - **Authentication strength is not enforced on Register security information user action** – If an Authentication strength Conditional Access policy targets **Register security information** user action, the policy would not apply. 
-
-- **Conditional Access audit log** – When a Conditional Access policy with the authentication strength grant control is created or updated in the Azure AD portal, the auditing log includes details about the policy that was updated, but doesn't include the details about which authentication strength is referenced by the Conditional Access policy. This issue doesn't exist when a policy is created or updated By using Microsoft Graph APIs.
 
 - **Using 'Require one of the selected controls' with 'require authentication strength' control** - After you select authentication strengths grant control and additional controls, all the selected controls must be satisfied in order to gain access to the resource. Using **Require one of the selected controls** isn't applicable, and will default to requiring all the controls in the policy.
 
