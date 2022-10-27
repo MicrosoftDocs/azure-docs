@@ -20,6 +20,9 @@ In this article, you learn how to:
 > * Import an OpenAPI specification using the Azure portal, Azure CLI, or Azure PowerShell
 > * Test the API in the Azure portal
 
+> [!NOTE]
+> API import limitations are documented in [API import restrictions and known issues](api-management-api-import-restrictions.md).
+
 ## Prerequisites
 
 * An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
@@ -36,7 +39,7 @@ In this article, you learn how to:
 #### [Portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, select **APIs**.
+1. In the left menu, select **APIs** > **+ Add API**.
 1. Under **Create from definition**, select **OpenAPI**.
 
     :::image type="content" source="media/import-api-from-oas/oas-api.png" alt-text="Screenshot of creating an API from an OpenAPI specification in the portal." border="false":::
@@ -45,41 +48,37 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/cli)
 
-The following example uses the [az apim api import](/cli/azure/apim/api?view=azure-cli-latest#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. 
+The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. Import using a path to a specification instead of a URL by using the `--specification-path` parameter.
 
 ```azurecli-interactive
 # API Management service-specific details
-
 APIMServiceName="apim-hello-world"
 ResourceGroupName="myResourceGroup"
 
 # API-specific details
-
 APIId="demo-conference-api"
 APIPath="myapi"
 SpecificationFormat="OpenAPI"
 SpecificationURL="https://conferenceapi.azurewebsites.net/?format=json"
 
 # Import API
-
 az apim api import --path $APIPath --resource-group $ResourceGroupName \
     --service-name $APIMServiceName --api-id $APIId \
-    --service-url $ServiceURL 
     --specification-format $SpecificationFormat --specification-url $SpecificationURL
 ```
 
-After importing the API, if needed, you can update the settings by using the [az apim api update](/cli/azure/apim/api?view=azure-cli-latest#az-apim-api-update) command.
+After importing the API, if needed, you can update the settings by using the [az apim api update](/cli/azure/apim/api#az-apim-api-update) command.
 
 #### [PowerShell](#tab/powershell)
 
-The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. 
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. Import using a path to a specification instead of a URL by using the `-SpecificationPath` parameter.
 
 ```powershell-interactive
 # API Management service-specific details
 $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
-# API-specific details
+# API-specific det
 $apiId = "demo-conference-api"
 $apiPath = "myapi"
 $specificationFormat = "OpenAPI"
@@ -89,15 +88,12 @@ $specificationUrl = "https://conferenceapi.azurewebsites.net/?format=json"
 $context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
 
 # Import API
-$api = Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
+Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
 ```
 
 After importing the API, if needed, you can update the settings by using the [Set-AzApiManagementApi](/powershell/module/az.apimanagement/set-azapimanagementapi) cmdlet.
 
 ---
-
-> [!NOTE]
-> The API import limitations are documented in [another article](api-management-api-import-restrictions.md).
 
 [!INCLUDE [api-management-test-api-portal](../../includes/api-management-test-api-portal.md)]
 
