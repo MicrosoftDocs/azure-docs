@@ -6,7 +6,7 @@ services: cognitive-services
 author: jr-MS
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: Anomaly Detector-service
+ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 11/1/2022
 ms.author: jr-MS
