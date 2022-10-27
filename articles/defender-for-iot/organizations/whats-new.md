@@ -255,7 +255,7 @@ Now you can add any of the following parameters to your query to fine tune your 
 - “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**.
 - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
-For more information, see [Management console APIs - Version 3](references-work-with-defender-for-iot-apis.md#version-3).
+For more information, see [Integration API reference for on-premises management consoles (Public preview)](api/management-integration-apis.md).
 
 ### OT appliance hardware profile updates
 
@@ -346,7 +346,7 @@ The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
 
-Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected. 
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md?#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected. 
 
 For more information, see:
 

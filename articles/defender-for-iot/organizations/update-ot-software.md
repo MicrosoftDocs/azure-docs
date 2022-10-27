@@ -68,7 +68,7 @@ In such cases, make sure to update your on-premises management consoles *before*
 You can update software on your sensors individually, directly from each sensor console, or in bulk from the on-premises management console. Select one of the following tabs for the steps required in each method.
 
 > [!NOTE]
-> If you are updating from software versions earlier than [22.1.x](release-notes.md#update-to-version-221x), note that this version has a large update with more complicated background processes. Expect this update to take more time than earlier updates have required.
+> If you are updating from software versions earlier than [22.1.x](whats-new.md#update-to-version-221x), note that this version has a large update with more complicated background processes. Expect this update to take more time than earlier updates have required.
 >
 
 > [!IMPORTANT]
