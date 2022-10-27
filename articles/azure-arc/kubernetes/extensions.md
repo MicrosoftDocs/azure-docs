@@ -27,8 +27,8 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 ## Prerequisites
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
-* `connectedk8s` (version >= 1.2.0) and `k8s-extension` (version >= 1.0.0) Azure CLI extensions. Install the latest version of these Azure CLI extensions by running the following commands:
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
+* Install the latest version of the `connectedk8s` and `k8s-extension` Azure CLI extensions by running the following commands:
   
     ```azurecli
     az extension add --name connectedk8s
@@ -44,7 +44,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 * An existing Azure Arc-enabled Kubernetes connected cluster.
   * If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-  * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
+  * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 ## Currently available extensions
 
@@ -311,7 +311,6 @@ Learn more about the cluster extensions currently available for Azure Arc-enable
 * [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 * [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 * [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
-* [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 * [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
 * [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
 * [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)

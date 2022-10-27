@@ -20,6 +20,7 @@ To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 - An existing AKS cluster that needs the node limit increase. This cluster shouldn't be deleted as that will remove the limit increase.
 - Uptime SLA enabled on your cluster.
+- Clusters should use Kubernetes version 1.23 or above
 
 > [!NOTE] 
 > It may take up to a week to enable your clusters with the larger node limit.

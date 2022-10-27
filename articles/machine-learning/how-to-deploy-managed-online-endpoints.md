@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.date: 10/06/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
@@ -788,7 +788,7 @@ To learn more, review these articles:
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
+- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
 - [Access Azure resources from an online endpoint with a managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 - [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
