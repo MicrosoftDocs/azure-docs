@@ -46,6 +46,19 @@ In the end of October, the total number of required permissions for any single a
 
 In the Azure portal, the required permissions are listed under API Permissions within specific applications in the application registration menu. When using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an [application](/graph/api/resources/application) entity. For more information, see: [Validation differences by supported account types (signInAudience)](../develop/supported-accounts-validation.md).
 
+
+---
+
+### Public Preview - Conditional access Authentication strengths 
+
+
+
+**Type:** New feature  
+**Service category:** Conditional Access   
+**Product capability:** User Authentication  
+
+Announcing Public preview of Authentication strength, a Conditional Access control that allows administrators to specify which authentication methods can be used to access a resource.  For more information, see: [Conditional Access authentication strength (preview)](../authentication/concept-authentication-strengths.md). You can use custom authentication strengths to restrict access by requiring specific FIDO2 keys using the Authenticator Attestation GUIDs (AAGUIDs), and apply this through conditional access policies. For more information, see: [FIDO2 security key advanced options](../authentication/concept-authentication-strengths.md#fido2-security-key-advanced-options).
+
 ---
 
 ### Public Preview - Conditional access authentication strengths for external identities
@@ -59,29 +72,6 @@ You can now require your business partner (B2B) guests across all Microsoft clou
 
 ---
 
-### Public Preview - Conditional Access Authentication Strength support to map AAGUID to auth strength 
-
-
-
-**Type:** New feature  
-**Service category:** Conditional Access     
-**Product capability:** User Authentication   
-
-You can use custom authentication strengths to restrict access by requiring specific FIDO2 keys using the Authenticator Attestation GUIDs (AAGUIDs), and apply this through conditional access policies. For more information, see: [FIDO2 security key advanced options](../authentication/concept-authentication-strengths.md#fido2-security-key-advanced-options).
-
----
-
-### Public Preview - Conditional access Authentication strengths 
-
-
-
-**Type:** New feature  
-**Service category:** Conditional Access   
-**Product capability:** User Authentication  
-
-Announcing Public preview of Authentication strength, a Conditional Access control that allows administrators to specify which authentication methods can be used to access a resource.  For more information, see: [Conditional Access authentication strength (preview)](../authentication/concept-authentication-strengths.md).
-
----
 
 ### Generally Availability - Windows Hello for Business, Cloud Kerberos Trust deployment
 
