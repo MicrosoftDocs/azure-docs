@@ -146,7 +146,7 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 ### List of resources with availability states that have been impacted by unplanned, platform-initiated health events
 
-Returns the latest list of virtual machines impacted by unplanned disruptions that were triggered unexpectedly by the Azure platform. This query returns all the impacted virtual machines aggregated by their Ids along with the corresponding availability state and associated annotation (properties.reason) summarizing the specific disruption.
+Returns the latest list of virtual machines impacted by unplanned disruptions that were triggered unexpectedly by the Azure platform. This query returns all the impacted virtual machines aggregated by their ID property, along with the corresponding availability state and associated annotation (properties.reason) summarizing the specific disruption.
 
 ```kusto
 HealthResources
@@ -184,7 +184,7 @@ Search-AzGraph -Query "HealthResources | where type == "microsoft.resour
 
 ### List of unavailable resources with their corresponding annotation details
 
-Returns a list of virtual machines currently not in an **Available** state, aggregated by their Ids. The query also shows the virtual machines' actual availability state as well as their associated details, including the reason for their unavailability.
+Returns a list of virtual machines currently not in an **Available** state, aggregated by their ID property. The query also shows the virtual machines' actual availability state as well as their associated details, including the reason for their unavailability.
 
 ```kusto
 HealthResources
@@ -222,7 +222,7 @@ Search-AzGraph -Query "HealthResources | where type == 'microsoft.resour
 
 ### Count of resources in a region that have been impacted by an availability disruptions along with the type of impact
 
-Returns the count of virtual machines that are currently not in an **Available** state, aggregated by their Ids. The query also shows the corresponding location and annotation details, including the cause for the VMs not be in an **Available** state.
+Returns the count of virtual machines that are currently not in an **Available** state, aggregated by their ID property. The query also shows the corresponding location and annotation details, including the cause for the VMs not be in an **Available** state.
 
 ```kusto
 HealthResources
@@ -260,13 +260,13 @@ Search-AzGraph -Query "HealthResources | where type == 'microsoft.resour
 
 ### List of resources impacted by a specific health event, along with impact time, impact details, availability state, and region
 
-Returns a list of virtual machines impacted by the `VirtualMachineHostRebootedForRepair` annotation, aggregated by their Ids. The query also returns the virtual machines' corresponding availability state, time of disruption, and annotation details, including the impact cause.
+Returns a list of virtual machines impacted by the `VirtualMachineHostRebootedForRepair` annotation, aggregated by their ID property. The query also returns the virtual machines' corresponding availability state, time of disruption, and annotation details, including the impact cause.
 
 ```kusto
 HealthResources
 | where type == "microsoft.resourcehealth/resourceannotations"
 | where properties.AnnotationName contains 'VirtualMachineHostRebootedForRepair'
-| project ResourceId = tolower(tostring(properties.targetResourceId)), Reason = tostring(properties.reason), Context = tostring(properties.context), Category = tostring(properties.category), Location = location, Timestamp = tostring(properties.occuredTime)
+| project ResourceId = tolower(tostring(properties.targetResourceId)), Reason = tostring(properties.reason), Context = tostring(properties.context), Category = tostring(properties.category), Location = location, Timestamp = tostring(properties.occurredTime)
 | join ( 
      HealthResources
     | where type == 'microsoft.resourcehealth/availabilitystatuses'
@@ -298,7 +298,7 @@ Search-AzGraph -Query "HealthResources | where type == "microsoft.resour
 
 ### List of resources impacted by planned events per region
 
-Returns a list of virtual machines impacted by planned maintenance or repair operations conducted by the Azure platform, aggregated by their Ids. The query also returns the virtual machines' corresponding availability state, time of disruption, location, and annotation details, including the impact cause.
+Returns a list of virtual machines impacted by planned maintenance or repair operations conducted by the Azure platform, aggregated by their ID property. The query also returns the virtual machines' corresponding availability state, time of disruption, location, and annotation details, including the impact cause.
 
 ```kusto
 HealthResources
@@ -336,7 +336,7 @@ Search-AzGraph -Query "HealthResources | where type == "microsoft.resour
 
 ### List of resources that have been impacted by unplanned platform disruptions, along with availability, power states and location
 
-Returns a list of virtual machines impacted by planned maintenance or repair operations conducted by the Azure platform, aggregated by their Ids. The query also shows the virtual machines' corresponding availability state, power state, and location details.
+Returns a list of virtual machines impacted by planned maintenance or repair operations conducted by the Azure platform, aggregated by their ID property. The query also shows the virtual machines' corresponding availability state, power state, and location details.
 
 ```kusto
 HealthResources
