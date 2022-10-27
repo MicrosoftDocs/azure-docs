@@ -67,7 +67,7 @@ A `recordingId` is returned when recording is started, which is then used for fo
 
 
 ## Event Grid notifications
-Call Recording leverage [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services) to provide you with notifications related to media and metadata.
+Call Recording use [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services) to provide you with notifications related to media and metadata.
 
 > [!NOTE]
 > Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 48 hours.** After 48 hours, recordings will no longer be available.
