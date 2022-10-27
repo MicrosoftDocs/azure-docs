@@ -78,7 +78,7 @@
       href: dapr-overview.md
 - name: How-to guides
   items:
-    - name: Deploy with containerapp up
+    - name: Deploy an app with containerapp up
       href: containerapp-up.md
     - name: Scale an app
       href: scale-app.md
