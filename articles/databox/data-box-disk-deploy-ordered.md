@@ -81,7 +81,7 @@ Take the following steps to order Data Box Disk.
     |Number of disks per order| Enter the number of disks you would like to order. <br> There can be a maximum of 5 disks per order (1 disk = 7TB). |
     |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br> Provide a 12 to 32-character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
 
-    ![Screenshot of order details](media/data-box-disk-deploy-ordered/dbd-order.png)
+    ![Screenshot of order details](media/data-box-disk-deploy-ordered/data-box-disk-order.png)
 
 6. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks (or both). 
     
@@ -91,7 +91,7 @@ Take the following steps to order Data Box Disk.
     |Destination Azure region| Select a region for your storage account. <br> Currently, storage accounts in all regions in US, West and North Europe, Canada, and Australia are supported. |
     |Resource group| If using Data Box Disk to create managed disks from the on-premises VHDs, you need to provide the resource group.<br> Create a new resource group if you intend to create managed disks from on-premises VHDs. Use an existing resource group only if it was created for Data Box Disk order for managed disk by Data Box service.<br> Only one resource group is supported.|
 
-    ![Screenshot of Data Box Disk data destination](media/data-box-disk-deploy-ordered/dbd-order-destination.png)
+    ![Screenshot of Data Box Disk data destination.](media/data-box-disk-deploy-ordered/data-box-disk-order-destination.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see Verify data upload to Azure.
 
@@ -103,7 +103,7 @@ Take the following steps to order Data Box Disk.
 
 8. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
     
-    ![Screenshot of Data Box Disk encryption type](media/data-box-disk-deploy-ordered/dbd-encryption.png)
+    ![Screenshot of Data Box Disk encryption type.](media/data-box-disk-deploy-ordered/data-box-disk-encryption.png)
 
     Configuring a customer-managed key for your Azure Data Box Disk is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.
 
@@ -113,7 +113,7 @@ Take the following steps to order Data Box Disk.
 
 1. To use a customer-managed key, select **Customer managed key** as the key type. Then choose **Select a key vault and key**.
 
-    ![Screenshot of Customer managed key selection](media/data-box-disk-deploy-ordered/dbd-cmk.png)
+    ![Screenshot of Customer managed key selection.](media/data-box-disk-deploy-ordered/data-box-disk-customer-key.png)
 
 1. In the **Select key from Azure Key Vault** blade:
 
@@ -121,45 +121,45 @@ Take the following steps to order Data Box Disk.
 
     - For **Key vault**, you can select an existing key vault from the dropdown list.
 
-    ![Screenshot of existing key vault](media/data-box-disk-deploy-ordered/dbd-select-key-vault.png)
+    ![Screenshot of existing key vault.](media/data-box-disk-deploy-ordered/data-box-disk-select-key-vault.png)
 
     Or select **Create new key vault** if you want to create a new key vault.
 
-    ![Screenshot of new key vault](media/data-box-disk-deploy-ordered/dbd-create-new-kv.png)
+    ![Screenshot of new key vault.](media/data-box-disk-deploy-ordered/data-box-disk-create-new-key-vault.png)
 
     Then, on the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
-    ![Screenshot of Create key vault blade](media/data-box-disk-deploy-ordered/dbd-kv-blade.png)
+    ![Screenshot of Create key vault blade.](media/data-box-disk-deploy-ordered/data-box-disk-key-vault-blade.png)
 
     Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
-    ![Screenshot of Review + create](media/data-box-disk-deploy-ordered/dbd-create-kv.png)
+    ![Screenshot of Review + create.](media/data-box-disk-deploy-ordered/data-box-disk-create-key-vault.png)
 
 1. The **Select a key** blade will display your selected key vault.
     
-    ![Screenshot of new key vault 2](media/data-box-disk-deploy-ordered/dbd-new-kv.png)
+    ![Screenshot of new key vault 2.](media/data-box-disk-deploy-ordered/data-box-disk-new-key-vault.png)
     
     If you want to create a new key, select **Create new key**. You must use an **RSA key**. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
-    ![Screenshot of Create new key](media/data-box-disk-deploy-ordered/dbd-new-key.png)
+    ![Screenshot of Create new key.](media/data-box-disk-deploy-ordered/data-box-disk-new-key.png)
 
     You'll be notified when the key has been created in your key vault. Your new key will be selected and displayed on the **Select a key** blade.
 
 1. Select the **Version** of the key to use, and then choose **Select**.
     
-    ![Screenshot of key version](media/data-box-disk-deploy-ordered/dbd-key-version.png)
+    ![Screenshot of key version.](media/data-box-disk-deploy-ordered/data-box-disk-key-version.png)
     
     If you want to create a new key version, select **Create new version**.
 
-    ![Screenshot of new key version](media/data-box-disk-deploy-ordered/dbd-new-key-version.png)
+    ![Screenshot of new key version.](media/data-box-disk-deploy-ordered/data-box-disk-new-key-version.png)
 
     Choose settings for the new key version, and select **Create**.
 
-    ![Screenshot of new key version settings](media/data-box-disk-deploy-ordered/dbd-new-key-settings.png)
+    ![Screenshot of new key version settings.](media/data-box-disk-deploy-ordered/data-box-disk-new-key-settings.png)
 
     The **Encryption type** settings on the **Security** screen show your key vault and key.
 
-    ![Screenshot of encryption type settings](media/data-box-disk-deploy-ordered/dbd-encryption-settings.png)
+    ![Screenshot of encryption type settings.](media/data-box-disk-deploy-ordered/data-box-disk-encryption-settings.png)
 
 1. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
@@ -167,18 +167,18 @@ Take the following steps to order Data Box Disk.
 
     If you need to create a new managed identity, follow the guidance in Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal.
 
-    ![Screenshot of user identity](media/data-box-disk-deploy-ordered/dbd-user-identity.png)
+    ![Screenshot of user identity.](media/data-box-disk-deploy-ordered/data-box-disk-user-identity.png)
 
     The user identity is shown in Encryption type settings.
 
-    ![Screenshot of user identity 2](media/data-box-disk-deploy-ordered/dbd-user-identity-2.png)
+    ![Screenshot of user identity 2.](media/data-box-disk-deploy-ordered/data-box-disk-user-identity-2.png)
 
 
 8. In the **Contact details** tab, select **Add address** and enter the address details. Click Validate address. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
     If you have chosen self-managed shipping, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
-    ![Screenshot of Data Box Disk contact details](media/data-box-disk-deploy-ordered/dbd-contact-details.png)
+    ![Screenshot of Data Box Disk contact details.](media/data-box-disk-deploy-ordered/data-box-disk-contact-details.png)
 
     Specify valid email addresses as the service sends email notifications regarding any updates to the order status to the specified email addresses.
 
@@ -192,7 +192,7 @@ Take the following steps to order Data Box Disk.
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
 
-![Data Box Disk status ordered](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png)
+![Data Box Disk status ordered.](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png)
 
 If the disks are not available, you receive a notification. If the disks are available, Microsoft identifies the disks for shipment and prepares the disk package. During disk preparation, following actions occur:
 
@@ -210,7 +210,7 @@ To cancel this order, in the Azure portal, go to **Overview** and click **Cancel
 
 You can only cancel when the disks are ordered, and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order.
 
-![Cancel order](media/data-box-disk-deploy-ordered/cancel-order1.png)
+![Cancel order.](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
