@@ -12,7 +12,7 @@ monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
-# Create SAS tokens for your storage containers
+# Create SAS tokens for storage containers
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
