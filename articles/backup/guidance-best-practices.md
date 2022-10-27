@@ -40,15 +40,15 @@ To design your vaults, ensure if you require a centralized/ decentralized mode o
 
 Determine if it should be application consistent, crash consistent, or log backup.
 
-###### Do you’ve any compliance requirements?
+###### Do you have any compliance requirements?
 
 Ensure if you need to enforce security standards and separate access boundaries.
 
-###### What’s the required RPO, RTO?
+###### What is the required RPO, RTO?
 
 Determine the backup frequency and the speed of restore.
 
-###### Do you’ve any Data Residency constraints?
+###### Do you have any Data Residency constraints?
 
 Determine the storage redundancy for the required Data Durability.
 
