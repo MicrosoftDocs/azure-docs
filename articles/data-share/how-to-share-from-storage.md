@@ -57,7 +57,7 @@ Existing files that have the same name are overwritten during a snapshot. A file
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
-- Your data recipient's Azure sign in e-mail address (using their e-mail alias won't work).
+- Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
 - If your Azure SQL resource is in a different Azure subscription than your Azure Data Share account, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where your source Azure SQL resource is located.
 
 ### Prerequisites for the source storage account
