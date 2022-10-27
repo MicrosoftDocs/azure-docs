@@ -119,8 +119,8 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
    * User.Read.All
 
 8. Grant admin consent for your organization.
-9. In the **Certificates & Secrets** blade, generate a new client secret. Make a note of this secret.
-10. From the **Overview** blade, note the Client ID and Tenant ID.
+9. On **Certificates & Secrets**, generate a new client secret. Make a note of this secret.
+10. From **Overview**, note the Client ID and Tenant ID.
 
 ## Configure Easy Button
 
@@ -175,8 +175,8 @@ The optional **Security Settings** specify whether Azure AD encrypts issued SAML
    ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
 7.	Check **Enable Encrypted Assertion**.
-8.	If you enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM uses to decrypt Azure AD assertions.
-9.	If you enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
+8.	If you enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This private key is for the certificate that BIG-IP APM uses to decrypt Azure AD assertions.
+9.	If you enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
 
    ![Screenshot for Service Provider security settings](./media/f5-big-ip-kerberos-easy-button/service-provider-security-settings.png)
 
@@ -215,7 +215,7 @@ The AD infrastructure is based on a .com domain suffix used internally and exter
 
 #### Additional User Attributes
 
-The **Additional User Attributes** tab supports various distributed systems requiring attributes stored in other directories, for session augmentation. Attributes fetched from an LDAP source can be injected as additional SSO headers to help control access based on roles, Partner IDs, etc.
+The **Additional User Attributes** tab supports various distributed systems requiring attributes stored in other directories, for session augmentation. Attributes fetched from an LDAP source can be injected as SSO headers to help control access based on roles, Partner IDs, etc.
 
    ![Screenshot for additional user attributes](./media/f5-big-ip-kerberos-easy-button/additional-user-attributes.png)
 
@@ -291,15 +291,15 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 The BIG-IPs session management settings define the conditions under which user sessions terminate or continue, limits for users and IP addresses, and corresponding user info. Refer to the AskF5 article [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492) for settings details.
 
-What isn’t covered is Single Log-Out (SLO) functionality, which ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the log-out URL with the APM SLO endpoint. IdP initiated sign-outs from the Azure AD MyApps portal terminate the session between the BIG-IP and a client.
+What isn’t covered is Single Log-Out (SLO) functionality, which ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign-out URL with the APM SLO endpoint. An IdP-initiated signout from the Azure AD MyApps portal terminates the session between the BIG-IP and a client.
 
-The SAML federation metadata for the published application is imported from your tenant, providing the APM with the SAML log-out endpoint for Azure AD. This action ensures SP initiated sign-outs terminate the session between a client and Azure AD. For this to be effective, the APM needs to know when a user signs out of the application.
+The SAML federation metadata for the published application is imported from your tenant, providing the APM with the SAML sign-out endpoint for Azure AD. This action ensures an SP-initiated signout terminates the session between a client and Azure AD. The APM needs to know when a user signs out of the application.
 
-If the BIG-IP webtop portal accesses published applications, then a sign-out is processed by the APM to call the Azure AD sign-out endpoint. But consider a scenario when the BIG-IP webtop portal isn’t used, then the user can't instruct the APM to sign out. Even if the user signs out of the application, the BIG-IP is oblivious to this. For this reason, SP initiated sign-out needs consideration to ensure sessions terminate securely. You can add an SLO function to your applications sign-out button, so it redirects your client to the Azure AD SAML or BIG-IP sign-out endpoint. 
+If the BIG-IP webtop portal accesses published applications, then a signout is processed by the APM to call the Azure AD sign-out endpoint. But consider a scenario when the BIG-IP webtop portal isn’t used, then the user can't instruct the APM to sign out. Even if the user signs out of the application, the BIG-IP is oblivious. Therefore, SP-initiated signout needs consideration to ensure sessions terminate securely. You can add an SLO function to your application's Sign-Out button, so it redirects your client to the Azure AD SAML, or the BIG-IP sign-out endpoint. 
 
 The URL for SAML sign-out endpoint for your tenant is found in **App Registrations > Endpoints**.
 
-If you can't change the app, then consider having the BIG-IP listen for the application sign-out call, and upon detecting the request, it triggers SLO. Refer to [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP iRules. For more details on using BIG-IP iRules, see: 
+If you can't change the app, then consider having the BIG-IP listen for the application sign-out call, and upon detecting the request, it triggers SLO. Refer to [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP iRules. For more information about using BIG-IP iRules, see: 
 
 * [K42052145: Configuring automatic session termination (log out) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
 * [K12056: Overview of the Log-out URI Include option](https://support.f5.com/csp/article/K12056).
@@ -322,7 +322,7 @@ For this scenario, the application is hosted on server APP-VM-01 and runs in the
 
 The BIG-IP doesn’t support group Managed Service Accounts (gMSA), therefore create a standard user account for the APM service account.
 
-1. Replace the **UserPrincipalName** and **SamAccountName** values with those for your environment.
+1. Replace the **UserPrincipalName** and **SamAccountName** values with the values needed for your environment.
 
     ```New-ADUser -Name "F5 BIG-IP Delegation Account" -UserPrincipalName host/f5-big-ip.contoso.com@contoso.com -SamAccountName "f5-big-ip" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Account Password") ```
 
@@ -363,7 +363,7 @@ With the SPNs defined, the APM service account needs trust to delegate to that s
 
 ### BIG-IP and application in different domains
 
-Starting with Windows Server 2012, cross-domain KCD uses resource-based constrained delegation (RCD). The constraints for a service transferred from the domain administrator to the service administrator. The back-end service Administrator can allow or deny SSO. This situation creates a different approach at configuration delegation, which is possible using PowerShell or ADSIEdit.
+From the Windows Server 2012 version onward, cross-domain KCD uses resource-based constrained delegation (RCD). The constraints for a service transferred from the domain administrator to the service administrator. The back-end service Administrator can allow or deny SSO. This situation creates a different approach at configuration delegation, which is possible using PowerShell or ADSIEdit.
 
 You can use PrincipalsAllowedToDelegateToAccount property of the applications service account (computer or dedicated service account) to grant delegation from the BIG-IP. For this scenario, use the following PowerShell command on a domain controller (2012 R2+) in the same domain as the application.
 
@@ -383,7 +383,7 @@ For more information, see [Kerberos Constrained Delegation across domains](/prev
 
 ## Next steps
 
-From a browser, connect to the application external URL or select the **application** icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you are redirected to the BIG-IP virtual server for the application and signed in through SSO.
+From a browser, connect to the application external URL or select the **application** icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you're redirected to the BIG-IP virtual server for the application and signed in through SSO.
 
    ![Screenshot for App views](./media/f5-big-ip-kerberos-easy-button/app-view.png)
 
@@ -426,7 +426,7 @@ Use BIG-IP logging to isolate issues with connectivity, SSO, policy violations, 
 2. Select the row for your published application, then **Edit > Access System Logs**.
 3. Select **Debug** from the SSO list, and then select **OK**. 
 
-Reproduce your issue and inspect the logs. When complete, revert the feature because verbose mode generates a lot of data. 
+Reproduce your issue and inspect the logs. When complete, revert the feature because verbose mode generates much data. 
 
 ### BIG-IP error page
 
