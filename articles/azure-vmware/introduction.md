@@ -3,7 +3,8 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure. Azure VMware Solution SLA guarantees that Azure VMware management tools (vCenter Server and NSX Manager) will be available at least 99.9% of the time.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 06/15/2022
+ms.date: 10/28/2022
+ms.custom: engagement-fy23
 ---
 
 # What is Azure VMware Solution?
@@ -13,7 +14,6 @@ Azure VMware Solution provides you with private clouds that contain VMware vSphe
 Azure VMware Solution is a VMware validated solution with ongoing validation and testing of enhancements and upgrades. Microsoft manages and maintains the private cloud infrastructure and software. It allows you to focus on developing and running workloads in your private clouds to deliver business value.
 
 The diagram shows the adjacency between private clouds and VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets provides SLA-driven integration of Azure service endpoints. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud.
- 
 
 :::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagram of Azure VMware Solution private cloud adjacency to Azure and on-premises." border="false":::
 
@@ -22,7 +22,6 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 [!INCLUDE [host-sku-sizes](includes/disk-capabilities-of-the-host.md)]
 
 You can deploy new or scale existing private clouds through the Azure portal or Azure CLI.
-
 
 ## Networking
 
@@ -50,7 +49,7 @@ Regular upgrades of the Azure VMware Solution private cloud and VMware software 
 
 ## Monitoring your private cloud
 
-Once you’ve deployed Azure VMware Solution into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically. 
+Once you’ve deployed Azure VMware Solution into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically.
 
 In your private cloud, you can:
 - Collect logs on each of your VMs.
@@ -64,6 +63,14 @@ Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs wi
 ## Customer communication
 [!INCLUDE [customer-communications](includes/customer-communications.md)]
 
+## Azure VMware Solution Responsibility Matrix - Microsoft vs Customer
+
+Azure VMware Solution implements a shared responsibility model that defines distinct roles and responsibilities of the two parties involved in the offering: Customer and Microsoft. This is illustrated in more details in following two tables.
+
+The following table shows the high-level responsibilities between a customer and Microsoft for different aspects of the deployment/management of the private cloud and the customer application workloads.
+
+
+
 ## Next steps
 
 The next step is to learn key [private cloud and cluster concepts](concepts-private-clouds-clusters.md).
@@ -72,4 +79,3 @@ The next step is to learn key [private cloud and cluster concepts](concepts-priv
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
-
