@@ -80,9 +80,9 @@ To create a dataset:
 
 <!--1. Enter the following URL to the [Dataset service][Dataset Create 2022-09-01-preview]. The request should look like the following URL (replace {udid} with the `udid` obtained in [Check the GeoJSON package upload status](#check-the-geojson-package-upload-status) section):-->
 
-    ```http
-    https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
-    ```
+  ```http
+  https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+  ```
 
 1. Copy the value of the `Operation-Location` key in the response header. The `Operation-Location` key is also known as the `status URL` and is required to check the status of the dataset creation process and to get the `datasetId`, which is required to create a tileset.
 
