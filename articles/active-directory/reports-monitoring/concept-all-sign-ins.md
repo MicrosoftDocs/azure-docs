@@ -80,7 +80,7 @@ Interactive user sign-ins provide an authentication factor to Azure AD or intera
 > [!NOTE] 
 > The interactive user sign-in log used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-in log for additional visibility. Once the non-interactive user sign-in log entered public preview in November 2020, those non-interactive sign-in logs were moved to the non-interactive user sign in log for increased accuracy. 
 
-**Report size:** small
+**Report size:** small </br>
 **Examples:**
 
 - A user provides username and password in the Azure AD sign-in screen.
@@ -101,7 +101,7 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 Non-interactive user sign-ins are sign-ins that were performed by a client app or OS components on behalf of a user. Like interactive user sign-ins, these sign-ins are done on behalf of a user. Unlike interactive user sign-ins, these sign-ins don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user will perceive these sign-ins as happening in the background of the user’s activity.
 
-**Report size:** Large
+**Report size:** Large </br>
 **Examples:** 
 
 - A client app uses an OAuth 2.0 refresh token to get an access token.
@@ -118,7 +118,7 @@ You can't customize the fields shown in this report.
 
 ![Screenshot of the disabled columns option.](./media/concept-all-sign-ins/disabled-columns.png)
 
-To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period. The non-interactive sign-ins share the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the state of the user or client doesn't change, the IP address, resource, and all other information is the same for each access token request. When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the # sign-ins column. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the non-interactive users when the following data matches:
+To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period. The non-interactive sign-ins share the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the state of the user or client doesn't change, the IP address, resource, and all other information is the same for each access token request. When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the *# sign-ins* column. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the non-interactive users when the following data matches:
 
 - Application
 - User
@@ -133,7 +133,7 @@ The IP address of non-interactive sign-ins doesn't match the actual source IP of
 Unlike interactive and non-interactive user sign-ins, service principal sign-ins don't involve a user. Instead, they're sign-ins by any non-user account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-in log). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
 
 
-**Report size:** Large
+**Report size:** Large </br>
 **Examples:**
 
 - A service principal uses a certificate to authenticate and access the Microsoft Graph. 
@@ -154,7 +154,7 @@ To make it easier to digest the data in the service principal sign-in logs, serv
 
 Managed identities for Azure resources sign-ins are sign-ins that were performed by resources that have their secrets managed by Azure to simplify credential management. A VM with managed credentials uses Azure AD to get an Access Token.
 
-**Report size:** Small
+**Report size:** Small </br>
 **Examples:**
 
  You can't customize the fields shown in this report.
