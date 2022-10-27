@@ -46,7 +46,7 @@ To view your security policies in Defender for Cloud:
 
     1. To view and edit the default initiative, select it and proceed as described below.
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
+       ![image](https://user-images.githubusercontent.com/45422479/198322085-079864ec-1b5d-4d93-9908-44db42c01fb5.png)
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
