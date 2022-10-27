@@ -99,7 +99,7 @@ This article assumes that you use a machine running Windows as your development 
   > [!TIP]
   > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-* Install the [Azure CLI](/cli/azure/install-azure-cli)
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 * To test your module on a device, you'll need an active IoT Hub with at least one IoT Edge device. To create an IoT Edge device for testing you can create one in the Azure portal or with the CLI:
 
@@ -115,9 +115,9 @@ This article assumes that you use a machine running Windows as your development 
 
 ## Create an Azure IoT Edge project
 
-The IoT Edge project template in Visual Studio creates a solution that can be deployed to IoT Edge devices. In summary, first you'll create an Azure IoT Edge solution, and then you'll generate the first module in that solution. Each IoT Edge solution can contain more than one module.
+The IoT Edge project template in Visual Studio creates a solution to deploy to IoT Edge devices. First you'll create an Azure IoT Edge solution, and then you'll generate the first module in that solution. Each IoT Edge solution can contain more than one module.
 
-In all, we're going to build three projects in our solution. The main module that contains EdgeAgent and EdgeHub, in addition to the temperature sensor module, then you'll add two more IoT Edge modules.
+In our solution, we're going to build three projects. The main module that contains EdgeAgent and EdgeHub, in addition to the temperature sensor module, then you'll add two more IoT Edge modules.
 
 > [!TIP]
 > The IoT Edge project structure created by Visual Studio is not the same as the one in Visual Studio Code.
@@ -212,16 +212,20 @@ To initialize the tool in Visual Studio:
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 >[!TIP]
 >Depending on the type of IoT Edge module you are developing, you may need to enable the correct Docker container mode: either Linux or Windows. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** or select **Switch to Linux containers**. For this tutorial, we use Linux.
 >
 >:::image type="content" source="./media/how-to-visual-studio-develop-module/system-tray.png" alt-text="Screenshot of how to find and select the menu item named 'Switch to Windows containers'.":::
+:::moniker-end
+<!-- end 1.1 -->
 
 1. In **Solution Explorer**, right-click the module project folder and select **Set as StartUp Project** from the menu.
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/module-start-up-project.png" alt-text="Screenshot of how to set project as startup project.":::
 
-1. Press **F5** or click the run button in the toolbar to run the module. It may take 10&ndash;20 seconds the first time you do so. Be sure you don't have other Docker containers running that might bind the port you need for this project.
+1. Press **F5** or click the run button in the toolbar to run the module. It may take 10 to 20 seconds the first time you do so. Be sure you don't have other Docker containers running that might bind the port you need for this project.
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/run-module.png" alt-text="Screenshot of how to run a module.":::
 

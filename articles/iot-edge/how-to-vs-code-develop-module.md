@@ -65,7 +65,7 @@ To build and deploy your module image, you need Docker to build the module image
     > [!TIP]
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-- Install the [Azure CLI](/cli/azure/install-azure-cli)
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ::: zone pivot="iotedge-dev-cli"
 
