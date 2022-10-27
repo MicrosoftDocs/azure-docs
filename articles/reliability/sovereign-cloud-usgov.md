@@ -6,7 +6,6 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 10/27/2022
 ms.author: anaharris
-ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 
