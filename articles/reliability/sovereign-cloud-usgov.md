@@ -16,104 +16,7 @@ Azure Government services operate the same way as the corresponding services in 
 
 For tutorials, how-to or get started guides, and information on deployment and compliance see [Azure Government documentation](../azure-government/index.yml).
 
-## US Government Cloud REST endpoints
-
-> [!NOTE]
-> This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-az-ps).
-
-You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services that you've provisioned:
-
-- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az-cloud-show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
-
-  ```azurecli
-  az cloud show --name AzureUSGovernment
-  ```
-
-  should get you different endpoints for Azure Government.
-
-- Use a **PowerShell** cmdlet such as [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) to get endpoints and metadata for an instance of Azure service. For example,
-
-  ```powershell
-  Get-AzEnvironment -Name AzureUSGovernment
-  ```
-
-  should get you properties for Azure Government. This cmdlet gets environments from your subscription data file.
-
-
-The table below lists API endpoints in Azure vs. Azure Government for accessing and managing some of the more common services. If you've provisioned a service that isn't listed in the table below, see the Azure CLI and PowerShell examples above for suggestions on how to obtain the corresponding Azure Government endpoint.
-
-</br>
-
-|Service category|Service name|Azure Public|Azure Government|Notes|
-|-----------|-----------|-------|----------|----------------------|
-|**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
-||Azure Form Recognizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
-||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
-||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
-||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
-||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
-|**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
-||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
-||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
-|**Compute**|Batch|batch.azure.com|batch.usgovcloudapi.net||
-||Cloud Services|cloudapp.net|usgovcloudapp.net||
-|**Containers**|Azure Service Fabric|cloudapp.azure.com|cloudapp.usgovcloudapi.net||
-||Container Registry|azurecr.io|azurecr.us||
-|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
-||Azure Cosmos DB|documents.azure.com|documents.azure.us||
-||Azure Database for MariaDB|mariadb.database.azure.com|mariadb.database.usgovcloudapi.net||
-||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
-||Azure Database for PostgreSQL|postgres.database.azure.com|postgres.database.usgovcloudapi.net||
-||Azure SQL Database|database.windows.net|database.usgovcloudapi.net||
-|**Identity**|Azure AD|login.microsoftonline.com|login.microsoftonline.us||
-|||certauth.login.microsoftonline.com|certauth.login.microsoftonline.us||
-|||passwordreset.microsoftonline.com|passwordreset.microsoftonline.us||
-|**Integration**|Service Bus|servicebus.windows.net|servicebus.usgovcloudapi.net||
-|**Internet of Things**|Azure IoT Hub|azure-devices.net|azure-devices.us||
-||Azure Maps|atlas.microsoft.com|atlas.azure.us||
-||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
-|**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
-||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
-|||oms.opinsights.azure.com|oms.opinsights.azure.us||
-|||portal.loganalytics.io|portal.loganalytics.us||
-|||api.loganalytics.io|api.loganalytics.us||
-|||docs.loganalytics.io|docs.loganalytics.us||
-|||adx.monitor.azure.com|adx.monitor.azure.us|[Data Explorer queries](/azure/data-explorer/query-monitor-data)|
-||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
-||Cost Management|consumption.azure.com|consumption.azure.us||
-||Gallery URL|gallery.azure.com|gallery.azure.us||
-||Microsoft Azure portal|portal.azure.com|portal.azure.us||
-||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
-|||manage.microsoft.com|manage.microsoft.us|Enterprise enrollment|
-|**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
-|||backup.windowsazure.com|backup.windowsazure.us|Protection service|
-|||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
-|**Networking**|Traffic Manager|trafficmanager.net|usgovtrafficmanager.net||
-|**Security**|Key Vault|vault.azure.net|vault.usgovcloudapi.net||
-|**Storage**|Azure Backup|backup.windowsazure.com|backup.windowsazure.us||
-||Blob|blob.core.windows.net|blob.core.usgovcloudapi.net||
-||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
-||Table|table.core.windows.net|table.core.usgovcloudapi.net||
-||File|file.core.windows.net|file.core.usgovcloudapi.net||
-|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](../virtual-desktop/safe-url-list.md)|See [AVD docs](../virtual-desktop/safe-url-list.md)||
-|**Web**|API Management|management.azure.com|management.usgovcloudapi.net||
-||API Management Gateway|azure-api.net|azure-api.us||
-||API Management management|management.azure-api.net|management.azure-api.us||
-||API Management Portal|portal.azure-api.net|portal.azure-api.us||
-||App Configuration|azconfig.io|azconfig.azure.us||
-||App Service|azurewebsites.net|azurewebsites.us||
-||Azure Cognitive Search|search.windows.net|search.windows.us||
-||Azure Functions|azurewebsites.net|azurewebsites.us||
-
-
-## US Government Cloud Service Availability
+## Service availability
 
 Microsoft's goal for Azure Government is to match service availability in Azure. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). Services available in Azure Government are listed by category and whether they're Generally Available or available through Preview. If a service is available in Azure Government, that fact isn't reiterated in the rest of this article. Instead, you're encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true) for the latest, up-to-date information on service availability.
 
@@ -260,6 +163,104 @@ This section outlines variations and considerations when using Web services in t
 | API Management |  <ul><li>Azure AD B2C integration</ul> |   
 | App Service| <ul><li>App Service Certificate resource<li>App Service Managed Certificate resource<li>App Service Domain resource<li>Deployment options: only Local Git Repository and External Repository are available</ul>   |   |
 | Azure Functions|<li>When connecting your Functions app to Application Insights in Azure Government, make sure you use [APPLICATIONINSIGHTS_CONNECTION_STRING](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.  |  |
+
+
+## US Government Cloud REST endpoints
+
+> [!NOTE]
+> This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-az-ps).
+
+You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services that you've provisioned:
+
+- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az-cloud-show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
+
+  ```azurecli
+  az cloud show --name AzureUSGovernment
+  ```
+
+  should get you different endpoints for Azure Government.
+
+- Use a **PowerShell** cmdlet such as [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) to get endpoints and metadata for an instance of Azure service. For example,
+
+  ```powershell
+  Get-AzEnvironment -Name AzureUSGovernment
+  ```
+
+  should get you properties for Azure Government. This cmdlet gets environments from your subscription data file.
+
+
+The table below lists API endpoints in Azure vs. Azure Government for accessing and managing some of the more common services. If you've provisioned a service that isn't listed in the table below, see the Azure CLI and PowerShell examples above for suggestions on how to obtain the corresponding Azure Government endpoint.
+
+</br>
+
+|Service category|Service name|Azure Public|Azure Government|Notes|
+|-----------|-----------|-------|----------|----------------------|
+|**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
+||Azure Form Recognizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
+||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
+||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
+||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
+||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
+|**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
+||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
+||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
+|**Compute**|Batch|batch.azure.com|batch.usgovcloudapi.net||
+||Cloud Services|cloudapp.net|usgovcloudapp.net||
+|**Containers**|Azure Service Fabric|cloudapp.azure.com|cloudapp.usgovcloudapi.net||
+||Container Registry|azurecr.io|azurecr.us||
+|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
+||Azure Cosmos DB|documents.azure.com|documents.azure.us||
+||Azure Database for MariaDB|mariadb.database.azure.com|mariadb.database.usgovcloudapi.net||
+||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
+||Azure Database for PostgreSQL|postgres.database.azure.com|postgres.database.usgovcloudapi.net||
+||Azure SQL Database|database.windows.net|database.usgovcloudapi.net||
+|**Identity**|Azure AD|login.microsoftonline.com|login.microsoftonline.us||
+|||certauth.login.microsoftonline.com|certauth.login.microsoftonline.us||
+|||passwordreset.microsoftonline.com|passwordreset.microsoftonline.us||
+|**Integration**|Service Bus|servicebus.windows.net|servicebus.usgovcloudapi.net||
+|**Internet of Things**|Azure IoT Hub|azure-devices.net|azure-devices.us||
+||Azure Maps|atlas.microsoft.com|atlas.azure.us||
+||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
+|**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
+||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
+|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
+|||oms.opinsights.azure.com|oms.opinsights.azure.us||
+|||portal.loganalytics.io|portal.loganalytics.us||
+|||api.loganalytics.io|api.loganalytics.us||
+|||docs.loganalytics.io|docs.loganalytics.us||
+|||adx.monitor.azure.com|adx.monitor.azure.us|[Data Explorer queries](/azure/data-explorer/query-monitor-data)|
+||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
+||Cost Management|consumption.azure.com|consumption.azure.us||
+||Gallery URL|gallery.azure.com|gallery.azure.us||
+||Microsoft Azure portal|portal.azure.com|portal.azure.us||
+||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
+|||manage.microsoft.com|manage.microsoft.us|Enterprise enrollment|
+|**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
+|||backup.windowsazure.com|backup.windowsazure.us|Protection service|
+|||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
+|**Networking**|Traffic Manager|trafficmanager.net|usgovtrafficmanager.net||
+|**Security**|Key Vault|vault.azure.net|vault.usgovcloudapi.net||
+|**Storage**|Azure Backup|backup.windowsazure.com|backup.windowsazure.us||
+||Blob|blob.core.windows.net|blob.core.usgovcloudapi.net||
+||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
+||Table|table.core.windows.net|table.core.usgovcloudapi.net||
+||File|file.core.windows.net|file.core.usgovcloudapi.net||
+|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](../virtual-desktop/safe-url-list.md)|See [AVD docs](../virtual-desktop/safe-url-list.md)||
+|**Web**|API Management|management.azure.com|management.usgovcloudapi.net||
+||API Management Gateway|azure-api.net|azure-api.us||
+||API Management management|management.azure-api.net|management.azure-api.us||
+||API Management Portal|portal.azure-api.net|portal.azure-api.us||
+||App Configuration|azconfig.io|azconfig.azure.us||
+||App Service|azurewebsites.net|azurewebsites.us||
+||Azure Cognitive Search|search.windows.net|search.windows.us||
+||Azure Functions|azurewebsites.net|azurewebsites.us||
+
 
 
 ## Next steps

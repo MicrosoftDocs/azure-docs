@@ -15,6 +15,36 @@ ms.custom: references_regions
 Microsoft Azure operated by 21Vianet (Azure China) is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd..
 
 
+## Service availability
+
+Microsoft's goal for Azure in China is to match service availability in Azure. For service availability in Azure China, see [Products available by China regions](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=all&regions=china-non-regional,china-east,china-east-2,china-east-3,china-north,china-north-2,china-north-3&rar=true). 
+
+### AI + machine learning
+
+This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Cognitive Services in the Azure China environment.
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+|Azure Machine learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
+| Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
+
+### Media
+
+This section outlines variations and considerations when using Media services in the Azure in China environment.
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Azure Media Services | For Azure Media Services v3 feature variations in Azure in China, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#china).  |  
+
+### Networking
+
+This section outlines variations and considerations when using Networking services in the Azure China environment. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Private Link| <li>For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).<li>For Private DNS zone names, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#government). |
+
+
 ## Azure in China REST endpoints
 
 The table below lists API endpoints in Azure vs. Azure in China for accessing and managing some of the more common services. 
@@ -200,34 +230,4 @@ One service administrator role is created per Azure account, and is authorized t
 ### Create a co-administrator
 
 Account administrators can create up to 199 co-administrator roles per subscription. This role has the same access privileges as the service administrator, but can't change the association of subscriptions to Azure directories.
-
-
-## Service availability
-
-Microsoft's goal for Azure in China is to match service availability in Azure. For service availability in Azure China, see [Products available by China regions](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=all&regions=china-non-regional,china-east,china-east-2,china-east-3,china-north,china-north-2,china-north-3&rar=true). 
-
-### AI + machine learning
-
-This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Cognitive Services in the Azure China environment.
-
-| Product | Unsupported, limited, and/or modified features | Notes |
-|---------|--------|------------|
-|Azure Machine learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
-
-### Media
-
-This section outlines variations and considerations when using Media services in the Azure in China environment.
-
-| Product | Unsupported, limited, and/or modified features | Notes |
-|---------|--------|------------|
-| Azure Media Services | For Azure Media Services v3 feature variations in Azure in China, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#china).  |  
-
-### Networking
-
-This section outlines variations and considerations when using Networking services in the Azure China environment. 
-
-| Product | Unsupported, limited, and/or modified features | Notes |
-|---------|--------|------------|
-| Private Link| <li>For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).<li>For Private DNS zone names, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#government). |
 
