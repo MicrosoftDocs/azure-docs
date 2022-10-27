@@ -36,11 +36,11 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 * [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
 > [!NOTE]
-> If you have enabled [AAD-based pod identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
+> If you have enabled [Azure AD pod-managed identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
 > we recommend you first review [Migrate to workload identity][migrate-workload-identity] to understand our
 > recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
-> to federate with any external identity providers.
+> to federate with any external identity providers. The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 ### Set up the Azure CLI extension for cluster extensions
 

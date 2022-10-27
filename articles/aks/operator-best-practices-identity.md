@@ -133,7 +133,7 @@ With pod-managed identities (preview) for Azure resources, you automatically req
 > we recommend you first review the [workload identity overview][workload-identity-overview] article to understand our
 > recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
-> to federate with any external identity providers.
+> to federate with any external identity providers. The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 Azure Active Directory pod-managed identity (preview) supports two modes of operation:
 
@@ -206,5 +206,4 @@ For more information about cluster operations in AKS, see the following best pra
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [aad-pod-identity]: ./use-azure-ad-pod-identity.md
-[use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md#create-an-identity
 [workload-identity-overview]: workload-identity-overview.md
