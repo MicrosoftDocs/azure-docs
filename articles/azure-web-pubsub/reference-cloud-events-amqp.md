@@ -102,53 +102,59 @@ Message body is what the client sends.
 - `content-type`: `application/octet-stream` for binary frame; `application/json` for JSON frame; `text/plain` for text frame; `application/x-protobuf` for Protobuf frame;
 - `cloudEvents:type`: `azure.webpubsub.user.<event_name>`
 
-The following cases show how to send events with different data content types and the corresponding AMQP message bodies.
+The following cases show how to send events with different data content types and the received AMQP message bodies.
 
 #### Case 1: send event with text data:
+
 ```json
 {
     "type": "event",
     "event": "<event_name>",
-    "dataType" : "text",
+    "dataType": "text",
     "data": "text data"
 }
 ```
 
-Event Hubs message body:
+Received AMQP message body:
+
 ```
 text data
 ```
 
 #### Case 2: send event with JSON data:
+
 ```json
 {
     "type": "event",
     "event": "<event_name>",
-    "dataType" : "json",
+    "dataType": "json",
     "data": {
         "hello": "world"
-    },
+     }
 }
 ```
 
-Event Hubs message body:
+Received AMQP message body:
+
 ```
 {
     "hello": "world"
 }
 ```
 
-
 #### Case 3: send event with binary data:
+
 ```json
 {
     "type": "event",
     "event": "<event_name>",
-    "dataType" : "binary",
+    "dataType": "binary",
     "data": "aGVsbG8gd29ybGQ=" // base64 encoded binary
 }
 ```
-Event Hubs message body:
+
+Received AMQP message body:
+
 ```
 <binary data>
 ```
