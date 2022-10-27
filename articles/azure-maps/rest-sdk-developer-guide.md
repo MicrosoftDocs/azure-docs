@@ -27,7 +27,7 @@ Azure Maps C# SDK supports any .NET version that is compatible with [.NET standa
 | [Rendering][C# rendering readme]| [Azure.Maps.Rendering][C# rendering package]|[rendering sample][C# rendering sample] |
 | [Geolocation][C# geolocation readme]|[Azure.Maps.Geolocation][C# geolocation package]|[geolocation sample][C# geolocation sample] |
 
-For more information, see the [C# SDK Developers Guide](how-to-csharp-sdk-dev-guide.md).
+For more information, see the [C# SDK Developers Guide](how-to-dev-guide-csharp-sdk.md).
 
 ## Python  SDK
 
@@ -40,7 +40,7 @@ Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure S
 | [Rendering][py rendering readme]| [azure-maps-rendering][py rendering package]|[rendering sample][py rendering sample] |
 | [Geolocation][py geolocation readme]|[azure-maps-geolocation][py geolocation package]|[geolocation sample][py geolocation sample] |
 
-<!--For more information, see the [python SDK Developers Guide](how-to-py-sdk-dev-guide.md).-->
+<!--For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).-->
 
 ## JavaScript/TypeScript
 
@@ -50,7 +50,7 @@ Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js]
 |---------------|-------------------------|--------------|
 | [Search][js search readme] | [azure-maps-search][js search package] | [search samples][js search sample] |
 
-<!--For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-js-sdk-dev-guide.md).-->
+<!--For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).-->
 
 ## Java
 
@@ -65,7 +65,7 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 | [TimeZone][java timezone readme] | [azure-maps-TimeZone][java timezone package] | [TimeZone samples][java timezone sample] |
 | [Elevation][java elevation readme] | [azure-maps-Elevation][java Elevation package] | [Elevation samples][java elevation sample] |
 
-<!--For more information, see the [Java SDK Developers Guide](how-to-java-sdk-dev-guide.md).-->
+<!--For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-sdk.md).-->
 
 <!--  C# SDK Developers Guide  --->
 [Rest API]: /rest/api/maps/
