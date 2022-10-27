@@ -81,7 +81,7 @@ job = ml_client.batch_endpoints.invoke(
     )
 ```
 
-# [Azure ML studio](#tab/studio)
+# [studio](#tab/studio)
 
 Jobs are always started using the identity of the user in the portal in studio.
 
@@ -131,7 +131,7 @@ job = ml_client.batch_endpoints.invoke(
     )
 ```
 
-# [Azure ML studio](#tab/studio)
+# [studio](#tab/studio)
 
 You can't run jobs using a service principal from studio.
 
@@ -174,7 +174,7 @@ job = ml_client.batch_endpoints.invoke(
     )
 ```
 
-# [Azure ML studio](#tab/studio)
+# [studio](#tab/studio)
 
 You can't run jobs using a managed identity from studio.
 
