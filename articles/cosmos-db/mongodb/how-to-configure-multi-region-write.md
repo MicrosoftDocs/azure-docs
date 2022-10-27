@@ -11,7 +11,7 @@ ms.author: gahllevy
 # Configure multi-region writes in Azure Cosmos DB for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Multi-region writes in Azure Cosmos DB for MongoDB enable your clients to write to multiple regions. This results in lower latency and better availability for your writes. It's important to note that unlike other MongoDB service, Azure Cosmos DB for MongoDB is the only service which enables you to write data from the same shard to multiple regions. Multi-region writes is a true active-active setup.
+Multi-region writes in Azure Cosmos DB for MongoDB enable your clients to write to multiple regions. This results in lower latency and better availability for your writes. It's important to note that unlike other MongoDB services, Azure Cosmos DB for MongoDB enables you to write data from the same shard to multiple regions. Multi-region writes is a true active-active setup.
 
 ### Configure in Azure Portal
 To enable multi-region writes from Azure portal, use the following steps:
