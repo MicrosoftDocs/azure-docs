@@ -212,9 +212,9 @@ sections:
         answer: |
          When a connection has an idle timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.
 
-      - question: How does Azure Firewall handle VM instance shutdowns during virtual machine scale set scale in (scale down) or fleet software upgrades?
+      - question: How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?
         answer: |
-         An Azure Firewall VM instance shutdown may occur during virtual machine scale set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and are not forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After an additional 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
+         An Azure Firewall VM instance shutdown may occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and are not forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After an additional 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
 
       - question: Does Azure Firewall allow access to Active Directory by default?
         answer: |
