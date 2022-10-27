@@ -13,6 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 10/27/2022
+ms.author: anfdocs
 ---
 # Manage backup vaults for Azure NetApp Files (Preview)
 
@@ -52,7 +53,7 @@ If you have existing backups, you must migrate them to a backup vault before you
 1. Identify the backup vault you want to delete and select the three dots `...` next to its name. Select **Delete**. 
     :::image type="content" source="../media/azure-netapp-files/backup-vault-delete.png" alt-text="Screenshot of deleting a backup vault." lightbox="../media/azure-netapp-files/backup-vault-delete.png":::
 
-# Next steps
+## Next steps
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md)

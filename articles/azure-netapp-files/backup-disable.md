@@ -27,7 +27,7 @@ If a volume is deleted but the backup policy wasn’t disabled before the volume
 ## Steps
 
 >[!IMPORTANT]
->Existing backups not assigned to a backup vault must be migrated. You cannot perform any operations on a backup until it has been migrated to a backup vault. To learn how to migrate, see [Manage backup vaults](configure-backup-vault.md#migrate-backups-to-a-backup-vault).
+>Existing backups not assigned to a backup vault must be migrated. You cannot perform any operations on a backup until it has been migrated to a backup vault. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
 
 1. Select **Volumes**.
 2. Select the specific volume whose backup functionality you want to disable.

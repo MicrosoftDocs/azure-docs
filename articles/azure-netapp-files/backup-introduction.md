@@ -46,7 +46,7 @@ Azure NetApp Files backup is supported for the following regions:
 Backup vaults are organizational units to manage backups and backup policies. 
 
 >[!IMPORTANT]
->Existing backups not assigned to a backup vault must be migrated. To learn how to migrate, see [Manage backup vaults](configure-backup-vault.md#migrate-backups-to-a-backup-vault).
+>Existing backups not assigned to a backup vault must be migrated. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
 
 ## Cost model for Azure NetApp Files backup
 

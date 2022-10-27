@@ -284,7 +284,7 @@
         - name: Configure manual backups 
           href: backup-configure-manual.md
       - name: Manage a backup vault
-        href: manage-vault-configure.md
+        href: backup-vault-manage.md
       - name: Manage backup policies
         href: backup-manage-policies.md 
       - name: Search backups
