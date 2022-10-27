@@ -17,7 +17,7 @@ We've also added links to some user-generated content. Those items will be marke
 
 ### Nov 2022
 
-* Multivariate Anomaly Detection is now a generally available feature in Anomaly Detector service, with better user experience and better model performance. Learn more about [how to use latest Multivariate Anomaly Detection](How-to/multivariate-how-to.md).
+* Multivariate Anomaly Detection is now a generally available feature in Anomaly Detector service, with a better user experience and better model performance. Learn more about [how to use latest Multivariate Anomaly Detection](quickstarts/client-libraries-multivariate.md).
 
 ### June 2022
 
