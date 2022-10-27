@@ -13,7 +13,7 @@ This document contains information about troubleshooting your solutions that use
 
 ## Unable to create an Elastic resource
 
-Elastic integration with Azure can only be set up by users who have *Owner* access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
+Elastic integration with Azure can only be set up by users who have *Owner* or *Contributor* access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
 
 ## Logs not being emitted to Elastic
 

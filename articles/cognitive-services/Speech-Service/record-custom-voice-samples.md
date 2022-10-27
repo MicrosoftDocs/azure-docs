@@ -1,5 +1,5 @@
 ---
-title: "Record custom voice samples - Speech service"
+title: "Recording custom voice samples - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
@@ -8,16 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 10/14/2022
 ms.author: eur
 ---
 
-# How to record voice samples for Custom Neural Voice
+# Recording voice samples for Custom Neural Voice
 
 This article provides you instructions on preparing high-quality voice samples for creating a professional voice model using the Custom Neural Voice Pro project.
-
-> [!NOTE]
-> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
 
 Creating a high-quality production custom neural voice from scratch isn't a casual undertaking. The central component of a custom neural voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose a voice talent who has experience making these kinds of recordings, and have them recorded by a recording engineer using professional equipment.
 
@@ -158,13 +155,7 @@ Print three copies of the script: one for the voice talent, one for the recordin
 
 ### Voice talent statement
 
-To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. 
-
-You can find the statement in multiple languages on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. 
-
-:::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Upload voice talent statement":::
-
-Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
+To train a neural voice, you must [create a voice talent profile](how-to-custom-voice-talent.md) with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. 
 
 ### Legalities
 
@@ -218,6 +209,10 @@ You can refer to below specification to prepare for the audio samples as best pr
 
 > [!Note]
 > You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom neural voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
+
+A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 35+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
+
+Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your data.
 
 ### Typical audio errors
 
