@@ -25,12 +25,10 @@ Call Recording enables you to record multiple calling scenarios available in Azu
 Depending on your business needs, you can use Call Recording for different Azure Communication Services calling implementations.
 For example, you can record 1:1 or 1:N scenarios for audio and video calls enabled by [Calling Client SDK](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features). 
 
-
-![Diagram showing call recording architecture using calling client sdk.](../media/call-recording-with-calling-client.png)
-
-
 But also, you can use Call Recording to record complex PSTN or VoIP inbound and outbound calling workflows managed by [Call Automation](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/call-automation).
 Regardless of how you established the call, Call Recording allows you to produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage. You can retrieve the files and take them to the long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
+
+![Diagram showing call recording architecture using calling client sdk.](../media/call-recording-with-call-automation.png)
 
 ## Media output and Channel types supported
 Call Recording supports multiple media outputs and content types to address your business needs and use cases. You might use mixed formats for scenarios such as keeping records, meeting notes, coaching and training, or even compliance and adherence. Or, you can use unmixed formats to address quality assurance use cases or even more complex scenarios like advanced analytics or AI-based (Artificial Intelligence) sophisticated post-call processes.
