@@ -25,7 +25,7 @@ recommendations: false
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Concurrent Request limit** | 1 | 15 (default value) |
+| **Transactions Per Second limit** | 1 | 15 (default value) |
 | Adjustable | No | Yes<sup>2</sup> |
 | **Max document size** | 4 MB | 500 MB |
 | Adjustable | No | No |
@@ -94,11 +94,13 @@ Jump to [Form Recognizer: increasing concurrent request limit](#create-and-submi
 
 ### Increasing transactions per second request limit
 
-By default the number of concurrent requests is limited to 15 transactions per second for a Form Recognizer resource. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you're familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#example-of-a-workload-pattern-best-practice).
+By default the number of transacations per second is limited to 15 transactions per second for a Form Recognizer resource. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you're familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#example-of-a-workload-pattern-best-practice).
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Form Recognizer service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
+
+If you would like to increase your transactions per second you can enable auto scaling on your resource. Please follow this document to enable auto scaling on your resource - [enable auto scaling](https://learn.microsoft.com/en-us/azure/cognitive-services/autoscale?tabs=portal). You can also submit an increase TPS support request. 
 
 #### Have the required information ready
 
