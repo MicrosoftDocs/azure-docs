@@ -12,7 +12,7 @@ ms.reviewer: shijain
 # Monitoring solutions in Azure Monitor
 
 > [!CAUTION]
-> Many monitoring solutions are no longer in active development.  We suggest you check each solution to see if it has a replacement. We suggest you not deploy new instances of solutions that have other options, even if those solutions are still available. Many have been replaced by a [newer curated visualization or insight](../monitor-reference.md#insights-and-curated-visualizations).  
+> Many monitoring solutions are no longer in active development.  We suggest you check each solution to see if it has a replacement. We suggest you not deploy new instances of solutions that have other options, even if those solutions are still available. Many have been replaced by a [newer curated visualization or insight](insights-overview.md).  
 
 Monitoring solutions in Azure Monitor provide analysis of the operation of an Azure application or service. This article gives a brief overview of monitoring solutions in Azure and details on using and installing them. 
 
