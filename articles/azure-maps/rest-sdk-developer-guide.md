@@ -36,7 +36,7 @@ Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure S
 | Service Name  | PyPi package            |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][py search readme] | [azure-maps-search][py search package] | [search samples][py search sample] |
-| [Routing[py routing readme] | [azure-maps-routing][py routing package] |  [routing samples][py routing sample] |
+| [Routing][py routing readme] | [azure-maps-routing][py routing package] |  [routing samples][py routing sample] |
 | [Rendering][py rendering readme]| [azure-maps-rendering][py rendering package]|[rendering sample][py rendering sample] |
 | [Geolocation][py geolocation readme]|[azure-maps-geolocation][py geolocation package]|[geolocation sample][py geolocation sample] |
 
