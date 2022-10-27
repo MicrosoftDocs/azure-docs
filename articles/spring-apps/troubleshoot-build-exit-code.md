@@ -68,7 +68,7 @@ The following list describes the most common exit codes:
   
     Failed to write image to Azure Container Registry due to network issue, you can retry to fix the issue.
 
-If your application is static file or dynamic frontend application served by web server, refer to [static file common build error](/articles/spring-apps/how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors).
+ If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy static files in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-static-file.md).
 
 ## Next steps
 
