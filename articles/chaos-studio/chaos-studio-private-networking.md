@@ -3,7 +3,7 @@ title: Integration of VNet Injection with Chaos Studio
 description: Chaos Studio supports VNet Injections
 services: chaos-studio
 author: prashabora
-ms.topic: vnet injection
+ms.topic: conceptual
 ms.date: 10/26/2022
 ms.author: prashabora
 ms.service: chaos-studio
