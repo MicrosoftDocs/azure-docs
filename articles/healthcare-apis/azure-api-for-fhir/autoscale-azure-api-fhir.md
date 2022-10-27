@@ -16,7 +16,7 @@ Azure API for FHIR, as a managed service, allows customers to persist with Fast 
 
 ## What is autoscale?
 
-By default, Azure API for FHIR is set to manual scale. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 10,000 and submit a request to increase the limit. 
+By default, Azure API for FHIR is set to manual scale. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 100,000 and submit a request to increase the limit. 
 
 The autoscale feature is designed to scale computing resources including the database throughput `RU/s` up and down automatically according to the workloads, thus eliminating the manual steps of adjusting allocated computing resources. 
 
