@@ -6,7 +6,7 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.date: 10/19/2022
+ms.date: 10/27/2022
 #Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
 ---
 
@@ -35,11 +35,11 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
 1. Navigate to the workbook you want to use. For example, SAP HANA. 
 1. Select a HANA instance.
 
-    :::image type="content" source="./media/ams-alerts/ams-alert-1.png" alt-text="Screenshot showing placement of alert button." lightbox="./media/ams-alerts/ams-alert-1.png":::
+    :::image type="content" source="./media/get-alerts-portal/ams-alert-1.png" alt-text="Screenshot showing placement of alert button." lightbox="./media/get-alerts-portal/ams-alert-1.png":::
   
 1. Select the **Alerts** button to view available **Alert Templates**.
 
-    :::image type="content" source="./media/ams-alerts/ams-alert-2.png" alt-text="Screenshot showing list of alert template." lightbox="./media/ams-alerts/ams-alert-2.png":::
+    :::image type="content" source="./media/get-alerts-portal/ams-alert-2.png" alt-text="Screenshot showing list of alert template." lightbox="./media/get-alerts-portal/ams-alert-2.png":::
     
 1. Select **Create rule** to configure an alert of your choice.
 1. For **Alert threshold**, enter your alert threshold.
@@ -48,15 +48,15 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
     
 1. Select **Enable alert rule** to create the alert rule.
 
-    :::image type="content" source="./media/ams-alerts/ams-alert-3.png" alt-text="Screenshot showing alert configuration page." lightbox="./media/ams-alerts/ams-alert-3.png":::
+    :::image type="content" source="./media/get-alerts-portal/ams-alert-3.png" alt-text="Screenshot showing alert configuration page." lightbox="./media/get-alerts-portal/ams-alert-3.png":::
     
 1.	Select **Deploy alert rule** to finish your alert rule configuration. You can choose to see the alert template by selecting **View template**.
 
-    :::image type="content" source="./media/ams-alerts/ams-alert-4.png" alt-text="Screenshot showing final step of alert configuration." lightbox="./media/ams-alerts/ams-alert-4.png":::
+    :::image type="content" source="./media/get-alerts-portal/ams-alert-4.png" alt-text="Screenshot showing final step of alert configuration." lightbox="./media/get-alerts-portal/ams-alert-4.png":::
     
 1.	Navigate to **Alert rules** to view the newly created alert rule. When and if alerts are fired, you can view them under **Fired alerts**.
 
-    :::image type="content" source="./media/ams-alerts/ams-alert-5.png" alt-text="Screenshot showing result of alert configuration." lightbox="./media/ams-alerts/ams-alert-5.png":::
+    :::image type="content" source="./media/get-alerts-portal/ams-alert-5.png" alt-text="Screenshot showing result of alert configuration." lightbox="./media/get-alerts-portal/ams-alert-5.png":::
 
 ## Next steps
 
