@@ -91,13 +91,13 @@ For more information, see [supported languages](language-support.md).
 
 Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
 
-### View speakers in the closed captions
+### View speakers in closed captions
 
-You can now view speakers in the closed captions of the Azure Video Indexer media player. For more information, see [View closed captions in the Azure Video Indexer website](view-closed-captions.md).
+You can now view speakers in closed captions of the Azure Video Indexer media player. For more information, see [View closed captions in the Azure Video Indexer website](view-closed-captions.md).
 
 ### Control face and people bounding boxes using parameters
 
-New `boundingBoxes` URL parameter controls the option to set bounding boxes on/off when embedding a player. For more information, see [Embed widgets](video-indexer-embed-widgets.md#player-widget).
+The new `boundingBoxes` URL parameter controls the option to set bounding boxes on/off when embedding a player. For more information, see [Embed widgets](video-indexer-embed-widgets.md#player-widget).
 
 ### Control autoplay from the account settings
 
@@ -113,7 +113,7 @@ Select the desired theme in the [Azure Video Indexer website](https://www.videoi
 
 ### Search or filter the account list
 
-You can search or filter the account list using account name or region. Select **User accounts** in the top-right corner of the [Azure Video Indexer website](https://www.videoindexer.ai/).
+You can search or filter the account list using the account name or region. Select **User accounts** in the top-right corner of the [Azure Video Indexer website](https://www.videoindexer.ai/).
 
 ## September 2022
 
