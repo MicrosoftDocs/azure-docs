@@ -1,5 +1,5 @@
 ---
-title: Remote-write in Azure Monitor Managed Service for Prometheus (preview)
+title: Remote-write in Azure Monitor Managed Service for Prometheus using managed identity (preview)
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. 
 author: bwren 
 ms.topic: conceptual
@@ -49,7 +49,7 @@ Instead of creating your own ID, you can use one of the identities created by AK
 
 
 
-## Assign managed identity the Monitoring Metrics Publisher role on the data collection rule
+## Assign Monitoring Metrics Publisher role on the data collection rule to the managed identity
 The managed identity requires the *Monitoring Metrics Publisher* role on the data collection rule associated with your Azure Monitor workspace.
 
 1. From the menu of your Azure Monitor Workspace account, click the **Data collection rule** to open the **Overview** page for the data collection rule.
