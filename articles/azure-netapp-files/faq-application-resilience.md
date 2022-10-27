@@ -42,7 +42,7 @@ The scale-out architecture would be comprised of multiple IBM MQ multi-instance 
 >[!NOTE]
 > This section contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-If you're running the Apache ActiveMQ, it is recommended to deploy [ActiveMQ High Availability with Pluggable Storage Lockers](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq). 
+If you're running the Apache ActiveMQ, it's recommended to deploy [ActiveMQ High Availability with Pluggable Storage Lockers](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq). 
 
 ActiveMQ high availability (HA) models ensure that a broker instance is always online and able to process message traffic. The two most common ActiveMQ HA models involve sharing a filesystem over a network. The purpose is to provide either LevelDB or KahaDB to the active and passive broker instances. These HA models require that an OS-level lock be obtained and maintained on a file in the LevelDB or KahaDB directories, called "lock". There are some problems with this ActiveMQ HA model. They can lead to  a "no-master" situation, where the "slave" isn’t aware that it can lock the file.  They can also lead to a "master-master" configuration that results in index or journal corruption and ultimately message loss. Most of these problems stem from factors outside of ActiveMQ's control. For instance, a poorly optimized NFS client can cause locking data to become stale under load, leading to “no-master” downtime during failover. 
 
@@ -54,7 +54,7 @@ The general industry recommendation is to [not run your KahaDB shared storage on
 
 ## I’m running Boomi on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events?
 
-If you are running Boomi, it's recommended you follow the [Boomi Best Practices for Run Time High Availability and Disaster Recovery](https://community.boomi.com/s/article/bestpracticesforruntimehighavailabilityanddisasterrecovery).
+If you're running Boomi, it's recommended you follow the [Boomi Best Practices for Run Time High Availability and Disaster Recovery](https://community.boomi.com/s/article/bestpracticesforruntimehighavailabilityanddisasterrecovery).
 
 Boomi recommends Boomi Molecule is used to implement high availability for Boomi Atom. The [Boomi Molecule system requirements](https://help.boomi.com/bundle/integration/page/r-atm-Molecule_system_requirements.html) state that either NFS with NFS locking enabled (NLM support) or SMB file shares can be used. In the context of Azure NetApp Files, NFSv4.1 volumes have NLM support.
 
