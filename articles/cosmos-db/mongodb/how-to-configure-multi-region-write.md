@@ -30,8 +30,21 @@ To enable multi-region writes from Azure portal, use the following steps:
 
 
 ### Connect your client
-Privileges are actions that can be performed on a specific resource. For example, "read access to collection xyz". Privileges are assigned to a specific role.
+MongoDB connection strings supports the “appName” parameter, which is a means to identify client workload. AppName can be specified in the connection string or using SDK specific initialization methods/properties. 
 
+In Cosmos DB for MongoDB, we use the appName parameter to pass account-specific information from the client to the service.
+
+The appName parameter can be in one of the following formats​:
+
+```powershell
+appName=<user-workload-name>​
+appName=<user-workload-name>@<preferred-write-region>​
+appName=<user-workload-name>@<cosmosdb-account-name>@<preferred-write-region>
+```
+
+On multi-region write accounts, Azure Portal supports generation of region-specific connection strings to encode the preferred region list​. Selecting the preferred region dropdown will change the appName in the connection string to set the preferred write region. Simply copy the connection string after setting the preferred region. 
+
+We recommend applications deployed to different regions to use the region-specific connection string with the correct preferred region for low-latency writes.
 
 ## Next steps
 
