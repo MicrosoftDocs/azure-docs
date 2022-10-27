@@ -15,7 +15,9 @@ keywords: azure, openshift, aro, red hat, lockbox
 
 In some circumstances, a support agent at Microsoft or Red Hat may need access to a customer’s OpenShift clusters and Azure environment. The Azure Lockbox feature works with Azure Redhat OpenShift to provide customers a way to review and approve/reject customer data access requests. This ability can be particularly important for financial, government, or other regulatory industries where there is extra scrutiny regarding access to customer data.
 
-With Azure Lockbox, whenever a support ticket is created, you have the ability to grant consent to Microsoft and Red Hat support agents to access your environment to troubleshoot and resolve issues. Azure Lockbox will tell you exactly what support agents are trying to access to help resolve your issues. 
+With Azure Lockbox, whenever a support ticket is created, you have the ability to grant consent to Microsoft and Red Hat support agents to access your environment to troubleshoot and resolve issues. Azure Lockbox will tell you exactly what support agents are trying to access to help resolve your issues.
+
+See [Customer Lockbox](/azure/security/fundamentals/customer-lockbox-overview) for more information and instruction on the Lockbox feature. 
 
 ## Access request process
 
@@ -39,6 +41,30 @@ You can enable Customer Lockbox from the [Administration module](https://aka.ms/
 
 > [!NOTE]
 > To enable Customer Lockbox, the user account needs to have the [Global Administrator role assigned](/azure/active-directory/roles/manage-roles-portal).
+
+
+## ARO Lockbox actions
+
+Azure Lockbox can be used to control data access for the following ARO actions:
+
+|ARO Action  |Not Required Behind Lockbox  |Lockbox Required  |
+|------------|-----------------------------|------------------|
+|Create Kubernetes object | |X |
+|Update Kubernetes object | |X |
+|Delete Kubernetes object |X (softer delete does not require Lockbox) |X (VM or VMSS or Storage Account may require Lockbox) |
+|Get cluster |X (only service metadata)<br>No need behind Lockbox | |
+|Get VM serial console logs | |X |
+|List cluster Azure resources |X (ARM or above) | |
+|List clusters |X (ARM or above) | |
+|List or get Kubernetes objects | |X (Below ARM/Created by customers) |
+|Put or patch cluster |X | |
+|Redeploy virtual machine |X | |
+|Upgrade cluster |X | |
+
+
+
+
+## Limitations
 
 
 
