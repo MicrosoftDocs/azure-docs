@@ -58,7 +58,7 @@ Four Azure resources are defined in the template.
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site.|
     | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
-    | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. <!-- TODO: check field name and position --> |
+    | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
     | **Control Plane Access Interface Name** | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
     | **User Plane Access Interface Name** | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |

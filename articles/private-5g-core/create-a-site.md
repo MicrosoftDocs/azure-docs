@@ -61,22 +61,22 @@ In this step, you'll create the mobile network site resource representing the ph
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
-    :::image type="content" source="media/create-a-site/create-site-validation.png" alt-text="Screenshot of the Azure portal showing successful validation of configuration values for a site resource."::: <!-- TODO: replace. Need UI with matching naming convention for ASE vnet fields. -->
+    :::image type="content" source="media/create-a-site/create-site-validation.png" alt-text="Screenshot of the Azure portal showing successful validation of configuration values for a site resource.":::
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
+2. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
 
-1. Select **Go to resource group**, and confirm that it contains the following new resources:
+3. Select **Go to resource group**, and confirm that it contains the following new resources:
 
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
     - An **Attached Data Network** resource representing the site's view of the data network.
 
-    :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png"::: <!-- TODO: replace. Need billing plan info in the UI. -->
+    :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
 
 ## Next steps
 
