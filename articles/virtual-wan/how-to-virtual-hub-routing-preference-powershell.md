@@ -32,7 +32,7 @@ To configure virtual hub routing preference for an existing virtual hub, use the
     Update-AzVirtualHub -ResourceGroupName "[resource group name]" -Name "[virtual hub name]" -HubRoutingPreference "VpnGateway"
    ```
 
-1. After the settings have saved, you can verify the configuration by running the following PowerShell command for virtual hub.
+1. After the settings have saved, you can now verify the configuration by running the following PowerShell command for virtual hub.
 
    ```azurepowershell-interactive
    Get-AzVirtualHub -ResourceGroupName "[resource group name]" -Name "[virtual hub name]" |  select-object HubRoutingPreference
