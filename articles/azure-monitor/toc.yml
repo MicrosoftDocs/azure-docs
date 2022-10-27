@@ -7,7 +7,7 @@ items:
     href: overview.md
   - name: What can you monitor?
     href: monitor-reference.md
-  - name: Observability COMBINE WITH ABOVE
+  - name: Observability
     href: observability-data.md    
   - name: What's new?
     href: whats-new.md
@@ -1328,7 +1328,7 @@ items:
     items:
     - name: Overview
       href: alerts/alerts-overview.md
-    - name: Alert Types
+    - name: Alert types
       href: alerts/alerts-types.md
     - name: Create a new alert rule
       href: alerts/alerts-create-new-alert-rule.md
@@ -1338,7 +1338,7 @@ items:
       href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
-      - name: T:Create a metric alert
+      - name: Create a metric alert
         href: alerts/tutorial-metric-alert.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
