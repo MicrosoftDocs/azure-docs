@@ -1,3 +1,14 @@
+---
+title: Integration of VNet Injection with Chaos Studio
+description: Chaos Studio supports VNet Injections
+services: chaos-studio
+author: prashabora
+ms.topic: VNet Injection
+ms.date: 10/26/2022
+ms.author: prashabora
+ms.service: chaos-studio
+ms.custom: ignite-fall-2021
+---
 # Integration of VNet Injection with Chaos Studio
 VNet is the fundamental building block for your private network in Azure. VNet enables many Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is like a traditional network you would operate in your own data center. However, VNet also has the benefits of Azure infrastructure, scale, availability, and isolation.
 ## How VNet Injection works in Chaos Studio
