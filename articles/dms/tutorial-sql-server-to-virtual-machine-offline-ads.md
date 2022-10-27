@@ -86,38 +86,61 @@ Before you begin the tutorial:
 - When using self-hosted integration runtime, make sure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share. Also see [recommendations for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
 - If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration resource provider is registered in your subscription. You can complete the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
-## Launch the Migrate to Azure SQL wizard in Azure Data Studio
+## Open the Migrate to Azure SQL wizard in Azure Data Studio
 
-1. Open Azure Data Studio and select on the server icon to connect to your on-premises SQL Server (or SQL Server on Azure Virtual Machines).
-1. On the server connection, right-click and select **Manage**.
-1. On the server's home page, Select **Azure SQL Migration** extension.
-1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
+1. In Azure Data Studio, go to the connections section. Select and connect to your on-premises instance of SQL Server. You also can connect to SQL Server on an Azure virtual machine.
+
+1. Right-click the server connection and select **Manage**.
+
+1. On the server's home page, under **General**, select the **Azure SQL Migration** extension.
+
+1. In the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
+
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
+
 1. In the first step of the migration wizard, link your existing or new Azure account to Azure Data Studio.
 
-## Run database assessment, collect performance data and get Azure recommendation
+## Run database assessment, collect performance data, and get right-sized recommendations
 
-1. Select the database(s) to run assessment and select **Next**.
-1. Select SQL Server on Azure Virtual Machines as the target.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
-1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
-1. Click the **Get Azure recommendation** button.
-1. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and click the **Start** button.
-1. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard or close Azure Data Studio.
-1. After 10 minutes you will see a recommended configuration for your Azure SQL VM. You can also press the Refresh recommendation link after the initial 10 minutes to refresh the recommendation with the additional data collected.
-1. In the above **SQL Server on Azure Virtual Machines** box click the **View details** button for more information about your recommendation. 
-1. Close the view details box and press the **Next** button. 
+1. Select the databases to run the assessment on, and then select **Next**.
+
+1. For the target, select **SQL Server on Azure Virtual Machines**.
+
+   :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
+
+1. Select **View/Select** to view the assessment results.
+
+1. Select the database, and then review the assessment report to make sure that no issues were found.
+
+1. Select **Get Azure recommendation** to open the recommendations panel.
+
+1. Select the **Collect performance data now** option. Then select a folder on your local computer to store the performance logs in. Then select **Start**.
+
+   Azure Data Studio collects performance data until you either stop the collection or close Azure Data Studio.
+
+1. After 10 minutes, Azure Data Studio displays **recommendation available** for your Azure SQL Server virtual machine. You can also select **Refresh recommendation** after the initial 10 minutes to refresh the recommendation with more data that's collected.
+
+1. Go to your Azure SQL target section. With **SQL Server on Azure Virtual Machines** selected, select **View details** to open the detailed SKU recommendation report. You can also select  **Save recommendation report** at the bottom of this page for later analysis.
+
+1. Close the recommendations page. Select **Next** to continue with your migration.
 
 ## Configure migration settings
 
-1. Specify your **target SQL Server on Azure Virtual Machines** by selecting your subscription, location, resource group from the corresponding drop-down lists and then select **Next**.
-1. Select **Offline migration** as the migration mode.
+1. Specify your target as SQL Server on Azure Virtual Machines by selecting your subscription, location, and resource group in the corresponding dropdowns. Then select **Next**.
+
+1. For the migration mode, select **Offline migration**, and then select **Next**.
+
     > [!NOTE]
-    > In the offline migration mode, the source SQL Server database should not be used for write activity while database backup files are restored on the target Azure SQL database. Application downtime persists through the start until the completion of the migration process.
+    > In offline migration mode, the source SQL Server database shouldn't be used for write activity while database backup files are restored on the target Azure SQL database. Application downtime persists through the start until the completion of the migration process.
+  
 1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
+
     > [!NOTE]
-    > If your database backups are provided in an on-premises network share, Database Migration Service will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you do not need to setup self-hosted integration runtime.
-- For backups located on a network share provide the below details of your source SQL Server, source backup location, target database name and Azure storage account for the backup files to be uploaded to.
+    > If your database backups are provided in an on-premises network share, Database Migration Service will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.
+    >
+    > If your database backups are already on an Azure storage blob container, you do not need to set up self-hosted integration runtime.
+  
+   For backups located on a network share, provide the below details of your source SQL Server instance, source backup location, target database name, and Azure storage account for the backup files to be uploaded to.
 
     |Field    |Description  |
     |---------|-------------|
@@ -128,16 +151,16 @@ Before you begin the tutorial:
     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
 
-- For backups stored in an Azure storage blob container specify the below details of the **Target database name**, **Resource group**, **Azure storage account**, **Blob container** and **Last backup file from** the corresponding drop-down lists. 
+    For backups stored in an Azure storage blob container, specify the below details of the **Target database name**, **Resource group**, **Azure storage account**, **Blob container** and **Last backup file from** the corresponding drop-down lists.
 
     |Field    |Description  |
     |---------|-------------|
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
-    |**Storage account details** |The resource group, storage account and container where backup files are located.    
-    |**Last Backup File** |The file name of the last backup of the database that you are migrating.
- 
+    |**Storage account details** |The resource group, storage account and container where backup files are located.  
+    |**Last Backup File** |The file name of the last backup of the database that you're migrating.
+
     > [!IMPORTANT]
-    > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
+    > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, [disable loopback check functionality](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
 
 ## Create a Database Migration Service instance
 
@@ -146,7 +169,7 @@ Before you begin the tutorial:
    > [!NOTE]
    > If you previously created a Database Migration Service instance by using the Azure portal, you can't reuse the instance in the migration wizard in Azure Data Studio. You can reuse an instance only if you created the instance by using Azure Data Studio.
 
-1. Select the resource group where you have an existing instance of Database Migration Service, or create a new resource group.. The **Azure Database Migration Service** dropdown lists any existing instance of Database Migration Service in the selected resource group.
+1. Select the resource group where you have an existing instance of Database Migration Service, or create a new resource group. The **Azure Database Migration Service** dropdown lists any existing instance of Database Migration Service in the selected resource group.
 
 1. To reuse an existing instance of Database Migration Service, select the instance in the dropdown list. Then select **Next** to view the summary screen. When you're ready to start the migration, press **Start migration**.
 1. To create a new instance of Database Migration Service, select **Create new**. In **Create Azure Database Migration Service**, enter a name for your Database Migration Service instance, and then select **Create**.  
@@ -185,12 +208,12 @@ Before you begin the tutorial:
     | Restoring | Azure Database Migration Service is currently restoring the backup file to SQL Server on Azure Virtual Machines|
     | Restored | Backup file is successfully restored on SQL Server on Azure Virtual Machines |
     | Canceled | Migration process was canceled |
-    | Ignored | Backup file was ignored as it does not belong to a valid database backup chain |
+    | Ignored | Backup file was ignored as it doesn't belong to a valid database backup chain |
 
 After all database backups are restored on the SQL Server instance on the Azure virtual machine, an automatic migration cutover is initiated by Database Migration Service to ensure that the migrated database is ready for use and the migration status changes from **In progress** to **Succeeded**.
 
 ## Next steps
 
-- For a tutorial showing you how to migrate a database to SQL Server on Azure Virtual Machiness using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server).
-- For information about SQL Server on Azure Virtual Machiness, see [Overview of SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
-- For information about connecting apps to SQL Server on Azure Virtual Machiness, see [Connect applications](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
+- For a tutorial showing you how to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server).
+- For information about SQL Server on Azure Virtual Machines, see [Overview of SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
+- For information about connecting apps to SQL Server on Azure Virtual Machines, see [Connect applications](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).

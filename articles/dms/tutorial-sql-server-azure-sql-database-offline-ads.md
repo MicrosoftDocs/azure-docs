@@ -107,7 +107,7 @@ Before you begin the tutorial:
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-zoom.png" alt-text="Screenshot of performance data collection.":::
 
-1. After 10 minutes, Azure Data Studio displays **recommendation available** for Azure SQL Database (Preview). After the first recommendation is generated, you can use the **Restart data collection** option to continue the data collection process to refine the SKU recommendation, especially if your usage patterns vary for an extended time.
+1. After 10 minutes, Azure Data Studio displays **recommendation available** for Azure SQL Database (Preview). After the first recommendation is generated, you can select **Restart data collection** to continue the data collection process to refine the SKU recommendation, especially if your usage patterns vary for an extended time.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-collected.png" alt-text="Screenshot of performance data collected.":::
 
@@ -119,7 +119,7 @@ Before you begin the tutorial:
 
 ## Configure migration settings
 
-1. In the upper section, set your Azure account details. Select your subscription, location, and resource group from the corresponding dropdowns.
+1. In the upper section, set your Azure account details. Select your subscription, location, and resource group in the corresponding dropdowns.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-account.png" alt-text="Screenshot of Azure account details.":::
   
@@ -131,7 +131,7 @@ Before you begin the tutorial:
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-map.png" alt-text="Screenshot of source and target mapping.":::
 
-1. Select **Offline migration** as the migration mode, and then select **Next**.
+1. For the migration mode, select **Offline migration**, and then select **Next**.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-mode.png" alt-text="Screenshot of offline migrations selection.":::
 

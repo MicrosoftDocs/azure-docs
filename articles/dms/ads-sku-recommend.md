@@ -17,9 +17,9 @@ ms.custom: references_regions
 
 Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to assess your database requirements, get right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
 
-Before you migrate your SQL Server database to Azure, it's important to assess them to identify any migration issues (if any) so you can remediate them and confidently migrate them to Azure. Moreover, it is equally important to identify the right-sized configuration in Azure to ensure your database workload performance requirements are met with minimal cost.
+Before you migrate your SQL Server database to Azure, it's important to assess them to identify any migration issues (if any) so you can remediate them, and confidently migrate them to Azure. Moreover, it's equally important to identify the right-sized configuration in Azure to ensure your database workload performance requirements are met with minimal cost.
 
-The Azure SQL Migration extension for Azure Data Studio provides both the assessment and SKU recommendation (right-sized Azure recommended configuration) capabilities when you are trying to select the best option to migrate your SQL Server database(s) to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database (Preview). The extension provides a user friendly interface to run the assessment and generate recommendations within a short time frame.
+The Azure SQL Migration extension for Azure Data Studio provides both the assessment and SKU recommendation (right-sized Azure recommended configuration) capabilities when you're trying to select the best option to migrate your SQL Server database(s) to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database (Preview). The extension provides a user friendly interface to run the assessment and generate recommendations within a short time frame.
 
 > [!NOTE]
 > Assessment and Azure recommendation feature in the Azure SQL Migration extension for Azure Data Studio also supports source SQL Server running on Linux.
@@ -43,7 +43,7 @@ The following diagram shows the workflow for data collection and SKU recommendat
     > - The data collection process runs for 10 minutes to generate the first recommendation. It is important to start the data collection process when your database workload reflects usage close to your production scenarios.</br>
     > - After the first recommendation is generated, you can continue to run the data collection process to refine recommendations especially if your usage patterns vary for an extended duration of time.
 
-1. **Save generated data files locally**: The performance data is periodically aggregated and written to your local filesystem (in the folder that you selected while starting data collection in the migration wizard). Typically, you will see a set of CSV files with the following suffixes in the folder you selected:
+1. **Save generated data files locally**: The performance data is periodically aggregated and written to your local filesystem (in the folder that you selected while starting data collection in the migration wizard). Typically, you'll see a set of CSV files with the following suffixes in the folder you selected:
 
     - **_CommonDbLevel_Counters.csv** : This file contains static configuration data about the database file layout and metadata. 
     - **_CommonInstanceLevel_Counters.csv** : This file contains static data about the hardware configuration of the server instance.
@@ -53,9 +53,9 @@ The following diagram shows the workflow for data collection and SKU recommendat
 
    The SKU recommender provides optional parameters that can be modified to refine recommendations based on your inputs about the production workload.
 
-    - **Scale factor**: Scale ('comfort') factor used to inflate or deflate SKU recommendation based on your understanding of the production workload. For example, if it is determined that there is a 4 vCore CPU requirement with a scale factor of 150%, then the true CPU requirement will be 6 vCores. (Default value: 100)
+    - **Scale factor**: Scale ('comfort') factor used to inflate or deflate SKU recommendation based on your understanding of the production workload. For example, if it's determined that there's a 4 vCore CPU requirement with a scale factor of 150%, then the true CPU requirement will be 6 vCores. (Default value: 100)
     - **Percentage utilization**: Percentile of data points to be used during aggregation of the performance data. (Default: 95th Percentile)
-    - **Enable preview features**: Enabling this option will include the latest hardware generations that have significantly improved performance and scalability. These SKUs are currently in Preview and may not yet be available in all regions. (Default value: Yes)
+    - **Enable preview features**: Enabling this option will include the latest hardware generations that have improved performance and scalability. These SKUs are currently in Preview and may not yet be available in all regions. (Default value: Yes)
 
     > [!IMPORTANT]
     > The data collection process will terminate if you close Azure Data Studio. However, the data that was collected until that point will be saved in your folder.

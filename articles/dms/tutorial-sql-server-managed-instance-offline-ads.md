@@ -22,13 +22,13 @@ In this tutorial, you migrate the **AdventureWorks** database from an on-premise
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
-> * Launch the *Migrate to Azure SQL* wizard in Azure Data Studio
-> * Run an assessment of your source SQL Server database(s)
-> * Collect performance data from your source SQL Server
-> * Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
-> * Specify details of your source SQL Server backup location and your target Azure SQL Managed Instance
-> * Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
-> * Start and monitor the progress for your migration through to completion
+> - Launch the *Migrate to Azure SQL* wizard in Azure Data Studio
+> - Run an assessment of your source SQL Server database(s)
+> - Collect performance data from your source SQL Server
+> - Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
+> - Specify details of your source SQL Server backup location and your target Azure SQL Managed Instance
+> - Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
+> - Start and monitor the progress for your migration through to completion
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -38,30 +38,30 @@ This article describes an offline migration from SQL Server to a SQL Managed Ins
 
 To complete this tutorial, you need to:
 
-* [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
-* [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
-* Have an Azure account that is assigned to one of the built-in roles listed below:
+- [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
+- Have an Azure account that is assigned to one of the built-in roles listed below:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription (required if creating a new Database Migration Service service).
     - As an alternative to using the above built-in roles you can assign a custom role as defined in [this article.](resource-custom-roles-sql-db-managed-instance-ads.md)
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
-* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
-* Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
-* Provide an SMB network share, Azure storage account file share, or Azure storage account blob container that contains your full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
+- Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+- Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
+- Provide an SMB network share, Azure storage account file share, or Azure storage account blob container that contains your full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
     > [!IMPORTANT]
     > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../storage/common/storage-account-create.md) that allows Database Migration Service service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
     > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
     > - You need to take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 
     > - You can provide compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
-* Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
-* If you're migrating a database protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to your target Azure SQL Managed Instance before database restoration. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate).
+- Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
+- If you're migrating a database protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to your target Azure SQL Managed Instance before database restoration. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate).
     > [!TIP]
     > If your database contains sensitive data that is protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), migration process using Azure Data Studio with Database Migration Service will automatically migrate your Always Encrypted keys to your target Azure SQL Managed Instance.
 
-* Provide a machine to install [self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md) to access and migrate database backups **if your database backups are in a network file share**. The migration wizard will provide you with the download link and authentication keys to download and install your self-hosted integration runtime. In preparation for the migration, ensure that the machine where you would install the self-hosted integration runtime has the following outbound firewall rules and domain names enabled:
+- Provide a machine to install [self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md) to access and migrate database backups **if your database backups are in a network file share**. The migration wizard will provide you with the download link and authentication keys to download and install your self-hosted integration runtime. In preparation for the migration, ensure that the machine where you would install the self-hosted integration runtime has the following outbound firewall rules and domain names enabled:
 
     | Domain names                                          | Outbound ports | Description                |
     | ----------------------------------------------------- | -------------- | ---------------------------|
@@ -72,32 +72,51 @@ To complete this tutorial, you need to:
     > [!TIP]
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
-* When using self-hosted integration runtime, ensure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. 
-* Outbound port 445 should be enabled to access the network file share. Also, see [recommendations for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
-* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
+- When using self-hosted integration runtime, ensure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. 
+- Outbound port 445 should be enabled to access the network file share. Also, see [recommendations for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
+- If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
-## Launch the Migrate to Azure SQL wizard in Azure Data Studio
+## Open the Migrate to Azure SQL wizard in Azure Data Studio
 
-1. Open Azure Data Studio and select the server icon to connect to your on-premises SQL Server (or SQL Server on Azure Virtual Machine).
-1. On the server connection, right-click and select **Manage**.
-1. On the server's home page, Select **Azure SQL Migration** extension.
-1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
+1. In Azure Data Studio, go to the connections section. Select and connect to your on-premises instance of SQL Server. You also can connect to SQL Server on an Azure virtual machine.
+
+1. Right-click the server connection and select **Manage**.
+
+1. On the server's home page, under **General**, select the **Azure SQL Migration** extension.
+
+1. In the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
+
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
-1. The wizard's first page will allow you to start a new session or resume a previously saved one. Pick the first option to start a new session.
-## Run database assessment, collect performance data, and get Azure recommendation
 
-1. Select the database(s) to run the assessment and select **Next**.
-1. Select Azure SQL Managed Instance as the target.
+1. On the first page of the wizard, you can start a new session or resume a previously saved session. Choose the first option to start a new session.
+
+## Run database assessment, collect performance data, and get right-sized recommendations
+
+1. Select the databases to run the assessment on, and then select **Next**.
+
+1. For the target, select **Azure SQL Managed Instance**.
+
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
-1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
+
+1. Select **View/Select** to view the assessment results.
+
+1. Select the database, and then review the assessment report to make sure that no issues were found.
+
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/assessment-issues-details.png" alt-text="Database assessment details":::
-1. Click the **Get Azure recommendation** button.
+
+1. Select **Get Azure recommendation** to open the recommendations panel.
+
 1. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and select the **Start** button.
-1. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard, or close Azure Data Studio.
-After 10 minutes, you'll see a recommended configuration for your Azure SQL Managed Instance. You can also press the **Refresh recommendation** link after the initial 
-10 minutes to refresh the recommendation with the additional data collected.
-1. In the above Azure SQL Managed Instance box, click the **View details** button for more information about your recommendation. 
-1. Close the view details box and press the **Next** button. 
+
+1. Select the **Collect performance data now** option. Then select a folder on your local computer to store the performance logs in. Then select **Start**.
+
+   Azure Data Studio collects performance data until you either stop the collection or close Azure Data Studio.  
+
+1. After 10 minutes, Azure Data Studio displays **recommendation available** for Azure SQL Managed Instance. After the first recommendation is generated, you can select **Refresh recommendation** to continue the data collection process to refine the SKU recommendation, especially if your usage patterns vary for an extended time.
+
+1. Go to your Azure SQL target section. With **Azure SQL Managed Instance** selected, box, select **View details** for more information about your recommendation.
+
+1. Close the recommendations page. Select **Next** to continue with your migration.
 
 ## Configure migration settings
 
@@ -119,7 +138,7 @@ After 10 minutes, you'll see a recommended configuration for your Azure SQL Mana
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
     |**Storage account details** |The resource group and storage account where backup files will be uploaded to. You don't need to create a container as Database Migration Service will automatically create a blob container in the specified storage account during the upload process.          |
 
-* For backups stored in an Azure storage blob container, specify the below details of the **Target database name**, **Resource group**, **Azure storage account**, **Blob container**, and **Last backup file from** the corresponding drop-down lists. 
+- For backups stored in an Azure storage blob container, specify the below details of the **Target database name**, **Resource group**, **Azure storage account**, **Blob container**, and **Last backup file from** the corresponding drop-down lists. 
 
     |Field    |Description  |
     |---------|-------------|
@@ -173,7 +192,7 @@ After all database backups are restored on Azure SQL Managed Instance, the Azure
 
 ## Next steps
 
-* For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
-* For information about SQL Managed Instance, see [What is SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
-* For information about connecting apps to SQL Managed Instance, see [Connect applications](/azure/azure-sql/managed-instance/connect-application-instance).
+- For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+- For information about SQL Managed Instance, see [What is SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
+- For information about connecting apps to SQL Managed Instance, see [Connect applications](/azure/azure-sql/managed-instance/connect-application-instance).
 
