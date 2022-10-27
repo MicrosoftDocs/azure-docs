@@ -265,6 +265,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | China East | 12076:51302 |
 | China East 2| 12076:51303 |
 | China North 2 | 12076:51304 |
+| China North 3 | 12076:51305 |
 
 | **Service in National Clouds** | **BGP community value** |
 | --- | --- |
