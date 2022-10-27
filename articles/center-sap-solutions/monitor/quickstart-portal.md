@@ -4,8 +4,7 @@ description: Learn how to use a browser method for deploying Azure Monitor for S
 author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
+ms.service: azure-center-sap-solutions
 ms.date: 10/27/2022
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions in the Azure portal so that I can configure providers.
 ---

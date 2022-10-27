@@ -2,8 +2,7 @@
 title: Create a High Availability Pacemaker cluster provider for Azure Monitor for SAP solutions (preview)
 description: Learn how to configure High Availability (HA) Pacemaker cluster providers for Azure Monitor for SAP solutions.
 author: MightySuz
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
+ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: sujaj

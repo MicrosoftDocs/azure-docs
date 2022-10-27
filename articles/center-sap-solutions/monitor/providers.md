@@ -2,8 +2,7 @@
 title: What are providers in Azure Monitor for SAP solutions? (preview)
 description: This article provides answers to frequently asked questions about Azure Monitor for SAP solutions providers.
 author: rdeltcheva
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
+ms.service: azure-center-sap-solutions
 ms.topic: conceptual
 ms.date: 10/27/2022
 ms.author: radeltch

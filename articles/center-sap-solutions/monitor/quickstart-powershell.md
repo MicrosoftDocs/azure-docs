@@ -4,9 +4,8 @@ description: Deploy Azure Monitor for SAP solutions with Azure PowerShell
 author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
-ms.date: 10/19/2022
+ms.service: azure-center-sap-solutions
+ms.date: 10/27/2022
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions with PowerShell so that I can create resources with PowerShell.
