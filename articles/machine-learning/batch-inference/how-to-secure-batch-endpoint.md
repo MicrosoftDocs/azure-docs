@@ -21,6 +21,10 @@ When deploying a machine learning model to a batch endpoint, you can secure thei
 
 * A secure Azure Machine Learning workspace. For more details about how to achieve it read [Create a secure workspace](../tutorial-create-secure-workspace.md).
 * For Azure Container Registry in private networks, please note that there are [some prerequisites about their configuration](../how-to-secure-workspace-vnet.md#prerequisites).
+
+    > [!WARNING]
+    > Azure Container Registries with Quarantine feature enabled are not supported by the moment.
+
 * Ensure blob, file, queue, and table private endpoints are configured for the storage accounts as explained at [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Batch deployments require all the 4 to properly work.
 
 ## Securing batch endpoints
@@ -42,10 +46,6 @@ Azure Machine Learning batch deployments run on compute clusters. To secure batc
 
 1. Create an Azure Machine Learning [computer cluster in the virtual network](../how-to-secure-training-vnet.md#compute-cluster).
 2. Ensure all related services have private endpoints configured in the network. Private endpoints are used for not only Azure Machine Learning workspace, but also its associated resources such as Azure Storage, Azure Key Vault, or Azure Container Registry. Azure Container Registry is a required service. While securing the Azure Machine Learning workspace with virtual networks, please note that there are [some prerequisites about Azure Container Registry](../how-to-secure-workspace-vnet.md#prerequisites).
-
-    > [!WARNING]
-    > Azure Container Registries with Quarantine feature enabled are not supported by the moment.
-
 4. If your compute instance uses a public IP address, you must [Allow inbound communication](../how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources.
     
     > [!TIP]
