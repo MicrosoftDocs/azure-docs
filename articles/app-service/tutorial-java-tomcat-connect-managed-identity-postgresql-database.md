@@ -138,7 +138,7 @@ az webapp connection create postgres \
     --target-resource-group $RESOURCE_GROUP \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
-    --system-assigned-identity
+    --system-identity
 ```
 
 This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.
