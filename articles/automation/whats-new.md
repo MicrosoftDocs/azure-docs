@@ -26,7 +26,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Guidance for Disaster Recovery of Azure Automation account
 
-Azure Automation now supports you to build your own disaster recovery strategy to manage a region-wide or zone-wide failure. [Learn more](https://learn.microsoft.com/en-us/azure/automation/automation-disaster-recovery).
+Azure Automation now supports you to build your own disaster recovery strategy to manage a region-wide or zone-wide failure. [Learn more](https://learn.microsoft.com/azure/automation/automation-disaster-recovery).
 
 
 ## September 2022
