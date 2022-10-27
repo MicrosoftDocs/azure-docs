@@ -92,14 +92,10 @@ Certificates can be provisioned in external devices like hardware security keys 
 Security keys with certificates:  
 
 - Can be used on any device, and don't need a certificate to be provisioned on every device the user has 
-
 - Are hardware-secured with a PIN, which makes them phishing-resistant 
-
 - Provide multifactor authentication with a PIN as second factor to access the private key of the certificate 
-
 - Satisfy the industry requirement to have MFA on separate device 
-
-- helps in future proofing where multiple credentials can be stored including FIDO2 (Fast Identity Online 2) keys. 
+- Help in future proofing where multiple credentials can be stored including Fast Identity Online 2 (FIDO2) keys 
 
 ### One-time registration prerequisite
 
@@ -119,22 +115,22 @@ Security keys with certificates:
 
 The user should be successfully logged in and redirected to the Outlook homepage. 
 
-## Troubleshoot certificates on hardware security key
+### Troubleshoot certificates on hardware security key
 
-### What will happen if the user has certificates both on the iOS device and YubiKey? 
+#### What will happen if the user has certificates both on the iOS device and YubiKey? 
 
 The iOS certificate picker will show all the certificates on both iOS device and the ones copied from YubiKey into iOS device. Depending on the certificate user picks they will be either taken to YubiKey authenticator to enter PIN or directly authenticated. 
 
-### My YubiKey is locked after incorrectly typing PIN 3 times. How do I fix it? 
+#### My YubiKey is locked after incorrectly typing PIN 3 times. How do I fix it? 
 
 - Users should see a dialog informing you that too many PIN attempts have been made. This dialog also pops up during subsequent attempts to select **Use Certificate or smart card**.
 - [YubiKey Manager](https://www.yubico.com/support/download/yubikey-manager/) can reset a YubiKey’s PIN. 
 
-### Once CBA fails, clicking on the CBA option again in the ‘Other ways to signin’ link on the error page fails. 
+#### Once CBA fails, clicking on the CBA option again in the ‘Other ways to signin’ link on the error page fails. 
 
 This issue happens because of certificate caching. We are working to add a fix to clear the cache. As a workaround, clicking cancel and restarting the login flow will let the user choose a new certificate and successfully login. 
 
-### Azure AD CBA with YubiKey is failing. What information would help debug the issue? 
+#### Azure AD CBA with YubiKey is failing. What information would help debug the issue? 
 
 1. Open Microsoft Authenticator app, click the three dots icon in the top right corner and select **Send Feedback**.
 1. Click **Having Trouble?**.
@@ -142,11 +138,11 @@ This issue happens because of certificate caching. We are working to add a fix t
 1. Describe any details you want to add. 
 1. Click the send arrow in the top right corner. Note the code provided in the dialog that appears. 
 
-### How can I enforce phishing-resistant MFA using a hardware security key on browser-based applications on mobile? 
+#### How can I enforce phishing-resistant MFA using a hardware security key on browser-based applications on mobile? 
 
-Certificate based authentication + Conditional access auth strength capability makes it powerful for customers to enforce authentication needs. Edge as a profile (add an account) will work with a hardware security key like YubiKey and conditional access policy with authentication strength capability can enforce phishing resistant authentication with CBA 
+Certificate based authentication and Conditional Access authentication strength capability makes it powerful for customers to enforce authentication needs. Edge as a profile (add an account) will work with a hardware security key like YubiKey and conditional access policy with authentication strength capability can enforce phishing-resistant authentication with CBA.
 
-CBA support for YubiKey is available in the latest MSAL (Microsoft Authentication Library) libraries, any third-party application that integrates the latest MSAL as well as all Microsoft first party applications can leverage CBA + CA Auth strength. 
+CBA support for YubiKey is available in the latest Microsoft Authentication Library (MSAL) libraries, any third-party application that integrates the latest MSAL, and all Microsoft first party applications can leverage CBA and Conditional Access authentication strength. 
 
 ### Supported operating systems
 
