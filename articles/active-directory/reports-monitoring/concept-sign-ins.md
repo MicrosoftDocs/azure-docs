@@ -76,7 +76,7 @@ The sign-ins log has a default view, but you can customize the view using over 3
 
 Filtering the sign-ins log is a helpful way to quickly find logs that match a specific scenario. For example, you could filter the list to only view sign-ins that occurred in a specific geographic location, from a specific operating system, or from a specific type of credential.
 
-Some filter options prompt you to select another criteria. Follow the prompts to make the selection you need for the filter. You can add multiple filters. 
+Some filter options prompt you to select more options. Follow the prompts to make the selection you need for the filter. You can add multiple filters. 
 
 Select the **Add filters** option from the top of the table to get started.
 
@@ -124,11 +124,11 @@ Now that your sign-in logs table is formatted appropriately, you can more effect
 
 If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details.
 
-![sign-in error code](./media/concept-sign-ins/error-code.png)
+![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
 
 In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button.
 
-![Error code lookup tool](./media/concept-sign-ins/error-code-lookup-tool.png)
+![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
 
 ### Risky sign-in data in Azure AD Identity Protection
 

@@ -24,9 +24,7 @@ Two other activity logs are also available to help monitor the health of your te
 The classic sign-in logs in Azure AD provides you with an overview of interactive user sign-ins. Three additional sign-in logs are now in preview:
 
 - Non-interactive user sign-ins
-
 - Service principal sign-ins
-
 - Managed identities for Azure resource sign-ins
 
 This article gives you an overview of the sign-in activity report with the preview of non-interactive, application, and managed identities for Azure resources sign-ins. For information about the sign-in report without the preview features, see [Sign-in logs in Azure Active Directory](concept-sign-ins.md).
@@ -44,12 +42,14 @@ To access the sign-ins log for a tenant, you must have one of the following role
 - Reports Reader
 
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the sign-in activity report through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
-**To access the Azure AD sign-ins log:**
+
+**To access the Azure AD sign-ins log preview:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
 1. Go to **Azure Active Directory** > **Sign-ins log**.
+1. Select the **Try out our new sign-ins preview** link. To toggle back to the legacy view, select the **Click here to leave the preview**  link.
 
-    ![Open sign-in logs](./media/concept-sign-ins/side-menu-sign-in-logs.png)
+    ![Screenshot of the preview link on the sign-in logs page.](./media/concept-all-sign-ins/sign-in-logs-preview-link.png)
 
 You can also access the sign-in logs from the following areas of Azure AD:
 
@@ -67,29 +67,20 @@ On the sign-in logs page, you can switch between:
 
 - **Managed identities for Azure resources sign-ins:** Sign-ins by Azure resources that have secrets managed by Azure. For more information, see [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md) 
 
-
 ![Screenshot of the sign-in log types.](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
-Each tab on the sign-ins page shows the default columns below. Some tabs have additional columns:
+## View the sign-ins log
 
-- Sign-in date
-- Request ID
-- User name or user ID
-- Application name or application ID
-- Status of the sign-in
-- IP address of the device used for the sign-in
+To more effectively view the sign-ins log, spend a few moments customizing the view for your needs. You can specify what columns to include and filter the data to narrow things down.
 
 ### Interactive user sign-ins
 
-Interactive user sign-ins are sign-ins where a user provides an authentication factor to Azure AD or interacts directly with Azure AD or a helper app, such as the Microsoft Authenticator app. The factors users provide include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or to a helper app.
-
-> [!NOTE]
-> This log also includes federated sign-ins from identity providers that are federated to Azure AD.  
+Interactive user sign-ins provide an authentication factor to Azure AD or interacts directly with Azure AD or a helper app, such as the Microsoft Authenticator app. Users can provide passwords, responses to MFA challenges, biometric factors, or QR codes to Azure AD or to a helper app. This log also includes federated sign-ins from identity providers that are federated to Azure AD.  
 
 > [!NOTE] 
 > The interactive user sign-in log used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-in log for additional visibility. Once the non-interactive user sign-in log entered public preview in November 2020, those non-interactive sign-in logs were moved to the non-interactive user sign in log for increased accuracy. 
 
-**Report size:** small <br> 
+**Report size:** small
 **Examples:**
 
 - A user provides username and password in the Azure AD sign-in screen.
@@ -97,90 +88,56 @@ Interactive user sign-ins are sign-ins where a user provides an authentication f
 - A user provides a biometric gesture to unlock their Windows PC with Windows Hello for Business.
 - A user is federated to Azure AD with an AD FS SAML assertion.
 
-
 In addition to the default fields, the interactive sign-in log also shows: 
 
 - The sign-in location
-- Whether conditional access has been applied
+- Whether Conditional Access has been applied
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Screenshot of the interactive user sign-in columns that can be customized.](./media/concept-all-sign-ins/columns-interactive.png "Interactive user sign-in columns")
-
-Customizing the view enables you to display additional fields or remove fields that are already displayed.
-
-![Screenshot of all interactive columns.](./media/concept-all-sign-ins/all-interactive-columns.png)
+![Screenshot customize columns button.](./media/concept-all-sign-ins/sign-in-logs-columns.png)
 
 ### Non-interactive user sign-ins
 
 Non-interactive user sign-ins are sign-ins that were performed by a client app or OS components on behalf of a user. Like interactive user sign-ins, these sign-ins are done on behalf of a user. Unlike interactive user sign-ins, these sign-ins do not require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user will perceive these sign-ins as happening in the background of the user’s activity.
 
-
-**Report size:** Large <br>
+**Report size:** Large
 **Examples:** 
 
 - A client app uses an OAuth 2.0 refresh token to get an access token.
-
 - A client uses an OAuth 2.0 authorization code to get an access token and refresh token.
-
 - A user performs single sign-on (SSO) to a web or Windows app on an Azure AD joined PC (without providing an authentication factor or interacting with an Azure AD prompt).
-
 - A user signs in to a second Microsoft Office app while they have a session on a mobile device using FOCI (Family of Client IDs).
 
 In addition to the default fields, the non-interactive sign-in log also shows: 
 
 - Resource ID
-
 - Number of grouped sign-ins
 
 You can't customize the fields shown in this report.
 
-![Screenshot of the disabled columns option.](./media/concept-all-sign-ins/disabled-columns.png "Disabled columns")
+![Screenshot of the disabled columns option.](./media/concept-all-sign-ins/disabled-columns.png)
 
 To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period, which share all the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the user or client do not change state, the IP address, resource, and all other information is the same for each access token request. When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the # sign-ins column. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the non-interactive users when the following data matches:
 
 - Application
-
 - User
-
 - IP address
-
 - Status
-
 - Resource ID
 
 The IP address of non-interactive sign-ins doesn't match the actual source IP of where the refresh token request is coming from. Instead, it shows the original IP used for the original token issuance.
 
-## Service principal sign-ins
+### Service principal sign-ins
 
 Unlike interactive and non-interactive user sign-ins, service principal sign-ins do not involve a user. Instead, they are sign-ins by any non-user account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-in log). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
 
 
-**Report size:** Large <br>
+**Report size:** Large
 **Examples:**
 
 - A service principal uses a certificate to authenticate and access the Microsoft Graph. 
-
 - An application uses a client secret to authenticate in the OAuth Client Credentials flow. 
-
-
-This report has a default list view that shows:
-
-- Sign-in date
-
-- Request ID
-
-- Service principal name or ID
-
-- Status
-
-- IP address
-
-- Resource name
-
-- Resource ID
-
-- Number of sign-ins
 
 You can't customize the fields shown in this report.
 
@@ -189,122 +146,84 @@ You can't customize the fields shown in this report.
 To make it easier to digest the data in the service principal sign-in logs, service principal sign-in events are grouped. Sign-ins from the same entity under the same conditions are aggregated into a single row. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the service principal report when the following data matches:
 
 - Service principal name or ID
-
 - Status
-
 - IP address
-
 - Resource name or ID
 
-## Managed identity for Azure resources sign-ins 
+### Managed identity for Azure resources sign-ins 
 
-Managed identity for Azure resources sign-ins are sign-ins that were performed by resources that have their secrets managed by Azure to simplify credential management.
+Managed identity for Azure resources sign-ins are sign-ins that were performed by resources that have their secrets managed by Azure to simplify credential management. A VM with managed credentials uses Azure AD to get an Access Token.
 
-**Report size:** Small <br> 
+**Report size:** Small
 **Examples:**
 
-A VM with managed credentials uses Azure AD to get an Access Token.   
-
-
-This report has a default list view that shows:
-
-
-- Managed identity ID
-
-- Managed identity Name
-
-- Resource
-
-- Resource ID
-
-- Number of grouped sign-ins
-
-You can't customize the fields shown in this report.
+ You can't customize the fields shown in this report.
 
 To make it easier to digest the data, managed identities for Azure resources sign in logs, non-interactive sign-in events are grouped. Sign-ins from the same entity are aggregated into a single row. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the managed identities report when all of the following data matches:
 
 - Managed identity name or ID
-
 - Status
-
 - Resource name or ID
 
-Select an item in the list view to display all sign-ins that are grouped under a node.
+Select an item in the list view to display all sign-ins that are grouped under a node. Select a grouped item to see all details of the sign-in. 
 
-Select a grouped item to see all details of the sign-in. 
+### Filter the results
 
+Filtering the sign-ins log is a helpful way to quickly find logs that match a specific scenario. For example, you could filter the list to only view sign-ins that occurred in a specific geographic location, from a specific operating system, or from a specific type of credential.
 
-## Sign-in error code
+Some filter options prompt you to select more options. Follow the prompts to make the selection you need for the filter. You can add multiple filters. Take note of the **Date** range in your filter to enure that Azure AD only returns the data you need. The filter you configure for interactive sign-ins is persisted for non-interactive sign-ins and vice versa. 
 
-If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. 
+Select the **Add filters** option from the top of the table to get started.
 
-![Screenshot shows a detailed information view.](./media/concept-all-sign-ins/error-code.png)
+![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/concept-all-sign-ins/sign-in-logs-filter.png)
+
+There are several filter options to choose from. Below are some notable options and details.
+
+- **User:** The *user principal name* (UPN) of the user in question.
+- **Status:** Options are *Success*, *Failure*, and *Interrupted*.
+- **Resource:** The name of the service used for the sign-in.
+- **Conditional access:** The status of the Conditional Access (CA) policy. Options are: 
+    - *Not applied:* No policy applied to the user and application during sign-in.
+    - *Success:* One or more CA policies applied to the user and application (but not necessarily the other conditions) during sign-in.
+    - *Failure:* The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
+
+The following table provides the options and descriptions for the **Client app** filter option.
+
+> [!NOTE]
+> Due to privacy commitments, Azure AD does not populate this field to the home tenant in the case of a cross-tenant scenario.
+
+|Name|Modern authentication|Description|
+|---|:-:|---|
+|Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
+|Autodiscover| |Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
+|Exchange ActiveSync| |This filter shows all sign-in attempts where the EAS protocol has been attempted.|
+|Browser|![Blue checkmark.](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using web browsers|
+|Exchange ActiveSync| | Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
+|Exchange Online PowerShell| |Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Web Services| |A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
+|IMAP4| |A legacy mail client using IMAP to retrieve email.|
+|MAPI over HTTP| |Used by Outlook 2010 and later.|
+|Mobile apps and desktop clients|![Blue checkmark.](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using mobile apps and desktop clients.|
+|Offline Address Book| |A copy of address list collections that are downloaded and used by Outlook.|
+|Outlook Anywhere (RPC over HTTP)| |Used by Outlook 2016 and earlier.|
+|Outlook Service| |Used by the Mail and Calendar app for Windows 10.|
+|POP3| |A legacy mail client using POP3 to retrieve email.|
+|Reporting Web Services| |Used to retrieve report data in Exchange Online.|
+|Other clients| |Shows all sign-in attempts from users where the client app isn't included or unknown.|
+
+## Analyze the sign-in logs
+
+Now that your sign-in logs table is formatted appropriately, you can more effectively analyze the data. Some common scenarios are described here, but they aren't the only ways to analyze sign-in data. Further analysis and retention of sign-in data can be accomplished by exporting the logs to other tools. 
+
+### Sign-in error code
+
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details.
+
+![[Screenshot of a sign-in error code.](./media/concept-all-sign-ins/error-code.png)
  
-While the log item provides you with a failure reason, there are cases where you might get more information using the [sign-in error lookup tool](https://login.microsoftonline.com/error). For example, if available, this tool provides you with remediation steps.  
+In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button.
 
-![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
-
-
-
-## Filter sign-in activities
-
-By setting a filter, you can narrow down the scope of the returned sign-in data. Azure AD provides you with a broad range of additional filters you can set. When setting your filter, you should always pay special attention to your configured **Date** range filter. A proper date range filter ensures that Azure AD only returns the data you really care about.     
-
-The **Date** range filter enables to you to define a timeframe for the returned data.
-Possible values are:
-
-- One month
-
-- Seven days
-
-- Twenty-four hours
-
-- Custom
-
-![Date range filter](./media/concept-all-sign-ins/date-range-filter.png)
-
-
-
-
-
-### Filter user sign-ins
-
-The filter for interactive and non-interactive sign-ins is the same. Because of this, the filter you have configured for interactive sign-ins is persisted for non-interactive sign-ins and vice versa. 
-
-
-
-
-
-
-## Access the new sign-in activity logs 
-
-The sign-ins activity report in the Azure portal provides you with a simple method to switch the preview report on and off. If you have the preview logs enabled, you get a new menu that gives you access to all sign-in activity report types.     
-
-
-To access the new sign-in logs with non-interactive and application sign-ins: 
-
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
-
-    ![Select Azure AD](./media/concept-all-sign-ins/azure-services.png)
-
-2. In the **Monitoring** section, click **Sign-ins**.
-
-    ![Select sign-ins](./media/concept-all-sign-ins/sign-ins.png)
-
-3. Click the **Preview** bar.
-
-    ![Enable new view](./media/concept-all-sign-ins/enable-new-preview.png)
-
-4. To switch back to the default view, click the **Preview** bar again. 
-
-    ![Restore classic view](./media/concept-all-sign-ins/switch-back.png)
-
-
-
-
-
-
-
+![Screnshot of the error code lookup tool.](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
 ## Next steps
 
