@@ -138,11 +138,12 @@ The next step is to create an action group to trigger your Logic App.
 
 ## [Post a Teams message](#tab/send-teams-message)
 
-1. In the search field, search for *Microsoft Teams*.
+1. In the search field, search for *Microsoft Teams*.  
+
 1. Select **Microsoft Teams**
-    :::image type="content" source="./media/alerts-logic-apps/choose-operation-teams.png" alt-text="A screenshot showing add action page of the logic apps designer with Microsoft Teams selected":::
+    :::image type="content" source="./media/alerts-logic-apps/choose-operation-teams.png" alt-text="A screenshot showing add action page of the logic apps designer with Microsoft Teams selected":::  
 1. Select **Post a message in a chat or channel** from the list of actions.
-1. Sign into Teams when prompted to create a connection.
+1. Sign into Teams when prompted to create a connection.  
 1. Select *User*  from the **Post as** dropdown.
 1. Select *Group chat* from the **Post in** dropdown.
 1. Select your group from the **Group chat** dropdown.
@@ -165,7 +166,8 @@ The next step is to create an action group to trigger your Logic App.
 
 To trigger your Logic app, create an action group, then create an alert that uses that action group.
 
-1. Go to the Azure Monitor page and select **Alerts** from the sidebar.
+1. Go to the Azure Monitor page and select **Alerts** from the sidebar.  
+
 1. Select **Action groups**, then select **Create**.
 1. Select a **Subscription**, **Resource group** and **Region**.
 1. Enter an **Actions group name** and **Display name**.
@@ -193,7 +195,9 @@ To trigger your Logic app, create an action group, then create an alert that use
 
 
 ## Create a rule using your action group
-1. Create a rule for one of your resources. 
+
+1. Create a rule for one of your resources.  
+ 
 1. In the actions section of your rule, select **Select action groups**.
 1. Select your action group from the list.
 1. Select **Select**.
