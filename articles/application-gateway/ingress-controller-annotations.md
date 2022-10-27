@@ -13,11 +13,11 @@ ms.author: greglin
 
 ## Introductions
 
-The Kubernetes Ingress resource can be annotated with arbitrary key/value pairs. AGIC relies on annotations to program Application Gateway features, which are not configurable via the Ingress YAML. Ingress annotations are applied to all HTTP setting, backend pools, and listeners derived from an ingress resource.
+The Kubernetes Ingress resource can be annotated with arbitrary key/value pairs. AGIC relies on annotations to program Application Gateway features, which aren't configurable using the Ingress YAML. Ingress annotations are applied to all HTTP settings, backend pools, and listeners derived from an ingress resource.
 
 ## List of supported annotations
 
-For an Ingress resource to be observed by AGIC, it **must be annotated** with `kubernetes.io/ingress.class: azure/application-gateway`. Only then AGIC will work with the Ingress resource in question.
+For an Ingress resource to be observed by AGIC, it **must be annotated** with `kubernetes.io/ingress.class: azure/application-gateway`. Only then AGIC works with the Ingress resource in question.
 
 | Annotation Key | Value Type | Default Value | Allowed Values
 | -- | -- | -- | -- |
@@ -65,7 +65,7 @@ spec:
               number: 80
 ```
 
-In the example above, we have defined an ingress resource named `go-server-ingress-bkprefix` with an annotation `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . The annotation tells application gateway to create an HTTP setting, which will have a path prefix override for the path `/hello` to `/test/`.
+In the example above, we have defined an ingress resource named `go-server-ingress-bkprefix` with an annotation `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . The annotation tells application gateway to create an HTTP setting, which has a path prefix override for the path `/hello` to `/test/`.
 
 > [!NOTE]
 > In the above example we have only one rule defined. However, the annotations are applicable to the entire ingress resource, so if a user had defined multiple rules, the backend path prefix would be set up for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
@@ -75,8 +75,8 @@ In the example above, we have defined an ingress resource named `go-server-ingre
 Application Gateway [can be configured](./redirect-overview.md)
 to automatically redirect HTTP URLs to their HTTPS counterparts. When this
 annotation is present and TLS is properly configured, Kubernetes Ingress
-controller will create a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)
-and apply the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
+controller creates a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)
+and applies the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
 
 ### Usage
 
@@ -113,8 +113,8 @@ spec:
 
 ## Connection Draining
 
-`connection-draining`: This annotation allows users to specify whether to enable connection draining.
-`connection-draining-timeout`: This annotation allows users to specify a timeout after which Application Gateway will terminate the requests to the draining backend endpoint.
+`connection-draining`: This annotation allows us to specify whether to enable connection draining.
+`connection-draining-timeout`: This annotation allows us to specify a timeout after which Application Gateway will terminate the requests to the draining backend endpoint.
 
 ### Usage
 
@@ -150,7 +150,7 @@ spec:
 
 ## Cookie Based Affinity
 
-This annotation allows to specify whether to enable cookie based affinity.
+This annotation allows you to specify whether to enable cookie based affinity.
 
 ### Usage
 
@@ -184,7 +184,7 @@ spec:
 
 ## Request Timeout
 
-This annotation allows to specify the request timeout in seconds after which Application Gateway will fail the request if response is not received.
+This annotation allows you to specify the request timeout in seconds after which Application Gateway will fail the request if response is not received.
 
 ### Usage
 
@@ -218,11 +218,11 @@ spec:
 
 ## Use Private IP
 
-This annotation allows us to specify whether to expose this endpoint on Private IP of Application Gateway.
+This annotation allows you to specify whether to expose this endpoint on Private IP of Application Gateway.
 
 > [!NOTE]
-> * Application Gateway doesn't support multiple IPs on the same port (example: 80/443). Ingress with annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` and another with `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` will cause AGIC to fail in updating the Application Gateway.
-> * For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` will be ignored. This will reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
+> * Application Gateway doesn't support multiple IPs on the same port (example: 80/443). Ingress with annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` and another with `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` will cause AGIC to fail while updating the Application Gateway.
+> * For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` will be ignored. This is reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
 
 ### Usage
 
@@ -256,11 +256,11 @@ spec:
 
 ## Backend Protocol
 
-This annotation allows us to specify the protocol that Application Gateway should use while talking to the Pods. Supported Protocols: `http`, `https`
+This annotation allows you to specify the protocol that Application Gateway should use while talking to the Pods. Supported Protocols are `http` and `https`.
 
 > [!NOTE]
-> * While self-signed certificates are supported on Application Gateway, currently, AGIC only support `https` when Pods are using certificate signed by a well-known CA.
-> * Make sure to not use port 80 with HTTPS and port 443 with HTTP on the Pods.
+> * While self-signed certificates are supported on Application Gateway, currently AGIC only supports `https` when Pods are using a certificate signed by a well-known CA.
+> * Do not use port 80 with HTTPS and port 443 with HTTP on the pods.
 
 ### Usage
 
