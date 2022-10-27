@@ -70,7 +70,7 @@ To limit the risk of credentials being exposed in your application code, avoid t
 
 A workload identity is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer, Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the [Azure SDK][azure-sdk-download] or the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL).
 
-For more information about workload identities, see [Configure an AKS cluster to use Azure AD workload identities with your applications][aad-workload-identity]
+For more information about workload identities, see [Configure an AKS cluster to use Azure AD workload identities with your applications][workload-identity-overview]
 
 #### Use Azure Key Vault with Secrets Store CSI Driver
 
