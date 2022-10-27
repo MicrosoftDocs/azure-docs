@@ -12,7 +12,7 @@ ms.author: mbullwin
 
 <a href="/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector" target="_blank">Library reference documentation</a> |<a href="https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector" target="_blank">Library source code</a> | <a href="https://pypi.org/project/azure-ai-anomalydetector/" target="_blank">Package (PyPi)</a> |<a href="https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py" target="_blank">Find the sample code on GitHub</a>
 
-Get started with the Anomaly Detector multivariate client library for Python. Follow these steps to install the package start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
+Get started with the Anomaly Detector multivariate client library for Python. Follow these steps to install the package, and start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
 
 Use the Anomaly Detector multivariate client library for Python to:
 
@@ -32,8 +32,13 @@ Use the Anomaly Detector multivariate client library for Python to:
 Install the client library. You can install the client library with:
 
 ```console
-pip install pandas
 pip install --upgrade azure.ai.anomalydetector
+```
+
+If you don't already you will also need to install the pandas library:
+
+```console
+pip install pandas
 ```
 
 ### Download sample data
@@ -48,9 +53,11 @@ curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multi
 
 ### Generate SAS URL
 
+Multivariate Anomaly Detector requires your sample file to be stored as a .zip file in Azure Blob Storage.
+
 1. Create an <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
-2. From within your storage account, create a new storage container with the Public access level to **private**.
-3. Open your container and select upload. Upload the sample_data_5 zip file from the previous step.
+2. From within your storage account, create a new storage container with the Public access level set to **private**.
+3. Open your container and select upload. Upload the `sample_data_5_3000.zip` file from the previous step.
     :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../../media/quickstart/upload-zip.png":::
 4. Select the `...` to open the context menu next to your newly uploaded zip file and select **Generate SAS**.
      :::image type="content" source="../../media/quickstart/generate-access.png" alt-text="Screenshot of the Blob storage context menu with Generate SAS highlighted." lightbox="../../media/quickstart/generate-access.png":::
@@ -101,6 +108,10 @@ setx ANOMALY_DETECTOR_DATA_SOURCE "REPLACE_WITH_YOUR_SAS_URL_TO_THE_SAMPLE_ZIP_F
 [System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
 ```
 
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_DATA_SOURCE', 'REPLACE_WITH_YOUR_SAS_URL_TO_THE_SAMPLE_ZIP_FILE', 'User')
+```
+
 # [Bash](#tab/bash)
 
 ```Bash
@@ -111,13 +122,17 @@ echo export ANOMALY_DETECTOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/
 echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 
+```Bash
+echo export ANOMALY_DETECTOR_DATA_SOURCE="REPLACE_WITH_YOUR_SAS_URL_TO_THE_SAMPLE_ZIP_FILE" >> /etc/environment && source /etc/environment
+```
+
 ---
 
 ### Create a new Python application
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of quickstart.py with the following code. Modify the code to add the environment variable names for your key, endpoint, and the data source. If you're using the environment variable names from the earlier steps in the quickstart no changes to the code will be needed:
+2. Replace the contents of quickstart.py with the following code. If you're using the environment variables from the earlier steps in the quickstart no changes to the code will be needed:
 
 ```python
 import os
