@@ -34,7 +34,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## October 2022
 
-### General Availability-  Add multiple domains to the same SAML/Ws-Fed based identity provider configuration for your external users
+### General Availability - Add multiple domains to the same SAML/Ws-Fed based identity provider configuration for your external users
 
 
 
