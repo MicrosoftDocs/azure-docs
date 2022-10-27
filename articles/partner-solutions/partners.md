@@ -24,13 +24,13 @@ Azure Native ISV Services are available through the Marketplace.
 |[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
 |[Dynatrace for Azure](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
 
-## Data and Storage
+## Data and storage
 
 |Partner  |Description  |
 |---|---------|
 | [Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md)    | Fully managed event streaming platform powered by Apache Kafka. |
 
-## Networking & Security
+## Networking and security
 
 |Partner  |Description  |
 |---|---------|

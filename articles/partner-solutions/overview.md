@@ -18,7 +18,7 @@ Azure Native ISV Services enables customers to easily provision, manage, and tig
 
 A comprehensive list of features of Azure Native ISV Services is listed below.
 
-### Unified Operations
+### Unified operations
 
 - Integrated onboarding: Use ARM template, SDK, CLI and the Azure portal to create and manage services.
 - Unified management: Manage entire lifecycle of these ISV services through the Azure portal.
