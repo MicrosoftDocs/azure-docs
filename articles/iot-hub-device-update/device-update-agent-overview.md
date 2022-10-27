@@ -31,7 +31,7 @@ The *Device Update interface* is the primary communication channel between the D
 
 The *device information interface* is used to implement the `Azure IoT PnP DeviceInformation` interface. For more information, see [Device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-### Device information interface
+### Diagnostic information interface
 
 The *diagnostic information interface* is used to enable [remote log collection](device-update-diagnostics.md#remote-log-collection) for diagnostics. For more information, see [Device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
