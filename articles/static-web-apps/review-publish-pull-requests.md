@@ -25,7 +25,7 @@ You can do the following tasks within pre-production environments:
 - Perform sanity checks before you deploy to production
 
 > [!NOTE]
-> We only support pull requests and pre-production environments in GitHub Actions deployments.
+> Pull requests and pre-production environments are only supported in GitHub Actions deployments.
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ Your changes get copied to the tracked branch (the "production" branch). Then, t
     > Be careful with sensitive content, since anyone can access pre-production environments.
 
 - The number of pre-production environments available for each app deployed with Static Web Apps depends your [hosting plan](plans.md). For example, with the [Free tier](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) you can have three pre-production environments along with the production environment.
-- We don't geo-distribute pre-production environments.
+- Pre-production environments aren't geo-distributed.
 - Only GitHub Actions deployments support pre-production environments.
 
 ## Next steps
