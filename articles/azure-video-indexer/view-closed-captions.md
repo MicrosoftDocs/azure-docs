@@ -10,7 +10,7 @@ ms.date: 10/24/2022
 This article shows how to view closed captions in the [Azure Video Indexer video player](https://www.videoindexer.ai).
 
 1. Go to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
-1. Select a video for which you want to view the captions.
+1. Select a video for which you want to view captions.
 1. On the bottom of the Azure Video Indexer video player, select **Closed Captioning** (in some browsers located under the **Captions** menu, in some located under the **gear** icon).
-1. Under **Closed Captioning**, select a language in which you want to view te captions. For example, **English**. Once checked, you see the captions in English.
+1. Under **Closed Captioning**, select a language in which you want to view captions. For example, **English**. Once checked, you see the captions in English.
 1. To see a speaker in front of the caption, select **Settings** under **Closed Captioning** and check **Show speakers** (under **Configurations**) -> press **Done**.
