@@ -22,7 +22,7 @@ sections:
           When to use Univariate Anomaly Detection v.s. Multivariate Anomaly Detection?
         answer:  |
           If your goal is to detect anomalies out of a normal pattern on each individual time series purely based on their own historical data, use the univariate anomaly detection APIs. For example, you want to detect daily revenue anomalies based on revenue data itself, or you want to detect a CPU spike purely based on CPU data.
-          If your goal is to detect system level anomalies from a group of time series data, use multivariate anomaly detection APIs. Particularly, when any individual time series won't tell you much, and you have to look at all signals (a group of time series) holistically to determine a system level issue. For example, you have an expensive physical asset like an aircraft, equipment on an oil rig, or a satellite. Each of these assets has tens or hundreds of different types of sensors. You would have to look at all those time series signals from those sensors to decide whether there's system level issue.
+          If your goal is to detect system level anomalies from a group of time series data, use multivariate anomaly detection APIs. Particularly, when any individual time series won't tell you much, and you have to look at all signals (a group of time series) holistically to determine a system level issue. For example, you have an expensive physical asset like aircraft, equipment on an oil rig, or a satellite. Each of these assets has tens or hundreds of different types of sensors. You would have to look at all those time series signals from those sensors to decide whether there's system level issue.
       - question: |
           Can the Anomaly Detector service be used in other platforms or applications?
         answer:  |
@@ -48,5 +48,5 @@ sections:
 additionalContent: |
   ## Next steps
      * [What is the Anomaly Detector API?](overview.md)
-     * [Anomaly detection methods](../how-to/identify-anomalies.md)
-     * [Best practices when using the Anomaly Detector API.](../concepts/anomaly-detection-best-practices.md) 
+     * [Anomaly detection methods](how-to/identify-anomalies.md)
+     * [Best practices when using the Anomaly Detector API.](concepts/anomaly-detection-best-practices.md) 
