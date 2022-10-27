@@ -66,8 +66,6 @@
       href: concepts/multivariate-architecture.md
 - name: Tutorials
   items:
-    - name: Learn Multivariate Anomaly Detection in one hour
-      href: tutorials/learn-multivariate-anomaly-detection.md
     - name: Visualize anomalies as a batch using Power BI (univariate)
       href: tutorials/batch-anomaly-detection-powerbi.md
     - name: Azure Synapse with Multivariate Anomaly Detection
