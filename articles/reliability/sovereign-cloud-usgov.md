@@ -1,6 +1,6 @@
 ---
-title: Availability of services for US Government cloud
-description: Learn how services are supported for US Government cloud
+title: Availability of services for US Government 
+description: Learn how services are supported for US Government 
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 
-# Availability of services for US Government cloud
+# Availability of services for US Government 
 
 Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of.
 
