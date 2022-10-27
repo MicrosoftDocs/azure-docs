@@ -114,8 +114,8 @@ To complete the scenario in this tutorial, you need:
 
 1. Select the link under **User**. 
 1. In the search box, type the name of your test guest user. Choose the user in the search results, and then choose **Select**.
-    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-what-if-user.png" alt-text="Screenshot showing a guest user selected.":::
 
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-what-if-user.png" alt-text="Screenshot showing a guest user selected.":::
 
 1. Select the link under **Cloud apps, actions, or authentication content**. Choose **Select apps**, and then choose the link under **Select**.
 
