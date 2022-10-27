@@ -19,7 +19,7 @@ This article will help you solve various problems that can arise when your Azure
 
 ## Build exit codes
 
-Azure Spring Apps Enterprise tier leverage [Cloud Native Buildpacks](https://buildpacks.io/) to transform your application source code into images. 
+Azure Spring Apps Enterprise tier leverage [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html) to transform your application source code into images. 
 When deploying your Azure Spring Apps via [Azure CLI](/cli/azure/install-azure-cli), you will see build log in Azure CLI console. 
 If the build is failed, exit code and error message is shown in the CLI console.
 The exit code and error message indicates the reason why the buildpack execution is failed during different [phase](https://buildpacks.io/docs/concepts/components/lifecycle/). 
