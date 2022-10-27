@@ -6,88 +6,115 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/17/2022
+ms.date: 10/26/2022
 ms.topic: how-to
 ---
 
-<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev box pools so that I can provide appropriate dev boxes to my users. -->
+<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev box projects so that I can provide appropriate dev boxes to my users. -->
 
 # Manage a dev box project
-To enable developers to self-serve dev boxes from projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
+A project is the point of access for the development team members. When you associate a project with a dev center, all the settings at the dev center level will be applied to the project automatically. Each project can be associated with only one dev center. Dev managers can configure the dev boxes available for the project by specifying  [dev box definitions](./concept-dev-box-concepts.md#dev-box-definition) appropriate for their workloads. To enable developers to self-serve dev boxes from projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
 
 ## Permissions
-To manage a dev box pool, you need the following permissions:
+To manage a dev box project, you need the following permissions:
 
 |Action|Permission required|
 |-----|-----|
-|Create, delete, or update dev box pool|Owner or Contributor permissions on an Azure Subscription or a specific resource group. </br> DevCenter Project Admin for the project.|
+|Create or delete dev box project|Owner, Contributor, or Write permissions on the dev center in which you want to create the project. |
+|Update a dev box project|Owner, Contributor, or Write permissions on the project.|
+|Create, delete, and update dev box pools in the project|Owner, Contributor, or DevCenter Project Admin.|
+|Manage a dev box within the project|Owner, Contributor, or DevCenter Project Admin.|
+|Add a dev box user to the project|Owner permissions on the project.|
 
-## Create a dev box pool
-A dev box pool is a collection of dev boxes that you manage together. You must have a pool before users can create a dev box.  
+## Create a dev box project
 
-The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure a dev box pool. 
+The following steps show you how to create and configure a project in dev box.
 
-<!-- how many dev box pools can you create -->
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Projects* and then select **Projects** from the list. 
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box Preview service](quickstart-configure-dev-box-service.md) to create them.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, type *Projects* and then select **Projects** from the list.
-
-   :::image type="content" source="./media/how-to-manage-dev-box-pools/discover-projects.png" alt-text="Screenshot showing a search for projects from the Azure portal search box.":::
-
-1. Open the project with which you want to associate the new dev box pool.
-  
-   :::image type="content" source="./media/how-to-manage-dev-box-pools/projects-grid.png" alt-text="Screenshot of the list of existing projects.":::
-
-1. Select **Dev box pools** and then select **+ Create**.
+1. On the Projects page, select **+Create**.
  
-   :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-grid-empty.png" alt-text="Screenshot of the list of dev box pools within a project. The list is empty.":::
-
-1. On the **Create a dev box pool** page, enter the following values:
+1. On the **Create a project** page, on the **Basics** tab, enter the following values:
 
    |Name|Value|
    |----|----|
-   |**Name**|Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes, and must be unique within a project.|
-   |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes created within this pool.|
-   |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes created within this pool.|
-   |**Dev Box Creator Privileges**|Select Local Administrator or Standard User.|
-   |**Licensing**| Select this check box if your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
+   |**Subscription**|Select the subscription in which you want to create the project.|
+   |**Resource group**|Select an existing resource group or select **Create new**, and enter a name for the resource group.|
+   |**Dev center**|Select the dev center to which you want to associate this project. All the dev center level settings will be applied to the project.|
+   |**Name**|Enter a name for your project. |
+   |**Description**|Enter a brief description of the project. |
 
-   :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/dev-box-project-create.png" alt-text="Screenshot of the Create a dev box project basics tab.":::
 
-1. Select **Add**.
- 
-1. Verify that the new dev box pool appears in the list. You may need to refresh the screen.
+1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
 
-The dev box pool will be deployed and health checks will be run to ensure the image and network pass the validation criteria to be used for dev boxes. The screenshot below shows four dev box pools, each with a different status. 
+1. Select **Review + Create**.
 
-   :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-grid-populated.png" alt-text="Screenshot showing a list of existing pools.":::
+1. On the **Review** tab, select **Create**.
 
+1. Confirm that the project is created successfully by checking the notifications. Select **Go to resource**.
 
-## Delete a dev box pool
-You can delete a dev box pool when you're no longer using it. 
-
-> [!CAUTION]
-> When you delete a dev box pool, all existing dev boxes within the pool will be permanently deleted.
+1. Verify that you see the **Project** page.
+## Delete a dev box project
+You can delete a dev box project when you're no longer using it. Deleting a project is permanent and cannot be undone.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, type *Projects* and then select **Projects** from the list.
 
-1. Open the project from which you want to delete the dev box pool.
+1. Open the project you want to delete.
   
-1. Select the dev box pool you want to delete and then select **Delete**.
+1. Select the dev box project you want to delete and then select **Delete**.
  
-   :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-delete.png" alt-text="Screenshot of the list of existing dev box pools, with the one to be deleted selected.":::
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/delete-project.png" alt-text="Screenshot of the list of existing dev box pools, with the one to be deleted selected.":::
 
 1.  In the confirmation message, select **Confirm**.
 
-    :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-delete-confirm.png" alt-text="Screenshot of the Delete dev box pool confirmation message.":::
+    :::image type="content" source="./media/how-to-manage-dev-box-projects/confirm-delete-project.png" alt-text="Screenshot of the Delete dev box pool confirmation message.":::
 
+
+## Provide access to a dev box project
+Before users can create dev boxes based on the dev box pools in a project, you must provide access for them through a role assignment. The Dev Box User role enables dev box users to create, manage and delete their own dev boxes. You must have sufficient permissions to a project before you can add users to it.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+ 
+1. In the search box, type *Projects* and then select **Projects** from the list.
+
+1. Select the project you want to provide your team members access to.
+ 
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/projects-grid.png" alt-text="Screenshot of the list of existing projects.":::
+
+1. Select **Access Control (IAM)** from the left menu.
+
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/access-control-tab.png" alt-text="Screenshot showing the Project Access control page with the Access Control link highlighted.":::
+
+1. Select **Add** > **Add role assignment**.
+
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
+
+1. On the Add role assignment page, search for *devcenter dev box user*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
+
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/dev-box-user-role.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
+
+1. On the Members page, select **+ Select Members**.
+
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/dev-box-user-select-members.png" alt-text="Screenshot showing the Members tab with Select members highlighted.":::
+
+1. On the **Select members** pane, select the Active Directory Users or Groups you want to add, and then select **Select**.
+
+   :::image type="content" source="./media/how-to-manage-dev-box-projects/select-members-search.png" alt-text="Screenshot showing the Select members pane with a user account highlighted.":::
+
+1. On the Add role assignment page, select **Review + assign**.
+
+The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+
+## Project admins
+
+The Microsoft Dev Box service makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. The tasks in this quickstart can be performed by project admins. To learn how to add a user to the Project Admin role, see [Provide access to projects for project admins](how-to-project-admin.md).
+
+[!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 ## Next steps
 
-- [Provide access to projects for project admins](./how-to-project-admin.md)
+- [Manage dev box pools](./how-to-manage-dev-box-pools.md)
 - [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
 - [Configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
