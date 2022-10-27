@@ -312,6 +312,41 @@ jobs:
           package: ${{ env.ASC_PACKAGE_PATH }}
 ```
 
+The following example deploys to the default production deployment in Azure Spring Apps with an existing container image.
+
+```yml
+name: AzureSpringCloud
+on: push
+env:
+  ASC_PACKAGE_PATH: ${{ github.workspace }}
+  AZURE_SUBSCRIPTION: <azure subscription name>
+
+jobs:
+  deploy_to_production:
+    runs-on: ubuntu-latest
+    name: deploy to production with soruce code
+    steps:
+      - name: Checkout GitHub Action
+        uses: actions/checkout@v2
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Custom Image
+        uses: Azure/spring-apps-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: deploy
+          service-name: <service instance name>
+          app-name: <app name>
+          deployment-name: <deployment name>
+          container-registry: <your container image registry>
+          registry-username: ${{ env.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          container-image: <your image tag>
+
 #### Blue-green
 
 The following examples deploy to an existing staging deployment. This deployment won't receive production traffic until it is set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We will only focus on the spring-cloud-deploy action and leave out the preparatory jobs in the rest of the article.

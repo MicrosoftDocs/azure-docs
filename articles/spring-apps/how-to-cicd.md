@@ -232,7 +232,7 @@ To deploy directly to Azure without a separate build step, use the following pip
 
 ### Deploy from Custom Image
 
-To deploy directly from a existing container image, use the following pipeline template.
+To deploy directly from an existing container image, use the following pipeline template.
 
 ```yaml
 - task: AzureSpringCloud@0
@@ -244,10 +244,10 @@ To deploy directly from a existing container image, use the following pipeline t
     DeploymentType: 'CustomContainer'
     UseStagingDeployment: false
     DeploymentName: 'default'
-    RegistryServer: 'docker.io'
+    ContainerRegistry: 'docker.io'
     RegistryUsername: '$(username)'
     RegistryPassword: '$(password)'
-    ImageName: '<your image tag>'
+    ContainerImage: '<your image tag>'
 ```
 
 ::: zone-end
