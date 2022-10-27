@@ -57,13 +57,13 @@ To complete the scenario in this tutorial, you need:
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 1. In the Azure portal, select **Azure Active Directory**.
 1. In the left menu, under **Manage**, select **Users**.
-1. Select **New guest user**.
+1. Select **Invite external user**.
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option.":::
 
 1. Under **Identity**, enter the email address of the external user. Optionally, include a name and welcome message.
 
-    ![Screenshot showing where to enter the guest invitation message](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user-identity.png" alt-text="Screenshot showing where to enter the guest email.":::
 
 1. Select **Invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears.
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
@@ -83,26 +83,26 @@ To complete the scenario in this tutorial, you need:
 1. On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 1. On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 1. In the **Assignments** section, choose the link under **Users and groups**.
-1. On the **Users and groups** page, choose **Select users and groups**, and then choose **All guest and external users**.
+1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**.
 
-    ![Screenshot showing selecting all guest users](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-user-access.png" alt-text="Screenshot showing selecting all guest users.":::
+
 1. In the **Assignments** section, choose the link under **Cloud apps or actions**.
 1. Choose **Select apps**, and then choose the link under **Select**.
 
-    ![Screenshot showing the Cloud apps page and the Select option](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-app-access.png" alt-text="Screenshot showing the Cloud apps page and the Select option.":::
 
 1. On the **Select** page, choose **Microsoft Azure Management**, and then choose **Select**.
-
-    ![Screenshot that highlights the Microsoft Azure Management option.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 1. On the **New** page, in the **Access controls** section, choose the link under **Grant**.
 1. On the **Grant** page, choose **Grant access**, select the **Require multi-factor authentication** check box, and then choose **Select**.
 
-    ![Screenshot showing the Require multi-factor authentication option](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-grant-access.png" alt-text="Screenshot showing the Require multi-factor authentication option.":::
+
 
 1. Under **Enable policy**, select **On**.
 
-    ![Screenshot showing the Enable policy option set to On](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-enable-policy.png" alt-text="Screenshot showing the Enable policy option set to On.":::
 
 1. Select **Create**.
 
@@ -110,28 +110,28 @@ To complete the scenario in this tutorial, you need:
 
 1. On the **Conditional Access | Policies** page, select **What If**.
 
-    ![Screenshot that highlights where to select the What if option on the Conditional Access - Policies page.](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-what-if.png" alt-text="Screenshot that highlights where to select the What if option on the Conditional Access - Policies page.":::
 
 1. Select the link under **User**. 
 1. In the search box, type the name of your test guest user. Choose the user in the search results, and then choose **Select**.
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-what-if-user.png" alt-text="Screenshot showing a guest user selected.":::
 
-    ![Screenshot showing a guest user selected](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 1. Select the link under **Cloud apps, actions, or authentication content**. Choose **Select apps**, and then choose the link under **Select**.
 
-    ![Screenshot showing the Microsoft Azure Management app selected](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-what-if-app.png" alt-text="Screenshot showing the Microsoft Azure Management app selected.":::
 
 1. On the **Cloud apps** page, in the applications list, choose **Microsoft Azure Management**, and then choose **Select**.
 1. Choose **What If**, and verify that your new policy appears under **Evaluation results** on the **Policies that will apply** tab.
 
-    ![Screenshot showing where to select the What if option](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-whatif-4.png" alt-text="Screenshot showing the results of the What If evaluation.":::
 
 ## Test your Conditional Access policy
 
 1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
 1. You should see a request for additional authentication methods. It can take some time for the policy to take effect.
 
-    ![Screenshot showing the More information required message](media/tutorial-mfa/mfa-required.png)
+    :::image type="content" source="media/tutorial-mfa/mfa-required.png" alt-text="Screenshot showing the More information required message.":::
 
     > [!NOTE]
     > You also can configure [cross-tenant access settings](cross-tenant-access-overview.md) to trust the MFA from the Azure AD home tenant. This allows external Azure AD users to use the MFA registered in their own tenant rather than register in the resource tenant.
