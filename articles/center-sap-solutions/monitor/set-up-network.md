@@ -21,9 +21,9 @@ In this how-to guide, you'll learn how to configure an Azure virtual network so 
 
 Azure Functions is the data collection engine for Azure Monitor for SAP solutions. You'll need to create a new subnet to host Azure Functions.
 
-[Create a new subnet](../../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/28** block or larger. 
+[Create a new subnet](../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/28** block or larger. 
 
-For more information, see how to [integrate your app with an Azure virtual network](../../../app-service/overview-vnet-integration.md).
+For more information, see how to [integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 
 ## Configure outbound internet access
 
@@ -40,7 +40,7 @@ There are multiple methods to address restricted or blocked outbound internet ac
 
 ### Use Route All
 
-**Route All** is a [standard feature of virtual network integration](../../../azure-functions/functions-networking-options.md#virtual-network-integration) in Azure Functions, which is deployed as part of Azure Monitor for SAP solutions. Enabling or disabling this setting only affects traffic from Azure Functions. This setting doesn't affect any other incoming or outgoing traffic within your virtual network. 
+**Route All** is a [standard feature of virtual network integration](../../azure-functions/functions-networking-options.md#virtual-network-integration) in Azure Functions, which is deployed as part of Azure Monitor for SAP solutions. Enabling or disabling this setting only affects traffic from Azure Functions. This setting doesn't affect any other incoming or outgoing traffic within your virtual network. 
 
 You can configure the **Route All** setting when you create an Azure Monitor for SAP solutions resource through the Azure portal. If your SAP environment doesn't allow outbound internet access, disable **Route All**. If your SAP environment allows outbound internet access, keep the default setting to enable **Route All**.
 
@@ -48,7 +48,7 @@ You can only use this option before you deploy an Azure Monitor for SAP solution
 
 ### Use service tags
 
-If you use NSGs, you can create Azure Monitor for SAP solutions-related [virtual network service tags](../../../virtual-network/service-tags-overview.md) to allow appropriate traffic flow for your deployment. A service tag represents a group of IP address prefixes from a given Azure service. 
+If you use NSGs, you can create Azure Monitor for SAP solutions-related [virtual network service tags](../../virtual-network/service-tags-overview.md) to allow appropriate traffic flow for your deployment. A service tag represents a group of IP address prefixes from a given Azure service. 
 
 You can use this option after you've deployed an Azure Monitor for SAP solutions resource.
 
@@ -85,7 +85,7 @@ You can enable a private endpoint by creating a new subnet in the same virtual n
 
 To create a private endpoint for Azure Monitor for SAP solutions:
 
-1. [Create a new subnet](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) in the same virtual network as the SAP system that you're monitoring.
+1. [Create a new subnet](../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) in the same virtual network as the SAP system that you're monitoring.
 1. In the Azure portal, go to your Azure Monitor for SAP solutions resource.
 1. On the **Overview** page for the Azure Monitor for SAP solutions resource, select the **Managed resource group**.
 1. Create a private endpoint connection for the following resources inside the managed resource group. 
@@ -129,7 +129,7 @@ Repeat the following process for each type of storage subresource (table, queue,
 
 #### Create log analytics endpoint
 
-It's not possible to create a private endpoint directly for a Log Analytics workspace. To enable a private endpoint for this resource, you can connect the resource to an [Azure Monitor Private Link Scope (AMPLS)](../../../azure-monitor/logs/private-link-security.md). Then, you can create a private endpoint for the AMPLS resource.
+It's not possible to create a private endpoint directly for a Log Analytics workspace. To enable a private endpoint for this resource, you can connect the resource to an [Azure Monitor Private Link Scope (AMPLS)](../../azure-monitor/logs/private-link-security.md). Then, you can create a private endpoint for the AMPLS resource.
 
 If possible, create the private endpoint before you allow any system to access the Log Analytics workspace through a public endpoint. Otherwise, you'll need to restart the Function App before you can access the Log Analytics workspace through the private endpoint.
 

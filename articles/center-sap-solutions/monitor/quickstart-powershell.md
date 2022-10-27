@@ -24,7 +24,7 @@ This content only applies to the Azure Monitor for SAP solutions (classic) versi
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module. You'll also need to connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../../cloud-shell/overview.md).
+- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module. You'll also need to connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 - While the **Az.HanaOnAzure** PowerShell module is in preview, you must install it separately using the `Install-Module` cmdlet. Once this PowerShell module becomes generally available, it becomes part of future Az PowerShell module releases and available natively from within Azure Cloud Shell.
 
@@ -41,7 +41,7 @@ This content only applies to the Azure Monitor for SAP solutions (classic) versi
 
 ## Create a resource group
 
-Create an [Azure resource group](../../../azure-resource-manager/management/overview.md) by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group with the specified name and in the specified location.
 
