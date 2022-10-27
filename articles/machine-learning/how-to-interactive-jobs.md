@@ -56,10 +56,10 @@ By specificing interactive applications at job creation, you can connect directl
     * sleep 1h
     * sleep 1d
 
-    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+    You can also use the ```sleep infinity``` command that would keep the job alive indefinitely. 
     
     > [!NOTE]
-    > If you use `sleep infinity`, you will need to manually [cancel the job](/how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
+    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 5. Select the training applications you want to use to interact with the job.
 
@@ -173,7 +173,7 @@ It might take a few minutes to start the job and the training applications speci
 # [Python SDK](#tab/python)
 - Once the job is submitted, you can use `ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
     
-- To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the AzureML CLIv2, follow this [guide](./how-to-configure-cli). 
+- To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the AzureML CLIv2, follow this [guide](./how-to-configure-cli?tabs=public). 
   
 You can find the reference documentation for the SDKv2 [here](/sdk/azure/ml).
 
@@ -219,7 +219,7 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
    ![screenshot use-debugpy](./media/use-debugpy.png)
 
-2. Once the job has been submitted, [click out to VS Code](./how-to-interactive-jobs.md#interact-with-the-application), and click on the in-built debugger.
+2. Once the job has been submitted, [click out to VS Code](./how-to-interactive-jobs.md#interact-with-the-applications), and click on the in-built debugger.
 
    ![screenshot open-debugger](./media/open-debugger.png)
 
