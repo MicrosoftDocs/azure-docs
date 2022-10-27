@@ -16,8 +16,8 @@ ms.author: mbaldwin
 
 This article outlines the Azure Payment HSM prerequisites, support channels, and division of support responsibility between Microsoft, Thales, and the customer.
 
-> [!IMPORTANT]
-> There is no service-level agreement (SLA) during the Azure Payment HSM public preview. Use of this service for production workloads will not be supported until GA.
+> [!NOTE]
+> If a customer's production environment does not has a High Availability setup as shown in [Deployment scenarios: high availability deployment](deployment-scenarios.md#high-availability-deployment), customer will not receive S2 level support.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Microsoft will work with Thales to ensure that customers meet the prerequisites 
 
 ## Firmware and license support
 
-The HSM base firmware installed in public preview is Thales payShield10K base software version 1.4a 1.8.3 with the Premium Package license. Versions below 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
+The HSM base firmware installed is Thales payShield10K base software version 1.4a 1.8.3 with the Premium Package license. Versions below 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
 
 Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs, as needed. If customers have questions or require assistance, they should work with Thales support.
 

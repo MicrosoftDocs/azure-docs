@@ -15,11 +15,12 @@ ms.author: mbaldwin
 ---
 # What is Azure Payment HSM?
 
-Azure Payment HSM Service is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. It meets the most stringent security, audit compliance, low latency, and high-performance requirements by the Payment Card Industry (PCI).
+Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) -- physical devices that provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. It meets the most stringent security, audit compliance, low latency, and high-performance requirements by the Payment Card Industry (PCI).
 
 Payment HSMs are provisioned and connected directly to users' virtual network, and HSMs are under users' sole administration control. HSMs can be easily provisioned as a pair of devices and configured for high availability. Users of the service utilize [Thales payShield Manager](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager) for secure remote access to the HSMs as part of their Azure-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end-user business growth. Azure payment HSM service offers highest performance level 2500 CPS.
 
-Azure Payment HSM a highly specialized service. Therefore, we recommend that you fully understand the key concepts, including [pricing](https://azure.microsoft.com/services/payment-hsm/) and [support](getting-started.md#support).
+> [!IMPORTANT]
+> Azure Payment HSM a highly specialized service. We highly recommend that you review the [Azure Payment HSM pricing page](https://azure.microsoft.com/services/payment-hsm/) and [Getting started with Azure Payment HSM](getting-started.md#support).
 
 ## Why use Azure Payment HSM?
 
@@ -49,25 +50,29 @@ For existing Thales payShield customers wishing to add a cloud option, the Azure
 ## Typical use cases
 
 With benefits including low latency and the ability to quickly add more HSM capacity as required, the cloud service is a perfect fit for a broad range of use cases, including:
-Payment processing
+
+- Payment processing
 - Card & mobile payment authorization
 - PIN & EMV cryptogram validation
 - 3D-Secure authentication
 
-Payment credential issuing
+Payment credential issuing:
+
 - Cards
 - Mobile secure elements
 - Wearables
 - Connected devices
 - Host card emulation (HCE) applications
 
-Securing keys & authentication data
+Securing keys & authentication data:
+
 - POS, mPOS & SPOC key management
 - Remote key loading (for ATM & POS/mPOS devices)
 - PIN generation & printing
 - PIN routing
 
-Sensitive data protection
+Sensitive data protection:
+
 - Point-to-point encryption (P2PE)
 - Security tokenization (for PCI DSS compliance)
 - EMV payment tokenization
@@ -76,17 +81,30 @@ Sensitive data protection
 
 The solution provides clear benefits for both Payment HSM users with a legacy on-premises HSM footprint and those new payment ecosystem entrants with no legacy infrastructure to support and who may choose a cloud-native approach from the outset.
 
-Benefits for existing on-premises HSM users
+Benefits for existing on-premises HSM users:
+
 - Requires no modifications to payment applications or HSM software to migrate existing applications to the Azure solution
 - Enables more flexibility and efficiency in HSM utilization
 - Simplifies HSM sharing between multiple teams, geographically dispersed
 - Reduces physical HSM footprint in their legacy data centers
 - Improves cash flow for new projects
 
-Benefits for new payment participants
+Benefits for new payment participants:
+
 - Avoids introduction of on-premises HSM infrastructure
 - Lowers upfront investment via the Azure subscription model
 - Offers access to latest certified hardware and software on-demand
+
+## Supported SKUs
+
+Azure Payment HSM supports the following SKUs:
+
+- payShield10K_LMK1_CPS60
+- payShield10K_LMK1_CPS250
+- payShield10K_LMK1_CPS2500
+- payShield10K_LMK2_CPS60
+- payShield10K_LMK2_CPS250
+- payShield10K_LMK2_CPS2500
 
 ## Glossary
 
