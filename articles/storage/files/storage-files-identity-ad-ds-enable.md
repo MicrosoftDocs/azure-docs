@@ -49,7 +49,10 @@ The AD DS account created by the cmdlet represents the storage account. If the A
 You must run the script below in PowerShell 5.1 on a device that's domain joined to your on-premises AD DS, using an on-premises AD DS credential that's synced to your Azure AD. To follow the [Least privilege principle](../../role-based-access-control/best-practices.md), the on-premises AD DS credential must have the following Azure roles:
 
 - **Reader** on the resource group where the target storage account is located.
-- **Contributor** on the storage account to be joined to AD DS (**Owner** will also work).
+- **Contributor** on the storage account to be joined to AD DS.
+
+> [!NOTE]
+> If the account used to join the storage account in AD DS is an **Owner** or **Contributor** in the Azure subscription where the target resources are located, then that account is already enabled to perform the join and no further assignments are required.
 
 The AD DS credential must also have permissions to create a service logon account or computer account in the target AD. Replace the placeholder values with your own before executing the script.
 

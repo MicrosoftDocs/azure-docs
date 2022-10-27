@@ -2,15 +2,15 @@
 title: Create and manage encryption scopes
 description: Learn how to create an encryption scope to isolate blob data at the container or blob level.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
-ms.date: 07/13/2022
+ms.date: 10/27/2022
 ms.topic: conceptual
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -31,7 +31,7 @@ An encryption scope is automatically enabled when you create it. After you creat
 To create an encryption scope in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Select the **Encryption** setting.
+1. Under **Security + networking** select **Encryption**.
 1. Select the **Encryption Scopes** tab.
 1. Click the **Add** button to add a new encryption scope.
 1. In the **Create Encryption Scope** pane, enter a name for the new scope.
@@ -40,7 +40,7 @@ To create an encryption scope in the Azure portal, follow these steps:
     - If you selected **Customer-managed keys**, then select a subscription and specify a key vault or a managed HSM and a key to use for this encryption scope.
 1. If infrastructure encryption is enabled for the storage account, then it will automatically be enabled for the new encryption scope. Otherwise, you can choose whether to enable infrastructure encryption for the encryption scope.
 
-    :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Screenshot showing how to create encryption scope in Azure portal":::
+    :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Screenshot showing how to create encryption scope in Azure portal" lightbox="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -186,11 +186,11 @@ To learn more about infrastructure encryption, see [Enable infrastructure encryp
 
 To view the encryption scopes for a storage account in the Azure portal, navigate to the **Encryption Scopes** setting for the storage account. From this pane, you can enable or disable an encryption scope or change the key for an encryption scope.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot showing list of encryption scopes in Azure portal":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot showing list of encryption scopes in Azure portal" lightbox="media/encryption-scope-manage/list-encryption-scopes-portal.png":::
 
 To view details for a customer-managed key, including the key URI and version and whether the key version is automatically updated, follow the link in the **Key** column.
 
-:::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="Screenshot showing details for a key used with an encryption scope":::
+:::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="Screenshot showing details for a key used with an encryption scope" lightbox="media/encryption-scope-manage/customer-managed-key-details-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -234,7 +234,7 @@ To create a container with a default encryption scope in the Azure portal, first
 1. In the **Encryption scope** drop-down, select the default encryption scope for the container.
 1. To require that all blobs in the container use the default encryption scope, select the checkbox to **Use this encryption scope for all blobs in the container**. If this checkbox is selected, then an individual blob in the container cannot override the default encryption scope.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot showing container with default encryption scope":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot showing container with default encryption scope" lightbox="media/encryption-scope-manage/create-container-default-encryption-scope.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -275,7 +275,8 @@ If a client attempts to specify a scope when uploading a blob to a container tha
 
 When you upload a blob, you can specify an encryption scope for that blob, or use the default encryption scope for the container, if one has been specified.
 
-When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob.
+> [!NOTE]
+> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot change the access tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 # [Portal](#tab/portal)
 
@@ -287,7 +288,7 @@ To upload a blob with an encryption scope via the Azure portal, first create the
 1. Locate the **Encryption scope** drop-down section. By default, the blob is created with the default encryption scope for the container, if one has been specified. If the container requires that blobs use the default encryption scope, this section is disabled.
 1. To specify a different scope for the blob that you are uploading, select **Choose an existing scope**, then select the desired scope from the drop-down.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot showing how to upload a blob with an encryption scope":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot showing how to upload a blob with an encryption scope" lightbox="media/encryption-scope-manage/upload-blob-encryption-scope.png":::
 
 # [PowerShell](#tab/powershell)
 
