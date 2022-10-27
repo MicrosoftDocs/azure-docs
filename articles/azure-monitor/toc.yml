@@ -1096,6 +1096,8 @@ items:
     href: logs/log-analytics-workspace-insights-overview.md
   - name: Resource groups
     href: insights/resource-group-insights.md
+  - name: Troubleshoot insights
+    href: insights/troubleshoot-workbooks.md 
 - name: Visualizations
   items:
   - name: Workbooks
@@ -1180,6 +1182,8 @@ items:
         href: visualize/workbooks-view-designer-conversion-overview.md
       - name: Sample JSON to covert View Designer views
         href: visualize/workbooks-view-designer-conversions.md 
+    - name: Retrieve legacy workbooks
+      href: visualize/workbooks-retrieve-legacy-workbooks.md
     - name: Access Troubleshooting guides
       href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
