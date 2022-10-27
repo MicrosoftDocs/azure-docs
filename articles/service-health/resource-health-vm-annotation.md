@@ -39,5 +39,6 @@ The below table summarizes all the annotations that the platform emits today:
 | VirtualMachineStartInitiatedByControlPlane |The Virtual Machine is starting as requested by an authorized user or process. No other action is required at this time. |
 | VirtualMachineStopInitiatedByControlPlane |	The Virtual Machine is stopping as requested by an authorized user or process. No other action is required at this time. |
 | VirtualMachineStoppedInternally |	The Virtual Machine is stopping as requested by an authorized user or process, or due to a guest activity from within the Virtual Machine. No other action is required at this time. |
-| VirtualMachineProvisioningTimedOut |	The Virtual Machine provisioning has failed due to Guest OS issues or incorrect user run scripts. You can attempt to either re-create this Virtual Machine. If this Virtual Machine is part of an Azure virtual machine scale set, you can try reimaging it. |
+| VirtualMachineProvisioningTimedOut |	The Virtual Machine provisioning has failed due to Guest OS issues or incorrect user run scripts. You can attempt to either re-create this Virtual Machine. If this Virtual Machine is part of a virtual machine scale set, you can try reimaging it. |
+
 | AccelnetUnhealthy |	Applicable if Accelerated Networking is enabled for your Virtual Machine – We have detected that the Accelerated Networking feature is not functioning as expected. You can attempt to redeploy your Virtual Machine to potentially mitigate the issue. |
