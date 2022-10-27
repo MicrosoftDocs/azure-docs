@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/31/2022
 ms.custom: template-how-to
 ---
 
