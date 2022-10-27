@@ -35,7 +35,7 @@ Install the client library. You can install the client library with:
 pip install --upgrade azure.ai.anomalydetector
 ```
 
-If you don't already you will also need to install the pandas library:
+If you don't already have it installed, you will also need to install the pandas library:
 
 ```console
 pip install pandas
@@ -65,7 +65,7 @@ Multivariate Anomaly Detector requires your sample file to be stored as a .zip f
 6. You will need to copy the SAS URL into the `ANOMALY_DETECTOR_DATA_SOURCE` environment variable in the next section.
 
    > [!NOTE]
-   > The steps above are the bare minimum to generate a SAS URL. For a more in-depth article on the process, we recommend consulting this [Form Recognizer article](../../../../applied-ai-services/form-recognizer/create-sas-tokens.md)
+   > The steps above are the bare minimum to generate a SAS URL. For a more in-depth article on the process, we recommend consulting this [Form Recognizer article](../../../../applied-ai-services/form-recognizer/create-sas-tokens.md).
 
 
 ## Retrieve key and endpoint
@@ -199,7 +199,7 @@ for i in r.results:
 
 ## Run the application
 
-Run the application with the `python` command on your quickstart file
+Run the application with the `python` command on your quickstart file.
 
 ```console
 python quickstart.py
