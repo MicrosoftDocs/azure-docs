@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
-author: jifems
-ms.author: jife
+author:  sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2021
+ms.date: 10/27/2022
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -102,10 +102,10 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Run the [az datashare consumer invitation list](/cli/azure/datashare/invitation#az-datashare-invitation-list) command to see your current invitations:
+Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
 ```azurecli
-az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
+az datashare consumer consumer-invitation list-invitation
 ```
 
 Copy your invitation ID for use in the next section.
