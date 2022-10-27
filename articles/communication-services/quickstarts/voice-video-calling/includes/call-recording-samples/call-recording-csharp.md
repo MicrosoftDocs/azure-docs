@@ -34,7 +34,7 @@ Let's get started with a few simple steps!
 
 ## 1. Create a Call Automation client
 
-Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/voice-video-calling/call-automation.md) libraries. Thus, it is necessary to create a Call Automation client. 
+Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/voice-video-calling/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
 To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
 ```csharp
