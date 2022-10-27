@@ -30,7 +30,7 @@ To enable multi-region writes from Azure portal, use the following steps:
 
 
 ### Connect your client
-MongoDB connection strings supports the “appName” parameter, which is a means to identify client workload. AppName can be specified in the connection string or using SDK specific initialization methods/properties. 
+MongoDB connection strings supports the “appName” parameter, which is a means to identify client workloads. AppName can be specified in the connection string or using SDK specific initialization methods/properties. 
 
 In Cosmos DB for MongoDB, we use the appName parameter to pass account-specific information from the client to the service.
 
