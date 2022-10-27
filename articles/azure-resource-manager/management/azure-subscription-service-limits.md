@@ -408,7 +408,7 @@ This section lists the most common service limits you might encounter as you use
 
 ## Multi workspace limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-multi-workspace.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
 
 ### Notebook limits
 
