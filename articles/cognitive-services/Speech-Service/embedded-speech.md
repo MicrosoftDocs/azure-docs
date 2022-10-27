@@ -18,11 +18,11 @@ zone_pivot_groups: programming-languages-set-thirteen
 Embedded Speech is designed to be used for on-device scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in medical equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should fist consider [disconnected containers](/azure/cognitive-services/containers/disconnected-containers). 
 
 > [!IMPORTANT]
-> Microsoft limits access to embedded Speech. You can apply for access through the Azure Cognitive Services [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](limited-access.md).
+> Microsoft limits access to embedded Speech. You can apply for access through the Azure Cognitive Services [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context).
 
 ## Platform requirements
 
-Embedded Speech is included with the Speech SDK for C#, C++, and Java (version 1.24 and higher). Refer to the general [Speech SDK installation requirements](../quickstarts/setup-platform) for programming language and target platform specific details.
+Embedded Speech is included with the Speech SDK for C#, C++, and Java (version 1.24 and higher). Refer to the general [Speech SDK installation requirements](quickstarts/setup-platform) for programming language and target platform specific details.
 
 **Choose your target environment**
 
@@ -34,7 +34,7 @@ Embedded TTS with neural voices is only supported on ARM64.
 
 # [Linux](#tab/linux)
 
-Requires Linux on x64, ARM64, or ARM32 hardware with [supported Linux distributions](../quickstarts/setup-platform?tabs=linux).
+Requires Linux on x64, ARM64, or ARM32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
 Embedded speech is not supported on RHEL/CentOS 7.
 
@@ -48,7 +48,7 @@ Requires 10.14 or newer on x64 or ARM64 hardware.
 
 Requires Windows 10 or newer on x64 or ARM64 hardware.
 
-The latest [Microsoft Visual C++ Redistributable for Visual Studio 2015-2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170) must be installed regardless of the programming language used with the Speech SDK.
+The latest [Microsoft Visual C++ Redistributable for Visual Studio 2015-2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) must be installed regardless of the programming language used with the Speech SDK.
 
 The Speech SDK for Java does not support Windows on ARM64.
 
@@ -67,7 +67,7 @@ Embedded speech recognition only supports audio in the following format:
 
 You will need to download the speech recognition models and voices you want to use with embedded Speech. Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
-Speech recognition models are used for speech-to-text. 
+Speech recognition models are used for speech-to-text. Voices are used for text-to-speech.
 
 ## Embedded Speech configuration
 
@@ -114,6 +114,14 @@ if (voiceName.Contains("Neural"))
 ::: zone-end
 
 In the [speech-to-text quickstart](get-started-speech-to-text.md) and other Speech SDK code samples, you can replace `SpeechConfig` with the `EmbeddedSpeechConfig`. You can find ready to use embedded Speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+## Hybrid Speech
+
+Hybrid speech with the `HybridSpeechConfig` object uses cloud speech services by default and embedded speech as a fallback in case cloud connectivity is limited or slow.
+
+With hybrid speech configuration in speech recognition, embedded is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is resumed later.
+
+With hybrid speech configuration in speech synthesis, embedded and cloud synthesis are run in parallel and the result is selected based on which one gives a faster response. This is evaluated on each synthesis request.
 
 ## Next steps
 
