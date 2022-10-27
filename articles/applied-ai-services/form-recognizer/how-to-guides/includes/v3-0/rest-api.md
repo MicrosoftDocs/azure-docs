@@ -115,11 +115,11 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 * Pretty print the JSON output by including `| json_pp` with your GET requests.
 
-   **Example**:
+  **Example**:
 
-   ```console
-     curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
-    ```
+  ```console
+  curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
+  ```
 
 #### [Linux](#tab/linux)
 
@@ -129,9 +129,9 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
   **Example**:
 
-   ```console
-     curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
-    ```
+  ```console
+  curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
+  ```
 
 ---
 
