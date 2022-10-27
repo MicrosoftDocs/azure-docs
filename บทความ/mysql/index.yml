@@ -1,12 +1,13 @@
 ### YamlMime:Landing
 title:  Azure Database for MySQL documentation
 summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
-metadata:
-  description: "Azure Database for MySQL is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server to deploy your MySQL database in Azure."
-  ms.service: mysql
-  ms.topic: landing-page
-  author: savjani
-  ms.author: pariks
+เมตา: 
+  คำอธิบาย: "กำหนดพิกัด: Azure โปรแกรมที่เตือนโปรแกรมที่โปรแกรมควบคุม"ยุทธศาสตร์ที่บังคับกับ Google กลุ่มคุณภาพสำหรับ Google เตือนระวังคำปรากับคอนคอนของ Google Google Google Google Google ที่โค้ดชุมชน MySQL ที่สมคคุณในสี เหลือง"คุณภาพ
+  " ชื่อ:เอกพร.
+  ms.service Asus        : mixbel. ครับ ครับbigสิวิไล
+   -:topic :สิวิไล
+ :
+  ms.author    : pariks
   ms.reviewer: maghan
   ms.date: 09/15/2022
 
