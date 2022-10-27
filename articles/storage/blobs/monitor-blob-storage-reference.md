@@ -1,6 +1,7 @@
 ---
 title: Azure Blob Storage monitoring data reference | Microsoft Docs
 description: Log and metrics reference for monitoring data from Azure Blob Storage.
+recommendations: false
 author: normesta
 services: storage
 ms.service: storage

@@ -4,20 +4,20 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: references_regions
 ms.service: azure-vmware
-ms.date: 07/07/2022
+ms.date: 09/15/2022
 ---
 
 # Platform updates for Azure VMware Solution
 
-Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
 ## July 8, 2022
 
-HCX cloud manager in Azure VMware solutions can now be accessible over a public IP address. You can pair HCX sites and create a service mesh from on-premises to Azure VMware Solutions private cloud using Public IP.
+HCX cloud manager in Azure VMware Solution can now be accessible over a public IP address. You can pair HCX sites and create a service mesh from on-premises to Azure VMware Solution private cloud using Public IP.
 
 HCX with public IP is especially useful in cases where On-premises sites are not connected to Azure via Express Route or VPN. HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections.
 
-For more information, please see [Enable HCX over the internet](/azure/azure-vmware/enable-hcx-access-over-internet)
+For more information, please see [Enable HCX over the internet](./enable-hcx-access-over-internet.md)
 
 
 ## July 7, 2022
@@ -169,4 +169,4 @@ For more information on this vCenter version, see [VMware vCenter Server 6.7 Upd
 >This is non-disruptive and should not impact Azure VMware Services or workloads. During maintenance, various VMware alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
 
 ## Post update
-Once complete, newer versions of VMware components appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.

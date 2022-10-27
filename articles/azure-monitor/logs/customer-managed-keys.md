@@ -71,6 +71,8 @@ Customer-managed key configuration isn't supported in Azure portal currently and
 
 ## Storing encryption key ("KEK")
 
+A [portfolio of Azure Key Management products](../../key-vault/managed-hsm/mhsm-control-data.md#portfolio-of-azure-key-management-products) lists the vaults and managed HSMs that can be used. 
+
 Create or use an existing Azure Key Vault in the region that the cluster is planed, and generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable, to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
 [![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png "Screenshot of Key Vault soft delete and purge protection properties")](media/customer-managed-keys/soft-purge-protection.png#lightbox)
@@ -97,7 +99,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 ## Grant Key Vault permissions
 
-There are two permission models in Key Vault to grants permissions to your cluster and underlay storage, Vault access policy and Azure role-based access control.
+There are two permission models in Key Vault to grants permissions to your cluster and underlay storage——Vault access policy, and Azure role-based access control.
 
 1. Vault access policy
 
@@ -277,6 +279,8 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az account set —subscription "storage-account-subscription-id"
+
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
 az account set —subscription "workspace-subscription-id"
@@ -287,11 +291,13 @@ az monitor log-analytics workspace linked-storage create —type Query —resour
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+Select-AzSubscription "StorageAccount-subscription-id"
+
+$storageAccountId = (Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name").id
 
 Select-AzSubscription "workspace-subscription-id"
 
-New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccountId
 ```
 
 # [REST](#tab/rest)
@@ -327,6 +333,8 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az account set —subscription "storage-account-subscription-id"
+
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
 az account set —subscription "workspace-subscription-id"
@@ -337,11 +345,13 @@ az monitor log-analytics workspace linked-storage create —type ALerts —resou
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+Select-AzSubscription "StorageAccount-subscription-id"
+
+$storageAccountId = (Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name").id
 
 Select-AzSubscription "workspace-subscription-id"
 
-New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccountId
 ```
 
 # [REST](#tab/rest)

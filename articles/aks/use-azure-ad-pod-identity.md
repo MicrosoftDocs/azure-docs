@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 3/12/2021
+ms.date: 8/27/2022
 
 ---
 
@@ -12,7 +12,10 @@ ms.date: 3/12/2021
 Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure AD with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on Azure AD as an identity provider.
 
 > [!NOTE]
-> The feature described in this document, pod-managed identities (preview), will be replaced with [Azure AD Workload Identity](https://github.com/Azure/AKS/issues/1480) .
+> We recommend you review [Azure AD workload identity][workload-identity-overview] (preview).
+> This authentication method replaces pod-managed identity (preview), which integrates with the
+> Kubernetes native capabilities to federate with any external identity providers on behalf of the
+> application.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -28,6 +31,7 @@ You must have the following resource installed:
 * A maximum of 200 pod identities are allowed for a cluster.
 * A maximum of 200 pod identity exceptions are allowed for a cluster.
 * Pod-managed identities are available on Linux node pools only.
+* This feature is only supported for Virtual Machine Scale Sets backed clusters.
 
 ### Register the `EnablePodIdentityPreview`
 
@@ -292,6 +296,9 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 ## Next steps
 
 For more information on managed identities, see [Managed identities for Azure resources][az-managed-identities].
+
+<!-- LINKS - internal -->
+[workload-identity-overview]: workload-identity-overview.md
 
 <!-- LINKS - external -->
 [az-aks-create]: /cli/azure/aks#az_aks_create

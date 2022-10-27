@@ -42,14 +42,13 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a solar panel app for free
+> * Create a solar panel app
 > * Walk through the application
 > * Clean up resources
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a solar panel monitoring application
 

@@ -1,6 +1,6 @@
 ---
 title: Connect machines at scale using Ansible Playbooks
-description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using Ansible playbooks. 
+description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using Ansible playbooks.
 ms.date: 05/09/2022
 ms.topic: conceptual
 ms.custom: template-how-to
@@ -10,7 +10,7 @@ ms.custom: template-how-to
 
 You can onboard Ansible-managed nodes to Azure Arc-enabled servers at scale using Ansible playbooks. To do so, you'll need to download, modify, and then run the appropriate playbook.
 
-Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
+Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,12 +56,12 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
       url: https://aka.ms/azcmagent
       dest: ~/install_linux_azcmagent.sh
       mode: '700'
-    when: (ansible_system == 'Linux') and (azcmagent_lnx_downloaded.stat.exists == false)    
+    when: (ansible_system == 'Linux') and (azcmagent_lnx_downloaded.stat.exists == false)
 
   - name: Install the Connected Machine Agent on Linux servers
     become: yes
     shell: bash ~/install_linux_azcmagent.sh
-    when: (ansible_system == 'Linux') and (not azcmagent_lnx_downloaded.stat.exists)    
+    when: (ansible_system == 'Linux') and (not azcmagent_lnx_downloaded.stat.exists)
 
   - name: Check if the Connected Machine Agent has already been downloaded on Windows servers
     win_stat:
@@ -73,7 +73,7 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
     win_get_url:
       url: https://aka.ms/AzureConnectedMachineAgent
       dest: C:\AzureConnectedMachineAgent.msi
-    when: (ansible_os_family == 'Windows') and (not azcmagent_win_downloaded.stat.exists)    
+    when: (ansible_os_family == 'Windows') and (not azcmagent_win_downloaded.stat.exists)
 
   - name: Install the Connected Machine Agent on Windows servers
     win_package:
@@ -81,7 +81,7 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
     when: (ansible_os_family == 'Windows') and (not azcmagent_win_downloaded.stat.exists)
 
   - name: Check if the Connected Machine Agent has already been connected
-    become: true 
+    become: true
     command:
      cmd: azcmagent check
     register: azcmagent_lnx_connected
@@ -105,7 +105,7 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
 
   - name: Connect the Connected Machine Agent on Windows servers to Azure
     win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id "{{ azure.service_principal_id }}" --service-principal-secret "{{ azure.service_principal_secret }}" --resource-group "{{ azure.resource_group }}" --tenant-id "{{ azure.tenant_id }}" --location "{{ azure.location }}" --subscription-id "{{ azure.subscription_id }}"'
-    when: (ansible_os_family == 'Windows') and (azcmagent_win_connected.rc is defined and azcmagent_win_connected.rc != 0) 
+    when: (ansible_os_family == 'Windows') and (azcmagent_win_connected.rc is defined and azcmagent_win_connected.rc != 0)
 ```
 
 ## Modify the Ansible playbook
@@ -137,11 +137,11 @@ After the playbook has run, the **PLAY RECAP** will indicate if all tasks were c
 
 ## Verify the connection with Azure Arc
 
-After you have successfully installed the agent and configured it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your target hosts have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal). 
+After you have successfully installed the agent and configured it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your target hosts have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 ## Next steps
 
 - Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 - Review connection troubleshooting information in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
-- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md) for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying that the machine is reporting to the expected Log Analytics workspace, enabling monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md) for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying that the machine is reporting to the expected Log Analytics workspace, enabling monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
 

@@ -29,14 +29,8 @@ The following tables provide the settings for the default service and its associ
 
 |Setting  |Value  |
 |---------|---------|
-|The service name.      |*Allow-all-traffic*         |
+|The service name.      |*Allow_all_traffic*         |
 |A precedence value that the packet core instance must use to decide between services when identifying the QoS values to offer.|*253*         |
-|The Maximum Bit Rate (MBR) for uploads across all service data flows that will be included in data flow policy rules configured on this service.|*2 Gbps*         |
-|The Maximum Bit Rate (MBR) for downloads across all service data flows that will be included in data flow policy rules configured on this service.     |*2 Gbps*         |
-|The default QoS Flow Allocation and Retention Policy (ARP) priority level.| *9*        |
-|The default 5G QoS Indicator (5QI) value for this service. The 5QI identifies a set of 5G QoS characteristics that control QoS forwarding treatment for QoS Flows, such as limits for Packet Error Rate.     | *9*        |
-|The default QoS Flow preemption capability for QoS Flows for this service. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level.     |*May not preempt*         |
-|The default QoS Flow preemption vulnerability for QoS Flows for this service. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     |*Preemptable*         |
 
 ### Data flow policy rule settings
 
@@ -75,10 +69,10 @@ The following tables provide the settings for the default SIM policy and its ass
 |The names of the services permitted on this data network.      | *Allow-all-traffic*        |
 |The maximum bitrate for uplink traffic (traveling away from SIMs) across all Non-GBR QoS Flows of a given PDU session on this data network.      | *2 Gbps*        |
 |The maximum bitrate for downlink traffic (traveling towards SIMs) across all Non-GBR QoS Flows of a given PDU session on this data network.     | *2 Gbps*        |
-|The default 5G QoS Indicator (5QI) value for this data network. The 5QI identifies a set of 5G QoS characteristics that control QoS forwarding treatment for QoS Flows, such as limits for Packet Error Rate.     | *9*        |
+|The default 5G QoS identifier (5QI) or QoS class identifier (QCI) value for this data network. The 5QI or QCI identifies a set of 5G or 4G QoS characteristics that control QoS forwarding treatment for QoS Flows, such as limits for Packet Error Rate.     | *9*        |
 |The default QoS Flow Allocation and Retention Policy (ARP) priority level for this data network. Flows with a higher ARP priority level preempt those with a lower ARP priority level.      | *1*        |
 |The default QoS Flow preemption capability for QoS Flows on this data network. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level.     | *May not preempt*        |
-|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptable*        |
+|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptible*        |
 
 ## Next steps
 

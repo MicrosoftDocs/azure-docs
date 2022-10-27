@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 08/15/2022
 ---
 # Querying in Azure Cognitive Search
 
 Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article describes query requests, and what kinds of queries you can create.
 
-In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. Parameters and parsers determine the type of query request. The following query example is a free text query with a boolean operator, using the [Search Documents (REST API)](/rest/api/searchservice/search-documents), targeting the [hotels-sample-index](search-get-started-portal.md) documents collection.
+In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. The following query example calls the [Search Documents (REST API)](/rest/api/searchservice/search-documents). It's a parameterized, free text query with a boolean operator, targeting the [hotels-sample-index](search-get-started-portal.md) documents collection.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -32,9 +32,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Parameters used during query execution include:
 
-+ **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
++ **`queryType`** sets the parser, which is usually the [default simple query parser](search-query-simple-examples.md) (optimal for full text search). You could also set it to the [full Lucene query parser](search-query-lucene-examples.md) for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search. Or, you could set it to [semantic search](semantic-search-overview.md) if you want advanced semantic modeling on the query response.
 
-+ **`searchMode`** specifies whether matches are based on "all" criteria or "any" criteria in the expression. The default is any.
++ **`searchMode`** specifies whether matches are based on "all" criteria or "any" criteria in the expression. The default is "any".
 
 + **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
 

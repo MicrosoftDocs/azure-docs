@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise tier
 description: Explains how to use Azure Key Vault to securely load secrets for apps running Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom: devx-track-java

@@ -3,7 +3,7 @@ title: "Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier"
 description: Describes app deployment to Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom: devx-track-java
@@ -21,7 +21,7 @@ This quickstart shows you how to build and deploy applications to Azure Spring A
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)

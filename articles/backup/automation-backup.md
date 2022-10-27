@@ -48,7 +48,7 @@ Once you assign an Azure Policy to a scope, all VMs that meet your criteria are 
 
 The following video illustrates how Azure Policy works for backup:  <br><br>
 
-> [!VIDEO /shows/IT-Ops-Talk/Configure-backups-at-scale-using-Azure-Policy/player]
+> [!VIDEO https://learn.microsoft.com/shows/IT-Ops-Talk/Configure-backups-at-scale-using-Azure-Policy/player]
 
 ### Export backup-operational data
 
@@ -68,7 +68,7 @@ For more information on how to set up this runbook, see [Automatic retry of fail
 
 The following video provides an end-to-end walk-through of the scenario: <br><br>
 
-   > [!VIDEO /shows/IT-Ops-Talk/Automatically-retry-failed-backup-jobs-using-Azure-Resource-Graph-and-Azure-Automation-Runbooks/player]
+   > [!VIDEO https://learn.microsoft.com/shows/IT-Ops-Talk/Automatically-retry-failed-backup-jobs-using-Azure-Resource-Graph-and-Azure-Automation-Runbooks/player]
 
 ## Additional resources
 

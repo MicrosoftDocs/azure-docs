@@ -1,37 +1,32 @@
-- name: Azure Cosmos DB Table API documentation
+- name: Table documentation
   href: index.yml
 - name: Overview
   items:
-    - name: Welcome to Azure Cosmos DB
-      href: ../introduction.md?toc=/azure/cosmos-db/table/toc.json
-    - name: What is Table API in Cosmos DB?
+    - name: What is Azure Cosmos DB for Table?
       href: introduction.md
-    - name: Try Azure Cosmos DB free
-      href: ../try-free.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Choose an API
-      href: ../choose-api.md?toc=/azure/cosmos-db/table/toc.json
-    - name: NoSQL vs. relational databases
-      href: ../relational-nosql.md?toc=/azure/cosmos-db/table/toc.json
+    - name: FAQ
+      href: table-api-faq.yml
 - name: Quickstarts
-  expanded: true
   items:
     - name: .NET
-      href: create-table-dotnet.md
+      href: quickstart-dotnet.md
     - name: Java
-      href: create-table-java.md
+      href: quickstart-java.md
     - name: Node.js
-      href: create-table-nodejs.md
+      href: quickstart-nodejs.md
     - name: Python
-      href: how-to-use-python.md
+      href: quickstart-python.md
 - name: Tutorials
   items:
     - name: 1 - Migrate data
       displayName: import
-      href: table-import.md
+      href: import.md
     - name: 2 - Query data
-      href: tutorial-query-table.md
+      href: tutorial-query.md
     - name: 3 - Distribute data globally
-      href: tutorial-global-distribution-table.md
+      href: tutorial-global-distribution.md
+    - name: Create Jupyter notebooks
+      href: ../nosql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: .NET
@@ -41,7 +36,7 @@
     - name: Node.js
       href: how-to-use-nodejs.md
     - name: Python
-      href: how-to-use-python.md
+      href: quickstart-python.md
     - name: Go
       href: how-to-use-go.md
     - name: PHP
@@ -55,7 +50,7 @@
       maintainContext: true
     - name: Azure CLI
       items:
-        - name: Overview Table API samples
+        - name: Overview
           href: cli-samples.md
         - name: Create account and table
           href: ../scripts/cli/table/create.md
@@ -67,21 +62,21 @@
           href: ../scripts/cli/table/throughput.md
         - name: Lock resources from deletion
           href: ../scripts/cli/table/lock.md
-        - name: Overview common API samples
-          href: ../common-cli-samples.md?toc=/azure/cosmos-db/table/toc.json
         - name: Add or fail over regions
-          href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/cli/common/regions.md
         - name: Perform account key operations
-          href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/cli/common/keys.md
         - name: Secure with IP firewall
-          href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/cli/common/ipfirewall.md
         - name: Secure new account with service endpoints
-          href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/cli/common/service-endpoints.md
         - name: Secure existing account with service endpoints
-          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Find existing free-tier accounts
+          href: ../scripts/cli/common/free-tier.md
     - name: Azure PowerShell
       items:
-        - name: Overview Table API samples
+        - name: Overview
           href: powershell-samples.md
         - name: Create account and table
           href: ../scripts/powershell/table/create.md
@@ -93,172 +88,175 @@
           href: ../scripts/powershell/table/lock.md
         - name: List and get tables
           href: ../scripts/powershell/table/list-get.md
-        - name: Overview common API samples
-          href: ../common-powershell-samples.md?toc=/azure/cosmos-db/table/toc.json
         - name: Account keys or connection strings
-          href: ../scripts/powershell/common/keys-connection-strings.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/powershell/common/keys-connection-strings.md
         - name: Change failover priority or trigger failover
-          href: ../scripts/powershell/common/failover-priority-update.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/powershell/common/failover-priority-update.md
         - name: Create an account with IP Firewall
-          href: ../scripts/powershell/common/firewall-create.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/powershell/common/firewall-create.md
         - name: Update account
-          href: ../scripts/powershell/common/account-update.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/powershell/common/account-update.md
         - name: Update an account's regions
-          href: ../scripts/powershell/common/update-region.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../scripts/powershell/common/update-region.md
+    - name: Templates
+      items:
+        - name: JSON syntax templates
+          href: resource-manager-templates.md
+        - name: Bicep syntax templates
+          href: manage-with-bicep.md
     - name: Azure Resource Graph queries
-      href: ../resource-graph-samples.md?toc=/azure/cosmos-db/table/toc.json
+      href: ../resource-graph-samples.md
 - name: Concepts
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md?toc=/azure/cosmos-db/table/toc.json
+      href: ../account-databases-containers-items.md
+    - name: Partitioning
+      items:
+        - name: Partitioning overview
+          href: ../partitioning-overview.md
+    - name: Throughput (RU/s)
+      items:
+        - name: Request units
+          displayName: RUs, RU
+          href: ../request-units.md
+        - name: Free tier
+          displayName: free tier
+          href: ../free-tier.md
+        - name: Limit total account throughput
+          displayName: cost, RUs, RU
+        - name: Provisioned throughput
+          displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
+          href: ../set-throughput.md
+        - name: Autoscale throughput
+          items:
+            - name: Autoscale introduction
+              href: ../provision-throughput-autoscale.md
+            - name: Autoscale FAQ
+              href: ../autoscale-faq.yml
+        - name: Serverless
+          href: ../serverless.md
+        - name: Choose between autoscale and standard (manual) throughput
+          href: ../how-to-choose-offer.md
+        - name: Choose between provisioned throughput and serverless
+          href: ../throughput-serverless.md
+        - name: Best practices for scaling provisioned throughput
+          href: ../scaling-provisioned-throughput-best-practices.md
+        - name: Burst capacity (preview)
+          items:
+            - name: Burst capacity overview
+              href: ../burst-capacity.md
+            - name: Burst capacity FAQ
+              href: ../burst-capacity-faq.yml
+    - name: Back up and restore
+      items:
+        - name: Back up and restore introduction
+          href: ../online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+            - name: Continuous backup - Introduction
+              href: ../continuous-backup-restore-introduction.md
+            - name: Continuous backup - FAQ
+              href: ../continuous-backup-restore-frequently-asked-questions.yml
+            - name: Continuous backup - Resource model
+              href: ../continuous-backup-restore-resource-model.md
+            - name: Latest restorable timestamp
+              href: ../latest-restore-timestamp-continuous-backup.md
+            - name: Auditing restore action with continuous backup
+              href: ../audit-restore-continuous.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
           displayName: replication, replicate, geo distribution
-          href: ../distribute-data-globally.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../distribute-data-globally.md
         - name: Consistency levels
           displayName: session, consistency prefix, strong, eventual, bounded staleness
-          href: ../consistency-levels.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../consistency-levels.md
         - name: High availability
-          href: ../high-availability.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../high-availability.md
         - name: Conflict types and resolution policies
           displayName: last write wins, custom, multi-region writes, multi-master
-          href: ../conflict-resolution-policies.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../conflict-resolution-policies.md
         - name: Global distribution - under the hood
-          href: ../global-dist-under-the-hood.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Partitioning and horizontal scaling
-      href: ../partitioning-overview.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Hierarchical partition keys (preview)
-      items:
-        - name: Hierarchical partition keys overview
-          href: ../hierarchical-partition-keys.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Hierarchical partition keys FAQ
-          href: ../hierarchical-partition-keys-faq.yml?toc=/azure/cosmos-db/table/toc.json
-    - name: Capacity
-      items:
-        - name: Request units
-          displayName: RUs, RU
-          href: ../request-units.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Convert vCores to request units
-          href: ../convert-vcore-to-request-unit.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Provisioned throughput
-          displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
-          href: ../set-throughput.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Autoscale throughput
-          items:
-            - name: Autoscale introduction
-              href: ../provision-throughput-autoscale.md?toc=/azure/cosmos-db/table/toc.json
-            - name: Autoscale FAQ
-              href: ../autoscale-faq.yml?toc=/azure/cosmos-db/table/toc.json
-        - name: Serverless
-          href: ../serverless.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Choose between autoscale and standard (manual) throughput
-          href: ../how-to-choose-offer.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Choose between provisioned throughput and serverless
-          href: ../throughput-serverless.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Best practices for scaling provisioned throughput
-          href: ../scaling-provisioned-throughput-best-practices.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Burst capacity (preview)
-          items:
-            - name: Burst capacity overview
-              href: ../burst-capacity.md?toc=/azure/cosmos-db/table/toc.json
-            - name: Burst capacity FAQ
-              href: ../burst-capacity-faq.yml?toc=/azure/cosmos-db/table/toc.json
-        - name: Merge (preview)
-          href: ../merge.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../global-dist-under-the-hood.md
     - name: Security
       items:
         - name: Security overview
-          href: ../database-security.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Data encryption
-          href: ../database-encryption-at-rest.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Service tags
-          href: ../../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/table/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../database-security.md
         - name: Azure role-based access control
           displayName: rbac
-          href: ../role-based-access-control.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../role-based-access-control.md
+        - name: Data encryption
+          href: ../database-encryption-at-rest.md
+        - name: Service tags
+          href: ../../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Policy support
-          href: ../policy.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../policy.md
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
-          href: ../security-controls-policy.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../security-controls-policy.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context
-    - name: Analytics with Azure Synapse Link
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
+    - name: Optimize your Azure Cosmos DB costs
       items:
-        - name: Azure Synapse Link for Cosmos DB
-          href: ../synapse-link.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Analytical store - Overview
-          href: ../analytical-store-introduction.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Azure Synapse Link supported features
-          href: ../../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/table/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Synapse Link use cases
-          href: ../synapse-link-use-cases.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Custom partitioning - Overview
-          href: ../custom-partitioning-analytical-store.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Azure Synapse Link FAQ
-          href: ../synapse-link-frequently-asked-questions.yml?toc=/azure/cosmos-db/table/toc.json
-    - name: Back up and restore
-      items:
-        - name: Back up and restore introduction
-          href: ../online-backup-and-restore.md?toc=/azure/cosmos-db/table/toc.json
-        - name: Continuous backup
-          items:
-            - name: Continuous backup - Introduction
-              href: ../continuous-backup-restore-introduction.md?toc=/azure/cosmos-db/table/toc.json
-            - name: Continuous backup - FAQ
-              href: ../continuous-backup-restore-frequently-asked-questions.yml?toc=/azure/cosmos-db/table/toc.json
-            - name: Continuous backup - Resource model
-              href: ../continuous-backup-restore-resource-model.md?toc=/azure/cosmos-db/table/toc.json
-            - name: Latest restorable timestamp
-              href: ../latest-restore-timestamp-continuous-backup.md?toc=/azure/cosmos-db/table/toc.json
-            - name: Auditing restore action with continuous backup
-              href: ../audit-restore-continuous.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Optimize your Azure Cosmos DB cost
-      items:
+        - name: Overview
+          href: ../optimize-costs.yml
+        - name: Free tier
+          href: ../free-tier.md
+          displayName: free tier
+        - name: Limit total account throughput
+          displayName: cost, RUs, RU
+          href: ../limit-total-account-throughput.md
         - name: Plan and manage costs
-          href: ../plan-manage-costs.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../plan-manage-costs.md
         - name: Pricing model
-          href: ../how-pricing-works.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../how-pricing-works.md
         - name: Total Cost of Ownership (TCO)
-          href: ../total-cost-ownership.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../total-cost-ownership.md
         - name: Understand your bill
           displayName: free tier
-          href: ../understand-your-bill.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../understand-your-bill.md
         - name: Optimize provisioned throughput cost
           displayName: request units, RUs, RU
-          href: ../optimize-cost-throughput.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../optimize-cost-throughput.md
         - name: Optimize request cost
           displayName: request, cost, read, write, query, queries, RUs, RU
-          href: ../optimize-cost-reads-writes.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../optimize-cost-reads-writes.md
         - name: Optimize storage cost
-          href: ../optimize-cost-storage.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../optimize-cost-storage.md
         - name: Optimize multi-region cost
-          href: ../optimize-cost-regions.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../optimize-cost-regions.md
         - name: Optimize development/testing cost
           displayName: free tier
-          href: ../optimize-dev-test.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../optimize-dev-test.md
         - name: Optimize cost with reserved capacity
-          href: ../cosmos-db-reserved-capacity.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../reserved-capacity.md
         - name: Optimize using rate limiting
-          href: ../rate-limiting-requests.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Change feed overview
-      href: ../change-feed.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Built-in Jupyter notebooks
-      href: ../cosmosdb-jupyter-notebooks.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Service quotas
-      href: ../concepts-limits.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Enterprise readiness
       items:
+        - name: Service quotas
+          href: ../concepts-limits.md
+        - name: Automatic recommendations
+          href: ../automated-recommendations.md
         - name: Compliance
-          href: ../compliance.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../compliance.md
         - name: Data residency
-          href: ../data-residency.md?toc=/azure/cosmos-db/table/toc.json
-    - name: Automatic recommendations
-      href: ../automated-recommendations.md?toc=/azure/cosmos-db/table/toc.json
-    - name: FAQ
-      href: table-api-faq.yml
+          href: ../data-residency.md
+    - name: Jupyter notebooks
+      items:
+        - name: Overview
+          href: ../notebooks-overview.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Develop applications
@@ -277,26 +275,146 @@
                   href: how-to-dotnet-create-item.md
                 - name: Read an item
                   href: how-to-dotnet-read-item.md
-    - name: Build apps with Table API
-      href: table-support.md
-    - name: Create a container - Table API
-      href: how-to-create-container.md
-    - name: Find request unit charge
-      displayName: request units, RUs, RU, charge, consumption
-      href: find-request-unit-charge.md
-    - name: Manage using Resource Manager templates
-      href: resource-manager-templates.md
-    - name: Manage using Bicep
-      href: manage-with-bicep.md
-      displayName: ARM
-    - name: Manage using PowerShell
-      href: powershell-samples.md
-    - name: Manage using Azure CLI
-      href: cli-samples.md
+        - name: Build apps with API for Table
+          href: support.md
+        - name: Create a table - API for Table
+          href: how-to-create-container.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge.md
+    - name: Use developer tools
+      items:
+        - name: Develop locally with emulator
+          items:
+            - name: Install and use the emulator
+              href: ../local-emulator.md
+            - name: Run the emulator on Docker
+              items:
+                - name: Run the emulator on Docker for Windows
+                  href: ../local-emulator-on-docker-windows.md
+            - name: Export emulator certificates
+              href: ../local-emulator-export-ssl-certificates.md
+            - name: Emulator command-line parameters
+              href: ../emulator-command-line-parameters.md
+            - name: Emulator troubleshooting
+              href: ../troubleshoot-local-emulator.md
+            - name: Emulator release notes
+              href: ../local-emulator-release-notes.md
+            - name: Visual Studio Code extension
+              href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+        - name: Set up CI/CD with Azure Pipelines
+          href: ../tutorial-setup-ci-cd.md
+        - name: Use Azure Cosmos DB Explorer
+          href: ../data-explorer.md
+    - name: Manage Azure Cosmos DB resources
+      items:
+        - name: Manage an Azure Cosmos DB account
+          href: ../how-to-manage-database-account.md
+        - name: Manage using PowerShell
+          href: powershell-samples.md
+        - name: Manage using Azure CLI
+          href: cli-samples.md
+        - name: Manage using Bicep
+          href: manage-with-bicep.md
+          displayName: ARM
+        - name: Manage using Resource Manager templates
+          href: resource-manager-templates.md
+          displayName: ARM
+        - name: Move between regions
+          href: ../how-to-move-regions.md
+        - name: Prevent changes or deletion
+          href: ../resource-locks.md
+        - name: Request quota increase
+          href: ../sql/create-support-request-quota-increase.md
+    - name: Manage back up and restore
+      items:
+        - name: Manage continuous backup
+          items:
+            - name: Permissions and roles - Continuous backup
+              href: ../continuous-backup-restore-permissions.md
+            - name: Get the latest restorable timestamp
+              href: ../get-latest-restore-timestamp.md
+            - name: Restore an account - Continuous backup
+              href: ../restore-account-continuous-backup.md
+            - name: Migrate to continuous backup
+              href: ../migrate-continuous-backup.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
+    - name: Security
+      items:
+        - name: Configure IP firewall
+          href: ../how-to-configure-firewall.md
+        - name: Configure access from virtual networks
+          displayName: service endpoints
+          href: ../how-to-configure-vnet-service-endpoint.md
+        - name: Configure access from private endpoints
+          href: ../how-to-configure-private-endpoints.md
+        - name: Connect privately to an Azure Cosmos DB account
+          href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Use Azure Key Vault to access data
+          href: ../access-secrets-from-keyvault.md
+        - name: Access Azure Key Vault with managed identity
+          href: ../access-key-vault-managed-identity.md
+        - name: Restrict user access to data operations only
+          href: ../how-to-restrict-user-data.md
+        - name: Configure customer-managed keys
+          href: ../how-to-setup-customer-managed-keys.md
+        - name: Configure cross-tenant customer-managed keys
+          href: ../how-to-setup-cross-tenant-customer-managed-keys.md
+        - name: Use a managed identity
+          href: ../how-to-setup-managed-identity.md
+    - name: Enterprise readiness
+      items:
+        - name: Request quota increase
+          href: ../sql/create-support-request-quota-increase.md
+        - name: Access preview features
+          href: ../access-previews.md
+    - name: Monitor
+      items:
+        - name: Monitor Azure Cosmos DB
+          href: ../monitor.md
+        - name: Use Azure monitor metrics
+          items:
+            - name: Azure Monitor for Azure Cosmos DB
+              href: ../insights-overview.md
+            - name: Scenarios to monitor
+              href: ../use-metrics.md
+            - name: Monitor server-side latency
+              href: ../monitor-server-side-latency.md
+            - name: Monitor request unit usage
+              href: ../monitor-request-unit-usage.md
+            - name: Monitor key updates
+              href: ../monitor-account-key-updates.md
+            - name: Monitor normalized request unit usage
+              href: ../monitor-normalized-request-units.md
+        - name: Use Azure monitor logs
+          items:
+            - name: Monitor with diagnostic logs
+              href: ../monitor-resource-logs.md
+            - name: Troubleshoot issues using basic queries
+              href: ../monitor-logs-basic-queries.md
+            - name: Troubleshoot issues using advanced queries
+              href: ../advanced-queries.md
+            - name: Audit control plane logs
+              href: ../audit-control-plane-logs.md
+        - name: Configure alerts
+          items:
+            - name: Create alert on metrics
+              href: ../create-alerts.md
+            - name: Create alert on logical partition key size
+              href: ../how-to-alert-on-logical-partition-key-storage-size.md
+        - name: Monitoring data reference
+          href: ../monitor-reference.md
+        - name: Third-party monitoring solutions
+          href: ../monitoring-solutions.md
 - name: Reference
   items:
     - name: .NET
-      href: /dotnet/api/overview/azure/data.tables-readme-pre
+      href: /dotnet/api/overview/azure/data.tables-readme
     - name: Java
       href: /java/api/overview/azure/data-tables-readme
     - name: Node.js
@@ -311,14 +429,14 @@
       href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-cosmos-db
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
     - name: FAQ
-      href: ../faq.yml?toc=/azure/cosmos-db/table/toc.json
+      href: ../faq.yml
     - name: Whitepapers
-      href: ../whitepapers.md?toc=/azure/cosmos-db/table/toc.json
+      href: ../whitepapers.md
     - name: Partners
-      href: ../partners-migration-cosmosdb.md?toc=/azure/cosmos-db/table/toc.json
+      href: ../partners-migration.md
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos
@@ -329,11 +447,9 @@
       href: https://azure.microsoft.com/try/cosmosdb/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
-    - name: Performance levels
-      href: ../performance-levels.md?toc=/azure/cosmos-db/table/toc.json
     - name: Use cases
       items:
         - name: Common use cases
-          href: ../use-cases.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../use-cases.md
         - name: Social media apps
-          href: ../social-media-apps.md?toc=/azure/cosmos-db/table/toc.json
+          href: ../social-media-apps.md

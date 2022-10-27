@@ -1,20 +1,23 @@
 ---
-title: Form Recognizer custom template model
+title: Custom template document model - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn about the custom template model type, its features and how you train a model with high accuracy to extract data from structured or templated forms
+description: Use the custom template document model to train a model to extract data from structured or templated forms.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Form Recognizer custom template model
+# Custom template document model
 
-Custom template (formerly custom form) are easy-to-train models that accurately extract labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+
+Custom template (formerly custom form) is an easy-to-train document model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
 
 Custom template models share the same labeling format and strategy as custom neural models, with support for more field types and languages.
 
@@ -24,11 +27,11 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 
 | Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions |
 |:--:|:--:|:--:|:--:|:--:|
-| Supported| Supported | Supported | Preview | Supported |
+| Supported| Supported | Supported | Supported| Supported |
 
 ## Tabular fields
 
-With the release of API version **2022-06-30-preview**, custom template models will add support for **cross page** tabular fields (tables):  
+With the release of API versions **2022-06-30-preview** and  later, custom template models will add support for **cross page** tabular fields (tables):  
 
 * To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
 * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages if you expect to see those variations in documents.
@@ -41,17 +44,17 @@ Template models rely on a defined visual template, changes to the template will 
 
 ## Training a model
 
-Template models are available generally [v2.1 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) and in preview [v3 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, work with the v3 API and Form Recognizer Studio to train a custom template model.
+Template models are available generally [v3.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/BuildDocumentModel) and  [v2.1 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm). If you're starting with a new project or have an existing labeled dataset, work with the v3 API and Form Recognizer Studio to train a custom template model.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom template (preview) | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
-| Custom template | [Form Recognizer 2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Form Recognizer SDK](quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-python)| [Form Recognizer Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom template  | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom template | [Form Recognizer 2.1 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Form Recognizer SDK](quickstarts/get-started-v2-1-sdk-rest-api.md?pivots=programming-language-python)| [Form Recognizer Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
 
 On the v3 API, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 
 ```REST
-https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
+https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 
 {
   "modelId": "string",
@@ -65,20 +68,10 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
 }
 ```
 
-
 ## Next steps
 
-* * Train a custom model:
+Learn to create and compose custom models:
 
-  > [!div class="nextstepaction"]
-  > [How to train a model](how-to-guides/build-custom-model-v3.md)
-
-* Learn more about custom neural models:
-
-  > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md )
-
-* View the REST API:
-
-    > [!div class="nextstepaction"]
-    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+> [!div class="nextstepaction"]
+> [**Build a custom model**](how-to-guides/build-a-custom-model.md)
+> [**Compose custom models**](how-to-guides/compose-custom-models.md)

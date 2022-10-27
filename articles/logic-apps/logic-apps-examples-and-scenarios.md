@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 08/20/2022
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps

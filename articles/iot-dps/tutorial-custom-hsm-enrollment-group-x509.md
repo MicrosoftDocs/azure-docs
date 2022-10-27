@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardware Security Module (HSM)
-description: This tutorial uses enrollment groups. In this tutorial, you learn how to provision X.509 devices using a custom Hardware Security Module (HSM) and the C device SDK for Azure IoT Hub Device Provisioning Service (DPS).
+title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardware Security Module (HSM) and a DPS enrollment group
+description: This tutorial shows how to use X.509 certificates to provision multiple devices through an enrollment group in your Azure IoT Hub Device Provisioning Service (DPS) instance. The devices are simulated using the C device SDK and a custom Hardware Security Module (HSM).
 author: kgremban
 ms.author: kgremban
 ms.date: 07/12/2022
@@ -51,7 +51,7 @@ The following prerequisites are for a Windows development environment used to si
 * Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
     >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this tutorial. Make sure to use the latest version of CMake.
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
@@ -396,7 +396,7 @@ In this section, you'll create the Openssl configuration files, directory struct
     extendedKeyUsage = critical, OCSPSigning
     ```
 
-1. Create the directory structure, the database file (index.txt), and the serial number file (serial) used by OpenSSL commands in this article:
+1. Create the directory structure, the database file (index.txt), and the serial number file (serial) used by OpenSSL commands in this tutorial:
 
     ```bash
     mkdir certs csr newcerts private
@@ -606,6 +606,8 @@ In this section, you create two device certificates and their full chain certifi
 
 1. To create the private key, X.509 certificate, and full chain certificate for the second device, copy and paste this script into your GitBash command prompt. To create certificates for more devices, you can modify the `registration_id` variable declared at the beginning of the script.
 
+    # [Windows](#tab/windows)
+
     ```bash
     registration_id=device-02
     echo $registration_id
@@ -614,6 +616,19 @@ In this section, you create two device certificates and their full chain certifi
     openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/${registration_id}.csr.pem -out ./certs/${registration_id}.cert.pem
     cat ./certs/${registration_id}.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/${registration_id}-full-chain.cert.pem
     ```
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    registration_id=device-02
+    echo $registration_id
+    openssl genrsa -out ./private/${registration_id}.key.pem 4096
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/${registration_id}.key.pem -subj "/CN=$registration_id" -new -sha256 -out ./csr/${registration_id}.csr.pem
+    openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/${registration_id}.csr.pem -out ./certs/${registration_id}.cert.pem
+    cat ./certs/${registration_id}.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/${registration_id}-full-chain.cert.pem
+    ```
+
+    ---
 
     >[!NOTE]
     > This script uses the registration ID as the base filename for the private key and certificate files. If your registration ID contains characters that aren't valid filename characters, you'll need to modify the script accordingly.
@@ -632,7 +647,7 @@ You'll use the following files in the rest of this tutorial:
 | device-01 private key          | *private/device-01.key.pem* | Used by the device to verify ownership of the device certificate during authentication with DPS. |
 | device-01 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
 | device-02 private key          | *private/device-02.key.pem* | Used by the device to verify ownership of the device certificate during authentication with DPS. |
-| device-02 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
+| device-02 full chain certificate  | *certs/device-02-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
 
 ## Verify ownership of the root certificate
 
@@ -748,7 +763,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
-While HSM hardware isn't required, it is recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
+While HSM hardware isn't required, it is recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
 
 To update the custom HSM stub code to simulate the identity of the device with ID `device-01`, perform the following steps:
 
@@ -900,7 +915,7 @@ When you're finished testing and exploring this device client sample, use the fo
 
 ## Next steps
 
-In this tutorial, you provisioned an X.509 device using a custom HSM to your IoT hub. To learn how to provision IoT devices to multiple hubs continue to the next tutorial.
+In this tutorial, you provisioned an X.509 device using a custom HSM to your IoT hub. To learn how to provision IoT devices across multiple IoT hubs, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Provision devices across load-balanced IoT hubs](tutorial-provision-multiple-hubs.md)
+> [How to use allocation policies](how-to-use-allocation-policies.md)

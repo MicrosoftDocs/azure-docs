@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 02/03/2022
+ms.date: 08/23/2022
 ms.author: dobett
 ---
 

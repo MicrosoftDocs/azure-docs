@@ -2,7 +2,7 @@
 title: App status in Azure Spring Apps
 description: Learn the app status categories in Azure Spring Apps
 author: karlerickson
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 03/30/2022
 ms.author: karler

@@ -3,7 +3,7 @@ title: Use the diagnostic settings of JVM options for advanced troubleshooting i
 description: Describes several best practices with JVM configuration to set heap dump, JFR, and GC logs.
 author: KarlErickson
 ms.author: yinglzh
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/21/2022
 ms.custom: devx-track-java, event-tier1-build-2022

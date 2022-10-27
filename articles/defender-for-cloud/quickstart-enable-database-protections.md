@@ -9,9 +9,9 @@ ms.date: 07/28/2022
 
 # Enable Microsoft Defender for Cloud database plans
 
-This article explains how to enable Microsoft Defender for Cloud's database protections for the most common database types, Azure, hybrid, and multicloud environments.
+This article explains how to enable Microsoft Defender for Cloud's database protections for the most common database types, within Azure, hybrid, and multicloud environments.
 
-Defender for Cloud database protections lets you protect your entire database estate with attack detection and threat response for the most popular database types in Azure. Defender for Cloud provides protection for the database engines and for data types, according to their attack surface and security risks.
+Defender for Cloud database protections let you protect your entire database estate with attack detection and threat response for the most popular database types in Azure. Defender for Cloud provides protection for the database engines and for data types, according to their attack surface and security risks.
 
 Database protection includes:
 

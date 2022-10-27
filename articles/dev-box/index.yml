@@ -1,0 +1,75 @@
+### YamlMime:Landing
+
+title: Microsoft Dev Box documentation
+summary: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
+
+metadata:
+  title: Microsoft Dev Box documentation
+  description: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations. 
+  services: dev-box
+  ms.service: dev-box
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.author: rosemalcolm
+  author: RoseHJM
+  ms.date: 07/11/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Microsoft Dev Box
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Dev Box?
+            url: overview-what-is-microsoft-dev-box.md
+          - text: Microsoft Dev Box concepts
+            url: concept-dev-box-concepts.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Configure the Microsoft Dev Box service
+            url: quickstart-configure-dev-box-service.md
+          - text: Configure Dev Box Projects
+            url: quickstart-configure-dev-box-project.md
+          - text: Create a Dev Box
+            url: quickstart-create-dev-box.md  
+
+  # Card
+  - title: Provide access to dev box
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Provide access to projects for project admins
+            url: how-to-project-admin.md
+          - text: Provide access to projects for dev box users
+            url: how-to-dev-box-user.md  
+
+  # Card
+  - title: Add custom image galleries
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure an Azure Compute Gallery
+            url: how-to-configure-azure-compute-gallery.md
+
+  # Card
+  - title: Connect to your dev box
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Use the Remote Desktop client to connect to a dev box
+            url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+
+ # <!-- Adding later 
+  # Card
+ # - title: Reference docs
+ #   linkLists:
+ #     - linkListType: reference
+ #       links:
+ #       - text: REST API
+ #         url: /rest/api/loadtesting/

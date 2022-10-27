@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 10/17/2022
 ms.author: mbaldwin
 ---
 # Configure cryptographic key auto-rotation in Azure Key Vault
@@ -20,7 +20,7 @@ Our recommendation is to rotate encryption keys at least every two years to meet
 
 For more information about objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
-## Integarion with Azure services
+## Integration with Azure services
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
 
 For more information about data encryption in Azure, see:
@@ -242,3 +242,4 @@ Key rotation policy can also be configured using ARM templates.
 - [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
 - [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
 - [Azure Disk Encryption](../../virtual-machines/disk-encryption.md)
+- [Automatic key rotation for transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation#automatic-key-rotation)

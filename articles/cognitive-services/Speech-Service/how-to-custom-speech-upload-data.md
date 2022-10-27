@@ -34,10 +34,7 @@ To upload your own datasets in Speech Studio, follow these steps:
 1. Enter the dataset name and description, and then select **Next**.
 1. Review your settings, and then select **Save and close**.
 
-After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md)
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
+After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md).
 
 ::: zone-end
 
@@ -58,9 +55,6 @@ Here's an example Speech CLI command that creates a dataset and connects it to a
 ```azurecli-interactive
 spx csr dataset create --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -102,7 +96,7 @@ spx help csr dataset
 
 [!INCLUDE [Map CLI and API kind to Speech Studio options](includes/how-to/custom-speech/cli-api-kind.md)]
 
-To create a dataset and connect it to an existing project, use the [CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a dataset and connect it to an existing project, use the [CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 - Set the required `kind` property. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
@@ -124,9 +118,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/datasets"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

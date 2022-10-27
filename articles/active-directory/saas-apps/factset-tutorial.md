@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/16/2022
+ms.date: 10/10/2022
 ms.author: jeedes
 ---
 
@@ -48,6 +48,8 @@ To configure the integration of FactSet into Azure AD, you need to add FactSet f
 1. In the **Add from the gallery** section, type **FactSet** in the search box.
 1. Select **FactSet** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for FactSet
 
 Configure and test Azure AD SSO with FactSet using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in FactSet.
@@ -69,29 +71,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Set up single sign-on with SAML** page, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type the URL:
     `https://auth.factset.com`
 
     b. In the **Reply URL** text box, type the URL:
-    `https://login.factset.com/services/saml2/`
-
-    c. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.factset.com/services/saml2/`
-
-    > [!NOTE]
-    > The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact the [FactSet Support Team](https://www.factset.com/contact-us) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. 
+    `https://auth.factset.com/sp/ACS.saml2`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata file and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up FactSet** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
 ### Create an Azure AD test user
 

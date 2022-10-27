@@ -1,15 +1,15 @@
 ---
 title: Executing the import by invoking $import operation on FHIR service in Azure Health Data Services
 description: This article describes how to import FHIR data using $import.
-author: ginalee-dotcom
+author: RuiyiC
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 06/06/2022
-ms.author: ranku
+ms.author: ruiyichen
 ---
 
-# Bulk-import FHIR data (Preview)
+# Bulk-import FHIR data
 
 The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
 
@@ -21,7 +21,7 @@ The bulk-import feature enables importing Fast Healthcare Interoperability Resou
 * Conditional references in resources aren't supported.
 * If multiple resources share the same resource ID, then only one of those resources will be imported at random and an error will be logged corresponding to the remaining resources sharing the ID.
 * The data to be imported must be in the same Tenant as that of the FHIR service.
-* Maximum number of files to be imported per operation is 1,000.
+* Maximum number of files to be imported per operation is 10,000.
 
 ## Using $import operation
 
@@ -248,7 +248,7 @@ Below are some error codes you may encounter and the solutions to help you resol
 As illustrated in this article, $import is one way of doing bulk import. Another way is using an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following capabilities for ingesting FHIR data:
 
 * Imports FHIR Bundles (compressed and non-compressed) and NDJSON files into a FHIR service
-* High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources
+* High Speed Parallel Event Grid that triggers from storage accounts or other Event Grid resources
 * Complete Auditing, Error logging and Retry for throttled transactions
 
 ## Next steps

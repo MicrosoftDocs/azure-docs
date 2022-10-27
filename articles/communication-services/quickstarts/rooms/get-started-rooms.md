@@ -6,8 +6,8 @@ services: azure-communication-services
 author: radubulboaca
 manager: mariusu
 
-ms.author: radubulboaca
-ms.date: 07/27/2022
+ms.author: antonsamson
+ms.date: 09/01/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -19,10 +19,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-javascript.md)]
-::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Use rooms with .NET SDK](./includes/rooms-quickstart-net.md)]
 ::: zone-end
@@ -32,7 +28,11 @@ This quickstart will help you get started with Azure Communication Services Room
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-python.md)]
+[!INCLUDE [Use rooms with Python SDK](./includes/rooms-quickstart-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Use rooms with JavaScript SDK](./includes/rooms-quickstart-javascript.md)]
 ::: zone-end
 
 ## Object model
@@ -46,6 +46,7 @@ The table below lists the main properties of `room` objects:
 | `validUntil`          | Latest time a `room` can be used. |
 | `roomJoinPolicy`      | Specifies which user identities are allowed to join room calls. Valid options are `InviteOnly` and `CommunicationServiceUsers`. | 
 | `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. | 
+| `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
 
 ## Next steps
 

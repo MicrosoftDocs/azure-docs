@@ -3,13 +3,13 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 05/20/2022
+ms.date: 09/15/2022
 ms.author: juliako
 ---
 
 # Azure Video Indexer release notes
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
@@ -41,7 +41,119 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## June 2022 release updates
+## October 2022
+
+### A new built-in role: Video Indexer Restricted Viewer
+
+The limited access **Video Indexer Restricted Viewer** role is intended for the [Azure Video Indexer website](https://www.videoindexer.ai/) users. The role's permitted actions relate to the [Azure Video Indexer website](https://www.videoindexer.ai/) experience. 
+
+For more information, see [Manage access with the Video Indexer Restricted Viewer role](restricted-viewer-role.md).
+
+### Slate detection insights (preview)
+
+The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
+
+* Clapperboard detection with metadata extraction.
+* Digital patterns detection, including color bars.
+* Textless slate detection, including scene matching.
+
+For details, see [Slate detection](slate-detection-insight.md).
+
+### New source languages support for STT, translation, and search
+
+Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
+
+For more information, see [supported languages](language-support.md).
+
+### Edit a speaker's name in the transcription through the API
+
+You can now edit the name of the speakers in the transcription using the Azure Video Indexer API. 
+
+### Word level time annotation with confidence score
+
+An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
+
+Now supporting word level time annotation with confidence score. 
+
+### Azure Monitor integration enabling indexing logs 
+
+The new set of logs, described below, enables you to better monitor your indexing pipeline.
+
+Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
+
+### Expanded supported languages in LID and MLID through the API
+
+We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
+
+For more information, see [supported languages](language-support.md).
+
+### Configure confidence level in a person model with an API
+
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
+
+### View speakers in closed captions
+
+You can now view speakers in closed captions of the Azure Video Indexer media player. For more information, see [View closed captions in the Azure Video Indexer website](view-closed-captions.md).
+
+### Control face and people bounding boxes using parameters
+
+The new `boundingBoxes` URL parameter controls the option to set bounding boxes on/off when embedding a player. For more information, see [Embed widgets](video-indexer-embed-widgets.md#player-widget).
+
+### Control autoplay from the account settings
+
+Control whether a media file will autoplay when opened using the webapp is through the user settings. Navigate to the [Azure Video Indexer website](https://www.videoindexer.ai/) -> the **Gear** icon (the top-right corner) -> **User settings** -> **Auto-play media files**. 
+          
+### Copy video ID from the player view
+
+**Copy video ID** is available when you select the video in the [Azure Video Indexer website](https://www.videoindexer.ai/)
+
+### New dark theme in native Azure colors
+
+Select the desired theme in the [Azure Video Indexer website](https://www.videoindexer.ai/). Select the **Gear** icon (the top-right corner) -> **User settings**.
+
+### Search or filter the account list
+
+You can search or filter the account list using the account name or region. Select **User accounts** in the top-right corner of the [Azure Video Indexer website](https://www.videoindexer.ai/).
+
+## September 2022
+
+### General availability of ARM-based accounts
+
+With an Azure Resource Management (ARM) based [paid (unlimited)](accounts-overview.md) accounts, you are able to use: 
+
+- [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
+- Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
+- Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
+- [Create logic apps connector for ARM-based accounts](logic-apps-connector-arm-accounts.md).   
+
+To create an ARM-based account, see [create an account](create-account-portal.md).
+
+## August 2022
+
+### Update topic inferencing model 
+
+Azure Video Indexer topic inferencing model was updated and now we extract more than 6.5 million topics (for example, covering topics such as Covid virus). To benefit from recent model updates you need to re-index your video files. 
+
+### Topic inferencing model is now available on Azure Government 
+
+You can now leverage topic inferencing model in your Azure Video Indexer paid account on [Azure Government](../azure-government/documentation-government-welcome.md) in Virginia and Arizona regions. With this release we completed the AI parity between Azure global and Azure Government. 
+To benefit from the model updates you need to re-index your video files. 
+
+### Session length is now 30 days in the Azure Video Indexer website
+
+The [Azure Video Indexer website](https://vi.microsoft.com) session length was extended to 30 days. You can preserve your session without having to re-login every 1 hour.
+
+## July 2022
+
+### The featured clothing insight (preview)
+
+The featured clothing insight enables more targeted ads placement. 
+
+The insight provides information of key items worn by individuals within a video and the timestamp in which the clothing appears. This allows high-quality in-video contextual advertising, where relevant clothing ads are matched with the specific time within the video in which they are viewed.
+
+To view the featured clothing of an observed person, you have to index the video using Azure Video Indexer advanced video settings. For details on how featured clothing images are ranked and how to view this insight, see [featured clothing](observed-people-featured-clothing.md).
+
+## June 2022
 
 ### Create Video Indexer blade improvements in Azure portal 
 
@@ -54,7 +166,7 @@ You can also change the primary managed identity using the **Identity** tab in t
 As part of Microsoft's commitment to responsible AI, we are designing and releasing Azure Video Indexer – identification and celebrity recognition features. These features are designed to protect the rights of individuals and society and fostering transparent human-computer interaction. Thus, there is a limited access and use of Azure Video Indexer – identification and celebrity recognition features. 
 
 Identification and celebrity recognition features require registration and are only available to Microsoft managed customers and partners. 
-Customers who wish to use this feature are required to apply and submit an [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu). For more information, read [Azure Video Indexer limited access](limited-access-features.md). 
+Customers who wish to use this feature are required to apply and submit an [intake form](https://aka.ms/facerecognition). For more information, read [Azure Video Indexer limited access](limited-access-features.md). 
 
 Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and [investment and safeguard for facial recognition](https://aka.ms/AAh9oye).
           
@@ -150,7 +262,7 @@ Azure Video Indexer introduces source languages support for STT (speech-to-text)
 
 ### Matched person detection capability
 
-When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
+When indexing a video with Azure Video Indexer advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
 
 ## November 2021
 
@@ -167,7 +279,7 @@ For more information go to [create an Azure Video Indexer account](https://techc
 
 ### People’s clothing detection
 
-When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player.
+When indexing a video with Azure Video Indexer advanced video settings, you can view the new people’s clothing detection capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player.
 
 ### Face bounding box (preview)
 
@@ -279,7 +391,7 @@ Azure Video Indexer has a new [Developer Portal](https://api-portal.videoindexer
 
 SDK is now available to embed Azure Video Indexer's insights widget in your own service and customize its style and data. The SDK supports the standard Azure Video Indexer insights widget and a fully customizable insights widget. Code sample is available in [Azure Video Indexer GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Azure Video Indexer insights).
 
-### Azure Video Indexer deployed in the US North Central , US West and Canada Central
+### Azure Video Indexer deployed in the US North Central, US West and Canada Central
 
 You can now create an Azure Video Indexer paid account in the US North Central, US West and Canada Central regions
 
@@ -323,7 +435,7 @@ In addition, the model now includes people and locations in-context which are no
 ### Azure Video Indexer is deployed on US Government cloud
 
 You can now create an Azure Video Indexer paid account on US government cloud in Virginia and Arizona regions.
-Azure Video Indexer free trial offering isn't available in the mentioned region. For more information go to Azure Video Indexer Documentation.
+Azure Video Indexer trial offering isn't available in the mentioned region. For more information go to Azure Video Indexer Documentation.
 
 ### Azure Video Indexer deployed in the India Central region
 

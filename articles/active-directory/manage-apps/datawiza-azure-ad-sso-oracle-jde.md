@@ -19,8 +19,8 @@ This tutorial shows how to enable Azure Active Directory (Azure AD) single sign-
 
 Benefits of integrating applications with Azure AD using DAB include:
 
-- [Proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust) through [Azure AD SSO](https://azure.microsoft.com/solutions/active-directory-sso/OCID=AIDcmm5edswduu_SEM_e13a1a1787ce1700761a78c235ae5906:G:s&ef_id=e13a1a1787ce1700761a78c235ae5906:G:s&msclkid=e13a1a1787ce1700761a78c235ae5906#features), [Azure AD Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) and
-  [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+- [Proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust) through [Azure AD SSO](https://azure.microsoft.com/solutions/active-directory-sso/OCID=AIDcmm5edswduu_SEM_e13a1a1787ce1700761a78c235ae5906:G:s&ef_id=e13a1a1787ce1700761a78c235ae5906:G:s&msclkid=e13a1a1787ce1700761a78c235ae5906#features), [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) and
+  [Conditional Access](../conditional-access/overview.md).
 
 - [Easy authentication and authorization in Azure AD with no-code Datawiza](https://www.microsoft.com/security/blog/2022/05/17/easy-authentication-and-authorization-in-azure-active-directory-with-no-code-datawiza/). Use of web applications such as: Oracle JDE, Oracle E-Business Suite, Oracle Sibel, Oracle Peoplesoft, and home-grown apps.
 
@@ -45,7 +45,7 @@ The scenario solution has the following components:
 - **Datawiza Cloud Management Console (DCMC)**: A centralized console to manage DAB. DCMC has UI and RESTful APIs for administrators to configure Datawiza Access Broker and access control policies.
 
 Understand the SP initiated flow by following the steps mentioned in [Datawiza and Azure AD authentication
-architecture](https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad#datawiza-with-azure-ad-authentication-architecture).
+architecture](./datawiza-with-azure-ad.md#datawiza-with-azure-ad-authentication-architecture).
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Ensure the following prerequisites are met.
 - An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free)
 
 - An Azure AD tenant linked to the Azure subscription.
-  - See, [Quickstart: Create a new tenant in Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+  - See, [Quickstart: Create a new tenant in Azure Active Directory.](../fundamentals/active-directory-access-create-new-tenant.md)
 
 - Docker and Docker Compose
 
@@ -62,11 +62,11 @@ Ensure the following prerequisites are met.
 
 - User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to an on-premises directory.
 
-  - See, [Azure AD Connect sync: Understand and customize synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis).
+  - See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md).
 
 - An account with Azure AD and the Application administrator role
 
-  - See, [Azure AD built-in roles, all roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#all-roles).
+  - See, [Azure AD built-in roles, all roles](../roles/permissions-reference.md#all-roles).
 
 - An Oracle JDE environment
 
@@ -98,7 +98,7 @@ To integrate Oracle JDE with Azure AD:
    |:-----|:-------|
    | Platform | Web |
    | App Name | Enter a unique application name.|
-   | Public Domain | For example: https:/jde-external.example.com. <br>For testing, you can use localhost DNS. If you aren't deploying DAB behind a load balancer, use the **Public Domain** port. |
+   | Public Domain | For example: `https://jde-external.example.com`. <br>For testing, you can use localhost DNS. If you aren't deploying DAB behind a load balancer, use the **Public Domain** port. |
    | Listen Port | The port that DAB listens on.|
    | Upstream Servers | The Oracle JDE implementation URL and port to be protected.|
 
@@ -181,7 +181,7 @@ For the Oracle JDE application to recognize the user correctly, there's another 
 
 ## Enable Azure AD Multi-Factor Authentication 
 
-To provide an extra level of security for sign-ins, enforce multifactor authentication (MFA) for user sign-in. One way to achieve this is to [enable MFA on the Azure portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa).
+To provide an extra level of security for sign-ins, enforce multifactor authentication (MFA) for user sign-in. One way to achieve this is to [enable MFA on the Azure portal](../authentication/tutorial-enable-azure-mfa.md).
 
 1. Sign in to the Azure portal as a **Global Administrator**.
 
@@ -224,8 +224,8 @@ To confirm Oracle JDE application access occurs correctly, a prompt appears to u
 
 - [Watch the video - Enable SSO/MFA for Oracle JDE with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90).
 
-- [Configure Datawiza and Azure AD for secure hybrid access](https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad)
+- [Configure Datawiza and Azure AD for secure hybrid access](./datawiza-with-azure-ad.md)
 
-- [Configure Datawiza with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
+- [Configure Datawiza with Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
 
 - [Datawiza documentation](https://docs.datawiza.com/)

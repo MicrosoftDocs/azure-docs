@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 08/20/2022
 ---
 
 # Create Azure Resource Manager templates to automate Consumption logic app deployment for Azure Logic Apps

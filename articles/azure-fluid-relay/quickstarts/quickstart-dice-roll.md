@@ -11,10 +11,7 @@ ms.custom: mode-other
 
 # Quickstart: Dice roller
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
-In this quickstart, we'll walk through through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
+In this quickstart, we'll walk through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
 
 The sample code used in this quickstart is available [here](https://github.com/microsoft/FluidHelloWorld/tree/main-azure).
 
@@ -54,7 +51,11 @@ You can open new tabs with the same URL to create additional instances of the di
 To run against the Azure Fluid Relay service, you'll need to update your app's configuration to connect to your Azure service instead of your local server.
 
 ### Configure and create an Azure client
-
+Install @fluidframework/azure-client and "@fluidframework/test-client-utils packages and import Azure Client and InsecureTokenProvider.
+```javascript
+import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
+import { AzureClient } from "@fluidframework/azure-client";
+```
 To configure the Azure client, replace the local connection `serviceConfig` object in `app.js` with your Azure Fluid Relay
 service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced
 

@@ -52,8 +52,6 @@ From a security standpoint, Microsoft doesn't recommend disabling certificate su
 * Azure Front Door Standard and Premium - it is present in the origin settings.
 * Azure Front Door (classic) - it is present under the Azure Front Door settings in the Azure portal and in the Backend PoolsSettings in the Azure Front Door API.
 
- under the Azure Front Door settings in the Azure portal and on the BackendPoolsSettings in the Azure Front Door API. 
-
 ## Frontend TLS connection (Client to Front Door)
 
 To enable the HTTPS protocol for secure delivery of contents on an Azure Front Door custom domain, you can choose to use a certificate that is managed by Azure Front Door or use your own certificate.  

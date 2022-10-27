@@ -304,7 +304,7 @@ You can find your current Teams license using [licenseDetails](/graph/api/resour
         ]
     }
     ```
-1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md#eligible-teams-licenses)
+1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
 
 
 ## Calling SDK error codes

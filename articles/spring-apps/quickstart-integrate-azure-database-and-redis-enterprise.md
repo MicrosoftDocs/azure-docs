@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise tier
 description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom: devx-track-java

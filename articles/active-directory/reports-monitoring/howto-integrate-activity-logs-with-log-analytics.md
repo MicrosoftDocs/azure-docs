@@ -2,22 +2,15 @@
 title: Stream Azure Active Directory logs to Azure Monitor logs | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with Azure Monitor logs
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/09/2021
-ms.author: markvi
+ms.date: 10/03/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
-ms.custom: has-adal-ref
-
 ms.collection: M365-identity-device-management
 ---
 

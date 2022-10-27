@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop set up file share MSIX app attach - Azure
+title: Azure Virtual Desktop setup file share MSIX app attach - Azure
 description: How to set up a file share for MSIX app attach for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
@@ -15,7 +15,7 @@ MSIX app attach doesn't have any dependencies on the type of storage fabric the 
 
 ## Performance requirements
 
-MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDx files, as well as the size limitations of the VHD, VHDX or CIM files and the file system.
+MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDX files, as well as the size limitations of the VHD, VHDX or CIM files and the file system.
 
 The following table gives an example of how many resources a single 1 GB MSIX image with one MSIX app inside of it requires for each VM:
 
@@ -47,7 +47,7 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
 
 - Separate the storage fabric for MSIX app attach from FSLogix profile containers.
 - All VM system accounts and user accounts must have read-only permissions to access the file share.
-- Any disaster recovery plans for Azure Virtual Desktop must include replicating the MSIX app attach file share in your secondary failover location. To learn more about disaster recovery, see [Set up a business continuity and disaster recovery plan](disaster-recovery.md).
+- Any disaster recovery plans for Azure Virtual Desktop must include replicating the MSIX app attach file share in your secondary failover location. To learn more about disaster recovery, see [Set up a business continuity and disaster recovery plan](disaster-recovery.md). You'll also need to ensure your file share path is accessible in the secondary location. You can use [Distributed File System (DFS) Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview) to provide a single share name across different file shares. 
 
 ## How to set up the file share
 
@@ -57,7 +57,7 @@ If you're storing your MSIX applications in Azure Files, then for your session h
 
 | Azure object                      | Required role                                     | Role function                                  |
 |-----------------------------------|--------------------------------------------------|-----------------------------------------------|
-| Session host (VM computer objects)| Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
+| Session host (VM computer objects)| Storage File Data SMB Share Reader        | Allows for read access to Azure File Share over SMB  |
 | Admins on File Share              | Storage File Data SMB Share Elevated Contributor | Full control                                  |
 | Users on File Share               | Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
 
@@ -75,26 +75,19 @@ To assign session host VMs permissions for the storage account and file share:
 
 6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 
-7. Assign the synced AD DS group to Azure AD, and assign the storage account the Storage File Data SMB Share Contributor role.
+7. Assign the synced AD DS group to Azure AD, and assign the storage account the Storage File Data SMB Share Reader role.
 
 8. Mount the file share to any session host by following the instructions in [Part two: assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
 9. Grant NTFS permissions on the file share to the AD DS group.
 
-10. Set up NTFS permissions for the user accounts. You'll need an operating unit (OU) sourced from the AD DS that the accounts in the VM belong to.
+10. Set up NTFS permissions for the user accounts. You'll need an organizational unit (OU) sourced from the AD DS that the accounts in the VM belong to.
 
 Once you've assigned the identity to your storage, follow the instructions in the articles in [Next steps](#next-steps) to grant other required permissions to the identity you've assigned to the VMs.
 
-You'll also need to make sure your session host VMs have New Technology File System (NTFS) permissions. You must have an operational unit container that's sourced from Active Directory Domain Services (AD DS), and your users must be members of that operational unit to use these permissions.
+You'll also need to make sure your session host VMs have NTFS permissions. You must have an OU container that's sourced from Active Directory Domain Services (AD DS), and your users must be members of that OU to use these permissions.
 
 ## Next steps
-
-Here are the other things you'll need to do after you've set up the file share:
-
-- Learn how to set up Azure Active Directory Domain Services (AD DS) at [Create a profile container with Azure Files and AD DS](create-file-share.md).
-- Learn how to set up Azure Files and Azure AD DS at [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-- Learn how to set up Azure NetApp Files for MSIX app attach at [Create a profile container with Azure NetApp Files and AD DS](create-fslogix-profile-container.md).
-- Learn how to use a virtual machine-based file share at [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 
 Once you're finished, here are some other resources you might find helpful:
 

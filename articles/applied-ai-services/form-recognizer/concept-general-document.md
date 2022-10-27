@@ -1,26 +1,29 @@
 ---
-title: Form Recognizer general document model | Preview
+title: General key-value extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts related to data extraction and analysis using prebuilt general document preview model
+description: Extract key-value paits, tables, selection marks,and text from your documents with Form Recognizer
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer general document model (preview)
+# General key-value extraction with General Document model
 
-The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+
+The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the v3.0 API.  For more information on using the v3.0 API, see our [migration guide](v3-migration-guide.md).
 
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 > [!NOTE]
-> The ```2022-06-30``` update to the general document model adds support for selection marks. 
+> The ```2022-06-30``` and later versions of the general document model add support for selection marks.
 
 ## General document features
 
@@ -42,9 +45,9 @@ The general document API supports most form types and will analyze your document
 
 The following tools are supported by Form Recognizer v3.0:
 
-| Feature | Resources |
-|----------|-------------------------|
-|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|
+| Feature | Resources | Model ID
+|----------|----------|---------------|
+| **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-document**|
 
 ### Try Form Recognizer
 
@@ -58,10 +61,10 @@ You'll need the following resources:
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+#### Form Recognizer Studio 
 
 > [!NOTE]
-> Form Recognizer studio and the general document model are available with the preview (v3.0) API.
+> Form Recognizer studio and the general document model are available with the v3.0 API.
 
 1. On the Form Recognizer Studio home page, select **General documents**
 
@@ -78,7 +81,7 @@ You'll need the following resources:
 
 Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. If you have documents where the same value is described in different ways, for example, customer and user, the associated key will be either customer or user based on context.
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key will be either customer or user (based on context).
 
 ## Data extraction
 
@@ -104,9 +107,9 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ## Next steps
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 > [!div class="nextstepaction"]
 > [Try the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)

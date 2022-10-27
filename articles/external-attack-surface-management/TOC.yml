@@ -1,0 +1,25 @@
+- name: Concepts
+  expanded: true
+  items:
+  - name: Overview
+    href: index.md
+  - name: Understanding inventory assets
+    href: understanding-inventory-assets.md
+  - name: What is Discovery?
+    href: what-is-discovery.md
+- name: How-to
+  items:
+  - name: Understanding asset details
+    href: understanding-asset-details.md
+  - name: Understanding dashboards
+    href: understanding-dashboards.md
+  - name: Using and managing discovery
+    href: using-and-managing-discovery.md
+- name: Quickstart
+  items:
+  - name: Deploying the Defender EASM Azure resource
+    href: deploying-the-defender-easm-azure-resource.md
+- name: Tutorials
+  items:
+  - name: Discovering your attack surface
+    href: discovering-your-attack-surface.md
