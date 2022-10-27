@@ -62,7 +62,7 @@ The following terms are used in this article:
 
 The following section is an overview to set up pairing between the namespaces.
 
-:::image type="content" source="./media/service-bus-geo-dr/geodr_setup_pairing.png" alt-text="Image showing how to geo-disaster recovery works.":::
+:::image type="content" source="./media/service-bus-geo-dr/geodr_setup_pairing.png" alt-text="Image showing how geo-disaster recovery works.":::
 
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
@@ -156,13 +156,13 @@ The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/s
 
 Note the following considerations to keep in mind with this release:
 
-1. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover.
+- In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover.
 
-2. The fact that no data is replicated means that currently active sessions aren't replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, new scheduled messages, and new duplicates will work. 
+- The fact that no data is replicated means that currently active sessions aren't replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, new scheduled messages, and new duplicates will work. 
 
-3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
+- Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
 
-4. Synchronizing entities can take some time, approximately 50-100 entities per minute. Subscriptions and rules also count as entities.
+- Synchronizing entities can take some time, approximately 50-100 entities per minute. Subscriptions and rules also count as entities.
 
 ## Availability Zones
 
