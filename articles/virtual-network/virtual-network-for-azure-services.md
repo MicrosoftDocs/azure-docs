@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn the how to deploy dedicated Azure services into a virtual network and learn about the capabilities those deployments provide.
 services: virtual-network
 documentationcenter: na
-author: mohnader
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
-ms.author: mbender
+ms.author: allensu
 
 
 ---
