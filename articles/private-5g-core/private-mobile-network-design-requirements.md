@@ -22,7 +22,7 @@ This article will help you design and prepare for implementing a private 4G or 5
 
 ## Requirements for a private mobile network
 
-The following capabilities must be present to allow your user equipment (UEs) to attach to a private cellular network:
+The following capabilities must be present to allow user equipment (UEs) to attach to a private cellular network:
 
 - The UE must be compatible with the protocol and the wireless spectrum band used by the radio access network (RAN).
 - The UE must contain a subscriber identity module (SIM). This is a cryptographic element that stores the identity of the device.
@@ -32,7 +32,7 @@ The following capabilities must be present to allow your user equipment (UEs) to
 
 ## Designing a private mobile network
 
-The following sections describe elements of the network you'll need to consider and the design decisions you'll need to make in preparation for deploying your network.
+The following sections describe elements of the network you'll need to consider and the design decisions you'll need to make in preparation for deploying the network.
 
 ### Subnets and IP addresses
 
@@ -72,7 +72,7 @@ You should perform a site survey with your RAN partner and the enterprise to mak
 
 ### SIMs
 
-Every UE must present an identity to the network, encoded in a SIM. SIMs are available in different physical form factors as well as in software-only format (eSIM). The data encoded on the SIM must match the configuration of the RAN and of the provisioned identity data in the Azure Private 5G Core.
+Every UE must present an identity to the network, encoded in a subscriber identity module (SIM). SIMs are available in different physical form factors as well as in software-only format (eSIM). The data encoded on the SIM must match the configuration of the RAN and of the provisioned identity data in the Azure Private 5G Core.
 
 Obtain SIMs in factors compatible with the UEs and programmed with the PLMN ID and keys that you want to use for the deployment. Physical SIMs are widely available on the open market at relatively low cost. If you prefer to use eSIMs, you'll need to deploy the necessary eSIM configuration and provisioning infrastructure so that UEs can configure themselves before they attach to the cellular network. You can use the provisioning data you receive from your SIM partner to provision matching entries in Azure Private 5G Core. Because SIM data must be kept secure, the cryptographic keys used to provision SIMs are not readable in Azure Private 5G Core once set, so you must consider how you'll store them in case you ever need to reprovision the data in Azure Private 5G Core.
 
