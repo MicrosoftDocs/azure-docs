@@ -246,7 +246,7 @@
     href: availability-service-by-category.md
   - name: Service availability by sovereign cloud
     items:
-    - name: US Government cloud
+    - name: US Government
       href: sovereign-cloud-usgov.md
     - name: Azure in China
       href: sovereign-cloud-china.md     
