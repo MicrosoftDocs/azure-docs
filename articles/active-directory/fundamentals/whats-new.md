@@ -34,6 +34,19 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## October 2022
 
+### General Availability-  Add multiple domains to the same SAML/Ws-Fed based identity provider configuration for your external users
+
+
+
+**Type:** New feature   
+**Service category:** B2B        
+**Product capability:** B2B/B2C   
+
+An IT admin can now add multiple domains to a single SAML/WS-Fed identity provider configuration to invite users from multiple domains to authenticate from the same identity provider endpoint. For more information, see: [Federation with SAML/WS-Fed identity providers for guest users](../external-identities/direct-federation.md).
+
+
+---
+
 ### General Availability - Limits on the number of configured API permissions for an application registration will be enforced starting in October 2022
 
 
