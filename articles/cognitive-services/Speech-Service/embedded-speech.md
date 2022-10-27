@@ -1,7 +1,7 @@
 ---
 title: Embedded Speech - Speech service
 titleSuffix: Azure Cognitive Services
-description: Embedded Speech is used for adding speech recognition to your embedded devices. It is designed to be used in scenarios where you want to recognize a limited set of commands. 
+description: Embedded Speech is designed to be used for on-device scenarios where cloud connectivity is intermittent or unavailable.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -15,48 +15,14 @@ zone_pivot_groups: programming-languages-set-thirteen
 
 # Embedded Speech (preview)
 
-Embedded Speech is a speech recognition feature that provides a simple, easy-to-use API for adding speech recognition to your embedded devices. It is designed to be used in scenarios where you want to recognize a limited set of commands, such as "turn on the lights" or "play music". It is not designed for scenarios where you want to recognize arbitrary sentences.
+Embedded Speech is designed to be used for on-device scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in medical equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should fist consider [disconnected containers](/azure/cognitive-services/containers/disconnected-containers). 
 
-> [!NOTE]
-> Embedded Speech is currently in public preview for C#, C++, and Java on the platforms listed below.
-
-### Supported languages
-
-The following SR models (25) are included:
-`de-DE`,
-`en-AU`,
-`en-CA`,
-`en-GB`,
-`en-IE`,
-`en-IN`,
-`en-NZ`,
-`en-US` (2),
-`es-ES`,
-`es-MX`,
-`fr-CA`,
-`fr-FR`,
-`hi-IN`,
-`it-IT`,
-`ja-JP`,
-`ko-KR`,
-`nl-NL`,
-`pt-BR`,
-`ru-RU`,
-`sv-SE`,
-`tr-TR`,
-`zh-CN`,
-`zh-HK`,
-`zh-TW`.
-
-There are two variants of the en-US model, *full power* (FP) and *limited power* (LP). All the other SR models are full power. FP models provide recognition results with capitalization and punctuation added, and numbers, abbreviations, and other transformations applied. Because the (en-US) LP model requires less processing power, speech recognition runs faster with it.
-
-At the moment complete word level detail (word timestamps and confidence) in SR results is only supported by FP models on Windows, Linux, and macOS.
-
-The following TTS voices (2) are included: `en-US` (*JennyNeural*, female), `zh-CN` (*XiaoxiaoNeural*, female).
+> [!IMPORTANT]
+> Microsoft limits access to embedded Speech. You can apply for access through the Azure Cognitive Services [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](limited-access.md).
 
 ## Platform requirements
 
-Refer to the general [Speech SDK installation requirements](https://learn.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform) and samples in this package for programming language and target platform specific details.
+Embedded Speech is included with the Speech SDK for C#, C++, and Java (version 1.24 and higher). Refer to the general [Speech SDK installation requirements](../quickstarts/setup-platform) for programming language and target platform specific details.
 
 **Choose your target environment**
 
@@ -64,7 +30,7 @@ Refer to the general [Speech SDK installation requirements](https://learn.micros
 
 Requires Android 7.0 (API level 24) or higher on ARM64 (`arm64-v8a`) or ARM32 (`armeabi-v7a`) hardware.
 
-Embedded TTS with neural voices is not supported on ARM32.
+Embedded TTS with neural voices is only supported on ARM64.
 
 # [Linux](#tab/linux)
 
@@ -88,35 +54,45 @@ The Speech SDK for Java does not support Windows on ARM64.
 
 ---
 
-## Known issues - October 2022
+## Limitations
 
-* Embedded SR results may sometimes have punctuation seemingly missing or misplaced.
-* Embedded SR (and IR) may run slower than real-time if the hardware is not powerful enough.
-* The online part of hybrid TTS may stop working after installation of recent automated Windows updates. See https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1692 for the latest status.
+Embedded Speech is only available with C#, C++, and Java SDKs. 
 
-## Configuration options
+Embedded speech recognition only supports audio in the following format:
+- Single channel
+- 16000 Hz sample rate
+- 16-bit little-endian signed integer samples
 
-Create embedded (offline) configurations for speech recognition and speech synthesis.
+## Models and voices
+
+You will need to download the speech recognition models and voices you want to use with embedded Speech. Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+
+Speech recognition models are used for speech-to-text. 
+
+## Embedded Speech configuration
+
+For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded Speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you downloaded to your local device. 
+
+Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech-to-text and text-to-speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-// Cloud speech configuration.
-var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion); 
-
-// Optional language configuration for cloud speech services.       
-speechConfig.SpeechRecognitionLanguage = "en-US";
-speechConfig.SpeechSynthesisLanguage = "en-US";
-
-// Embedded speech configuration for speech recognition and speech synthesis.
-// Requires one or more paths to SR models or TTS voices.
+// You can use the EmbeddedSpeechConfig object to set the location of the models and voices.
 List<string> paths = new List<string>();
-paths.Add("C:\\dev\\embedded-speech\\sr-models");
+paths.Add("C:\\dev\\embedded-speech\\stt-models");
 paths.Add("C:\\dev\\embedded-speech\\tts-voices");
 var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 
-// You can combine cloud and embedded configurations via HybridSpeechConfig.
-var hybridSpeechConfig = HybridSpeechConfig.FromConfigs(speechConfig, embeddedSpeechConfig);
+// For speech-to-text
+embeddedSpeechConfig.SetSpeechRecognitionModel(modelName, modelKey);
+
+// For text-to-speech
+embeddedSpeechConfig.SetSpeechSynthesisVoice(voiceName, voiceKey);
+if (voiceName.Contains("Neural"))
+{                   
+    embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
+}
 ```
 
 ::: zone-end
@@ -137,6 +113,7 @@ var hybridSpeechConfig = HybridSpeechConfig.FromConfigs(speechConfig, embeddedSp
 
 ::: zone-end
 
+In the [speech-to-text quickstart](get-started-speech-to-text.md) and other Speech SDK code samples, you can replace `SpeechConfig` with the `EmbeddedSpeechConfig`. You can find ready to use embedded Speech samples at [GitHub](https://aka.ms/csspeech/samples).
 
 ## Next steps
 
