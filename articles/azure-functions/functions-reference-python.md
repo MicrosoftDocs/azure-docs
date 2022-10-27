@@ -27,7 +27,7 @@ As a Python developer, you may also be interested in one of the following articl
 ::: zone pivot="python-mode-decorators" 
 | Getting started | Concepts| 
 |--|--|--|
-| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | 
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Code Examples](functions-bindings-triggers-python.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | 
 ::: zone-end
 
 > [!NOTE]
@@ -94,14 +94,14 @@ At this time, only specific triggers and bindings are supported by the v2 progra
 
 | Type | Trigger | Input Binding | Output Binding |
 | --- | --- | --- | --- |
-| HTTP | x |   |   |
-| Timer | x |   |   |
-| Azure Queue Storage | x |   | x |
-| Azure Service Bus Topic | x |   | x |
-| Azure Service Bus Queue | x |   | x |
-| Azure Cosmos DB | x | x | x |
-| Azure Blob Storage | x | x | x |
-| Azure Event Grid | x |   | x |
+| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
+| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
+| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
+| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
+| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
+| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
+| [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
+| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
 
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
@@ -384,14 +384,14 @@ At this time, only specific triggers and bindings are supported by the v2 progra
 
 | Type | Trigger | Input Binding | Output Binding |
 | --- | --- | --- | --- |
-| HTTP | x |   |   |
-| Timer | x |   |   |
-| Azure Queue Storage | x |   | x |
-| Azure Service Bus topic | x |   | x |
-| Azure Service Bus queue | x |   | x |
-| Azure Cosmos DB | x | x | x |
-| Azure Blob Storage | x | x | x |
-| Azure Event Grid | x |   | x |
+| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
+| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
+| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
+| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
+| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
+| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
+| [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
+| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
 
 To learn more about defining triggers and bindings in the v2 model, see this [documentation](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
 
@@ -667,7 +667,7 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
   "extensionBundle": 
   {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[2.*, 3.0.0)"
+    "version": "[3.*, 4.0.0)"
   },
   "extensions": 
   {
@@ -715,7 +715,38 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions, which is shown in the following example: 
+You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions, which is shown in the following example:
+
+The host.json file should be updated to include an HTTP `routePrefix`, as shown in the following example.
+
+```json
+{
+  "version": "2.0",
+  "logging": 
+  {
+    "applicationInsights": 
+    {
+      "samplingSettings": 
+      {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "extensionBundle": 
+  {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+  },
+  "extensions": 
+  {
+    "http": 
+    {
+        "routePrefix": ""
+    }
+  }
+}
+
 
 # [ASGI](#tab/asgi)
 
