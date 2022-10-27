@@ -33,10 +33,10 @@ See the Azure Private 5G Core 2210 release notes. <!-- TODO: add link -->
 
 **Type:** New feature
 
-**Date available:** 10/18/2022
+**Date available:** October 18th, 2022
 
 Feature description here...
 
 ## Next steps
 
-- See the release notes for more information on the packet core release you're using or plan to use.
+- See the packet core release notes for more information on the packet core release you're using or plan to use.
