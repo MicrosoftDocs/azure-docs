@@ -131,6 +131,7 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Access to resources secured by service endpoints                                             | Supported | Supported |
 | Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported |
 | Default Azure DNS and Private Zones                                                          | Supported | Supported |
+| Support for Windows node pools                                                               | Not Supported | Supported |
 
 Regarding DNS, with both kubenet and Azure CNI plugins DNS are offered by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
 
@@ -220,7 +221,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[kubenet]: https://kubernetes.netlify.app/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md

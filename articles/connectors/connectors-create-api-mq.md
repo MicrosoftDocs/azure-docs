@@ -3,15 +3,17 @@ title: Connect to IBM MQ server
 description: Connect to an MQ server on premises or in Azure from a workflow using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: ChristopherHouser
-ms.author: chrishou
-ms.reviewer: valthom, estfan, logicappspm
-ms.topic: article
-ms.date: 04/26/2021
+author: mijacobs
+ms.author: mijacobs
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 03/14/2022
 tags: connectors
 ---
 
 # Connect to an IBM MQ server from a workflow in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 The MQ connector helps you connect your logic app workflows to an IBM MQ server that's either on premises or in Azure. You can then have your workflows receive and send messages stored in your MQ server. This article provides a get started guide to using the MQ connector by showing how to connect to your MQ server and add an MQ action to your workflow. For example, you can start by browsing a single message in a queue and then try other actions.
 
@@ -25,11 +27,9 @@ This connector includes a Microsoft MQ client that communicates with a remote MQ
 
 ## Available operations
 
-The IBM MQ connector provides actions but no triggers.
+* Consumption logic app: You can connect to an MQ server only by using the *managed* MQ connector. This connector provides only actions, no triggers.
 
-* Multi-tenant Azure Logic Apps: When you create a consumption-based logic app workflow, you can connect to an MQ server by using the *managed* MQ connector.
-
-* Single-tenant Azure Logic Apps (preview): When you create a preview logic app workflow, you can connect to an MQ server by using either the managed MQ connector or the *built-in* MQ operations (preview).
+* Standard logic app: You can connect to an MQ server by using either the managed MQ connector, which includes *only* actions, or the *built-in* MQ operations, which include triggers *and* actions.
 
 For more information about the difference between a managed connector and built-in operations, review [key terms in Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
@@ -44,14 +44,17 @@ The following list describes only some of the managed operations available for M
 
 For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
-#### [Built-in (preview)](#tab/built-in)
+#### [Built-in](#tab/built-in)
 
 The following list describes only some of the built-in operations available for MQ:
 
-* Receive a single message or an array of messages from the MQ server. For multiple messages, you can specify the maximum number of messages to return per batch and the maximum batch size in KB.
+* When a message is available in a queue, take some action.
+* When one or more messages are received from a queue (auto-complete), take some action.
+* When one or more messages are received from a queue (peek-lock), take some action.
+* Receive a single message or an array of messages from a queue. For multiple messages, you can specify the maximum number of messages to return per batch and the maximum batch size in KB.
 * Send a single message or an array of messages to the MQ server.
 
-These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/logic-apps-overview-preview.md):
+These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/single-tenant-overview-compare.md):
 
 * Transport Layer Security (TLS) encryption for data in transit
 * Message encoding for both the send and receive operations
@@ -61,7 +64,9 @@ These built-in MQ operations also have the following capabilities plus the benef
 
 ## Limitations
 
-The MQ connector doesn't use the message's **Format** field and doesn't make any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+* The MQ connector doesn't support segmented messages.
+
+* The MQ connector doesn't use the message's **Format** field and doesn't make any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
 
 ## Prerequisites
 
@@ -121,7 +126,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-#### [Built-in (preview)](#tab/built-in)
+#### [Built-in](#tab/built-in)
 
 1. Provide the connection information for your MQ server.
 

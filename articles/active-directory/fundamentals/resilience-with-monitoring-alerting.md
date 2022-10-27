@@ -10,7 +10,7 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: 
-ms.date: 11/30/2020
+ms.date: 09/13/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -18,6 +18,10 @@ ms.collection: M365-identity-device-management
 # Resilience through monitoring and analytics
 
 Monitoring maximizes the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your infrastructure and applications. Alerts proactively notify you when issues are found with your service or applications. They allow you to identify and address issues before the end users of your service notice them. [Azure AD Log Analytics](https://azure.microsoft.com/services/monitor/?OCID=AID2100131_SEM_6d16332c03501fc9c1f46c94726d2264:G:s&ef_id=6d16332c03501fc9c1f46c94726d2264:G:s&msclkid=6d16332c03501fc9c1f46c94726d2264#features) helps you analyze, search the audit logs and sign-in logs, and build custom views.
+
+Watch this video to learn how to set up monitoring and reporting in Azure AD B2C using Azure Monitor.
+
+>[!Video https://www.youtube.com/embed/Mu9GQy-CbXI]
 
 ## Monitor and get notified through alerts
 

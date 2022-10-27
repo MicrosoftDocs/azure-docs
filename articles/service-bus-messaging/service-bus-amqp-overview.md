@@ -2,7 +2,7 @@
 title: Overview of AMQP 1.0 in Azure Service Bus
 description: Learn how Azure Service Bus supports Advanced Message Queuing Protocol (AMQP), an open standard protocol.
 ms.topic: article
-ms.date: 04/08/2021
+ms.date: 05/31/2022
 ---
 
 # Advanced Message Queueing Protocol (AMQP) 1.0 support in Service Bus
@@ -65,7 +65,7 @@ All supported Service Bus client libraries available via the Azure SDK use AMQP 
 - [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
 - [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
-[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+[!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]
 
 In addition, you can use Service Bus from any AMQP 1.0 compliant protocol stack:
 

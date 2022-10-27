@@ -1,14 +1,16 @@
 ---
 title: Perform operations on data
-description: Convert, manage, and manipulate data outputs and formats in Azure Logic Apps
+description: Convert, manage, and manipulate data outputs and formats in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 09/20/2019
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/01/2022
 ---
 
 # Perform data operations in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This article shows how you can work with data in your logic apps by adding actions for these tasks and more:
 
@@ -17,33 +19,6 @@ This article shows how you can work with data in your logic apps by adding actio
 * Create user-friendly tokens from JavaScript Object Notation (JSON) object properties so you can easily use those properties in your workflow.
 
 If you don't find the action you want here, try browsing the many various [data manipulation functions](../logic-apps/workflow-definition-language-functions-reference.md) that Azure Logic Apps provides.
-
-These tables summarize the data operations you can use and are organized based on the source data types that the operations work on, but each description appears alphabetically.
-
-**Array actions** 
-
-These actions help you work with data in arrays.
-
-| Action | Description |
-|--------|-------------|
-| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table from an array. |
-| [**Create HTML table**](#create-html-table-action) | Create an HTML table from an array. |
-| [**Filter array**](#filter-array-action) | Create an array subset from an array based on the specified filter or condition. |
-| [**Join**](#join-action) | Create a string from all the items in an array and separate each item with the specified character. |
-| [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. |
-||| 
-
-**JSON actions**
-
-These actions help you work with data in JavaScript Object Notation (JSON) format.
-
-| Action | Description |
-|--------|-------------|
-| [**Compose**](#compose-action) | Create a message, or string, from multiple inputs that can have various data types. You can then use this string as a single input, rather than repeatedly entering the same inputs. For example, you can create a single JSON message from various inputs. |
-| [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so you can more easily use the properties in your logic apps. |
-|||
-
-To create more complex JSON transformations, see [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
 ## Prerequisites
 
@@ -56,6 +31,35 @@ To create more complex JSON transformations, see [Perform advanced JSON transfor
 * A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app 
 
   Data operations are available only as actions, so before you can use these actions, start your logic app with a trigger and include any other actions required for creating the outputs you want.
+
+## Data operation actions
+
+These tables summarize the data operations you can use and are organized based on the source data types that the operations work on, but each description appears alphabetically.
+
+### Array actions
+
+These actions help you work with data in arrays.
+
+| Action | Description |
+|--------|-------------|
+| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table from an array. |
+| [**Create HTML table**](#create-html-table-action) | Create an HTML table from an array. |
+| [**Filter array**](#filter-array-action) | Create an array subset from an array based on the specified filter or condition. |
+| [**Join**](#join-action) | Create a string from all the items in an array and separate each item with the specified character. |
+| [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. |
+||| 
+
+### JSON actions
+
+These actions help you work with data in JavaScript Object Notation (JSON) format.
+
+| Action | Description |
+|--------|-------------|
+| [**Compose**](#compose-action) | Create a message, or string, from multiple inputs that can have various data types. You can then use this string as a single input, rather than repeatedly entering the same inputs. For example, you can create a single JSON message from various inputs. |
+| [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so you can more easily use the properties in your logic apps. |
+|||
+
+To create more complex JSON transformations, see [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
 <a name="compose-action"></a>
 
@@ -270,6 +274,9 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
    !["Output" fields for the "Create CSV table" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
+   > [!NOTE]
+    > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
+
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
    Based on the email connector you used, here are the results you get:
@@ -426,6 +433,9 @@ To confirm whether the **Create HTML table** action creates the expected results
    > [!NOTE]
    > When including the HTML table output in an email action, make sure that you set the **Is HTML** property to **Yes** 
    > in the email action's advanced options. That way, the email action correctly formats the HTML table.
+
+   > [!NOTE]
+   > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
@@ -710,6 +720,51 @@ To confirm whether the **Select** action creates the expected results, send your
 
    ![Email with "Select" action results](./media/logic-apps-perform-data-operations/select-email-results.png)
 
+## Troubleshooting
+
+### Format table data
+
+If your [CSV table](#create-csv-table-action) or [HTML table](#create-html-table-action) is returned with incorrect formatting, make sure your input data has line breaks between rows. 
+
+Incorrect formatting:
+
+```text
+Fruit,Number Apples,1 Oranges,2
+```
+
+Correct formatting:
+
+```text
+Fruit,Number
+Apples,1
+Oranges,2
+```
+
+To add line breaks between rows, add one of the following expressions to your table:
+
+```text
+replace(body('Create_CSV_table'),'','<br/>')
+```
+
+```text
+replace(body('Create_HTML_table'),'','<br/>')
+```
+
+For example: 
+
+```json
+{
+	"Send_an_email_": {
+		"inputs": {
+			"body": {
+				"Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",
+				"Subject": "Create CSV table results",
+				"To": "sophia.owen@fabrikam.com"
+			}
+		}
+	}
+}
+```
 ## Next steps
 
 * Learn about [Logic Apps connectors](../connectors/apis-list.md)

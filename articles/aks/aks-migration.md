@@ -47,8 +47,8 @@ In this article we will summarize migration details for:
 
 Azure Migrate offers a unified platform to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. For AKS, you can use Azure Migrate for the following tasks:
 
-* [Containerize ASP.NET applications and migrate to AKS](/azure/aks/tutorial-app-containerization-aspnet-kubernetes)
-* [Containerize Java web applications and migrate to AKS](../migrate/tutorial-containerize-java-kubernetes.md)
+* [Containerize ASP.NET applications and migrate to AKS](../migrate/tutorial-app-containerization-aspnet-kubernetes.md)
+* [Containerize Java web applications and migrate to AKS](../migrate/tutorial-app-containerization-java-kubernetes.md)
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
 
@@ -131,8 +131,8 @@ Stateless application migration is the most straightforward case:
 
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
-* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume).
-* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-volume).
+* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-a-persistent-volume).
+* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-a-volume).
 * If neither of those approaches work, you can use a backup and restore options. See [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md).
 
 #### Azure Files
@@ -177,17 +177,19 @@ Some open-source tools can help you create managed disks and migrate volumes bet
 
 We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
-If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
+If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects. For example:
 
 ```console
-kubectl get deployment -o=yaml --export > deployments.yaml
+kubectl get deployment -o yaml > deployments.yaml
 ```
+
+Be sure to examine the output and remove any unnecessary live data fields.
 
 ### Moving existing resources to another region
 
 You may want to move your AKS cluster to a [different region supported by AKS][region-availability]. We recommend that you create a new cluster in the other region, then deploy your resources and applications to your new cluster. 
 
-In addition, if you have any services such as [Azure Dev Spaces][azure-dev-spaces] running on your AKS cluster, you will need to install and configure those services on your cluster in the new region.
+In addition, if you have any services running on your AKS cluster, you will need to install and configure those services on your cluster in the new region.
 
 
 In this article, we summarized migration details for:
@@ -203,4 +205,3 @@ In this article, we summarized migration details for:
 
 
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[azure-dev-spaces]: ../dev-spaces/index.yml

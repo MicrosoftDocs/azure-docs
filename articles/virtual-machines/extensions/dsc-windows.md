@@ -12,6 +12,9 @@ ms.date: 03/26/2018
 ---
 # PowerShell DSC Extension
 
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+
 ## Overview
 
 The PowerShell DSC Extension for Windows is published and supported by Microsoft. The extension uploads and applies a PowerShell DSC Configuration on an Azure VM. The DSC Extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This document details the supported platforms, configurations, and deployment options for the DSC virtual machine extension for Windows.
@@ -122,7 +125,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 Azure VM extensions can be deployed with Azure Resource Manager templates.
 Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 A sample Resource Manager template that includes the DSC extension for Windows can be found on the
-[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/automation-configuration/automation-configuration/nested/provisionServer.json#L91).
+[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration/nested/provisionServer.json#L91).
 
 ## Troubleshoot and support
 

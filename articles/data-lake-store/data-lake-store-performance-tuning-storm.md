@@ -2,11 +2,11 @@
 title: Performance tuning - Storm with Azure Data Lake Storage Gen1
 description: Understand the factors that should be considered when you tune the performance of an Azure Storm topology, including troubleshooting common issues.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Performance tuning guidance for Storm on HDInsight and Azure Data Lake Storage Gen1
@@ -18,7 +18,6 @@ Understand the factors that should be considered when you tune the performance o
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **An Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-* **Running a Storm cluster on Data Lake Storage Gen1**. For more information, see [Storm on HDInsight](../hdinsight/storm/apache-storm-overview.md).
 * **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](./data-lake-store-performance-tuning-guidance.md).  
 
 ## Tune the parallelism of the topology

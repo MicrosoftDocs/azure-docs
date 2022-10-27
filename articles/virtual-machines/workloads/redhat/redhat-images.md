@@ -14,6 +14,8 @@ ms.reviewer: cynthn
 
 # Overview of Red Hat Enterprise Linux images
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article describes available Red Hat Enterprise Linux (RHEL) images in Azure Marketplace and policies around their naming and retention.
 
 For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata). For pricing details, see [Azure pricing calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
@@ -97,7 +99,7 @@ For RHEL 7.x images, there are a few different image types. The following table 
 ## RHEL 8 image types
 
 >[!NOTE]
-> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. More details are available [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. For more information, see [Chapter 5. Configuring kernel command-line parameters Red Hat Enterprise Linux 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
 
 Details for RHEL 8 image types are below.
 
@@ -161,6 +163,13 @@ RHEL 8.0      |N/A                            | No EUS is available from Red Hat
 ### Update Services for SAP
 
 The latest RHEL for SAP images will be connected to the Update Services for SAP Solutions subscriptions (E4S). For more information about E4S, see the Red Hat [documentation](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions).
+
+>[!NOTE]
+> Customers looking to update OS connected to E4S repositories to the latest version can enforce the latest available EUS minor-release in /etc/yum/vars/releasever file without switching to non-EUS.
+> 
+> For information on RedHat EUS availability, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata).
+> 
+> For steps on how to enforce a minor version refer, [RedHat KB#4251981](https://access.redhat.com/solutions/4251981). Steps outlined in this RedHat KB also apply to RHEL8.* versions.
 
 #### RHEL images with E4S
 

@@ -13,7 +13,7 @@ ms.author: mbullwin
 ## Create an Anomaly Detector resource
 
 1. Sign into the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
-1. Select <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">Create Anomaly Detector</a> resource.
+1. Select <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">Create Anomaly Detector</a> resource.
 1. Enter all required settings:
 
     |Setting|Value|

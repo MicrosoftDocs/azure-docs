@@ -1,11 +1,12 @@
 ---
 title: Copy data to or from Oracle by using Data Factory 
 description: Learn how to copy data to or from an on-premises Oracle database by using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 05/15/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Copy data to or from Oracle on-premises by using Azure Data Factory
@@ -116,7 +117,7 @@ The following table describes JSON elements that are specific to the Oracle link
 
 **Example: Using the ODP driver**
 
-To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.oracle.com/in/database/technologies/appdev/dotnet/odp.html).
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
 title: Author policies for array properties on resources
 description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
 ---
 # Author policies for array properties on Azure resources
@@ -104,7 +104,7 @@ API. The values are passed through a JSON string that also includes the name of 
 To use this string with each SDK, use the following commands:
 
 - Azure CLI: Command
-  [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) with
+  [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) with
   parameter **params**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment)
   with parameter **PolicyParameter**
@@ -273,9 +273,9 @@ functions.
 
 ### Referencing array fields
 
-Array resource properties are usually represented by two different types of aliases. One 'normal'
-alias and [array aliases](../concepts/definition-structure.md#understanding-the--alias) that have
-`[*]` attached to it:
+Array resource properties are represented by two different types of aliases. One 'normal' alias and
+[array aliases](../concepts/definition-structure.md#understanding-the--alias) that have `[*]`
+attached to it:
 
 - `Microsoft.Test/resourceType/stringArray`
 - `Microsoft.Test/resourceType/stringArray[*]`
@@ -686,7 +686,8 @@ function, the way to do so is to wrap it with a `first()` template function:
 | 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
 | 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
-For useful examples, see [Field count examples](../concepts/definition-structure.md#field-count-examples).
+For useful examples, see
+[Field count examples](../concepts/definition-structure.md#field-count-examples).
 
 ## Modifying arrays
 

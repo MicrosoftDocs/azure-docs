@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 04/29/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ---
 
@@ -34,15 +34,30 @@ This article discusses best practices and useful tips for using the Azure Batch 
 
 - **Business continuity during pool maintenance and failure:** There are many reasons why a pool may not grow to the size you desire, such as internal errors or capacity constraints. Make sure you can retarget jobs at a different pool (possibly with a different VM size; Batch supports this via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) if necessary. Avoid relying on a static pool ID with the expectation that it will never be deleted and never change.
 
+### Pool security
+
+#### Isolation boundary
+
+For the purposes of isolation, if your scenario requires isolating jobs or tasks from each other, do so by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools are not visible or able to communicate with each other. Avoid using separate Batch accounts as a means of security isolation unless the larger environment from which the Batch account operates in requires isolation.
+
+#### Batch Node Agent updates
+
+Batch node agents are not automatically upgraded for pools that have non-zero compute nodes. In order to ensure your Batch pools receive the latest security fixes and updates to the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It is recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand changes to new Batch node agent versions and when they were released so that you can plan to upgrade to the latest agent version.
+
+Before you recreate or resize your pool, you should download any node agent logs for debugging purposes if you are experiencing issues with your Batch pool or compute nodes, as discussed in the [Nodes](#nodes) section.
+
+> [!NOTE]
+> For general guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
+
 ### Pool lifetime and billing
 
 Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service ([autoscale](nodes-and-pools.md#automatic-scaling-policy) or [autopool](nodes-and-pools.md#autopools)).
 
-- **Pool freshness:** Resize your pools to zero every few months to ensure you get the [latest node agent updates and bug fixes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Your pool won't receive node agent updates unless it's recreated (or if it's resized to 0 compute nodes). Before you recreate or resize your pool, you should download any node agent logs for debugging purposes, as discussed in the [Nodes](#nodes) section.
+- **Pool recreation:** Avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
-- **Pool recreation:** On a similar note, avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
+- **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for Azure resources that are utilized, such as compute, storage, networking and any other resources that may be required for your Batch workload. You're billed for every compute node in the pool, regardless of the state it is in. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 
-- **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for the compute resources used. You're billed for every compute node in the pool, regardless of the state it's in. This includes any charges required for the node to run, such as storage and networking costs. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
+- **Ephemeral OS disks:** Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
 
 ### Pool allocation failures
 
@@ -54,7 +69,7 @@ It's possible for Batch pools to experience downtime events in Azure. Keep this 
 
 ### Custom image pools
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create the pool with a supported Azure Marketplace image, or you can [create a custom image with a Shared Image Gallery image](batch-sig-images.md). While you can also use a [managed image](batch-custom-images.md) to create a custom image pool, we recommend creating custom images using the Shared Image Gallery whenever possible. Using the Shared Image Gallery helps you provision pools faster, scale larger quantities of VMs, and improve reliability when provisioning VMs.
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create the pool with a supported Azure Marketplace image, or you can [create a custom image with an Azure Compute Gallery image](batch-sig-images.md). While you can also use a [managed image](batch-custom-images.md) to create a custom image pool, we recommend creating custom images using the Azure Compute Gallery whenever possible. Using the Azure Compute Gallery helps you provision pools faster, scale larger quantities of VMs, and improve reliability when provisioning VMs.
 
 ### Third-party images
 
@@ -114,7 +129,7 @@ Tasks can be automatically retried by Batch. There are two types of retries: use
 
 Although rare, a task can be retried internally due to failures on the compute node, such as not being able to update internal state or a failure on the node while the task is running. The task will be retried on the same compute node, if possible, up to an internal limit before giving up on the task and deferring the task to be rescheduled by Batch, potentially on a different compute node.
 
-There are no design differences when executing your tasks on dedicated or low-priority nodes. Whether a task is preempted while running on a low-priority node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
+There are no design differences when executing your tasks on dedicated or [Spot nodes](batch-spot-vms.md). Whether a task is preempted while running on a Spot node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
 
 ### Build durable tasks
 
@@ -162,19 +177,15 @@ For user subscription mode Batch accounts, automated OS upgrades can interrupt t
 
 For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Allowing automatic updates is recommended, but you can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
 
-## Isolation security
-
-For the purposes of isolation, if your scenario requires isolating jobs from each other, do so by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools are not visible or able to communicate with each other. Avoid using separate Batch accounts as a means of isolation.
-
 ## Connectivity
 
 Review the following guidance related to connectivity in your Batch solutions.
 
 ### Network Security Groups (NSGs) and User Defined Routes (UDRs)
 
-When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you are closely following the guidelines regarding the use of the `BatchNodeManagement` service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended, rather than using the underlying Batch service IP addresses. This is because the IP addresses can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
+When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you are closely following the guidelines regarding the use of the `BatchNodeManagement` service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended; do not use underlying Batch service IP addresses as these can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools. 
 
-For User Defined Routes (UDRs), ensure that you have a process in place to update Batch service IP addresses periodically in your route table, since these addresses change over time. To learn how to obtain the list of Batch service IP addresses, see [Service tags on-premises](../virtual-network/service-tags-overview.md). The Batch service IP addresses will be associated with the `BatchNodeManagement` service tag (or the regional variant that matches your Batch account region).
+For User Defined Routes (UDRs), it is recommended to use `BatchNodeManagement` [service tags](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) instead of Batch service IP addresses as these can change over time.
 
 ### Honoring DNS
 
@@ -192,7 +203,7 @@ Typically, virtual machines in a Batch pool are accessed through public IP add
 
 ### Testing connectivity with Cloud Services configuration
 
-You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol is not permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol is not permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-).
 
 ## Batch node underlying dependencies
 

@@ -3,7 +3,7 @@ title: IllegalArgumentException error for Apache Spark - Azure HDInsight
 description: IllegalArgumentException for Apache Spark activity in Azure HDInsight for Azure Data Factory 
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/29/2019
+ms.date: 06/29/2022
 ---
 
 # Scenario: IllegalArgumentException for Apache Spark activity in Azure HDInsight
@@ -33,4 +33,4 @@ Make sure the application jar is stored on the default/primary storage for the H
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

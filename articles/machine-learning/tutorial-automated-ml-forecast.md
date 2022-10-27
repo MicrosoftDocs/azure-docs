@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Train and deploy a demand forecasting model without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
-ms.author: sacartac
-ms.reviewer: nibaccam
-author: cartacioS
-ms.date: 12/21/2020
-ms.custom: automl
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
+ms.date: 10/21/2021
+ms.custom: automl, ignite-2022
+#Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
-# Tutorial: Forecast demand with automated machine learning
+# Tutorial: Forecast demand with no-code automated machine learning in the Azure Machine Learning studio
 
 Learn how to create a [time-series forecasting model](concept-automated-ml.md#time-series-forecasting) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This model will predict rental demand for a bike sharing service.  
 
@@ -30,13 +30,13 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of a classification model, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-* For a code first example of a regression model, see the [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+* For a code first example of an object detection model, see the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
-* Download the [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data file
+* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
 
 ## Sign in to the studio
 
@@ -50,7 +50,7 @@ For this tutorial, you create your automated ML experiment run in Azure Machine 
 
 1. In the left pane, select **Automated ML** under the **Author** section.
 
-1. Select **+New automated ML run**. 
+1. Select **+New automated ML job**. 
 
 ## Create and load dataset
 
@@ -64,9 +64,9 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location where you'll upload your data file. 
 
-    1. Select **Browse**. 
+    1. Select **Upload files** from the **Upload** drop-down.. 
     
-    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
+    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
     1. Select **Next**
 
@@ -79,7 +79,7 @@ Before you configure your experiment, upload your data file to your workspace in
         File format|Defines the layout and type of data stored in a file.| Delimited
         Delimiter|One or more characters for specifying the boundary between&nbsp; separate, independent regions in plain text or other data streams. |Comma
         Encoding|Identifies what bit to character schema table to use to read your dataset.| UTF-8
-        Column headers| Indicates how the headers of the dataset, if any, will be treated.| Use headers from the first file
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.| Only first file has headers
         Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
 
     1. The **Schema** form allows for further configuration of your data for this experiment. 
@@ -98,22 +98,24 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select  **Next**.
 
-## Configure run
+## Configure job
 
 After you load and configure your data, set up your remote compute target and select which column in your data you want to predict.
 
-1. Populate the **Configure run** form as follows:
+1. Populate the **Configure job** form as follows:
     1. Enter an experiment name: `automl-bikeshare`
 
     1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total bike share rentals.
 
-    1. Select **Create a new compute** and configure your compute target. Automated ML only supports Azure Machine Learning compute. 
+    1. Select **compute cluster** as your compute type. 
 
-        1. Populate the **Virtual Machine** form to set up your compute.
+    1. Select **+New** to configure your compute target. Automated ML only supports Azure Machine Learning compute. 
+
+        1. Populate the **Select virtual machine** form to set up your compute.
 
             Field | Description | Value for tutorial
             ----|---|---
-            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Virtual&nbsp;machine&nbsp;tier |Select what priority your experiment should have| Dedicated
             Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
             Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
         
@@ -142,7 +144,9 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 1. Select **date** as your **Time column** and leave **Time series identifiers** blank. 
 
-1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect Autodetect and type 14 in the field. 
+1. The **Frequency** is how often your historic data is collected. Keep **Autodetect** selected. 
+1.
+1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect **Autodetect** and type 14 in the field. 
 
 1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
 
@@ -153,17 +157,22 @@ Complete the setup for your automated ML experiment by specifying the machine le
     Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
     Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
     Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
-    Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
     Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
     
     Select **Save**.
 
+1. Select **Next**.
+    
+1. On the **[Optional] Validate and test** form, 
+    1. Select k-fold cross-validation as your **Validation type**.
+    1.  Select 5 as your **Number of cross validations**.
+
 ## Run experiment
 
-To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
+To run your experiment, select **Finish**. The **Job details**  screen opens with the **Job status** at the top next to the job number. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
 
 >[!IMPORTANT]
-> Preparation takes **10-15 minutes** to prepare the experiment run.
+> Preparation takes **10-15 minutes** to prepare the experiment job.
 > Once running, it takes **2-3 minutes more for each iteration**.<br> <br>
 > In production, you'd likely walk away for a bit as this process takes time. While you wait, we suggest you start exploring the tested algorithms on the **Models** tab as they complete. 
 
@@ -183,13 +192,13 @@ Automated machine learning in Azure Machine Learning studio allows you to deploy
 
 For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bike share rental demand. 
 
-Once the run is complete, navigate back to parent run page by selecting **Run 1** at the top of your screen.
+Once the job is complete, navigate back to parent job page by selecting **Job 1** at the top of your screen.
 
-In the **Best model summary** section, **StackEnsemble** is considered the best model in the context of this experiment, based on the **Normalized root mean squared error** metric.  
+In the **Best model summary** section, the best model in the context of this experiment, is selected based on the **Normalized root mean squared error metric.** 
 
 We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. Select **StackEnsemble** to open the model-specific page.
+1. Select **the best model** to open the model-specific page.
 
 1. Select the **Deploy** button located in the top-left area of the screen.
 
@@ -207,7 +216,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
 
 1. Select **Deploy**.  
 
-    A green success message appears at the top of the **Run** screen stating that the deployment was started successfully. The progress of the deployment can be found in the **Model summary** pane under **Deploy status**.
+    A green success message appears at the top of the **Job** screen stating that the deployment was started successfully. The progress of the deployment can be found in the **Model summary** pane under **Deploy status**.
     
 Once deployment succeeds, you have an operational web service to generate predictions. 
 
@@ -243,7 +252,7 @@ See this article for steps on how to create a Power BI supported schema to facil
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
++ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > This bike share dataset has been modified for this tutorial. This dataset was made available as part of a [Kaggle competition](https://www.kaggle.com/c/bike-sharing-demand/data) and was originally available via [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). It can also be found within the [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

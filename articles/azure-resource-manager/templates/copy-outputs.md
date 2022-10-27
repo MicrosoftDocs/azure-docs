@@ -2,17 +2,19 @@
 title: Define multiple instances of an output value
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when returning a value from a deployment.
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/07/2021
 ---
+
 # Output iteration in ARM templates
 
 This article shows you how to create more than one value for an output in your Azure Resource Manager template (ARM template). By adding copy loop to the outputs section of your template, you can dynamically return a number of items during deployment.
 
 You can also use copy loop with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
-## Syntax
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
 
-# [JSON](#tab/json)
+## Syntax
 
 Add the `copy` element to the output section of your template to return a number of items. The copy element has the following general format:
 
@@ -26,37 +28,6 @@ Add the `copy` element to the output section of your template to return a number
 The `count` property specifies the number of iterations you want for the output value.
 
 The `input` property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the `input` property. It can be a single property (like a string), or an object with several properties.
-
-# [Bicep](#tab/bicep)
-
-Loops can be used to return a number of items during deployment:
-
-- Iterating over an array:
-
-  ```bicep
-  output <output-name> array = [for <item> in <collection>: {
-    <properties>
-  }]
-
-  ```
-
-- Iterating over the elements of an array
-
-  ```bicep
-  output <output-name> array = [for <item>, <index> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Using loop index
-
-  ```bicep
-  output <output-name> array = [for <index> in range(<start>, <stop>): {
-    <properties>
-  }]
-  ```
-
----
 
 ## Copy limits
 
@@ -74,8 +45,6 @@ Earlier versions of PowerShell, CLI, and the REST API don't support zero for cou
 ## Outputs iteration
 
 The following example creates a variable number of storage accounts and returns an endpoint for each storage account:
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -119,28 +88,6 @@ The following example creates a variable number of storage accounts and returns 
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
-
-resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-
-output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
-```
-
----
-
 The preceding template returns an array with the following values:
 
 ```json
@@ -151,8 +98,6 @@ The preceding template returns an array with the following values:
 ```
 
 The next example returns three properties from the new storage accounts.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -200,32 +145,6 @@ The next example returns three properties from the new storage accounts.
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
-
-resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-
-output storageInfo array = [for i in range(0, storageCount): {
-  id: reference(concat(i, baseName_var), '2019-04-01', 'Full').resourceId
-  blobEndpoint: reference(concat(i, baseName_var)).primaryEndpoints.blob
-  status: reference(concat(i, baseName_var)).statusOfPrimary
-}]
-```
-
----
-
 The preceding example returns an array with the following values:
 
 ```json
@@ -250,5 +169,5 @@ The preceding example returns an array with the following values:
   - [Resource iteration in ARM templates](copy-resources.md)
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)
-- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 - To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

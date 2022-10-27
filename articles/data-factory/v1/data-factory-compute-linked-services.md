@@ -5,11 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ---
 
 # Compute environments supported by Azure Data Factory version 1
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [Compute linked services in](../compute-linked-services.md).
 
@@ -21,7 +25,7 @@ The following table provides a list of compute environments that are supported b
 | ---------------------------------------- | ---------------------------------------- |
 | [On-demand Azure HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning Studio (classic)](#azure-machine-learning-studio-classic-linked-service) | [Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [ML Studio (classic)](#ml-studio-classic-linked-service) | [Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure Activity](data-factory-stored-proc-activity.md) |
 
@@ -40,7 +44,7 @@ Microsoft updates the list of supported HDInsight versions  with the latest Hado
 After December 15, 2017:
 
 - You can no longer create Linux-based HDInsight version 3.3 (or earlier versions) clusters by using an on-demand HDInsight linked service in Data Factory version 1. 
-- If the  [**osType** and **Version** properties](#azure-hdinsight-on-demand-linked-service) are not explicitly specified in the JSON definition for an existing Data Factory version 1 on-demand HDInsight linked service, the default value is changed from **Version=3.1, osType=Windows** to **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
+- If the  [**osType** and **Version** properties](#azure-hdinsight-on-demand-linked-service) are not explicitly specified in the JSON definition for an existing Data Factory version 1 on-demand HDInsight linked service, the default value is changed from **Version=3.1, osType=Windows** to **Version=\<latest HDI default version\>, osType=Linux**.
 
 After July 31, 2018:
 
@@ -221,7 +225,7 @@ This type of configuration is supported for the following compute environments:
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning Studio (classic)
+* ML Studio (classic)
 * Azure Data Lake Analytics
 * Azure SQL Database, Azure Synapse Analytics, SQL Server
 
@@ -259,7 +263,7 @@ You can create a Batch linked service to register a Batch pool of virtual machin
 
 If you are new to using the Batch service:
 
-* Learn about [Azure Batch basics](../../azure-sql/database/sql-database-paas-overview.md).
+* Learn about [Azure Batch basics](/azure/azure-sql/database/sql-database-paas-overview).
 * Learn about the [New-AzureBatchAccount](/previous-versions/azure/mt125880(v=azure.100)) cmdlet. Use this cmdlet to create a Batch account. Or, you can create the Batch account by using the [Azure portal](../../batch/batch-account-create-portal.md). For detailed information about using the cmdlet, see [Using PowerShell to manage a Batch account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account).
 * Learn about the [New-AzureBatchPool](/previous-versions/azure/mt125936(v=azure.100)) cmdlet. Use this cmdlet to create a Batch pool.
 
@@ -302,8 +306,11 @@ Another option is to provide the **batchUri** endpoint. For example:
 | poolName          | The name of the pool of VMs.    | Yes      |
 | linkedServiceName | The name of the storage linked service that's associated with this Batch linked service. This linked service is used for staging files that are required to run the activity, and to store activity execution logs. | Yes      |
 
-## Azure Machine Learning Studio (classic) linked service
-You can create an Azure Machine Learning Studio (classic) linked service to register a Studio (classic) batch scoring endpoint to a data factory.
+## ML Studio (classic) linked service
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
+You can create an ML Studio (classic) linked service to register a Studio (classic) batch scoring endpoint to a data factory.
 
 ### Example
 

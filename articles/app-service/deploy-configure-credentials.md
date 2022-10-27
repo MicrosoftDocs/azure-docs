@@ -22,7 +22,7 @@ and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as you
 
 # [Azure CLI](#tab/cli)
 
-Run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) command. Replace \<username> and \<password> with a deployment user username and password. 
+Run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command. Replace \<username> and \<password> with a deployment user username and password. 
 
 - The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 
@@ -73,13 +73,13 @@ Since user-scope credentials are linked to the user and not a specific resource,
 
 # [Azure CLI](#tab/cli)
 
-Get the application-scope credentials using the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) command. For example:
+Get the application-scope credentials using the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. For example:
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
 ```
 
-For [local Git deployment](deploy-local-git.md), you can also use the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) command to get a Git remote URI for your app, with the application-scope credentials already embedded. For example:
+For [local Git deployment](deploy-local-git.md), you can also use the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command to get a Git remote URI for your app, with the application-scope credentials already embedded. For example:
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
@@ -107,7 +107,7 @@ Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
 
 # [Azure CLI](#tab/cli)
 
-Reset the application-scope credentials using the [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) command:
+Reset the application-scope credentials using the [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action) command:
 
 ```azurecli-interactive
 az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites

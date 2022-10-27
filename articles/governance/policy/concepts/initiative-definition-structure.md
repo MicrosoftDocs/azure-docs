@@ -1,7 +1,7 @@
 ---
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
-ms.date: 03/16/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Azure Policy initiative definition structure
@@ -262,7 +262,7 @@ Each _array_ element that represents a policy definition has the following prope
 - `groupNames` (array of strings): (Optional) The group the policy definition is a member of. For
   more information, see [Policy groups](#policy-definition-groups).
 
-Here is an example of `policyDefinitions` that has two included policy definitions that are each
+Here's an example of `policyDefinitions` that has two included policy definitions that are each
 passed the same initiative parameter:
 
 ```json
@@ -293,7 +293,7 @@ passed the same initiative parameter:
 Policy definitions in an initiative definition can be grouped and categorized. Azure Policy's
 [Regulatory Compliance](./regulatory-compliance.md) (preview) feature uses this property to group
 definitions into **controls** and **compliance domains**. This information is defined in the
-`policyDefinitionGroups` _array_ property. Additional grouping details may be found in a
+`policyDefinitionGroups` _array_ property. More grouping details may be found in a
 **policyMetadata** object created by Microsoft. For information, see
 [metadata objects](#metadata-objects).
 

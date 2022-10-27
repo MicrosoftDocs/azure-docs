@@ -9,12 +9,13 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with TLS/SSL certificates so that I can protect my customer data on web applications that I build and run.
 ---
 
 # Tutorial: Secure a web server on a Windows virtual machine in Azure with TLS/SSL certificates stored in Key Vault
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 > [!NOTE]
 > Currently this doc only works for Generalized images. If attempting this tutorial using a Specialized disk you will receive an error. 
@@ -131,7 +132,7 @@ Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
 Use the Custom Script Extension again with [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to update the IIS configuration. This update applies the certificate injected from Key Vault to IIS and configures the web binding:
 
 ```azurepowershell-interactive
-$PublicSettings = '{
+$publicSettings = '{
     "fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/secure-iis.ps1"],
     "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File secure-iis.ps1"
 }'

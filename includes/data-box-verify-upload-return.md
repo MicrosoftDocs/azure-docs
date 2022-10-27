@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 05/07/2021
+ms.date: 06/08/2022
 ms.author: alkohli
 ---
 
@@ -59,7 +59,6 @@ In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
 > * Prerequisites
-> * Prepare to ship
 > * Ship Data Box to Microsoft
 > * Verify data upload to Azure
 > * Erasure of data from Data Box

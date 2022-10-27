@@ -5,13 +5,19 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
 # Configure webhook subscriber authentication
 
 This guide gives examples of the possible webhook subscriber configurations for an Event Grid module. By default, only HTTPS endpoints are accepted for webhook subscribers. The Event Grid module will reject if the subscriber presents a self-signed certificate.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 
 ## Allow only HTTPS subscriber
 

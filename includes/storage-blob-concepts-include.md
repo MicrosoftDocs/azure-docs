@@ -29,7 +29,7 @@ Users or client applications can access objects in Blob storage via HTTP/HTTPS, 
 * [Java](/java/api/overview/azure/storage)
 * [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
 * [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)
-* [Go](https://github.com/azure/azure-storage-blob-go/)
+* [Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob)
 * [PHP](https://azure.github.io/azure-storage-php/)
 * [Ruby](https://azure.github.io/azure-storage-ruby)
 

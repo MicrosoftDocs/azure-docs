@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: timoklimmer
-ms.author: tklimmer
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 10/04/2022
 
 ---
 
@@ -24,13 +24,21 @@ The following data platform tools are supported on the DSVM.
 | Category | Value |
 | ------------- | ------------- |
 | What is it?   | A local relational database instance      |
-| Supported DSVM editions      | Windows 2019, Ubuntu 18.04 (SQL Server 2019)   |
+| Supported DSVM editions      | Windows 2019, Linux (SQL Server 2019)   |
 | Typical uses      | <ul><li>Rapid development locally with smaller dataset</li><li>Run In-database R</li></ul> |
 | Links to samples      | <ul><li>A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi`</li><li>Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
 | Related tools on the DSVM       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC drivers</li><li>pyodbc, RODBC</li></ul> |
 
 > [!NOTE]
 > SQL Server Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
+
+> [!NOTE]
+> Support for Machine Learning Server Standalone will end July 1, 2021. We will remove it from the DSVM images after
+> June, 30. Existing deployments will continue to have access to the software but due to the reached support end date,
+> there will be no support for it after July 1, 2021.
+
+> [!NOTE]
+> We will remove SQL Server Developer Edition from DSVM images by end of November, 2021. Existing deployments will continue to have SQL Server Developer Edition installed. In new deployemnts, if you would like to have access to SQL Server Developer Edition you can install and use via Docker support see [Quickstart: Run SQL Server container images with Docker](/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash&preserve-view=true)
 
 ### Windows
 
@@ -59,7 +67,7 @@ Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL
 
 ### Ubuntu
 
-To use SQL Server Developer Edition on an Ubuntu DSVM, you need to install it first. [Quickstart: Install SQL Server and create a database on Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu) tells you how.
+To use SQL Server Developer Edition on an Ubuntu DSVM, you need to install it first. [Quickstart: Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu) tells you how.
 
 
 

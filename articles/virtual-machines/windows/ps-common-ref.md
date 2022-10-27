@@ -11,6 +11,8 @@ ms.author: cynthn
 ---
 # Common PowerShell commands for creating and managing Azure Virtual Machines
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 This article covers some of the Azure PowerShell commands that you can use to create and manage virtual machines in your Azure subscription.  For more detailed help with specific command-line switches and options, you can use the **Get-Help** *command*.
 
  

@@ -1,15 +1,14 @@
 ---
 title: Designing tables
-description: Introduction to designing tables using dedicated SQL pool in Azure Synapse Analytics. 
-services: synapse-analytics
-author: XiaoyuMSFT
+description: Introduction to designing tables using dedicated SQL pool. 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 03/15/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 07/20/2022
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -31,15 +30,15 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 
 Schemas are a good way to group tables, used in a similar fashion, together.  If you're migrating multiple databases from an on-prem solution to a dedicated SQL pool, it works best to migrate all of the fact, dimension, and integration tables to one schema in a dedicated SQL pool.
 
-For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) sample dedicated SQL pool within one schema called wwi. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) called wwi.
+For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) sample dedicated SQL pool within one schema called `wwi`. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) called `wwi`.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-To show the organization of the tables in dedicated SQL pool, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW.  
+To show the organization of the tables in dedicated SQL pool, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for `WideWorldImportersDW`.  
 
-| WideWorldImportersDW table  | Table type | Dedicated SQL pool |
+| **WideWorldImportersDW table**  | *Table type* | **Dedicated SQL pool** |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
 | Order | Fact | wwi.FactOrder |
@@ -60,11 +59,11 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results and also to reduce the need for cleanup.  
 
-Temporary tables utilize local storage to offer fast performance.  For more information, see  [Temporary tables](sql-data-warehouse-tables-temporary.md).
+Temporary tables utilize local storage to offer fast performance. For more information, see [Temporary tables](sql-data-warehouse-tables-temporary.md).
 
 ### External table
 
-An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into dedicated SQL pool.
+An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into dedicated SQL pool.
 
 As such, external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](./load-data-from-azure-blob-storage-using-copy.md).
 
@@ -98,11 +97,14 @@ For more information, see [Design guidance for distributed tables](sql-data-ware
 
 The table category often determines which option to choose for distributing the table.
 
-| Table category | Recommended distribution option |
+| **Table category** | **Recommended distribution option** |
 |:---------------|:--------------------|
 | Fact           | Use hash-distribution with clustered columnstore index. Performance improves when two hash tables are joined on the same distribution column. |
 | Dimension      | Use replicated for smaller tables. If tables are too large to store on each Compute node, use hash-distributed. |
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
+
+> [!NOTE]
+> For recommendations on the best table distribution strategy to use based on your workloads, see the [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md).
 
 ## Table partitions
 
@@ -139,7 +141,7 @@ PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used. 
 
 You can create a table as a new empty table. You can also create and populate a table with the results of a select statement. The following are the T-SQL commands for creating a table.
 
-| T-SQL Statement | Description |
+| **T-SQL Statement**| **Description** |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Creates an empty table by defining all the table columns and options. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Creates an external table. The definition of the table is stored in dedicated SQL pool. The table data is stored in Azure Blob storage or Azure Data Lake Store. |
@@ -233,6 +235,7 @@ INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
     ON nt.[object_id] = nps.[object_id]
     AND nt.[pdw_node_id] = nps.[pdw_node_id]
     AND nt.[distribution_id] = nps.[distribution_id]
+    AND i.[index_id] = nps.[index_id]
 LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where distribution_ordinal = 1) cdp
     ON t.[object_id] = cdp.[object_id]
 LEFT OUTER JOIN sys.columns c
@@ -292,7 +295,7 @@ FROM size
 
 ### Table space summary
 
-This query returns the rows and space by table.  It allows you to see which tables are your largest tables and whether they're round-robin, replicated, or hash -distributed.  For hash-distributed tables, the query shows the distribution column.  
+This query returns the rows and space by table.  It allows you to see which tables are your largest tables and whether they are round-robin, replicated, or hash-distributed.  For hash-distributed tables, the query shows the distribution column.  
 
 ```sql
 SELECT
@@ -370,4 +373,8 @@ ORDER BY    distribution_id
 
 ## Next steps
 
-After creating the tables for your dedicated SQL pool, the next step is to load data into the table.  For a loading tutorial, see [Loading data to dedicated SQL pool](load-data-wideworldimportersdw.md).
+After creating the tables for your dedicated SQL pool, the next step is to load data into the table. For a loading tutorial, see [Loading data to dedicated SQL pool](load-data-wideworldimportersdw.md) and review [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](design-elt-data-loading.md).
+
+- [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md)
+- [Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md)
+- [Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](cheat-sheet.md)

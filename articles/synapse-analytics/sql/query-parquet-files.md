@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Query Parquet files using serverless SQL pool in Azure Synapse Analytics
@@ -38,7 +38,7 @@ Make sure that you can access this file. If your file is protected with SAS key 
 > You can easily change the default collation of the current database using the following T-SQL statement:
 >   `alter database current collate Latin1_General_100_BIN2_UTF8`'
 
-If you use a _BIN2 collation you get an additional performance boost. BIN2 collation is compatible with parquet string sorting rules so we a some parts of the parquet files that will not contain data needed in the queries (file/column-segment pruning) can be eliminated. If you use a non-BIN2 collation all data from the parquet fill will be loaded into Synapse SQL with the filtering happening within the SQL process which might be much slower than with file elimination of the unneeded data. BIN2 collation has additional performance optimization that works only for parquet and CosmosDB. The downside is that you lose fine-grained comparison rules like case insensitivity.
+If you use the `Latin1_General_100_BIN2_UTF8` collation you will get an additional performance boost compared to the other collations. The `Latin1_General_100_BIN2_UTF8` collation is compatible with parquet string sorting rules. The SQL pool is able to eliminate some parts of the parquet files that will not contain data needed in the queries (file/column-segment pruning). If you use other collations, all data from the parquet files will be loaded into Synapse SQL and the filtering is happening within the SQL process. The `Latin1_General_100_BIN2_UTF8` collation has additional performance optimization that works only for parquet and CosmosDB. The downside is that you lose fine-grained comparison rules like case insensitivity.
 
 ### Data source usage
 

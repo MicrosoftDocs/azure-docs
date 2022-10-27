@@ -1,10 +1,14 @@
 ---
 title: Guidelines for Reliable Collections
 description: Guidelines and Recommendations for using Service Fabric Reliable Collections in an Azure Service Fabric application.
-
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
 This section provides guidelines for using Reliable State Manager and Reliable Collections. The goal is to help users avoid common pitfalls.
 
@@ -12,7 +16,7 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 
 * Do not modify an object of custom type returned by read operations (for example, `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 * Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them unless they contain reference-typed fields or properties that you intend to modify.
-* Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
+* Do not use `TimeSpan.MaxValue` for timeouts. Timeouts should be used to detect deadlocks.
 * Do not use a transaction after it has been committed, aborted, or disposed.
 * Do not use an enumeration outside of the transaction scope it was created in.
 * Do not create a transaction within another transaction's `using` statement because it can cause deadlocks.
@@ -24,10 +28,13 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Consider using backup and restore functionality to have disaster recovery.
 * Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
 * Do handle InvalidOperationException. User transactions can be aborted by the system for variety of reasons. For example, when the Reliable State Manager is changing its role out of Primary or when a long-running transaction is blocking truncation of the transactional log. In such cases, user may receive InvalidOperationException indicating that their transaction has already been terminated. Assuming, the termination of the transaction was not requested by the user, best way to handle this exception is to dispose the transaction, check if the cancellation token has been signaled (or the role of the replica has been changed), and if not create a new transaction and retry.  
+* Do not apply any parallelism within a transaction.
+* Consider dispose transaction as soon as possible after commit completes (especially if using ConcurrentQueue).
+* Do not perform any blocking code inside a transaction.
 
 Here are some things to keep in mind:
 
-* The default time-out is four seconds for all the Reliable Collection APIs. Most users should use the default time-out.
+* The default timeout is 4 seconds for all the Reliable Collection APIs. Most users should use the default timeout.
 * The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
 * The key type parameter (*TKey*) for a Reliable Dictionary must correctly implement `GetHashCode()` and `Equals()`. Keys must be immutable.
 * To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.

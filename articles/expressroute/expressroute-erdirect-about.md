@@ -4,8 +4,9 @@ description: Learn about key features of Azure ExpressRoute Direct and informati
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 08/31/2021
 ms.author: duau
 ---
 
@@ -15,7 +16,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
-* Massive Data Ingestion into services like Storage and Cosmos DB
+* Massive data ingestion into services like Azure Storage and Azure Cosmos DB
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity like: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 
@@ -32,7 +33,7 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
     ```
 
 1. Register your subscription for Public Preview using the following command:
-1. 
+
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
@@ -43,7 +44,7 @@ Once enrolled, verify that **Microsoft.Network** resource provider is registered
 
 1. In your subscription, for **Resource Providers**, verify **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider isn't present in the list of registered providers, add it.
 
-If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, email ExpressRouteDirect@microsoft.com to request more inventory.
+If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, please log a support request to request more inventory.
 
 ## ExpressRoute using a service provider and ExpressRoute Direct
 
@@ -64,12 +65,14 @@ The functionality in most scenarios is equivalent to circuits that use an Expres
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100-Gbps circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
+ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
 
 | **100-Gbps ExpressRoute Direct** | **10-Gbps ExpressRoute Direct** | 
 | --- | --- |
 | **Subscribed Bandwidth**: 200 Gbps | **Subscribed Bandwidth**: 20 Gbps |
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+> You are able to provision logical ExpressRoute circuits on top of your chosen ExpressRoute Direct resource (10G/100G) up to the Subscribed Bandwidth (20G/200G). E.g. You can provision two 10G ExpressRoute circuits within a single 10G ExpressRoute Direct resource (port pair). Today you must use Azure CLI or PowerShell when configuring circuits that over-subscribe the ExpressRoute Direct resource.
 
 ## Technical Requirements
 
@@ -95,14 +98,24 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 * **Dot1Q VLAN Tagging** allows for a single tagged VLAN on a per ExpressRoute Direct port pair basis. A C-Tag used on a peering must be unique across all circuits and peerings on the ExpressRoute Direct port pair.
 
-## Workflow
+## Workflows
 
-[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+### Set up ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/set-up-workflow.png" alt-text="Diagram of the ExpressRoute Direct set up workflow." lightbox="./media/expressroute-erdirect-about/set-up-workflow-expanded.png":::
+
+### Delete ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/delete-workflow.png" alt-text="Diagram of the ExpressRoute Direct delete workflow." lightbox="./media/expressroute-erdirect-about/delete-workflow-expanded.png":::
 
 ## SLA
 
-ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales correctly with customer requirements. 
+ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales correctly with customer requirements.
+
+## Pricing
+
+For details on how ExpressRoute Direct is billed, see [ExpressRoute FAQ](expressroute-faqs.md#when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs). For pricing details, see [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## Next steps
 
-[Configure ExpressRoute Direct](expressroute-howto-erdirect.md)
+Learn how to [configure ExpressRoute Direct](expressroute-howto-erdirect.md).

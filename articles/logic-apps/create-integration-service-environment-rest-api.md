@@ -1,14 +1,16 @@
 ---
 title: Create integration service environments (ISEs) with Logic Apps REST API
-description: Create an integration service environment (ISE) by using the Logic Apps REST API so you can access Azure virtual networks (VNETs) from Azure Logic Apps
+description: Create an integration service environment (ISE) to access Azure virtual networks (VNETs) using the Azure Logic Apps REST API.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rarayudu, logicappspm
-ms.topic: conceptual
-ms.date: 02/03/2021
+ms.reviewer: rarayudu, azla
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), you can create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) by using the Logic Apps REST API. To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -17,7 +19,7 @@ This article shows you how to create an ISE by using the Logic Apps REST API in 
 For more information about other ways to create an ISE, see these articles:
 
 * [Create an ISE by using the Azure portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [Create an ISE by using the sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment)
+* [Create an ISE by using the sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/integration-service-environment)
 * [Create an ISE that supports using customer-managed keys for encrypting data at rest](customer-managed-keys-integration-service-environment.md)
 
 ## Prerequisites
@@ -45,7 +47,7 @@ Deployment usually takes within two hours to finish. Occasionally, deployment mi
 
 > [!NOTE]
 > If deployment fails or you delete your ISE, Azure might take up to an hour before releasing your subnets. 
-> This delay means means you might have to wait before reusing those subnets in another ISE.
+> This delay means you might have to wait before reusing those subnets in another ISE.
 >
 > If you delete your virtual network, Azure generally takes up to two hours 
 > before releasing up your subnets, but this operation might take longer. 
@@ -192,6 +194,8 @@ You often use an ISE to connect to custom services on your virtual network or on
 Before you update your ISE with a custom trusted root certificate, review these considerations:
 
 * Make sure that you upload the root certificate *and* all the intermediate certificates. The maximum number of certificates is 20.
+
+* The subject name on the certificate must match the host name for the target endpoint that you want to call from Azure Logic Apps. 
 
 * Uploading root certificates is a replacement operation where the latest upload overwrites previous uploads. For example, if you send a request that uploads one certificate, and then send another request to upload another certificate, your ISE uses only the second certificate. If you need to use both certificates, add them together in the same request.  
 

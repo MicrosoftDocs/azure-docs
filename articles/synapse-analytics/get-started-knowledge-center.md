@@ -1,11 +1,9 @@
 ---
-title: 'Tutorial: Get started explore the Synapse Knowledge Center' 
-description: In this tutorial, you'll learn how to use the Synapse Knowledge Center.
-services: synapse-analytics
+title: 'Tutorial: Get started explore the Synapse Knowledge center' 
+description: In this tutorial, you'll learn how to use the Synapse Knowledge center.
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
@@ -14,16 +12,16 @@ ms.date: 04/04/2021
 
 # Explore the Synapse Knowledge center
 
-In this tutorial, you'll learn how to use the Synapse Studio Knowledge Center.
+In this tutorial, you'll learn how to use the Synapse Studio **Knowledge center**.
 
-## Finding to the Knowledge center
+## Finding the Knowledge center
 
-There are two ways of finding the Knowledge Center in Synapse Studio:
+There are two ways of finding the **Knowledge center** in Synapse Studio:
 
   1. In the Home hub, near the top-right of the page click on **Learn**.
-  2. In the menu bar at the top, click **?** and then **Knowledge Center**.
+  2. In the menu bar at the top, click **?** and then **Knowledge center**.
 
-Pick either method and open the **Knowledge Center**.
+Pick either method and open the **Knowledge center**.
 
 ## Exploring the Knowledge center
 
@@ -48,7 +46,7 @@ There are three items in this section:
 
 ## Gallery: A collection of sample datasets and sample code
 
-1. Go to the **Knowledge Center**, click **Browse gallery**.
+1. Go to the **Knowledge center**, click **Browse gallery**.
 1. Select the **SQL scripts** tab at the top.
 1. Select **Load the New York Taxicab dataset** Data ingestion sample, click **Continue**.
 1. Under **SQL pool**, choose **Select an existing pool** and select **SQLPOOL1**, and select the **SQLPOOL1** database you created earlier.

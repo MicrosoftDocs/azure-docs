@@ -3,9 +3,9 @@ title: Telemetry channels in Azure Application Insights | Microsoft Docs
 description: How to customize telemetry channels in Azure Application Insights SDKs for .NET and .NET Core.
 ms.topic: conceptual
 ms.date: 05/14/2019
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-
-ms.reviewer: mbullwin
+ms.reviewer: casocha
 ---
 
 # Telemetry channels in Application Insights
@@ -90,7 +90,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!IMPORTANT]
-> Configuring the channel by using `TelemetryConfiguration.Active` is not recommended for ASP.NET Core applications.
+> Configuring the channel by using `TelemetryConfiguration.Active` is not supported for ASP.NET Core applications.
 
 ### Configuration in code for .NET/.NET Core console applications
 
@@ -107,7 +107,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 `ServerTelemetryChannel` stores arriving items in an in-memory buffer. The items are serialized, compressed, and stored into a `Transmission` instance once every 30 seconds, or when 500 items have been buffered. A single `Transmission` instance contains up to 500 items and represents a batch of telemetry that's sent over a single HTTPS call to the Application Insights service.
 
-By default, a maximum of 10 `Transmission` instances can be sent in parallel. If telemetry is arriving at faster rates, or if the network or the Application Insights back end is slow, `Transmission` instances are stored in memory. The default capacity of this in-memory `Transmission` buffer is 5 MB. When the in-memory capacity has been exceeded, `Transmission` instances are stored on local disk up to a limit of 50 MB. `Transmission` instances are stored on local disk also when there are network problems. Only those items that are stored on a local disk survive an application crash. They're sent whenever the application starts again.
+By default, a maximum of 10 `Transmission` instances can be sent in parallel. If telemetry is arriving at faster rates, or if the network or the Application Insights back end is slow, `Transmission` instances are stored in memory. The default capacity of this in-memory `Transmission` buffer is 5 MB. When the in-memory capacity has been exceeded, `Transmission` instances are stored on local disk up to a limit of 50 MB. `Transmission` instances are stored on local disk also when there are network problems. Only those items that are stored on a local disk survive an application crash. They're sent whenever the application starts again. If network issues persist the `ServerTelemetryChannel` will use an exponential backoff logic ranging from 10 seconds to 1 hour before retrying to send telemetry. 
 
 ## Configurable settings in channels
 
@@ -143,7 +143,12 @@ The short answer is that none of the built-in channels offer a transaction-type 
 
 1. The default disk locations for storing telemetry in Windows are %LOCALAPPDATA% or %TEMP%. These locations are typically local to the machine. If the application migrates physically from one location to another, any telemetry stored in the original location is lost.
 
-1. In Web Apps on Windows, the default disk-storage location is D:\local\LocalAppData. This location isn't persisted. It's wiped out in app restarts, scale-outs, and other such operations, leading to loss of any telemetry stored there. You can override the default and specify storage to a persisted location like D:\home. However, such persisted locations are served by remote storage and so can be slow.
+1. In Azure Web Apps on Windows, the default disk-storage location is D:\local\LocalAppData. This location isn't persisted. It's wiped out in app restarts, scale-outs, and other such operations, leading to loss of any telemetry stored there. You can override the default and specify storage to a persisted location like D:\home. However, such persisted locations are served by remote storage and so can be slow.
+
+Though less likely, it is also possible that channel can cause duplicate
+telemetry items. This occurs when `ServerTelemetryChannel` retries due to
+network failure/timeout, when the telemetry was actually delivered to the
+backend, but the response was lost due to network issues or there was timeout.
 
 ### Does ServerTelemetryChannel work on systems other than Windows?
 

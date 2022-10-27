@@ -62,7 +62,7 @@ To configure a metric alert in the Azure portal:
 
 For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-You can also configure a near real-time alert using the [Azure Monitor REST API](/rest/api/monitor/). For more information, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
+You can also configure a near real-time alert using the [Azure Monitor REST API](/rest/api/monitor/). For more information, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see [Azure Monitor log Alerts](../azure-monitor/alerts/alerts-log.md).
 
 ## Batch diagnostics
 

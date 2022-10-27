@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 # Use API connectors to customize and extend self-service sign-up 
 
 ## Overview 
-As a developer or IT administrator, you can use API connectors to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with web APIs to customize the sign-up experience and integrate with external systems. For example, with API connectors, you can:
+As a developer or IT administrator, you can use [API connectors](self-service-sign-up-add-api-connector.md#create-an-api-connector) to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with web APIs to customize the sign-up experience and integrate with external systems. For example, with API connectors, you can:
 
 - [**Integrate with a custom approval workflow**](self-service-sign-up-add-approvals.md). Connect to a custom approval system for managing and limiting account creation.
 - [**Perform identity verification**](code-samples-self-service-sign-up.md#identity-verification). Use an identity verification service to add an extra level of security to account creation decisions.
@@ -31,18 +31,18 @@ An API connector provides Azure Active Directory with the information needed to 
 
 There are two places in a user flow where you can enable an API connector:
 
-- After signing in with an identity provider
+- After federating with an identity provider during sign-up
 - Before creating the user
 
 > [!IMPORTANT]
 > In both of these cases, the API connectors are invoked during user **sign-up**, not sign-in.
 
-### After signing in with an identity provider
+### After federating with an identity provider during sign-up
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account. The following are examples of API connector scenarios you might enable at this step:
 
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
-- Implement an allow or block list based on social identity.
+- Implement an allow or blocklist based on social identity.
 
 ### Before creating the user
 

@@ -1,11 +1,10 @@
 ---
 title: 'Architecture: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn architecture best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 07/18/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
@@ -25,7 +24,7 @@ Azure HDInsight clusters are designed for a specific type of compute usage. Beca
 |IoT / Streaming|Kafka, Storm, Spark|
 |NoSQL Transactional processing|HBase|
 |Interactive and Faster queries with in-memory caching|Interactive Query|
-|Data Science|ML Services, Spark|
+|Data Science| Spark|
 
 The following table shows the different methods that can be used to create an HDInsight cluster.
 

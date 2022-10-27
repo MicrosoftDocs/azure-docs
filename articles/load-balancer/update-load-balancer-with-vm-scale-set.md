@@ -1,18 +1,17 @@
 ---
 title: Update or delete an existing load balancer used by virtual machine scale sets
-titleSuffix: Update or delete an existing load balancer used by virtual machine scale sets
+titleSuffix: Azure Load Balancer
 description: With this how-to article, get started with Azure Standard Load Balancer and virtual machine scale sets.
 services: load-balancer
 documentationcenter: na
-author: irenehua
+author: mbender-ms
 ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
-ms.author: irenehua
+ms.author: mbender
 ---
 # Update or delete a load balancer used by virtual machine scale sets
 
@@ -38,7 +37,7 @@ Individual inbound NAT rules can't be added. But you can add a set of inbound NA
 
 To add a whole set of inbound NAT rules for the virtual machine scale sets, first create an inbound NAT pool in the load balancer. Then reference the inbound NAT pool from the network profile of the virtual machine scale set. A full example using the CLI is shown.
 
-The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
+The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool#az-network-lb-inbound-nat-pool-list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 
@@ -56,7 +55,7 @@ The new inbound NAT pool should not have an overlapping front-end port range wit
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -â€“instance-ids *
+          --instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
 ```
@@ -92,7 +91,7 @@ To delete the NAT pool, first remove it from the scale set. A full example using
        --name MyVMSS
     az network lb inbound-nat-pool delete
        --resource-group MyResourceGroup
-       -â€“lb-name MyLoadBalancer
+       --lb-name MyLoadBalancer
        --name MyNatPool
 ```
 
@@ -103,7 +102,7 @@ To add multiple IP configurations:
 1. On the left menu, select **All resources**. Then select **MyLoadBalancer** from the resource list.
 1. Under **Settings**, select **Frontend IP configuration**. Then select **Add**.
 1. On the **Add frontend IP address** page, enter the values and select **OK**.
-1. Follow [step 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) and [step 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) in this tutorial if new load-balancing rules are needed.
+1. Refer to [Manage rules for Azure Load Balancer - Azure portal](manage-rules-how-to.md) if new load-balancing rules are needed.
 1. Create a new set of inbound NAT rules by using the newly created front-end IP configurations if needed. An example is found in the previous section.
 
 ## Multiple Virtual Machine Scale Sets behind a single Load Balancer
@@ -128,7 +127,7 @@ Make sure to create separate inbound NAT pools with non-overlapping frontend por
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -â€“instance-ids *
+          --instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
           
@@ -147,7 +146,7 @@ Make sure to create separate inbound NAT pools with non-overlapping frontend por
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
             
   az vmss update-instances
-          -â€“instance-ids *
+          --instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS2
 ```

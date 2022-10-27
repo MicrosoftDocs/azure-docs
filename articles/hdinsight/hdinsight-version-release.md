@@ -3,7 +3,7 @@ title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 10/25/2022
 ---
 
 # Azure HDInsight 4.0 overview
@@ -86,22 +86,16 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 
 ## Limitations
 
-* HDInsight 4.0 doesn't support MapReduce for Apache Hive. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 doesn't support Apache Storm.
 * HDInsight 4.0 doesn't support the ML Services cluster type.
-* Hive View is only available on HDInsight 4.0 clusters with a version number equal to or greater than 4.1. This version number is available in Ambari Admin -> Versions.
-* Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
-* You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
-* Azure Data Lake Storage Gen2 can't save Jupyter Notebooks in a Spark cluster.
-* Apache pig runs on Tez by default, However you can change it to Mapreduce
-* Spark SQL Ranger integration for row and column security is deprecated
-* Spark 2.4 and Kafka 2.1 are available in HDInsight 4.0, so Spark 2.3 and Kafka 1.1 are no longer supported. We recommend using Spark 2.4 & Kafka 2.1 and above in HDInsight 4.0.
+* Shell interpretr in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
+* Apache Pig runs on Tez by default. However, you can change it to Mapreduce.
+* Spark SQL Ranger integration for row and column security is deprecated.
 
 ## Next steps
 
 * [HBase migration guide](./hbase/apache-hbase-migrate-new-version.md)
 * [Hive migration guide](./interactive-query/apache-hive-migrate-workloads.md)
 * [Kafka migration guide](./kafka/migrate-versions.md)
-* [Spark migration guide](./spark/migrate-versions.md)
 * [Azure HDInsight Documentation](index.yml)
 * [Release Notes](hdinsight-release-notes.md)

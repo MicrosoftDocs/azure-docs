@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot Dedicated HSM - Azure Dedicated HSM | Microsoft Docs
 description: Overview of Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
 services: dedicated-hsm
@@ -9,10 +9,9 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.custom: "mvc, seodec18"
-ms.date: 03/25/2021
+ms.date: 05/12/2022
 ms.author: keithp
 
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
@@ -27,7 +26,7 @@ The Azure Dedicated HSM service has two distinct facets. Firstly, the registrati
 
 ## HSM Registration
 
-Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisiting process via email using HSMrequest@microsoft.com. 
+Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use an allowlisting process via email using HSMrequest@microsoft.com. 
 
 ### Getting access to Dedicated HSM
 
@@ -50,11 +49,11 @@ The number one reason for deployment failures is forgetting to set the appropria
 
 ### HSM Deployment Race Condition
 
-The standard ARM template provided for deployment has HSM and ExpressRoute gateway related resources. Networking resources are a dependency for successful HSM deployment and timing can be crucial.  Occasionally, we have seen deployment failures related to dependency issues and rerunning the deployment often solves the issue. If not, deleting resources and then redeploying is often successful. After attempting this and still finding issue, raise a support request in the Azure portal selecting the problem type of "Issues configuring the Azure setup".
+The standard ARM template provided for deployment has HSM and [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) related resources. Networking resources are a dependency for successful HSM deployment and timing can be crucial.  Occasionally, we have seen deployment failures related to dependency issues and rerunning the deployment often solves the issue. If not, deleting resources and then redeploying is often successful. After attempting this and still finding issue, raise a support request in the Azure portal selecting the problem type of "Issues configuring the Azure setup".
 
 ### HSM Deployment Using Terraform
 
-A few customers have used Terraform as an automation environment instead of ARM templates as supplied when registering for this service. The HSMs cannot be deployed this way but the dependent networking resources can. Terraform has a module to call out to a minimal ARM template that just has the HSM deployment.  In this situation, care should be taken to ensure networking resources such as the required ExpressRoute Gateway are fully deployed before deploying HSMs. The following CLI command can be used to test for completed deployment and integrated as required. Replace the angle bracket place holders for your specific naming. You should look for a result of "provisioningState is Succeeded"
+A few customers have used Terraform as an automation environment instead of ARM templates as supplied when registering for this service. The HSMs cannot be deployed this way but the dependent networking resources can. Terraform has a module to call out to a minimal ARM template that just has the HSM deployment.  In this situation, care should be taken to ensure networking resources such as the required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) are fully deployed before deploying HSMs. The following CLI command can be used to test for completed deployment and integrated as required. Replace the angle bracket place holders for your specific naming. You should look for a result of "provisioningState is Succeeded"
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -77,7 +76,7 @@ Deployment of Dedicated HSM has a dependency on networking resources and some co
 
 ### Provisioning ExpressRoute
 
-Dedicated HSM uses ExpressRoute Gateway as a "tunnel" for communication between the customer private IP address space and the physical HSM in an Azure datacenter.  Considering there is a restriction of one gateway per Vnet, customers requiring connection to their on-premises resources via ExpressRoute, will have to use another Vnet for that connection.  
+Dedicated HSM uses [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) as a "tunnel" for communication between the customer private IP address space and the physical HSM in an Azure datacenter.  Considering there is a restriction of one gateway per Vnet, customers requiring connection to their on-premises resources via ExpressRoute, will have to use another Vnet for that connection.  
 
 ### HSM Private IP Address
 
@@ -114,7 +113,7 @@ Software and documentation for the [Thales Luna 7 HSM](https://cpl.thalesgroup.c
 
 ### HSM Networking Configuration
 
-Be careful when configuring the networking within the HSM.  The HSM has a connection via the ExpressRoute Gateway from a customer private IP address space directly to the HSM.  This communication channel is for customer communication only and Microsoft has no access. If the HSM is configured in a such a way that this network path is impacted, that means all communication with the HSM is removed.  In this situation, the only option is to raise a Microsoft support request via the Azure portal to have the device reset. This reset procedure sets the HSM back to its initial state and all configuration and key material is lost.  Configuration must be recreated and when the device joins the HA group it will get key material replicated.  
+Be careful when configuring the networking within the HSM.  The HSM has a connection via the [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) from a customer private IP address space directly to the HSM.  This communication channel is for customer communication only and Microsoft has no access. If the HSM is configured in a such a way that this network path is impacted, that means all communication with the HSM is removed.  In this situation, the only option is to raise a Microsoft support request via the Azure portal to have the device reset. This reset procedure sets the HSM back to its initial state and all configuration and key material is lost.  Configuration must be recreated and when the device joins the HA group it will get key material replicated.  
 
 ### HSM Device Reboot
 
@@ -151,7 +150,17 @@ Only when fully finished with an HSM can it be deprovisioned and then Microsoft 
 
 ### How to delete an HSM resource
 
-The Azure resource for an HSM cannot be deleted unless the HSM is in a "zeroized" state.  Hence, all key material must have been deleted prior to trying to delete it as a resource. The quickest way to zeroize is to get the HSM admin password wrong 3 times (note: this refers to the HSM admin and not appliance level admin). The Luna shell does have a `hsm -factoryreset` command that zeroizes but it can only be executed via console on the serial port and customers do not have access to this.
+**DO NOT DELETE the Resource Group of your Dedicated HSM directly. It will not delete the HSM resource, you will continue to be billed as it places the HSM into a orphaned state. If did not follow correct procedures and end up in this situation, contact Microsoft Support.**
+
+**Step 1** Zeorize the HSM. The Azure resource for an HSM cannot be deleted unless the HSM is in a "zeroized" state. Hence, all key material must have been deleted prior to trying to delete it as a resource. The quickest way to zeroize is to get the HSM admin password wrong 3 times (note: this refers to the HSM admin and not appliance level admin). Use command ‘hsm login’ and enter wrong password three times. The Luna shell does have a hsm -factoryreset command that zeroizes the HSM but it can only be executed via console on the serial port and customers do not have access to this.
+
+**Step 2** Once HSM is zeroized, you can use either of the following commands to initiate the Delete Dedicated HSM resource
+> **Azure CLI**: az dedicated-hsm delete --resource-group <RG name>–-name <HSM name> <br />
+> **Azure PowerShell**: Remove-AzDedicatedHsm -Name <HSM name> -ResourceGroupName <RG name>
+
+**Step 3**	Once step 2 is successful, you can delete the resource group to delete the other resources associated with the dedicated HSM by using either Azure CLI or Azure PowerShell.
+> **Azure CLI**: az group delete --name <RG name> <br />
+> **Azure PowerShell**: Remove-AzResourceGroup -Name <RG name>
 
 ## Next steps
 

@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
+ms.tool: azure-cli
 ---
 
 ## Create an Azure Container Instance resource from the Azure CLI
 
 The YAML below defines the Azure Container Instance resource. Copy and paste the contents into a new file, named `my-aci.yaml` and replace the commented values with your own. Refer to the [template format][template-format] for valid YAML. Refer to the [container repositories and images][repositories-and-images] for the available image names and their corresponding repository. For more information of the YAML reference for Container instances, see [YAML reference: Azure Container Instances][aci-yaml-ref].
 
-```YAML
+```yaml
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >

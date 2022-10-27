@@ -1,9 +1,8 @@
 ---
-title: Initialize MSAL.NET client applications | Azure
-titleSuffix: Microsoft identity platform
+title: Initialize MSAL.NET client applications
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/18/2019
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
@@ -97,7 +96,7 @@ The modifiers you can set on a public client or confidential client application 
 
 |Modifier | Description|
 |--------- | --------- |
-|`.WithAuthority()` 7 overrides | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
+|[`.WithAuthority()`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withauthority)  | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
 |`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.|
 |`.WithB2CAuthority(string)` | Sets the application default authority to be an Azure AD B2C authority.|
 |`.WithClientId(string)` | Overrides the client ID.|

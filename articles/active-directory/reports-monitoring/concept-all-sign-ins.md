@@ -1,37 +1,29 @@
 ---
-title: Sign-ins logs in Azure Active Directory - preview | Microsoft Docs
-description: Overview of the sign-ins logs in Azure Active Directory including new features in preview. 
+title: Sign-in logs in Azure Active Directory - preview | Microsoft Docs
+description: Overview of the sign-in logs in Azure Active Directory including new features in preview. 
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-editor: ''
-
-ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2021
-ms.author: markvi
+ms.date: 10/03/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
-
 ms.collection: M365-identity-device-management
 ---
-# Sign-ins logs in Azure Active Directory - preview
+# Sign-in logs in Azure Active Directory - preview
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
-To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
+To support you with this goal, the Azure Active Directory (Azure AD) portal gives you access to three activity logs:
 
-- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
-- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
-- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
+- **[Sign-in](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant, such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by a provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
-
-The classic sign-ins report in Azure Active Directory provides you with an overview of interactive user sign-ins. In addition, you now have access to three additional sign-in logs that are now in preview:
+The classic sign-in log in Azure AD provides you with an overview of interactive user sign-ins. Three additional sign-in logs are now in preview:
 
 - Non-interactive user sign-ins
 
@@ -41,11 +33,9 @@ The classic sign-ins report in Azure Active Directory provides you with an overv
 
 This article gives you an overview of the sign-in activity report with the preview of non-interactive, application, and managed identities for Azure resources sign-ins. For information about the sign-in report without the preview features, see  [Sign-in logs in Azure Active Directory](concept-sign-ins.md).
 
-
-
 ## What can you do with it?
 
-The sign-ins report provides answers to questions like:
+The sign-in log provides answers to questions like:
 
 - What is the sign-in pattern of a user, application or service?
 
@@ -64,20 +54,17 @@ The sign-ins report provides answers to questions like:
 
 ## What Azure AD license do you need?
 
-Your tenant must have an Azure AD Premium license associated with it to see sign-in activities. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the logs after you upgrade to a premium license with no data activities before the upgrade.
-
-
-
+The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you also can access the sign-in activity report through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
 
 ## Where can you find it in the Azure portal?
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Open sign-ins logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Screenshot of the sign-in logs menu option.](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+Additionally, you can access the sign-in log using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-In the sign-ins report blade, you can switch between:
+On the sign-ins page, you can switch between:
 
 - **Interactive user sign-ins** - Sign-ins where a user provides an authentication factor, such as a password, a response through an MFA app, a biometric factor, or a QR code.
 
@@ -88,11 +75,9 @@ In the sign-ins report blade, you can switch between:
 - **Managed identities for Azure resources sign-ins** - Sign-ins by Azure resources that have secrets managed by Azure. For more information, see [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md) 
 
 
-![Sign-ins report types](./media/concept-all-sign-ins/sign-ins-report-types.png)
+![Screenshot of the sign-in log types.](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
-
-
-Each tab in the sign-ins blade shows the default columns below. Some tabs have additional columns:
+Each tab on the sign-ins page shows the default columns below. Some tabs have additional columns:
 
 - Sign-in date
 
@@ -106,20 +91,15 @@ Each tab in the sign-ins blade shows the default columns below. Some tabs have a
 
 - IP address of the device used for the sign-in
 
-
-
 ### Interactive user sign-ins
-
 
 Interactive user sign-ins are sign-ins where a user provides an authentication factor to Azure AD or interacts directly with Azure AD or a helper app, such as the Microsoft Authenticator app. The factors users provide include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or to a helper app.
 
 > [!NOTE]
-> This report also includes federated sign-ins from identity providers that are federated to Azure AD.  
-
-
+> This log also includes federated sign-ins from identity providers that are federated to Azure AD.  
 
 > [!NOTE] 
-> The interactive user sign-ins report used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-ins report for additional visibility. Once the non-interactive user sign-ins report entered public preview in November 2020, those non-interactive sign-in event logs were moved to the non-interactive user sign in report for increased accuracy. 
+> The interactive user sign-in log used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-in log for additional visibility. Once the non-interactive user sign-in log entered public preview in November 2020, those non-interactive sign-in logs were moved to the non-interactive user sign in log for increased accuracy. 
 
 
 **Report size:** small <br> 
@@ -134,32 +114,19 @@ Interactive user sign-ins are sign-ins where a user provides an authentication f
 - A user is federated to Azure AD with an AD FS SAML assertion.
 
 
-In addition to the default fields, the interactive sign-ins report also shows: 
+In addition to the default fields, the interactive sign-in log also shows: 
 
 - The sign-in location
 
 - Whether conditional access has been applied
 
-
-
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Interactive user sign-in columns](./media/concept-all-sign-ins/columns-interactive.png "Interactive user sign-in columns")
-
-
-
-
+![Screenshot of the interactive user sign-in columns that can be customized.](./media/concept-all-sign-ins/columns-interactive.png "Interactive user sign-in columns")
 
 Customizing the view enables you to display additional fields or remove fields that are already displayed.
 
-![All interactive columns](./media/concept-all-sign-ins/all-interactive-columns.png)
-
-
-Select an item in the list view to get more detailed information about the related sign-in.
-
-![Sign-in activity](./media/concept-all-sign-ins/interactive-user-sign-in-details.png "Interactive user sign-ins")
-
-
+![Screenshot of all interactive columns.](./media/concept-all-sign-ins/all-interactive-columns.png)
 
 ### Non-interactive user sign-ins
 
@@ -173,29 +140,21 @@ Non-interactive user sign-ins are sign-ins that were performed by a client app o
 
 - A client uses an OAuth 2.0 authorization code to get an access token and refresh token.
 
-- A user performs single sign-on (SSO) to a web or Windows app on an Azure AD joined PC.
+- A user performs single sign-on (SSO) to a web or Windows app on an Azure AD joined PC (without providing an authentication factor or interacting with an Azure AD prompt).
 
 - A user signs in to a second Microsoft Office app while they have a session on a mobile device using FOCI (Family of Client IDs).
 
-
-
-
-In addition to the default fields, the non-interactive sign-ins report also shows: 
+In addition to the default fields, the non-interactive sign-in log also shows: 
 
 - Resource ID
 
 - Number of grouped sign-ins
 
-
-
-
 You can't customize the fields shown in this report.
 
-
-![Disabled columns](./media/concept-all-sign-ins/disabled-columns.png "Disabled columns")
+![Screenshot of the disabled columns option.](./media/concept-all-sign-ins/disabled-columns.png "Disabled columns")
 
 To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period, which share all the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the user or client do not change state, the IP address, resource, and all other information is the same for each access token request. When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the # sign-ins column. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the non-interactive users when the following data matches:
-
 
 - Application
 
@@ -207,22 +166,11 @@ To make it easier to digest the data, non-interactive sign-in events are grouped
 
 - Resource ID
 
-
-You can:
-
-- Expand a node to see the individual items of a group.  
-
-- Click an individual item to see all details 
-
-
-![Non-interactive user sign-in details](./media/concept-all-sign-ins/non-interactive-sign-ins-details.png)
-
-
-
+The IP address of non-interactive sign-ins doesn't match the actual source IP of where the refresh token request is coming from. Instead, it shows the original IP used for the original token issuance.
 
 ## Service principal sign-ins
 
-Unlike interactive and non-interactive user sign-ins, service principal sign-ins do not involve a user. Instead, they are sign-ins by any non-user account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-ins report). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
+Unlike interactive and non-interactive user sign-ins, service principal sign-ins do not involve a user. Instead, they are sign-ins by any non-user account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-in log). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
 
 
 **Report size:** Large <br>
@@ -265,18 +213,6 @@ To make it easier to digest the data in the service principal sign-in logs, serv
 
 - Resource name or ID
 
-You can:
-
-- Expand a node to see the individual items of a group.  
-
-- Click an individual item so see all details 
-
-
-![Column details](./media/concept-all-sign-ins/service-principals-sign-ins-view.png "Column details")
-
-
-
-
 ## Managed identity for Azure resources sign-ins 
 
 Managed identity for Azure resources sign-ins are sign-ins that were performed by resources that have their secrets managed by Azure to simplify credential management.
@@ -307,8 +243,6 @@ To make it easier to digest the data, managed identities for Azure resources sig
 - Managed identity name or ID
 
 - Status
-
-- IP address
 
 - Resource name or ID
 
@@ -388,53 +322,11 @@ To access the new sign-in logs with non-interactive and application sign-ins:
 
 
 
-## Download sign-in activity logs
-
-When you download a sign-in activity report, the following is true:
-
-- You can download the sign-in report as CSV or JSON file.
-
-- You can download up to 100-K records. If you want to download more data, use the reporting API.
-
-- Your download is based on the filter selection you made.
-
-- The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md). 
-
-
-![Download logs](./media/concept-all-sign-ins/download-reports.png "Download logs")
-
-
-Each CSV download consists of six different files:
-
-- Interactive sign-ins
-
-- Auth details of the interactive sign-ins
-
-- Non-interactive sign-ins
-
-- Auth details of the non-interactive sign-ins
-
-- Service principal sign-ins
-
-- Managed identity for Azure resources sign-ins
-
-Each JSON download consists of four different files:
-
-- Interactive sign-ins (includes auth details)
-
-- Non-interactive sign-ins (includes auth details)
-
-- Service principal sign-ins
-
-- Managed identity for Azure resources sign-ins
-
-![Download files](./media/concept-all-sign-ins/download-files.png "Download files")
-
-
-
 
 ## Next steps
 
-* [Sign-in activity report error codes](./concept-sign-ins.md)
-* [Azure AD data retention policies](reference-reports-data-retention.md)
-* [Azure AD report latencies](reference-reports-latencies.md)
+- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md)
+
+- [How to download logs in Azure Active Directory](howto-download-logs.md)
+
+- [How to access activity logs in Azure AD](howto-access-activity-logs.md)

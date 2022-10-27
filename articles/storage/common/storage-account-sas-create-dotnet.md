@@ -22,13 +22,13 @@ This article shows how to use the storage account key to create an account SAS w
 
 ## Create an account SAS
 
-### [\.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 A account SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, create a new [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) object and call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) to get the SAS token string.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetAccountSASToken":::
 
-### [\.NET v11](#tab/dotnetv11)
+### [.NET v11 SDK](#tab/dotnetv11)
 
 To create an account SAS for a container, call the [CloudStorageAccount.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) method.
 
@@ -62,11 +62,11 @@ static string GetAccountSASToken()
 
 To use the account SAS to access service-level APIs for the Blob service, construct a Blob service client object using the SAS and the Blob storage endpoint for your storage account.
 
-### [\.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_UseAccountSAS":::
 
-### [\.NET v11](#tab/dotnetv11)
+### [.NET v11 SDK](#tab/dotnetv11)
 
 In this snippet, replace the `<storage-account>` placeholder with the name of your storage account.
 

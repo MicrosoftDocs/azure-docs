@@ -4,10 +4,10 @@ description: Get answers to common questions about  Azure Resource Mover
 author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 02/21/2021
 ms.author: raynew
-
 ---
 
 # Common questions
@@ -19,7 +19,8 @@ This article answers common questions about [Azure Resource Mover](overview.md).
 
 ### Can I move resources across any regions?
 
-Currently, you can move resources from any source public region to any target public region, depending on the [resource types available in that region](https://azure.microsoft.com/global-infrastructure/services/). Moving resources in Azure Government regions isn't currently supported.
+Currently, you can move resources from any source public region to any target public region and within regions in China, depending on the [resource types available in that region](https://azure.microsoft.com/global-infrastructure/services/). Moving resources within Azure Gov is also supported (US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, US Gov Virginia).  US Sec East/West/West Central are not currently supported.
+
 
 ### What regions are currently supported?
 
@@ -27,7 +28,7 @@ Azure Resource Mover is currently available as follows:
 
 **Support** | **Details**
 --- | ---
-Move support | Azure resources that are supported for move with Resource Mover can be moved from any public region to another public region.
+Move support | Azure resources that are supported for move with Resource Mover can be moved from any public region to another public region and within regions in China. Moving resources within Azure Gov is also supported (US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, US Gov Virginia).  US Sec East/West/West Central are not currently supported.
 Metadata support |  Supported regions for storing metadata about machines to be moved include East US2, North Europe, Southeast Asia, Japan East, UK South, and Australia East as metadata regions. <br/><br/> Moving resources within the Azure China region is also supported with the metadata region China North2.
 
 ### What resources can I move across regions using Resource Mover?
@@ -60,7 +61,7 @@ No. Resource Mover service doesn't store customer data, it only stores metadata 
 
 ### Where is the metadata for moving across regions stored?
 
-It's stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently metadata is stored in East US 2 and North Europe. We will expand this coverage to other regions. This doesn't restrict you from moving resources across any public regions.
+It's stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure Blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently metadata is stored in East US 2 and North Europe. We will expand this coverage to other regions. This doesn't restrict you from moving resources across any public regions.
 
 ### Is the collected metadata encrypted?
 

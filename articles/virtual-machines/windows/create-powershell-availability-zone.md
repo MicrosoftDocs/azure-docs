@@ -7,10 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a virtual machine in an availability zone using Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This article details using Azure PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
@@ -84,15 +86,15 @@ $pip = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus
 The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections. We also want to create an inbound rule for port 80, which allows incoming web traffic.
 
 ```powershell
-# Create an inbound network security group rule for port 3389
+# Create an inbound network security group rule for port 3389 - change -Access to "Allow" if you want to allow RDP access
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
     -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 -Access Allow
+    -DestinationPortRange 3389 -Access Deny
 
-# Create an inbound network security group rule for port 80
+# Create an inbound network security group rule for port 80 - - change -Access to "Allow" if you want to allow TCP traffic over port 80
 $nsgRuleWeb = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
     -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-    -DestinationPortRange 80 -Access Allow
+    -DestinationPortRange 80 -Access Deny
 
 # Create a network security group
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus2 `

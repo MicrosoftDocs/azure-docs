@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # ExpressRoute encryption: IPsec over ExpressRoute for Virtual WAN

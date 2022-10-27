@@ -4,6 +4,7 @@ description: Format of logs for monitoring and troubleshooting autoscale actions
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 
 # Azure Monitor autoscale actions resource log schema

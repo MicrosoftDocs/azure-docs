@@ -1,10 +1,11 @@
 ---
 title: 'Quickstart: Your first PowerShell query'
 description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-ms.date: 05/01/2021
+ms.date: 06/15/2022
 ms.topic: quickstart
-ms.custom:
-  - mode-api
+ms.custom: mode-api
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -49,7 +50,7 @@ The Resource Graph module for PowerShell is **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Validate that the module has been imported and is the latest version (0.7.5):
+1. Validate that the module has been imported and is at least version `0.11.0`:
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -59,8 +60,10 @@ The Resource Graph module for PowerShell is **Az.ResourceGraph**.
 ## Run your first Resource Graph query
 
 With the Azure PowerShell module added to your environment of choice, it's time to try out a simple
-Resource Graph query. The query returns the first five Azure resources with the **Name** and
-**Resource Type** of each resource.
+tenant-based Resource Graph query. The query returns the first five Azure resources with the
+**Name** and **Resource Type** of each resource. To query by
+[management group](../management-groups/overview.md) or subscription, use the `-ManagementGroup`
+or `-Subscription` parameters.
 
 1. Run your first Azure Resource Graph query using the `Search-AzGraph` cmdlet:
 
@@ -72,7 +75,7 @@ Resource Graph query. The query returns the first five Azure resources with the 
    ```
 
    > [!NOTE]
-   > As this query example does not provide a sort modifier such as `order by`, running this query
+   > As this query example doesn't provide a sort modifier such as `order by`, running this query
    > multiple times is likely to yield a different set of resources per request.
 
 1. Update the query to `order by` the **Name** property:
@@ -92,11 +95,14 @@ Resource Graph query. The query returns the first five Azure resources with the 
    results:
 
    ```azurepowershell-interactive
+   # Store the query in a variable
+   $query = 'Resources | project name, type | order by name asc | limit 5'
+
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
+   Search-AzGraph -Query $query
    ```
 
-When the final query is run several times, assuming that nothing in your environment is changing,
+When the final query is run several times, assuming that nothing in your environment changes,
 the results returned are consistent and ordered by the **Name** property, but still limited to the
 top five results.
 

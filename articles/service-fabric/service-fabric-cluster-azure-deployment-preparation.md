@@ -1,10 +1,14 @@
 ---
 title: Plan an Azure Service Fabric cluster deployment 
 description: Learn about planning and preparing for a production Service Fabric cluster deployment to Azure.
-
-ms.topic: conceptual
-ms.date: 03/20/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Plan and prepare for a cluster deployment
 
 Planning and preparing for a production cluster deployment is very important.  There are many factors to consider.  This article walks you through the steps of preparing your cluster deployment.
@@ -28,7 +32,7 @@ First, you need to figure out what the cluster you are creating is going to be u
 ### Select node properties for each node type
 Node types define the VM SKU, number, and properties of the VMs in the associated scale set.
 
-The minimum size of VMs for each node type is determined by the [durability tier][durability] you choose for the node type.
+The minimum size of VMs for each node type is determined by the [durability tier][durability] you choose for the node type. Before choosing a VM SKU, make sure you understand the steps required for [vertical scaling](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) if you decide you need a different VM SKU in the future.
 
 The minimum number of VMs for the primary node type is determined by the [reliability tier][reliability] you choose.
 

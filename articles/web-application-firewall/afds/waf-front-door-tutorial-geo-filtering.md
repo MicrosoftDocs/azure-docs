@@ -6,7 +6,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -52,7 +53,7 @@ Two letter country/region codes to country/region mapping are provided in [What 
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
--MatchVariable RemoteAddr `
+-MatchVariable SocketAddr `
 -OperatorProperty GeoMatch `
 -NegateCondition $true `
 -MatchValue "US"

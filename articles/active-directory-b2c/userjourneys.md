@@ -1,15 +1,15 @@
 ---
-title: UserJourneys | Microsoft Docs
+title: UserJourneys  
 description: Specify the UserJourneys element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
-ms.author: mimart
+ms.date: 08/31/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -21,7 +21,16 @@ User journeys specify explicit paths through which a policy allows a relying par
 
 These user journeys can be considered as templates available to satisfy the core need of the various relying parties of the community of interest. User journeys facilitate the definition of the relying party part of a policy. A policy can define multiple user journeys. Each user journey is a sequence of orchestration steps.
 
-To define the user journeys supported by the policy, a **UserJourneys** element is added under the top-level element of the policy file.
+To define the user journeys supported by the policy, a `UserJourneys` element is added under the top-level `TrustFrameworkPolicy` element of the policy file.
+
+```xml
+<TrustFrameworkPolicy  ...>
+  ...
+  <UserJourneys>
+    ...
+  </UserJourneys>
+</TrustFrameworkPolicy>
+```
 
 The **UserJourneys** element contains the following element:
 
@@ -34,6 +43,7 @@ The **UserJourney** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier of a user journey that can be used to reference it from other elements in the policy. The **DefaultUserJourney** element of the [relying party policy](relyingparty.md) points to this attribute. |
+| DefaultCpimIssuerTechnicalProfileReferenceId| No | The default token issuer technical profile reference ID. For example, [JWT token issuer](userjourneys.md), [SAML token issuer](saml-issuer-technical-profile.md), or [OAuth2 custom error](oauth2-error-technical-profile.md). If your user journey or sub journey already has another `SendClaims` orchestration step, set the `DefaultCpimIssuerTechnicalProfileReferenceId` attribute to the user journey's token issuer technical profile. |
 
 The **UserJourney** element contains the following elements:
 
@@ -50,13 +60,13 @@ The **AuthorizationTechnicalProfiles** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| AuthorizationTechnicalProfile | 0:1 | List of authorization technical profiles. | 
+| AuthorizationTechnicalProfile | 0:1 | The technical profile reference used to authorize the user. | 
 
 The **AuthorizationTechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| TechnicalProfileReferenceId | Yes | The identifier of the technical profile that is to be executed. |
+| ReferenceId | Yes | The identifier of the technical profile that is to be executed. |
 
 The following example shows a user journey element with authorization technical profiles:
 
@@ -80,6 +90,13 @@ Orchestration steps can be conditionally executed based on preconditions defined
 
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 
+```xml
+<UserJourney Id="SignUpOrSignIn">
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+      ...
+```
+
 The **OrchestrationSteps** element contains the following element:
 
 | Element | Occurrences | Description |
@@ -91,7 +108,7 @@ The **OrchestrationStep** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Order` | Yes | The order of the orchestration steps. |
-| `Type` | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**GetClaims** - Specifies that the orchestration step should process claim data sent to Azure AD B2C from the relying party via its `InputClaims` configuration.</li><li>**InvokeSubJourney** - Indicates that the orchestration step exchanges claims with a [sub journey](subjourneys.md) (in public preview).</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> |
+| `Type` | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**GetClaims** - Specifies that the orchestration step should process claim data sent to Azure AD B2C from the relying party via its `InputClaims` configuration.</li><li>**InvokeSubJourney** - Indicates that the orchestration step exchanges claims with a [sub journey](subjourneys.md).</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> |
 | ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this orchestration step. Usually the content definition reference identifier is defined in the self-asserted technical profile. But, there are some cases when Azure AD B2C needs to display something without a technical profile. There are two examples - if the type of the orchestration step is one of following: `ClaimsProviderSelection` or  `CombinedSignInAndSignUp`, Azure AD B2C needs to display the identity provider selection without having a technical profile. |
 | CpimIssuerTechnicalProfileReferenceId | No | The type of the orchestration step is `SendClaims`. This property defines the technical profile identifier of the claims provider that issues the token for the relying party.  If absent, no relying party token is created. |
 
@@ -106,33 +123,56 @@ The **OrchestrationStep** element can contain the following elements:
 
 ### Preconditions
 
+Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. The `Preconditions` element contains a list of preconditions to evaluate. When the precondition evaluation is satisfied, the associated orchestration step skips to the next orchestration step. 
+
+Azure AD B2C evaluates the preconditions in list order. The order-based preconditions allows you set the order in which the preconditions are applied. The first precondition that satisfied overrides all the subsequent preconditions. The orchestration step is executed only if all of the preconditions are not satisfied. 
+
 The **Preconditions** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Precondition | 1:n | Depending on the technical profile being used, either redirects the client according to the claims provider selection or makes a server call to exchange claims. |
-
+| Precondition | 1:n | A precondition to evaluate. |
 
 #### Precondition
-
-Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. There are two types of preconditions:
- 
-- **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
-- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
 
 The **Precondition** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Type` | Yes | The type of check or query to perform for this precondition. The value can be **ClaimsExist**, which specifies that the actions should be performed if the specified claims exist in the user's current claim set, or **ClaimEquals**, which specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| `ExecuteActionsIf` | Yes | Use a `true` or `false` test to decide if the actions in the precondition should be performed. |
+| `ExecuteActionsIf` | Yes | Decides how the precondition is considered satisfied. Possible values: `true`, or `false`. If the value is set to `true`, it's considered satisfied when the claim matches the precondition.  If the value is set to `false`, it's considered satisfied when the claim doesn't match the precondition.  |
 
 The **Precondition** elements contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Value | 1:2 | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file, or parent policy file. When the precondition is type of `ClaimEquals`, a second `Value` element contains the value to be checked. |
-| Action | 1:1 | The action that should be performed if the precondition check within an orchestration step is true. If the value of the `Action` is set to `SkipThisOrchestrationStep`, the associated `OrchestrationStep` should not be executed. |
+| Action | 1:1 | The action that should be performed if the precondition evaluation is satisfied. Possible value: `SkipThisOrchestrationStep`. The associated orchestration step skips to the next one. |
+  
+Each precondition evaluates a single claim. There are two types of preconditions:
+ 
+- **ClaimsExist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
+- **ClaimEquals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`. 
+
+    If the claim is null or uninitialized, the precondition is ignored, whether the `ExecuteActionsIf` is `true`, or `false`. As a best practice, check both that the claim exists, and equals to a value.
+
+An example scenario would be to challenge the user for MFA if the user has `MfaPreference` set to `Phone`. To perform this conditional logic, check if the `MfaPreference` claim exists, and also check the claim value equals to `Phone`. The following XML demonstrates how to implement this logic with preconditions. 
+  
+```xml
+<Preconditions>
+  <!-- Skip this orchestration step if MfaPreference doesn't exist. -->
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+  <!-- Skip this orchestration step if MfaPreference doesn't equal to Phone. -->
+  <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Value>Phone</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+</Preconditions>
+```
 
 #### Preconditions examples
 
@@ -195,7 +235,7 @@ Preconditions can check multiple preconditions. The following example checks whe
 Identity provider selection lets users select an action from a list of options. The identity provider selection consists of a pair of two orchestration  steps: 
 
 1. **Buttons** - It starts with type of `ClaimsProviderSelection`, or `CombinedSignInAndSignUp` that contains a list of options a user can choose from. The order of the options inside the `ClaimsProviderSelections` element controls the order of the buttons presented to the user.
-2. **Actions** - Followed by type of `ClaimsExchange`. The ClaimsExchange contains list of actions. The action is a reference to a technical profile, such as [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [claims transformation](claims-transformation-technical-profile.md), or [self-asserted](self-asserted-technical-profile.md). The When a user clicks on one of the buttons, the corresponding action is executed.
+2. **Actions** - Followed by type of `ClaimsExchange`. The ClaimsExchange contains list of actions. The action is a reference to a technical profile, such as [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [claims transformation](claims-transformation-technical-profile.md), or [self-asserted](self-asserted-technical-profile.md). When a user clicks on one of the buttons, the corresponding action is executed.
 
 The **ClaimsProviderSelections** element contains the following element:
 

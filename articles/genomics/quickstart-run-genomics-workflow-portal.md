@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Run a workflow - Microsoft Genomics'
-description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. 
+description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-other
 ---
 
 # Quickstart: Run a workflow through the Microsoft Genomics service
@@ -30,7 +30,7 @@ Configure your Genomics account with the following information, as shown in the 
 
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------       |:-------------         |:----------            |
- |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
+ |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) |      
  |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](../azure-resource-manager/management/overview.md#resource-groups). For valid resource group names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
  |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
@@ -91,7 +91,7 @@ Configure your storage account with the following information, as shown in the p
 
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------------------       |:-------------         |:----------            |
- |Subscription         | Your Azure subscription |For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
+ |Subscription         | Your Azure subscription |For details about your subscription see [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) |      
  |Resource group       | MyResourceGroup       |  You can select the same resource group as your Genomics account. For valid resource group names, see [Naming rules](/azure/architecture/best-practices/resource-naming) |
  |Storage account name         | MyStorageAccount     |Choose a unique account identifier. For valid names, see [Naming rules](/azure/architecture/best-practices/resource-naming) |
  |Location                  | West US 2                  | Use the same location as the location of your Genomics account, to reduce egress charges, and reduce latency.  | 

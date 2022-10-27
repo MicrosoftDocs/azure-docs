@@ -27,14 +27,14 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 - [Asysco AMT Transform](https://www.asysco.com/amt-transform/) for converting data, code, scripting, security, interfaces and other mainframe artifacts.
 - [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) development and integration tools.
 - [Micro Focus Visual COBOL](https://www.microfocus.com/products/visual-cobol/) development and integration tools.
-- [Micro Focus PL/I](https://www.microfocus.com/campaign/download/pli-modernization/) legacy compiler for the .NET platform, supporting mainframe PL/I syntax, data types, and behavior.
+- [Micro Focus PL/I](https://www.microfocus.com/documentation/enterprise-developer/ed30/Eclipse/BKPUPUUSNGS040.html) legacy compiler for the .NET platform, supporting mainframe PL/I syntax, data types, and behavior.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe integration platform.
-- [Modern Systems CTU (COBOL-To-Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) development and integration tools.
+- [Modern Systems CTU (COBOL-To-Universal)](http://test.modernsystems.com/automated-cobol-conversion-with-cobol-to-universal/) development and integration tools.
 - [NTT Data Enterprise COBOL](https://us.nttdata.com/en/digital/application-development-and-modernization) development and integration tools.
 - [NTT Open PL/I](https://us.nttdata.com/en/digital/application-development-and-modernization) legacy compiler for the .NET platform, supporting mainframe PL/I syntax, data types, and behavior.
 - [Raincode COBOL compiler](https://www.raincode.com/products/cobol/) development and integration tools.
 - [Raincode PL/I compiler](https://www.raincode.com/products/pli/) for the .NET platform supports mainframe PL/I syntax, data types, and behavior.
-- [Raincode ASM370 compiler](https://www.raincode.com/technical-landscape/asm370/) for the mainframe Assembler 370 and HLASM syntax.
+- Raincode ASM370 compiler for the mainframe Assembler 370 and HLASM syntax.
 
 ## Deploy an emulation environment for online and batch processing
 
@@ -49,9 +49,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 
 - [Asysco](https://asysco.com/) system conversion technology covering source code, data, batch, scheduling, TP monitors, interfaces, security, management, and more.
 - [Asysco AMT Services](https://www.asysco.com/migration-services/) end-to-end services for migration projects, including inventory and analysis, design training, dress rehearsals, go-live, and post-migration support.
-- [Blu Age](https://www.bluage.com/) tools for digitizing legacy business applications and databases.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) services to convert mainframe COBOL, CICS, and VSAM to Java.
-- [LzLabs Software Defined Mainframe](https://www.lzlabs.com/) managed software container for migrating mainframe applications to Linux computers or private, public, and hybrid cloud environments.
 
 ## Modernization services
 

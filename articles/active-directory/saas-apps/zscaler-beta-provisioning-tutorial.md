@@ -2,8 +2,8 @@
 title: 'Tutorial: Configure Zscaler Beta for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zscaler Beta.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -95,7 +95,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![The Automatic mode has been selected from the Provisioning Mode drop-down list. There are fields for Admin Credentials, used to connect to Zscaler Beta's API, and there is a Test Connection button.](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
+	![The Automatic mode has been selected from the Provisioning Mode drop-down list. There are fields for Admin Credentials, used to connect to the Zscaler Beta API, and there is a Test Connection button.](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Zscaler Beta account as described in Step 6.
 

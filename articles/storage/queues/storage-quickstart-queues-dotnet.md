@@ -1,13 +1,14 @@
 ---
 title: "Quickstart: Azure Queue Storage client library v12 - .NET"
 description: Learn how to use the Azure Queue Storage client library v12 for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Azure Queue Storage client library v12 for .NET
@@ -29,7 +30,7 @@ Additional resources:
 - [API reference documentation](/dotnet/api/azure.storage.queues)
 - [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 - [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+- [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/queues/toc.json#queue-samples)
 
 ## Prerequisites
 

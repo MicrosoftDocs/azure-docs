@@ -4,14 +4,14 @@ description: Description of the retirement of classic monitoring services and fu
 author: yanivlavi
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 2/23/2022
 ms.author: yalavi
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
 
 Azure Monitor is a unified monitoring stack that supports ‘One Metric’ and ‘One Alerts’ across Azure resources. See more information in this [blog post](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy.
 
-With the new Azure monitoring and alerting platform in place, classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+With the new Azure monitoring and alerting platform in place, classic alerts in Azure Monitor are retired for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 

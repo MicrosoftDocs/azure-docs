@@ -250,7 +250,7 @@ Many enterprise clients mandate that your Azure Stack can be deployed under thei
 For more information:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Tutorial: Publish Azure managed applications in the Marketplace](../../../../marketplace/create-new-azure-apps-offer.md)
+* [Tutorial: Publish Azure managed applications in the Marketplace](../../../../marketplace/azure-app-offer-setup.md)
 
 ### Security
 

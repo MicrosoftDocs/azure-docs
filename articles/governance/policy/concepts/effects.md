@@ -1,8 +1,10 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 04/19/2021
+author: timwarner-msft
+ms.date: 10/20/2022
 ms.topic: conceptual
+ms.author: timwarner
 ---
 # Understand Azure Policy effects
 
@@ -18,6 +20,7 @@ These effects are currently supported in a policy definition:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
+- [Manual (preview)](#manual-preview)
 - [Modify](#modify)
 
 The following effects are _deprecated_:
@@ -142,19 +145,67 @@ For a Resource Manager mode, the audit effect doesn't have any additional proper
 **then** condition of the policy definition.
 
 For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the audit effect has the following
-additional subproperties of **details**.
+additional subproperties of **details**. Use of `templateInfo` is required for new or updated policy
+definitions as `constraintTemplate` is deprecated.
 
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
+- **templateInfo** (required)
+  - Can't be used with `constraintTemplate`.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint template. Allowed values: _PublicURL_ or
+      _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the constraint template. The
+      location must be publicly accessible.
+
+      > [!WARNING]
+      > Don't use SAS URIs, URL tokens, or or anything else that could expose secrets in plain text.
+
+    - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
+      template. See
+      [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
+      create a custom definition from an existing
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
+- **constraint** (deprecated)
+  - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are
     `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (optional)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to limit policy evaluation to.
+  - An empty or missing value causes policy evaluation to include all namespaces, except those
+    defined in _excludedNamespaces_.
+- **excludedNamespaces** (required)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to exclude from policy evaluation.
+- **labelSelector** (required)
+  - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
+    allow specifying which Kubernetes resources to include for policy evaluation that matched the
+    provided
+    [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+  - An empty or missing value causes policy evaluation to include all labels and selectors, except
+    namespaces defined in _excludedNamespaces_.
+- **apiGroups** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
+    array (`[""]`) is the core API group.
+  - Defining `["*"]` for _apiGroups_ is disallowed.
+- **kinds** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
+    of Kubernetes object to limit evaluation to.
+  - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
+- **constraintTemplate** (deprecated)
+  - Can't be used with `templateInfo`.
+  - Must be replaced with `templateInfo` when creating or updating a policy definition.
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy.
 
 ### Audit example
 
@@ -167,19 +218,22 @@ Example 1: Using the audit effect for Resource Manager modes.
 ```
 
 Example 2: Using the audit effect for a Resource Provider mode of `Microsoft.Kubernetes.Data`. The
-additional information in **details** defines the Constraint template and CRD to use in Kubernetes
-to limit the allowed container images.
+additional information in **details.templateInfo** declares use of _PublicURL_ and sets `url` to the
+location of the Constraint template to use in Kubernetes to limit the allowed container images.
 
 ```json
 "then": {
     "effect": "audit",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```
@@ -205,9 +259,9 @@ related resources to match.
 
 - **Type** (required)
   - Specifies the type of the related resource to match.
-  - If **details.type** is a resource type underneath the **if** condition resource, the policy
+  - If **type** is a resource type underneath the **if** condition resource, the policy
     queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
-    policy queries within the same resource group as the evaluated resource.
+    policy queries within the same resource group or subscription as the evaluated resource depending on the **existenceScope**.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.
@@ -224,8 +278,21 @@ related resources to match.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource.
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
+- **EvaluationDelay** (optional)
+  - Specifies when the existence of the related resources should be evaluated. The delay is only
+    used for evaluations that are a result of a create or update resource request.
+  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`,
+    or an ISO 8601 duration between 0 and 360 minutes.
+  - The _AfterProvisioning_ values inspect the provisioning result of the resource that was
+    evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is
+    complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
+    failure when determining _AfterProvisioning_ evaluation delays.
+  - Default is `PT10M` (10 minutes).
+  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+    not update until the next
+    [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
   - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the
     audit.
@@ -290,19 +357,68 @@ For a Resource Manager mode, the deny effect doesn't have any additional propert
 **then** condition of the policy definition.
 
 For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the deny effect has the following
-additional subproperties of **details**.
+additional subproperties of **details**. Use of `templateInfo` is required for new or updated policy
+definitions as `constraintTemplate` is deprecated.
 
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
+- **templateInfo** (required)
+  - Can't be used with `constraintTemplate`.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint template. Allowed values: _PublicURL_ or
+      _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the constraint template. The
+      location must be publicly accessible.
+
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+
+    - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
+      template. See
+      [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
+      create a custom definition from an existing
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
+- **constraint** (optional)
+  - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are
     `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (optional)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to limit policy evaluation to.
+  - An empty or missing value causes policy evaluation to include all namespaces, except those
+    defined in _excludedNamespaces_.
+- **excludedNamespaces** (required)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to exclude from policy evaluation.
+- **labelSelector** (required)
+  - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
+    allow specifying which Kubernetes resources to include for policy evaluation that matched the
+    provided
+    [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+  - An empty or missing value causes policy evaluation to include all labels and selectors, except
+    namespaces defined in _excludedNamespaces_.
+- **apiGroups** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
+    array (`[""]`) is the core API group.
+  - Defining `["*"]` for _apiGroups_ is disallowed.
+- **kinds** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
+    of Kubernetes object to limit evaluation to.
+  - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
+- **constraintTemplate** (deprecated)
+  - Can't be used with `templateInfo`.
+  - Must be replaced with `templateInfo` when creating or updating a policy definition.
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy. It's recommended to use the newer `templateInfo` to
+    replace `constraintTemplate`.
 
 ### Deny example
 
@@ -315,19 +431,22 @@ Example 1: Using the deny effect for Resource Manager modes.
 ```
 
 Example 2: Using the deny effect for a Resource Provider mode of `Microsoft.Kubernetes.Data`. The
-additional information in **details** defines the Constraint template and CRD to use in Kubernetes
-to limit the allowed container images.
+additional information in **details.templateInfo** declares use of _PublicURL_ and sets `url` to the
+location of the Constraint template to use in Kubernetes to limit the allowed container images.
 
 ```json
 "then": {
     "effect": "deny",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```
@@ -335,7 +454,7 @@ to limit the allowed container images.
 ## DeployIfNotExists
 
 Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
-when the condition is met.
+when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 > [!NOTE]
 > [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template)
@@ -345,7 +464,7 @@ when the condition is met.
 
 ### DeployIfNotExists evaluation
 
-DeployIfNotExists runs about 15 minutes after a Resource Provider has handled a create or update
+DeployIfNotExists runs after a configurable delay when a Resource Provider handles a create or update
 subscription or resource request and has returned a success status code. A template deployment
 occurs if there are no related resources or if the resources defined by **ExistenceCondition** don't
 evaluate to true. The duration of the deployment depends on the complexity of resources included in
@@ -362,8 +481,9 @@ related resources to match and the template deployment to execute.
 
 - **Type** (required)
   - Specifies the type of the related resource to match.
-  - Starts by trying to fetch a resource underneath the **if** condition resource, then queries
-    within the same resource group as the **if** condition resource.
+  - If **type** is a resource type underneath the **if** condition resource, the policy
+    queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
+    policy queries within the same resource group or subscription as the evaluated resource depending on the **existenceScope**.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.
@@ -380,8 +500,21 @@ related resources to match and the template deployment to execute.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource.
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
+- **EvaluationDelay** (optional)
+  - Specifies when the existence of the related resources should be evaluated. The delay is only
+    used for evaluations that are a result of a create or update resource request.
+  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`,
+    or an ISO 8601 duration between 0 and 360 minutes.
+  - The _AfterProvisioning_ values inspect the provisioning result of the resource that was
+    evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is
+    complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
+    failure when determining _AfterProvisioning_ evaluation delays.
+  - Default is `PT10M` (10 minutes).
+  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+    not update until the next
+    [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
   - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the
     deployment.
@@ -395,7 +528,7 @@ related resources to match and the template deployment to execute.
 - **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
-    [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+    [remediation - configure the policy definition](../how-to/remediate-resources.md#configure-the-policy-definition).
 - **DeploymentScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the type of deployment to be triggered. _Subscription_ indicates a
@@ -408,6 +541,10 @@ related resources to match and the template deployment to execute.
   - This property should include the full template deployment as it would be passed to the
     `Microsoft.Resources/deployments` PUT API. For more information, see the
     [Deployments REST API](/rest/api/resources/deployments).
+  - Nested `Microsoft.Resources/deployments` within the template should use unique names to avoid
+    contention between multiple policy evaluations. The parent deployment's name can be used as part
+    of the nested deployment name via
+    `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`.
 
   > [!NOTE]
   > All functions inside the **Deployment** property are evaluated as components of the template,
@@ -430,6 +567,7 @@ If not, then a deployment to enable is executed.
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
+        "evaluationDelay": "AfterProvisioning",
         "roleDefinitionIds": [
             "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
@@ -475,8 +613,11 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+> [!NOTE]
+> Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
+
+An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
+When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
@@ -607,13 +748,73 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 }
 ```
 
+## Manual (preview)
+
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
+
+> [!NOTE]
+> During Public Preview, support for manual policy is available through various Microsoft Defender
+> for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
+
+Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:
+
+- FedRAMP High
+- FedRAMP Medium
+- HIPAA
+- HITRUST
+- ISO 27001
+- Microsoft CIS 1.3.0
+- Microsoft CIS 1.4.0
+- NIST SP 800-171 Rev. 2
+- NIST SP 800-53 Rev. 4
+- NIST SP 800-53 Rev. 5
+- PCI DSS 3.2.1
+- PCI DSS 4.0
+- SOC TSP
+- SWIFT CSP CSCF v2022
+
+The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
+
+```json
+{
+  "if": {
+    "field":  "type",
+    "equals": "Microsoft.Resources/subscriptions"
+  },
+  "then": {
+    "effect": "manual",
+    "details": {
+      "defaultState": "Unknown"
+    }
+  }
+}
+```
+
+The `defaultState` property has three possible values:
+
+- **Unknown**: The initial, default state of the targeted resources.
+- **Compliant**: Resource is compliant according to your manual policy standards
+- **Non-compliant**: Resource is non-compliant according to your manual policy standards
+
+The Azure Policy compliance engine evaluates all applicable resources to the default state specified
+in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that you
+must manually attest the resource compliance state. If the effect state is unspecified, it defaults
+to `Unknown`. The `Unknown` compliance state indicates that you must attest the compliance state yourself.
+
+The following screenshot shows how a manual policy assignment with the `Unknown`
+state appears in the Azure portal:
+
+![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
+
+When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
+
 ## Modify
 
 Modify is used to add, update, or remove properties or tags on a subscription or resource during
 creation or update. A common example is updating tags on resources such as costCenter. Existing
 non-compliant resources can be remediated with a
 [remediation task](../how-to/remediate-resources.md). A single Modify rule can have any number of
-operations.
+operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 The following operations are supported by Modify:
 
@@ -621,7 +822,7 @@ The following operations are supported by Modify:
   _Indexed_ unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
   virtual machine scale sets.
-- Add or replace the values of certain aliases (preview).
+- Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
     in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with Modify.
@@ -637,7 +838,7 @@ The following operations are supported by Modify:
 Modify evaluates before the request gets processed by a Resource Provider during the creation or
 updating of a resource. The Modify operations are applied to the request content when the **if**
 condition of the policy rule is met. Each Modify operation can specify a condition that determines
-when it's applied. Operations with conditions that are evaluated to _false_ are skipped.
+when it's applied. Operations with _false_ condition evaluations are skipped.
 
 When an alias is specified, the following additional checks are performed to ensure that the Modify
 operation doesn't change the request content in a way that causes the resource provider to reject
@@ -651,7 +852,7 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 **conflictEffect**.
 
 > [!IMPORTANT]
-> It's recommeneded that Modify definitions that include aliases use the _audit_ **conflict effect**
+> It's recommended that Modify definitions that include aliases use the _audit_ **conflict effect**
 > to avoid failing requests using API versions where the mapped property isn't 'Modifiable'. If the
 > same alias behaves differently between API versions, conditional modify operations can be used to
 > determine the modify operation used for each API version.
@@ -668,7 +869,7 @@ needed for remediation and the **operations** used to add, update, or remove tag
 - **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
-    [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+    [remediation - configure the policy definition](../how-to/remediate-resources.md#configure-the-policy-definition).
   - The role defined must include all operations granted to the
     [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
 - **conflictEffect** (optional)

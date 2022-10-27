@@ -1,0 +1,34 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/lab-services/classroom-labs-overview.md",
+            "redirect_url": "/azure/lab-services/lab-services-overview",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/devtest-labs/scripts/add-external-user-to-lab.md",
+          "redirect_url": "/azure/devtest-labs/samples-powershell",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/devtest-labs/scripts/add-marketplace-images-to-lab.md",
+          "redirect_url": "/azure/devtest-labs/samples-powershell",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/devtest-labs/scripts/create-custom-image-from-vhd.md",
+          "redirect_url": "/azure/devtest-labs/samples-powershell",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/devtest-labs/scripts/create-custom-role-in-lab.md",
+          "redirect_url": "/azure/devtest-labs/samples-powershell",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/devtest-labs/scripts/set-allowed-vm-sizes-in-lab.md",
+          "redirect_url": "/azure/devtest-labs/samples-powershell",
+          "redirect_document_id": false
+        }
+    ]
+}

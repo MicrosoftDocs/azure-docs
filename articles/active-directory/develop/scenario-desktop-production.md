@@ -1,6 +1,5 @@
 ---
-title: Move desktop app calling web APIs to production | Azure
-titleSuffix: Microsoft identity platform 
+title: Move desktop app calling web APIs to production
 description: Learn how to move a desktop app that calls web APIs to production
 services: active-directory
 author: jmprieur
@@ -107,7 +106,7 @@ For Microsoft personal account users, reprompting for consent on each native cli
 
 ## Next steps
 
-To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+To try out additional samples, see [Desktop public client applications](sample-v2-code.md#desktop).
 
 
 

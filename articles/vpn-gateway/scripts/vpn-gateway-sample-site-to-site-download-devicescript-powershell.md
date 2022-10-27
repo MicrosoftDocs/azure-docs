@@ -9,7 +9,8 @@ ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
-ms.author: yushwang
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 

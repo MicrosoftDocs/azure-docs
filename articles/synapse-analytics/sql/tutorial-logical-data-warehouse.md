@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Use serverless SQL pool to build a Logical Data Warehouse'
 description: This tutorial shows you how to easily create Logical data Warehouse on Azure data sources using serverless SQL pool
-services: synapse-analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/28/2021
+ms.custom: ignite-2022
+ms.date: 08/20/2021
 ms.author: jovanpop
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Tutorial: Create Logical Data Warehouse with serverless SQL pool
@@ -26,7 +26,7 @@ CREATE DATABASE Ldw
       COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
-This collation will provide the optimal performance while reading Parquet and Cosmos DB. If you don't want to specify the database collation,
+This collation will provide the optimal performance while reading Parquet and Azure Cosmos DB. If you don't want to specify the database collation,
 make sure that you specify this collation in the column definition.
 
 ## Configure data sources and formats
@@ -37,7 +37,7 @@ As a first step, you need to configure data source and specify file format of re
 
 Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
 
-One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) is shown in the following example:
+One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](../../open-datasets/dataset-ecdc-covid-cases.md) is shown in the following example:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -50,7 +50,8 @@ A caller may access data source without credential if an owner of data source al
 You can explicitly define a custom credential that will be used while accessing data on external data source.
 - [Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) of the Synapse workspace
 - [Shared Access Signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) of the Azure storage
-- Read-only Cosmos Db account key that enables you to read Cosmos DB analytical storage.
+- Custom [Service Principal Name or Azure Application identity](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types).
+- Read-only Azure Cosmos DB account key that enables you to read Azure Cosmos DB analytical storage.
 
 As a prerequisite, you will need to create a master key in the database:
 ```sql
@@ -69,13 +70,25 @@ CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
 );
 ```
 
-In order to access Cosmos DB analytical storage, you need to define a credential containing a read-only Cosmos DB account key.
+In order to access Azure Cosmos DB analytical storage, you need to define a credential containing a read-only Azure Cosmos DB account key.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
+
+Any user with the Synapse Administrator role can use these credentials to access Azure Data Lake storage or Azure Cosmos DB analytical storage.
+If you have low privileged users that do not have Synapse Administrator role, you would need to give them an explicit permission to reference these database scoped credentials:
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::WorkspaceIdentity TO <user>
+GO
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <user>
+GO
+```
+
+Find more details in [grant DATABASE SCOPED CREDENTIAL permissions](/sql/t-sql/statements/grant-database-scoped-credential-transact-sql) page.
 
 ### Define external file formats
 
@@ -84,8 +97,10 @@ External file formats define the structure of the files stored on external data 
 ```sql
 CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
 GO
-CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
+CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
 ```
+
+Find more information in [this article](develop-tables-external-tables.md?tabs=native#syntax-for-create-external-file-format)
 
 ## Explore your data
 
@@ -95,16 +110,16 @@ reads content of a remote data source (for example file) and returns the content
 ```sql
 select top 10  *
 from openrowset(bulk 'latest/ecdc_cases.parquet',
-                data_source = 'ecdc_cases'
+                data_source = 'ecdc_cases',
                 format='parquet') as a
 ```
 
-The `OPENROWSET` function will give you information about the column in the external files or containers and enable you to define a schema of 
+The `OPENROWSET` function will give you information about the columns in the external files or containers and enable you to define a schema of 
 your external tables and views.
 
 ## Create external tables on Azure storage
 
-Once you discover the schema, you can create external tables and views on top of yu=our external data sources. The good practice is to organize
+Once you discover the schema, you can create external tables and views on top of your external data sources. The good practice is to organize
 your tables and views in databases schemas. In the following query you can create a schema where you will place all objects that are accessing
 ECDC COVID data set in Azure data Lake storage:
 
@@ -151,7 +166,7 @@ Similar to the tables shown in the previous example, you should place the views 
 create schema ecdc_cosmosdb;
 ```
 
-Now you are able to create a view in the schema that is referencing a Cosmos DB container:
+Now you are able to create a view in the schema that is referencing an Azure Cosmos DB container:
 
 ```sql
 CREATE OR ALTER VIEW ecdc_cosmosdb.Ecdc
@@ -177,18 +192,30 @@ To optimize performance, you should use the smallest possible types in the `WITH
 ## Access and permissions
 
 As a final step, you should create database users that should be able to access your LDW, and give them permissions to select data from the external tables and views.
-In the following script you can see how to add a new user and provide permissions to read data:
+In the following script you can see how to add a new user that will be authenticated using Azure AD identity:
 
 ```sql
 CREATE USER [jovan@contoso.com] FROM EXTERNAL PROVIDER;
 GO
+```
+
+Instead of Azure AD principals, you can create SQL principals that authenticate with the login name and password.
+
+```sql
+CREATE LOGIN [jovan] WITH PASSWORD = 'My Very strong Password ! 1234';
+CREATE USER [jovan] FROM LOGIN [jovan];
+```
+
+In both cases, you can assign permissions to the users.
+
+```sql
 DENY ADMINISTER DATABASE BULK OPERATIONS TO [jovan@contoso.com]
 GO
 GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
 GO
 GRANT SELECT ON OBJECT::ecdc_cosmosDB.cases TO [jovan@contoso.com]
 GO
-GRANT REFERENCES ON CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
 GO
 ```
 
@@ -204,8 +231,32 @@ This user has minimal permissions needed to query external data. If you want to 
 GRANT CONTROL TO [jovan@contoso.com]
 ```
 
+### Role-based security
+
+Instead of assigning permissions to the individual uses, a good practice it to organize the users into roles and manage permission at role-level.
+The following code sample creates a new role representing the people who can analyze COVID-19 cases, and adds three users to this role:
+
+```sql
+CREATE ROLE CovidAnalyst;
+
+ALTER ROLE CovidAnalyst ADD MEMBER [jovan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [milan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [petar@contoso.com];
+```
+
+You can assign the permissions to all users that belong to the group:
+
+```sql
+GRANT SELECT ON SCHEMA::ecdc_cosmosdb TO [CovidAnalyst];
+GO
+DENY SELECT ON SCHEMA::ecdc_adls TO [CovidAnalyst];
+GO
+DENY ADMINISTER DATABASE BULK OPERATIONS TO [CovidAnalyst];
+```
+
+This role-based security access control might simplify management of your security rules.
+
 ## Next steps
 
 - To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
 - To learn how to use External tables in serverless SQL pool see [Use external tables with Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool)
-

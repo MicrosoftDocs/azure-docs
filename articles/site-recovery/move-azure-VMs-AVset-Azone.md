@@ -2,11 +2,11 @@
 title: Move VMs to an Azure region with availability zones using Azure Site Recovery 
 description: Learn how to move VMs to an availability zone in a different region with Site Recovery
 services: site-recovery
-author: sideeksh
+author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: sideeksh
+ms.author: v-pgaddala
 ms.custom: MVC
 ---
 
@@ -76,7 +76,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 
     - [Network security groups](../virtual-network/manage-network-security-group.md)
     - [Load balancers](../load-balancer/index.yml)
-    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+    - [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
    For any other networking components, refer to the networking [documentation](../index.yml?pivot=products&panel=network).
 

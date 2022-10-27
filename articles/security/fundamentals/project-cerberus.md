@@ -2,12 +2,12 @@
 title: Firmware integrity - Azure Security
 description: Learn about cryptographic measurements to ensure firmware integrity.
 author: yosharm
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
+ms.date: 06/24/2021
 ---
 
 # Project Cerberus
@@ -40,6 +40,7 @@ In conjunction with the Host Attestation Service, Cerberus’ capabilities enhan
 To learn more about what we do to drive platform integrity and security, see:
 
 - [Firmware security](firmware.md)
+- [Platform code integrity](code-integrity.md)
 - [Secure boot](secure-boot.md)
 - [Measured boot and host attestation](measured-boot-host-attestation.md)
 - [Encryption at rest](encryption-atrest.md)

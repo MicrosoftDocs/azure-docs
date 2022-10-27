@@ -4,7 +4,8 @@ description:
   This article provides detail guidance for implementing specific event
   replication task patterns
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
+ms.custom: ignite-2022
 ---
 
 # Event replication tasks patterns
@@ -139,7 +140,7 @@ the subordinate zone corresponding to your primary Event Hub:
 
 | CNAME record                | Alias                    |
 | --------------------------- | ------------------------ |
-| `eventhub.test.example.com` | `test1.test.example.com` |
+| `eventhub.test.example.com` | `eh1.test.example.com`   |
 
 Using a DNS client that allows for querying CNAME and SRV records explicitly
 (the built-in clients of Java and .NET only allow for simple resolution of names
@@ -339,7 +340,7 @@ select * into dest2Output from inputSource where Info = 2
 
 The log projection pattern flattens the event stream onto an indexed database,
 with events becoming records in the database. Typically, events are added to the
-same collection or table, and the Event Hub partition key becomes party of the
+same collection or table, and the Event Hub partition key becomes part of the
 the primary key looking for making the record unique.
 
 Log projection can produce a time-series historian of your event data or a
@@ -348,13 +349,9 @@ key. The shape of the target database is ultimately up to you and your
 application's needs. This pattern is also referred to as "event sourcing".
 
 > [!TIP]
-> You can easily create log projections into [Azure SQL
-> Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos
-> DB](../stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics and
-> you should prefer that option.
+> You can easily create log projections into [Azure SQL Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos DB](../stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics, and you should prefer that option.
 
-The following Azure Function projects the contents of an Event Hub
-compacted into an Azure CosmosDB collection.
+The following Azure Function projects the contents of an Event Hub compacted into an Azure Cosmos DB collection.
 
 ```C#
 [FunctionName("Eh1ToCosmosDb1Json")]

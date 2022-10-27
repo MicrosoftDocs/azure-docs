@@ -2,8 +2,8 @@
 title: Azure Red Hat OpenShift cluster administrator role | Microsoft Docs
 description:  Assignment and usage of the Azure Red Hat OpenShift cluster administrator role
 services: container-service
-author: mjudeikis
-ms.author: jzim
+author: konghot
+ms.author: pkonghot
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019

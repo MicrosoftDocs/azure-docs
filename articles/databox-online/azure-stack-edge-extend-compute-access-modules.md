@@ -1,6 +1,6 @@
 ---
-title: Manage compute network on Azure Stack Edge Pro to access modules| Microsoft Docs 
-description: Describes how to extend the compute network on your Azure Stack Edge Pro to access modules via an external IP.
+title: Azure Stack Edge Pro FPGA compute network management to access modules 
+description: Describes how to extend the compute network on your Azure Stack Edge Pro FPGA to access modules via an external IP.
 services: databox
 author: alkohli
 
@@ -57,7 +57,7 @@ Take the following steps to add a webserver app module on your Azure Stack Edge 
 3. In the **IoT Edge custom modules** blade:
 
     1. Specify a **Name** for your webserver app module that you want to deploy.
-    2. Provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `nginx:stable` will pull a stable nginx image (tagged as stable) from the public [Docker repository](https://hub.docker.com/_/nginx/).
+    2. Provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine` will pull an nginx image (tagged as `1.15.5-alpine`) from the public `mcr.microsoft.com` registry.
     3. In the **Container Create Options**, paste the following sample code:  
 
         ```
