@@ -317,6 +317,7 @@ az ad app update `
 # [Azure DevOps](#tab/devops)
 
 It is currently not possible to perform this action from Azure DevOps.
+
 ---
 
 > [!TIP]

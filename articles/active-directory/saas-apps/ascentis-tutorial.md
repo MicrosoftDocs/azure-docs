@@ -46,6 +46,8 @@ To configure the integration of Ascentis into Azure AD, you need to add Ascentis
 1. In the **Add from the gallery** section, type **Ascentis** in the search box.
 1. Select **Ascentis** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 
 ## Configure and test Azure AD single sign-on
 
@@ -79,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
-   ```https
+    ```https
     https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
     https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
     ```

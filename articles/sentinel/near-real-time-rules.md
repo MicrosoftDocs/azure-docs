@@ -50,7 +50,7 @@ The following limitations currently govern the use of NRT rules:
 
     1. Queries can run only within a single workspace. There is no cross-workspace capability.
 
-    1. Event grouping is not configurable. NRT rules produce a single alert that groups all the applicable events.
+    1. Event grouping is now configurable to a limited degree. NRT rules can produce up to 30 single-event alerts. A rule with a query that results in more than 30 events will produce alerts for the first 29, then a 30th alert that summarizes all the applicable events.
 
 ## Next steps
 

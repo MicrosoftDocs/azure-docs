@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 10/17/2022
 ms.author: mbaldwin
 ---
 # Configure cryptographic key auto-rotation in Azure Key Vault
@@ -242,3 +242,4 @@ Key rotation policy can also be configured using ARM templates.
 - [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
 - [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
 - [Azure Disk Encryption](../../virtual-machines/disk-encryption.md)
+- [Automatic key rotation for transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation#automatic-key-rotation)

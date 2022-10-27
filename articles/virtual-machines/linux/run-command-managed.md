@@ -74,9 +74,18 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 ### Execute a script with the VM
 This command will deliver the script to the VM, execute it, and return the captured output.
 
+
 ```azurepowershell-interactive
 Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -RunCommandName "RunCommandName" –SourceScript "echo Hello World!"
 ```
+
+### Execute a script on the VM using SourceScriptUri parameter 
+`OutputBlobUri` and `ErrorBlobUri` are optional parameters.
+
+```azurepowershell-interactive
+Set-AzVMRunCommand -ResourceGroupName -VMName -RunCommandName -SourceScriptUri “< SAS URI of a storage blob with read access or public URI>" -OutputBlobUri “< SAS URI of a storage append blob with read, add, create, write access>” -ErrorBlobUri “< SAS URI of a storage append blob with read, add, create, write access>”
+```
+
 
 ### List all deployed RunCommand resources on a VM 
 This command will return a full list of previously deployed Run Commands along with their properties.
@@ -104,7 +113,7 @@ Remove-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "
 To deploy a new Run Command, execute a PUT on the VM directly and specify a unique name for the Run Command instance. 
 
 ```rest
-PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?api-version=2019-12-01
+GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands?api-version=2019-12-01
 ```
 
 ```json
@@ -112,8 +121,8 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 "location": "<location>", 
 "properties": { 
     "source": { 
-        "script": "echo Hello World", 
-        "scriptUri": "<URI>",  
+        "script": "Write-Host Hello World!", 
+        "scriptUri": "<SAS URI of a storage blob with read access or public URI>",  
         "commandId": "<Id>"  
         }, 
     "parameters": [ 
@@ -139,24 +148,26 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
     "runAsUser": "userName",
     "runAsPassword": "userPassword", 
     "timeoutInSeconds": 3600, 
-    "outputBlobUri": "<URI>", 
-    "errorBlobUri": "<URI>"  
+    "outputBlobUri": "< SAS URI of a storage append blob with read, add, create, write access>", 
+    "errorBlobUri": "< SAS URI of a storage append blob with read, add, create, write access >"  
     }
 }
 ```
 
 ### Notes
  
-- You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source
-- Only one type of source input is supported for one command execution 
-- Run Command supports output to Storage blobs, which can be used to store large script outputs
-- Run Command supports error output to Storage blobs 
+- You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source. Script URI is either storage blob SAS URI with read access or public URI.
+- Only one type of source input is supported for one command execution.  
+- Run Command supports writing output and error to Storage blobs using outputBlobUri and errorBlobUri parameters, which can be used to store large script outputs. Use SAS URI of a storage append blob with read, add, create, write access. The blob should be of type AppendBlob. Writing the script output or error blob would fail otherwise. The blob will be overwritten if it already exists. It will be created if it does not exist.
+
 
 ### List running instances of Run Command on a VM 
 
 ```rest
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands?api-version=2019-12-01
 ``` 
+
+
 
 ### Get output details for a specific Run Command deployment 
 
@@ -240,7 +251,7 @@ In this example, **secondRunCommand** will execute after **firstRunCommand**.
          ],
          "properties":{
             "source":{
-               "scriptUrl":"http://github.com/myscript.ps1"
+               "scriptUri":"http://github.com/myscript.ps1"
             },
             "timeoutInSeconds":60
          }

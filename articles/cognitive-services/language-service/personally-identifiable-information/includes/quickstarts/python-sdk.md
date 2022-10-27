@@ -3,12 +3,12 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/15/2022
+ms.date: 09/15/2022
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) |  [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) |  [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.2.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
 
 Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for Python. In the following example, you'll create a Python application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
 
@@ -33,7 +33,7 @@ Use this quickstart to create a Personally Identifiable Information (PII) detect
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure-ai-textanalytics==5.1.0
+pip install azure-ai-textanalytics==5.2.0
 ```
 
 > [!div class="nextstepaction"]
@@ -87,15 +87,25 @@ pii_recognition_example(client)
 ## Output
 
 ```console
-Redacted Text: The employee's SSN is ***********.
+Redacted Text: The ********'s SSN is ***********.
+Entity: employee
+        Category: PersonType
+        Confidence Score: 0.97
+        Offset: 4
+        Length: 8
 Entity: 859-98-0987
-        Category: U.S. Social Security Number (SSN)
+        Category: USSocialSecurityNumber
         Confidence Score: 0.65
         Offset: 22
         Length: 11
-Redacted Text: The employee's phone number is ************.
+Redacted Text: The ********'s phone number is ************.
+Entity: employee
+        Category: PersonType
+        Confidence Score: 0.96
+        Offset: 4
+        Length: 8
 Entity: 555-555-5555
-        Category: Phone Number
+        Category: PhoneNumber
         Confidence Score: 0.8
         Offset: 31
         Length: 12

@@ -1,52 +1,72 @@
 ---
-title: SAP change data capture solution (Preview) - introduction and architecture
+title: Overview and architecture of the SAP CDC capabilities
 titleSuffix: Azure Data Factory
-description: This topic introduces and describes the architecture for SAP change data capture (Preview) in Azure Data Factory.
+description: Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand its architecture.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# SAP change data capture (CDC) solution in Azure Data Factory (Preview)
+# Overview and architecture of the SAP CDC capabilities
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This topic introduces and describes the architecture for SAP change data capture (Preview) in Azure Data Factory.
+Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand the architecture.
 
-## Introduction
+Azure Data Factory is an ETL and ELT data integration platform as a service (PaaS). For SAP data integration, Data Factory currently offers six general availability connectors:
 
-Azure Data Factory (ADF) is a data integration (ETL/ELT) Platform as a Service (PaaS) and for SAP data integration, ADF currently offers six connectors: 
+:::image type="content" source="media/sap-change-data-capture-solution/sap-supported-cdc-connectors.png" alt-text="Screenshot of the six general availability connectors for SAP systems in Data Factory.":::
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-supported-cdc-connectors.png" alt-text="Shows a list of the supported connectors for the SAP CDC solution.":::
+## Data extraction needs
 
-These connectors can only extract data in batches, where each batch treats old and new data equally w/o identifying data changes (“batch mode”).  This extraction mode isn’t optimal when dealing w/ large data sets, such as tables w/ millions/billions records, that change often.  To keep your copy of SAP data fresh/up-to-date, frequently extracting it in full is expensive/inefficient.  There’s a manual and limited workaround to extract mostly new/updated records, but this process requires a column w/ timestamp/monotonously increasing values and continuously tracking the highest value since last extraction (“watermarking”).  Unfortunately, some tables have no column that can be used for watermarking and this process can’t handle deleted records.
+The SAP connectors in Data Factory extract SAP source data only in batches. Each batch processes existing and new data the same. In data extraction in batch mode, changes between existing and new datasets aren't identified. This type of extraction mode isn’t optimal when you have large datasets like tables that have millions or billions of records that change often.
 
-Consequently, our customers have been asking for a new connector that can extract only data changes (inserts/updates/deletes = “deltas”), leveraging the CDC feature that exists in most SAP systems (in “CDC mode”).  After gathering their requirements, we’ve decided to build a new SAP ODP connector leveraging SAP Operational Data Provisioning (ODP) framework.  This new connector can connect to all SAP systems that support ODP, such as R/3, ECC, S/4HANA, BW, and BW/4HANA, directly at the application layer or indirectly via SAP Landscape Transformation (SLT) replication server as a proxy.  It can fully/incrementally extract SAP data that includes not only physical tables, but also logical objects created on top of those tables, such as Advanced Business Application Programming (ABAP) Core Data Services (CDS) views, w/o watermarking.  Combined w/ existing ADF features, such as copy + data flow activities, pipeline templates, and tumbling window triggers, we can offer low-latency SAP CDC/replication solution w/ self-managed pipeline experience.
+You can keep your copy of SAP data fresh and up-to-date by frequently extracting the full dataset, but this approach is expensive and inefficient. You also can use a manual, limited workaround to extract mostly new or updated records. In a process called *watermarking*, extraction requires using a timestamp column, monotonously increasing values, and continuously tracking the highest value since the last extraction. But some tables don't have a column that you can use for watermarking. This process also doesn't identify a deleted record as a change in the dataset.
 
-This document provides a high-level architecture of our SAP CDC solution in ADF, the prerequisites and step-by-step guidelines to preview it, and its current limitations.
+## SAP CDC capabilities
 
-## Architecture
+Microsoft customers indicate that they need a connector that can extract only the delta between two sets of data. In data, a *delta* is any change in a dataset that's the result of an update, insert, or deletion in the dataset. A delta extraction connector uses the [SAP change data capture (CDC) feature](https://help.sap.com/docs/SAP_DATA_SERVICES/ec06fadc50b64b6184f835e4f0e1f52f/1752bddf523c45f18ce305ac3bcd7e08.html?q=change%20data%20capture) that exists in most SAP systems to determine the delta in a dataset. The SAP CDC capabilities in Data Factory use the SAP Operational Data Provisioning (ODP) framework to replicate the delta in an SAP source dataset.
 
-The high-level architecture of our SAP CDC solution in ADF is divided into two sides, left-hand-side (LHS) and right-hand-side (RHS).  LHS includes SAP ODP connector that invokes ODP API over standard Remote Function Call (RFC) modules to extract raw SAP data (full + deltas).  RHS includes ADF copy activity that loads the raw SAP data into any destination, such as Azure Blob Storage/Azure Data Lake Store (ADLS) Gen2, in CSV/Parquet format, essentially archiving/preserving all historical changes.  RHS can also include ADF data flow activity that transforms the raw SAP data, merges all changes, and loads the result into any destination, such as Azure SQL Database/Azure Synapse Analytics, essentially replicating SAP data.  ADF data flow activity can also load the result into ADLS Gen2 in Delta format, enabling time-travel to produce snapshots of SAP data at any given periods in the past.  LHS and RHS can be combined as SAP CDC/replication template to auto-generate ADF pipeline that can be frequently run using ADF tumbling window trigger to replicate SAP data into Azure w/ low latency and w/o watermarking.
+This article provides a high-level architecture of the SAP CDC capabilities in Azure Data Factory. Get more information about the SAP CDC capabilities:
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-architecture-diagram.png" alt-text="Shows a diagram of the architecture of SAP CDC.":::
+- [Prerequisites and setup](sap-change-data-capture-prerequisites-configuration.md)
+- [Set up a self-hosted integration runtime](sap-change-data-capture-shir-preparation.md)
+- [Set up a linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)
+- [Manage your solution](sap-change-data-capture-management.md)
 
-ADF copy activity w/ SAP ODP connector runs on a self-hosted integration runtime (SHIR) that you install on your on-premises/virtual machine, so it has a line of sight to your SAP source systems/SLT replication server, while ADF data flow activity runs on a serverless Databricks/Spark cluster, Azure IR.  SAP ODP connector via ODP can extract various data source (“provider”) types, such as:
+## How to use the SAP CDC capabilities
 
--	SAP extractors, originally built to extract data from SAP ECC and load it into SAP BW
--	ABAP CDS views, the new data extraction standard for SAP S/4HANA
--	InfoProviders and InfoObjects in SAP BW and BW/4HANA
--	SAP application tables, when using SLT replication server as a proxy
+At the core of the SAP CDC capabilities is the new SAP CDC connector. It can connect to all SAP systems that support ODP. This includes SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. It doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC connector extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
 
-These providers run on SAP systems to produce full/incremental data in Operational Delta Queue (ODQ) that is consumed by ADF copy activity w/ SAP ODB connector in ADF pipeline (“subscriber”).
+Use the SAP CDC connector with Data Factory features like mapping data flow activities, and tumbling window triggers for a low-latency SAP CDC replication solution in a self-managed pipeline.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-architecture-diagram.png" alt-text="Shows a diagram of the architecture of SAP CDC through the self-hosted integration runtime (SHIR).":::
+## The SAP CDC architecture
 
-Since ODP completely decouples providers from subscribers, any SAP docs that offer provider configurations are applicable for ADF as a subscriber.  For more info on ODP, see [Introduction to operational data provisioning](https://wiki.scn.sap.com/wiki/display/BI/Introduction+to+Operational+Data+Provisioning). 
+The SAP CDC solution in Azure Data Factory is a connector between SAP and Azure. The SAP side includes the SAP ODP connector that invokes the ODP API over standard Remote Function Call (RFC) modules to extract full and delta raw SAP data.
+
+The Azure side includes the Data Factory mapping data flow that can transform and load the SAP data into any data sink supported by mapping data flows. This includes storage destinations like Azure Data Lake Storage Gen2 or databases like Azure SQL Database or Azure Synapse Analytics. The Data Factory data flow activity also can load the results in Data Lake Storage Gen2 in delta format. You can use the Delta Lake Time Travel feature to produce snapshots of SAP data for a specific period. You can run your pipeline and mapping data flows frequently by using a Data Factory tumbling window trigger to replicate SAP data in Azure with low latency and without using watermarking.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP CDC solution.":::
+
+To get started, create a Data Factory SAP CDC linked service, an SAP CDC source dataset, and a pipeline with a mapping data flow activity in which you use the SAP CDC source dataset. To extract the data from SAP, a self-hosted integration runtime is required that you install on an on-premises computer or on a virtual machine (VM). An on-premises computer has a line of sight to your SAP source systems and to your SLT server. The Data Factory data flow activity runs on a serverless Azure Databricks or Apache Spark cluster, or on an Azure integration runtime.
+
+The SAP CDC connector uses the SAP ODP framework to extract various data source types, including:
+
+- SAP extractors, originally built to extract data from SAP ECC and load it into SAP BW
+- ABAP CDS views, the new data extraction standard for SAP S/4HANA
+- InfoProviders and InfoObjects datasets in SAP BW and SAP BW/4HANA
+- SAP application tables, when you use an SAP LT replication server (SLT) as a proxy
+
+In this process, the SAP data sources are *providers*. The providers run on SAP systems to produce either full or incremental data in an operational delta queue (ODQ). The Data Factory mapping data flow source is a *subscriber* of the ODQ.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP ODP framework through a self-hosted integration runtime.":::
+
+Because ODP completely decouples providers from subscribers, any SAP documentation that offers provider configurations are applicable to Data Factory as a subscriber. For more information about ODP, see [Introduction to operational data provisioning](https://wiki.scn.sap.com/wiki/display/BI/Introduction+to+Operational+Data+Provisioning).
 
 ## Next steps
 
-[Prerequisites and configuration of the SAP CDC solution](sap-change-data-capture-prerequisites-configuration.md)
+[Prerequisites and setup for the SAP CDC solution](sap-change-data-capture-prerequisites-configuration.md)

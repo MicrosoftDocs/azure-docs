@@ -39,9 +39,6 @@ Follow these instructions to create a test:
 1. Enter the test name and description, and then select **Next**.
 1. Review your settings, and then select **Save and close**.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Create-a-test" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -60,9 +57,6 @@ Here's an example Speech CLI command that creates a test:
 ```azurecli-interactive
 spx csr evaluation create --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Inspection" --description "My Inspection Description"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -129,7 +123,7 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To create a test, use the [CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a test, use the [CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 - Set the required `model1` property to the URI of a model that you want to test.
@@ -159,9 +153,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US"
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -236,9 +227,6 @@ Follow these steps to get test results:
 
 This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Get-test-results" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -252,9 +240,6 @@ Here's an example Speech CLI command that gets test results:
 ```azurecli-interactive
 spx csr evaluation status --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The models, audio dataset, transcriptions, and more details are returned in the response body.
 
@@ -321,16 +306,13 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To get test results, start by using the [GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+To get test results, start by using the [GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
 curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The models, audio dataset, transcriptions, and more details are returned in the response body.
 

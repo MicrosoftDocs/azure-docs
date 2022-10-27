@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: dem108
-ms.author: sehan
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.date: 05/24/2022
-ms.reviewer: larryfr
-ms.custom: devplatv2, event-tier1-build-2022
+ms.custom: devplatv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Deploy models with REST for batch scoring 
@@ -55,7 +55,7 @@ In this article, you learn how to use the new REST APIs to:
 
 [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. In this article, you'll create a batch endpoint and deployment, and invoking it to start a batch scoring job. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
-There are many ways to create an Azure Machine Learning batch endpoint, including [the Azure CLI](how-to-use-batch-endpoint.md), and visually with [the studio](how-to-use-batch-endpoints-studio.md). The following example creates a batch endpoint and a batch deployment with the REST API.
+There are many ways to create an Azure Machine Learning batch endpoint, including the Azure CLI, Azure ML SDK for Python, and visually with the studio. The following example creates a batch endpoint and a batch deployment with the REST API.
 
 ## Create machine learning assets
 
@@ -91,7 +91,7 @@ You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON resu
 
 ### Upload & register code
 
-Now that you have the datastore, you can upload the scoring script. For more information about how to author the scoring script, see [Understanding the scoring script](how-to-use-batch-endpoint.md#understanding-the-scoring-script). Use the Azure Storage CLI to upload a blob into your default container:
+Now that you have the datastore, you can upload the scoring script. For more information about how to author the scoring script, see [Understanding the scoring script](batch-inference/how-to-use-batch-endpoint.md#understanding-the-scoring-script). Use the Azure Storage CLI to upload a blob into your default container:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="upload_code":::
 
@@ -310,7 +310,7 @@ Below are some examples using different types of input data.
 > - If you want to use local data, you can upload it to Azure Machine Learning registered datastore and use REST API for Cloud data.
 > - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Dataset.
 > - You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke.
-> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-read-write-data-v2.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2](how-to-read-write-data-v2.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 #### Configure the output location and overwrite settings
 
@@ -359,7 +359,7 @@ Batch scoring jobs usually take some time to process the entire set of inputs. M
 
 ### Check batch scoring results
 
-For information on checking the results, see [Check batch scoring results](how-to-use-batch-endpoint.md#check-batch-scoring-results).
+For information on checking the results, see [Check batch scoring results](batch-inference/how-to-use-batch-endpoint.md#check-batch-scoring-results).
 
 ## Delete the batch endpoint
 
@@ -369,6 +369,5 @@ If you aren't going use the batch endpoint, you should delete it with the below 
 
 ## Next steps
 
-* Learn how to deploy your model for batch scoring [using the Azure CLI](how-to-use-batch-endpoint.md).
-* Learn how to deploy your model for batch scoring [using studio](how-to-use-batch-endpoints-studio.md).
-* Learn to [Troubleshoot batch endpoints](how-to-troubleshoot-batch-endpoints.md)
+* Learn [how to deploy your model for batch scoring](batch-inference/how-to-use-batch-endpoint.md).
+* Learn to [Troubleshoot batch endpoints](batch-inference/how-to-troubleshoot-batch-endpoints.md)

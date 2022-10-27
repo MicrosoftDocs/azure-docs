@@ -21,6 +21,15 @@ Your service is affected by this change if:
 * Your service is in the Developer or Premium service tier.
 * You have deployed a self-hosted gateway using the version v0 or v1 of the self-hosted gateway [container image](../self-hosted-gateway-migration-guide.md#using-the-new-configuration-api).
 
+### Assessing impact with Azure Advisor
+
+In order to make the migration easier, we have introduced new Azure Advisor recommendations:
+
+- **Use self-hosted gateway v2** recommendation - Identifies Azure API Management instances where the usage of self-hosted gateway v0.x or v1.x was identified.
+- **Use Configuration API v2 for self-hosted gateways** recommendation - Identifies Azure API Management instances where the usage of Configuration API v1 for self-hosted gateway was identified.
+
+We highly recommend customers to use ["All Recommendations" overview in Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/All) to determine if a migration is required. Use the filtering options to see if one of the above recommendations is present.
+
 ## What is the deadline for the change?
 
 **Support for the v1 configuration API and for the v0 and v1 container images of the self-hosted gateway will retire on 1 October 2023.**   

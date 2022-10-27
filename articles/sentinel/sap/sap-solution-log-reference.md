@@ -8,7 +8,7 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 02/22/2022
 ---
 
-# Microsoft Sentinel Solution for SAP data reference (public preview)
+# Microsoft Sentinel Solution for SAP data reference
 
 > [!IMPORTANT]
 > Some components of the Microsoft Sentinel Threat Monitoring for SAP solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -291,7 +291,7 @@ SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dyna
 See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) for more information.
 
 ### SAPAuditLogConfigRecommend
-The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. See detailed explanation in the [Configuring the SAP audit log monitoring analytics rules](deployment-solution-configuration.md#configuring-the-sap-audit-log-monitoring-analytics-rules) guide.
+The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. Learn how to [configure the rules](configure-audit-log-rules.md).
 
 ### SAPUsersGetVIP
 
@@ -333,9 +333,9 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 | The "SAP User Config" watchlist | SearchKey | Search Key |
 | The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
 | The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
-| The "SAP User Config" watchlist | User AAD Object ID | Azure AD Object ID |   
+| The "SAP User Config" watchlist | User's Microsoft Azure Active Directory (Azure AD) Object ID | Azure AD Object ID |   
 | The "SAP User Config" watchlist | User Identifier | AD User Identifier |
-| The "SAP User Config" watchlist | User On-Premises Sid |  |
+| The "SAP User Config" watchlist | User on-premises Sid |  |
 | The "SAP User Config" watchlist | User Principal Name |  |
 | The "SAP User Config" watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK  
 | Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
@@ -420,7 +420,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 - **Log purpose**: Records the progress of an application execution so that you can reconstruct it later as needed.
 
-    Available by using RFC with a custom service based on standard services of XBP interface. This log is generated per client.
+    Available by using RFC based on standard SAP table and standard services of XBP interface. This log is generated per client.
 
 #### ABAPAppLog_CL log schema
 
@@ -471,7 +471,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
     - Other entities in the SAP system, such as user data, roles, addresses.
 
-    Available by using RFC with a custom service based on standard services. This log is generated per client.
+    Available by using RFC based on standard SAP tables. This log is generated per client.
 
 #### ABAPChangeDocsLog_CL log schema
 
@@ -515,7 +515,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 - **Log purpose**: Includes the Change & Transport System (CTS) logs, including the directory objects and customizations where changes were made.
 
-    Available by using RFC with a custom service based on standard tables and standard services. This log is generated with data across all clients.
+    Available by using RFC based on standard tables and standard SAP services. This log is generated with data across all clients.
 
 > [!NOTE]
 > In addition to application logging, change documents, and table recording, all changes that you make to your production system using the Change & Transport System are documented in the CTS and TMS logs.
@@ -630,7 +630,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Combines all background processing job logs (SM37).
 
-    Available by using RFC with a custom service based on standard services of XBP interfaces. This log is generated with data across all clients.
+    Available by using RFC based on standard SAP table and standard services of XBP interfaces. This log is generated with data across all clients.
 
 #### ABAPJobLog_CL log schema
 
@@ -724,7 +724,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Serves as the main log for SAP Printing with the history of spool requests. (SP01).
 
-    Available by using RFC with a custom service based on standard tables. This log is generated with data across all clients.
+    Available by using RFC based on standard SAP table. This log is generated with data across all clients.
 
 #### ABAPSpoolLog_CL log schema
 
@@ -867,7 +867,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     For example, unmapped business processes may be simple release or approval procedures, or more complex business processes such as creating base material and then coordinating the associated departments.
 
-    Available by using RFC with a custom service based on standard tables and standard services. This log is generated per client.
+    Available by using RFC based on standard SAP tables. This log is generated per client.
 
 #### ABAPWorkflowLog_CL log schema
 

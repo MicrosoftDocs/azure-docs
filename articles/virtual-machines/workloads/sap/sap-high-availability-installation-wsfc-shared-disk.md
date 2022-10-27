@@ -145,7 +145,7 @@ This article describes how to install and configure a high-availability SAP syst
 As described in [Architecture guide: Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk][sap-high-availability-guide-wsfc-shared-disk], there are two alternatives for *cluster shared disk*:
 
 - [Azure shared disks](../../disks-shared.md)
-- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) to create mirrored storage, that will simulate clustered shared disk 
+- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create mirrored storage, that will simulate clustered shared disk 
 
 ## Prerequisites
 

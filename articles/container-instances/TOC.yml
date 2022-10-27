@@ -103,7 +103,7 @@
       href: container-instances-exec.md
     - name: Run a setup container (init)
       href: container-instances-init-container.md
-    - name: Use a managed identity (preview)
+    - name: Use a managed identity
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
@@ -182,8 +182,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-container-instances
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-container-instances
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

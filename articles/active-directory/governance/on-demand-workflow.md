@@ -52,27 +52,10 @@ Use the following steps to run a workflow on-demand.
 
 ## Run a workflow on-demand using Microsoft Graph
 
-Running a workflow on-demand using Microsoft Graph requires users to manually be added by their user ID with a POST call.
-
-To run a workflow on-demand in Microsoft Graph, use the following request and body:
-```http
-POST https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id>/activate
-Content-type: application/json
-```
-
-```Request body
-{
-   "subjects":[
-      {"id":"<userid>"},
-      {"id":"<userid>"}
-   ]
-}
-
-```
+To run a workflow on-demand using API via Microsoft Graph, see: [workflow: activate (run a workflow on-demand)](/graph/api/identitygovernance-workflow-activate).
 
 
 ## Next steps
 
-- [workflow: activate (run a workflow on-demand)](/graph/api/identitygovernance-workflow-activate?view=graph-rest-beta)
 - [Customize the schedule of workflows](customize-workflow-schedule.md)
 - [Delete a Lifecycle workflow](delete-lifecycle-workflow.md)

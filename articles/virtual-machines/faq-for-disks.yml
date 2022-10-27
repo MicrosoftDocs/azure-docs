@@ -5,7 +5,7 @@ metadata:
   author: roygara
   ms.service: storage
   ms.topic: faq
-  ms.date: 06/15/2017
+  ms.date: 10/03/2022
   ms.author: rogarana
   ms.subservice: disks
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
@@ -107,7 +107,7 @@ sections:
       - question: |
           Are unmanaged disks still supported?
         answer: |
-          Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+          Yes, but they'll be [retired by September 30, 2025](unmanaged-disks-deprecation.md), and as of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
       - question: |
           Can I colocate unmanaged and managed disks on the same VM?

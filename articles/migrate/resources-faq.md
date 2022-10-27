@@ -5,12 +5,12 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/27/2022
 ---
 
 # Azure Migrate: Common questions
 
-This article answers common questions about Azure Migrate. If you have questions after you read this article, you can post them in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). You also can review these articles:
+This article answers common questions about Azure Migrate. If you've questions after you read this article, you can post them in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). You also can review these articles:
 
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
@@ -39,7 +39,7 @@ The Azure Migrate: Server Migration tool uses some back-end Site Recovery functi
 
 ## I have a project with the previous classic experience of Azure Migrate. How do I start using the new version?
 
-Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a classic project, you can attach it to a project of current version after you delete the classic project.
+Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported, and the inventory metadata in the classic project will be deleted. You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a classic project, you can attach it to a project of current version after you delete the classic project.
 
 ## What's the difference between Azure Migrate: Discovery and assessment and the MAP Toolkit?
 
@@ -62,6 +62,23 @@ Choose your tool based on what you want to do:
 ## Which geographies are supported?
 
 Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+
+## What does Azure Migrate do to ensure data residency?
+
+When you create a project, you select a geography of your choice. The project and related resources are created in one of the regions in the geography, as allocated by the Azure Migrate service. 
+See the metadata storage locations for each geography [here](migrate-support-matrix.md#public-cloud).
+
+Azure Migrate doesn't move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography. 
+
+## Does Azure Migrate offer Backup and Disaster Recovery?
+
+Azure Migrate is classified as customer managed Disaster Recovery, which means Azure Migrate doesn't offer to recover data from an alternate region and offer it to customers when the project region isn't available.
+
+While using different capabilities, it's recommended that you export the software inventory, dependency analysis, and assessment report for an offline backup.
+
+In the event of a regional failure or outage in the Azure region that your project is created in:
+- You may not be able to access your Azure Migrate projects, assessments, and other reports for the duration of the outage. However, you can use the offline copies that you've exported. 
+- Any in-progress replication and/or migration will be paused and you might have to restart it post the outage.
 
 ## How do I get started?
 

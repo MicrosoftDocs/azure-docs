@@ -82,27 +82,47 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ## Toll-Free Verification
-### What is toll free verification and why is it mandatory?
-The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to reduce the likelihood of false positive filtering and wrongful spam blocks. 
+### What is toll free verification?
+The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
 
-September 30, 2022 onwards, all new TFNs must complete a toll-free verification process. All existing TFNs must complete a toll-free verification process by September 30, 2022. If unverified, the TFNs may face SMS service interruptions. Verification can take 3-4 weeks.
- 
-This decision has been made to ensure that the toll-free messaging channel is aligned with both short code and 10 DLC, whereby all services are reviewed. It also ensures that the sending brand and the type of traffic your messaging channels deliver is known, documented, and verified. This verification requirement is applicable to toll-free numbers in United States and Canada.
+This verification is **required** for TFNs sending messages to **Canada recipients** and is **not required** for TFNs sending [low throughput messages](#sms-to-us-phone-numbers) to **US recipients**. Verifying TFNs is free of cost.
+
+### What happens if I don't verify my toll-free numbers?
+What happens to the unverified toll-free number depends on the destination of SMS traffic.
+#### SMS to US phone numbers
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to stricter filtering and the following thresholds for messaging:
+
+- **Daily Limit:** 2,000 messages
+- **Weekly limit:** 12,000 messages
+- **Monthly limit:** 25,000 messages
+
+This does not apply to TFNs in a pending or verified status.
+
+#### SMS to Canadian phone numbers
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in pending or verified status.
+
+### What is a pending status? What can I do in a pending status?
+After submission of the toll-free verification application, we will process your application and send it to the toll-free messaging aggregator. This process usually takes in 4-6 business days. Once the application reaches the toll-free messaging aggregator the application status changes to pending until verified or rejected.
+
+Once in pending state, you can start sending SMS to US numbers without the thresholds mentioned above and be unblocked from sending SMS to Canadian destinations. TFNs in pending state are subject to reduced likelihood of filtering.
+
+### What happens after I submit the toll-free verification form?
+Updates for changes and the status of your applications will be communicated via the email you provide in the application. Results from the application can be: approved, denied or further clarification needed. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+
+The whole toll-free verification process takes about **5-6 weeks** but is subject to change depending on the volume of applications to the toll-free messaging aggregator and how detailed the application is.
 
 ### How do I submit a toll-free verification?
-Existing Azure Communications Service customers with toll-free numbers will have received an email with the toll-free verification form that can be filled out and submitted. If you have not received an email, please email acstnrequest@microsoft.com.
+To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
 
-### What happens if I don't verify my toll-free numbers? 
-Unverified numbers may face SMS service interruptions and are subject to carrier filtering and throttling.
+### What are common reasons for toll-free verification delays? 
+Your application wait time increases when your application has missing or unclear information. 
 
-### What happens after I submit the toll-free verification form?
-Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 3-4 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
-
-### Can I send messages while I wait for approval?
-You will be able to send messages while you wait for approval but the traffic will be subject to carrier filtering and throttling if it's flagged as spam.
+- **Missing required information like Opt-in Image URL** - If there is no Opt-in option, provide a good justification. 
+- **Opt-in Image URL is not accessible to the public** - When you host your image on image hosting services (i.e. OneDrive, GoogleDrive, iCloud, Dropbox, etc.) make sure the public can view it. Test the URL by seeing if the URL can be viewed by a personal account. 
+- **Incorrect toll-free numbers** - Phone numbers have to be toll-free numbers, not local numbers, 10DLC, or short codes. 
  
 ## Character and rate limits
 ### What is the SMS character limit?
@@ -120,7 +140,9 @@ This table shows the maximum number of characters that can be sent per SMS segme
 
 ### Can I send/receive long messages (>2048 chars)?
 
-Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages.
+Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages. We recommend keeping SMS messages to a length of 320 characters and reducing the use of accents to ensure maximum delivery. 
+
+*Limitation of US short code - There is a known limit of ~4 segments when sending/receiving a message with Non-ASCII characters. Beyond 4 segments, the message may not be delivered with the right formatting.
 
 ### Are there any limits on sending messages?
 
