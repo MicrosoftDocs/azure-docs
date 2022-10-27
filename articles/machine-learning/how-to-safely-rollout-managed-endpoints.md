@@ -112,10 +112,10 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 1. Import the required libraries:
 
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=import_libraries)]
+
     > [!NOTE]
     > If you're using the Kubernetes online endpoint, import the `KubernetesOnlineEndpoint` and `KubernetesOnlineDeployment` class from the `azure.ai.ml.entities` library.
-
-    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=import_libraries)]
 
 1. Configure workspace details and get a handle to the workspace:
 
@@ -160,7 +160,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 ### Create online endpoint
 
-To create a managed online endpoint, use the `ManagedOnlineEndpoint` class. If you're creating a Kubernetes online endpoint, use the `KubernetesOnlineEndpoint` class. Both of these classes allow users to configure the following key aspects of the endpoint:
+To create a managed online endpoint, use the `ManagedOnlineEndpoint` class. This class allows users to configure the following key aspects of the endpoint:
 
 * `name` - Name of the endpoint. Needs to be unique at the Azure region level
 * `auth_mode` - The authentication method for the endpoint. Key-based authentication and Azure ML token-based authentication are supported. Key-based authentication doesn't expire but Azure ML token-based authentication does. Possible values are `key` or `aml_token`.
@@ -177,9 +177,12 @@ To create a managed online endpoint, use the `ManagedOnlineEndpoint` class. If y
 
    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_endpoint)]
 
+> [!NOTE]
+> To create a Kubernetes online endpoint, use the `KubernetesOnlineEndpoint` class.
+
 ### Create the 'blue' deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment for your managed online endpoint, use the `ManagedOnlineDeployment` class. If you're creating a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class. Both of these classes allow users to configure the following key aspects of the deployment:
+A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment for your managed online endpoint, use the `ManagedOnlineDeployment` class. This class allows users to configure the following key aspects of the deployment:
 
 **Key aspects of deployment**
 * `name` - Name of the deployment.
@@ -189,7 +192,7 @@ A deployment is a set of resources required for hosting the model that does the 
 * `code_configuration` - the configuration for the source code and scoring script
     * `path`- Path to the source code directory for scoring the model
     * `scoring_script` - Relative path to the scoring file in the source code directory
-* `instance_type` - The VM size to use for the deployment. For the list of supported sizes for managed online endpoints, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * `instance_count` - The number of instances to use for the deployment
 
 1. Configure blue deployment:
@@ -202,6 +205,8 @@ A deployment is a set of resources required for hosting the model that does the 
 
    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=deployment_traffic)]
 
+> [!NOTE]
+> To create a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class.
 ---
 
 ## Confirm your existing deployment
@@ -295,12 +300,12 @@ If you want to use a REST client to invoke the deployment directly without going
 
 Create a new deployment for your managed online endpoint and name the deployment `green`:
 
-> [!NOTE]
-> If you're creating a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class and specify a [Kubernetes instance type](how-to-manage-kubernetes-instance-types.md) in your Kubernetes cluster.
-
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_new_deployment)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_new_deployment)]
+
+> [!NOTE]
+> If you're creating a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class and specify a [Kubernetes instance type](how-to-manage-kubernetes-instance-types.md) in your Kubernetes cluster.
 
 ### Test the new deployment
 
