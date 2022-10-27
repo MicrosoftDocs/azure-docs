@@ -4,8 +4,7 @@ description: Specifications for VM packing of GPU optimized ADH SKUs.
 author: brittanyrowe
 ms.author: brittanyrowe
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+ms.service: azure-dedicated-host
 ms.topic: conceptual
 ms.date: 10/01/2021
 ---
