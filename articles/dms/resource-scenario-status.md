@@ -87,10 +87,10 @@ The following table describes the current status of Database Migration Service s
 | | MySQL | ✔  | Preview |
 | | Amazon RDS MySQL | ✔  | Preview |
 | **Azure Database for PostgreSQL - Single Server** | PostgreSQL | ✔ | GA |
-| | Azure Database for PostgreSQL - Single server <sup>2</sup> | ✔ | GA |
-| | Amazon DS PostgreSQL | ✔ | GA |
+| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | ✔ | GA |
+| | Amazon RDS PostgreSQL | ✔ | GA |
 | **Azure Database for PostgreSQL - Flexible Server** | PostgreSQL | ✔ | GA |
-| | Azure Database for PostgreSQL - Single server <sup>2</sup> | ✔ | GA |
+| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | ✔ | GA |
 | | Amazon RDS PostgreSQL | ✔ | GA |
 | **Azure Database for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 | | Amazon RDS PostgreSQL | ✔ | GA |
