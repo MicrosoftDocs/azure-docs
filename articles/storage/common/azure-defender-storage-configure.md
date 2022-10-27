@@ -366,7 +366,7 @@ To enable Microsoft Defender for Storage for a specific account with the per-tra
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to your storage account.
 1. In the Security + networking section of the Storage account menu, select **Microsoft Defender for Cloud**.
-1. Select **Enable Defender on this account only**.
+1. Select **Enable Defender on this storage account only**.
 
 :::image type="content" source="media/azure-defender-storage-configure/storage-enable-defender-for-account.png" alt-text="Screenshot showing how to enable the Defender for Storage per-transaction plan on a specific account." lightbox="media/azure-defender-storage-configure/storage-enable-defender-for-account.png":::
 
@@ -461,6 +461,10 @@ When you enable Microsoft Defender for Storage at the subscription level for the
 ### Is there any difference in the feature set of the per-storage plan compared to the legacy per-transaction plan?
 
 No. Both the per-storage and per-transaction plans include the same features. The only difference is the pricing plan.
+
+### How can I estimate the cost of the pricing plans? 
+
+To estimate the cost of each of the pricing plans for your environment, we created a [pricing estimation workbook](https://aka.ms/dfstoragecosttool) and a PowerShell script that you can run in your environment.
 
 ## Next steps
 
