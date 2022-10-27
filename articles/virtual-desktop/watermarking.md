@@ -3,7 +3,7 @@ title: Watermarking in Azure Virtual Desktop (preview)
 description: Learn how to enable watermarking in Azure Virtual Desktop (preview) to help prevent sensitive information from being captured on client endpoints.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 10/27/2022
 ms.author: daknappe
 ---
 # Watermarking in Azure Virtual Desktop (preview)
@@ -12,15 +12,16 @@ ms.author: daknappe
 > Watermarking is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Watermarking (preview), alongside [screen capture protection](screen-capture-protection.md), helps prevent sensitive information from being captured on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote sessions to desktops and apps. The QR code contains the *connection ID* of a remote session that admins can use to trace the session. Watermarking is configured on session hosts and enforced by the Remote Desktop client.
+Watermarking (preview), alongside [screen capture protection](screen-capture-protection.md), helps prevent sensitive information from being captured on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the *connection ID* of a remote session that admins can use to trace the session. Watermarking is configured on session hosts and enforced by the Remote Desktop client.
 
 Here's a screenshot showing what watermarking looks like when it's enabled:
 
 :::image type="content" source="media/watermarking-result.png" alt-text="A screenshot showing watermarking enabled on a remote desktop." lightbox="media/watermarking-result.png":::
 
-
 > [!IMPORTANT]
 > - Once watermarking is enabled on a session host, only clients that support watermarking can connect to that session host. If you try to connect from an unsupported client, the connection will fail and you'll get an error message that is not specific.
+>
+> - Watermarking is for remote desktops only. With remote apps, watermarking is not applied and the connection is allowed.
 >
 > - If you connect to a session host directly (not through Azure Virtual Desktop) using the Remote Desktop Connection app (`mstsc.exe`), watermarking is not applied and the connection is allowed.
 
@@ -30,7 +31,7 @@ You'll need the following things before you can use watermarking:
 
 - A Remote Desktop client that supports watermarking. The following clients currently support watermarking:
 
-  - TODO: ADD LINK Windows Desktop client, version 1.2.3317 or later, on Windows 10 and later.
+  - [Windows Desktop client](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json), version 1.2.3317 or later, on Windows 10 and later.
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
 
