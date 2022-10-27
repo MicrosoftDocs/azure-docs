@@ -88,6 +88,7 @@ Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $resourceGroupName -El
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+# First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.
 virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $resourceGroupName --query 'length(networkAcls.virtualNetworkRules)'
 
 az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
