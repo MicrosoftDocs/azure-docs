@@ -5,7 +5,7 @@ author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
-ms.date: 10/19/2022
+ms.date: 10/27/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
 ---
@@ -280,7 +280,7 @@ You must restart **SAPStartSRV** on each instance of the SAP system for the SAP 
 
 On Windows, open the SAP Microsoft Management Console (MMC) / SAP Management Console (MC).  Right-click on each instance and select **All Tasks** &gt; **Restart Service**.
   
-![Screenshot of the MMC console, showing the Restart Service option being selected.](./media/azure-monitor-sap/azure-monitor-providers-netweaver-mmc-output.png)
+![Screenshot of the MMC console, showing the Restart Service option being selected.](./media/provider-netweaver/azure-monitor-providers-netweaver-mmc-output.png)
 
 On Linux, run the command `sapcontrol -nr <NN> -function RestartService`. Replace `<NN>` with the SAP instance number to restart the host.
 
