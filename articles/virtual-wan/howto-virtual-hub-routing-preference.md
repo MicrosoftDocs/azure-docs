@@ -10,7 +10,7 @@ ms.author: cherylmc
 ---
 # Configure virtual hub routing preference - Azure portal
 
-The following steps help you configure virtual hub routing preference settings. For information about this feature, see [Virtual hub routing preference](about-virtual-hub-routing-preference.md). You can also configure these settings using the [Azure PowerShell](howto-virtual-hub-routing-preference-powershell.md).
+The following steps help you configure virtual hub routing preference settings. For information about this feature, see [Virtual hub routing preference](about-virtual-hub-routing-preference.md). You can also configure these settings using the [Azure PowerShell](how-to-virtual-hub-routing-preference-powershell.md).
 
 ## New virtual hub
 
