@@ -39,7 +39,7 @@ When a device reports a deployment failure to the Device Update service, the Dev
 
 When more information from the device is necessary to diagnose and troubleshoot an error, you can use the log collection feature to instruct targeted devices to upload on-device diagnostic logs to a linked Azure Blob storage account. You can start using this feature by following the instructions in [Remotely collect diagnostic logs from devices](device-update-log-collection.md).
 
-Device Update's remote log collection is a service-driven, operation-based feature. To take advantage of log collection, a device need only be able to implement the Diagnostics interface and configuration file, and be able to upload files to Azure Blob storage via SDK.
+Device Update's remote log collection is a service-driven, operation-based feature. To take advantage of log collection, a device need only be able to implement the [Diagnostics interface](device-update-plug-and-play.md#device-update-models) and configuration file, and be able to upload files to Azure Blob storage via SDK.
 
 From a high level, the log collection feature works as follows:
 
