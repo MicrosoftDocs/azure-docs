@@ -53,7 +53,6 @@ dotnet build
 To connect to the API for Table of Azure Cosmos DB, create an instance of the [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) class. This class is the starting point to perform all operations against tables. There are two primary ways to connect to an API for Table account using the **TableServiceClient** class:
 
 * [Connect with a API for Table connection string](#connect-with-a-connection-string)
-* [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
 
 ### Connect with a connection string
 
