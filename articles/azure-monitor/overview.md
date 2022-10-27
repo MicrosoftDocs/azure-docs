@@ -9,8 +9,8 @@ ms.date: 09/01/2022
 ms.reviewer: robb
 ---
 
-**TODO STATUS Put in the simplier diagram.  Decide what can be here and what can be under the larger data sources, routing and platform parts.**
-
+<!--**TODO STATUS Put in the simplier diagram.  Decide what can be here and what can be under the larger data sources, routing and platform parts.**
+!-->
 # Azure Monitor overview
 
 Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information helps you understand how your applications are performing and proactively identify issues that affect them and the resources they depend on.
@@ -18,8 +18,8 @@ Azure Monitor helps you maximize the availability and performance of your applic
 
 A few examples of what you can do with Azure Monitor include:
 
-**TODO REWRITE. This is a mismash of stuff.  Would be better if it was more ordered.**
-
+<!--**TODO REWRITE. This is a mismash of stuff.  Would be better if it was more ordered.**
+!-->
 - Detect and diagnose issues across applications and dependencies with [Application Insights](app/app-insights-overview.md).
 - Correlate infrastructure issues with [VM insights](vm/vminsights-overview.md) and [Container insights](containers/container-insights-overview.md).
 - Drill into your monitoring data with [Log Analytics](logs/log-query-overview.md) for troubleshooting and deep diagnostics.
@@ -38,11 +38,12 @@ The following diagram gives a high-level view of Azure Monitor.
 - On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting.
 - At the bottom is a layer of integration pieces. There are actually integration throughout other parts of the diagram, but that is too complex to show visually.
 
-**TODO FIX THIS IMAGE to be the integration below the diagram.**
-
+<!--**TODO FIX THIS IMAGE to be the integration below the diagram.**
+!-->
 :::image type="content" source="media/overview/azure-monitor-overview-2022_10_15-add-prometheus-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-2022_10_15-add-prometheus-opt.svg":::
 
-**TODO Update this video and then include it. Remove for now**
+<!--**TODO Update this video and then include it. Remove for now**
+!-->
 
 <!-- The following video uses an earlier version of the preceding diagram, but its explanations are still relevant.  
 
@@ -63,21 +64,23 @@ Natively, Azure Monitor stores data as metrics, logs, or changes. Traces are sto
 
 Azure Monitor aggregates and correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.  Because this data is stored together, it can be correlated and analyzed using a common set of tools. 
 
-**TODO  TOO COMPLEX. Rewrite this. Doesn't lay things out easily.** 
-
+<!--**TODO  TOO COMPLEX. Rewrite this. Doesn't lay things out easily.** 
+!-->
 > [!NOTE]
 > It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](essentials/platform-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [resource log](essentials/platform-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their overview page in the Azure portal. Look at any virtual machine (VM), for example, and you'll see several charts that display performance metrics. Select any of the graphs to open the data in [Metrics Explorer](essentials/metrics-charts.md) in the Azure portal. With Metrics Explorer, you can chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
-**TODO UPDATE THIS DIAGRAM**
+<!--**TODO UPDATE THIS DIAGRAM**
+!-->
 ![Diagram that shows metrics data flowing into Metrics Explorer to use in visualizations.](media/overview/metrics.png)
 
 Log data collected by Azure Monitor can be analyzed with [queries](logs/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries by using the [Log Analytics](./logs/log-query-overview.md) user interface in the Azure portal. You can then either directly analyze the data by using different tools or save queries for use with [visualizations](best-practices-analysis.md) or [alert rules](alerts/alerts-overview.md).
 
 Azure Monitor Logs uses a version of the [Kusto Query Language](/azure/kusto/query/) that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language by using [multiple lessons](logs/get-started-queries.md). Particular guidance is provided to users who are already familiar with [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) and [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
 
-**TODO UPDATE THIS DIAGRAM**
+<!--**TODO UPDATE THIS DIAGRAM**
+!-->
 ![Diagram that shows logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
 Change Analysis alerts you to live site issues, outages, component failures, or other change data. It also provides insights into those application changes, increases observability, and reduces the mean time to repair. You automatically register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription by going to Change Analysis via the Azure portal. For web app in-guest changes, you can enable Change Analysis by using the [Diagnose and solve problems tool](./change/change-analysis-enable.md#enable-azure-functions-and-web-app-in-guest-change-collection-via-the-change-analysis-portal).
@@ -86,7 +89,8 @@ Change Analysis builds on [Azure Resource Graph](../governance/resource-graph/ov
 
 ## What data can Azure Monitor collect?
 
-**TODO Show the slightly expanded diagram here and explain it. Integrate information coming from on prem or other clouds** 
+<!--**TODO Show the slightly expanded diagram here and explain it. Integrate information coming from on prem or other clouds** 
+!-->
 
 Azure Monitor can collect data from [sources](monitor-reference.md) that range from your application to any operating system and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
 
@@ -108,7 +112,8 @@ Enable monitoring for your application with [Application Insights](app/app-insig
 
 Azure Monitor can collect log data from any REST client by using the [Data Collector API](logs/data-collector-api.md). You can create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
-**TODO Is this really the most important stuff to go here? I don't think so** 
+<!--**TODO Is this really the most important stuff to go here? I don't think so** 
+!-->
 ## Insights and curated visualizations
 
 Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization," which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger, scalable, curated visualizations are known as "insights" and marked with that name in the documentation and the Azure portal.  
@@ -173,9 +178,10 @@ Autoscale allows you to have the right amount of resources running to handle the
 
 ![Screenshot that shows Power BI.](media/overview/power-bi.png)
 
-**TODO add grafana**
+<!--**TODO add grafana**
 
 **TODO change this to be consistent with the diagram**
+!-->
 ## Integrate and export data
 
 You'll often have the requirement to integrate Azure Monitor with other systems and to build custom solutions that use your monitoring data. Other Azure services work with Azure Monitor to provide this integration.

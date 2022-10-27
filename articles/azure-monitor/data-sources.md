@@ -22,7 +22,7 @@ This article describes common sources of monitoring data collected by Azure Moni
 Some of these data sources use the [new data ingestion pipeline](essentials/data-collection.md) in Azure Monitor. This article will be updated as other data sources transition to this new data collection method.
 
 > [!NOTE]
-> Access to data in the Log Analytics Workspaces is governed as outline [here](https://learn.microsoft.com/azure/azure-monitor/logs/manage-access).
+> Access to data in the Log Analytics Workspaces is governed as outline [here](logs/manage-access.md).
 >
 
 ## Application tiers

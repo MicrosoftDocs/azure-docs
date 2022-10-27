@@ -1430,7 +1430,7 @@ items:
           - name: Data Synced From Your ITSM Product
             href: alerts/itsmc-synced-data.md
           - name: Convert ITSM ServiceNow actions to secure webhook actions 
-            href: alerts/itsm-convert-servicenow-to-webhook .md   
+            href: alerts/itsm-convert-servicenow-to-webhook.md   
           - name: Troubleshooting problems in ITSM Connector
             items:
             - name: Overview
@@ -1499,10 +1499,6 @@ items:
         href: autoscale/autoscale-troubleshoot.md
       - name: Resource Log schemas
         href: autoscale/autoscale-resource-log-schema.md  
-- name: Integrate
-  items:
-  - name: Service limits -bogus entry for now
-    href: service-limits.md
 - name: Reference
   items:
   - name: Service limits
