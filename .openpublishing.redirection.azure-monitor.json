@@ -287,6 +287,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-cherwell.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-provance.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md" ,
             "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
