@@ -25,7 +25,7 @@ When deploying a machine learning model to a batch endpoint, you can secure thei
 
 ## Securing batch endpoints
 
-All the batch endpoints created inside of secure workspace are deployed as private batch endpoints by default. Not further configuration is required.
+All the batch endpoints created inside of secure workspace are deployed as private batch endpoints by default. No further configuration is required.
 
 > [!IMPORTANT]
 > When working on a private link-enabled workspaces, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Please use the Azure ML CLI v2 instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-scoring-job).
@@ -34,7 +34,7 @@ The following diagram shows how the networking looks like for batch endpoints wh
 
 :::image type="content" source="./media/how-to-secure-batch-endpoint/batch-vnet-peering.png" alt-text="Diagram that shows the high level architecture of a secure Azure Machine Learning workspace deployment.":::
 
-In order to enable the jump host VM (or self-hosted agent VMs  if using [Azure Bastion](../../bastion/bastion-overview.md)) access to the resources in Azure Machine Learning VNET, the previous architecture uses virtual network peering to seamlessly connect these two virtual networks. Thus the two virtual networks appear as one for connectivity purposes. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between them in the same network, traffic is routed through Microsoft's private network only.
+In order to enable the jump host VM (or self-hosted agent VMs if using [Azure Bastion](../../bastion/bastion-overview.md)) access to the resources in Azure Machine Learning VNET, the previous architecture uses virtual network peering to seamlessly connect these two virtual networks. Thus the two virtual networks appear as one for connectivity purposes. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between them in the same network, traffic is routed through Microsoft's private network only.
 
 ## Securing batch deployment jobs
 
