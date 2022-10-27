@@ -15,7 +15,9 @@ Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitiv
 > We recommend you review [Azure AD workload identity][workload-identity-overview] (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
-> application. The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> application.
+>
+> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
