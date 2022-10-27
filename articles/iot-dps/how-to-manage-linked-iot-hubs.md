@@ -140,7 +140,7 @@ DPS also supports deleting linked IoT Hubs from the DPS instance using the [Crea
 
 ## Update keys for linked IoT hubs
 
-It may become necessary to either rotate or update the symmetric keys for an IoT hub that's been linked to DPS. In this case, you'll also need to update the connection string setting in DPS for the linked IoT hub. Note that provisioning to an IoT hub will fail during the interim between updating a key on the IoT hub and updating your DPS instance with the new connections string based on that key.
+It may become necessary to either rotate or update the symmetric keys for an IoT hub that's been linked to DPS. In this case, you'll also need to update the connection string setting in DPS for the linked IoT hub. Note that provisioning to an IoT hub will fail during the interim between updating a key on the IoT hub and updating your DPS instance with the new connections string based on that key. For this reason, we recommend [using the Azuer CLI to update your keys](#use-the-azure-cli-to-update-keys) because you can update the connnection string on the linked hub direcctly. With the Azure portal, you have to delete the IoT hub from your DPS instance and then relink it in order to update the connection string.
 
 ### Use the Azure portal to update keys
 
