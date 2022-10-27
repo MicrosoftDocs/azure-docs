@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Synapse Analytics
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Synapse Analytics. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 10/03/2022
+ms.date: 10/12/2022
 ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf

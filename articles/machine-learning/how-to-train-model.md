@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/25/2022
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, ignite-2022
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API
@@ -22,11 +22,6 @@ Azure Machine Learning provides multiple ways to submit ML training jobs. In thi
 * Azure CLI extension for machine learning: The `ml` extension, also referred to as CLI v2.
 * Python SDK v2 for Azure Machine Learning.
 * REST API: The API that the CLI and SDK are built on.
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -84,7 +79,7 @@ When training in the cloud, you must connect to your Azure Machine Learning work
 
 # [Python SDK](#tab/python)
 
-To connect to the workspace, you need identifier parameters - a subscription, resource group, and workspace name. You'll use these details in the `MLClient` from the `azure.ai.ml` namespace to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+To connect to the workspace, you need identifier parameters - a subscription, resource group, and workspace name. You'll use these details in the `MLClient` from the `azure.ai.ml` namespace to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
 ```python
 #import required libraries
@@ -137,7 +132,7 @@ An AzureML compute cluster is a fully managed compute resource that can be used 
 
 # [Python SDK](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 
 # [Azure CLI](#tab/azurecli)
 
@@ -180,9 +175,9 @@ curl -X PUT \
 
 To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure ML. 
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
 
 In the above examples, you configured:
 - `code` - path where the code to run the command is located
@@ -234,7 +229,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     }"
     ```
 
-1. Register a versioned reference to the training script for use with a job. In this case, the script would be located at `https://azuremlexamples.blob.core.windows.net/testjob`. This `testjob` is the folder in Blob storage that contains the training script and any dependencies needed by the script. In the following example, the ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
+1. Register a versioned reference to the training script for use with a job. In this example, the script is located at `https://azuremlexamples.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob`. This `testjob` is the folder in Blob storage that contains the training script and any dependencies needed by the script. In the following example, the ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
 
     ```bash
     TRAIN_CODE=$(curl --location --request PUT "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/codes/train-lightgbm/versions/1?api-version=$API_VERSION" \
@@ -243,7 +238,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     --data-raw "{
             \"properties\": {
             \"description\": \"Train code\",
-            \"codeUri\": \"https://larrystore0912.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob\"
+            \"codeUri\": \"https://azuremlexamples.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob\"
         }
     }" | jq -r '.id')
     ```

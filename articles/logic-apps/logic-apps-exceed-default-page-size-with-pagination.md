@@ -107,6 +107,8 @@ property along with the `"minimumItemCount"` property in that action's
 },
 ```
 
+In this case, the response returns an array that contains JSON objects.
+
 ## Get support
 
 For questions, visit the 

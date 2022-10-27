@@ -169,7 +169,7 @@
         items:
         - name: Configure a P2S VPN and tenant
           href: openvpn-azure-ad-tenant.md
-        - name: Configure a tenant with multiple client apps
+        - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
           href: openvpn-azure-ad-mfa.md

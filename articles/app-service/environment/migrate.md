@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 9/15/2022
+ms.date: 10/26/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -102,7 +102,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Migration to ASEv3 is not allowed for this ASE. |You won't be able to migrate using the migration feature. |Migrate using one of the [manual migration options](migration-alternatives.md).  |
 |Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) has been met. |Remove unneeded environments or contact support to review your options.  |
 |`<ZoneRedundant><DedicatedHosts><ASEv3/ASE>` is not available in this location. |You'll see this error if you're trying to migrate an App Service Environment in a region that doesn't support one of your requested features. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. Otherwise, wait for the migration feature to support this App Service Environment configuration.  |
-|Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](using-an-ase.md#upgrade-preference) from the Azure portal.   |Wait until the upgrade finishes and then migrate.   |
+|Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. In some cases, an upgrade will be initiated when visiting the migration page if your App Service Environment isn't on the current build.  |Wait until the upgrade finishes and then migrate.   |
 |App Service Environment management operation in progress.    |Your App Service Environment is undergoing a management operation. These operations can include activities such as deployments or upgrades. Migration is blocked until these operations are complete.   |You'll be able to migrate once these operations are complete.  |
 
 ## Overview of the migration process using the migration feature
@@ -122,6 +122,10 @@ Once the new IPs are created, you'll have the new default outbound to the intern
 ### Delegate your App Service Environment subnet
 
 App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Migration won't succeed if the App Service Environment's subnet isn't delegated or it's delegated to a different resource.
+
+### Ensure there are no locks on your resources
+
+Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
 
 ### Choose your App Service Environment v3 configurations
 
