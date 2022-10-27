@@ -13,7 +13,17 @@ ms.topic: how-to
 <!-- Intent: As a dev infrastructure manager, I want to be able to manage dev box projects so that I can provide appropriate dev boxes to my users. -->
 
 # Manage a dev box project
-A project is the point of access for the development team members. When you associate a project with a dev center, all the settings at the dev center level will be applied to the project automatically. Each project can be associated with only one dev center. Dev managers can configure the dev boxes available for the project by specifying  [dev box definitions](./concept-dev-box-concepts.md#dev-box-definition) appropriate for their workloads. To enable developers to self-serve dev boxes from projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
+A project is the point of access to Microsoft Dev Box Preview for the development team members. A project contains dev box pools, which specify the dev box definitions and network connections used when dev boxes are created. Dev managers can configure the project with dev box pools that specify dev box definitions appropriate for their team's workloads. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
+
+Each project is associated with a single dev center. When you associate a project with a dev center, all the settings at the dev center level will be applied to the project automatically. 
+
+## Project admins
+
+Microsoft Dev Box makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. The tasks in this quickstart can be performed by project admins. 
+
+To learn how to add a user to the Project Admin role, see [Provide access to a dev box project](#provide-access-to-a-dev-box-project).
+
+[!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 
 ## Permissions
 To manage a dev box project, you need the following permissions:
@@ -108,11 +118,6 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
-## Project admins
-
-The Microsoft Dev Box service makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. The tasks in this quickstart can be performed by project admins. To learn how to add a user to the Project Admin role, see [Provide access to projects for project admins](how-to-project-admin.md).
-
-[!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 ## Next steps
 
 - [Manage dev box pools](./how-to-manage-dev-box-pools.md)
