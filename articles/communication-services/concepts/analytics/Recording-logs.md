@@ -2,7 +2,7 @@
 title: Azure Communication Services - Recording Analytics Preview
 titleSuffix: An Azure Communication Services concept document
 description: About using Log a Analytics for recording logs
-author:  Meryem khribech
+author:  Mkhribech
 services: azure-communication-services
 
 ms.author: mkhribech
@@ -12,16 +12,17 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-
+#### Example 1: Call recording for " One call to one recording"
 # Call Recording Summary Log
 Call recording summary logs provide details about the call duration, media content (e.g., Audio-Video, Unmixed, Transcription, etc.), the format types used for the recording (e.g., WAV, MP4, etc.), as well as the reason of why the recording ended.
 
 Recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot) or ended  due to a system failure.
 
 
-### Properties
+### Properties Description
+
 | Field Name |	DataType |	Description |
-|------------|-----------|--------------|
+|-------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |TimeGenerated|DateTime|The timestamp (UTC) of when the log was generated|
 |OperationName| String | The operation associated with log record|
 |CorrelationId	|String |The ID for correlated events. Can be used to identify correlated events between multiple tables (`CallID`)|
@@ -114,4 +115,4 @@ If the agent initiated a recording and stopped and restarted the recording  mult
 }
 ```
 Refer to call recording for more info 
-[Azure Communication Services Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording) 
+[Azure Communication Services Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording.md) 
