@@ -1,13 +1,13 @@
 ---
 title: Monitor with annotations and user properties
 description: Advanced monitoring with annotations and user properties
-author: olmoloce, soferreira
-ms.author: olmoloce, soferreira
-ms.reviewer: olmoloce, soferreira
+author: olmoloce
+ms.author: olmoloce
+ms.reviewer: olmoloce
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 27/10/2022
+ms.date: 10/27/2022
 ---
 
 # Monitor with annotations and user properties
