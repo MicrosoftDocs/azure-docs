@@ -92,7 +92,7 @@ ms.author: eur
 | `gl-ES` | Galician | `gl-ES` | Plain text | `gl-ES-RoiNeural` (Male)<br/>`gl-ES-SabelaNeural` (Female) | Not supported | 
 | `gu-IN` | Gujarati (India) | `gu-IN` | Plain text | `gu-IN-DhwaniNeural`<sup>4,5,6</sup> (Female)<br/>`gu-IN-NiranjanNeural`<sup>4,5,6</sup> (Male) | Not supported | 
 | `he-IL` | Hebrew (Israel) | `he-IL` | Plain text | `he-IL-AvriNeural`<sup>4,5,6</sup> (Male)<br/>`he-IL-HilaNeural`<sup>4,5,6</sup> (Female) | Custom Neural Voice Pro | 
-| `hi-IN` | Hindi (India) | `hi-IN` | Audio + human-labeled transcript<br/><br/>Plain text | `hi-IN-MadhurNeural`<sup>4,5,6</sup> (Male)<br/>`hi-IN-SwaraNeural`<sup>4,5,6</sup> (Female) | Custom Neural Voice Pro | 
+| `hi-IN` | Hindi (India) | `hi-IN` | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Phrase list | `hi-IN-MadhurNeural`<sup>4,5,6</sup> (Male)<br/>`hi-IN-SwaraNeural`<sup>4,5,6</sup> (Female) | Custom Neural Voice Pro | 
 | `hr-HR` | Croatian (Croatia) | `hr-HR` | Plain text<br/><br/>Pronunciation | `hr-HR-GabrijelaNeural`<sup>4,5,6</sup> (Female)<br/>`hr-HR-SreckoNeural`<sup>4,5,6</sup> (Male) | Custom Neural Voice Pro | 
 | `hu-HU` | Hungarian (Hungary) | `hu-HU` | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation | `hu-HU-NoemiNeural`<sup>4,5,6</sup> (Female)<br/>`hu-HU-TamasNeural`<sup>4,5,6</sup> (Male) | Custom Neural Voice Pro | 
 | `hy-AM` | Armenian (Armenia) | `hy-AM` | Plain text | `hy-AM-AnahitNeural` (Female)<br/>`hy-AM-HaykNeural` (Male) | Not supported | 
