@@ -278,12 +278,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
@@ -2908,7 +2913,7 @@
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-connections.md",
-            "redirect_url": "/azure/azure-monitor/platform/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/platform/itsmc-overview",
             "redirect_document_id": true
         },
         {
@@ -5108,17 +5113,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-cherwell.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-cherwell",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-provance.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-provance",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-scsm.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-scsm",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
