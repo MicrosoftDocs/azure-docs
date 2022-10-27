@@ -1,11 +1,11 @@
 ---
 title: Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage.
-author: jifems
-ms.author: jife
+author:  sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 10/27/2022
 ---
 
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
