@@ -353,7 +353,7 @@
     - name: Optimize your Azure Cosmos DB costs
       items:
         - name: Overview
-          href: optimize-costs.yml
+          href: ../optimize-costs.yml
         - name: Free tier
           href: ../free-tier.md
           displayName: free tier
