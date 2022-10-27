@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/26/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -67,6 +67,9 @@ Before you begin, make sure that:
 1. Use the included cable to connect the disk to the client computer running a supported OS as stated in the prerequisites.
 
     ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
+    
+    > [!NOTE]
+    > Do not format or modify the contents or existing file structure of the disk.
 
 2. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
 
