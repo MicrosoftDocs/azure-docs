@@ -246,7 +246,7 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration.md
-        - name: Create and validate custom scrape config
+        - name: Create, validate and troubleshoot custom scrape config
           displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
