@@ -67,7 +67,7 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 ## Azure Monitor for SAP solutions
 
-You can use Azure Monitor for SAP solutions to monitor all of the resources listed above and more. Azure Monitor for SAP solutions is native to Azure. It allows you to collect data from Azure infrastructure and databases into a single location and visually correlate the data for faster troubleshooting. For more information, see [Monitor SAP on Azure](../../../virtual-machines/workloads/sap/monitor-sap-on-azure.md).
+You can use Azure Monitor for SAP solutions to monitor all of the resources listed above and more. Azure Monitor for SAP solutions is native to Azure. It allows you to collect data from Azure infrastructure and databases into a single location and visually correlate the data for faster troubleshooting. For more information, see [Monitor SAP on Azure](../../../center-sap-solutions/monitor/about-azure-monitor-sap-solutions.md).
 
 ## Next steps
 

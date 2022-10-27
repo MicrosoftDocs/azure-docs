@@ -170,7 +170,7 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 
 ## Azure Monitoring for SAP with SAP RISE
 
-[Azure Monitoring for SAP](./monitor-sap-on-azure.md) is an Azure-native solution for monitoring your SAP system. It extends the Azure monitor platform monitoring capability with support to gather data about SAP NetWeaver, database, and operating system details.
+[Azure Monitoring for SAP](../../../center-sap-solutions/monitor/about-azure-monitor-sap-solutions.md) is an Azure-native solution for monitoring your SAP system. It extends the Azure monitor platform monitoring capability with support to gather data about SAP NetWeaver, database, and operating system details.
 
 > [!Note]
 > SAP RISE/ECS is a fully managed service for your SAP landscape and thus Azure Monitoring for SAP is not intended to be utilized for such managed environment.
