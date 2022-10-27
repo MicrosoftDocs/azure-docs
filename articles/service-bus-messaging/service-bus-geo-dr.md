@@ -2,20 +2,20 @@
 title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: How to use geographical regions to fail over and disaster recovery in Azure Service Bus
 ms.topic: article
-ms.date: 04/01/2022
+ms.date: 10/27/2022
 ---
 
 # Azure Service Bus Geo-disaster recovery
 
 Resilience against disastrous outages of data processing resources is a requirement for many enterprises and in some cases even required by industry regulations. 
 
-Azure Service Bus already spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service will continue to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. If a Service Bus namespace has been created with the enabled option for [availability zones](../availability-zones/az-overview.md), the outage risk is further spread across three physically separated facilities, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of the entire facility. 
+Azure Service Bus already spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service will continue to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. A premium namespace can have two or more messaging units and these messaging units will be spread across multiple failure domains within a datacenter, supporting an all-active Service Bus cluster model. 
 
-The all-active Azure Service Bus cluster model with availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
+For a premium tier namespace, the outage risk is further spread across three physically separated facilities ([availability zones](#availability-zones)), and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
 
 The Service Bus Geo-disaster recovery feature is designed to make it easier to recover from a disaster of this magnitude and abandon a failed Azure region for good and without having to change your application configurations. Abandoning an Azure region will typically involve several services and this feature primarily aims at helping to preserve the integrity of the composite application configuration. The feature is globally available for the Service Bus Premium SKU. 
 
-The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (Queues, Topics, Subscriptions, Filters) is continuously replicated from a primary namespace to a secondary namespace when paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will repoint the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated. 
+The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (queues, topics, subscriptions, filters) is continuously replicated from a primary namespace to a secondary namespace when paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will repoint the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated. 
 
 ## Important points to consider
 
@@ -62,25 +62,25 @@ The following terms are used in this article:
 
 The following section is an overview to set up pairing between the namespaces.
 
-![1][]
+:::image type="content" source="./media/service-bus-geo-dr/geodr_setup_pairing.png" alt-text="Image showing how to geo-disaster recovery works.":::
 
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
-1. Create the primary namespace.
-1. Create the secondary namespace in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
+1. Create the primary premium-tier namespace.
+1. Create the secondary premium-tier namespace in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
 
-    :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
+    :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Screenshot showing the Geo-recovery page with Initiate pairing link selected.":::    
 1. On the **Initiate pairing** page, follow these steps:
     1. Select an existing secondary namespace or create one in a different region. In this example, an existing namespace is used as the secondary namespace.  
     1. For **Alias**, enter an alias for the geo-dr pairing. 
     1. Then, select **Create**. 
 
-        :::image type="content" source="./media/service-bus-geo-dr/initiate-pairing-page.png" alt-text="Select the secondary namespace":::        
+        :::image type="content" source="./media/service-bus-geo-dr/initiate-pairing-page.png" alt-text="Screenshot showing the Initiate Pairing page in the Azure portal.":::        
 1. You should see the **Service Bus Geo-DR Alias** page as shown in the following image. You can also navigate to the **Geo-DR Alias** page from the primary namespace page by selecting the **Geo-recovery** on the left menu. 
 
-    :::image type="content" source="./media/service-bus-geo-dr/service-bus-geo-dr-alias-page.png" alt-text="Service Bus Geo-DR Alias page":::
+    :::image type="content" source="./media/service-bus-geo-dr/service-bus-geo-dr-alias-page.png" alt-text="Screenshot showing the Service Bus Geo-DR Alias page with primary and secondary namespaces.":::
 1. On the **Geo-DR Alias** page, select **Shared access policies** on the left menu to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. Initially, the alias points to the primary namespace.
 1. Switch to the **Overview** page. You can do the following actions: 
     1. Break the pairing between primary and secondary namespaces. Select **Break pairing** on the toolbar. 
@@ -90,7 +90,7 @@ You first create or use an existing primary namespace, and a new secondary names
         1. Turn ON the **Safe Failover** option to safely fail over to the secondary namespace. This feature makes sure that pending Geo-DR replications are completed before switching over to the secondary. 
         1. Then, select **Failover**. 
         
-            :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="{alt-text}":::
+            :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="Screenshot showing the Failover page.":::
     
             > [!IMPORTANT]
             > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair. 
@@ -100,18 +100,18 @@ You first create or use an existing primary namespace, and a new secondary names
 ### Service Bus standard to premium
 If you've [migrated your Azure Service Bus Standard namespace to Azure Service Bus Premium](service-bus-migrate-standard-premium.md), then you must use the pre-existing alias (that is, your Service Bus Standard namespace connection string) to create the disaster recovery configuration through the **PS/CLI** or **REST API**.
 
-It's because, during migration, your Azure Service Bus Standard namespace connection string/DNS name itself becomes an alias to your Azure Service Bus Premium namespace.
+It's because, during migration, your Azure Service Bus standard namespace connection string/DNS name itself becomes an alias to your Azure Service Bus premium namespace.
 
-Your client applications must utilize this alias (that is, the Azure Service Bus Standard namespace connection string) to connect to the Premium namespace where the disaster recovery pairing has been set up.
+Your client applications must utilize this alias (that is, the Azure Service Bus standard namespace connection string) to connect to the premium namespace where the disaster recovery pairing has been set up.
 
-If you use the Portal to set up the Disaster recovery configuration, then the portal will abstract this caveat from you.
+If you use the Azure portal to set up the disaster recovery configuration, the portal will abstract this caveat from you.
 
 
 ## Failover flow
 
 A failover is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone.
 
-![4][]
+:::image type="content" source="./media/service-bus-geo-dr/geodr_failover_alias_update.png" alt-text="Image showing the flow of failover from primary to secondary namespace.":::
 
 After the failover is triggered -
 
@@ -132,11 +132,11 @@ Once the failover is initiated -
 
 You can automate failover either with monitoring systems, or with custom-built monitoring solutions. However, such automation takes extra planning and work, which is out of the scope of this article.
 
-![2][]
+:::image type="content" source="./media/service-bus-geo-dr/geo2.png" alt-text="Image showing how you can automate failover.":::
 
 ## Management
 
-If you made a mistake; for example, you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
+If you made a mistake, for example, you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
 
 ## Use existing namespace as alias
 
@@ -166,7 +166,7 @@ Note the following considerations to keep in mind with this release:
 
 ## Availability Zones
 
-The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
+The Service Bus Premium SKU supports [availability zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
 
 When you use availability zones, both metadata and data (messages) are replicated across data centers in the availability zone. 
 
