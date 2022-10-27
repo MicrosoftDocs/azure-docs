@@ -63,7 +63,7 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
 | [TimeZone][java timezone readme] | [azure-maps-TimeZone][java timezone package] | [TimeZone samples][java timezone sample] |
-| [Elevation][java elevation readme] | [azure-maps-Elevation][java Elevation package] | [Elevation samples][java elevation sample] |
+| [Elevation][java elevation readme] | [azure-maps-Elevation][java elevation package] | [Elevation samples][java elevation sample] |
 
 <!--For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-sdk.md).-->
 
@@ -121,6 +121,6 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 [java timezone package]: https://repo1.maven.org/maven2/com/azure/azure-maps-timezone
 [java timezone readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-timezone/README.md
 [java timezone sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-timezone/src/samples/java/com/azure/maps/timezone/samples
-[java elevation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-elevation
+[java elevation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-elevation
 [java elevation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-elevation/README.md
 [java elevation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-elevation/src/samples/java/com/azure/maps/elevation/samples

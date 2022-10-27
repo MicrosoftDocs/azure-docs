@@ -229,15 +229,15 @@ printReverseBatchAddresses(manualPollingResult.Value);
 The third method requires the operation ID to get the results, which will be cached on the server side for 14 days:
 
 ```csharp
-    ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
+  ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
 
-    // Get batch results by ID 
-    string operationId = longRunningOperation.Value.Id;
+  // Get batch results by ID 
+  string operationId = longRunningOperation.Value.Id;
 
-    // After the LRO completes, create a new operation
-    // to get the results from the server
-    ReverseSearchAddressBatchOperation newOperation = new ReverseSearchAddressBatchOperation(client, operationId);
-    Response<ReverseSearchAddressBatchOperation> newOperationResult = newOperation.WaitForCompletion();
+  // After the LRO completes, create a new operation
+  // to get the results from the server
+  ReverseSearchAddressBatchOperation newOperation = new ReverseSearchAddressBatchOperation(client, operationId);
+  Response<ReverseSearchAddressBatchOperation> newOperationResult = newOperation.WaitForCompletion();
 
 printReverseBatchAddresses(newOperationResult);
 ```
