@@ -27,14 +27,14 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2022
 
-- [Heads up: Account enrichment fields removed from Azure AD Identity Protection connector](#heads-up-account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
+- [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
 - [IoT device entity page (Preview)](#iot-device-entity-page-preview)
 
-### Heads up: Account enrichment fields removed from Azure AD Identity Protection connector
+### Account enrichment fields removed from Azure AD Identity Protection connector
 
-As of **September 30 2022**, alerts coming from the Azure Activity Directory Information Protection connector no longer contain the following fields:
+As of **September 30, 2022**, alerts coming from the **Azure Activity Directory Information Protection connector** no longer contain the following fields:
 
 - CompromisedEntity
 - ExtendedProperties["User Account"]
@@ -42,11 +42,12 @@ As of **September 30 2022**, alerts coming from the Azure Activity Directory Inf
 
 We are working to adapt Microsoft Sentinel's built-in queries and other operations affected by this change to look up these values in other ways (using the *IdentityInfo* table).
 
-In the meantime, or if you've built any custom queries or rules directly referencing these fields, you'll need another way to get this information. Use the following two-step process to look up these values in the *IdentityInfo* table:
+In the meantime, or if you've built any custom queries or rules directly referencing these fields, you'll need another way to get this information. Use the following two-step process to have your queries look up these values in the *IdentityInfo* table:
 
 1. If you haven't already, **enable the UEBA solution** to sync the *IdentityInfo* table with your Azure AD logs. Follow the instructions in [this document](enable-entity-behavior-analytics.md).  
 (If you don't intend to use UEBA in general, you can ignore the last instruction  about selecting data sources on which to enable entity behavior analytics.)
-1. Incorporate the query below in your existing custom queries or rules to look up this data by joining the *SecurityAlert* table with the *IdentityInfo* table.
+
+1. Incorporate the query below in your existing queries or rules to look up this data by joining the *SecurityAlert* table with the *IdentityInfo* table.
 
     ```kusto
     SecurityAlert
