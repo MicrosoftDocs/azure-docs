@@ -250,7 +250,6 @@
       href: sovereign-cloud-usgov.md
     - name: Azure in China
       href: sovereign-cloud-china.md     
-    href: availability-service-by-sovereign-cloud.md
   - name: Service availability by region
     href: https://azure.microsoft.com/global-infrastructure/services/
 - name: Resources

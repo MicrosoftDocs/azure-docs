@@ -183,30 +183,30 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ## Remote Management
 
-## Azure portal
+### Azure portal
 
 You can sign in to the [Azure portal](https://portal.azure.cn/?l=en.en-us) to manage workloads in Azure China anywhere globally.
 
-## Work with administrator roles
+### Work with administrator roles
 
 One account administrator role is created per Azure account, typically the person who signed up for or bought the Azure subscription. This role is authorized to use the [Account Center](https://account.windowsazure.cn/Home/Index/en-us) to perform management tasks.
 
 To sign in, the account administrator uses the organization ID (Org ID) created when the subscription was purchased.
 
-## Create a service administrator to manage the service deployment
+### Create a service administrator to manage the service deployment
 
 One service administrator role is created per Azure account, and is authorized to manage services in the Azure portal. With a new subscription, the account administrator is also the service administrator.
 
-## Create a co-administrator
+### Create a co-administrator
 
 Account administrators can create up to 199 co-administrator roles per subscription. This role has the same access privileges as the service administrator, but can't change the association of subscriptions to Azure directories.
 
 
-## Azure in China service availability
+## Service availability
 
 Microsoft's goal for Azure in China is to match service availability in Azure. For service availability in Azure China, see [Products available by China regions](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=all&regions=china-non-regional,china-east,china-east-2,china-east-3,china-north,china-north-2,china-north-3&rar=true). 
 
-## AI + machine learning
+### AI + machine learning
 
 This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Cognitive Services in the Azure China environment.
 
