@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Trigger a test alert for Microsoft Defender for Storage
 
-After you enable Defender for Storage, you can create a test alert to demonstrate how Defender for Storage recognizes and alerts on security risks.
+After you enable Defender for Storage, you can create a test alert to demonstrate how Defender for Storage recognizes and triggers alerts on security risks.
 
 ## Demonstrate Defender for Storage alerts
 
