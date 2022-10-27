@@ -36,7 +36,7 @@ items:
       - name: Configure OS (Linux) provider
         href: provider-linux.md
       - name: Configure IBM Db2 provider
-        href: provider-ibm-db2
+        href: provider-ibm-db2.md
   - name: Reference
     items:
     - name: Data reference for Azure Monitor for SAP solutions

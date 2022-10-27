@@ -162,4 +162,4 @@ For more information, see [sys.sysprocesses (Transact-SQL)](/sql/relational-data
 ## Next steps
 
 - For more information on using Azure Monitor for SAP solutions, see [Monitor SAP on Azure](about-azure-monitor-sap-solutions.md).
-- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../../azure-monitor/essentials/monitor-azure-resource.md).
+- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).

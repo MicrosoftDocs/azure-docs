@@ -61,7 +61,7 @@ landingContent:
           - text: Configure OS (Linux)
             url: provider-linux.md
           - text: Configure IBM Db2
-            url: provider-ibm-db2
+            url: provider-ibm-db2.md
 
   - title: Reference
     linkLists:
