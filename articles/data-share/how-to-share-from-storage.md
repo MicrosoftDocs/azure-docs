@@ -150,7 +150,7 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
 1. Review all of the fields, including the **Terms of use**. If you agree to the terms, select the check box.
 
-   :::image type="content" source="./media/terms-of-use.png" alt-text="Screenshot of the invitation acceptance page, showing the terms of use highlighted and the agreement selected":::
+   :::image type="content" source="./media/terms-of-use.png" alt-text="Screenshot of the invitation acceptance page, showing the terms of use highlighted and the agreement selected.":::
 
 1. Under **Target Data Share account**, select the subscription and resource group where you'll deploy your Data Share. Then fill in the following fields:
 
@@ -174,7 +174,7 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
 1. Select a target data store for the data. Files in the target data store that have the same path and name as files in the received data will be overwritten.
 
-   :::image type="content" source="./media/map-target.png" alt-text="Screenshot of the map datasets to target window, showing a filesystem name given..":::
+   :::image type="content" source="./media/map-target.png" alt-text="Screenshot of the map datasets to target window, showing a filesystem name given.":::
 
 1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**. The first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
