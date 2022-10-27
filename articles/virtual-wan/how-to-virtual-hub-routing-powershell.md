@@ -51,7 +51,7 @@ Remove-AzVirtualHubRouteTable -ResourceGroupName "[resource group name]" -HubNam
 
 ## Update a route table
 
-The steps in this section help you update a route table. For example, update an existing route's next hop to an existing Azure Firewall.
+The steps in this section helps you update a route table. For example, update an existing route's next hop to an existing Azure Firewall.
 
 ```azurepowershell-interactive
 $firewall = Get-AzFirewall -Name "[firewall name]]" -ResourceGroupName "[resource group name]"
