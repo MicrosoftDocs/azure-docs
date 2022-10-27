@@ -628,6 +628,7 @@ The following policy checks that the audience is the hostname of the API Managem
         </claim>
     </required-claims>
 </validate-azure-ad-token>
+```
 
 ### Elements
 
