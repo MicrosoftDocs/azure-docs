@@ -197,7 +197,7 @@ Azure Cosmos DB accounts configured with multiple write regions cannot be config
 
 To learn more about consistency concepts, read the following articles:
 
-- [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/Azure/azure-cosmos-tla)
+- [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/tlaplus/azure-cosmos-tla)
 - [Replicated Data Consistency Explained Through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Replicated Data Consistency Explained Through Baseball (whitepaper) by Doug Terry](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/)
 - [Session guarantees for weakly consistent replicated data](https://dl.acm.org/citation.cfm?id=383631)

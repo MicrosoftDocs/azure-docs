@@ -20,15 +20,18 @@ Using AOGS, we capture the Aqua broadcast when the satellite is within line of s
 In this tutorial, we will follow these steps to collect and process Aqua data:
 
 > [!div class="checklist"]
-> * [Schedule a contact and collect Aqua direct broadcast data using AOGS](#step-1-schedule-a-contact-and-collect-aqua-direct-broadcast-data-using-aogs).
-> * [Process Aqua direct broadcast data using RT-STPS](#step-2-process-aqua-direct-broadcast-data-using-rt-stps).
-> * [Create higher level products using IPOPP](#step-3-create-higher-level-products-using-ipopp).
+> * [Use AOGS to schedule and contact and collect Aqua data](#step-1-use-aogs-to-schedule-a-contact-and-collect-aqua-data).
+> * [Install NASA DRL tools](#step-2-install-nasa-drl-tools).
+> * [Create Level-0 product using RT-STPS](#step-3-create-level-0-product-using-rt-stps).
+> * [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
 
-Optional setup steps for capturing the ground station telemetry are included in the [Appendix](#appendix).
+Optional setup steps for capturing the ground station telemetry are included the guide on [receiving real-time telemetry from the ground stations](receive-real-time-telemetry.md).
 
-## Step 1: Schedule a contact and collect Aqua direct broadcast data using AOGS
+## Step 1: Use AOGS to schedule a contact and collect Aqua data
 
-Follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](downlink-aqua.md) to schedule a contact with Aqua using AOGS and collect the direct broadcast data on an Azure VM for further processing. 
+Execute steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](downlink-aqua.md) 
+
+The above tutorial provides a walkthrough for scheduling a contact with Aqua and collecting the direct broadcast data on an Azure VM.
 
 > [!NOTE]
 > In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-vm-and-network-to-receive-aqua-data), use the following values:
@@ -38,232 +41,158 @@ Follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public sate
 >   - **Size:** Standard_D8s_v5 or higher
 >   - **IP Address:** Ensure that the VM has at least one standard public IP address
 
-At the end of this step, you should have the raw direct broadcast saved as ```.bin``` files under the ```~/aquadata``` folder on the receiver-vm. 
+At the end of this step, you should have the raw direct broadcast data saved as ```.bin``` files under the ```~/aquadata``` folder on the ```receiver-vm```. 
 
-## Step 2: Process Aqua direct broadcast data using RT-STPS
-
-The [Real-time Software Telemetry Processing System](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=69)(RT-STPS) is a NASA-provided software for processing Aqua direct broadcast data. The steps below cover installation of RT-STPS Verson 6.0 on the receiver-vm, and production of Level-0 Production Data Set(PDS) files from the data collected in the previous step. 
-
-Register with the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/) to download the RT-STPS installation package.
-
-Transfer the installation binaries to the receiver-vm:
-
-```console
-ssh azureuser@receiver-vm 'mkdir -p ~/software'
-scp RT-STPS_6.0*.tar.gz azureuser@receiver-vm:~/software/.
-```
-
-Alternatively, you can upload your installation binaries to a container in Azure Storage and download them to the receiver-vm using [AzCopy](../storage/common/storage-use-azcopy-v10.md)
-
-### Install rt-stps
-
-```console
-sudo yum install java-11-openjdk
-cd ~/software
-tar -xzvf RT-STPS_6.0.tar.gz
-cd ./rt-stps
-./install.sh
-```
-
-### Install rt-stps patches
-
-```console
-cd ~/software
-tar -xzvf RT-STPS_6.0_PATCH_1.tar.gz
-tar -xzvf RT-STPS_6.0_PATCH_2.tar.gz
-tar -xzvf RT-STPS_6.0_PATCH_3.tar.gz
-cd ./rt-stps
-./install.sh
-```
-
-### Validate install
-
-```console
-cd ~/software
-tar -xzvf RT-STPS_6.0_testdata.tar.gz
-cd ~/software/rt-stps
-rm ./data/*
-./bin/batch.sh config/npp.xml ./testdata/input/rt-stps_npp_testdata.dat
-# Verify that files exist
-ls -la ./data
-```
-
-### Create Level-0 product
-
-Run rt-stps in batch mode to process the ```.bin``` file collected in Step 1
-
-```console
-cd ~/software/rt-stps
-./bin/batch.sh ./config/aqua.xml ~/aquadata/raw-2022-05-29T0957-0700.bin
-```
-
-This command produces Level-0 Production Data Set (```.pds```) files under the ```~/software/rt-stps/data``` directory.
-
-## Step 3: Create higher level products using IPOPP
-
-[International Planetary Observation Processing Package (IPOPP)](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=68) is another NASA-provided software to process Aqua Level-0 data into higher level products.
-In the steps below, you'll process the Level-0 data generated in the previous step using IPOPP.
-
+## Step 2: Install NASA DRL tools
 > [!NOTE]
-> Due to potential resource contention, DRL recommends installing RT-STPS and IPOPP on separate machines. But for this tutorial, we install both on the our receiver-vm because we don't run them at the same time. For production workloads, please follow sizing and isolation recommendations in the user guides available on the DRL website. 
+> Due to potential resource contention, DRL recommends installing RT-STPS and IPOPP on separate machines. But for this tutorial, we install both tools on the ```receiver-vm``` because we don't run them at the same time. For production workloads, please follow sizing and isolation recommendations in the user guides available on the DRL website. 
 
-### Attach a data disk to the receiver-vm
+### Increase OS disk size on the receiver-vm
 
-IPOPP installation and subsequent generation of products requires more disk space and I/O throughput than what is available on the receiver-vm by default. 
-To provide more disk space and throughput, attach a 1TB premium data disk to the receiver-vm by following steps in [Attach a data disk to a Linux VM](../virtual-machines/linux/attach-disk-portal.md)
+The default disk space allocated to the OS disk of an Azure VM is not sufficient for installing NASA DRL tools. Follow the steps below to increase the size of the OS disk on the ```receiver-vm``` to 1TB.
 
-### Create a file system on the data disk
+### [Portal](#tab/portal2)
+
+1. Open the [portal](https://portal.azure.com).
+1. Navigate to your virtual machine.
+1. On the **Overview** page, select **Stop**. 
+1. On the **Disks** page, select the OS disk. 
+1. On the **Disk** pane, navigate to **Size + performance** page. 
+1. Select **Premium SSD(locally redundant storage)** from the **Disk SKU** dropdown. 
+1. Select the **P30** Disk Tier (1024GB).
+1. Select **Save**.  
+1. Navigate back to **Virtual Machine** pane.
+1. On the **Overview** page, select **Start** 
+---
+On the receiver-vm, verify that the root partition now has 1TB available
+
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT
+```
+This should show ~1TB allocated to the root ```/``` mountpoint.
 
 ```console
-lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
-sudo parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100% 
-sudo mkfs.xfs /dev/sdb1
-sudo partprobe /dev/sdb1 
-sudo mkdir /datadrive
-sudo mount /dev/sdb1 /datadrive
-sudo chown azureuser:azureuser /datadrive
+NAME    HCTL        SIZE MOUNTPOINT
+sda     0:0:0:0       1T 
+├─sda1              500M /boot
+├─sda2             1023G /
+├─sda14               4M 
+└─sda15             495M /boot/efi
 ```
-> [!NOTE]
-> To ensure that the datadrive is mounted automatically after every reboot, please refer to [Attach a data disk to a Linux VM](../virtual-machines/linux/attach-disk-portal.md#mount-the-disk) for instructions on how to add an entry to ```/etc/fstab```
-
 
 ### Install Desktop and VNC Server
-
-IPOPP installation requires using a browser to sign on to the DRL website to download the installation script. This script must be run from the same host that it was downloaded to. The subsequent IPOPP configuration also requires a GUI. Therefore, we install a full desktop and a vnc server to enable running GUI applications on the receiver-vm.
-
-```console
+Using NASA DRL tools requires support for running GUI applications. To enable this, install desktop tools and vncserver on the `receiver-vm`:
+```bash
 sudo yum install tigervnc-server
 sudo yum groups install "GNOME Desktop"
 ```
-
 Start VNC server:
-
-```console
+```bash
 vncsever
 ```
-Enter a password when prompted. 
+Enter a password when prompted.
 
-Port forward the vncserver port (5901) over ssh:
-
-```console
+### Remotely access the VM Desktop
+Port forward the vncserver port (5901) over SSH to your local machine:
+```bash
 ssh -L 5901:localhost:5901 azureuser@receiver-vm
 ```
+1. On your local machine, download and install [TightVNC Viewer](https://www.tightvnc.com/download.php). 
+1. Start the TightVNC Viewer and connect to ```localhost:5901```. 
+1. Enter the vncserver password you entered in the previous step. 
+1. You should see the GNOME Desktop that is running on the VM in the VNC viewer window.
 
-Download the [TightVNC](https://www.tightvnc.com/download.php) viewer and connect to ```localhost:5901``` and enter the vncserver password entered in the previous step.  You should see the GNOME desktop running on the VM. 
+### Download RT-STPS and IPOPP installation files
+From the GNOME Desktop, go to **Applications** > **Internet** > **Firefox** to start a browser. 
 
-Start a new terminal, and start the Firefox browser
+Log on to the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=325&type=software) website and download the **RT-STPS** installation files and the **IPOPP downloader script** under software downloads. The downloaded files will land under ~/Downloads.
 
-```console
-firefox
+Alternatively, you can download the installation files on your local machine first and then upload to a container in Azure Storage. Then use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to download to your ```receiver-vm```. 
+
+### Install RT-STPS
+```bash
+tar -xvzf ~/Downloads/RT-STPS_7.0.tar.gz --directory ~/
+tar -xvzf ~/Downloads/RT-STPS_7.0_testdata.tar.gz --directory ~/
+cd ~/rt-stps
+./install.sh
 ```
-
-[Log on the DRL website](https://directreadout.sci.gsfc.nasa.gov/loginDRL.cfm?cid=320&type=software) and download the downloader script.
-
-Run the downloader script from the ```/datadrive/ipopp``` directory because
-the home directory isn't large enough to hold the downloaded content.
-
-```console
-INSTALL_DIR=/datadrive/ipopp
-cp ~/Downloads/downloader_DRL-IPOPP_4.1.sh $INSTALL_DIR
-cd $INSTALL_DIR
-./downloader_DRL-IPOPP_4.1.sh
+Validate your RT-STPS install by processing the test data supplied with the installation:
+```bash
+cd ~/rt-stps
+./bin/batch.sh config/jpss1.xml ./testdata/input/rt-stps_jpss1_testdata.dat
 ```
-
-This script will download \~35G and will take 1 hour or more.
-
-Alternatively, you can upload your installation binaries to a container in Azure Storage and download them to the receiver-vm using [AzCopy](../storage/common/storage-use-azcopy-v10.md)
+Verify that output files exist in the data folder:
+```bash
+ls -la ~/data/
+```
+This completes the RT-STPS installation.
 
 ### Install IPOPP
-
-```console
-tar -xvzf DRL-IPOPP_4.1.tar.gz --directory $INSTALL_DIR
-chmod -R 755 $INSTALL_DIR/IPOPP
-$INSTALL_DIR/IPOPP/install_ipopp.sh -installdir $INSTALL_DIR/drl -datadir $INSTALL_DIR/data -ingestdir $INSTALL_DIR/data/ingest
+Run the IPOPP downloader script to download the IPOPP installation files. 
+```bash
+cd ~/Downloads
+./downloader_DRL-IPOPP_4.1.sh
+tar -xvzf ~/Downloads/DRL-IPOPP_4.1.tar.gz --directory ~/
+cd ~/IPOPP
+./install_ipopp.sh
 ```
 
-### Install IPOPP patches
+### Configure and start IPOPP services
+IPOPP services are configured using its Dashboard GUI.
 
-```console
-$INSTALL_DIR/drl/tools/install_patch.sh $PATCH_FILE_NAME
+[Go to the VM Desktop](#remotely-access-the-vm-desktop) and start a new terminal under **Applications** > **Utilities** > **Terminal** 
+
+Start the IPOPP dashboard from the terminal:
+```bash
+~/drl/tools/dashboard.sh
 ```
-### Start IPOPP services
+IPOPP starts in the process monitoring mode. Switch to **Configuration Mode** by the using the menu option. 
 
-```console
-$INSTALL_DIR/drl/tools/services.sh start
+Enable the following under the **EOS** tab:
+* gbad
+* MODISL1DB l0l1aqua 
+* MODISL1DB l1atob 
+* IMAPP
+
+Switch back to **Process Monitoring** mode using the menu option. 
+
+Start IPOPP services:
+```bash
+~/drl/tools/services.sh start
+~/drl/tools/services.sh status
 ```
-### Verify service status
+This completes the IPOPP installation and configuration.
 
+## Step 3: Create Level-0 product using RT-STPS
+
+Run rt-stps in batch mode to process the ```.bin``` file collected in Step 1
+```bash
+cd ~/rt-stps
+./bin/batch.sh ./config/aqua.xml ~/aquadata/raw-2022-05-29T0957-0700.bin
 ```
-$INSTALL_DIR/drl/tools/services.sh status
-$INSTALL_DIR/drl/tools/spa_services.sh status
-```
+This command produces Level-0 Production Data Set (```.pds```) files under the ```~/rt-stps/data``` directory.
 
-### Configure IPOPP services using its dashboard
-
-Before we can create Level-1 and Level-2 products from the Level-0 PDS files generated by rt-stps, we need to configure IPOPP. IPOPP must be configured with its dashboard GUI. To start the dashboard, first port forward the vncserver port (5901) over ssh:
-
-```console
-ssh -L 5901:localhost:5901 azureuser@receiver-vm
-```
-
-Using the TightVNC client, connect to localhost:5901 and enter the vncserver password. On the virtual machine desktop, open a new terminal and start the dashboard:
-
-```console
-cd /datadrive/ipopp
-./drl/tools/dashboard.sh & 
-```
-
-1. IPOPP Dashboard starts in process monitoring mode. Switch to **Configuration Mode** by using the menu option. 
-
-2. Aqua related products can be configured from EOS tab in configuration mode. Disable all other tabs. We're interested in the MODIS Aerosol L2 (MOD04) product, which is produced by IMAPP SPA. Therefore, enable the following in the **EOS** tab: 
-
-    - gbad 
-
-    - MODISL1DB l0l1aqua 
-
-    - MODISL1DB l1atob 
-
-    - IMAPP 
-
-3. After updating the configuration, switch back to **Process Monitoring** mode using the menu. All tiles will be in OFF mode initially. 
-
-4. When prompted, save changes to the configuration.  
-
-5. Click **Start Services** in the action menu. Note that **Start Services** is only enabled in process monitoring mode.  
-
-6. Click **Check IPOPP Services** in action menu to validate.
+## Step 4: Create higher level products using IPOPP
 
 ## Ingest data for processing
 
-Copy the Level-0 PDS files generated by RT-STPS to the IPOPP ingest directory for further processing.
+Copy the PDS files generated by RT-STPS in the previous step to the IPOPP ingest directory for further processing.
 
-```console
-cp ~/software/rt-stps/data/* /datadrive/ipopp/drl/data/dsm/ingest/.
+```bash
+cp ~/rt-stps/data/* ~/drl/data/dsm/ingest/.
 ```
-
 Run IPOPP ingest to create the products configured in the dashboard. 
-
+```bash
+~/drl/tools/ingest_ipopp.sh
 ```
-/datadrive/ipopp/drl/tools/ingest_ipopp.sh
-```
-
 You can watch the progress in the dashboard.
-
+```bash
+~/drl/tools/dashboard.sh
 ```
-/datadrive/ipopp/drl/tools/dashboard.sh
+IPOPP will produce output products in the following directory:
+```bash
+cd ~/drl/data/pub/gsfcdata/aqua/modis/
 ```
-
-IPOPP will produce output products in the following directories:
-
-```
-/datadrive/ipopp/drl/data/pub/gsfcdata/aqua/modis/level[0,1,2] 
-```
-
-## Appendix
-
-### Capture ground station telemetry
-
-Follow steps here to [receive real-time telemetry from the ground stations](receive-real-time-telemetry.md).
 
 ## Next steps
 
