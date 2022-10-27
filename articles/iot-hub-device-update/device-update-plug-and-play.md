@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) to discover and manage devices that are over-the-air update capable. The Device Update service sends and receives properties and messages to and from devices using IoT Plug and Play interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model ID.
+Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) to discover and manage devices that are over-the-air update capable. The Device Update service sends and receives properties and messages to and from devices using IoT Plug and Play interfaces. 
 
 For more information:
 
@@ -23,9 +23,9 @@ Model ID is how smart devices advertise their capabilities to Azure IoT applicat
 
 Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID as part of the device connection. [Learn how to announce a model ID](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
 
-Device Update has 2 PnP models defined that support DU features. The Device Update model, '**deviceUpdateContractModel;2**', supports the core dunctionality and uses the deviceupdate interface to to send update actions and metadata to devices and receive update status from devices. 
+Device Update has 2 PnP models defined that support DU features. The Device Update model, '**deviceUpdateContractModel;2**', supports the core functionality and uses the device update core interface to to send update actions and metadata to devices and receive update status from devices. 
 
-The other supported model is **DeviceUpdateModel;2** which extends **deviceUpdateContractModel;2** and also uses other PnP interfaces that send device properties and information and enable diagnostic features. Learn more about the [Device Update Models and Interfaces Versions] (https://github.com/Azure/iot-plugandplay-models/tree/main/dtmi/azure/iot)
+The other supported model is **DeviceUpdateModel;2** which extends **deviceUpdateContractModel;2** and also uses other PnP interfaces that send device properties and information and enable diagnostic features. Learn more about the [Device Update Models and Interfaces Versions] (https://github.com/Azure/iot-plugandplay-models/tree/main/dtmi/azure/iot). 
 
 The Device Update agent uses the **DeviceUpdateModel;2** which supports all the latest features in the [1.0.0 release](understand-device-update.md#flexible-features-for-updating-devices). This model supports the [V5 manifest version](import-concepts.md). 
 
@@ -150,3 +150,8 @@ The expected component name in your model is **deviceInformation** when this int
 |totalStorage|Property|string|device to cloud|Total available storage on the device in kilobytes.|2048|
 |totalMemory|Property|string|device to cloud|Total available memory on the device in kilobytes.|256|
 
+## Next Steps
+
+* [Understand Device Update agent configuration file](device-update-configuration-file.md)
+
+* [Understand Device Update for Azure IoT Hub Agent](device-update-agent-overview.md)
