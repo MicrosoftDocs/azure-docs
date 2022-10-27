@@ -60,16 +60,16 @@ If you've built any custom queries or rules directly referencing these fields, y
         IdentityInfo
         | where TimeGenerated > ago(14d)
         | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName
-        | extend UserPrincipalNameIdentityInfo = AccountUPN
-        | extend UserNameIdentityInfo = AccountDisplayName
-        | where isnotempty(AccountDisplayName) and isnotempty(UserPrincipalNameIdentityInfo)
-        | project AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo, UserNameIdentityInfo
+        | extend UserAccount = AccountUPN
+        | extend UserName = AccountDisplayName
+        | where isnotempty(AccountDisplayName) and isnotempty(UserAccount)
+        | project AccountTenantId, AccountObjectId, UserAccount, UserName
         )
         on
         $left.AadTenantId == $right.AccountTenantId,
         $left.AadUserId == $right.AccountObjectId
-    | extend CompromisedEntity = iff(CompromisedEntity == "N/A" or isempty(CompromisedEntity), UserPrincipalNameIdentityInfo, CompromisedEntity)
-    | project-away AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo
+    | extend CompromisedEntity = iff(CompromisedEntity == "N/A" or isempty(CompromisedEntity), UserAccount, CompromisedEntity)
+    | project-away AadTenantId, AadUserId, AccountTenantId, AccountObjectId
     ```
 
 For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table) for a sample query.
