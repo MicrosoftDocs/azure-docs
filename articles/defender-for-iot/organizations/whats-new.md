@@ -36,9 +36,9 @@ In contrast, the new OT monitoring software release notes:
 - Lists updates by major and minor version
 
 
-- **For each major version**, we show a table of release and support dates, and a high level description for each version, such as whether the version includes new features or bug fixes only.
+**For each major version**, we show a table of release and support dates, and a high level description for each version, such as whether the version includes new features or bug fixes only.
 
-- **For each minor version**, we also list the new features available with that version. Select the links to jump to more details about the feature.
+**For each minor version**, we also list the new features available with that version. Select the links to jump to more details about the feature.
 
 For more information, see [OT monitoring software release notes](release-notes.md).
 
