@@ -101,7 +101,7 @@ The new `boundingBoxes` URL parameter controls the option to set bounding boxes 
 
 ### Control autoplay from the account settings
 
-Control wheathear a media file will autoplay when opened using the webapp is through the user settings. Navigate to the [Azure Video Indexer website](https://www.videoindexer.ai/) -> the **Gear** icon (the top-right corner) -> **User settings** -> **Auto-play media files**. 
+Control whether a media file will autoplay when opened using the webapp is through the user settings. Navigate to the [Azure Video Indexer website](https://www.videoindexer.ai/) -> the **Gear** icon (the top-right corner) -> **User settings** -> **Auto-play media files**. 
           
 ### Copy video ID from the player view
 
