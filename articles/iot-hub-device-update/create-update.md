@@ -27,6 +27,9 @@ Learn how to obtain a new update and prepare the update for importing into Devic
     * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
     * When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
 
+>[!TIP]
+>The Azure CLI commands in this article use the backslash `\` character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you're running these commands in PowerShell, replace each backslash with a backtick `\``, or remove them entirely.
+
 ## Obtain an update for your devices
 
 Now that you've set up Device Update and provisioned your devices, you need the update file(s) that you'll deploy to those devices.
@@ -42,7 +45,7 @@ When creating an update to be deployed using Device Update for IoT Hub, start wi
 Once you have your update files, create an import manifest to describe the update. If you haven't already done so, familiarize yourself with the basic [import concepts](import-concepts.md). While it's possible to author an import manifest JSON manually using a text editor, the Azure Command Line Interface (CLI) simplifies the process greatly, and is used in the examples below.
 
 > [!TIP]
-> Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also view sample import manifest files from those tutorials for reference.
+> Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also just view sample import manifest files from those tutorials for reference.
 
 The [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-device-update-update-init-v5) command takes the following arguments:
 
@@ -72,11 +75,13 @@ az iot du update init v5 \
     --update-name AptUpdate \
     --update-version 1.0.0 \
     --compat manufacturer=Contoso model=Vacuum \
-    --step handler= properties='{"installedCriteria": "1.0"}' \
+    --step handler=handler=microsoft/script:1 properties='{"installedCriteria": "1.0"}' \
     --file path=/my/apt/manifest/file
 ```
 
 For handler properties, you may need to escape certain characters in your JSON. For example, use `'\'` to escape double-quotes if you're running the Azure CLI in PowerShell.
+
+The `init` command supports advanced scenarios, including the [related files feature](related-files.md) that allows you to define the relationship between different update files. For more examples and a complete list of optional parameters, see [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-device-update-update-init-v5).
 
 Once you've created your import manifest and saved it as a JSON file, if you're ready to [import your update](import-update.md).
 
@@ -108,8 +113,8 @@ az iot du update init v5 \
     --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> \
     --step handler=<replace with your chosen handler> properties=<replace with any desired handler properties (JSON-formatted)> \
     --file path=<replace with path(s) to your update file(s), including the full file name> \
-    --step provider=<replace with child_1 update provider> name=<replace with child_1 update name> version=<replace with child_1 update version> \
-    --step provider=<replace with child_2 update provider> name=<replace with child_2 update name> version=<replace with child_2 update version> \
+    --step updateId.provider=<replace with child_1 update provider> updateId.name=<replace with child_1 update name> updateId.version=<replace with child_1 update version> \
+    --step updateId.provider=<replace with child_2 update provider> updateId.name=<replace with child_2 update name> updateId.version=<replace with child_2 update version> \
     --output json "<replace with the path where you want your import manifest created, including the full file name>"
 ```
 
