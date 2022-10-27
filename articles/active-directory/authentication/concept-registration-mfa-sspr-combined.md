@@ -61,7 +61,7 @@ Combined registration supports the authentication methods and actions in the fol
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
 | App passwords* | Yes | No | Yes |
-| FIDO2 security keys*| Yes | Yes | Yes |
+| FIDO2 security keys*| Yes | No | Yes |
 
 > [!NOTE]
 > <b>Office phone</b> can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode from the [Security info](https://mysignins.microsoft.com/security-info)* without this requirement.  <br />
