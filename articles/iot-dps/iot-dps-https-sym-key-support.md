@@ -42,7 +42,7 @@ For this article, you can use either an [individual enrollment](concepts-service
 
 * For an enrollment group, complete [Use an enrollment group](#use-an-enrollment-group).
 
-After you've created the the individual enrollment or enrollment group entry, continue on to [create a SAS token](#create-a-sas-token) and [register your device](#register-your-device) with DPS.
+After you've created the individual enrollment or enrollment group entry, continue on to [create a SAS token](#create-a-sas-token) and [register your device](#register-your-device) with DPS.
 
 ## Use an individual enrollment
 
