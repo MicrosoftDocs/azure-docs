@@ -10,20 +10,20 @@ ms.subservice: Anomaly Detector-service
 ms.topic: conceptual
 ms.date: 11/1/2022
 ms.author: jr-MS
-ms.custom: cog-serv-seo-nov-2022
+ms.custom: references_regions
 ---
 
 # Anomaly Detector service supported regions
 
-The Anomaly Detector service provides anomaly detection technology on your time series data. The service is available in multiple regions with unique endpoints for the Anomaly Detector SDK and REST APIs. 
+The Anomaly Detector service provides anomaly detection technology on your time series data. The service is available in multiple regions with unique endpoints for the Anomaly Detector SDK and REST APIs.
 
 Keep in mind the following points:
 
 * If your application uses one of the Anomaly Detector service REST APIs, the region is part of the endpoint URI you use when making requests.
-* Keys created for a region are valid only in that region. If you attempt to use them with other regions, you get authentication errors.
+* Keys created for a region are valid only in that region. If you attempt to use them with other regions, you will get authentication errors.
 
 > [!NOTE]
-> Anomaly Detector service doesn't store or process customer data outside the region the customer deploys the service instance in.
+> The Anomaly Detector service doesn't store or process customer data outside the region the customer deploys the service instance in.
 
 ## Univariate Anomaly Detection
 
