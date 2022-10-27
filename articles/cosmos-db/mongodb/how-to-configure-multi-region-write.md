@@ -26,7 +26,7 @@ To enable multi-region writes from Azure portal, use the following steps:
 
 1. After you update the region list, select **save** to apply the changes.
 
-   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Screenshot to enable multi-region writes using Azure portal" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
+   :::image type="content" source="./media/how-to-multi-region-write/enable-multi-region-writes.png" alt-text="Screenshot to enable multi-region writes using Azure portal" lightbox="./media/how-to-multi-region-write/enable-multi-region-writes.png":::
 
 
 ### Connect your client
