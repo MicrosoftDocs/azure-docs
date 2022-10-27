@@ -95,10 +95,10 @@ Update an existing AKS cluster with Azure CNI to include pod-managed identity.
 az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity
 ```
 
-## Using Kubenet network plugin with Azure Active Directory pod-managed identities 
+## Using Kubenet network plugin with Azure Active Directory pod-managed identities
 
 > [!IMPORTANT]
-> Running aad-pod-identity in a cluster with Kubenet is not a recommended configuration due to security concerns. Default Kubenet configuration fails to prevent ARP spoofing, which could be utilized by a pod to act as another pod and gain access to an identity it's not intended to have. Please follow the mitigation steps and configure policies before enabling aad-pod-identity in a cluster with Kubenet.
+> Running Azure AD pod-managed identity in a cluster with Kubenet is not a recommended configuration due to security concerns. Default Kubenet configuration fails to prevent ARP spoofing, which could be utilized by a pod to act as another pod and gain access to an identity it's not intended to have. Please follow the mitigation steps and configure policies before enabling Azure AD pod-managed identity in a cluster with Kubenet.
 
 ### Mitigation
 
@@ -201,9 +201,9 @@ kubectl get azureidentitybinding -n $POD_IDENTITY_NAMESPACE
 
 ## Run a sample application
 
-For a pod to use AAD pod-managed identity, the pod needs an *aadpodidbinding* label with a value that matches a selector from a *AzureIdentityBinding*. By default, the selector will match the name of the pod-managed identity, but it can also be set using the `--binding-selector` option when calling `az aks pod-identity add`.
+For a pod to use Azure AD pod-managed identity, the pod needs an *aadpodidbinding* label with a value that matches a selector from a *AzureIdentityBinding*. By default, the selector will match the name of the pod-managed identity, but it can also be set using the `--binding-selector` option when calling `az aks pod-identity add`.
 
-To run a sample application using AAD pod-managed identity, create a `demo.yaml` file with the following contents. Replace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* with the values from the previous steps. Replace *SUBSCRIPTION_ID* with your subscription ID.
+To run a sample application using Azure AD pod-managed identity, create a `demo.yaml` file with the following contents. Replace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* with the values from the previous steps. Replace *SUBSCRIPTION_ID* with your subscription ID.
 
 > [!NOTE]
 > In the previous steps, you created the *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* variables. You can use a command such as `echo` to display the value you set for variables, for example `echo $POD_IDENTITY_NAME`.

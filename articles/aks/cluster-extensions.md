@@ -37,7 +37,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 > [!NOTE]
 > If you have enabled [Azure AD pod-managed identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
-> we recommend you first review [Migrate to workload identity][migrate-workload-identity] to understand our
+> we recommend you first review [Workload identity overview][workload-identity-overview] to understand our
 > recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
 > to federate with any external identity providers.
@@ -191,7 +191,8 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
 [use-managed-identity]: ./use-managed-identity.md
-[migrate-workload-identity]: workload-identity-overview.md
+[workload-identity-overview]: workload-identity-overview.md
+[use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
 
 <!-- EXTERNAL -->
 [arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all
