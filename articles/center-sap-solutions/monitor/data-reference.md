@@ -4,10 +4,9 @@ description: Important reference material needed when you monitor SAP on Azure.
 author: lauradolan
 ms.topic: reference
 ms.author: ladolan
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap 
+ms.service: azure-center-sap-solutions
 ms.custom: subject-monitoring
-ms.date: 10/19/2022
+ms.date: 10/27/2022
 ---
 
 # Data reference for Azure Monitor for SAP solutions (preview)
