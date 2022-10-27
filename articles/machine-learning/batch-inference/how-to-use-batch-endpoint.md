@@ -31,7 +31,7 @@ Use batch endpoints when:
 In this article, you will learn how to use batch endpoints to do batch scoring.
 
 > [!TIP]
-> We suggest you to read the Scenarios sections (see the navigation bar at the left) to see different case by case scenarios and how the scoring script looks like.
+> We suggest you to read the Scenarios sections (see the navigation bar at the left) to find more about how to use Batch Endpoints in specific scenarios including NLP, computer vision, or how to integrate them with other Azure services.
 
 ## Prerequisites
 
