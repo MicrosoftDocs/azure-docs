@@ -1,12 +1,13 @@
 ---
-title: Create a Microsoft Dev Box
-description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through a browser.
+title: Create a Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box Preview
+description: This quickstart shows you how to create a Microsoft Dev Box Preview and connect to it through a browser.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/29/2022
+ms.date: 10/12/2022
 ---
 <!-- 
   Customer intent:
@@ -15,7 +16,7 @@ ms.date: 07/29/2022
 
 # Quickstart: Create a dev box by using the developer portal
 
-Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through a remote desktop app. 
+Get started with Microsoft Dev Box Preview by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through a remote desktop app. 
 
 You can create and manage multiple dev boxes as a dev box user. Create a dev box for each task that you're working on, and create multiple dev boxes within a single project to help streamline your workflow. 
 

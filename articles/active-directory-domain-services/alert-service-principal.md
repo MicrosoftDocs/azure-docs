@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/09/2020
+ms.date: 09/04/2022
 ms.author: justinha
 
 ---
@@ -34,7 +34,7 @@ To check which service principal is missing and must be recreated, complete the 
 
 1. In the Azure portal, select **Azure Active Directory** from the left-hand navigation menu.
 1. Select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
-1. Search for each of the following application IDs. If no existing application is found, follow the *Resolution* steps to create the service principal or re-register the namespace.
+1. Search for each of the following application IDs. For Azure Global, search for AppId value *2565bd9d-da50-47d4-8b85-4c97f669dc36*. For other Azure clouds, search for AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. If no existing application is found, follow the *Resolution* steps to create the service principal or re-register the namespace.
 
     | Application ID | Resolution |
     | :--- | :--- |
@@ -45,7 +45,7 @@ To check which service principal is missing and must be recreated, complete the 
 
 ### Recreate a missing Service Principal
 
-If application ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* is missing from your Azure AD directory, use Azure AD PowerShell to complete the following steps. For more information, see [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+If application ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* is missing from your Azure AD directory in Azure Global, use Azure AD PowerShell to complete the following steps. For other Azure clouds, use AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. For more information, see [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
 1. If needed, install the Azure AD PowerShell module and import it as follows:
 

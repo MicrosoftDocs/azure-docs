@@ -2,7 +2,9 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 10/20/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -295,7 +297,7 @@ If you previously set up your Azure container registry as a chart repository usi
 > * After you complete migration from a Helm 2-style (index.yaml-based) chart repository to OCI artifact repositories, use the Helm CLI and `az acr repository` commands to manage the charts. See previous sections in this article. 
 > * The Helm OCI artifact repositories are not discoverable using Helm commands such as `helm search` and `helm repo list`. For more information about Helm commands used to store charts as OCI artifacts, see the [Helm documentation](https://helm.sh/docs/topics/registries/).
 
-### Enable OCI support
+### Enable OCI support (enabled by default in Helm v3.8.0)
 
 Ensure that you are using the Helm 3 client:
 
@@ -303,7 +305,7 @@ Ensure that you are using the Helm 3 client:
 helm version
 ```
 
-Enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change.
+If you are using Helm v3.8.0 or higher, this is enabled by default. If you are using a lower version, you can enable OCI support setting the environment variable:
 
 ```console
 export HELM_EXPERIMENTAL_OCI=1

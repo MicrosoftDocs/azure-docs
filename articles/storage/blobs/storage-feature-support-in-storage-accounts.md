@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 09/20/2022
 ms.author: normesta
 ---
 
@@ -59,15 +59,16 @@ The following table describes whether a feature is supported in a standard gener
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed keys in a single-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed keys in a multi-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x1F7E6; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
-| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24;  | &#x1F7E6; |
+| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
+| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &nbsp;&#x2B24; | &#x2705; |
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -107,15 +108,16 @@ The following table describes whether a feature is supported in a premium block 
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed keys in a single-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed keys in a multi-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x1F7E6; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
-| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
+| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -135,4 +137,4 @@ The following table describes whether a feature is supported in a premium block 
 
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
 
-- [Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)](secure-file-transfer-protocol-known-issues.md)
+- [Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)

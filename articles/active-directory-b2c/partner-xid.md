@@ -237,7 +237,7 @@ Now that you have a user journey add the new identity provider to the user journ
 
    The following XML demonstrates the orchestration steps of a user journey with xID identity provider:
 
-  ```xml
+   ```xml
 
     <UserJourney Id="CombinedSignInAndSignUp">
       <OrchestrationSteps>

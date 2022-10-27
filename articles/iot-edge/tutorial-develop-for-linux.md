@@ -81,7 +81,7 @@ The following table lists the supported development scenarios for **Linux contai
 
 ## Install container engine
 
-IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them. We recommend Docker Desktop for development because of its feature support and popularity. Docker Desktop on Windows lets you switch between Linux containers and Windows containers so that you can easily develop modules for different types of IoT Edge devices. 
+IoT Edge modules are packaged as containers, so you need a [Docker compatible container management system](support.md#container-engines) on your development machine to build and manage them. We recommend Docker Desktop for development because of its feature support and popularity. Docker Desktop on Windows lets you switch between Linux containers and Windows containers so that you can easily develop modules for different types of IoT Edge devices. 
 
 Use the Docker documentation to install on your development machine:
 

@@ -77,7 +77,7 @@ Each query in the query pack has the following properties.
 | tags        | Additional tags used by the user for sorting and filtering in Log Analytics. Each tag will be added to Category, Resource Type, and Solution when [grouping and filtering queries](queries.md#finding-and-filtering-queries). |
 
 ## Create a query pack
-You can create a query pack in the Azure portal on the Log Analytics query packs blade or by using the REST API. 
+You can create a query pack using the REST API or from the **Log Analytics query packs** blade in the Azure portal. Currently the **Log Analytics query packs** blade shows up under **Other** category of **All services** page in the Azure portal.
 
 ### Create token
 You require a token for authentication of the API request. There are multiple methods to get a token including using **armclient**.

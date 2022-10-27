@@ -2,7 +2,9 @@
 title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
 ms.topic: article
-ms.date: 09/13/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -242,6 +244,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 To import from a registry that you can't access using integrated Active Directory permissions, you can use service principal credentials (if available) to the source registry. Supply the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry. Using a service principal is useful for build systems and other unattended systems that need to import images to your registry.
 
+
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -266,6 +269,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry.
 
 ### Cross-tenant import with username and password
+
 For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry.
 
 ### [Azure CLI](#tab/azure-cli)
@@ -328,6 +332,10 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ```
 
 ---
+
+> [!NOTE]
+> Cross-tenant doesn't work across the clouds.
+
 
 ## Import from a non-Azure private container registry
 

@@ -6,15 +6,12 @@ author: angellan
 services: azure-communication-services
 
 ms.author: angellan
-ms.date: 08/09/2022
+ms.date: 09/14/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 
 # Enable Push Notifications in your chat app
-
->[!IMPORTANT]
->This Push Notification feature is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement, and aren't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 This tutorial will guide you to enable Push Notification in your IOS App by using Azure Communication Chat SDK.  
 Push notifications alert clients of incoming messages in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports two versions of push notifications. 
@@ -37,7 +34,7 @@ Access the sample code for this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Prerequisites
 
-1. Finish all the prerequisite steps in [Chat Quickstart](/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-swift)
+1. Finish all the prerequisite steps in [Chat Quickstart](../quickstarts/chat/get-started.md?pivots=programming-language-swift)
 
 2. ANH Setup  
 Create an Azure Notification Hub within the same subscription as your Communication Services resource and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications.md#notification-hub-provisioning).
@@ -123,11 +120,11 @@ Go to this [Apple official doc](https://developer.apple.com/documentation/userno
 
 Notice that in the step “Implement Your Extension’s Handler Methods,” Apple provides the sample code to decrypt data and we'll follow the overall structure. However, since we use chat SDK for decryption, we need to replace the part starting from `“// Try to decode the encrypted message data.”` with our customized logic. Refer to the [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTestNotificationExtension/NotificationService.swift) to see the related implementation in `NotificationService.swift`.
 
-* Item 3: Implementation of PushNotificationKeyHandler Protocol
+* Item 3: Implementation of PushNotificationKeyStorage Protocol
 
-Third, `PushNotificationKeyHandler` is required for advanced version. As the SDK user, you could use the default `AppGroupPushNotificationKeyHandler` class provided by chat SDK to generate a key handler. If you don’t use `App Group` as the key storage or would like to customize key handling methods, create your own class which conforms to PushNotificationKeyHandler protocol. 
+Third, `PushNotificationKeyStorage` is required for advanced version. As the SDK user, you could use the default `AppGroupPushNotificationKeyStorage` class provided by chat SDK. If you don’t use `App Group` as the key storage or would like to customize key storage methods, create your own class which conforms to PushNotificationKeyStorage protocol. 
 
-For PushNotificationKeyHandler, it defines two methods: `onPersistKey(encryptionKey:expiryTime)` and `onRetrieveKeys() -> [String]`.  
+For PushNotificationKeyStorage, it defines two methods: `onPersistKey(encryptionKey:expiryTime)` and `onRetrieveKeys() -> [String]`.  
 
 The first method is used to persist the encryption key in the storage of user’s IOS device.  Chat SDK will set 45 minutes as the expiry time of the encryption key. If you want Push Notification to be effect for more than 45 minutes, you need to schedule to call `chatClient.startPushNotifications(deviceToken:)` on a comparatively frequent basis (eg. every 15 minutes) so a new encryption key could be registered before the old key expires.  
 
@@ -146,4 +143,4 @@ In protocol extension, chat SDK provides the implementation of `decryptPayload(n
 
 5. Plug the IOS device into your mac, run the program and click “allow” when asked to authorize push notification on device. 
 
-6. As User B, send a chat message. You (User A) should be able to receive a push notification in your IOS device. 
+6. As User B, send a chat message. You (User A) should be able to receive a push notification in your IOS device.

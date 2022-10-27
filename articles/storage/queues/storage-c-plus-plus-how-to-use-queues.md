@@ -58,14 +58,14 @@ Add the following include statements to the top of the C++ file where you want t
 
 ## Set up an Azure Storage connection string
 
-An Azure Storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the `AccountName` and `AccountKey` values. For information on storage accounts and access keys, see [About Azure Storage accounts](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). This example shows how you can declare a static field to hold the connection string:
+An Azure Storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the `AccountName` and `AccountKey` values. For information on storage accounts and access keys, see [About Azure Storage accounts](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json). This example shows how you can declare a static field to hold the connection string:
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). Azurite is a utility that simulates Azure Blob Storage and Queue Storage on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
+To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md?toc=/azure/storage/queues/toc.json). Azurite is a utility that simulates Azure Blob Storage and Queue Storage on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
 
 ```cpp
 // Define the connection-string with Azurite.
@@ -276,6 +276,6 @@ Now that you've learned the basics of Queue Storage, follow these links to learn
 
 - [How to use Blob Storage from C++](../blobs/quickstart-blobs-c-plus-plus.md)
 - [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [List Azure Storage resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [List Azure Storage resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=/azure/storage/queues/toc.json)
 - [Azure Storage client library for C++ reference](https://azure.github.io/azure-storage-cpp)
-- [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)
+- [Azure Storage documentation](../index.yml)

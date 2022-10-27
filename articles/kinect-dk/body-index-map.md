@@ -4,7 +4,7 @@ description: Understand how to query a body tracking index map in the Azure Kine
 author: qm13
 ms.author: quentinm
 ms.reviewer: yijwan
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, porting, body, tracking, index, segmentation, map

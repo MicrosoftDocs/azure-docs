@@ -36,7 +36,7 @@ Required permissions | For permissions required to apply an update, see [Azure A
 ## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
 > *As of August 31, 2022, all 1.x versions of Azure AD Connect are retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
-> AADConnect V1.x will stop working on December 31st, due to the decommisioning of the ADAL library service on that date.
+> AADConnect V1.x may stop working on December 31st, due to the retirement of the ADAL library service on that date.
 
 ## Retiring Azure AD Connect 2.x versions
 > [!IMPORTANT]
@@ -76,6 +76,15 @@ Auto-upgrade is meant to push all important updates and critical fixes to you. I
 If you want all the latest features and updates, check this page and install what you need.
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
+
+## 2.1.18.0
+
+### Release status: 
+10/5/2022: Released for download
+
+### Bug fixes
+ - we fixed a bug where upgrade from version 1.6 to version 2.1 got stuck in a loop due to IsMemberOfLocalGroup enumeration.
+ - we fixed a bug where the Azure AD Connect Configuration Wizard was sending incorrect credentials (username format) while validating if Enterprise Admin. 
 
 ## 2.1.16.0
 
@@ -344,8 +353,6 @@ There are no functional changes in this release.
 > This release is a security update release of Azure AD Connect. It's intended to be used by customers who are running an older version of Windows Server and can't upgrade their server to Windows Server 2016 or newer at this time. You can't use this version to update an Azure AD Connect V2.0 server.
 
 This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability, see the CVE.
-
-To download the latest version of Azure AD Connect 1.6, see the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=103336).
 
 ### Release status
 

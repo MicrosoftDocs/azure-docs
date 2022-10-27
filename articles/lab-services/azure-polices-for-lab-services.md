@@ -16,7 +16,7 @@ Azure Policy helps you manage and prevent IT issues by applying policy definitio
 1. Lab Services should require non-admin user for labs 
 1. Lab Services should restrict allowed virtual machine SKU sizes 
 
-For a full list of built-in policies, including policies for Lab Services, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies#lab-services).
+For a full list of built-in policies, including policies for Lab Services, see [Azure Policy built-in policy definitions](../governance/policy/samples/built-in-policies.md#lab-services).
 
 
 
@@ -28,7 +28,7 @@ This policy enforces that all [shutdown options](how-to-configure-auto-shutdown-
 
 |**Effect**|**Behavior**|
 |-----|-----|
-|**Audit**|Labs will show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when all shutdown options are not enabled for a lab.  |
+|**Audit**|Labs will show on the [compliance dashboard](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources) as non-compliant when all shutdown options are not enabled for a lab.  |
 |**Deny**|Lab creation will fail if all shutdown options are not enabled. |
 
 ## Lab Services should not allow template virtual machines for labs 
@@ -37,10 +37,10 @@ This policy can be used to restrict [customization of lab templates](tutorial-se
 
 |**Effect**|**Behavior**|
 |-----|-----|
-|**Audit**|Labs will show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when a template virtual machine is used for a lab.|
+|**Audit**|Labs will show on the [compliance dashboard](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources) as non-compliant when a template virtual machine is used for a lab.|
 |**Deny**|Lab creation to fail if “create a template virtual machine” option is used for a lab.|
 
-## Lab Services require non-admin user for labs 
+## Lab Services requires non-admin user for labs 
 
 This policy is used to enforce using non-admin accounts while creating a lab. With the August 2022 Update, you can choose to add a non-admin account to the VM image.  This new feature allows you to keep separate credentials for VM admin and non-admin users. For more information to create a lab with a non-admin user, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md#create-a-lab), which shows how to give a student non-administrator account rather than default administrator account on the “Virtual machine credentials” page of the new lab wizard.  
 
@@ -48,7 +48,7 @@ During the policy assignment, the lab administrator can choose the following eff
 
 |**Effect**|**Behavior**|
 |-----|-----|
-|**Audit**|Labs show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when non-admin accounts is not used while creating the lab.|
+|**Audit**|Labs show on the [compliance dashboard](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources) as non-compliant when non-admin accounts are not used while creating the lab.|
 |**Deny**|Lab creation will fail if “Give lab users a non-admin account on their virtual machines” is not checked while creating a lab.|
 
 ## Lab Services should restrict allowed virtual machine SKU sizes
@@ -57,12 +57,20 @@ During the policy assignment, the Lab Administrator can choose the following eff
 
 |**Effect**|**Behavior**|
 |-----|-----|
-|**Audit**|Labs show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when a non-allowed SKU is used while creating the lab.|
+|**Audit**|Labs show on the [compliance dashboard](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources) as non-compliant when a non-allowed SKU is used while creating the lab.|
 |**Deny**|Lab creation will fail if SKU chosen while creating a lab is not allowed as per the policy assignment.|
+
+## Custom policies
+
+In addition to the new built-in policies described above, you can create and apply custom policies. This technique is helpful in situations where none of the built-in policies apply or where you need more granularity. 
+
+Learn how to create custom policies:
+- [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+- [Tutorial: Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md).
 
 ## Next steps
 
 See the following articles:
 - [How to use the Lab Services should restrict allowed virtual machine SKU sizes Azure policy](how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md)
-- [Built-in Policies](/azure/governance/policy/samples/built-in-policies#lab-services)
-- [What is Azure policy?](/azure/governance/policy/overview)
+- [Built-in Policies](../governance/policy/samples/built-in-policies.md#lab-services)
+- [What is Azure policy?](../governance/policy/overview.md)

@@ -75,8 +75,8 @@ landingContent:
             url:  /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
       - linkListType: how-to-guide
         links:
-          - text: Make API requests with Postman 
-            url: how-to-use-postman.md
+          - text: Call the Azure Digital Twins APIs with Postman
+            url: how-to-use-postman-with-digital-twins.md
 
   - title: DTDL-based industry ontologies
     linkLists:
@@ -100,4 +100,4 @@ landingContent:
       - linkListType: learn
         links:
           - text: 'Learning path: Extend IoT solutions by using Azure Digital Twins'
-            url: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+            url: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/

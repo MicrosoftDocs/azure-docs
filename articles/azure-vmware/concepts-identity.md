@@ -167,7 +167,8 @@ Unlike on-premises deployment, not all pre-defined NSX-T Data Center RBAC roles 
  In an Azure VMware Solution deployment, the following NSX-T Data Center predefined RBAC roles are not supported with LDAP integration:
 
 - Enterprise Admin
-- Network AdminSecurity Admin
+- Network Admin
+- Security Admin
 - Netx Partner Admin
 - GI Partner Admin
 

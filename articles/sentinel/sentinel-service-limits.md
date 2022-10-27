@@ -5,6 +5,7 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 04/27/2022
 ms.author: yelevin
+ms.service: microsoft-sentinel
 ---
 
 # Service limits for Microsoft Sentinel
@@ -27,17 +28,21 @@ This article lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-notebooks.md)]
 
+## Repositories limits
+
+[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-repositories.md)]
+
 ## Threat intelligence limits
 
 [!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-threat-intelligence.md)]
 
-## Watchlist limits
-
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-watchlists.md)]
-
 ## User and Entity Behavior Analytics (UEBA) limits
 
 [!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-ueba.md)]
+
+## Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-watchlists.md)]
 
 ## Next steps
 

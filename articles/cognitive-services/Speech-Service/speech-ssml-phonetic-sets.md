@@ -8,7 +8,7 @@ manager: junwg
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 09/16/2022
 ms.author: jiajzhan
 ---
 
@@ -60,7 +60,7 @@ See the sections in this article for the phonemes that are specific to each loca
 ## en-GB/en-IE/en-AU
 [!INCLUDE [en-GB](./includes/phonetic-sets/text-to-speech/en-gb.md)]
 
-## en-US/en-CA
+## :::no-loc text="en-US/en-CA":::
 [!INCLUDE [en-US](./includes/phonetic-sets/text-to-speech/en-us.md)]
 
 ## es-ES

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 09/01/2022
+ms.date: 10/25/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -22,6 +22,16 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Standard storage with cool access](manage-cool-access.md) (Preview)
 
     The majority of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use Azure NetApp Files standard service level capacity pool with [a cool access option](cool-access-about.md), which enables you to have inactive data transparently moved from Azure NetApp Files' standard service-level storage (the hot tier) to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure the standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 63 days) for inactive data to be considered “cool.” Views of and access to the data stays transparent to the user, with the only difference being a higher access time to data blocks that were moved to the cool tier.
+
+## October 2022
+
+* [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview) 
+
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../availability-zones/az-overview.md#availability-zones) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). 
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
+
+    The application volume group for SAP HANA feature is now generally available. You no longer need to register the feature to use it. 
 
 ## August 2022
 
@@ -44,8 +54,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     In preview: 
     * Azure Key Vault to store Service Principal content
     * Azure Managed Disk as an alternate storage back end
-
-* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now in public preview. You can back up Azure NetApp Files datastores and VMs using Cloud Backup. This virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores. 
 
 * [Active Directory connection enhancement: Reset Active Directory computer account password](create-active-directory-connections.md#reset-active-directory) (Preview)
 

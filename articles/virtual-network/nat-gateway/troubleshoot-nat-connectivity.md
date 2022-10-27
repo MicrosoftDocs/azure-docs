@@ -5,6 +5,7 @@ description: Troubleshoot connectivity issues with Virtual Network NAT.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 08/29/2022
 ms.author: allensu
@@ -12,11 +13,11 @@ ms.author: allensu
 
 # Troubleshoot Azure Virtual Network NAT connectivity 
 
-This article provides guidance on how to troubleshoot and resolve common outbound connectivity issues with your NAT gateway resource. This article also provides guidance on best practices for designing applications to use outbound connections efficiently. 
+This article provides guidance on how to troubleshoot and resolve common outbound connectivity issues with your NAT gateway resource, as well as best practices on how to design applications to use outbound connections efficiently. 
 
 ## SNAT exhaustion due to NAT gateway configuration 
 
-Common SNAT exhaustion issues with NAT gateway typically have to do with the configurations on the NAT gateway. Common SNAT exhaustion issues include: 
+Common SNAT exhaustion issues with NAT gateway typically have to do with the configurations on the NAT gateway, such as:
 
 * Outbound connectivity on NAT gateway not scaled out with enough public IP addresses. 
 
@@ -24,31 +25,31 @@ Common SNAT exhaustion issues with NAT gateway typically have to do with the con
 
 ### Outbound connectivity not scaled out enough 
 
-Each public IP address provides 64,512 SNAT ports to subnets attached to NAT gateway. From those available SNAT ports, NAT gateway can support up to 50,000 concurrent connections to the same destination endpoint. If outbound connections are dropping because SNAT ports are being exhausted, then NAT gateway may not be scaled out enough to handle the workload. More public IP addresses may need to be added to NAT gateway in order to provide more SNAT ports for outbound connectivity. 
+Each public IP address provides 64,512 SNAT ports for connecting outbound with NAT gateway. From those available SNAT ports, NAT gateway can support up to 50,000 concurrent connections to the same destination endpoint. If outbound connections are dropping because SNAT ports are being exhausted, then NAT gateway may not be scaled out enough to handle the workload. Additional Public IP addresses on NAT gateway may be required in order to provide more SNAT ports for outbound connectivity. 
 
-The table below describes two common scenarios in which outbound connectivity may not be scaled out enough and how to validate and mitigate these issues: 
+The table below describes two common outbound connectivity failure scenarios due to scalability issues as well as how to validate and mitigate these issues: 
 
 | Scenario | Evidence |Mitigation | 
 |---|---|---| 
-| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | You run the following [metrics](nat-metrics.md) in Azure Monitor: **Total SNAT Connection**: "Sum" aggregation shows high connection volume. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume. | Determine if you can add more public IP addresses or public IP prefixes. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further. |
-| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Attempt to add more IP addresses fails. Total number of IP addresses from public IP address resources or public IP prefix resources exceeds a total of 16. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. | 
+| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | You run the following [metrics](nat-metrics.md) in Azure Monitor: **Total SNAT Connection**: "Sum" aggregation shows high connection volume. For  **SNAT Connection Count**, "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume and connection failures. | Add more public IP addresses or public IP prefixes as need (assign up to 16 IP addresses in total to your NAT gateway). This addition will provide more SNAT port inventory and allow you to scale your scenario further. |
+| You've already assigned 16 IP addresses to your NAT gateway and still are experiencing SNAT port exhaustion. | Attempt to add more IP addresses fails. Total number of IP addresses from public IP address or public IP prefix resources exceeds a total of 16. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. | 
 
 >[!NOTE] 
->It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports to the inventory by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. 
+>It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT portsby adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. See [best practices for efficient use of outbound connections](#best-practices-for-efficient-use-of-outbound-connections) for additional guidance. 
 
 ### TCP idle timeout timers set higher than the default value 
 
-The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer, and can create [extra pressure on SNAT port inventory](/azure/virtual-network/nat-gateway/nat-gateway-resource#timers). The table below describes a common scenario in which a high TCP idle timeout may be causing SNAT exhaustion and provides possible mitigation steps to take: 
+The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If the timer is setting is set to a higher value than the default, NAT gateway will hold on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers). The table below describes a scenario where a long TCP idle timeout timer is causing SNAT exhaustion and provides possible mitigation steps to take: 
 
 | Scenario | Evidence | Mitigation | 
 |---|---|---| 
-| You want to ensure that TCP connections stay active for long periods of time without idle time-out. You increase the TCP idle timeout timer setting. After a period of time, you start to notice that connection failures occur more often. You suspect that you may be exhausting your inventory of SNAT ports since connections are holding on to them longer. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: **Total SNAT Connection**: "Sum" aggregation shows high connection volume. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume. | You have a few possible mitigation steps that you can take to resolve SNAT port exhaustion: </br></br> **Reduce the TCP idle timeout** to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer can't be set lower than 4 minutes. </br></br> Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations. </br></br> **Use TCP keepalives or application layer keepalives** to avoid intermediate systems timing out. For examples, see [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). </br></br> For connections to Azure PaaS services, use **[Private Link](../../private-link/private-link-overview.md)**. Private Link eliminates the need to use public IPs of your NAT gateway, which frees up more SNAT ports for outbound connections to the internet. |
+| You want to ensure that TCP connections stay active for long periods of time without going idle and timing out. You increase the TCP idle timeout timer setting. After a period of time, you start to notice that connection failures occur more often. You suspect that you may be exhausting your inventory of SNAT ports since connections are holding on to them longer. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: **Total SNAT Connection**: "Sum" aggregation shows high connection volume. For  **SNAT Connection Count**, "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume and connection failures. | You have a few possible mitigation steps that you can take to resolve SNAT port exhaustion: </br></br> **Reduce the TCP idle timeout** to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer can't be set lower than 4 minutes. </br></br> Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations. </br></br> **Use TCP keepalives or application layer keepalives** to avoid intermediate systems timing out. For examples, see [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). </br></br> For connections to Azure PaaS services, use **[Private Link](../../private-link/private-link-overview.md)**. Private Link eliminates the need to use public IPs of your NAT gateway, which frees up more SNAT ports for outbound connections to the internet. |
 
 ## Connection failures due to idle timeouts 
 
 ### TCP idle timeout 
 
-As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) section above, TCP keepalives should be used instead to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [Timer considerations](/azure/virtual-network/nat-gateway/nat-gateway-resource#timer-considerations). 
+As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) section above, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [Timer considerations](./nat-gateway-resource.md#timer-considerations). 
 
 >[!Note] 
 >Increasing the TCP idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low-rate failures when timeout expires and introduce delay and unnecessary failures. 
@@ -59,7 +60,7 @@ UDP idle timeout timers are set to 4 minutes. Unlike TCP idle timeout timers for
 
 | Scenario | Evidence | Mitigation | 
 |---|---|---| 
-| You notice that UDP traffic is dropping connections that need to be maintained for long periods of time. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor, **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume. | A few possible mitigation steps that can be taken: - **Enable UDP keepalives**. Keep in mind that when a UDP keepalive is enabled, it's only active for one direction in a connection. This behavior means that the connection can still time out from going idle on the other side of a connection. To prevent a UDP connection from idle time-out, UDP keepalives should be enabled for both directions in a connection flow. - **Application layer keepalives** can also be used to refresh idle flows and reset the idle timeout. Check the server side for what options exist for application specific keepalives. | 
+| You notice that UDP traffic is dropping connections that need to be maintained for long periods of time. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor, **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume and connection failures. | A few possible mitigation steps that can be taken: - **Enable UDP keepalives**. Keep in mind that when a UDP keepalive is enabled, it's only active for one direction in a connection, so the connection can still time out from going idle on the other side of a connection. To prevent a UDP connection from idle time-out, UDP keepalives should be enabled for both directions in a connection flow. - **Application layer keepalives** can also be used to refresh idle flows and reset the idle timeout. Check the server side for what options exist for application specific keepalives. | 
 
 ## NAT gateway public IP not being used for outbound traffic 
 
@@ -94,7 +95,7 @@ Once the custom UDR is removed from the routing table, the NAT gateway public IP
 
 ### Private IPs are used to connect to Azure services by Private Link 
 
-[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Storage, SQL, or Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you'll notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.  
+[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Azure Storage, Azure SQL, or Azure Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you'll notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.
 
 To check which Private Endpoints you have set up with Private Link: 
 
@@ -121,7 +122,7 @@ Connection failures at the internet destination endpoint could be due to multipl
 
 * Volumetric DDoS mitigations or transport layer traffic shaping. 
 
-Use NAT gateway [metrics]((nat-metrics.md) in Azure monitor to diagnose connection issues: 
+Use NAT gateway [metrics](nat-metrics.md) in Azure monitor to diagnose connection issues: 
 
 * Look at packet count at the source and the destination (if available) to determine how many connection attempts were made. 
 
@@ -129,7 +130,7 @@ Use NAT gateway [metrics]((nat-metrics.md) in Azure monitor to diagnose connecti
 
 What else to check for: 
 
-* Check for [SNAT exhaustion]((#snat-exhaustion-due-to-nat-gateway-configuration). 
+* Check for [SNAT exhaustion](#snat-exhaustion-due-to-nat-gateway-configuration). 
 
 * Validate connectivity to an endpoint in the same region or elsewhere for comparison. 
 
@@ -165,7 +166,7 @@ When SNAT ports are exhausted or application failures occur, aggressive or brute
 
 Depending on the configured idle timeout, if retries are too aggressive, connections may not have enough time to close and release SNAT ports for reuse. 
 
-For extra guidance and examples, see [Retry pattern](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). 
+For extra guidance and examples, see [Retry pattern](../../app-service/troubleshoot-intermittent-outbound-connection-errors.md). 
 
 ### Use keepalives to reset the outbound idle timeout 
 
@@ -173,13 +174,12 @@ For more information about keepalives, see [TCP idle timeout timers set higher t
 
 ### Use Private link to reduce SNAT port usage for connecting to other Azure services  
 
-When possible, Private Link should be used to connect directly from your virtual networks to Azure platform services in order to [reduce the demand](/azure/virtual-network/nat-gateway/troubleshoot-nat#tcp-idle-timeout-timers-set-higher-than-the-default-value) on SNAT ports. Reducing the demand on SNAT ports can help reduce the risk of SNAT port exhaustion. 
+When possible, Private Link should be used to connect directly from your virtual networks to Azure platform services in order to [reduce the demand](./troubleshoot-nat.md) on SNAT ports. Reducing the demand on SNAT ports can help reduce the risk of SNAT port exhaustion. 
 
 To create a Private Link, see the following Quickstart guides to get started: 
 
-* [Create a Private Endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip) 
-
-* [Create a Private Link](/azure/private-link/create-private-link-service-portal)
+* [Create a Private Endpoint](../../private-link/create-private-endpoint-portal.md?tabs=dynamic-ip) 
+* [Create a Private Link](../../private-link/create-private-link-service-portal.md)
 
 ## Next steps 
 
@@ -187,10 +187,6 @@ We're always looking to improve the experience of our customers. If you're exper
 
 To learn more about NAT gateway, see: 
 
-* [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) 
-
-* [NAT gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource) 
-
-* [Metrics and alerts for NAT gateway resources](/azure/virtual-network/nat-gateway/nat-metrics) 
-
-
+* [Virtual Network NAT](./nat-overview.md) 
+* [NAT gateway resource](./nat-gateway-resource.md) 
+* [Metrics and alerts for NAT gateway resources](./nat-metrics.md)

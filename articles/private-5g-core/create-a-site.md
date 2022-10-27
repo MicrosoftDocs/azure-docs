@@ -24,7 +24,7 @@ Azure Private 5G Core Preview private mobile networks include one or more *sites
 
 In this step, you'll create the mobile network site resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network to which you want to add a site.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a mobile network resource.":::
@@ -60,7 +60,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **N6 interface name** (if this site will support 5G UEs) or **SGi interface name** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
-    - If you decided not to configure a DNS server, untick the **Specify DNS addresses for UEs?** checkbox.
+    - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
 
     :::image type="content" source="media/create-a-site/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Add data network screen.":::
 

@@ -205,7 +205,7 @@ The following PowerShell commands create this JIT configuration:
 
 The just-in-time VM access feature can be used via the Microsoft Defender for Cloud API. Use this API to get information about configured VMs, add new ones, request access to a VM, and more. 
 
-Learn more at [JIT network access policies](/rest/api/defenderforcloud/jitnetworkaccesspolicies).
+Learn more at [JIT network access policies](/rest/api/defenderforcloud/jit-network-access-policies).
 
 ---
 
@@ -303,7 +303,7 @@ Learn more in the [PowerShell cmdlet documentation](/powershell/scripting/develo
 
 The just-in-time VM access feature can be used via the Microsoft Defender for Cloud API. Use this API to get information about configured VMs, add new ones, request access to a VM, and more. 
 
-Learn more at [JIT network access policies](/rest/api/defenderforcloud/jitnetworkaccesspolicies).
+Learn more at [JIT network access policies](/rest/api/defenderforcloud/jit-network-access-policies).
 
 ---
 

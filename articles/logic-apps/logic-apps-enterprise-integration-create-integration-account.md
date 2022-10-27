@@ -144,7 +144,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
        --name integration_account_01 --location westus --sku name=Standard
    ```
 
-   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
+   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses (()), and periods (.).
 
    To view a specific integration account, use the [az logic integration-account show](/cli/azure/logic/integration-account#az-logic-integration-account-show) command:
 
@@ -234,7 +234,6 @@ Before you can link your integration account to a Standard logic app resource, y
    |----------|-------|
    | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
    | **Value** | <*integration-account-callback-URL*> |
-   |||
 
 1. When you're done, select **OK**. When you return to the **Configuration** pane, make sure to save your changes. On the **Configuration** pane toolbar, select **Save**.
 
@@ -248,7 +247,6 @@ Before you can link your integration account to a Standard logic app resource, y
    |----------|-------|
    | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
    | **Value** | <*integration-account-callback-URL*> |
-   |||
 
    This example shows how a sample app setting might appear:
 
@@ -417,7 +415,6 @@ If you want to link your logic app to another integration account, or no longer 
    |----------|-------|
    | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
    | **Value** | <*integration-account-callback-URL*> |
-   |||
 
 1. When you're done, save your changes.
 

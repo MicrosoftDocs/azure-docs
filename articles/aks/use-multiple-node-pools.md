@@ -3,7 +3,7 @@ title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 05/16/2022
 ---
 
@@ -12,7 +12,7 @@ ms.date: 05/16/2022
 In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) is defined when you create an AKS cluster, which creates a [system node pool][use-system-pool]. To support applications that have different compute or storage demands, you can create additional *user node pools*. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and tunnelfront. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. User node pools are where you place your application-specific pods. For example, use these additional user node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
 
 > [!NOTE]
-> This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for  create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only option to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
+> This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only options to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
 
 This article shows you how to create and manage multiple node pools in an AKS cluster.
 
@@ -36,7 +36,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## Create an AKS cluster
 
-> [!Important]
+> [!IMPORTANT]
 > If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command.
@@ -120,44 +120,9 @@ The following example output shows that *mynodepool* has been successfully creat
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_D2s_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
-### Add an ARM64 node pool (preview)
+### Add an ARM64 node pool
 
-The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you will need to choose an [ARM capable instance SKU][arm-sku-vm].
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-#### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.23 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-#### Register the `AKSARM64Preview` preview feature
-
-To use the feature, you must also enable the `AKSARM64Preview` feature flag on your subscription.
-
-Register the `AKSARM64Preview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKSARM64Preview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSARM64Preview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you will need to choose a [Dpsv5][arm-sku-vm1], [Dplsv5][arm-sku-vm2] or [Epsv5][arm-sku-vm3] series Virtual Machine.
 
 Use `az aks nodepool add` command to add an ARM64 node pool.
 
@@ -168,6 +133,39 @@ az aks nodepool add \
     --name armpool \
     --node-count 3 \
     --node-vm-size Standard_Dpds_v5
+```
+
+### Add a Mariner node pool
+
+Mariner is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. Mariner only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
+
+You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-sku mariner
+```
+
+### Migrate Ubuntu nodes to Mariner
+
+Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
+
+1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+
+> [!NOTE]
+> When adding a new Mariner node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
+
+2. [Cordon the existing Ubuntu nodes][cordon-and-drain].
+3. [Drain the existing Ubuntu nodes][drain-nodes].
+4. Remove the existing Ubuntu nodes using the `az aks delete` command.
+
+```azurecli
+az aks nodepool delete \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name myNodePool
 ```
 
 ### Add a node pool with a unique subnet
@@ -414,16 +412,19 @@ Associating a node pool with an existing capacity reservation group can be done 
 ```azurecli-interactive
 az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
 ```
+
 Associating a system node pool with an existing capacity reservation group can be done using [az aks create][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association. 
 
 ```azurecli-interactive
 az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
 ```
+
 Deleting a node pool command will implicitly dissociate a node pool from any associated capacity reservation group, before that node pool is deleted.
 
 ```azurecli-interactive
 az aks nodepool delete -g MyRG --cluster-name MyMC -n myAP
 ```
+
 Deleting a cluster command implicitly dissociates all node pools in a cluster from their associated capacity reservation groups.
 
 ```azurecli-interactive
@@ -802,16 +803,16 @@ az group delete --name myResourceGroup2 --yes --no-wait
 
 ## Next steps
 
-Learn more about [system node pools][use-system-pool].
+* Learn more about [system node pools][use-system-pool].
 
-In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
+* In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
-To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-quickstart-windows-cli].
+* To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-quickstart-windows-cli].
 
-Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
+* Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
 
 <!-- EXTERNAL LINKS -->
-[arm-vm-sku]: https://azure.microsoft.com/updates/public-preview-arm64based-azure-vms-can-deliver-up-to-50-better-priceperformance/
+
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -821,6 +822,9 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
 
 <!-- INTERNAL LINKS -->
+[arm-sku-vm1]: ../virtual-machines/dpsv5-dpdsv5-series.md
+[arm-sku-vm2]: ../virtual-machines/dplsv5-dpldsv5-series.md
+[arm-sku-vm3]: ../virtual-machines/epsv5-epdsv5-series.md
 [aks-quickstart-windows-cli]: ./learn/quick-windows-container-deploy-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -862,3 +866,4 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
+[drain-nodes]: resize-node-pool.md#drain-the-existing-nodes

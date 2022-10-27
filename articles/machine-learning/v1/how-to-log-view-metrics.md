@@ -8,8 +8,8 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
-ms.date: 04/19/2021
+ms.custom: event-tier1-build-2022, ignite-2022
+ms.date: 10/26/2022
 ms.topic: how-to
 ---
 
@@ -19,7 +19,7 @@ ms.topic: how-to
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](how-to-log-view-metrics.md)
-> * [v2 (preview)](../how-to-log-view-metrics.md)
+> * [v2](../how-to-log-view-metrics.md)
 
 Log real-time information using both the default Python logging package and Azure Machine Learning Python SDK-specific functionality. You can log locally and send logs to your workspace in the portal.
 
@@ -179,7 +179,7 @@ This example performs a parameter sweep over alpha values and captures the resul
 
 1. Create a training script that includes the logging logic, `train.py`.
 
-   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/scripts/train.py)]
 
 
 1. Submit the ```train.py``` script to run in a user-managed environment. The entire script folder is submitted for training.

@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 08/28/2022
+ms.date: 10/05/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -40,6 +40,8 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
+Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection. For example, rule ID 942440, *SQL Comment Sequence Detected.*, has been disabled, and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
+
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
 When you use DRS 2.0 or later, your WAF uses *anomaly scoring*. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*:
@@ -55,11 +57,13 @@ If the anomaly score is 5 or greater, WAF blocks the request.
 
 For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic.
 
-When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visiblity into the complete set of rules that a specific request matched.
+When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 
 The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 
 ### DRS 2.0
+
+DRS 2.0 rules offer better protection than earlier versions of the DRS. It also supports transformations beyond just URL decoding.
 
 DRS 2.0 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can disable individual rules as well as entire rule groups.
 
@@ -218,7 +222,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -251,7 +255,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -262,7 +266,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -290,7 +294,6 @@ The following rule groups and rules are available when using Web Application Fir
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
-|942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack: Common DB Names Detected|
 |942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
@@ -422,7 +425,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |931120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Shellshock (CVE-2014-6271)|
@@ -448,7 +451,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -459,7 +462,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|IE XSS Filters - Attack Detected.|
 |941200|IE XSS Filters - Attack Detected.|
-|941210|IE XSS Filters - Attack Detected.|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) found.|
 |941220|IE XSS Filters - Attack Detected.|
 |941230|IE XSS Filters - Attack Detected.|
 |941240|IE XSS Filters - Attack Detected.|
@@ -605,7 +608,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -631,7 +634,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -642,7 +645,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|

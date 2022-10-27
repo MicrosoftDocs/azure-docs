@@ -16,7 +16,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 ## Create a timer trigger function
 
-1. Create a Azure Functions resource.
+1. Create an Azure Functions resource.
     - If you already have an Application Insights Resource:
         - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
         - Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
@@ -45,17 +45,16 @@ To create a new file, right click under your timer trigger function (for example
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk"> 
-        <PropertyGroup> 
-            <TargetFramework>netstandard2.0</TargetFramework> 
-        </PropertyGroup> 
-        <ItemGroup> 
-            <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version --> 
-        </ItemGroup> 
+        <PropertyGroup> 
+            <TargetFramework>netstandard2.0</TargetFramework> 
+        </PropertyGroup> 
+        <ItemGroup> 
+            <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version --> 
+        </ItemGroup> 
     </Project> 
-    
     ```
 
-     :::image type="content" source="media/availability-azure-functions/function-proj.png" alt-text=" Screenshot of function.proj in App Service Editor." lightbox="media/availability-azure-functions/function-proj.png":::
+    :::image type="content" source="media/availability-azure-functions/function-proj.png" alt-text=" Screenshot of function.proj in App Service Editor." lightbox="media/availability-azure-functions/function-proj.png":::
 
 2. Create a new file called "runAvailabilityTest.csx" and paste the following code:
 
@@ -64,11 +63,11 @@ To create a new file, right click under your timer trigger function (for example
     
     public async static Task RunAvailabilityTestAsync(ILogger log) 
     { 
-        using (var httpClient = new HttpClient()) 
-        { 
-            // TODO: Replace with your business logic 
-            await httpClient.GetStringAsync("https://www.bing.com/"); 
-        } 
+        using (var httpClient = new HttpClient()) 
+        { 
+            // TODO: Replace with your business logic 
+            await httpClient.GetStringAsync("https://www.bing.com/"); 
+        } 
     } 
     ```
 
@@ -104,58 +103,58 @@ To create a new file, right click under your timer trigger function (for example
     public async static Task Run(TimerInfo myTimer, ILogger log, ExecutionContext executionContext) 
     
     { 
-        if (telemetryClient == null) 
-        { 
-            // Initializing a telemetry configuration for Application Insights based on connection string 
+        if (telemetryClient == null) 
+        { 
+            // Initializing a telemetry configuration for Application Insights based on connection string 
     
-            var telemetryConfiguration = new TelemetryConfiguration(); 
-            telemetryConfiguration.ConnectionString = Environment.GetEnvironmentVariable("APPLICATIONINSIGHTS_CONNECTION_STRING"); 
-            telemetryConfiguration.TelemetryChannel = new InMemoryChannel(); 
-            telemetryClient = new TelemetryClient(telemetryConfiguration); 
-        } 
+            var telemetryConfiguration = new TelemetryConfiguration(); 
+            telemetryConfiguration.ConnectionString = Environment.GetEnvironmentVariable("APPLICATIONINSIGHTS_CONNECTION_STRING"); 
+            telemetryConfiguration.TelemetryChannel = new InMemoryChannel(); 
+            telemetryClient = new TelemetryClient(telemetryConfiguration); 
+        } 
     
-        string testName = executionContext.FunctionName; 
-        string location = Environment.GetEnvironmentVariable("REGION_NAME"); 
-        var availability = new AvailabilityTelemetry 
-        { 
-            Name = testName, 
+        string testName = executionContext.FunctionName; 
+        string location = Environment.GetEnvironmentVariable("REGION_NAME"); 
+        var availability = new AvailabilityTelemetry 
+        { 
+            Name = testName, 
     
-            RunLocation = location, 
+            RunLocation = location, 
     
-            Success = false, 
-        }; 
+            Success = false, 
+        }; 
     
-        availability.Context.Operation.ParentId = Activity.Current.SpanId.ToString(); 
-        availability.Context.Operation.Id = Activity.Current.RootId; 
-        var stopwatch = new Stopwatch(); 
-        stopwatch.Start(); 
+        availability.Context.Operation.ParentId = Activity.Current.SpanId.ToString(); 
+        availability.Context.Operation.Id = Activity.Current.RootId; 
+        var stopwatch = new Stopwatch(); 
+        stopwatch.Start(); 
     
-        try 
-        { 
-            using (var activity = new Activity("AvailabilityContext")) 
-            { 
-                activity.Start(); 
-                availability.Id = Activity.Current.SpanId.ToString(); 
-                // Run business logic 
-                await RunAvailabilityTestAsync(log); 
-            } 
-            availability.Success = true; 
-        } 
+        try 
+        { 
+            using (var activity = new Activity("AvailabilityContext")) 
+            { 
+                activity.Start(); 
+                availability.Id = Activity.Current.SpanId.ToString(); 
+                // Run business logic 
+                await RunAvailabilityTestAsync(log); 
+            } 
+            availability.Success = true; 
+        } 
     
-        catch (Exception ex) 
-        { 
-            availability.Message = ex.Message; 
-            throw; 
-        } 
+        catch (Exception ex) 
+        { 
+            availability.Message = ex.Message; 
+            throw; 
+        } 
     
-        finally 
-        { 
-            stopwatch.Stop(); 
-            availability.Duration = stopwatch.Elapsed; 
-            availability.Timestamp = DateTimeOffset.UtcNow; 
-            telemetryClient.TrackAvailability(availability); 
-            telemetryClient.Flush(); 
-        } 
+        finally 
+        { 
+            stopwatch.Stop(); 
+            availability.Duration = stopwatch.Elapsed; 
+            availability.Timestamp = DateTimeOffset.UtcNow; 
+            telemetryClient.TrackAvailability(availability); 
+            telemetryClient.Flush(); 
+        } 
     } 
     
     ```
