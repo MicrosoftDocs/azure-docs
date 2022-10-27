@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer Identity Document (ID) model
+title: Identity document (ID) processing – Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts related to data extraction and analysis using the prebuilt ID document model and extracting information from identity documents with OCR and AI.
+description: Automate identity document (ID) processing of driver licenses, passports, and more with Form Recognizer.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -24,7 +24,13 @@ ms.custom: references.regions
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents: US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
+## What is identity document (ID) processing
+
+Identity document (ID) processing involves extraction of data from identity documents whether manually or using OCR based techniques. Examples of identity documents include passports, driver licenses, resident cards, and national identity cards like the social security card in the US. It is an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+
+## Form Recognizer Identity document (ID) model
+
+The Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents: US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
