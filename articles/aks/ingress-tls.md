@@ -514,7 +514,7 @@ tls-secret   True    tls-secret   11m
 
 ## Test the ingress configuration
 
-Open a web browser to *hello-world-ingress.MY_CUSTOM_DOMAIN* or the FQDN of your Kubernetes ingress controller. Ensure the the following are true:
+Open a web browser to *hello-world-ingress.MY_CUSTOM_DOMAIN* or the FQDN of your Kubernetes ingress controller. Ensure the following are true:
 
 * You're redirected to use HTTPS.
 * The certificate is *trusted*.
