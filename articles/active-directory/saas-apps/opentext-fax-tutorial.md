@@ -99,9 +99,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Sign-on URL** |
     |-------------|
-    | `https://login.xmedius.com/` |
-    | `https://login.xmedius.eu/` |
-    | `https://login.xmedius.ca/` |
+    | `https://login.xmedius.com/{account}` |
+    | `https://login.xmedius.eu/{account}` |
+    | `https://login.xmedius.ca/{account}` |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -119,7 +119,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon:
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username in the follwing format: username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the user name in the follwing format: username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
