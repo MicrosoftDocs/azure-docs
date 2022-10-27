@@ -265,7 +265,7 @@ The **Application Pool** tab details the services behind a BIG-IP, represented a
 
 The back-end application runs on HTTP port 80. You can switch the port to 443, if your application runs on HTTPS.
 
-#### Single Sign-On and HTTP Headers
+#### Single sign-on and HTTP Headers
 
 Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO. Use the Kerberos delegation account you created to complete this step. 
 
@@ -291,15 +291,15 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 The BIG-IPs session management settings define the conditions under which user sessions terminate or continue, limits for users and IP addresses, and corresponding user info. Refer to the AskF5 article [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492) for settings details.
 
-What isn’t covered is Single Log-Out (SLO) functionality, which ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign-out URL with the APM SLO endpoint. An IdP-initiated signout from the Azure AD MyApps portal terminates the session between the BIG-IP and a client.
+What isn’t covered is Single Log Out (SLO) functionality, which ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign out URL with the APM SLO endpoint. An IdP-initiated sign out from the Azure AD MyApps portal terminates the session between the BIG-IP and a client.
 
-The SAML federation metadata for the published application is imported from your tenant, providing the APM with the SAML sign-out endpoint for Azure AD. This action ensures an SP-initiated signout terminates the session between a client and Azure AD. The APM needs to know when a user signs out of the application.
+The SAML federation metadata for the published application is imported from your tenant, providing the APM with the SAML sign out endpoint for Azure AD. This action ensures an SP-initiated sign out terminates the session between a client and Azure AD. The APM needs to know when a user signs out of the application.
 
-If the BIG-IP webtop portal accesses published applications, then a signout is processed by the APM to call the Azure AD sign-out endpoint. But consider a scenario when the BIG-IP webtop portal isn’t used, then the user can't instruct the APM to sign out. Even if the user signs out of the application, the BIG-IP is oblivious. Therefore, SP-initiated signout needs consideration to ensure sessions terminate securely. You can add an SLO function to your application's Sign-Out button, so it redirects your client to the Azure AD SAML, or the BIG-IP sign-out endpoint. 
+If the BIG-IP webtop portal accesses published applications, then a sign out is processed by the APM to call the Azure AD sign out endpoint. But consider a scenario when the BIG-IP webtop portal isn’t used, then the user can't instruct the APM to sign out. Even if the user signs out of the application, the BIG-IP is oblivious. Therefore, SP-initiated sign out needs consideration to ensure sessions terminate securely. You can add an SLO function to your application's Sign out button, so it redirects your client to the Azure AD SAML, or the BIG-IP sign out endpoint. 
 
-The URL for SAML sign-out endpoint for your tenant is found in **App Registrations > Endpoints**.
+The URL for SAML sign out endpoint for your tenant is found in **App Registrations > Endpoints**.
 
-If you can't change the app, then consider having the BIG-IP listen for the application sign-out call, and upon detecting the request, it triggers SLO. Refer to [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP iRules. For more information about using BIG-IP iRules, see: 
+If you can't change the app, then consider having the BIG-IP listen for the application sign out call, and upon detecting the request, it triggers SLO. Refer to [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) to learn about BIG-IP iRules. For more information about using BIG-IP iRules, see: 
 
 * [K42052145: Configuring automatic session termination (log out) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
 * [K12056: Overview of the Log-out URI Include option](https://support.f5.com/csp/article/K12056).
@@ -416,7 +416,7 @@ If troubleshooting kerberos SSO issues, be aware of the following concepts.
 * Ensure the hostname for the domain controller and web application are resolvable in DNS
 * Ensure there are no duplicate SPNs in your AD environment: executing the following query at the command line on a domain PC: setspn -q HTTP/my_target_SPN
 
-You can refer to our [App Proxy guidance](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md) to validate an IIS application is configured for KCD. See also the AskF5 article, [Kerberos Single Sign-On Method](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html).
+You can refer to our [App Proxy guidance](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md) to validate an IIS application is configured for KCD. See also the AskF5 article, [Kerberos single sign on method](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html).
 
 ### Log analysis: increase verbosity
 
