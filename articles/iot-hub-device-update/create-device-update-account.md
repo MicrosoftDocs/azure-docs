@@ -61,7 +61,7 @@ An IoT hub. It's recommended that you use an S1 (Standard) tier or above.
 
    :::image type="content" source="media/create-device-update-account/account-details.png" alt-text="Screenshot of account details." lightbox="media/create-device-update-account/account-details.png":::
 
-4. Optionally, you can check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the [Configure access control roles](#configure-access-control-roles) section to provide a combination of roles to users and applications for the right level of access.
+4. Optionally, you can check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the [Configure access control roles](#configure-access-control-roles-for-device-update) section to provide a combination of roles to users and applications for the right level of access.
 
    You need to have Owner or User Access Administrator permissions in your subscription to manage roles.
 
@@ -212,6 +212,8 @@ Replace *\<resource_id>* with the resource ID of your IoT hub. You can retrieve 
 ```azurecli
 az role assignment create --role "IoT Hub Data Contributor" --assignee https://api.adu.microsoft.com/ --scope <resource_id>
 ```
+
+---
 
 ## View and query accounts or instances
 
