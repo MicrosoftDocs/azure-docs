@@ -14,15 +14,15 @@ This glossary provides a brief description of important terms and concepts for t
 | Term | Description | Learn more |
 |--|--|--|
 |**AAC**|Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. |[Adaptive Application Controls](adaptive-application-controls.md)
-| **ACR Tasks** | A suite of features within Azure container registry | [ACR](security-center/azure-container-registry.md) | 
+| **ACR Tasks** | A suite of features within Azure container registry | [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml) | 
 |**ADO**|Azure DevOps provides developer services for allowing teams to plan work, collaborate on code development, and build and deploy applications.|[What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops) |
 |**AKS**| Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications.| [Kubernetes Concepts](/azure-stack/aks-hci/kubernetes-concepts)|
 |**Alerts**| Alerts defend your workloads in real-time so you can react immediately and prevent security events from developing.|[Security alerts and incidents](alerts-overview.md)|
-|**ANH** | Adaptive network hardening| [Adaptive Network Hardening](adaptive-network-hardening)|
-|**APT** | Advanced PErsistent Threats | [Video: Understanding APTs](https://docs.microsoft.com/events/teched-2012/sia303)|
-| **Arc-enabled Kubernetes**| Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center.| [What is Arc-enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)|
-|**ARM**| Azure Resource Manager-the deployment and management service for Azure.| [Azure Resource Manager Overview](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|
-|**ASB**| Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.| [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/baselines/security-center-security-baseline) |
+|**ANH** | Adaptive network hardening| [Improve your network security posture with adaptive network hardening](adaptive-network-hardening.md)
+|**APT** | Advanced Persistent Threats | [Video: Understanding APTs](/events/teched-2012/sia303)|
+| **Arc-enabled Kubernetes**| Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center.|[List all Azure Arc-enabled Kubernetes clusters with Azure Monitor extension](../../includes/resource-graph/samples/bycat/azure-arc-enabled-kubernetes.md)
+|**ARM**| Azure Resource Manager-the deployment and management service for Azure.| [Azure Resource Manager Overview](/azure/azure-resource-manager/management/overview)|
+|**ASB**| Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.| [Azure Security Benchmark](/azure/baselines/security-center-security-baseline) |
 |**Auto-provisioning**| To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can use auto provisioning to quietly deploy the Azure Monitor Agent on your servers.| [Configure auto provision](../iot-dps/quick-setup-auto-provision.md)|
 
 ## B
@@ -33,11 +33,11 @@ This glossary provides a brief description of important terms and concepts for t
 ## C
 | Term | Description | Learn more |
 |--|--|--|
-|**Cacls** | Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files.| [Access control lists](https://docs.microsoft.com/windows/win32/secauthz/access-control-lists)|
+|**Cacls** | Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files.| [access-control-lists](/windows/win32/secauthz/access-control-lists)  |
 |**CIS Benchmark** | (Kubernetes) Center for Internet Security benchmark| [CIS](/azure/aks/cis-kubernetes)|
-|**CORS**| Cross origin resource sharing, an HTTP feature that enables a web application running under one domain to access resources in another domain.| [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)|
+|**CORS**| Cross origin resource sharing, an HTTP feature that enables a web application running under one domain to access resources in another domain.| [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)|
 |**CNCF**|Cloud Native Computing Foundation|[Build CNCF projects by using Azure Kubernetes service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)|
-|**CSPM**|Cloud Security Posture Management| [Video: CSPM with Azure](https://docs.microsoft.com/shows/azure-friday/cloud-security-posture-management-cspm-with-azure-security-center)|
+|**CSPM**|Cloud Security Posture Management| [Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md)|
 |**CWPP** | Cloud Workload Protection Platform | [CWPP](/azure/defender-for-cloud/overview-page)|
 
 ## D 
@@ -56,13 +56,13 @@ This glossary provides a brief description of important terms and concepts for t
 | Term | Description | Learn more |
 |--|--|--|
 |**FIM**| File Integrity Monitoring | ([File Integrity Monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md)|
-**FTP** | File Transfer Protocol | [Deploy content using FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp?tabs=portal)|
+**FTP** | File Transfer Protocol | [Deploy content using FTP](/azure/app-service/deploy-ftp?tabs=portal)|
 
 ## G
 | Term | Description | Learn more |
 |--|--|--|
 |**GCP**| Google Cloud Platform | [Onboard a GPC Project](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-gcp)|
-|**GKE**| Google Kubernetes Engine, Google’s managed environment for deploying, managing, and scaling applications using GCP infrastructure.|[Protecting Containers in GCP with Defender for Containers](https://docs.microsoft.com/shows/mdc-in-the-field/gcp-containers)|
+|**GKE**| Google Kubernetes Engine, Google’s managed environment for deploying, managing, and scaling applications using GCP infrastructure.|[Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro](../databox-online/azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md)|
 
 ## J
 | Term | Description | Learn more |
@@ -77,13 +77,13 @@ This glossary provides a brief description of important terms and concepts for t
 ## L
 | Term | Description | Learn more |
 |--|--|--|
-|**LSA**| Local Security Authority| [LSA Policy](https://docs.microsoft.com/windows/win32/secmgmt/lsa-policy)|
+|**LSA**| Local Security Authority| [Secure and use policies on virtual machines in Azure](../virtual-machines/security-policy.md)|
 
 ## M
 | Term | Description | Learn more |
 |--|--|--|
 |**MDC**| Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. | [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)|
-|**MDE**| Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats.|[MDE Introduction](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide)|
+|**MDE**| Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats.|[Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)|
 |**MFA**|multi factor authentication, a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan.|[How it works: Azure Multi Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks)|
 |**MITRE ATT&CK**| a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.|[MITRE ATT&CK](https://attack.mitre.org/)|
 **MMA**| Microsoft Monitoring Agent, aka Log Analytics Agent|[Log Analytics Agent Overview](/azure/azure-monitor/agents/log-analytics-agent)|
@@ -97,7 +97,7 @@ This glossary provides a brief description of important terms and concepts for t
 ## R
 | Term | Description | Learn more |
 |--|--|--|
-|**RaMP**| Rapid Modernization Plan,  guidance based on initiatives, giving you a set of deployment paths to more quickly implement key layers of protection.|[RaMP Guidance](https://docs.microsoft.com/security/zero-trust/zero-trust-ramp-overview)|
+|**RaMP**| Rapid Modernization Plan,  guidance based on initiatives, giving you a set of deployment paths to more quickly implement key layers of protection.|[Zero Trust Rapid Modernization Plan](../security/fundamentals/zero-trust.md)|
 |**RBAC**| Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. | [RBAC Overview](/azure/role-based-access-control/overview)|
 |**RDP** | Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device.| [RDP Bandwidth Requirements](/azure/virtual-desktop/rdp-bandwidth)|
 |**Recommendations**|Recommendations secure your workloads with step-by-step actions that protect your workloads from known security risks.| [What are security policies, initiatives, and recommendations?](security-policy-concept.md)|
