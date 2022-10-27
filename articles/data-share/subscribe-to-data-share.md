@@ -164,13 +164,13 @@ Copy your invitation ID for use in the next section.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az datashare consumer share-subscription create](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-create) command to create the Data Share.
+Use the [az datashare share-subscription create](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-create) command to create the Data Share.
 
 ```azurecli
-az datashare consumer share-subscription create --resource-group share-rg \
-  --name "Fabrikam Solutions" --account-name FabrikamDataShareAccount \
+az datashare share-subscription create --resource-group share-rg \
+  --name "fabrikamsolutions" --account-name FabrikamDataShareAccount \
   --invitation-id 89abcdef-0123-4567-89ab-cdef01234567 \
-  --source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
+  --source-share-location "East US 2"
 ```
 
 ### [PowerShell](#tab/powershell)
