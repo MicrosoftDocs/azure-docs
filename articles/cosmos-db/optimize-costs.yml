@@ -22,42 +22,42 @@ landingContent:
       - linkListType: concept
         links:
           - text: Pricing model
-            url: ../how-pricing-works.md
+            url: how-pricing-works.md
           - text: Total Cost of Ownership (TCO)
-            url: ../total-cost-ownership.md
+            url: total-cost-ownership.md
           - text: Understand your bill
-            url: ../understand-your-bill.md
+            url: understand-your-bill.md
   - title: Plan for optimization
     linkLists:
       - linkListType: quickstart
         links:
           - text: Plan and manage costs
-            url: ../plan-manage-costs.md
+            url: plan-manage-costs.md
           - text: Limit total account throughput
-            url: ../limit-total-account-throughput.md
+            url: limit-total-account-throughput.md
   - title: Optimize actual costs
     linkLists:
       - linkListType: concept
         links:
           - text: Optimize provisioned throughput cost
-            url: ../optimize-cost-throughput.md
+            url: optimize-cost-throughput.md
           - text: Optimize request cost
-            url: ../optimize-cost-reads-writes.md
+            url: optimize-cost-reads-writes.md
           - text: Optimize storage cost
-            url: ../optimize-cost-storage.md
+            url: optimize-cost-storage.md
           - text: Optimize multi-region cost
-            url: ../optimize-cost-regions.md
+            url: optimize-cost-regions.md
           - text: Optimize development/testing cost
-            url: ../optimize-dev-test.md
+            url: optimize-dev-test.md
           - text: Optimize cost with reserved capacity
-            url: ../reserved-capacity.md
+            url: reserved-capacity.md
           - text: Optimize using rate limiting
-            url: ../rate-limiting-requests.md
+            url: rate-limiting-requests.md
   - title: Develop for free
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Free tier
-            url: ../free-tier.md
+            url: free-tier.md
           - text: Use the emulator
-            url: ../local-emulator.md
+            url: local-emulator.md
