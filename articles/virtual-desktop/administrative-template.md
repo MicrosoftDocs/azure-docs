@@ -29,7 +29,7 @@ You'll need the following permission:
 
 ## Add the administrative template
 
-To add the administrative template, select a tab for your scenario and follow the steps below.
+To add the administrative template, select a tab for your scenario and follow these steps.
 
 # [Group Policy (AD)](#tab/group-policy-domain)
 
