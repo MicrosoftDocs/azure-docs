@@ -4,13 +4,15 @@ description: Learn about partners for Azure Monitor and how you can access docum
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/27/2022
 ms.reviewer: robb
 ---
 
 # Azure Monitor partner integrations
 
 The following partner products integrate with Azure Monitor. They're listed in alphabetical order. 
+
+This is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate additional appropropriate partners. 
 
 ## AIMS
 
@@ -213,9 +215,16 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ## New Relic
 
-![New Relic logo.](./media/partners/newrelic.png)
+![New Relic logo.](./media/partners/newrelic-logo.png)
 
-See the [New Relic documentation](https://newrelic.com/solutions/partners/azure).
+Microsoft Azure integration monitoring from New Relic gives you an overview of your ecosystem – cloud migrations, digital transformations, and cloud native applications using New Relic Observability Platform.
+ 
+**NewRelic Azure monitoring helps you to:**
+* Monitor the entire software stack with Full-stack monitoring.
+* Reduce friction between engineers and ITOps teams by identifying, triaging, and delegating application and infrastructure issues quickly.
+* Identify service dependencies through cross-application tracing using New Relic APM.
+ 
+Refer to [New Relic Azure integration](https://newrelic.com/instant-observability/?category=azure&search=azure) for more information. 
 
 ## OpsGenie
 
