@@ -72,7 +72,7 @@ The sign-ins log has a default view, but you can customize the view using over 3
 ![Screenshot of the sign-in logs page with the Columns option highlighted.](./media/concept-sign-ins/sign-in-logs-columns.png)
 
 
-### Filter the results
+### Filter the results <h3 id="filter-sign-in-activities"></h3>
 
 Filtering the sign-ins log is a helpful way to quickly find logs that match a specific scenario. For example, you could filter the list to only view sign-ins that occurred in a specific geographic location, from a specific operating system, or from a specific type of credential.
 
@@ -140,7 +140,7 @@ When you select a day in the graph, a sign-ins log is opened with the filters au
 > IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
 > Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
-### Explore authentication details
+### Authentication details
 
 The **Authentication Details** tab in the details of a sign-in log report provides the following information, for each authentication attempt:
 

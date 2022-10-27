@@ -3,19 +3,14 @@
 title: What are flagged sign-ins in Azure Active Directory?
 description: Provides a general overview of flagged sign-ins in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/27/2022
+ms.author: sarahlipsey
 ms.reviewer: tspring  
 
 # Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
@@ -27,9 +22,6 @@ ms.collection: M365-identity-device-management
 As an IT admin, when a user failed to sign-in, you want to resolve the issue as soon as possible to unblock your user. Due to the amount of available data in the sign-ins log, locating the right information can be a challenge.
 
 This article gives you an overview of a feature that significantly improves the time it takes to resolve user sign-in problems by making the related problems easy to find.
-
-
-
 
 ## What it is
 
@@ -97,7 +89,7 @@ Any user signing into Azure AD via web page can use flag sign-ins for review. Me
 
 ## Who can review flagged sign-ins?
 
-Reviewing flagged sign-in events requires permissions to read the Sign-in Report events in the Azure AD portal. For more information, see [who can access it?](concept-sign-ins.md#who-can-access-it)
+Reviewing flagged sign-in events requires permissions to read the Sign-in Report events in the Azure AD portal. For more information, see [who can access it?](concept-sign-ins.md#how-do-you-access-the-sign-in-logs)
 
 
 To flag sign-in failures, you don't need additional permissions.
