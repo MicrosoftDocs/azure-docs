@@ -1,19 +1,20 @@
 ---
-title: Configure a Microsoft Dev Box project
-description: 'This quickstart shows you how to configure a Microsoft Dev Box project, create a dev box pool and provide access to dev boxes for your users.'
+title: Configure a Microsoft Dev Box Preview project
+titleSuffix: Microsoft Dev Box Preview
+description: 'This quickstart shows you how to configure a Microsoft Dev Box Preview project, create a dev box pool and provide access to dev boxes for your users.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/03/2022
+ms.date: 10/12/2022
 ---
 <!-- 
   Customer intent:
 	As a Dev Box Project Admin I want to configure projects so that I can provide Dev Boxes for my users.
  -->
 
-# Quickstart: Configure a Microsoft Dev Box project
+# Quickstart: Configure a Microsoft Dev Box Preview project
 To enable developers to self-serve dev boxes in projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes using the dev box pool. 
 
 In this quickstart, you'll perform the following tasks:
@@ -26,7 +27,7 @@ A dev box pool is a collection of dev boxes that you manage together. You must h
 
 The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure a dev box pool. 
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box Preview service](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

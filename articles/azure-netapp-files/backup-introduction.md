@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 10/27/2022
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -30,6 +30,8 @@ Azure NetApp Files backup is supported for the following regions:
 * Australia East
 * East US
 * East US 2
+* France Central
+* Germany West Central
 * Japan East
 * North Europe
 * South Central US
@@ -39,9 +41,12 @@ Azure NetApp Files backup is supported for the following regions:
 * West US
 * West US 2
 
-## Backup Vault 
+## Backup vault 
 
-Azure NetApp Files supports backup vaults. Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. 
+Backup vaults are organizational units to manage backups and backup policies. 
+
+>[!IMPORTANT]
+>Existing backups not assigned to a backup vault must be migrated. To learn how to migrate, see [Manage backup vaults](configure-backup-vault.md#migrate-backups-to-a-backup-vault).
 
 ## Cost model for Azure NetApp Files backup
 

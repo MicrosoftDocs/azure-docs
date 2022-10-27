@@ -80,4 +80,4 @@ The most common cause of this error is a client disconnecting before a timeout e
 
 - [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/blobs/toc.json)
 - [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=/azure/storage/blobs/toc.json)
-- [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/)
+- [Monitor, diagnose, and troubleshoot your Azure Storage](/training/modules/monitor-diagnose-and-troubleshoot-azure-storage/)

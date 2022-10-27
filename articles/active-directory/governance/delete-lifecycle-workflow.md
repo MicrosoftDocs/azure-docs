@@ -58,35 +58,32 @@ After deleting workflows, you can view them on the **Deleted Workflows (Preview)
  
 
 ## Delete a workflow using Microsoft Graph
- You're also able to delete, view deleted, and restore deleted Lifecycle workflows using Microsoft Graph.
+
+To delete a workflow using API via Microsoft Graph, see: [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta).
+
+
+To view
 
 Workflows can be deleted by running the following call:
 ```http
 DELETE https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id> 
 ```
 ## View deleted workflows using Microsoft Graph
-You can view a list of deleted workflows by running the following call:
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/deletedItems/workflows 
-```
+
+To View a list of deleted workflows using API via Microsoft Graph, see: [List deleted workflows](/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems).
+
 
 ## Permanently delete a workflow using Microsoft Graph
-Deleted workflows can be permanently deleted by running the following call:
-```http
-DELETE https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/deletedItems/workflows/<id>
-```
+
+To permanently delete a workflow using API via Microsoft Graph, see: [Permanently delete a deleted workflow](/graph/api/identitygovernance-deleteditemcontainer-delete)
 
 ## Restore deleted workflows using Microsoft Graph
 
-Deleted workflows are available to be restored for 30 days before they're permanently deleted. To restore a deleted workflow, run the following API call:
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/deletedItems/workflows/<id>/restore
-```
+To restore a deleted workflow using API via Microsoft Graph, see: [Restore a deleted workflow](/graph/api/identitygovernance-workflow-restore)
 > [!NOTE]
 > Permanently deleted workflows are not able to be restored.
 
 ## Next steps
 
-- [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta)
 - [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md)
 - [Manage Lifecycle Workflow Versions](manage-workflow-tasks.md)

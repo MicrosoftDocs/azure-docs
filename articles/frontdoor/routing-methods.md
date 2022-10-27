@@ -92,7 +92,7 @@ The lifetime of the cookie is the same as the user's session, as Front Door curr
 >
 > Public proxies may interfere with session affinity. This is because establishing a session requires Front Door to add a session affinity cookie to the response, which cannot be done if the response is cacheable as it would disrupt the cookies of other clients requesting the same resource. To protect against this, session affinity will **not** be established if the origin sends a cacheable response when this is attempted. If the session has already been established, it does not matter if the response from the origin is cacheable.
 >
-> Session affinity will be established in the following circumstances:
+> Session affinity will be established in the following circumstances beyond the standard non-cacheable scenarios:
 > - The response must include the `Cache-Control` header of *no-store*.
 > - If the response contains an `Authorization` header, it must not be expired.
 > - The response is an HTTP 302 status code.

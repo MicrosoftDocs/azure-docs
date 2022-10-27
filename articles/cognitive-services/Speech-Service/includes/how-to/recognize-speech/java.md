@@ -201,16 +201,6 @@ stopTranslationWithFileSemaphore.acquire();
 recognizer.stopContinuousRecognitionAsync().get();
 ```
 
-### Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`enableDictation`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.enabledictation) method on [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig):
-
-```java
-config.enableDictation();
-```
-
 ## Change the source language
 
 A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to French. In your code, find your [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance and add this line directly below it:

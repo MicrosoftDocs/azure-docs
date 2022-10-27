@@ -4,11 +4,12 @@ description: Learn about the architecture of Microsoft Defender for Containers f
 author: bmansheim
 ms.author: benmansheim
 ms.topic: overview
+ms.custom: ignite-2022
 ms.date: 06/19/2022
 ---
 # Defender for Containers architecture
 
-Defender for Containers is designed differently for each container environment whether they're running in:
+Defender for Containers is designed differently for each Kubernetes environment whether they're running in:
 
 - **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
 
@@ -28,7 +29,7 @@ To protect your Kubernetes containers, Defender for Containers receives and anal
 - Workload configuration from Azure Policy
 - Security signals and events from the node level
 
-## Architecture for each container environment
+## Architecture for each Kubernetes environment
 
 ## [**Azure (AKS)**](#tab/defender-for-container-arch-aks)
 

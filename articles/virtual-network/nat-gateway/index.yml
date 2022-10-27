@@ -37,7 +37,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Virtual Network NAT
-            url: /learn/modules/intro-to-azure-virtual-network-nat
+            url: /training/modules/intro-to-azure-virtual-network-nat
       - linkListType: whats-new
         links:
           - text: What's new

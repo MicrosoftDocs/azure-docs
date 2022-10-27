@@ -55,6 +55,8 @@ In this article you learn how to secure the following inferencing resources in a
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Limitations
 
 ### Azure Container Instances

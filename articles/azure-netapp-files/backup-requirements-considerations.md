@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 10/27/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -22,6 +22,9 @@ This article describes the requirements and considerations you need to be aware 
 ## Requirements and considerations
 
 You need to be aware of several requirements and considerations before using Azure NetApp Files backup: 
+
+>[!IMPORTANT]
+>All backups require a backup vault. If you have existing backups, you must migrate backups to a backup vault before you can perform any operation with a backup. For more information about this procedure, see [Manage backup vaults](backup-vault-manage.md).
 
 * Azure NetApp Files backup is available in the regions associated with your Azure NetApp Files subscription. 
 Azure NetApp Files backup in a region can only protect an Azure NetApp Files volume that is located in that same region. For example, backups created by the service in West US 2 for a volume located in West US 2 are sent to Azure storage that is located also in West US 2. Azure NetApp Files does not support backups or backup replication to a different region.  

@@ -35,10 +35,10 @@ How SRE and DevOps differ is still under discussion in the field. Some broadly a
 
 If you want to learn more about the practice of SRE, check out these links:  
 
-- [SRE in Context](/learn/modules/intro-to-site-reliability-engineering/3-sre-in-context)  
-- [Key SRE Principles and Practices: virtuous cycles](/learn/modules/intro-to-site-reliability-engineering/4-key-principles-1-virtuous-cycles)  
-- [Key SRE Principles and Practices: The human side of SRE](/learn/modules/intro-to-site-reliability-engineering/5-key-principles-2-human-side-of-sre)  
-- [Getting Started with SRE](/learn/modules/intro-to-site-reliability-engineering/6-getting-started)  
+- [SRE in Context](/training/modules/intro-to-site-reliability-engineering/3-sre-in-context)  
+- [Key SRE Principles and Practices: virtuous cycles](/training/modules/intro-to-site-reliability-engineering/4-key-principles-1-virtuous-cycles)  
+- [Key SRE Principles and Practices: The human side of SRE](/training/modules/intro-to-site-reliability-engineering/5-key-principles-2-human-side-of-sre)  
+- [Getting Started with SRE](/training/modules/intro-to-site-reliability-engineering/6-getting-started)  
 
 ## Service Level Agreements  
 

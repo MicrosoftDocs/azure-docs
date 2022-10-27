@@ -49,6 +49,8 @@ To configure the integration of KnowBe4 into Azure AD, you need to add KnowBe4 f
 1. In the **Add from the gallery** section, type **KnowBe4** in the search box.
 1. Select **KnowBe4** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for KnowBe4 Security Awareness Training
 
 In this section, you configure and test Azure AD single sign-on with KnowBe4 based on a test user called **Britta Simon**.

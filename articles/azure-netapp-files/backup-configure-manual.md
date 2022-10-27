@@ -38,7 +38,7 @@ The following list summarizes manual backup behaviors:
 
 ## Requirements
 
-* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you have not configured a backup, refer to [Configure a backup vault for Azure NetApp Files](backup-vault-configure.md) for more information.
+* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you have not configured a backup, refer to [Manage backup vaults](backup-vault-manage.md) for more information.
 
 ## Enable backup functionality
 

@@ -26,7 +26,7 @@ const call = callAgent.join(context);
 
 ```
 
-To display the role of the local call participant or remote call participants, subscribe to the handler below. Learn more about roles and permissions for room call participants [here](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
+To display the role of the local or remote call participants, subscribe to the handler below.
 
 ```js
 // Subscribe to changes for your role in a call
@@ -43,3 +43,7 @@ To display the role of the local call participant or remote call participants, s
  	});
  }
 ```
+
+The ability to join a room call and display the roles of call participants is available in the Calling JavaScript SDK for web browsers [version 1.7.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.7.1-beta.1) and above.
+
+You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

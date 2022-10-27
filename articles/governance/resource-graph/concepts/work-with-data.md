@@ -1,8 +1,10 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 09/29/2021
+author: timwarner-msft
+ms.date: 10/06/2022
 ms.topic: conceptual
+ms.author: timwarner
 ms.custom: devx-track-csharp
 ---
 # Working with large Azure resource data sets
@@ -47,6 +49,14 @@ would be equal to **First**. Likewise, if **top** or **limit** is smaller than *
 set returned would be the smaller value configured by **top** or **limit**.
 
 **First** has a maximum allowed value of _1000_.
+
+## CSV export result size limitation
+
+When using the comma-separated value (CSV) export functionality of Azure Resource Graph Explorer, the
+result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
+
+To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
+query. On the toolbar, click **Download as CSV**.
 
 ## Skipping records
 

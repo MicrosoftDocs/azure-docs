@@ -2,9 +2,9 @@
 title: Troubleshoot automated ML experiments
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and resolve issues in your automated machine learning experiments.
-author: blackmist
-ms.author: larryfr
-ms.reviewer: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -27,14 +27,14 @@ Expect errors such as:
 
 * Module not found errors such as,
 
-  `No module named 'sklearn.decomposition._truncated_svd`
+  `No module named 'sklearn.decomposition._truncated_svd'`
 
 * Import errors such as,
 
   `ImportError: cannot import name 'RollingOriginValidator'`,
 * Attribute errors such as,
 
-  `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator'`
 
 Resolutions depend on your `AutoML` SDK training version:
 
@@ -204,6 +204,17 @@ If this pattern is expected in your time series, you can switch your primary met
 ## Experiment throttling
 
 If you have over 100 automated ML experiments, this may cause new automated ML experiments to have long run times. 
+
+## VNet Firewall Setting Download Failure
+
+If you are under virtual networks (VNets), you may run into model download failures when using AutoML NLP. This is because network traffic is blocked from downloading the models and tokenizers from Azure CDN. To unblock this, please allow list the below URLs in the “Application rules” setting of the VNet firewall policy:
+
+* aka.ms 
+* https://automlresources-prod.azureedge.net 
+
+Please follow the instructions [here to configure the firewall settings.](how-to-access-azureml-behind-firewall.md)
+
+Instructions for configuring workspace under vnet are available [here.](tutorial-create-secure-workspace.md)
 
 ## Next steps
 

@@ -11,6 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
@@ -22,6 +23,20 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-form-recognizer",
+        "src": "articles/applied-ai-services/form-recognizer",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -73,6 +88,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/obj/**",
           "healthcare-apis/**"
@@ -82,6 +98,22 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-form-recognizer",
+        "src": "articles/applied-ai-services/form-recognizer",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -130,6 +162,10 @@
       "grp-iot-edge": {
         "dest": "destiotedge",
         "moniker_range": ">=iotedge-2018-06"
+      },
+      "grp-form-recognizer": {
+        "dest": "destformrecognizer",
+        "moniker_range": ">=form-recog-2.1.0"
       }
     },
     "overwrite": [],
@@ -215,7 +251,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "zr-msft",
+        "articles/aks/**/*.md": "MGoedtel",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -260,8 +296,8 @@
         "articles/azure-vmware/**/*.md": "jjaygbay1",
         "articles/backup/**/*.md": "v-amallick",
         "articles/backup/**/*.yml": "v-amallick",
-        "articles/baremetal-infrastructure/**/*.md": "jjaygbay1",
-        "articles/batch/**/*.md": "prkannap",
+        "articles/baremetal-infrastructure/**/*.md": "dineshga",
+        "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
@@ -312,7 +348,7 @@
         "articles/hdinsight/*.yml": "sreekzz",
         "articles/hdinsight/**/*.md": "sreekzz",
         "articles/jenkins/**/*.md": "TomArcherMsft",
-        "articles/lab-services/**/*.md": "j-martens",
+        "articles/lab-services/**/*.md": "ntrogh",
         "articles/lighthouse/**/*.md": "JnHs",
         "articles/logic-apps/*.md": "ecfan",
         "articles/marketplace/**/*.md": "mingshen-ms",
@@ -361,7 +397,7 @@
         "articles/ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/api-management/**/*.md": "https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858",
         "articles/application-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=8d429912-8326-ec11-b6e6-000d3a4f0789",
-        "articles/application-insights/**/*.md": "https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0",
+        "articles/application-insights/**/*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
         "articles/app-service/**/*.md": "https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c",
         "articles/app-service-mobile/**/*.md": "https://github.com/Azure/azure-mobile-apps/issues",
         "articles/automation/**/*.md": "https://feedback.azure.com/d365community/forum/8ddd03a2-0225-ec11-b6e6-000d3a4f0858",
@@ -373,7 +409,7 @@
         "articles/azure-government/**/*.md": "",
         "articles/azure-maps/**/*.md": "https://feedback.azure.com/d365community/forum/fc834083-0925-ec11-b6e6-000d3a4f09d0",
         "articles/azure-monitor/**/*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
-        "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0",
+        "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
         "articles/azure-monitor/log-query/**/*.md": "https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0",
         "articles/azure-percept/**/*.md": "https://feedback.azure.com/d365community/forum/4a4c60f9-4e4d-ec11-8f8e-0022481f2bb0",
         "articles/azure-monitor/platform/**/alert-*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
@@ -450,6 +486,7 @@
         "articles/docker/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/documentdb/**/*.md": "https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858",
         "articles/dotnet/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "articles/energy-data-services/**/*.md": "https://feedback.azure.com/d365community/forum/f0544cc4-c338-ed11-9db0-000d3a1f475f",
         "articles/event-grid/**/*.md": "https://feedback.azure.com/d365community/forum/a095b5b5-f124-ec11-b6e6-000d3a4f0da0",
         "articles/event-hubs/**/*.md": "https://feedback.azure.com/d365community/forum/86c37ae9-7526-ec11-b6e6-000d3a4f032c",
         "articles/expressroute/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=a34c3e27-8326-ec11-b6e6-000d3a4f0789",
@@ -590,7 +627,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "zarhoads",
+        "articles/aks/**/*.md": "magoedte",
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -813,7 +850,7 @@
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
         "acticles/object-anchors/**/*.md": "azure-object-anchors",
-        "articles/openshift/**/*.md": "azure-red-hat-openshift",
+        "articles/openshift/**/*.md": "azure-redhat-openshift",
         "articles/quotas/**/*.md": "azure-quotas",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/sentinel/**/*.md": "microsoft-sentinel",
@@ -903,7 +940,8 @@
         "articles/sentinel/**/*.md": "microsoft-sentinel"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false

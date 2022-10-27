@@ -4,6 +4,7 @@ description: Learn about key features of Azure ExpressRoute Direct and informati
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/31/2021
 ms.author: duau
@@ -15,7 +16,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
-* Massive Data Ingestion into services like Storage and Cosmos DB
+* Massive data ingestion into services like Azure Storage and Azure Cosmos DB
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity like: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 
@@ -70,6 +71,8 @@ ExpressRoute Direct supports massive data ingestion scenarios into Azure storage
 | --- | --- |
 | **Subscribed Bandwidth**: 200 Gbps | **Subscribed Bandwidth**: 20 Gbps |
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+> You are able to provision logical ExpressRoute circuits on top of your chosen ExpressRoute Direct resource (10G/100G) up to the Subscribed Bandwidth (20G/200G). E.g. You can provision two 10G ExpressRoute circuits within a single 10G ExpressRoute Direct resource (port pair). Today you must use Azure CLI or PowerShell when configuring circuits that over-subscribe the ExpressRoute Direct resource.
 
 ## Technical Requirements
 

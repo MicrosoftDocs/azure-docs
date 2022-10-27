@@ -1,13 +1,13 @@
 ---
 title: HPE ProLiant DL360 OT monitoring - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL360 appliance when used for OT monitoring with Microsoft Defender for IoT.
-ms.date: 04/24/2022
+ms.date: 10/03/2022
 ms.topic: reference
 ---
 
 # HPE ProLiant DL360
 
-This article describes the **HPE ProLiant DL360** appliance for OT sensors.
+This article describes the **HPE ProLiant DL360** appliance for OT sensors, customized for use with Microsoft Defender for IoT.
 
 | Appliance characteristic |Details |
 |---------|---------|
@@ -16,14 +16,10 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
 |**Status** | Supported, Available preconfigured|
 
-
-The following image shows a view of the HPE ProLiant Dl360 front panel:
-
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="Photo of the HPE ProLiant DL360 front panel." border="false":::
-
-The following image shows a view of the HPE ProLiant Dl360 back panel:
+The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
 
 :::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="Photo of the HPE ProLiant DL360 back panel." border="false":::
+
 
 ## Specifications
 
@@ -73,13 +69,19 @@ Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
-| **PCI Slot 1 (Low profile)**| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
-| **PCI Slot 1 (Low profile)**  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
-| **PCI Slot 2 (High profile)**|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-| **PCI Slot 2 (High profile)**|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI|
-| **SFPs for Fiber Optic NICs**|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
+| **PCI Slot 1 (Low profile)**| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI (FW 1.52)|
+| **PCI Slot 1 (Low profile)**  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter (FW 10.57.3)|
+|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI (FW 1.52)|
+|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|647594-B21 - HPE 1 GbE 4p BASE-T BCM5719 Adapter (FW 5719-v1.45 NCSI v1.3.12.0 )|
+| **PCI Slot 2 (High profile)**|DP F/O NIC| 727055-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter (FW 10.57.3)|
+| **PCI Slot 2 (High profile)**|DP F/O NIC| P08421-B21 - HPE Ethernet 10Gb 2-port SFP+ BCM57414 Adapter (FW 214.4.9.6/pkg 214.0.286012)|
+| **PCI Slot 2 (High profile)**|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI (FW 10.57.3)|
+| **SFPs for Fiber Optic NICs**|MultiMode, Short Range| 455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 |**SFPs for Fiber Optic NICs**|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
+
+> [!IMPORTANT]
+> Verify NIC cards run with the firmware version described above or later.
+> As described in the procedure below, it is also recommended to disable the LLDP Agent in the BIOS for each installed NIC.
 
 ## HPE ProLiant DL360 installation
 
@@ -124,8 +126,12 @@ Use the following procedure to set up network options and update the default pas
 This procedure describes how to update the HPE BIOS configuration for your OT sensor deployment.
 
 **To configure the HPE BIOS**:
+> [!IMPORTANT]
+> Please make sure your server is using the HPE SPP 2022.03.1 (BIOS version U32 v2.6.2) or later.
 
 1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
+
+1. In the **BIOS/Ethernet Adapter/NIC Configuration**, disable LLDP Agent for all NIC cards.
 
 1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
 
@@ -145,7 +151,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 This procedure describes how to install iLO software remotely from a virtual drive.
 
-**To install iLO software**:
+**To install sensor software with iLO**:
 
 1. Sign in to the iLO console, and then right-click the servers' screen.
 
@@ -155,7 +161,7 @@ This procedure describes how to install iLO software remotely from a virtual dri
 
 1. Select **Local ISO file**.
 
-1. In the dialog box, choose the relevant ISO file.
+1. In the dialog box, choose the D4IoT sensor installation ISO file.
 
 1. Go to the left icon, select **Power**, and the select **Reset**.
 
