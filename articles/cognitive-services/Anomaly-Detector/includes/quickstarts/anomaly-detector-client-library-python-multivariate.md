@@ -36,6 +36,30 @@ pip install pandas
 pip install --upgrade azure.ai.anomalydetector
 ```
 
+### Download sample data
+
+This quickstart uses the `sample_data_5_3000.zip` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip)
+
+ You can also download the sample data by running:
+
+```cmd
+curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip" --output sample_data_5_3000_.zip
+```
+
+### Generate SAS URL
+
+1. Create an <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
+2. From within your storage account, create a new storage container with the Public access level to **private**.
+3. Open your container and select upload. Upload the sample_data_5 zip file from the previous step.
+    :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../../media/quickstart/upload-zip.png":::
+4. Select the `...` to open the context menu next to your newly uploaded zip file and select **Generate SAS**.
+     :::image type="content" source="../../media/quickstart/generate-access.png" alt-text="Screenshot of the Blob storage context menu with Generate SAS highlighted." lightbox="../../media/quickstart/generate-access.png":::
+5. Select **Generate SAS Token and URL**.
+6. You will need to copy the SAS URL into the `ANOMALY_DETECTOR_DATA_SOURCE` environment variable in the next section.
+
+   > [!NOTE]
+   > The steps above are the bare minimum to generate a SAS URL. For a more in-depth article on the process, we recommend consulting this [Form Recognizer article](../../../../applied-ai-services/form-recognizer/create-sas-tokens.md)
+
 
 ## Retrieve key and endpoint
 
@@ -45,7 +69,7 @@ To successfully make a call against the Anomaly Detector service, you'll need th
 |--------------------------|-------------|
 | `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
 | `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
-|`data_source` | This quickstart uses the `sample_data_5-3000.zip` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip). This file will then need to be added to Azure Blob Storage and made accessible via a SAS URL. |
+|`ANOMALY_DETECTOR_DATA_SOURCE` | This quickstart uses the `sample_data_5-3000.zip` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip). This file will then need to be added to Azure Blob Storage and made accessible via a SAS URL. |
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
@@ -61,6 +85,10 @@ setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 
 ```CMD
 setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
+
+```CMD
+setx ANOMALY_DETECTOR_DATA_SOURCE "REPLACE_WITH_YOUR_SAS_URL_TO_THE_SAMPLE_ZIP_FILE" 
 ```
 
 # [PowerShell](#tab/powershell)
@@ -85,36 +113,11 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 ---
 
-### Download sample data
-
-This quickstart uses the `sample_data_5_3000.zip` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip)
-
- You can also download the sample data by running:
-
-```cmd
-curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip" --output sample_data_5_3000_.zip
-```
-
-### Generate SAS URL
-
-1. Create an <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
-2. From within your storage account, create a new storage container with the Public access level to **private**.
-3. Open your container and select upload. Upload the sample_data_5 zip file from the previous step.
-    :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../../media/quickstart/upload-zip.png":::
-4. Select the `...` to open the context menu next to your newly uploaded zip file and select **Generate SAS**.
-     :::image type="content" source="../../media/quickstart/generate-access.png" alt-text="Screenshot of the Blob storage context menu with Generate SAS highlighted." lightbox="../../media/quickstart/generate-access.png":::
-5. Select **Generate SAS Token and URL**.
-6. Copy the SAS URL into the code below as string value for the `data_source` variable.
-
-
-   > [!NOTE]
-   > The steps above are the bare minimum to generate a SAS URL. For a more in-depth article on the process, we recommend consulting this [Form Recognizer article](../../../../applied-ai-services/form-recognizer/create-sas-tokens.md)
-
 ### Create a new Python application
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of quickstart.py with the following code. Modify the code to add the environment variable names for your key, endpoint, and the data_source. If you're using the environment variable names from the earlier steps in the quickstart, the only change you need to make is to the `data_source`:
+2. Replace the contents of quickstart.py with the following code. Modify the code to add the environment variable names for your key, endpoint, and the data source. If you're using the environment variable names from the earlier steps in the quickstart no changes to the code will be needed:
 
 ```python
 import os
@@ -129,14 +132,14 @@ from azure.core.exceptions import HttpResponseError
 
 SUBSCRIPTION_KEY = os.environ["ANOMALY_DETECTOR_API_KEY"]
 ANOMALY_DETECTOR_ENDPOINT = os.environ["ANOMALY_DETECTOR_ENDPOINT"]
-data_source ="https://contoso.blob.core.windows.net/temp-test/sample_data_5_3000.zip?sp=r&st=2022-10-11T19:08:04Z&se=2022-10-14T03:08:04Z&spr=https&sv=2021-06-08&sr=b&sig=GUID"
+DATA_SOURCE = os.environ["ANOMALY_DETECTOR_DATA_SOURCE"]
 
 ad_client = AnomalyDetectorClient(AzureKeyCredential(SUBSCRIPTION_KEY), ANOMALY_DETECTOR_ENDPOINT)
 model_list = list(ad_client.list_multivariate_model(skip=0, top=10000))
 print("{:d} available models before training.".format(len(model_list)))
 
 print("Training new model...(it may take a few minutes)")
-data_feed = ModelInfo(start_time=datetime(2021, 1, 1, 0, 0, 0, tzinfo=timezone.utc), end_time=datetime(2021, 1, 2, 12, 0, 0, tzinfo=timezone.utc), source=data_source)
+data_feed = ModelInfo(start_time=datetime(2021, 1, 1, 0, 0, 0, tzinfo=timezone.utc), end_time=datetime(2021, 1, 2, 12, 0, 0, tzinfo=timezone.utc), source=DATA_SOURCE)
 response_header = \
         ad_client.train_multivariate_model(data_feed, cls=lambda *args: [args[i] for i in range(len(args))])[-1]
 trained_model_id = response_header['Location'].split("/")[-1]
@@ -155,7 +158,7 @@ if model_status == ModelStatus.READY:
             print("{:d} available models after training.".format(len(new_model_list)))
             print("New Model ID " + trained_model_id)
 
-detection_req = DetectionRequest(source=data_source, start_time=datetime(2021, 1, 2, 12, 0, 0, tzinfo=timezone.utc), end_time=datetime(2021, 1, 3, 0, 0, 0, tzinfo=timezone.utc))
+detection_req = DetectionRequest(source=DATA_SOURCE, start_time=datetime(2021, 1, 2, 12, 0, 0, tzinfo=timezone.utc), end_time=datetime(2021, 1, 3, 0, 0, 0, tzinfo=timezone.utc))
 response_header = ad_client.detect_anomaly(trained_model_id, detection_req, cls=lambda *args: [args[i] for i in range(len(args))])[-1]
 result_id = response_header['Location'].split("/")[-1]
 
