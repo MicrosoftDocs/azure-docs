@@ -13,13 +13,13 @@ ms.date: 10/24/2022
 
 The Trusted Hardware Identity Management (THIM) service handles cache management of certificates for all Trusted Execution Environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
 
-## THIM & Attestation Interactions
+## THIM & attestation interactions
 
 THIM defines the Azure security baseline for Azure Confidential computing (ACC) nodes and caches collateral from TEE providers. The cached information can be further used by attestation services and ACC nodes in validating TEEs. The diagram below shows the interactions between an attestation service or node, THIM, and an enclave host.
 
-:::image type="content" source="./media/thim.png" alt-text="Diagram illustrating the interacts an attestation service or node, THIM, and an enclave host":::
+:::image type="content" source="./media/thim.png" alt-text="Diagram illustrating the interacts between an attestation service or node, THIM, and an enclave host.":::
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **The "next update" date of the Azure-internal caching service API ,used by Microsoft Azure Attestation, seems to be out of date. Is it still in operation and can it be used?**
 
@@ -53,19 +53,19 @@ To retrieve the certificate, you must install the [Azure DCAP library](#what-is-
 
 Use the following sample in a CVM guest for requesting AMD collateral that includes the VCEK certificate and certificate chain. For details on this collateral and where it originates from, see [Versioned Chip Endorsement Key (VCEK) Certificate and KDS Interface Specification](https://www.amd.com/system/files/TechDocs/57230.pdf) (from <amd.com>).
 
-#### URI Parameters
+#### URI parameters
 
 ```bash
 GET "http://169.254.169.254/metadata/THIM/amd/certification"
 ```
 
-##### Request Body
+##### Request body
 
 | Name | Type | Description |
 |--|--|--|
 | Metadata | Boolean | Setting to True allows for collateral to be returned |
 
-##### Sample Request
+##### Sample request
 
 ```bash
 curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: true”
