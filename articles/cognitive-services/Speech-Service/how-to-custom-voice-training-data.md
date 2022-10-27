@@ -27,11 +27,11 @@ In some cases, you may not have the right dataset ready and will want to test th
 
 This table lists data types and how each is used to create a custom Text-to-Speech voice model.
 
-| Data type | Description | When to use | Additional processing required |
+| Data type | Description | When to use | Extra processing required |
 | --------- | ----------- | ----------- | ------------------------------ |
 | [Individual utterances + matching transcript](#individual-utterances--matching-transcript) | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
-| [Long audio + transcript](#long-audio--transcript-preview) | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds, at most 1000 audio files), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
-| [Audio only (Preview)](#audio-only-preview) | A collection (.zip) of audio files (.wav or .mp3, at most 1000 audio files) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
+| [Long audio + transcript](#long-audio--transcript-preview) | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds, at most 1000 audio files), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation wherever required. |
+| [Audio only (Preview)](#audio-only-preview) | A collection (.zip) of audio files (.wav or .mp3, at most 1000 audio files) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation wherever required.|
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
@@ -44,11 +44,11 @@ You can prepare recordings of individual utterances and the matching transcript 
 
 To produce a good voice model, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
-For data format examples, refer to the sample training set on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/Sample%20Data). The sample training set includes the sample script and the associated audios.
+For data format examples, refer to the sample training set on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/Sample%20Data). The sample training set includes the sample script and the associated audio.
 
 ### Audio data for Individual utterances + matching transcript
 
-Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices aren't supported, with the exception of the Chinese-English bi-lingual. Each audio file must have a unique filename with the filename extension .wav.
+Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices aren't supported, except for the Chinese-English bi-lingual. Each audio file must have a unique filename with the filename extension .wav.
 
 Follow these guidelines when preparing audio.
 
@@ -56,7 +56,7 @@ Follow these guidelines when preparing audio.
 | -------- | ----- |
 | File format | RIFF (.wav), grouped into a .zip file |
 | File name | File name characters supported by Windows OS, with .wav extension.<br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
-| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sampling rate	| When creating a custom neural voice, 24,000 Hz is required. |
 | Sample format | PCM, at least 16-bit |
 | Audio length | Shorter than 15 seconds |
 | Archive format | .zip |
@@ -90,7 +90,7 @@ It’s important that the transcripts are 100% accurate transcriptions of the co
 > [!NOTE]
 > For **Long audio + transcript (Preview)**, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
-In some cases, you may not have segmented audio available. The Speech Studio can help you segment long audio files and create transcriptions. The long-audio segmentation service will leverage the [Batch Transcription API](batch-transcription.md) feature of speech-to-text.
+In some cases, you may not have segmented audio available. The Speech Studio can help you segment long audio files and create transcriptions. The long-audio segmentation service will use the [Batch Transcription API](batch-transcription.md) feature of speech-to-text.
 
 During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
 
@@ -105,7 +105,7 @@ Follow these guidelines when preparing audio for segmentation.
 | -------- | ----- |
 | File format | RIFF (.wav) or .mp3, grouped into a .zip file |
 | File name	|  File name characters supported by Windows OS, with .wav extension. <br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
-| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sampling rate	| When creating a custom neural voice, 24,000 Hz is required. |
 | Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
@@ -114,7 +114,7 @@ Follow these guidelines when preparing audio for segmentation.
 > [!NOTE]
 > The default sampling rate for a custom neural voice is 24,000 Hz. Audio files with a sampling rate lower than 16,000 Hz will be rejected. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
-All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45-second-long, and another audio named ‘queenstory.mp3’, 200-second-long. All .mp3 files will be transformed into the .wav format after processing.
+All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45 second long, and another audio named ‘queenstory.mp3’, 200 second long. All .mp3 files will be transformed into the .wav format after processing.
 
 ### Transcription data for Long audio + transcript
 
@@ -148,7 +148,7 @@ Follow these guidelines when preparing audio.
 | -------- | ----- |
 | File format | RIFF (.wav) or .mp3, grouped into a .zip file |
 | File name |  File name characters supported by Windows OS, with .wav extension. <br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
-| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sampling rate	| When creating a custom neural voice, 24,000 Hz is required. |
 | Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | No limit |
 | Archive format | .zip |

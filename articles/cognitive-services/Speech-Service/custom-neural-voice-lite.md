@@ -23,7 +23,7 @@ With a CNV Lite project, you record your voice online by reading 20-50 pre-defin
 
 See the [supported languages](language-support.md?tabs=stt-tts) for Custom Neural Voice.
 
-## Compare CNV project types
+## Compare project types
 
 The following table summarizes key differences between the CNV Lite and CNV Pro project types.  
 
@@ -33,9 +33,9 @@ The following table summarizes key differences between the CNV Lite and CNV Pro 
 |Training data |Record online using Speech Studio |Bring your own data. Recording in a professional studio is recommended. |   
 |Scripts for recording  |Provided in Speech Studio |Use your own scripts that match the use case scenario. Microsoft provides [example scripts](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) for reference. |   
 |Required data size  |20-50 utterances |300-2000 utterances|
-|Training time  |Less than 1 compute hour| Approximately 20-40 compute hours |
+|Training time  |Less than one compute hour| Approximately 20-40 compute hours |
 |Voice quality  |Moderate quality|High quality |
-|Availability  |Anyone can record samples online and train a model for demo and evaluation purpose. Full access to Custom Neural Voice is required if you want to deploy the CNV Lite model for business use. |Data upload is not restricted, but you can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).|
+|Availability  |Anyone can record samples online and train a model for demo and evaluation purpose. Full access to Custom Neural Voice is required if you want to deploy the CNV Lite model for business use. |Data upload isn't restricted, but you can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).|
 |Pricing  |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).  |
 
 ## Create a Custom Neural Voice Lite project
@@ -55,7 +55,7 @@ To create a Custom Neural Voice Lite project, follow these steps:
     > To create a Custom Neural Voice Pro project, see [Create a project for Custom Neural Voice](how-to-custom-voice.md).
 
 1. Follow the instructions provided by the wizard to create your project. 
-1. Select the new project by name or select **Go to project**. You will see these menu items in the left panel: **Record and build**, **Review model**, and **Deploy model**.  
+1. Select the new project by name or select **Go to project**. You'll see these menu items in the left panel: **Record and build**, **Review model**, and **Deploy model**.  
     :::image type="content" source="media/custom-voice/lite/lite-project-get-started.png" alt-text="Screenshot with an overview of the CNV Lite record, train, test, and deploy workflow.":::
 
 The CNV Lite project expires after 90 days unless the [verbal statement](#submit-verbal-statement) recorded by the voice talent is submitted.
@@ -88,7 +88,7 @@ To record and build a CNV Lite model, follow these steps:
 1. Record more samples. Although you can create a model with just 20 samples, it's recommended that you record up to 50 to get better quality.
 1. Select **Train model** to start the training process. 
 
-The training process takes approximately 1 compute hour. You can check the progress of the training process in the **Review model** page.
+The training process takes approximately one compute hour. You can check the progress of the training process in the **Review model** page.
 
 ## Review model
 
@@ -125,7 +125,7 @@ To deploy a CNV Lite model, follow these steps:
 1. Select the checkbox to agree to the terms of use and then select **Next**.
 1. Select **Deploy** to deploy the model.
 
-From here, you can use the CNV Lite voice model similarly as you would use a CNV Pro voice model. For example, you can [suspend or resume](how-to-deploy-and-use-endpoint.md) an endpoint after it is created, to limit spend and conserve resources that aren't in use. You can also access the voice in the [Audio Content Creation](how-to-audio-content-creation.md) tool in the [Speech Studio](https://aka.ms/speechstudio/audiocontentcreation).
+From here, you can use the CNV Lite voice model similarly as you would use a CNV Pro voice model. For example, you can [suspend or resume](how-to-deploy-and-use-endpoint.md) an endpoint after it's created, to limit spend and conserve resources that aren't in use. You can also access the voice in the [Audio Content Creation](how-to-audio-content-creation.md) tool in the [Speech Studio](https://aka.ms/speechstudio/audiocontentcreation).
 
 ## Next steps
 

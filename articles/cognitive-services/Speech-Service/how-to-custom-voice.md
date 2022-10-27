@@ -35,7 +35,7 @@ To create a Custom Neural Voice Pro project, follow these steps:
 1. Select **Custom Neural Voice Pro** > **Next**. 
 1. Follow the instructions provided by the wizard to create your project. 
 
-Select the new project by name or select **Go to project**. You will see these menu items in the left panel: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. 
+Select the new project by name or select **Go to project**. You'll see these menu items in the left panel: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. 
 
 ## Next steps
 
