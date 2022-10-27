@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN (preview), a service that enables 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 10/27/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
@@ -223,7 +223,9 @@ You can manage virtual network rules for volume groups through the Azure portal,
     > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
 
     ```azurecli
-    az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtual-network-rules:[{id:/'subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default',action:Allow}]}"
+    virtualNetworkListLength = az elastic-san volume-group show -e testsan -n testvg -g testelasticsanrg --query 'length(networkAcls.virtualNetworkRules)'
+    
+    az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls virtual-network-rules[virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
     ```
 
 - Remove a network rule. The following command removes the first network rule, modify it to remove the network rule you'd like.
