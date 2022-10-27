@@ -16,6 +16,8 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 
 ## Enable auto-instrumentation monitoring
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 # [Windows](#tab/Windows)
 
 > [!IMPORTANT]

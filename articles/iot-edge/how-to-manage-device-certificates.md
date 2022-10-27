@@ -75,6 +75,9 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 
 1. In the IoT Edge configuration file `config.toml`, find **Trust bundle cert** section. If the section is missing, you can copy it from the configuration template file.
 
+   >[!TIP]
+   >If the config file doesn't exist on your device yet, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
+
 1. Set `trust_bundle_cert` key to the certificate file location.
 
    ```toml
