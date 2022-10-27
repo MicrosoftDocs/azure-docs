@@ -7,13 +7,13 @@ ms.author: benmansheim
 author: bmansheim
 ---
 
-# Exclude a storage account from Microsoft Defender for Storage protections
+# Exclude a storage account from per-transaction Microsoft Defender for Storage protections
 
-When you [enable Microsoft Defender for Storage](../storage/common/azure-defender-storage-configure.md) on a subscription, all current and future Azure Storage accounts in that subscription are protected. If you have specific accounts that you want to exclude from the Defender for Storage protections, you can exclude them using the Azure portal, PowerShell, or the Azure CLI.
+When you [enable Microsoft Defender for Storage](../storage/common/azure-defender-storage-configure.md) on a subscription for the per-transaction pricing, all current and future Azure Storage accounts in that subscription are protected. You can exclude specific storage accounts from the Defender for Storage protections using the Azure portal, PowerShell, or the Azure CLI.
 
 We don't recommend that you exclude storage accounts from Defender for Storage because attackers can use any opening in order to compromise your environment. If you want to optimize your Azure costs and remove storage accounts that you feel are low risk from Defender for Storage, you can use the [Price Estimation Workbook](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/28) in the Azure portal to evaluate the cost savings.
 
-## Exclude an Azure Storage account
+## Exclude an Azure Storage account protection on a subscription with per-transaction pricing
 
 To exclude an Azure Storage account from Microsoft Defender for Storage:
 
@@ -68,7 +68,7 @@ To exclude an Azure Storage account from Microsoft Defender for Storage:
     > [!TIP]
     > Learn more about tags in [az tag](/cli/azure/tag).
 
-1. Disable Microsoft Defender for Storage for the desired account on the relevant subscription with the ``security atp storage`` command (using the same resource ID): 
+1. Disable Microsoft Defender for Storage for the desired account on the relevant subscription with the `security atp storage` command (using the same resource ID):
 
     ```azurecli    
     az security atp storage update --resource-group MyResourceGroup  --storage-account MyStorageAccount --is-enabled false 
