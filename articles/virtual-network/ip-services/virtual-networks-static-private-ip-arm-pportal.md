@@ -102,9 +102,6 @@ In this section, you'll change the private IP address from **dynamic** to **stat
     
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-static-assignment.png" alt-text="Screenshot of select static assignment.":::
 
-    > [!NOTE]
-    > If you notice after selecting **Save** that the assignment is still set to **Dynamic**, the private IP address you entered is already in use. Try another IP address.
-
 To change the IP address back to dynamic set the assignment for your private IP address to **Dynamic**, and then select **Save**.
 
 > [!WARNING]
