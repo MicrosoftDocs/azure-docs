@@ -27,15 +27,16 @@ In this tutorial, you'll learn how to integrate OpenText XM Fax and XM SendSecur
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* OpenText XM Fax and XM SendSecure single sign-on (SSO) enabled subscription.
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+* OpenText XM Fax and XM SendSecure subscription.
+* OpenText XM Fax and XM SendSecure administrator account.
+* Azure AD Cloud Application Administrator or Application Administrator role.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* OpenText XM Fax and XM SendSecure supports **SP** initiated SSO.
+* OpenText XM Fax and XM SendSecure supports **SP-initiated** SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -112,19 +113,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon:
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username in the follwing format: username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OpenText XM Fax and XM SendSecure.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OpenText XM Fax and XM SendSecure:
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **OpenText XM Fax and XM SendSecure**.
@@ -144,13 +145,13 @@ In this section, you create a user called Britta Simon at OpenText XM Fax and XM
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with the following options. 
 
 * Click on **Test this application** in Azure portal. This will redirect to OpenText XM Fax and XM SendSecure Sign-on URL where you can initiate the login flow. 
 
 * Go to OpenText XM Fax and XM SendSecure Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the OpenText XM Fax and XM SendSecure tile in the My Apps, this will redirect to OpenText XM Fax and XM SendSecure Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the OpenText XM Fax and XM SendSecure tile in the My Apps portal, this will redirect to OpenText XM Fax and XM SendSecure Sign-on URL. For more information about the My Apps portal, see [Introduction to the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
