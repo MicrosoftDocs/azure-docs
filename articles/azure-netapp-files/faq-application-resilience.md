@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 06/09/2022
+ms.date: 10/27/2022
 ---
 # Application resilience FAQs for Azure NetApp Files
 
@@ -52,6 +52,17 @@ Because most problems with this HA solution stem from inaccurate OS-level file l
 
 The general industry recommendation is to [not run your KahaDB shared storage on CIFS/SMB](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know). If you're having trouble maintaining accurate lock state, check out the JDBC Pluggable Storage Locker, which can provide a more reliable locking mechanism. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
 
+## I’m running Boomi on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events?
+
+If you are running Boomi, it's recommended you follow the [Boomi Best Practices for Run Time High Availability and Disaster Recovery](https://community.boomi.com/s/article/bestpracticesforruntimehighavailabilityanddisasterrecovery).
+
+Boomi recommends Boomi Molecule is used to implement high availability for Boomi Atom. The [Boomi Molecule system requirements](https://help.boomi.com/bundle/integration/page/r-atm-Molecule_system_requirements.html) state that either NFS with NFS locking enabled (NLM support) or SMB file shares can be used. In the context of Azure NetApp Files, NFSv4.1 volumes have NLM support.
+
+Boomi recommends that SMB file share is used with Windows VMs; for NFS, Boomi recommends Linux VMs.
+
+>[!NOTE]
+>[Azure NetApp Files Continuous Availability Shares](enable-continuous-availability-existing-smb.md) are not supported with Boomi. 
+
 ## Next steps  
 
 - [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
@@ -64,4 +75,5 @@ The general industry recommendation is to [not run your KahaDB shared storage on
 - [Data migration and protection FAQs](faq-data-migration-protection.md)
 - [Azure NetApp Files backup FAQs](faq-backup.md)
 - [Integration FAQs](faq-integration.md)
-
+- [Mount NFS volumes for Linux or Windows VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+- [Mount SMB volumes for Windows VMs](mount-volumes-vms-smb.md)
