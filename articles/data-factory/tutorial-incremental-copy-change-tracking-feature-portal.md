@@ -318,7 +318,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 In this step, you create a pipeline with the following activities, and run it periodically. The **lookup activities** get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity. The **copy activity** copies the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage. The **stored procedure activity** updates the value of SYS_CHANGE_VERSION for the next pipeline run.
 
 1. In the Data Factory UI, switch to the **Author** tab. Click **+ (plus)** in the left pane treeview, and click **Pipeline > Pipeline**.
-   ![Screenshot shows how to create a pipeline in a data factory.](new-pipeline-menu-2.png)
+   ![Screenshot shows how to create a pipeline in a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **IncrementalCopyPipeline**.
 
 3. Expand **General** in the **Activities** toolbox, and drag-drop the **Lookup** activity to the pipeline designer surface or search in the **Search activities** search box. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that is stored in the table **table_store_ChangeTracking_version**.
