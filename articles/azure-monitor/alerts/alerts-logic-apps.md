@@ -1,6 +1,6 @@
 ---
 title: Customize alert notifications using Logic Apps
-description: Learn how to create a logic app action to process Azure Monitor alerts.
+description: Learn how to create a logic app to process Azure Monitor alerts.
 author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 09/07/2022
@@ -24,17 +24,17 @@ This article shows you how to create a Logic App and integrate it with an Azure 
 In this example, we'll use the following steps to create a Logic App that uses the [common alerts schema](./alerts-common-schema.md) to send details from the alert. The example uses the following steps:
 
 1. [Create a Logic App](#create-a-logic-app) for sending an email or a Teams post.
-1. [Create an alert action group](#create-an-action-group) that triggers the logic app
+1. [Create an alert action group](#create-an-action-group) that triggers the logic app.
 1. [Create a rule](#create-a-rule-using-your-action-group) the uses the action group.
 ## Create a Logic App
 
-1. Create a new Logic app. Set **Logic App name** , select **Consumption Plan type** 
+1. Create a new Logic app. Set **Logic App name** , select **Consumption Plan type**.
 1. Select **Review + create**, then select **Create**.
 1. Select **Go to resource** when the deployment is complete.
 :::image type="content" source="./media/alerts-logic-apps/create-logic-app.png" alt-text="A screenshot showing the create logic app page":::
-1. On the Logic Apps Designer page, select **When a HTTP request is received**
-:::image type="content" source="./media/alerts-logic-apps/logic-apps-designer.png" alt-text="A screenshot showing the Logic Apps designer start page":::
-1. Select the **When a HTTP request is received** tile
+1. On the Logic Apps Designer page, select **When a HTTP request is received**.  
+:::image type="content" source="./media/alerts-logic-apps/logic-apps-designer.png" alt-text="A screenshot showing the Logic Apps designer start page":::  
+
 1. Paste the common alert schema into the **Request Body JSON Schema** field from the following JSON:
     ```json
      {
@@ -102,10 +102,11 @@ In this example, we'll use the following steps to create a Logic App that uses t
         }
     }
     ```
-7. Select the **+** icon to insert a new step.
+
+1. Select the **+** icon to insert a new step.
 :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step":::
 
-Send an email or post a Teams message.
+1. Send an email or post a Teams message.
 
 ## [Send an email](#tab/send-email)
 
@@ -123,11 +124,11 @@ For example:
 1. In the **Subject** field, create the subject text by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.  
 For example:
      - Enter *Alert:* and select **alertRule** from the **Dynamic content** list.
-     - Then enter *with severity:* and select **severity** from the **Dynamic content** list
+     - Then enter *with severity:* and select **severity** from the **Dynamic content** list.
      - Enter  *has condition:* and select **monitorCondition** from the **Dynamic content** list.  
           
 1. Enter the email address to send the alert to in the **To** field.
-1. Select **Save**  
+1. Select **Save**.
 
    :::image type="content" source="./media/alerts-logic-apps/configure-email.png" alt-text="A screenshot showing the parameters tab for the send email action.":::
 
@@ -167,7 +168,7 @@ To trigger your Logic app, create an action group, then create an alert that use
 1. Go to the Azure Monitor page and select **Alerts** from the sidebar.
 1. Select **Action groups**, then select **Create**.
 1. Select a **Subscription**, **Resource group** and **Region**.
-1. Enter an **Actions group name** and **Display name**
+1. Enter an **Actions group name** and **Display name**.
 1. Select the **Actions** tab.
 :::image type="content" source="./media/alerts-logic-apps/create-action-group.png" alt-text="A screenshot showing the actions tab of a create action group page":::
 1. In the **Actions** tab under **Action type**, select **Logic App**.
@@ -178,13 +179,13 @@ To trigger your Logic app, create an action group, then create an alert that use
 1. Select **Review + create**, the **Create**.
 :::image type="content" source="./media/alerts-logic-apps/create-action-group-actions.png" alt-text="A screenshot showing the Logic Apps blade of a create action group, actions tab":::
 
-## Test your action  group.
+## Test your action group
 
 1. Select your action group.
-1. In the **Logic App** section, select **Test action group(preview)**
+1. In the **Logic App** section, select **Test action group(preview)**.
 :::image type="content" source="./media/alerts-logic-apps/test-action-group1.png" alt-text="A screenshot showing an action group details page with test action group highlighted":::
 1. Select a **Sample alert type** from the dropdown.
-1. Select **Test**
+1. Select **Test**.
 :::image type="content" source="./media/alerts-logic-apps/test-action-group2.png" alt-text="A screenshot showing an action group details test page":::
 
     The following email will be sent to the specified account:
@@ -193,9 +194,9 @@ To trigger your Logic app, create an action group, then create an alert that use
 
 ## Create a rule using your action group
 1. Create a rule for one of your resources. 
-1. In the actions section of your rule, select **Select action groups**
+1. In the actions section of your rule, select **Select action groups**.
 1. Select your action group from the list.
-1. Select **Select**
+1. Select **Select**.
 1. Finish the creation of your rule.
  :::image type="content" source="./media/alerts-logic-apps/select-action-groups.png" alt-text="A screenshot showing the actions tab of the create rules page and the select action groups blade.":::
 
