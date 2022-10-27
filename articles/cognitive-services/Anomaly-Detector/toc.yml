@@ -5,10 +5,6 @@
   items:
     - name: What is Anomaly Detector? 
       href: overview.md
-    - name: What is Univariate Anomaly Detector? 
-      href: overview-univariate.md
-    - name: What is Multivariate Anomaly Detector?
-      href: overview-multivariate.md
     - name: Pricing
       href: https://aka.ms/adpricing
     - name: What's new
