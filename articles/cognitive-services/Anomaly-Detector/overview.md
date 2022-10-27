@@ -16,8 +16,7 @@ ms.custom:
 
 # What is Anomaly Detector?
 
-Anomaly Detector is an AI service with a set of APIs, which enables you to monitor and detect anomalies in your time series data with little ML knowledge, either batch validation or real-time inference.
-
+Anomaly Detector is an AI service with a set of APIs, which enables you to monitor and detect anomalies in your time series data with little machine learning (ML) knowledge, either batch validation or real-time inference.
 
 This documentation contains the following types of articles:
 * [**Quickstarts**](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -27,16 +26,14 @@ This documentation contains the following types of articles:
 * [**Code samples**](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook) demonstrate how to use Anomaly Detector.
 * [**Conceptual articles**](./concepts/anomaly-detection-best-practices.md) provide in-depth explanations of the service's functionality and features.
 
-
 ## Anomaly Detector capabilities
 
-With the Anomaly Detector, you can either detect anomalies in one variable using Univariate Anomaly Detector, or detect anomalies in multiple variables with Multivariate Anomaly Detector.
+With Anomaly Detector, you can either detect anomalies in one variable using Univariate Anomaly Detector, or detect anomalies in multiple variables with Multivariate Anomaly Detector.
 
 |Feature  |Description  |
 |---------|---------|
 |Univariate Anomaly Detection | Detect anomalies in one variable, like revenue, cost, etc. The model was selected automatically based on your data pattern. |
-|Multivariate Anomaly Detection| Detect anomalies in multiple variables with correlations, which are usually gathered from equipment or other complex system. The underlying model used is Graph attention network.|
-
+|Multivariate Anomaly Detection| Detect anomalies in multiple variables with correlations, which are usually gathered from equipment or other complex system. The underlying model used is a Graph Attention Network.|
 
 ### Univariate Anomaly Detection
 
@@ -46,7 +43,6 @@ The Univariate Anomaly Detection API enables you to monitor and detect abnormali
 
 Using the Anomaly Detector doesn't require any prior experience in machine learning, and the REST API enables you to easily integrate the service into your applications and processes.
 
-
 With the Univariate Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
 
 |Feature  |Description  |
@@ -55,7 +51,6 @@ With the Univariate Anomaly Detector, you can automatically detect anomalies thr
 | Batch detection | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
 | Change points detection | Use your time series to detect any trend change points that exist in your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.    |
 
-
 ### Multivariate Anomaly Detection
 
 The **Multivariate Anomaly Detection** APIs further enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between up to 300 different signals are now automatically counted as key factors. This new capability helps you to proactively protect your complex systems such as software applications, servers, factory machines, spacecraft, or even your business, from failures.
@@ -63,7 +58,6 @@ The **Multivariate Anomaly Detection** APIs further enable developers by easily 
 ![Multiple time series line graphs for variables of: rotation, optical filter, pressure, bearing with anomalies highlighted in orange](./media/multivariate-graph.png)
 
 Imagine 20 sensors from an auto engine generating 20 different signals like rotation, fuel pressure, bearing, etc. The readings of those signals individually may not tell you much about system level issues, but together they can represent the health of the engine. When the interaction of those signals deviates outside the usual range, the multivariate anomaly detection feature can sense the anomaly like a seasoned expert. The underlying AI models are trained and customized using your data such that it understands the unique needs of your business. With the new APIs in Anomaly Detector, developers can now easily integrate the multivariate time series anomaly detection capabilities into predictive maintenance solutions, AIOps monitoring solutions for complex enterprise software, or business intelligence tools.
-
 
 ## Join the Anomaly Detector community
 
