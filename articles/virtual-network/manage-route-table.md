@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn where to find information about virtual network traffic routing, and how to create, change, or delete a route table.
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
-ms.author: mbender
+ms.author: allensu
 ---
 
 # Create, change, or delete a route table
