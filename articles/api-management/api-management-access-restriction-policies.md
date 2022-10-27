@@ -612,7 +612,7 @@ The following policy is the minimal form of the `validate-azure-ad-token` policy
 
 #### Validate that audience and claim are correct
 
-The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`.  For more details on optional claims, read [Provide optional claims to your app](/azure/active-directory/develop/active-directory-optional-claims).  The decoded JWT is provided in the `jwt` variable after validation.
+The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`. The decoded JWT is provided in the `jwt` variable after validation. For more details on optional claims, read [Provide optional claims to your app](/azure/active-directory/develop/active-directory-optional-claims).  
 
 ```xml
 <validate-azure-ad-token tenant-id="{{aad-tenant-id}}" output-token-variable-name="jwt">
