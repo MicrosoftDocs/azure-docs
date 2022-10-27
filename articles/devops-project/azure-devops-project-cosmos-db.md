@@ -3,8 +3,7 @@ title: 'Tutorial: Deploy Node.js apps powered by Azure Cosmos DB with Azure DevO
 description: Azure DevOps Starter makes it easy to get started on Azure. With DevOps Starter, you can deploy your Node.js app that's powered by Azure Cosmos DB to Windows Web App in a few quick steps.
 ms.author: gwallace
 ms.manager: gwallace
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: georgewallace
