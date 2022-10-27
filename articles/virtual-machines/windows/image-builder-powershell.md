@@ -184,7 +184,7 @@ Grant Azure image builder permissions to create images in the specified resource
 
    ```azurepowershell-interactive
    $SrcObjParams = @{
-     SourceTypePlatformImage = $true
+     PlatformImageSource = $true
      Publisher = 'MicrosoftWindowsServer'
      Offer = 'WindowsServer'
      Sku = '2019-Datacenter'
