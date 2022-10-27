@@ -53,8 +53,8 @@ For more information, see [Load balancer limits](../azure-resource-manager/manag
 ## Limitations
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - [Move operations](../azure-resource-manager/management/move-resource-group-and-subscription.md):
-  - Resource group move operations (within same subscription) **are supported** for Standard Load Balancer and Standard Public IP. 
-  - [Subscription group move operations](../azure-resource-manager/management/move-support-resources.md) are **not** supported for Standard Load Balancers.
+  - [Resource group move operations](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork) (within same subscription) are **supported** for Standard Load Balancer and Standard Public IP. 
+  - [Subscription move operations](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork) are **not supported** for Standard Load Balancers.
 
 ## Next steps
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
