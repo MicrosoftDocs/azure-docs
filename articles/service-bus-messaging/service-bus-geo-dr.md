@@ -173,7 +173,7 @@ When you use availability zones, both metadata and data (messages) are replicate
 > [!NOTE]
 > The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
-When you create a premium tier namespace, the support for availability zones is automatically enabled for the namespace. There's no additional cost for using this feature. You can't disable or enable this feature in the Azure portal. 
+When you create a premium tier namespace, the support for availability zones (if available in the selected region) is automatically enabled for the namespace. There's no additional cost for using this feature and you can't disable or enable this feature. 
 
 
 ## Private endpoints
