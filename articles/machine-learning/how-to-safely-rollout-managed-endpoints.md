@@ -19,7 +19,7 @@ ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. Using blue-green deployment (or safe rollout), you'll introduce a new version of a web service to production by rolling out the change to a small subset of users/requests before rolling it out completely. 
+In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. You'll use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 
 This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
@@ -119,7 +119,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 1. Configure workspace details and get a handle to the workspace:
 
-    To connect to a workspace, we need identifier parameters — a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
+    To connect to a workspace, we need identifier parameters—a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=workspace_details)]
 
