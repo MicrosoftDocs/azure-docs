@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 11/1/2022
-ms.author: jr-MS
+ms.author: jingruhan
 ms.custom: references_regions
 ---
 
