@@ -66,7 +66,7 @@ You can provision and manage on-premises Windows and Linux virtual machines (VMs
 
 ### System Center Virtual Machine Manager (SCVMM) 
 
-You can cpnnect a SCVMM management server to Azure by deploying Azure Arc resource bridge (preview) in the VMM environment. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and perform various operations on them:
+You can connect an SCVMM management server to Azure by deploying Azure Arc resource bridge (preview) in the VMM environment. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and perform various operations on them:
 
 * Start, stop, and restart a virtual machine
 * Control access and add Azure tags
