@@ -575,7 +575,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     failed-validation-error-message="error message to return on failure"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
     <client-application-ids>
-        <application-id>Issuer Application ID from Azure Active Directory</application-id>
+        <application-id>Client Application ID from Azure Active Directory</application-id>
         <!-- If there are multiple client application IDs, then add additional application-id elements -->
     </client-application-ids>
     <backend-application-ids>
