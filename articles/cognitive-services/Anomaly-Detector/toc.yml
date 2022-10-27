@@ -5,14 +5,12 @@
   items:
     - name: What is Anomaly Detector? 
       href: overview.md
-    - name: What is Univariate Anomaly Detector? 
-      href: overview-univariate.md
-    - name: What is Multivariate Anomaly Detector?
-      href: overview-multivariate.md
     - name: Pricing
       href: https://aka.ms/adpricing
     - name: What's new
       href: whats-new.md
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: Client libraries (univariate)
@@ -114,6 +112,8 @@
       items:
         - name: Region support
           href: https://aka.ms/adregion
+        - name: Region support details
+          href: regions.md
         - name: Compliance and certification
           href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Support and help options

@@ -1,5 +1,5 @@
 ---
-title: "NLP tasks with batch deployments"
+title: "Text processing with batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text and output results.
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# NLP tasks with batch deployments
+# Text processing with batch deployments
 
 [!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
@@ -23,8 +23,8 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 
 [!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
-* You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `text-summarization-batch`.
-* You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
+* You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md). This example assumes the endpoint is named `text-summarization-batch`.
+* You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
 
 ## About the model used in the sample
 
@@ -146,7 +146,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 2. Now, let create the deployment.
 
    > [!NOTE]
-   > This example assumes you have an endpoint created with the name `text-summarization-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
+   > This example assumes you have an endpoint created with the name `text-summarization-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 
    # [Azure ML CLI](#tab/cli)
    

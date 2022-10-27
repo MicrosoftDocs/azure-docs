@@ -11,7 +11,7 @@ ms.custom: subject-monitoring, ignite-2022
 
 # Topology (Preview)
 
-Topology provides a visualization of the entire hybrid network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
+Topology provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
 
 ## Prerequisites
 
