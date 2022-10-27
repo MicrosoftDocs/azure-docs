@@ -6,11 +6,15 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 10/2/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## October 2022
+
+### Failover for passive geo-replication
 
 ## September 2022
 
