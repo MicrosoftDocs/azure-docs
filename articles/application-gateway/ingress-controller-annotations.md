@@ -11,8 +11,6 @@ ms.author: greglin
 
 # Annotations for Application Gateway Ingress Controller
 
-## Introductions
-
 The Kubernetes Ingress resource can be annotated with arbitrary key/value pairs. AGIC relies on annotations to program Application Gateway features, which aren't configurable using the Ingress YAML. Ingress annotations are applied to all HTTP settings, backend pools, and listeners derived from an ingress resource.
 
 ## List of supported annotations
