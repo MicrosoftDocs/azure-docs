@@ -39,9 +39,7 @@ All IoT Edge devices use certificates to create secure connections between the r
 ## Format requirements
 
 > [!TIP]
-> In public key cryptography, the public component is the *certificate*. The private component is the *private key*.
->
-> * The certificate can be encoded in a binary representation called DER, or a textual representation called PEM. The PEM format is a `-----BEGIN CERTIFICATE-----` header followed by the base64-encoded DER followed by a `-----END CERTIFICATE-----` footer.
+> * A certificate can be encoded in a binary representation called DER, or a textual representation called PEM. The PEM format is a `-----BEGIN CERTIFICATE-----` header followed by the base64-encoded DER followed by a `-----END CERTIFICATE-----` footer.
 > * Similar to the certificate, the private key can be encoded in binary DER or textual representation PEM.
 > * Because PEM is delineated, it is also possible to construct a PEM that combines both the `CERTIFICATE` and `PRIVATE KEY` sequentially in the same file.
 > * Lastly, the certificate and private key can be encoded together in a binary representation called *PKCS#12*, that is encrypted with an optional password.
@@ -56,6 +54,7 @@ IoT Edge requires the certificate and private key to be:
 
 * PEM format
 * Separate files
+* In most cases, with the full chain
 
 If you get a `.pfx` file from your PKI provider, it's likely the certificate and private key encoded together in one file. Verify it's a PKCS#12 file type by using the `file` command. You can convert a PKCS#12 `.pfx` file to PEM files using the [openssl pkcs12 command](https://www.openssl.org/docs/man1.1.1/man1/pkcs12.html).
 
@@ -66,20 +65,20 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 
 ## Manage trusted root CA or trust bundle
 
-Using a private certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
+Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
 
-1. Get a public root CA certificate from a PKI provider.
+1. Get a publicly-trusted root CA certificate from a PKI provider.
 
 1. Check the certificate [meets format requirements](#format-requirements).
 
-1. Copy the PEM file to the IoT Edge device where IoT Edge modules have access. For example, `/var/secrets/` directory.
+1. Copy the PEM file to the IoT Edge device where IoT Edge modules have access. For example, `/var/lib/iotedge/` directory.
 
 1. In the IoT Edge configuration file `config.toml`, find **Trust bundle cert** section. If the section is missing, you can copy it from the configuration template file.
 
 1. Set `trust_bundle_cert` key to the certificate file location.
 
    ```toml
-   trust_bundle_cert = "file:///var/secrets/root-ca.pem"
+   trust_bundle_cert = "file:///var/lib/iotedge/root-ca.pem"
    ```
 
 1. Apply the configuration.
@@ -93,7 +92,7 @@ Installing the certificate to the trust bundle file makes it available to contai
 # [Linux](#tab/linux)
 
   ```bash
-  sudo cp /var/secrets/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
+  sudo cp /var/lib/iotedge/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
   sudo update-ca-certificates
   ```
@@ -101,7 +100,7 @@ Installing the certificate to the trust bundle file makes it available to contai
 # [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)
 
   ```bash
-  sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+  sudo cp /var/lib/iotedge/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
 
   sudo update-ca-trust
   ```
@@ -114,22 +113,29 @@ IoT Edge can use existing certificate and private key files to authenticate or a
 
 1. Check the certificate and private key files meet the [format requirements](#format-requirements).
 
-1. Copy the PEM file to the IoT Edge device where IoT Edge modules have access. For example, `/var/secrets/` directory.
+1. Copy the PEM file to the IoT Edge device where IoT Edge modules have access. For example, `/var/lib/iotedge/` directory.
 
 1. In `config.toml`, find the relevant section for the type of the certificate to configure. For example, you can search for the keyword `cert`.
 
 1. Using the example from the configuration template, configure the device identity certificate, Edge CA, or EST identity certificates. The example pattern is:
 
     ```toml
-    cert = "file:///var/secrets/my-cert.pem"
-    pk = "file:///var/secrets/my-private-key.key.pem"
+    cert = "file:///var/lib/iotedge/my-cert.pem"
+    pk = "file:///var/lib/iotedge/my-private-key.key.pem"
     ```
 
-1. Check that IoT Edge's certificate service `aziotcs` and key service `aziotks` has at least read permission on the certificate and private key, respectively.
+1. Grant ownership to IoT Edge's certificate service `aziotcs` and key service `aziotks` to the certificate and private key, respectively.
 
    ```bash
-   sudo chmod 444 /var/secrets/my-cert.pem 
-   sudo chmod 440 /var/secrets/my-private-key.key.pem
+   # Give aziotcs ownership to certificate
+   # Read and write for aziotcs, read-only for others
+   sudo chown aziotcs:aziotcs /var/lib/iotedge/my-cert.pem
+   sudo chmod 644 /var/lib/iotedge/my-cert.pem
+
+   # Give aziotks ownership to private key
+   # Read and write for aziotks, no permission for other
+   sudo chown aziotks:aziotks /var/lib/iotedge/my-private-key.key.pem
+   sudo chmod 600 /var/lib/iotedge/my-private-key.key.pem
    ```
 
 1. Apply the configuration
@@ -156,12 +162,12 @@ In this scenario, the bootstrap certificate and private key are expected to be l
 
    * Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/lp/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
 
-1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly-rooted TLS certificate.
+1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly-trusted root TLS certificate.
 
    ```toml
    [cert_issuance.est]
    trusted_certs = [
-      "file:///var/secrets/root-ca.pem",
+      "file:///var/lib/iotedge/root-ca.pem",
    ]
    ```
    <!-- TODO: is this necessary vs just the regular trust bundle steps -->
@@ -177,8 +183,8 @@ In this scenario, the bootstrap certificate and private key are expected to be l
 
    ```toml
    [cert_issuance.est.auth]
-   bootstrap_identity_cert = "file:///var/secrets/my-est-id-bootstrap-cert.pem"
-   bootstrap_identity_pk = "file:///var/secrets/my-est-id-bootstrap-pk.key.pem"
+   bootstrap_identity_cert = "file:///var/lib/iotedge/my-est-id-bootstrap-cert.pem"
+   bootstrap_identity_pk = "file:///var/lib/iotedge/my-est-id-bootstrap-pk.key.pem"
 
    # identity_cert = "my-est-id-cert-name"
    # identity_pk = "my-est-id-pk-name"
@@ -280,6 +286,8 @@ Certificate:
                 CA:FALSE
             X509v3 Key Usage:
                 Digital Signature
+            X509v3 Extended Key Usage:
+                TLS Web Client Authentication
             X509v3 Subject Key Identifier:
                 C7:C2:DC:3C:53:71:B8:42:15:D5:6C:4B:5C:03:C2:2A:C5:98:82:7E
             X509v3 Authority Key Identifier:
@@ -309,8 +317,8 @@ source = "manual"
 [provisioning.authentication]
 method = "x509"
 
-identity_cert = "file:///var/secrets/device-id.pem"
-identity_pk = "file:///var/secrets/device-id.key.pem"
+identity_cert = "file:///var/lib/iotedge/device-id.pem"
+identity_pk = "file:///var/lib/iotedge/device-id.key.pem"
 ```
 
 Configuration example when provisioning with DPS:
@@ -323,8 +331,8 @@ source = "dps"
 method = "x509"
 registration_id = "my-device"
 
-identity_cert = "file:///var/secrets/device-id.pem"
-identity_pk = "file:///var/secrets/device-id.key.pem"
+identity_cert = "file:///var/lib/iotedge/device-id.pem"
+identity_pk = "file:///var/lib/iotedge/device-id.key.pem"
 ```
 
 ### Automatic device identity certificate management with EST
@@ -445,9 +453,6 @@ Certificate:
                 FD:64:48:BB:41:CE:C1:8A:8A:50:9B:2B:2D:6E:1D:E5:3F:86:7D:3E
             X509v3 Authority Key Identifier:
                 keyid:9F:E6:D3:26:EE:2F:D7:84:09:63:84:C8:93:72:D5:13:06:8E:7F:D1
-                DirName:/CN=myPkiCA
-                serial:10:00
-
             X509v3 Basic Constraints: critical
                 CA:TRUE, pathlen:0
             X509v3 Key Usage: critical
@@ -468,18 +473,18 @@ MIICdTCCAhugAwIBAgIBMDAKBggqhkjOPQQDAjAXMRUwEwYDVQQDDAxlc3RFeGFt
 Once you receive the latest files, [update the trust bundle](#manage-trusted-root-ca-or-trust-bundle):
 
 ```toml
-trust_bundle_cert = "file:///var/secrets/root-ca.pem"
+trust_bundle_cert = "file:///var/lib/iotedge/root-ca.pem"
 ```
 
 Then, configure IoT Edge to use the certificate and private key files:
 
 ```toml
 [edge_ca]
-cert = "file:///var/secrets/my-edge-ca-cert.pem"
-pk = "file:///var/secrets/my-edge-ca-private-key.key.pem"
+cert = "file:///var/lib/iotedge/my-edge-ca-cert.pem"
+pk = "file:///var/lib/iotedge/my-edge-ca-private-key.key.pem"
 ```
 
-If you've used any other certificates for IoT Edge on the device before, delete the files in `/var/lib/aziot/certd/certs`. IoT Edge recreates them with the new CA certificate you provided.
+If you've used any other certificates for IoT Edge on the device before, delete the files in `/var/lib/aziot/certd/certs` and the private keys associated with certificates (*not* all keys) in `/var/lib/aziot/keyd/keys`. IoT Edge recreates them with the new CA certificate you provided.
 
 This approach requires you to manually update the files as certificate expires. To avoid this issue, consider using EST for automatic management.
 
@@ -492,11 +497,10 @@ Use EST automatic Edge CA issuance and renewal for production. Once EST server i
 method = "est"
 
 common_name = "my-edge-CA"
-expiry_days = 90
 url = "https://ca.example.org/.well-known/est"
 
-bootstrap_identity_cert = "file:///var/secrets/my-est-id-bootstrap-cert.pem"
-bootstrap_identity_pk = "file:///var/secrets/my-est-id-bootstrap-pk.key.pem"
+bootstrap_identity_cert = "file:///var/lib/iotedge/my-est-id-bootstrap-cert.pem"
+bootstrap_identity_pk = "file:///var/lib/iotedge/my-est-id-bootstrap-pk.key.pem"
 ```
 
 By default, and when there's no specific `auto_renew` configuration, Edge CA automatically renews at 80% certificate lifetime if EST is set as the method. You can update the auto renewal values to other values. For example:

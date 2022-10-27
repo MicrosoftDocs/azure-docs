@@ -30,7 +30,7 @@ These core scenarios are where IoT Edge uses certificates. Use the links to lear
 |---|---|---|
 | IoT Edge | [Ensures it's communicating to the right IoT Hub](#device-verifies-iot-hub-identity) | IoT Hub server certificate |
 | IoT Hub | [Ensures the request came from a legitimate IoT Edge device](#iot-hub-verifies-iot-edge-device-identity) | IoT Edge identity certificate |
-| *EdgeHub* module | [Ensures it's communicating to the right IoT Edge gateway](#device-verifies-gateway-identity) | IoT Edge module server certificate |
+| Downstream IoT device | [Ensures it's communicating to the right IoT Edge gateway](#device-verifies-gateway-identity) | IoT Edge Hub *edgeHub* module server certificate |
 | IoT Edge | [Signs new module server certificates](#why-does-iot-edge-create-certificates). For example, *edgeHub* | Edge CA certificate |
 | IoT Edge | [Ensures the request came from a legitimate downstream device](#gateway-verifies-device-identity) | IoT device identity certificate |
 
@@ -208,10 +208,10 @@ sequenceDiagram
     TempSensor->>EdgeGateway: Name checks out, private root CA found 🙂, let's connect
 -->
 
-The flow is the same as when *EdgeGateway* talks to *ContosoIotHub*. *TempSensor* and *EdgeGateway* use the **TLS handshake** protocol to verify *EdgeGateway's* identity. There are two important differences:
+The flow is the same as when *EdgeGateway* talks to *ContosoIotHub*. *TempSensor* and *EdgeGateway* use the **TLS handshake** protocol to verify *EdgeGateway's* identity. There are two important details:
 
-* **Subject Alternative Name complexity**: The certificate presented by *EdgeGateway* must show the *same IP address or hostname* that *TempSensor* uses to connect to *EdgeGateway*.
-* **Self-signed root CA complexity**: The certificate chain presented by *EdgeGateway* is likely not in the OS default trusted root store.
+* **Hostname specificity**: The certificate presented by *EdgeGateway* must be issued to the same hostname (domain or IP address) that *TempSensor* uses to connect to *EdgeGateway*.
+* **Self-signed root CA specificity**: The certificate chain presented by *EdgeGateway* is likely not in the OS default trusted root store.
 
 To understand the details, let's first examine the certificate chain presented by *EdgeGateway*.
 
@@ -229,7 +229,7 @@ flowchart TB
     id1-- Issued by --- > id2
 -->
 
-### Subject Alternative Name complexity
+### Hostname specificity
 
 The certificate common name **CN = edgegateway.local** is listed at the top of the chain. **edgegateway.local** is the hostname for *EdgeGateway* on the local network (LAN or VNet) where *TempSensor* and *EdgeGateway* are connected. It could be a private IP address such as *192.168.1.23* or a fully-qualified domain name (FQDN) similar to the diagram. The important parts are:
 
@@ -241,6 +241,9 @@ The certificate common name **CN = edgegateway.local** is listed at the top of t
     ```
 
 The two values must *match exactly*. As in the example, **CN = 'edgegateway.local'** and **hostname = 'edgegateway.local'**.
+
+> [!NOTE]
+> For simplicity, the example shows subject certificate common name (CN) as property that is validated. In practice, if a certificate has a subject alternative name (SAN), SAN is validated instead of CN. Generally, because SAN can contain multiple values, it has both the main domain/hostname for the certificate holder as well as any alternate domains. 
 
 #### Why does EdgeGateway need to be told about its own hostname?
 
@@ -322,7 +325,7 @@ In summary, *TempSensor* can trust *EdgeGateway* because:
 
 ### Certificates for other modules
 
-Other modules can get server certificates issued by *Edge CA*. For example, a *Grafana* module that has a web interface. It can also get a certificate from *Edge CA*. Modules are treated as downstream devices hosted in the container. However, being able to get a certificate from the IoT Edge module runtime is a special privilege. Modules call the *workload API* to receive the server certificate chain to verify trust. Azure IoT SDKs can do this for you using [`ModuleClient.CreateFromEnvironmentAsync()`](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync). You can also manually call the API to get the trust bundle.
+Other modules can get server certificates issued by *Edge CA*. For example, a *Grafana* module that has a web interface. It can also get a certificate from *Edge CA*. Modules are treated as downstream devices hosted in the container. However, being able to get a certificate from the IoT Edge module runtime is a special privilege. Modules call the [*workload API*](https://azure.github.io/iot-identity-service/) to receive the server certificate chained to the configured *Edge CA*.
 
 ## Gateway verifies device identity
 
