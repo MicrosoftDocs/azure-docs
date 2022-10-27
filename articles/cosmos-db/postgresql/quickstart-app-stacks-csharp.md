@@ -17,12 +17,11 @@ ms.date: 10/27/2022
 
 [!INCLUDE [App stack selector](includes/quickstart-selector.md)]
 
-This quickstart shows you how to use C# code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with C# development, and are new to working with Azure Cosmos DB for PostgreSQL.
+This quickstart shows you how to use C# code to connect to a cluster, and use SQL statements to create a table. You'll then insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with C# development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
 ## Install PostgreSQL library
 
-The code examples in this article require the the [Npgsql](https://www.nuget.org/packages/Npgsql) library.
-You'll need to install Npgsql with your language package manager (such as NuGet in [Visual Studio](https://www.visualstudio.com/downloads).)
+The code examples in this article require the [Npgsql](https://www.nuget.org/packages/Npgsql) library.  You'll need to install Npgsql with your language package manager (such as NuGet in [Visual Studio](https://www.visualstudio.com/downloads).)
 
 ## Connect, create a table, and insert data
 
