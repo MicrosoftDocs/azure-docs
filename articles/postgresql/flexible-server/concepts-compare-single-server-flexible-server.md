@@ -95,10 +95,10 @@ The following table provides a list of high-level features and capabilities comp
 | Ability to restore to a different region | Yes (Geo-redundant) | Yes (in Preview in [selected regions](overview.md#azure-regions)) |
 | Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
-| Support for read replicas | Yes | No |
-| Number of read replicas | 5 | N/A |
-| Mode of replication | Async | N/A |
-| Cross-region support | Yes | N/A |
+| Support for read replicas | Yes | Yes ([in Preview](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas)) |
+| Number of read replicas | 5 | 5 |
+| Mode of replication | Async | Async |
+| Cross-region support | Yes | Yes |
 | **Maintenance Window** | | |
 | System scheduled window | Yes | Yes |
 | Customer scheduled window| No | Yes (can choose any 1 hr on any day) |
