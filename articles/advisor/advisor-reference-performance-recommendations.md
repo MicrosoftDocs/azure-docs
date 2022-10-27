@@ -247,6 +247,12 @@ Ultra disk is available in the same region as your database workload. Ultra disk
 
 Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal).
 
+### Upgrade the size of your virtual machines close to resource exhaustion
+
+We analyzed data for the past 7 days and identified virtual machines (VMs) with high utilization across different metrics (i.e., CPU, Memory, and VM IO). Those VMs may experience performance issues since they are nearing/at their SKU's limits. Consider upgrading their SKU to improve performance.
+
+Learn more about [Virtual machine - Improve the performance of highly used VMs using Azure Advisor](https://aka.ms/aa_resizehighusagevmrec_learnmore)
+
 ## Kubernetes
 
 ### Unsupported Kubernetes version is detected
