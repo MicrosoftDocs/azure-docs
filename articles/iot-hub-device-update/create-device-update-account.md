@@ -120,7 +120,7 @@ az iot device-update instance create --account <account_name> --instance <instan
 
 ---
 
-## Configure access control roles
+## Configure access control roles for Device Update
 
 In order for other users to have access to Device Update, they must be granted access to this resource. You can skip this step if you assigned the Device Update administrator role to yourself during account creation and don't need to provide access to other users or applications.
 
@@ -180,6 +180,38 @@ az role assignment create --role '<role>' --assignee <user_group> --scope <accou
 ```
 
 ---
+
+## Configure access control roles for IoT Hub
+
+Device Update for IoT Hub communicates with IoT Hub to manage deployments and updates and to get information about devices. To enable the access, you need to give the **Azure Device Update** service principal access with the **IoT Hub Data Contributor** role.
+
+# [Azure portal](#tab/portal)
+
+1. In the Azure portal, navigate to the IoT hub connected to your Device Update instance.
+1. Select **Access Control(IAM)** from the navigation menu.
+1. Select **Add** > **Add role assignment**.
+1. In the **Role** tab, select **IoT Hub Data Contributor**. Select **Next**.
+1. For **Assign access to**, select **User, group, or service principal**.
+1. Select **Select Members** and search for '**Azure Device Update**'
+1. Select **Next** > **Review + Assign**
+
+To validate that you've set permissions correctly:
+
+1. In the Azure portal, navigate to the IoT hub connected to your Device Update instance.
+1. Select **Access Control(IAM)** from the navigation menu.
+1. Select **Check access**.
+1. Select **User, group, or service principal** and search for '**Azure Device Update**'
+1. After clicking on **Azure Device Update**, verify that the **IoT Hub Data Contributor** role is listed under **Role assignments**
+
+# [Azure CLI](#tab/cli)
+
+Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to create a role assignment for the Azure Device Update service principal.
+
+Replace *\<resource_id>* with the resource ID of your IoT hub. You can retrieve the resource ID by using the [az iot hub show](/cli/azure/iot/hub#az-iot-hub-show) command and querying for the ID value: `az iot hub show -n <hub_name> --query id`.
+
+```azurecli
+az role assignment create --role "IoT Hub Data Contributor" --assignee https://api.adu.microsoft.com/ --scope <resource_id>
+```
 
 ## View and query accounts or instances
 
