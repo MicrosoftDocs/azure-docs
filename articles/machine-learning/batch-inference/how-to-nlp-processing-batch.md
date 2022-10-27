@@ -1,5 +1,5 @@
 ---
-title: "NLP tasks with batch deployments"
+title: "Text processing with batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text and output results.
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# NLP tasks with batch deployments
+# Text processing with batch deployments
 
 [!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
@@ -23,8 +23,8 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 
 [!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
-* You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `text-summarization-batch`.
-* You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
+* You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md). This example assumes the endpoint is named `text-summarization-batch`.
+* You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
 
 ## About the model used in the sample
 
@@ -66,7 +66,7 @@ az ml model create --name $MODEL_NAME --type "custom_model" --path "bart-text-su
 ```python
 model_name = 'bart-text-summarization'
 model = ml_client.models.create_or_update(
-    Model(path='bart-text-summarization/model', type=AssetTypes.CUSTOM_MODEL)
+    Model(name=model_name, path='bart-text-summarization/model', type=AssetTypes.CUSTOM_MODEL)
 )
 ```
 ---
@@ -146,7 +146,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 2. Now, let create the deployment.
 
    > [!NOTE]
-   > This example assumes you have an endpoint created with the name `text-summarization-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
+   > This example assumes you have an endpoint created with the name `text-summarization-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 
    # [Azure ML CLI](#tab/cli)
    
@@ -181,7 +181,8 @@ One the scoring script is created, it's time to create a batch deployment for it
    Then, create the deployment with the following command:
    
    ```bash
-   az ml batch-endpoint create -f endpoint.yml
+   DEPLOYMENT_NAME="text-summarization-hfbart"
+   az ml batch-deployment create -f endpoint.yml
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
@@ -208,7 +209,11 @@ One the scoring script is created, it's time to create a batch deployment for it
        retry_settings=BatchRetrySettings(max_retries=3, timeout=3000),
        logging_level="info",
    )
+   ```
    
+   Then, create the deployment with the following command:
+   
+   ```python
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
    ---
@@ -216,7 +221,23 @@ One the scoring script is created, it's time to create a batch deployment for it
    > [!IMPORTANT]
    > You will notice in this deployment a high value in `timeout` in the parameter `retry_settings`. The reason for it is due to the nature of the model we are running. This is a very expensive model and inference on a single row may take up to 60 seconds. The `timeout` parameters controls how much time the Batch Deployment should wait for the scoring script to finish processing each mini-batch. Since our model runs predictions row by row, processing a long file may take time. Also notice that the number of files per batch is set to 1 (`mini_batch_size=1`). This is again related to the nature of the work we are doing. Processing one file at a time per batch is expensive enough to justify it. You will notice this being a pattern in NLP processing.
 
-3. At this point, our batch endpoint is ready to be used. 
+3. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   ```bash
+   az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
+   ```
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   ```python
+   endpoint.defaults.deployment_name = deployment.name
+   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ```
+
+4. At this point, our batch endpoint is ready to be used. 
+
 
 ## Considerations when deploying models that process text
 

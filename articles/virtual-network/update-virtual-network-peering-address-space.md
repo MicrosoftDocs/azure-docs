@@ -1,8 +1,8 @@
 ---
 title: Updating the address space for a peered virtual network 
 description: Learn about adding or deleting the address space for a peered virtual network without downtime.
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to 
 ms.date: 07/10/2022

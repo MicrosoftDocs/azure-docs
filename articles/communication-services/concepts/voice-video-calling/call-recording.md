@@ -5,8 +5,7 @@ description: Provides an overview of the Call Recording feature and APIs.
 author: dbasantes
 manager: seaen
 services: azure-communication-services
-
-ms.author: jken
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.custom: references_regions
