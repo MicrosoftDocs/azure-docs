@@ -51,9 +51,9 @@ All solutions using the Azure OpenAI service are also required to go through a u
 
 ## Azure OpenAI versus OpenAI
 
-Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure.  Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
 
-With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI.  Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.  
+With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.  
 
 ## Key concepts
 
