@@ -2919,7 +2919,7 @@
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-overview.md",
             "redirect_url": "/azure/azure-monitor/platform/itsmc-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-service-manager-script.md",
