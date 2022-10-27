@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 12/12/2021
+ms.date: 10/27/2022
 ---
 
 # Power Query activity in Azure Data Factory
@@ -42,7 +42,7 @@ To use a Power Query activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-power-query-activity/for-each-activity-using-power-query-output.png" alt-text="Shows the ForEach Activity's Settings tab with &nbsp;Add dynamic content&nbsp; link for the Items property.":::
 
-1. Any activity outputs are displayed and can be used when defining your dynamic content by selecting them in the **Add dynamic content** pane.
+1. Any activity outputs are displayed and can be used when defining your dynamic content by selecting them in the **Pipeline expression builder** pane.
 
    :::image type="content" source="media/control-flow-power-query-activity/using-power-query-output-in-dynamic-content.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; pane referencing the Power Query defined above.":::
 
