@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 10/27/2022
 ms.author: eur
 ---
 
