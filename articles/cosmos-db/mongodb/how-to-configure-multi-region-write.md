@@ -44,7 +44,7 @@ appName=<user-workload-name>@<cosmosdb-account-name>@<preferred-write-region>
 
 On multi-region write accounts, Azure Portal supports generation of region-specific connection strings to encode the preferred region list​. Selecting the preferred region dropdown will change the appName in the connection string to set the preferred write region. Simply copy the connection string after setting the preferred region. 
 
-   :::image type="content" source="./media/how-to-multi-region-write/connect-multi-region-writes.png" alt-text="Screenshot to enable multi-region writes using Azure portal" lightbox="./media/how-to-multi-region-write/connect-multi-region-writes.png":::
+   :::image type="content" source="./media/how-to-multi-region-write/connect-multi-region-writes.png" alt-text="Screenshot to connect to multi-region writes account using Azure portal" lightbox="./media/how-to-multi-region-write/connect-multi-region-writes.png":::
 
 We recommend applications deployed to different regions to use the region-specific connection string with the correct preferred region for low-latency writes.
 
