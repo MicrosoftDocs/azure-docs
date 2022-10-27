@@ -3,7 +3,7 @@ title: How to use raw HTTPS in Azure IoT Hub Device Provisioning Service
 description: This article shows how to use symmetric keys over HTTPS in your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.date: 08/19/2022
+ms.date: 10/27/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -214,7 +214,7 @@ Where:
 
 * `[policy]` is the policy with which the device key is associated.  For DPS device registration, the policy is hard coded to 'registration'.
 
-An example set of inputs for a device called `my-symkey-device` with a validity period of 30 days might look like this (the ID scope has been modified).
+An example set of inputs for a device called `my-symkey-device` with a validity period of 30 days might look like this.
 
 ```python
 uri = '0ne00111111/registrations/my-symkey-device'
@@ -223,7 +223,7 @@ expiry = 2592000
 policy='registration'
 ```
 
-Modify the script for your device and DPS instance and save it as a Python file; for example, *generate_token.ps*. Run the script, for example, `python generate_token.ps`. It should output a SAS token similar to the following:
+Modify the script for your device and DPS instance and save it as a Python file; for example, *generate_token.py*. Run the script, for example, `python generate_token.py`. It should output a SAS token similar to the following:
 
 ```output
 0ne00111111%2Fregistrations%2Fmy-symkey-device

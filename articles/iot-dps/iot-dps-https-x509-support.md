@@ -3,7 +3,7 @@ title: How to use raw HTTPS with X.509 certificates with Azure IoT Hub Device Pr
 description: This article shows how to use X.509 certificates over HTTPS in your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.date: 09/01/2022
+ms.date: 10/27/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -36,7 +36,7 @@ There are multiple paths through this article depending on the type of enrollmen
 
 ## Overview
 
-There are three scenarios covered in this article and the initial steps you'll perform will be different each. If you want to:
+There are three scenarios covered in this article and the initial steps you'll perform will be different for each. If you want to:
 
 * Provision through an [individual enrollment](concepts-service.md#individual-enrollment) using a self-signed certificate, follow the steps in these sections:
 
