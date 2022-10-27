@@ -16,7 +16,7 @@ When choosing the base and pool size, consider the number of ports you choose. T
 
 ## Prerequisites
 
-- A client device running the [Remote Desktop client for Windows](user-documentation/connect-windows-7-10.md), version 1.2.3488 or later. Currently, non-Windows clients aren't supported.
+- A client device running the [Remote Desktop client for Windows](users/connect-windows.md), version 1.2.3488 or later. Currently, non-Windows clients aren't supported.
 - Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet. For more information you can use to configure firewalls and Network Security Group, see [Network configurations for RDP Shortpath](rdp-shortpath.md#network-configuration). 
 
 ## Enable a limited port range

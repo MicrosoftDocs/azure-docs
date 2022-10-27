@@ -282,6 +282,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     ### [Log alert](#tab/log)
 
     To create a log alert rule that monitors count of system event errors:
+
     ```azurecli
     az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > a(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
     ```
@@ -299,10 +300,10 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
     ---
-
 ## Create a new alert rule using PowerShell
 
 - To create a metric alert rule using PowerShell, use this cmdlet: [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
+- To create a log alert rule using PowerShell, use this cmdlet: [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule)
 - To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 
 ## Create an activity log alert rule from the Activity log pane
@@ -450,7 +451,7 @@ The *sampleActivityLogAlert.parameters.json* file contains the values provided f
 
 ## Changes to log alert rule creation experience
 
-If you're creating a new log alert rule, please note that current alert rule wizard is a little different from the earlier experience:
+If you're creating a new log alert rule, note that current alert rule wizard is a little different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
     - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
