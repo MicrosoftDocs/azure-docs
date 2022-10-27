@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 10/26/2022
+ms.date: 10/27/2022
 ---
 
 # Use C# to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -19,9 +19,14 @@ ms.date: 10/26/2022
 
 This quickstart shows you how to use C# code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with C# development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
+## Install PostgreSQL library
+
+The code examples in this article require the the [Npgsql](https://www.nuget.org/packages/Npgsql) library.
+You'll need to install Npgsql with your language package manager (such as NuGet in [Visual Studio](https://www.visualstudio.com/downloads).)
+
 ## Connect, create a table, and insert data
 
-In [Visual Studio](https://www.visualstudio.com/downloads) with the [Npgsql](https://www.nuget.org/packages/Npgsql) NuGet package installed, use the following code to connect to your cluster and load data using CREATE TABLE and INSERT INTO SQL statements. The code uses these `NpgsqlCommand` class methods:
+We'll connect to a cluster and load data using CREATE TABLE and INSERT INTO SQL statements. The code uses these `NpgsqlCommand` class methods:
 
 * [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to Azure Cosmos DB for PostgreSQL
 * [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) to set the CommandText property

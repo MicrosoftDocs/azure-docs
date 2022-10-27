@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 10/26/2022
+ms.date: 10/27/2022
 ---
 
 # Use Node.js to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -19,13 +19,15 @@ ms.date: 10/26/2022
 
 This quickstart shows you how to use Node.js code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Node.js development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
+## Install PostgreSQL library
+
+The code examples in this article require the [pg](https://node-postgres.com) library to interface with the PostgreSQL server. You'll need to install pg with your language package manager (such as npm).
+
 ## Connect, create a table, and insert data
 
-All examples in this article need to connect to the database. You can put the connection logic into its own module for reuse. Use the [pg](https://node-postgres.com) client object to interface with the PostgreSQL server.
+### Create the common connection module
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
-
-### Create the common connection module
 
 Create a folder called *db*, and inside this folder create a *citus.js* file that contains the following common connection code. In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 

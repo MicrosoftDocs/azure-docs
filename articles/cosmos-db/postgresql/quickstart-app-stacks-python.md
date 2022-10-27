@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 10/26/2022
+ms.date: 10/27/2022
 ---
 
 # Use Python to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -19,9 +19,13 @@ ms.date: 10/26/2022
 
 This quickstart shows you how to use Python code on macOS, Ubuntu Linux, or Windows to connect to a cluster, and use SQL statements to create a table and insert, query, update, and delete data. The steps in this article assume that you're familiar with Python development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
+## Install PostgreSQL library
+
+The code examples in this article require the [psycopg2](https://pypi.python.org/pypi/psycopg2-binary) library. You'll need to install psycopg2 with your language package manager (such as pip).
+
 ## Connect, create a table, and insert data
 
-The following code example creates a connection pool to your Postgres database by using the [psycopg2](https://pypi.python.org/pypi/psycopg2-binary) and [psycopg2.pool](https://www.psycopg.org/docs/pool.html) librares, and uses `pool.getconn()` to get a connection from the pool. The code then uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) functions with SQL CREATE TABLE and INSERT INTO statements to create a table and insert data.
+The following code example creates a [connection pool](https://www.psycopg.org/docs/pool.html) to your Postgres database. It then uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) functions with SQL CREATE TABLE and INSERT INTO statements to create a table and insert data.
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 

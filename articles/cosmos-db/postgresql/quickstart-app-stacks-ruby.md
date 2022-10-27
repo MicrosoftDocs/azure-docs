@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 10/26/2022
+ms.date: 10/27/2022
 ---
 
 # Use Ruby to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -19,11 +19,13 @@ ms.date: 10/26/2022
 
 This quickstart shows you how to use Ruby code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Ruby development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
+## Install PostgreSQL library
+
+The code examples in this article require the [pg](https://rubygems.org/gems/pg) gem. You'll need to install pg with your language package manager (such as bundler).
+
 ## Connect, create a table, and insert data
 
-Use the following code to connect and create a table by using the CREATE TABLE SQL statement, then add rows to the table by using the INSERT INTO SQL statement.
-
-The code uses a `PG::Connection` object with constructor to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+Use the following code to connect and create a table by using the CREATE TABLE SQL statement, then add rows to the table by using the INSERT INTO SQL statement. The code uses a `PG::Connection` object with constructor to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating.
 
 In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
