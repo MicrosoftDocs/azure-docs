@@ -44,21 +44,22 @@ In this tutorial, you learn how to:
 Before you begin the tutorial:
 
 - [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace.
+- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 - Have an Azure account that is assigned to one of the following built-in roles:
 
   - Contributor for the target Azure SQL Database
   - Reader role for the Azure Resource Groups containing the target Azure SQL Database.
   - Owner or Contributor role for the Azure subscription (required if creating a new Database Migration Service service).
-  - As an alternative to using the above built-in roles, you can assign a custom role as defined in [this article.](resource-custom-roles-sql-database-ads.md)  
+  
+  As an alternative to using the preceding built-in roles, you can [assign a custom role](resource-custom-roles-sql-database-ads.md). 
   
   > [!IMPORTANT]
-  > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
+  > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or for Azure recommendation steps in the migration wizard in Azure Data Studio.
 
 - Create a target [Azure SQL Database](/azure/azure/azure-sql/database/single-database-create-quickstart).
 - Ensure that the SQL Server login to connect the source SQL Server is a member of the `db_datareader` and the login for the target SQL server is `db_owner`.
 - Migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
-- If you're using the Azure Database Migration Service for the first time, ensure that the Microsoft.DataMigration resource provider is registered in your subscription. You can complete the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
+- If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration resource provider is registered in your subscription. You can complete the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
 ## Open the Migrate to Azure SQL wizard in Azure Data Studio
 
@@ -160,13 +161,13 @@ When you're ready, select **Update** to go to the next step.
    > [!NOTE]
    > If you previously created a Database Migration Service instance by using the Azure portal, you can't reuse the instance in the migration wizard in Azure Data Studio. You can reuse an instance only if you created the instance by using Azure Data Studio.
 
-1. Select the resource group where you have an existing instance of Database Migration Service, or create a new resource group.. The **Azure Database Migration Service** dropdown lists any existing instance of Database Migration Service in the selected resource group.
+1. Select the resource group where you have an existing instance of Database Migration Service, or create a new resource group. The **Azure Database Migration Service** dropdown lists any existing instance of Database Migration Service in the selected resource group.
 
 1. To reuse an existing instance of Database Migration Service, select the instance in the dropdown list. Then select **Next** to view the summary screen. When you're ready to start the migration, press **Start migration**.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms.png" alt-text="Screenshot of Database Migration Service selection.":::
 
-1. To create a new instance of Database Migration Service, select **Create new**. In **Create Azure Database Migration Service**, look for the name that's provided for your Database Migration Service instance, and then select **Create**.  
+1. To create a new instance of Database Migration Service, select **Create new**. In **Create Azure Database Migration Service**, enter a name for your Database Migration Service instance, and then select **Create**.  
 
 1. After you successfully create a new Database Migration Service  instance, you're prompted to set up an integration runtime.
 
@@ -178,12 +179,12 @@ When you're ready, select **Update** to go to the next step.
 
 1. Copy one of the authentication keys that are provided in the wizard and paste it in Azure Data Studio. If the authentication key is valid, a green check icon is displayed in Integration Runtime Configuration Manager. A green check indicates that you can continue to **Register**.  
 
-1. After completing the registration of the self-hosted integration runtime, close the **Microsoft Integration Runtime Configuration Manager** and switch back to the migration wizard in Azure Data Studio.
+1. When registering the self-hosted integration runtime is finished, close Microsoft Integration Runtime Configuration Manager and return to the migration wizard in Azure Data Studio.
 
-   > [!Note]
-   > Refer [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md) for additional information regarding self-hosted integration runtime.
+   > [!NOTE]
+   > For more information about how to use the self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
-1. Select **Test connection** in the **Create Azure Database Migration Service** screen in Azure Data Studio to validate that the newly created Database Migration Service is connected to the newly registered self-hosted integration runtime.
+1. In **Create Azure Database Migration Service** in Azure Data Studio, select **Test connection**  to validate that the newly created Database Migration Service instance is connected to the newly registered self-hosted integration runtime.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-connected.png" alt-text="Screenshot of IR connectivity test.":::
 
@@ -193,39 +194,39 @@ When you're ready, select **Update** to go to the next step.
 
 ## Monitor your migration
 
-1. On The Azure SQL Migration dashboard, navigate to the **Database Migration Status** section.
+1. On the Azure SQL Migration dashboard, go to the **Database Migration Status** section.
 
-1. Using the different options in the panel below, you can track migrations in progress, completed, and failed migrations (if any) or list all database migrations together.  
+1. You can use the different options in the dashboard to track migrations that are in progress, completed, and failed (if any), or you can list all database migrations.  
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard.png" alt-text="Screenshot of monitor migration dashboard.":::
 
-1. Select **Database migrations in progress** to view ongoing migrations and get further details.
+1. Select **Database migrations in progress** to view ongoing migrations and to see details.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-details.png" alt-text="Screenshot of database migration details.":::
 
-1. Database Migration Service will return the latest known migration status every time the migration status section gets refreshed. Use the following table to learn more about the possible statuses:
+1. Database Migration Service returns the latest known migration status every time the migration status section is refreshed. Use the following table to learn more about the possible statuses:
 
     | Status | Description |
     |--------|-------------|
     |Preparing for copy| Disabling autostats, triggers, and indexes for target table |
     |Copying| Data is being copied from source to target |
-    |Copy finished| Data copy has finished and, waiting on other tables to finish copying to begin final steps to return tables to original schema|
+    |Copy finished| Data copy has finished and is waiting on other tables to finish copying to begin final steps to return tables to original schema|
     |Rebuilding indexes| Rebuilding indexes on target tables|
-    |Succeeded| This table has all data copied to it and, indexes rebuilt |
+    |Succeeded| All data is copied and the indexes are rebuilt. |
 
-1. The migration details page displays the current status per database. As you can see from the screenshot below, the **AdventureWorks2019** database migration is in *Creating* status.
+1. The migration details page displays the current status per database. As you can see from the following screenshot, the AdventureWorks2019 database migration has the status **Creating**.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-creating.png" alt-text="Screenshot of creating migration status.":::
 
-1. Select the **Refresh** link to update the status. As you can see from the screenshot below, Database Migration Service has updated the migration status to *In progress*.
+1. Select **Refresh** to update the migration status. In the next screenshot, Database Migration Service has updated the migration status to **In progress**.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-in-progress.png" alt-text="Screenshot of migration in progress status.":::
 
-1. Select the database name link to open the table-level view. The upper section of this dashboard displays the current status of the migration, while the lower section provides a detailed status of each table.
+1. Select the database name to open the table-level view. The upper section of this dashboard displays the current status of the migration. The lower section provides a detailed status of each table.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-in-progress.png" alt-text="Screenshot of monitoring table migration.":::
 
-1. After all table data is migrated to the Azure SQL Database (Preview) target, Database Migration Service will update the migration status from *In progress* to *Succeeded*.
+1. After all table data is migrated to the Azure SQL Database (Preview) target, Database Migration Service updates the migration status from **In progress** to **Succeeded**.
 
    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-succeeded.png" alt-text="Screenshot of succeeded status.":::
 
