@@ -26,7 +26,7 @@ ms.custom: devx-track-azurepowershell
 
 **Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 
-Microsoft Defender for Storage continuously analyzes the transactions of [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and [Azure Files](https://azure.microsoft.com/services/storage/files/) services. When potentially malicious activities are detected, security alerts are generated. These alerts are displayed in Microsoft Defender for Cloud, with the details of the suspicious activity, appropriate investigation steps, remediation actions, and security recommendations. 
+Microsoft Defender for Storage continuously analyzes the transactions of [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and [Azure Files](https://azure.microsoft.com/services/storage/files/) services. When potentially malicious activities are detected, security alerts are generated. Alerts alerts are shown in Microsoft Defender for Cloud with the details of the suspicious activity, appropriate investigation steps, remediation actions, and security recommendations. 
 
 Analyzed transactions of Azure Blob Storage include operation types such as `Get Blob`, `Put Blob`, `Get Container ACL`, `List Blobs`, and `Get Blob Properties`. Examples of analyzed Azure Files operation types include `Get File`, `Create File`, `List Files`, `Get File Properties`, and `Put Range`. 
 
@@ -50,9 +50,9 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 
 With the Defender for Storage per-storage pricing plan, you can configure Microsoft Defender for Storage on your subscriptions in several ways. When the plan is enabled at the subscription level, Microsoft Defender for Storage is automatically enabled for all your existing and new storage accounts created under that subscription. 
 
-### Azure Portal
+### Azure portal
 
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using the Azure Portal:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -112,7 +112,7 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 ### Terraform template
 
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using an Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value: 
+To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using a Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value: 
 
 ```terraform
 resource "azapi_resource" "symbolicname" {
@@ -259,7 +259,7 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 #### Terraform template
 
-To enable Microsoft Defender for Storage at the subscription level with the per-transaction plan using an Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value: 
+To enable Microsoft Defender for Storage at the subscription level with the per-transaction plan using a Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value: 
 
 ```terraform
 resource "azapi_resource" "symbolicname" {
@@ -359,9 +359,9 @@ Learn more about the [updating Defender plans with the REST API](/rest/api/defen
 
 You can configure Microsoft Defender for Storage on your accounts in several ways.
 
-#### Azure Portal
+#### Azure portal
 
-To enable Microsoft Defender for Storage for a specific account with the per-transaction plan using the Azure Portal:
+To enable Microsoft Defender for Storage for a specific account with the per-transaction plan using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to your storage account.
@@ -399,7 +399,7 @@ To enable Microsoft Defender for Storage for a specific storage account with the
 
     Replace `<subscriptionId>`, `<resource-group>`, and `<storage-account>` with the values for your environment.
 
-If you want disable the per-transaction plan for a specific storage account, use the [`Disable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection.md) cmdlet: 
+If you want to disable the per-transaction plan for a specific storage account, use the [`Disable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection.md) cmdlet: 
 
 ```powershell
 Disable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/" 
@@ -440,15 +440,15 @@ Learn more about the [az security atp storage](/cli/azure/security/atp/storage#a
 
 ### Can I switch from an existing per-transaction plan to the per-storage plan?
 
-Yes, you can migrate to the per-storage plan from the Azure Portal or all the other supported enablement methods. To migrate to the per-storage plan, [enable the per-storage plan at the subscription level](#set-up-microsoft-defender-for-storage-for-the-per-storage-pricing-plan).
+Yes, you can migrate to the per-storage plan from the Azure portal or all the other supported enablement methods. To migrate to the per-storage plan, [enable the per-storage plan at the subscription level](#set-up-microsoft-defender-for-storage-for-the-per-storage-pricing-plan).
 
 ### Can I return to the per-transaction plan after switching to the per-storage plan?
 
-Yes, you can enable the per-transaction to migrate back from the per-storage plan using all enablement methods except for the Azure Portal.
+Yes, you can enable the per-transaction to migrate back from the per-storage plan using all enablement methods except for the Azure portal.
 
 ### Will you continue supporting the per-transaction plan?
 
-Yes, you can [enable the per-transaction plan](#set-up-microsoft-defender-for-storage-for-the-per-transaction-pricing-plan) from all the enablement methods, except for the Azure Portal.
+Yes, you can [enable the per-transaction plan](#set-up-microsoft-defender-for-storage-for-the-per-transaction-pricing-plan) from all the enablement methods, except for the Azure portal.
 
 ### Can I exclude specific storage accounts from protections in the per-storage plan? 
 
