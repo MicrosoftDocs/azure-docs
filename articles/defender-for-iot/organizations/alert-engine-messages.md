@@ -13,9 +13,7 @@ This article provides information on the alert types, descriptions, and severity
 
 New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the Support page of the sensor console. Alerts that can be re-enabled are marked with an asterisk (*) in the tables below.
 
-You may have configured newly disabled alerts in your Forwarding rules. If so, you may need to update related Defender for IoT Exclusion rules, or update SIEM rules and playbooks where relevant.  
-
-See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-microsoft-defender-for-iot) for detailed information about changes made to alerts.
+You may have configured newly disabled alerts in your Forwarding rules. If so, you may need to update related Defender for IoT Exclusion rules, or update SIEM rules and playbooks where relevant.
 
 ## Supported alert types
 
