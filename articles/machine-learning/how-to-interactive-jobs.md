@@ -18,7 +18,7 @@ ms.date: 03/15/2022
 
 Machine learning model training is usually an iterative process and requires significant experimentation. With the AzureML interactive job experience, data scientists can now use the AzureML Python SDKv2, AzureML CLIv2 or AzureML Studio to quickly access the container where their job is running to iterate on training scripts, monitor training progress or debug the job remotely like they usually do on their local machines. This is possible to do via different training applications including **JupyterLab, TensorBoard, VS Code** or by connecting via **SSH** directly into the job container.  
 
-Note that interactive training is supported on [**AzureML Compute Cluster**](link-out-to-doc) and [**Azure Arc-enabled Kubernetes Cluster**](link-out-to-doc).
+Note that interactive training is supported on **AzureML Compute Cluster** and **Azure Arc-enabled Kubernetes Cluster**.
 
 ## Pre-requisites
 - [Get started with training on AzureML](./how-to-train-model.md) 
@@ -26,25 +26,29 @@ Note that interactive training is supported on [**AzureML Compute Cluster**](lin
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all AzureML curated training environments have these installed by default)
 - Interactive jobs cannot be used on distributed training runs where the distribution type is anything other than Pytorch or Tensorflow (for example, MPI or custom)
   
-  ![screenshot select-distributioni](media/select-distribution.png) 
+  ![screenshot select-distribution](media/select-distribution.png) 
 
-## Get started with AzureML Studio
-#### Submit a job with interactive services enabled
+## Interact with your job container
+
+By specificing interactive applications at job creation, you can connect directly to the container on the compute node where your job is running. This allows you to test or debug your job in the exact same environment where it would run. You can also use VS Code to attach to the running process and debug as you would locally. 
+
+### Get started with AzureML Studio
+#### Enable during job submission
 1. Create a new job from the left navigation pane in the studio portal.
 
-![screenshot select-job-ui](media/create-job.png) 
+  ![screenshot select-job-ui](media/create-job.png) 
 
 2. Choose `Compute cluster` or `Attached compute` (Kubernetes) as the compute type, choose the compute target, and specify how many nodes you need in `Instance count`. 
 
-![screenshot select-compute-ui](media/select-compute.png) 
+  ![screenshot select-compute-ui](media/select-compute.png) 
 
 3. Follow the wizard to choose the environment you want to start the job.
 
-![screenshot select-environment-ui](media/select-environment.png) 
+  ![screenshot select-environment-ui](media/select-environment.png) 
 
 4. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
 
-![screenshot set-command](media/sleep-command.png) 
+  ![screenshot set-command](media/sleep-command.png) 
 
   Note that you can put `sleep <specific time>` at the end of your command to speicify the amount of time you want to reserve the compute resource. The format follows: 
     * sleep 1s
@@ -52,11 +56,14 @@ Note that interactive training is supported on [**AzureML Compute Cluster**](lin
     * sleep 1h
     * sleep 1d
 
-    You can also use the `sleep infinity` command. However, note that if you use `sleep infinity`, you will need to cancel the job to let go of the compute resource (and stop billing). // Add warning/note
+    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+    
+    > [!NOTE]
+    > If you use `sleep infinity`, you will need to manually [cancel the job](/how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 5. Select the training applications you want to use to interact with the job.
 
-![screenshot select-apps](media/select-training-apps.png) 
+  ![screenshot select-apps](media/select-training-apps.png) 
 
 6. Review and create the job.
 
@@ -71,8 +78,8 @@ Clicking the applications in the panel opens a new tab for the applications. Ple
 
 It might take a few minutes to start the job and the training applications specified during job creation.
 
-## Get started with the AzureML SDKv2/CLIv2
-#### Submit a job with interactive services enabled
+### Get started with the AzureML SDKv2/CLIv2
+#### Enable during job submission
 
 # [Python SDK](#tab/python)
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
@@ -113,7 +120,10 @@ It might take a few minutes to start the job and the training applications speci
     * sleep 1h
     * sleep 1d
 
-    You can also use the `sleep infinity` command. However, note that if you use `sleep infinity`, you will need to cancel the job to let go of the compute resource (and stop billing).
+    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+    
+    > [!NOTE]
+    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 2. Submit your training job. For more details on how to train with the Python SDKv2, check out this [article](./how-to-train-model.md).
 
@@ -149,7 +159,10 @@ It might take a few minutes to start the job and the training applications speci
     * sleep 1h
     * sleep 1d
 
-    You can also use the `sleep infinity` command. However, note that if you use `sleep infinity`, you will need to cancel the job to let go of the compute resource (and stop billing).
+    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+    
+    > [!NOTE]
+    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id> `to submit your training job. For more details on running a job via CLIv2, check out this [article](./how-to-train-model.md). 
 
@@ -159,9 +172,10 @@ It might take a few minutes to start the job and the training applications speci
 
 # [Python SDK](#tab/python)
 - Once the job is submitted, you can use `ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
-  // TODO -- add screenshot
+    
+- To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the AzureML CLIv2, follow this [guide](./how-to-configure-cli). 
   
-You can find the reference documentation for these commands [here](/sdk/azure/ml).
+You can find the reference documentation for the SDKv2 [here](/sdk/azure/ml).
 
 Please note that you can access the applications only when the applications is in **Running** status and only the **job owner** is authorized to access the applications. Note that if you are training on multiple nodes, you can pick the specific node you would like to interact with by passing in the node index.
 
@@ -185,7 +199,7 @@ When you click on the endpoints to interact when your job, you are taken to the 
 
   ![screenshot jupyter-lab](./media/jupyter-lab.png)
 
-- You can also interact with the job container within VS Code. // TODO should we talk about breakpoint debugging?
+- You can also interact with the job container within VS Code. To attach a debugger to a job during job submission and pause execution, [navigate here](./how-to-interactive-jobs.md#attach-a-debugger-to-a-job).
 
    ![screenshot vs-code-open](./media/vs-code-open.png)
 
@@ -193,10 +207,33 @@ When you click on the endpoints to interact when your job, you are taken to the 
 
    ![screenshot tensorboard-open](./media/tensorboard-open.png)
 
-### End the interactive job
+### End job
 Once you are done with the interactive training, you can also go to the job details page to cancel the job. This will release the compute resource. Alternatively, use `az ml job cancel -n <your job name>` in the CLI or `ml_client.job.cancel("<job name>")` in the SDK. 
 
-// Add UI screenshot
+![screenshot cancel-job](./media/cancel-job.png)
+
+## Attach a debugger to a job
+To submit a job with a debugger attached and the execution paused, you can use debugpy & VS Code. Note that you need to have `debugpy` installed in your job environment. 
+
+1. During job submission (either through the UI, the CLIv2 or the SDKv2) use the debugpy command to run your python script. For example, the below screenshot shows a sample command that uses debugpy to attach the debugger for a tensorflow script.
+
+   ![screenshot use-debugpy](./media/use-debugpy.png)
+
+2. Once the job has been submitted, [click out to VS Code](./how-to-interactive-jobs.md#interact-with-the-application), and click on the in-built debugger.
+
+   ![screenshot open-debugger](./media/open-debugger.png)
+
+3. Use the "Remote Attach" debug configuration to attach to the submitted job and pass in the path and port you configured in your job submission command.
+
+   ![screenshot remote-attach](./media/remote-attach.png)
+
+4. Set breakpoints and walk through your job execution as you would in your local debugging workflow. 
+
+   ![screenshot set-breakpoints](./media/set-breakpoints.png)
+
+
+> [!NOTE]
+> If you use debugpy to start your job, your job will **not** execute unless you attach the debugger in VS Code and execute the script. If this is not done, the compute will be reserved until the job timesout (default is ) or until the job is [cancelled](./how-to-interactive-jobs.md#end-job).
 
 ## Next steps
 
