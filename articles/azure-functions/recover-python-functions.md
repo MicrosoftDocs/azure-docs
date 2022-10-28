@@ -12,7 +12,7 @@ zone_pivot_groups: python-mode-functions
 
 This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Choose the model you want to use from the selector at the top of the article. The v2 model is currently in preview. For more information on Python programming models, see the [Python developer guide](./functions-reference-python.md). 
 
-The following is a list of troubleshooting sections for common issues in Python functions:
+Here are the troubleshooting sections for common issues in Python functions:
 
 ::: zone pivot="python-mode-configuration"
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
@@ -72,7 +72,7 @@ To mitigate this issue, see [Enable remote build](#enable-remote-build) or [Buil
 
 #### The package isn't resolved with the proper Linux wheel
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Use your favorite text editor to open the *wheel* file and check the **Tag:** section. If the value of the tag doesn't contain **linux**, this could be the issue.
+Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Use your favorite text editor to open the *wheel* file and check the **Tag:** section. The issue might be that the tag value doesn't contain **linux**.
 
 Python functions run only on Linux in Azure. The Functions runtime v2.x runs on Debian Stretch, and the v3.x runtime runs on Debian Buster. The artifact is expected to contain the correct Linux binaries. When you use the `--build local` flag in Core Tools, third-party, or outdated tools, it might cause older binaries to be used.
 
@@ -80,7 +80,7 @@ To mitigate the issue, see [Enable remote build](#enable-remote-build) or [Build
 
 #### The package is incompatible with the Python interpreter version
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. In your text editor, open the *METADATA* file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, this means the package version is either too old or, more likely, it's already out of maintenance.
+Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. In your text editor, open the *METADATA* file and check the **Classifiers:** section. If the section doesn't contain `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, the package version is either too old or, more likely, it's already out of maintenance.
 
 You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Go to your function app, select **Resource explorer**, and then select **Go**.
 
@@ -115,7 +115,7 @@ The following are potential mitigations for module-related issues. Use the [prev
 
 #### Enable remote build
 
-Make sure that remote build is enabled. The way that you do this depends on your deployment method.
+Make sure that remote build is enabled. The way that you make sure depends on your deployment method.
 
 # [Visual Studio Code](#tab/vscode)
 Make sure that the latest version of the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) is installed. Verify that the *.vscode/settings.json* file exists and it contains the setting `"azureFunctions.scmDoBuildDuringDeployment": true`. If it doesn't, create the file with the `azureFunctions.scmDoBuildDuringDeployment` setting enabled, and then redeploy the project.
@@ -144,7 +144,7 @@ If these package items are correct, you can update the package to the latest ver
 
 Some developers use `pip freeze > requirements.txt` to generate the list of Python packages for their developing environments. Although this convenience should work in most cases, there can be issues in cross-platform deployment scenarios, such as developing functions locally on Windows or macOS, but publishing to a function app, which runs on Linux. In this scenario, `pip freeze` can introduce unexpected operating system-specific dependencies or dependencies for your local development environment. These dependencies can break the Python function app when it's running on Linux.
 
-The best practice is to check the import statement from each *.py* file in your project source code and check in only those modules in the *requirements.txt* file. This guarantees that the resolution of packages can be handled properly on different operating systems.
+The best practice is to check the import statement from each *.py* file in your project source code and then check in only the modules in the *requirements.txt* file. This practice guarantees that the resolution of packages can be handled properly on different operating systems.
 
 #### Replace the package with equivalents
 
@@ -152,7 +152,7 @@ First, take a look into the latest version of the package in `https://pypi.org/p
 
 Sometimes, the package might have been integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as `pathlib`). If so, because we provide a certain Python distribution in Azure Functions (Python 3.6, Python 3.7, Python 3.8, and Python 3.9), the package in your *requirements.txt* file should be removed.
 
-However, if you're finding that the issue hasn't been fixed, and you're on a deadline, we encourage you to do some research and find a similar package for your project. Usually, the Python community will provide you with a wide variety of similar libraries that you can use.
+However, if you're finding that the issue hasn't been fixed, and you're on a deadline, we encourage you to do some research to find a similar package for your project. Usually, the Python community will provide you with a wide variety of similar libraries that you can use.
 
 ---
 
@@ -171,7 +171,7 @@ This error occurs when a Python function app fails to start with a proper Python
 
 #### The Python interpreter mismatches OS architecture
 
-This is most likely caused by a 32-bit Python interpreter being installed on your 64-bit operating system.
+This mismatch is most likely caused by a 32-bit Python interpreter being installed on your 64-bit operating system.
 
 If you're running on an x64 operating system, ensure that your Python version 3.6, 3.7, 3.8, or 3.9 interpreter is also on a 64-bit version.
 
@@ -211,7 +211,7 @@ This section helps you troubleshoot segmentation fault errors in your Python fun
 
 "Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139"
 
-This error occurs when a Python function app is forced to terminate by the operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation, which can be caused by unexpectedly reading from or writing into a restricted memory region. In the following sections, we provide a list of common root causes.
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGSEGV signal. This signal indicates violation of the memory segmentation, which can result from an unexpected reading from or writing into a restricted memory region. In the following sections, we provide a list of common root causes.
 
 ### A regression from third-party packages
 
@@ -260,7 +260,7 @@ You can mitigate this issue in either of two ways:
 ::: zone pivot="python-mode-decorators"  
 ## Multiple Python workers not supported
 
-The multiple Python workers setting isn't supported in the v2 programming model at this time. This means that enabling intelligent concurrency by setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
+The multiple Python workers setting isn't supported in the v2 programming model at this time. More specifically, enabling intelligent concurrency by setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
 
 ## Troubleshoot "could not load file or assembly"
 
@@ -279,13 +279,13 @@ After you run the command, if you notice that `Loading startup extension <>` isn
 
 To resolve this issue: 
 
-1. Find the path of *.azure-functions-core-tools* by running: 
+1. Find the *.azure-functions-core-tools* path by running: 
 
     ```console 
     func GetExtensionBundlePath
     ```
 
-1. Delete the directory *.azure-functions-core-tools*.
+1. Delete the *.azure-functions-core-tools* directory.
 
 # [bash](#tab/bash)
 
@@ -315,7 +315,7 @@ Value cannot be null. (Parameter 'provider')"
 
 This error is a result of how extensions are loaded from the bundle locally. To resolve this error, do one of the following:
 
-* Use a storage emulator such as [Azurite](../storage/common/storage-use-azurite.md). This is a good option when you aren't planning to use a storage account in your function application.
+* Use a storage emulator such as [Azurite](../storage/common/storage-use-azurite.md). This option is a good one when you aren't planning to use a storage account in your function application.
 
 * Create a storage account and add a connection string to the `AzureWebJobsStorage` environment variable in the *localsettings.json* file. Use this option when you're using a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](../storage/common/storage-account-create.md).
 
@@ -326,7 +326,7 @@ In the [Azure portal](https://portal.azure.com), select **Settings** > **Configu
 
 ## Next steps
 
-If you're unable to resolve your issue, report this to the Azure Functions team:
+If you're unable to resolve your issue, contact the Azure Functions team:
 
 > [!div class="nextstepaction"]
 > [Report an unresolved issue](https://github.com/Azure/azure-functions-python-worker/issues)
