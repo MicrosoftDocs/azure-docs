@@ -62,7 +62,9 @@ For example:
 - To import pandas - select a wheel file with a name similar as `pandas-1.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`
 
 
-Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using pip. Perform the following steps using a 64-bit Linux machine with Python 3.10.x and wheel package installed:
+Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using pip. 
+
+Perform the following steps using a 64-bit Linux machine with Python 3.10.x and wheel package installed:
 
 1.	Download the source file `pandas-1.2.4.tar.gz.`
 1. Run pip to get the wheel file with the following command: `pip wheel --no-deps pandas-1.2.4.tar.gz`
@@ -100,7 +102,7 @@ https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py
 For information on importing the runbook, see [Import a runbook from the Azure portal](manage-runbooks.md#import-a-runbook-from-the-azure-portal). Copy the file from GitHub to storage that the portal can access before you run the import.
 
 > [!NOTE]
-> For  Python 3.10 (preview), you can't import a runbook from Azure portal.
+> Currently, importing a runbook from Azure Portal isn't supported for Python 3.10 (preview).
 
 
 The **Import a runbook** page defaults the runbook name to match the name of the script. If you have access to the field, you can change the name. **Runbook type** may default to **Python 2**. If it does, make sure to change it to **Python 3**.

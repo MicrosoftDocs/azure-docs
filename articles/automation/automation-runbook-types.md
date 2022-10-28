@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/16/2022
+ms.date: 10/28/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -112,14 +112,12 @@ The following are the current limitations and known issues with PowerShell runbo
 > Currently, PowerShell 7.2 (preview) runtime version is supported in five regions for Cloud jobs only: West Central US, East US, South Africa North, North Europe, and Australia Southeast.
 
 - You must be familiar with PowerShell scripting.
-- The Azure Automation internal PowerShell cmdlets are not supported on a Linux Hybrid Runbook Worker. You must import the `automationassets` module at the beginning of your Python runbook to access the Automation account shared resources (assets) functions. 
 - For the PowerShell 7 runtime version, the module activities are not extracted for the imported modules.
 - *PSCredential* runbook parameter type is not supported in PowerShell 7 runtime version.
 - PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) for more details.
 - PowerShell 7.x currently does not support signed runbooks.
 - Source control integration doesn't support PowerShell 7.2 (preview). Also, PowerShell 7.2 (preview) runbooks in source control gets created in Automation account as Runtime 5.1.
 - Currently, only cloud jobs are supported for PowerShell 7.2 (preview) runtime versions. 
-- Custom packages for PowerShell 7.2 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages are not imported into automation account. 
 - Logging job operations to the Log Analytics workspace through linked workspace or diagnostics settings are not supported. 
 - Currently, PowerShell 7.2 (preview) runbooks are only supported from Azure Portal. Rest API and PowerShell is not supported. 
 - Az module 8.3.0 is installed by default and cannot be managed at the automation account level. Use custom modules to override the Az module to the desired version.
@@ -136,15 +134,7 @@ The following are the current limitations and known issues with PowerShell runbo
 
       $ProgressPreference = "Continue"
   ```
-- Runbook properties for managing Progress and Verbose logs might not work as expected.
-**Workaround** Use the below details:
-  ```
-      $VerbosePreference = “Continue” 
- 
-      $ProgressPreference = “Continue”
-  ```
 ---
-
 
 ## PowerShell Workflow runbooks
 
@@ -219,11 +209,9 @@ Following are the limitations of Python runbooks
 **Limitations**
 
 - For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
--	The imported Python 3.10 (preview) package would be validated during job execution. Ensure that you import all dependencies for the selected package.
 - Currently, only cloud jobs are supported for Python 3.10 (preview) runtime versions. 
 - Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages are not imported into automation account.
 - Currently, Python 3.10 (preview) runbooks are only supported from Azure Portal. Rest API and PowerShell is not supported.
-- The imported Python 3.10 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
 
 ---
 
@@ -237,7 +225,7 @@ When using only one version of Python, you can add the installation path to the 
 
 ### Known issues
 
-For cloud jobs, Python 3 jobs sometimes fail with an exception message `invalid interpreter executable path`. You might see this exception if the job is delayed, starting more than 10 minutes, or using **Start-AutomationRunbook** to start Python 3 runbooks. If the job is delayed, restarting the runbook should be sufficient. Hybrid jobs should work without any issue if using the following steps:
+For cloud jobs, Python 3.8 jobs sometimes fail with an exception message `invalid interpreter executable path`. You might see this exception if the job is delayed, starting more than 10 minutes, or using **Start-AutomationRunbook** to start Python 3.8 runbooks. If the job is delayed, restarting the runbook should be sufficient. Hybrid jobs should work without any issue if using the following steps:
 
 1. Create a new environment variable called `PYTHON_3_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python3`, then this path needs to be added to the variable.
 1. Restart the machine after setting the environment variable.
