@@ -75,7 +75,44 @@ With mutual authentication, there are additional server variables that you can u
 
 ## Certificate Revocation
 
-Client certificate revocation with OCSP (Online Certificate Status Protocol) will be supported shortly. 
+When a client initiates a connection to an Application Gateway configured with mutual authentication, not only can the certificate chain be validated, but revocation status of the client certificate can be checked with OCSP (Online Certificate Status Protocol). During validation, the client certificate presented by the client will be looked up via the defined OCSP responder via its certificate chain. In the event the client certificate has been revoked, the application gateway will respond back to the client with a HTTP 400 status code and reason.  If the certificate is valid, the request will continued to be processed by application gateway nad forwarded on to the defined backend pool.
+
+Client certificate revocation can be enabled via REST API, ARM, Bicep, or PowerShell.
+
+# [Azure PowerShell](#tab/powershell)
+To configure client revocation check on an existing Application Gateway via Azure PowerShell, the following commands can be referenced:
+```azurepowershell
+# Get Application Gateway configuration
+$AppGw = Get-AzApplicationGateway -Name "ApplicationGateway01" -ResourceGroupName "ResourceGroup01"
+
+# Create new SSL Profile
+$profile  = Get-AzApplicationGatewaySslProfile -Name "SslProfile01" -ApplicationGateway $AppGw
+
+# Verify Client Cert Issuer DN and enable Client Revocation Check
+Set-AzApplicationGatewayClientAuthConfiguration -SslProfile $profile -VerifyClientCertIssuerDN -VerifyClientRevocation OCSP
+
+# Update Application Gateway
+Set-AzApplicationGateway -ApplicationGateway $AppGw
+
+```
+https://learn.microsoft.com/en-us/powershell/module/az.network/set-azapplicationgatewayclientauthconfiguration?view=azps-9.0.1
+
+# [Azure CLI](#tab/cli)
+Azure CLI support is currently not available.
+
+# [Azure Portal](#tab/portal)
+Azure portal support is currently not available.
+
+To verify OCSP revocation status has been evaluated, access logs will contain a property called "sslClientVerify", with the status of the OCSP response.
+
+Note: OCSP revocation status may fail upon first lookup to cache the response.
+
+Notes: Client revoation check was introduced in API version 2022-05-01
+
+Limitations
+- Revocation check via CRL is not supported
+- Azure CLI support
+- Azure Portal support
 
 ## Next steps
 
