@@ -33,7 +33,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90016` | The requested client assertion type '{0}' does not match the expected type '{1}'. | deprecated |
 | `AADB2C90017` | The client assertion provided in the request is invalid: {0} | deprecated |
 | `AADB2C90018` | The client ID '{0}' specified in the request is not registered in tenant '{1}'. |  [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
-| `AADB2C90019` | The key container with ID '{0}' in tenant '{1}' does not has a valid key. Reason: {2}. |  |
+| `AADB2C90019` | The key container with ID '{0}' in tenant '{1}' does not have a valid key. Reason: {2}. |  |
 | `AADB2C90021` | The technical profile '{0}' does not exist in the policy '{1}' of tenant '{2}'. |  |
 | `AADB2C90022` | Unable to return metadata for the policy '{0}' in tenant '{1}'. | [Share the application's metadata publicly](saml-service-provider.md) |
 | `AADB2C90023` | Profile '{0}' does not contain the required metadata key '{1}'. |  |
