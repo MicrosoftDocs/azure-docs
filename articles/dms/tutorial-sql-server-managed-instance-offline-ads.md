@@ -122,7 +122,7 @@ Before you begin the tutorial:
 
 1. Select **Get Azure recommendation** to open the recommendations panel.
 
-1. Select the **Collect performance data now** option. Select a folder on your local computer to store the performance logs, and then select **Start**.
+1. Select the **Collect performance data now** option. Select a folder on your local computer to store the performance logs in, and then select **Start**.
 
    Azure Data Studio collects performance data until you either stop data collection or close Azure Data Studio.  
 
