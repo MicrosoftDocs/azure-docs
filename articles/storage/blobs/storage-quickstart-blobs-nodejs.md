@@ -128,7 +128,7 @@ The code below retrieves the connection string for the storage account from the 
 
 Add this code inside the `main` function:
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_StorageAcctInfo":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_StorageAcctInfo_create_client":::
 
 ## Create a container
 
