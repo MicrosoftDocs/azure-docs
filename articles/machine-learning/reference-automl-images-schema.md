@@ -526,7 +526,7 @@ predictions = json.loads(resp)
 ```
 ### Output format (XAI)
 
-Predictions made on model endpoints follow different schema depending on the task type. This section explores the output data formats for multi-class, multi-label image classification tasks.
+Predictions made on model endpoints follow different schema depending on the task type. This section describes the output data formats for multi-class, multi-label image classification tasks.
 
 The following schemas are defined for the case of two input images
 
