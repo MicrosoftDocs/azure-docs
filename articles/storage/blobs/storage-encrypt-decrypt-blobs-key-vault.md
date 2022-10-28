@@ -5,7 +5,7 @@ description: Learn how to encrypt and decrypt a blob using client-side encryptio
 author: pauljewellmsft
 ms.service: storage
 ms.topic: tutorial
-ms.date: 09/16/2022
+ms.date: 10/28/2022
 ms.author: pauljewell
 ms.reviewer: ozgun
 ms.subservice: blobs
@@ -124,29 +124,40 @@ New-AzRoleAssignment -SignInName <user@domain> `
 
 To interact with Azure services in this example, install the following client libraries using `dotnet add package`.
 
+### [.NET CLI](#tab/packages-dotnetcli)
+
 ```dotnetcli
 dotnet add package Azure.Identity
-dotnet add package Azure.Security.KeyVault.Keys.Cryptography
+dotnet add package Azure.Security.KeyVault.Keys
 dotnet add package Azure.Storage.Blobs
 ```
 
+### [PowerShell](#tab/packages-powershell)
+
 ```powershell
 Install-Package Azure.Identity
-Install-Package Azure.Security.KeyVault.Keys.Cryptography
+Install-Package Azure.Security.KeyVault.Keys
 Install-Package Azure.Storage.Blobs
 ```
+---
 
 Add the following `using` directives and make sure to add a reference to `System.Configuration` to the project.
 
 ```csharp
-using Azure.Identity
-using Azure.Security.KeyVault.Keys.Cryptography
-using Azure.Storage.Blobs
+using Azure;
+using Azure.Core;
+using Azure.Identity;
+using Azure.Security.KeyVault.Keys;
+using Azure.Security.KeyVault.Keys.Cryptography;
+using Azure.Storage;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
 ```
 
 ## Set environment variable
 
-This application looks for an environment variable called `KEY_VAULT_NAME` to retrieve the name of your key vault. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<your-key-vault-name>` with your actual key vault name.
+This application looks for an environment variable called `KEY_VAULT_NAME` to retrieve the name of your key vault. To set the environment variable, open a console window and follow the instructions for your operating system. Replace `<your-key-vault-name>` with the name of your key vault.
 
 **Windows:**
 
@@ -190,7 +201,7 @@ var key = await keyClient.CreateKeyAsync(keyName, KeyType.Rsa);
 Next, we'll use the key we just added to the vault to create the cryptography client and key resolver instances. [CryptographyClient](/dotnet/api/azure.security.keyvault.keys.cryptography.cryptographyclient?view=azure-dotnet-preview) implements [IKeyEncryptionKey](/dotnet/api/azure.core.cryptography.ikeyencryptionkey?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) and is used to perform cryptographic operations with keys stored in Azure Key Vault. [KeyResolver](/dotnet/api/azure.security.keyvault.keys.cryptography.keyresolver?view=azure-dotnet)  implements [IKeyEncryptionResolver](/dotnet/api/azure.core.cryptography.ikeyencryptionkeyresolver?view=azure-dotnet) and retrieves key encryption keys from the key identifier and resolves the key.
 ```csharp
 // Cryptography client and key resolver instances using Azure Key Vault client library
-CryptographyClient cryptoClient = keyVaultClient.GetCryptographyClient(key.Value.Name, key.Value.Properties.Version);
+CryptographyClient cryptoClient = keyClient.GetCryptographyClient(key.Value.Name, key.Value.Properties.Version);
 KeyResolver keyResolver = new KeyResolver(tokenCredential);
 ```
 
@@ -206,8 +217,8 @@ Now we need to configure the encryption options to be used for blob upload and d
 
  The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions?view=azure-dotnet) class provides the client configuration options for connecting to blob storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey?view=azure-dotnet) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver?view=azure-dotnet) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm]() is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
 
-> [!WARNING]
->It's important to construct the `ClientSideEncryptionOptions` object using `ClientSideEncryptionVersion.V2_0`. This is recommended due to a security vulnerability in version 1. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).
+> [!IMPORTANT]
+>Due to a security vulnerability in version 1, it's recommended to construct the `ClientSideEncryptionOptions` object using `ClientSideEncryptionVersion.V2_0` for the version parameter.For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).
 
 ```csharp
 // Configure the encryption options to be used for upload and download
@@ -229,11 +240,10 @@ In this example, we apply the client-side encryption configuration options to a 
 
 ```csharp
 // Create a blob client with client-side encryption enabled.
-// Client-side encryption options are passed from service clients to container clients, 
-// and from container clients to blob clients.
 // Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
 // with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
-BlobClient blob = new BlobServiceClient(blobUri, tokenCredential, options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
+Uri blobUri = new Uri(string.Format($"https://{accountName}.blob.core.windows.net"));
+BlobClient blob = new BlobServiceClient(blobUri, tokenCredential, options).GetBlobContainerClient("test-container").GetBlobClient("testBlob");
 ```
 
 ## Encrypt blob and upload
@@ -251,22 +261,25 @@ Stream blobContent = BinaryData.FromString("Ready for encryption, Captain.").ToS
 await blob.UploadAsync(blobContent);
 ```
 
+Once the blob is uploaded, you can view the blob in your storage account to see the encrypted contents along with the encryption metadata.
+
 ## Decrypt blob and download
 
 The Azure Storage client library assumes that the user is managing the KEK either locally or in a key vault. The user doesn't need to know the specific key that was used for encryption. The key resolver specified in `ClientSideEncryptionOptions` will be used to resolve key identifiers when blob data is downloaded and decrypted.
 
 When the `BlobClient` object calls a download method, several steps occur to decrypt the encrypted blob data:
 
-1.The client library downloads the encrypted data along with any encryption information stored in the storage account.
-1.The wrapped CEK is then unwrapped (decrypted) using the KEK. The client library doesn't have access to the KEK during this process, but only invokes the key unwrapping algorithm specified in `ClientSideEncryptionOptions`. The private key of an RSA key remains in the key vault, so the encrypted key from the blob metadata that contains the CEK is sent to the key vault for decryption.
-1.The client library uses the CEK to decrypt the encrypted blob data.
+1. The client library downloads the encrypted blob data, including encryption metadata, from the storage account.
+1. The wrapped CEK is then unwrapped (decrypted) using the KEK. The client library doesn't have access to the KEK during this process, but only invokes the key unwrapping algorithm specified in `ClientSideEncryptionOptions`. The private key of they RSA key pair remains in the key vault, so the encrypted key from the blob metadata that contains the CEK is sent to the key vault for decryption.
+1. The client library uses the CEK to decrypt the encrypted blob data.
 
 Add the following code to download and decrypt the blob that you previously uploaded.
 
 ```csharp
 // Download and decrypt the encrypted contents from the blob
- MemoryStream outputStream = new MemoryStream();
-blob.DownloadTo(outputStream);
+Response<BlobDownloadInfo>  response = await blob.DownloadAsync();
+BlobDownloadInfo downloadInfo = response.Value;
+Console.WriteLine((await BinaryData.FromStreamAsync(downloadInfo.Content)).ToString());
 ```
 
 ## Next steps
