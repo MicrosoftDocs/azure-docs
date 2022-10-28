@@ -74,6 +74,8 @@ landingContent:
             url: quick-create-confidential-vm-portal-amd.md
           - text: Create an AMD confidential VM with ARM template
             url: quick-create-confidential-vm-arm-amd.md
+          - text: Create an AMD confidential VM with Azure CLI
+            url: quick-create-confidential-vm-azurecli-amd.md
       - linkListType: how-to-guide
         links:
           - text: Use sample app for guest attestation
