@@ -22,7 +22,7 @@ This step is needed before a policy can be created in Microsoft Purview for that
 2) In addition, the same user needs to have Microsoft Purview Data source administrator (DSA) role for the collection or a parent collection (if inheritance is enabled). See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users). The following screenshot shows how to assign Data Source Admin at root collection level:
 ![Screenshot shows how to assign Data Source Admin at root collection level](../media/how-to-policies-data-owner-authoring-generic/assign-purview-permissions.png)
 
-#### Configure Microsoft Purview permissions needed to create DevOps and Data Owner policies
+#### Configure Microsoft Purview permissions needed to create or update access policies
 The following permissions are needed in Microsoft Purview at the **root collection level**:
 - *Policy authors* role can create, update and delete DevOps and Data Owner policies
 
