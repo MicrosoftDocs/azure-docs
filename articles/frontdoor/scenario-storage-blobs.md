@@ -64,8 +64,14 @@ Azure Front Door is particularly well suited to improving the performance of ser
 - For serving static content, managed WAF rules unlikely to be as important as for dynamic applications. However, you might want to use WAF for rate limiting or geofiltering.
 
 ### Resiliency
-- Zone-redundant storage
-- Multi-region storage
+
+By using the Front Door cache, you reduce the load on your storage account. If your storage account is unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
+
+You can further improve the resiliency of the overall solution by considering the resiliency of the storage account, such as by using one of the following approaches:
+
+- Within a single region, use zone-redundant storage to ensure multiple replicas of your data are stored in separate physical locations.
+- TODO GRS
+- Alternatively, you can deploy multiple storage accounts
 
 ### Cost optimisation
 - Caching helps

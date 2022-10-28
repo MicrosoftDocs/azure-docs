@@ -40,7 +40,7 @@ Because of Front Door's architecture, it can also absorb large [distributed deni
 
 Front Door is a global load balancer. Front Door monitors the health of your origin servers, and if an origin becomes unavailable, [Front Door can route requests to an alternative origin](routing-methods.md). You can also use Front Door to spread traffic across your origins to reduce the load on any one origin server.
 
-By using the Front Door cache, you reduce the load on your application servers. If your servers are unavailable, Front Door may be able to continue to serve cached responses until your application recovers.
+By using the Front Door cache, you reduce the load on your application servers. If your servers are unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
 
 ### Cost optimization
 
