@@ -51,7 +51,7 @@ $svcPrincipalCreds = New-AzADAppCredential -ObjectId $svcPrincipal.Id
 
 Before you create the role assignment for your service principal, view your credentials and write them down for future reference. The password is especially important because you won't be able to retrieve it after you close this PowerShell session.
 
-Here are the three credentials you should write down and the cmdlets you need to run to get them:
+Here are the three values you should write down and the cmdlets you need to run to get them:
 
 - Password:
 
