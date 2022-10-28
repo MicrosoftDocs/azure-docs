@@ -36,7 +36,7 @@ By default, an Azure Container Apps environment provides a DNS suffix in the for
 1. Back in the *Custom DNS suffix* window, in **Certificate file**, browse and select a certificate for the TLS binding.
 
     > [!IMPORTANT]
-    > You must use an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file. The certificate must be a wildcard certificate that's valid for the custom DNS suffix you provided.
+    > You must use an existing wildcard certificate that's valid for the custom DNS suffix you provided.
 
 1. In **Certificate password**, enter the password for the certificate.
 
