@@ -148,16 +148,17 @@ Multi-operator Core Network (MOCN) aims to maximize resource usage by sharing a 
 
 In the context of private mobile networks, a single RAN can connect to both a private and a standard macro network, with traffic automatically routed to the appropriate core network based on the PLMN ID.
 
-### Maximum Transmission Units (MTU)
+### Maximum Transmission Unit (MTU)
 
-The Maximum Transmission Unit (MTU) is a property of an IP link. Packets that exceed a link’s MTU are split into smaller packets via IPv4 fragmentation and reassembled at their destination.
+The Maximum Transmission Unit (MTU) is a property of an IP link, and it is configured on the interfaces at each end of the link. Packets that exceed an interface's configured MTU are split into smaller packets via IPv4 fragmentation prior to sending and are then reassembled at their destination. If an interface's configured MTU is higher than the link's supported MTU, then the packet will fail to be transmitted correctly.
 
-To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, MTUs of less than 1500 are not always observed in practice and may lead to fragmentation with certain UEs.
+To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signalled by the packet core.
 
-IP packets from the UE are tunnelled through from the RAN, due to this the MTU value sent to the UE must be 60 bytes smaller than the MTU value used by the RAN. RANs typically come pre-configured with an MTU of 1500. The Packet Core’s default UE MTU is therefore 1440 bytes. This default value maximizes RAN interoperability, but risks that certain UEs will not observe the MTU of 1440 and will generate larger packets that require IPv4 fragmentation.
+IP packets from the UE are tunnelled through from the RAN, which adds overhead from encapsulation. As a result of this the MTU value for the UE should be smaller than the MTU value used between the RAN and the Packet Core to avoid transmission issues. RANs typically come pre-configured with an MTU of 1500. The Packet Core’s default UE MTU is 1300 bytes to allow for encapsulation overhead.
 
-If supported by your RAN, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher, and set the UE MTU to 1500 instead of its default value of 1440. This setup prevents any potential IPv4 fragmentation.
+This default value maximizes RAN interoperability but risks that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation and might be dropped by the network.
 
+If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher which allows for sufficient overhead for the encapsulation to avoid fragmentation when the UE uses a standard MTU of 1500.
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
 Each packet core instance is standards-compliant and compatible with several radio access network (RAN) partners in the Azure private MEC ecosystem.
