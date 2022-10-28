@@ -14,6 +14,8 @@ ms.author: jodowns
 
 # Use Azure Front Door with Azure Storage blobs
 
+Static content delivery is useful for many scenarios. Azure Front Door accelerates the delivery of static content from Azure Storage blobs, and enables a secure and scalable architecture.
+
 ## Architecture
 
 <!-- TODO Arch diagram -->
@@ -22,30 +24,38 @@ In this reference architecture, you deploy a storage account and Front Door prof
 
 ## Dataflow
 
-- Client to Front Door
-- Front Door serves from cache if available
-- Front Door sends to storage account
-- Storage account sends response to Front Door
-- Front Door caches response
-- Front Door returns response to client
+This scenario covers... Data flows through the scenario as follows:
+
+1. The client establishes a connection to Azure Front Door by using a custom domain name. The client's connection terminates at a nearby Front Door point of presence (PoP).
+1. If the Front Door PoP's cache contains a valid response for this request, Front Door returns the response immediately.
+1. Otherwise, the PoP sends the request to the origin storage account, wherever it is in the world, by using Microsoft's backbone network. The PoP connects to the storage account by using a separate, long-lived, TCP connection. In this scenario, Private Link is used to securely connect to the storage account.
+1. The storage account sends a response to the Front Door PoP. When the PoP receives the response, it stores it in its cache for subsequent requests.
+1. The PoP returns the response to the client.
 
 ## Components
 
-- Storage account and blob container
-- Front Door profile
+- [Azure Storage](TODO) stores the static content to be served.
+- [Azure Front Door](TODO) receives inbound connections from clients, securely forwards the request to the storage account, and caches responses.
 
 ## Scenario details
 
-- Static content delivery, such as images, PDF files, JSON files, and non-streaming video
-- Caching is important
+Static content delivery is useful in a number of situations, including:
+- Delivering images, CSS files, and JavaScript files for a web application.
+- Serving files, such as PDF files or JSON files.
+- Delivering non-streaming video.
+
+By its nature, static content doesn't change frequently. Static files might also be large in size. These characteristics make it a good candidate to be cached, which improves performance and reduces the cost to serve requests.
+
+In a complex scenario, a single Front Door profile might serve static content as well as dynamic content. You can use separate origin groups for each type of origin, and use Front Door's routing capabilities to route incoming requests to the correct origin.
 
 ## Considerations
 
 ### Scalability and performance
-- Traffic acceleration
-- Caching
+
+Azure Front Door is particularly well suited to improving the performance of serving static content. As a content delivery network (CDN), Front Door caches the content at its PoPs. When a cached copy of a response is available at a PoP, Front Door can quickly respond with the cached response. If the PoP doesn't have a valid cached response, Front Door's traffic acceleration capabilities reduce the time to serve the content from the origin.
 
 ### Security
+
 - Custom domains
 - Origin configuration
    - If security is important, Private Link is a good idea
