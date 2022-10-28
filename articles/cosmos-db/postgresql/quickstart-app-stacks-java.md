@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 09/28/2022
+ms.date: 10/26/2022
 ---
 
 # Java app to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -17,21 +17,7 @@ ms.date: 09/28/2022
 
 [!INCLUDE [App stack selector](includes/quickstart-selector.md)]
 
-This quickstart shows you how to build a Java app that connects to a cluster, and then uses SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Java development and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Azure Cosmos DB for PostgreSQL.
-
-> [!TIP]
-> The process of creating a Java app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
-
-## Prerequisites
-
-- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
-- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, which is included in [Azure Cloud Shell](../../cloud-shell/overview.md).
-- The [Apache Maven](https://maven.apache.org) build tool.
-- An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
-  
-The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
-
-:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
+This quickstart shows you how to use Java code to connect to a cluster, and use SQL statements to create a table. You'll then insert, query, update, and delete data in the database.  The steps in this article assume that you're familiar with Java development and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Azure Cosmos DB for PostgreSQL.
 
 ## Set up the Java project and connection
 
