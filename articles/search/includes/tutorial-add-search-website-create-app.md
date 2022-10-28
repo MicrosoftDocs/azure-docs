@@ -56,20 +56,13 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml" highlight="28-33":::
 
-1. If your action file doesn't contain the correct settings (including the location of the `api`), update those value, then commit that change and push back to your GitHub fork. 
-
-    Add action file changes.
-
-    ```bash
-    git add *.yml 
-    ```
+1. If your action file doesn't contain the correct settings (including the location of the `api`), update those values, then commit that change and push back to your GitHub fork. 
 
     Commit changes to local repository.
 
     ```bash
-    git commit -m "update action for Static web app" 
+    git add *.yml && git commit -m "update action for Static web app" 
     ```
-
     Push changes to GitHub.
 
     ```bash

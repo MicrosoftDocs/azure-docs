@@ -31,7 +31,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a configuration file
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/config.js" highlight="2,5" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/config.js":::
 
 ## Azure Function: Search the catalog
 
@@ -47,7 +47,7 @@ The Azure Function pulls in the Search configuration information, and fulfills t
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="40-51" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="41-52" :::
 
 ## Azure Function: Suggestions from the catalog
 
@@ -77,7 +77,7 @@ Routing for the Lookup API is contained in the [function.json](https://github.co
 
 This function API is called in the React app at `\src\pages\Details\Detail.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Details/Details.js" highlight="19-29" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Details/Details.js" highlight="20-30" :::
 
 ## Next steps
 
