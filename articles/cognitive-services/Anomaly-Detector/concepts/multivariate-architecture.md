@@ -42,5 +42,5 @@ In the above architecture, streaming events coming from sensor data will be stor
 
 ## Next steps
 
-- [Quickstarts](../quickstarts/client-libraries-multivariate.md).
+- [Quickstart: Detect anomalies in your time series data using Multivariate Anomaly Detection](../quickstarts/client-libraries-multivariate.md).
 - [Best Practices](../concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the  multivariate APIs.
