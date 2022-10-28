@@ -104,7 +104,8 @@ cd azureml-examples/sdk/python/endpoints/online/managed
 
 The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. It contains the same content as this article, although the order of the codes is slightly different.
 
-The steps for the Kubernetes online endpoint are based on the [kubernetes-online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/kubernetes/kubernetes-online-endpoints-safe-rollout.ipynb) notebook.
+> [!NOTE]
+> The steps for the Kubernetes online endpoint are based on the [kubernetes-online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/kubernetes/kubernetes-online-endpoints-safe-rollout.ipynb) notebook.
 
 ### Connect to Azure Machine Learning workspace
 
@@ -143,7 +144,7 @@ To create an online endpoint:
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
 
 1. Create the endpoint in the cloud, run the following code:
@@ -171,14 +172,14 @@ To create a managed online endpoint, use the `ManagedOnlineEndpoint` class. This
 
 1. Configure the endpoint:
 
-   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_endpoint)]
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_endpoint)]
+
+    > [!NOTE]
+    > To create a Kubernetes online endpoint, use the `KubernetesOnlineEndpoint` class.
 
 1. Create the endpoint:
 
-   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_endpoint)]
-
-> [!NOTE]
-> To create a Kubernetes online endpoint, use the `KubernetesOnlineEndpoint` class.
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_endpoint)]
 
 ### Create the 'blue' deployment
 
@@ -197,16 +198,16 @@ A deployment is a set of resources required for hosting the model that does the 
 
 1. Configure blue deployment:
 
-   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_deployment)]
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_deployment)]
+
+    > [!NOTE]
+    > To create a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class.
 
 1. Create the deployment:
 
-   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_deployment)]
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_deployment)]
 
-   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=deployment_traffic)]
-
-> [!NOTE]
-> To create a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class.
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=deployment_traffic)]
 
 ---
 
