@@ -31,8 +31,8 @@ If you don't configure any providers at the time of deployment, the Azure Monito
 ## Provider type: SAP NetWeaver
 
 You can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. Azure Monitor for SAP solutions NetWeaver provider uses the existing 
-- [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information (also available in Azure Monitor for SAP Solutions classic ) 
-- SAP RFC - ability to collect additional information from the SAP system leveraging Standard SAP RFC. ( Available only in Azure Monitor for SAP solution )
+- [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information (also available in Azure Monitor for SAP Solutions classic) 
+- SAP RFC - ability to collect additional information from the SAP system leveraging Standard SAP RFC. (available only in Azure Monitor for SAP solution)
 
 You can get the following data with the SAP NetWeaver provider: 
 
