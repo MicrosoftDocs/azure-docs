@@ -18,6 +18,13 @@ A sync group defines the sync topology for a set of files. Endpoints within a sy
 <a id="cloud-endpoint-mgmtinternalerror"></a>**Cloud endpoint creation fails, with this error: "MgmtInternalError"**  
 This error can occur if the Azure File Sync service cannot access the storage account due to SMB security settings. To enable Azure File Sync to access the storage account, the SMB security settings on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
 
+<a id="cloud-endpoint-mgmtforbidden"></a>**Cloud endpoint creation fails, with this error: "MgmtForbidden"**  
+This error occurs if the Azure File Sync service cannot access the storage account. 
+
+To resolve this issue, perform the following steps:
+- Verify the "Allow trusted Microsoft services to access this storage account" setting is checked on your storage account. To learn more, see [Restrict access to the storage account public endpoint](file-sync-networking-endpoints.md#restrict-access-to-the-storage-account-public-endpoint).
+- Verify the SMB security settings on your storage account. To enable Azure File Sync to access the storage account, the SMB security settings on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+
 <a id="cloud-endpoint-authfailed"></a>**Cloud endpoint creation fails, with this error: "AuthorizationFailed"**  
 This error occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
 

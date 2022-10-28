@@ -161,7 +161,7 @@ Here's how you can create a wildcard index on all fields:
 
 You can also create wildcard indexes using the Data Explorer in the Azure portal:
 
-:::image type="content" source="/media/indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
+![Add wildcard index in indexing policy editor](./media/indexing/add-wildcard-index.png)
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
