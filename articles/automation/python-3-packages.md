@@ -165,6 +165,107 @@ for package in installed_packages_list:
     print(package)
 ```
 
+### Python 3.8 PowerShell cmdlets
+
+#### Add new Python 3.8 package
+
+```python
+New-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name requires.io -ContentLinkUri https://files.pythonhosted.org/packages/7f/e2/85dfb9f7364cbd7a9213caea0e91fc948da3c912a2b222a3e43bc9cc6432/requires.io-0.2.6-py2.py3-none-any.whl 
+
+Response  
+ResourceGroupName     : mahja 
+AutomationAccountName : tarademo 
+Name                  : requires.io 
+IsGlobal              : False 
+Version               : 
+SizeInBytes           : 0 
+ActivityCount         : 0 
+CreationTime          : 9/26/2022 1:37:13 PM +05:30 
+LastModifiedTime      : 9/26/2022 1:37:13 PM +05:30 
+ProvisioningState     : Creating 
+```
+
+#### List all Python 3.8 packages
+
+```python
+Get-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja 
+
+Response : 
+ResourceGroupName     : mahja 
+AutomationAccountName : tarademo 
+Name                  : cryptography 
+IsGlobal              : False 
+Version               : 
+SizeInBytes           : 0 
+ActivityCount         : 0 
+CreationTime          : 9/26/2022 11:52:28 AM +05:30 
+LastModifiedTime      : 9/26/2022 12:11:00 PM +05:30 
+ProvisioningState     : Failed 
+ResourceGroupName     : mahja 
+AutomationAccountName : tarademo 
+Name                  : requires.io 
+IsGlobal              : False 
+Version               : 
+SizeInBytes           : 0 
+ActivityCount         : 0 
+CreationTime          : 9/26/2022 1:37:13 PM +05:30 
+LastModifiedTime      : 9/26/2022 1:39:04 PM +05:30 
+ProvisioningState     : ContentValidated 
+ResourceGroupName     : mahja 
+AutomationAccountName : tarademo 
+Name                  : sockets 
+IsGlobal              : False 
+Version               : 1.0.0 
+SizeInBytes           : 4495 
+ActivityCount         : 0 
+CreationTime          : 9/20/2022 12:46:28 PM +05:30 
+LastModifiedTime      : 9/22/2022 5:03:42 PM +05:30 
+ProvisioningState     : Succeeded 
+```
+
+#### Obtain details about specific package
+
+```python
+Get-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name sockets 
+
+
+Response  
+ResourceGroupName     : mahja 
+AutomationAccountName : tarademo 
+Name                  : sockets 
+IsGlobal              : False 
+Version               : 1.0.0 
+SizeInBytes           : 4495 
+ActivityCount         : 0 
+CreationTime          : 9/20/2022 12:46:28 PM +05:30 
+LastModifiedTime      : 9/22/2022 5:03:42 PM +05:30 
+ProvisioningState     : Succeeded 
+```
+
+#### Remove Python 3.8 package
+
+```python
+Remove-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name sockets 
+```
+
+#### Update Python 3.8 package
+
+```python
+Set-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name requires.io -ContentLinkUri https://files.pythonhosted.org/packages/7f/e2/85dfb9f7364cbd7a9213caea0e91fc948da3c912a2b222a3e43bc9cc6432/requires.io-0.2.6-py2.py3-none-any.whl 
+
+
+ResourceGroupName     : mahja 
+AutomationAccountName : tarademo 
+Name                  : requires.io 
+IsGlobal              : False 
+Version               : 0.2.6 
+SizeInBytes           : 10109 
+ActivityCount         : 0 
+CreationTime          : 9/26/2022 1:37:13 PM +05:30 
+LastModifiedTime      : 9/26/2022 1:43:12 PM +05:30 
+ProvisioningState     : Creating 
+```
+
 ## Next steps
 
 To prepare a Python runbook, see [Create a Python runbook](learn/automation-tutorial-runbook-textual-python-3.md).
