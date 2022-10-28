@@ -97,10 +97,16 @@
     href: management.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
-  - name: FSLogix profile containers and Azure Files
-    href: fslogix-containers-azure-files.md
-  - name: Storage options for FSLogix profile containers
-    href: store-fslogix-profile.md
+  - name: User Profile Management
+    items:
+    - name: FSLogix Overview
+      href: /fslogix/overview
+    - name: Container Types
+      href: /fslogix/profile-container-office-container-cncpt
+    - name: FSLogix profile containers and Azure Files
+      href: fslogix-containers-azure-files.md
+    - name: Storage options for FSLogix profile containers
+      href: store-fslogix-profile.md
   - name: Scale session hosts
     items:
     - name: Autoscale
@@ -221,8 +227,12 @@
     href: delete-host-pool.md
   - name: Set up email discovery
     href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
-  - name: FSLogix Profile Container
+  - name: User Profile Management
     items:
+      - name: Use FSLogix Group Policy template Files
+        href: /fslogix/use-group-policy-templates-ht
+      - name: Configure storage for Profile and ODFC Containers
+        href: /fslogix/fslogix-storage-config-ht
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
