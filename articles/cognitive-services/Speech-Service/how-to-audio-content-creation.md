@@ -14,7 +14,7 @@ ms.author: eur
 
 # Speech synthesis with the Audio Content Creation tool
 
-You can use the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
+You can use the [Audio Content Creation](https://speech.microsoft.com/portal/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
 
 Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune text-to-speech voices and design customized audio experiences. 
 
@@ -192,7 +192,7 @@ Users now visit or refresh the [Audio Content Creation](https://aka.ms/audiocont
 
 If they can't find the available Speech resource, they can check to ensure that they're in the right directory. To do so, they select the account profile at the upper right and then select **Switch** next to **Current directory**. If there's more than one directory available, it means they have access to multiple directories. They can switch to different directories and go to **Settings** to see whether the right Speech resource is available. 
 
-Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
+Users who are in the same Speech resource will see each other's work in the Audio Content Creation tool. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
 
 ### Remove users from a Speech resource
 

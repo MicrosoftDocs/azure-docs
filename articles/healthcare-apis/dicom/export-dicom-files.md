@@ -98,7 +98,7 @@ The only setting is the list of identifiers to export.
 | :------- | :------- | :------ | :---------- |
 | `Values` | Yes      |         | A list of one or more DICOM studies, series, and/or SOP instances identifiers in the format of `"<StudyInstanceUID>[/<SeriesInstanceUID>[/<SOPInstanceUID>]]"`. |
 
-### Destination Settings
+### Destination settings
 
 The connection to the Azure Blob storage account is specified with a `BlobContainerUri`. 
 
@@ -167,7 +167,7 @@ Content-Type: application/json
     "lastUpdatedTime": "2022-09-08T16:41:01.2776644Z",
     "status": "completed",
     "results": {
-        "errorHref": "<container uri>/4853cda8c05c44e497d2bc071f8e92c4/errors.log",
+        "errorHref": "https://dicomexport.blob.core.windows.net/export/4853cda8c05c44e497d2bc071f8e92c4/errors.log",
         "exported": 1000,
         "skipped": 3
     }
