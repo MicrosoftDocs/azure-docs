@@ -713,7 +713,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 
 # [Python](#tab/python)
 
-If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update`](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations.md#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update) module/method. 
+If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update`](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update) module/method. 
 
 > [!NOTE]
 > If you update instance count and along with other model settings (code, model, or environment) in a single `begin_create_or_update` method: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
