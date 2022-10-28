@@ -9,7 +9,7 @@ ms.author: juliako
 
 # Azure Video Indexer release notes
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
@@ -41,23 +41,23 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## September 2022
+## October 2022
 
-### Azure Monitor integration enabling indexing logs 
+### A new built-in role: Video Indexer Restricted Viewer
 
-Azure Video Indexer now supports Diagnostics settings for indexing events. Users can now export Logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
+The limited access **Video Indexer Restricted Viewer** role is intended for the [Azure Video Indexer website](https://www.videoindexer.ai/) users. The role's permitted actions relate to the [Azure Video Indexer website](https://www.videoindexer.ai/) experience. 
 
-The new set of Logs allows users to better monitor their indexing pipeline.
+For more information, see [Manage access with the Video Indexer Restricted Viewer role](restricted-viewer-role.md).
 
-### General availability of Azure Resource Management (ARM)
+### Slate detection insights (preview)
 
-With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
+The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
 
-- The [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
-- Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
-- Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
- 
-To create an ARM-based account, see [create an account](create-account-portal.md).
+* Clapperboard detection with metadata extraction.
+* Digital patterns detection, including color bars.
+* Textless slate detection, including scene matching.
+
+For details, see [Slate detection](slate-detection-insight.md).
 
 ### New source languages support for STT, translation, and search
 
@@ -65,11 +65,44 @@ Now supporting source languages for STT (speech-to-text), translation, and searc
 
 For more information, see [supported languages](language-support.md).
 
+### Edit a speaker's name in the transcription through the API
+
+You can now edit the name of the speakers in the transcription using the Azure Video Indexer API. 
+
+### Word level time annotation with confidence score
+
+An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
+
+Now supporting word level time annotation with confidence score. 
+
+### Azure Monitor integration enabling indexing logs 
+
+The new set of logs, described below, enables you to better monitor your indexing pipeline.
+
+Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
+
 ### Expanded supported languages in LID and MLID through the API
 
-We expanded the list of the supported languages in LID (language identification) and MLID (multi language identification) using APIs. 
+We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
 
 For more information, see [supported languages](language-support.md).
+
+### Configure confidence level in a person model with an API
+
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
+
+## September 2022
+
+### General availability of ARM-based accounts
+
+With an Azure Resource Management (ARM) based [paid (unlimited)](accounts-overview.md) accounts, you are able to use: 
+
+- [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
+- Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
+- Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
+- [Create logic apps connector for ARM-based accounts](logic-apps-connector-arm-accounts.md).   
+
+To create an ARM-based account, see [create an account](create-account-portal.md).
 
 ## August 2022
 

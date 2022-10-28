@@ -36,7 +36,7 @@ If you are using the Azure portal to create a workflow, you can customize existi
 1. select **Workflows (Preview)** 
 
 1. On the workflows screen, select the workflow template that you want to use. 
- :::image type="content" source="media/create-lifecycle-workflow/template-list.png" alt-text="Screenshot of a list of lifecycle workflows templates.":::
+ :::image type="content" source="media/create-lifecycle-workflow/template-list.png" alt-text="Screenshot of a list of lifecycle workflows templates." lightbox="media/create-lifecycle-workflow/template-list.png":::
 1. Enter a unique display name and description for the workflow and select **Next**.
  :::image type="content" source="media/create-lifecycle-workflow/template-basics.png" alt-text="Screenshot of workflow template basic information.":::
 

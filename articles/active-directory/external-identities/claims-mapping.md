@@ -11,7 +11,7 @@ ms.date: 04/06/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
+
 
 ms.collection: M365-identity-device-management
 ---

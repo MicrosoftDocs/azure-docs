@@ -32,7 +32,7 @@ You must grant your consent to the partner to create partner topics in a resourc
 > For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to provision your partner topic. Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
 
 > [!NOTE]
-> Event Grid started enforcing authorization checks to create partner topics or partner destinations around June 30th, 2022. 
+> Event Grid started enforcing authorization checks to create partner topics around June 30th, 2022. 
 
 Following example shows the way to create a partner configuration resource that contains the partner authorization. You must identify the partner by providing either its **partner registration ID** or the **partner name**. Both can be obtained from your partner, but only one of them is required. For your convenience, the following examples leave a sample expiration time in the UTC format.
 
@@ -44,13 +44,13 @@ Following example shows the way to create a partner configuration resource that 
 
     :::image type="content" source="./media/subscribe-to-partner-events/partner-configurations.png" alt-text="Event Grid Partner Configurations page showing the list of partner configurations and the link to create a partner registration.":::    
 1. On the **Create Partner Configuration** page, do the following steps: 
-    1. In the **Project Details** section, select the **Azure subscription** and the **resource group** where you want to allow the partner to create a partner topic or partner destination. 
+    1. In the **Project Details** section, select the **Azure subscription** and the **resource group** where you want to allow the partner to create a partner topic. 
     1. In the **Partner Authorizations** section, specify a default expiration time for partner authorizations defined in this configuration. 
-    1. To provide your authorization for a partner to create partner topics or partner destinations in the specified resource group, select **+ Partner Authorization** link. 
+    1. To provide your authorization for a partner to create partner topics in the specified resource group, select **+ Partner Authorization** link. 
     
         :::image type="content" source="./media/subscribe-to-partner-events/partner-authorization-configuration.png" alt-text="Create Partner Configuration page with the Partner Authorization link selected.":::
         
-1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity has been validated by Microsoft. You can select a verified partner, and select **Add** button at the bottom to give the partner the authorization to add a partner topic or a partner destination in your resource group. This authorization is effective up to the expiration time. 
+1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity has been validated by Microsoft. You can select a verified partner, and select **Add** button at the bottom to give the partner the authorization to add a partner topic in your resource group. This authorization is effective up to the expiration time. 
 
     You also have an option to authorize a **non-verified partner.** Unless the partner is an entity that you know well, for example, an organization within your company, it's strongly encouraged that you only work with verified partners. If the partner isn't yet verified, encourage them to get verified by asking them to contact the Event Grid team at askgrid@microsoft.com. 
 
@@ -82,6 +82,7 @@ Here's the list of partners and a link to submit a request to enable events flow
 
 - [Auth0](auth0-how-to.md)
 - [Microsoft Graph API](subscribe-to-graph-api-events.md)
+- [SAP](subscribe-to-sap-events.md)
 
 
 ## Activate a partner topic
@@ -118,7 +119,7 @@ Subscribing to the partner topic tells Event Grid where you want your partner ev
 1. On the **Create Event Subscription** page, do the following steps:
     1. Enter a **name** for the event subscription.
     1. For **Filter to Event Types**, select types of events that your subscription will receive.
-    1. For **Endpoint Type**, select an Azure service (Azure Function, Storage Queues, Event Hubs, Service Bus Queue, Service Bus Topic, Hybrid Connections. etc.), Web Hook, or Partner Destination.
+    1. For **Endpoint Type**, select an Azure service (Azure Function, Storage Queues, Event Hubs, Service Bus Queue, Service Bus Topic, Hybrid Connections. etc.), or webhook.
     1. Click the **Select an endpoint** link. In this example, let's use Azure Event Hubs destination or endpoint. 
     
         :::image type="content" source="./media/subscribe-to-partner-events/select-endpoint.png" lightbox="./media/subscribe-to-partner-events/select-endpoint.png" alt-text="Image showing the configuration of an endpoint for an event subscription.":::            
@@ -137,4 +138,3 @@ See the following articles for more details about the Partner Events feature:
 - [Partner Events overview for customers](partner-events-overview.md)
 - [Partner Events overview for partners](partner-events-overview-for-partners.md)
 - [Onboard as a partner](onboard-partner.md)
-- [Deliver events to partner destinations](deliver-events-to-partner-destinations.md)

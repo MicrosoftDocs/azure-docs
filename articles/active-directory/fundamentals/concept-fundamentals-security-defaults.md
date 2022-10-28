@@ -142,8 +142,6 @@ This policy applies to all users who are accessing Azure Resource Manager servic
 
 Security defaults users are required to register for and use Azure AD Multi-Factor Authentication **using the Microsoft Authenticator app using notifications**. Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option. 
 
-Starting in July 2022, anyone with the global administrator role assigned to them will be required to register a phone-based method like call or text as a backup method.
-
 > [!WARNING]
 > Do not disable methods for your organization if you are using security defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
 

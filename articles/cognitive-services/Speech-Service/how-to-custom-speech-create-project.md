@@ -87,7 +87,7 @@ spx help csr project
 
 ::: zone pivot="rest-api"
 
-To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `locale` property. This should be the locale of the contained datasets. The locale can't be changed later.
 - Set the required `displayName` property. This is the project name that will be displayed in the Speech Studio.

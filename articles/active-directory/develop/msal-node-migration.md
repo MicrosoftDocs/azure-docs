@@ -2,7 +2,7 @@
 title: "Migrate your Node.js application from ADAL to MSAL"
 description: How to update your existing Node.js application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
-ms.author: marsma
+ms.author: cwerner
 ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.
 ---
@@ -71,7 +71,7 @@ const msal = require('@azure/msal-node');
 
 const pca = new msal.PublicClientApplication({
         auth: {
-            clientId = "YOUR_CLIENT_ID"
+            clientId: "YOUR_CLIENT_ID"
         }
     });
 ```
@@ -86,8 +86,8 @@ const msal = require('@azure/msal-node');
 
 const cca = new msal.ConfidentialClientApplication({
         auth: {
-            clientId = "YOUR_CLIENT_ID",
-            clientSecret = "YOUR_CLIENT_SECRET"
+            clientId: "YOUR_CLIENT_ID",
+            clientSecret: "YOUR_CLIENT_SECRET"
         }
     });
 ```

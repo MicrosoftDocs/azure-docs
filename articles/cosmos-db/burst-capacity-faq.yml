@@ -5,13 +5,13 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.service: cosmos-db
-  ms.custom: event-tier1-build-2022
+  ms.custom: event-tier1-build-2022, ignite-2022
   ms.topic: faq
   ms.reviewer: dech
   ms.date: 05/09/2022
 title: Frequently asked questions on burst capacity in Azure Cosmos DB (preview)
 summary: |
-  [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+  [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
   
   Azure Cosmos DB burst capacity (preview) allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. This article answers commonly asked questions about Azure Cosmos DB burst capacity.
 
@@ -39,7 +39,7 @@ sections:
       - question: |
           How can I monitor burst capacity?
         answer: |
-          [Azure Monitor metrics](monitor-cosmos-db.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits (preview)** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
+          [Azure Monitor metrics](monitor.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits (preview)** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
       - question: |
           How can I see which resources have less than 3000 RU/s per physical partition?
         answer: |

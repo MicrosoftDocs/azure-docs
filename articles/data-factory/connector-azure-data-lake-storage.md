@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/15/2022
+ms.date: 09/01/2022
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -543,7 +543,7 @@ Format specific settings are located in the documentation for that format. For m
 
 In the source transformation, you can read from a container, folder, or individual file in Azure Data Lake Storage Gen2. The **Source options** tab lets you manage how the files get read. 
 
-:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
+:::image type="content" source="media/data-flow/source-options-1.png" alt-text="Screenshot of source options tab in mapping data flow source transformation.":::
 
 **Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
 
@@ -565,7 +565,7 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
 
-:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
+:::image type="content" source="media/data-flow/part-file-2.png" alt-text="Screenshot of partition source file settings in mapping data flow source transformation.":::
 
 Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
 

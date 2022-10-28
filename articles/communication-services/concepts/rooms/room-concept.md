@@ -58,7 +58,7 @@ Use rooms when you need any of the following capabilities:
 
 The picture below illustrates the concept of managing and joining the rooms.
 
-:::image type="content" source="../media/rooms/rooms-management.png" alt-text="Diagram showing Rooms Management.":::
+:::image type="content" source="../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
  
 ### Rooms API/SDKs
 

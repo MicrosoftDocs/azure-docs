@@ -44,9 +44,10 @@ You can associate Active Directory groups defined here with specific permission 
    |--|--|
    | Domain controller FQDN | Set the fully qualified domain name (FQDN) exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`. |
    | Domain controller port | Define the port on which your LDAP is configured. |
-   | Primary domain | Set the domain name (for example, `subdomain.domain.com`) and the connection type according to your LDAP configuration. |
+   | Primary domain | Set the domain name (for example, `subdomain.domain.com`) |
+   | Connection type | Set the authentication type: LDAPS/NTLMv3 (Recommended), LDAP/NTLMv3 or LDAP/SASL-MD5 |
    | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. You can enter a group name that you'll associate with Admin, Security Analyst and Read-only permission levels. Use these groups when creating new sensor users.|
-   | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
+   | Trusted endpoints | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted endpoints only for users who were defined under users. |
 
     ### Active Directory groups for the on-premises management console
 

@@ -33,7 +33,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-3. No [NSG rules](../network-security-groups-overview.md#outbound) or UDRs are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](./troubleshoot-nat-connectivity.md#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -177,7 +177,7 @@ NAT gateway can't be associated with more than 16 public IP addresses. You can u
 
 ### Can't use basic SKU public IPs with NAT gateway 
 
-NAT gateway is a standard SKU resource and can't be used with basic SKU resources, including basic public IP addresses. You can upgrade your basic SKU public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address](/azure/virtual-network/ip-services/public-ip-upgrade-portal) 
+NAT gateway is a standard SKU resource and can't be used with basic SKU resources, including basic public IP addresses. You can upgrade your basic SKU public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md) 
 
 ### Can't mismatch zones of public IP addresses and NAT gateway 
 
