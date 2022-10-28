@@ -30,13 +30,13 @@ The following information describes the differences between the older Azure Ente
 ## Migration checklist
 
 - Familiarize yourself with the [Azure Resource Manager REST APIs](/rest/api/azure).
-- Determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Enterprise Reporting API mapping to new Cost Management APIs](../costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md#ea-api-mapping-to-new-azure-resource-manager-apis).
+- Determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Configure service authorization and authentication for the Cost Management APIs. For more information, see [Assign permission to ACM APIs](cost-management-api-permissions.md).
 - Test the APIs and then update any programming code to replace Enterprise Reporting API calls with Cost Management API calls.
 - Update error handling to use new error codes. Some considerations include:
     - Cost Management APIs have a timeout period of 60 seconds.
     - Cost Management APIs have rate limiting in place. This results in a `429 throttling error` if rates are exceeded. Build your solutions so that you don't make too many API calls in a short time period.
-- Review the other Cost Management APIs available through Azure Resource Manager and assess for use later. For more information, see [Use additional Cost Management APIs](../costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md#use-additional-cost-management-apis).
+- Review the other Cost Management APIs available through Azure Resource Manager and assess for use later. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
 
 ## Enterprise Reporting API mapping to new Cost Management APIs
 
@@ -63,6 +63,6 @@ After you've migrated to the Cost Management APIs for your existing reporting sc
 ## Next steps
 
 - Familiarize yourself with the [Azure Resource Manager REST APIs](/rest/api/azure).
-- If needed, determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Enterprise Reporting API mapping to new Cost Management APIs](../costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md#ea-api-mapping-to-new-azure-resource-manager-apis).
+- If needed, determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
 - If needed, update any of your programming code to use [Azure AD authentication](/rest/api/azure/#create-the-request) with your service principal.

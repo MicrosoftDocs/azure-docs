@@ -3,7 +3,8 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 10/04/2022
+ms.custom: ignite-2022
+ms.date: 10/28/2022
 ---
 
 # Configure an AKS cluster
@@ -122,6 +123,175 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 > With ephemeral OS you can deploy VM and instance images up to the size of the VM cache. In the AKS case, the default node OS disk configuration uses 128 GB, which means that you need a VM size that has a cache larger than 128 GB. The default Standard_DS2_v2 has a cache size of 86 GB, which isn't large enough. The Standard_DS3_v2 has a cache size of 172 GB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`. The minimum size for AKS images is 30 GB.
 
 If you want to create node pools with network-attached OS disks, you can do so by specifying `--node-osdisk-type Managed`.
+
+## Mariner OS
+
+Mariner can be deployed on AKS through Azure CLI or ARM templates.
+
+### Prerequisites
+
+1. You need the latest version of Azure CLI. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+2. You need the `aks-preview` Azure CLI extension for the ability to select the Mariner 2.0 operating system SKU. Run `az extension remove --name aks-preview` to clear any previous versions, then run `az extension add --name aks-preview`.
+3. If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
+
+### Deploy an AKS Mariner cluster with Azure CLI
+
+Use the following example commands to create a Mariner cluster.
+
+```azurecli
+az group create --name MarinerTest --location eastus
+
+az aks create --name testMarinerCluster --resource-group MarinerTest --os-sku mariner
+
+az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
+
+kubectl get pods --all-namespaces
+```
+
+### Deploy an AKS Mariner cluster with an ARM template
+
+To add Mariner to an existing ARM template, you need to add `"osSKU": "mariner"` and `"mode": "System"` to `agentPoolProfiles` and set the apiVersion to 2021-03-01 or newer (`"apiVersion": "2021-03-01"`). The following deployment uses the ARM template "marineraksarm.yml".
+
+```yml
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.1",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "defaultValue": "marinerakscluster",
+      "metadata": {
+        "description": "The name of the Managed Cluster resource."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "The location of the Managed Cluster resource."
+      }
+    },
+    "dnsPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
+      }
+    },
+    "osDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 0,
+      "minValue": 0,
+      "maxValue": 1023,
+      "metadata": {
+        "description": "Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 will apply the default disk size for that agentVMSize."
+      }
+    },
+    "agentCount": {
+      "type": "int",
+      "defaultValue": 3,
+      "minValue": 1,
+      "maxValue": 50,
+      "metadata": {
+        "description": "The number of nodes for the cluster."
+      }
+    },
+    "agentVMSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS2_v2",
+      "metadata": {
+        "description": "The size of the Virtual Machine."
+      }
+    },
+    "linuxAdminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "User name for the Linux Virtual Machines."
+      }
+    },
+    "sshRSAPublicKey": {
+      "type": "string",
+      "metadata": {
+        "description": "Configure all linux machines with the SSH RSA public key string. Your key should include three parts, for example 'ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm'"
+      }
+    },
+    "osType": {
+      "type": "string",
+      "defaultValue": "Linux",
+      "allowedValues": [
+        "Linux"
+      ],
+      "metadata": {
+        "description": "The type of operating system."
+      }
+    },
+    "osSKU": {
+      "type": "string",
+      "defaultValue": "mariner",
+      "allowedValues": [
+        "mariner",
+        "Ubuntu",
+      ],
+      "metadata": {
+        "description": "The Linux SKU to use."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      "apiVersion": "2021-03-01",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "dnsPrefix": "[parameters('dnsPrefix')]",
+        "agentPoolProfiles": [
+          {
+            "name": "agentpool",
+            "mode": "System",
+            "osDiskSizeGB": "[parameters('osDiskSizeGB')]",
+            "count": "[parameters('agentCount')]",
+            "vmSize": "[parameters('agentVMSize')]",
+            "osType": "[parameters('osType')]",
+            "osSKU": "[parameters('osSKU')]",
+            "storageProfile": "ManagedDisks"
+          }
+        ],
+        "linuxProfile": {
+          "adminUsername": "[parameters('linuxAdminUsername')]",
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "[parameters('sshRSAPublicKey')]"
+              }
+            ]
+          }
+        }
+      },
+      "identity": {
+          "type": "SystemAssigned"
+      }
+    }
+  ],
+  "outputs": {
+    "controlPlaneFQDN": {
+      "type": "string",
+      "value": "[reference(parameters('clusterName')).fqdn]"
+    }
+  }
+}
+```
+
+Create this file on your system and fill it with the contents of the Mariner AKS YAML file.
+
+```azurecli
+az group create --name MarinerTest --location eastus
+
+az deployment group create --resource-group MarinerTest --template-file marineraksarm.yml --parameters clusterName=testMarinerCluster dnsPrefix=marineraks1 linuxAdminUsername=azureuser sshRSAPublicKey=`<contents of your id_rsa.pub>`
+
+az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
+
+kubectl get pods --all-namespaces
+```
 
 ## Custom resource group name
 

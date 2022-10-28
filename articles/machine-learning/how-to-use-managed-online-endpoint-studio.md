@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-build-2022
-ms.author: sehan
 author: dem108
-ms.reviewer: larryfr
+ms.author: sehan
+ms.reviewer: mopeakande
 ms.date: 09/07/2022
 ---
 

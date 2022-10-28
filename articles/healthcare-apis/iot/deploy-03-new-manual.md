@@ -1,12 +1,12 @@
 ---
 title: Overview of manually deploying the MedTech service using the Azure portal - Azure Health Data Services
 description: In this article, you'll see an overview of how to manually deploy the MedTech service in the Azure portal.
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/30/2022
-ms.author: v-smcevoy
+ms.date: 10/10/2022
+ms.author: jasteppe
 ---
 
 # How to manually deploy MedTech service using the Azure portal
@@ -19,7 +19,7 @@ The explanation of MedTech service manual deployment using the Azure portal is d
 - Part 2: Configuration (see [Configure for manual deployment](./deploy-05-new-config.md))
 - Part 3: Deployment and Post Deployment (see [Manual deployment and post-deployment](./deploy-06-new-deploy.md))
 
-If you need a diagram with information on the MedTech service deployment, there is an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resource (FHIR) Observation.
+If you need a diagram with information on the MedTech service deployment, there is an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation.
 
 ## Part 1: Prerequisites
 

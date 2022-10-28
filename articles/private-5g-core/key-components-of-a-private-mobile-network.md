@@ -46,4 +46,5 @@ The following diagram shows the key resources you'll use to manage your private 
 
 ## Next steps
 
+- [Learn more about the design requirements for deploying a private mobile network](private-mobile-network-design-requirements.md)
 - [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)

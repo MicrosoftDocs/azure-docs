@@ -135,3 +135,4 @@ You can create an Azure support request to increase the adjustable limits from t
 - [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 - [Regional capacity quota for Azure NetApp Files](regional-capacity-quota.md)
 - [Request region access for Azure NetApp Files](request-region-access.md)
+- [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

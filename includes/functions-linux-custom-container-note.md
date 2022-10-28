@@ -15,4 +15,4 @@ ms.author: glenga
 > + [PowerShell](https://hub.docker.com/_/microsoft-azure-functions-powershell)
 > + [Python](https://hub.docker.com/_/microsoft-azure-functions-python)
 >
-> The Functions team regularly updates these base images with the latest minor version updates and security fixes for both the Functions runtime and languages. For custom containers, you should regularly update the base image in the Dockerfile, rebuild, and redeploy updated versions of your custom containers. 
+> The Functions team is committed to publishing monthly updates for these base images. Regular updates include the latest minor version updates and security fixes for both the Functions runtime and languages. For custom containers, you should regularly update the base image in the Dockerfile, rebuild, and redeploy updated versions of your custom containers. 

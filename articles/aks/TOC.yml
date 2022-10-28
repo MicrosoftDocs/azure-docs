@@ -130,6 +130,8 @@
               href: operator-best-practices-cluster-isolation.md
             - name: Basic scheduler features
               href: operator-best-practices-scheduler.md
+            - name: Run AKS clusters at scale
+              href: operator-best-practices-run-at-scale.md
             - name: Advanced scheduler features
               href: operator-best-practices-advanced-scheduler.md
             - name: Networking
@@ -184,7 +186,7 @@
           href: cluster-configuration.md
         - name: Custom node configuration
           href: custom-node-configuration.md
-        - name: Use cluster snapshots
+        - name: Use cluster snapshots (preview)
           href: managed-cluster-snapshot.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
@@ -216,6 +218,8 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
+        - name: Connect to cluster nodes
+          href: node-access.md
         - name: Create virtual nodes
           items:
             - name: Use virtual nodes
@@ -238,7 +242,7 @@
               href: use-multiple-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
-            - name: Use Confidential Virtual Machines (preview)
+            - name: Use Confidential Virtual Machines
               href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
@@ -248,6 +252,8 @@
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
+        - name: Use the Mariner container host
+          href: use-mariner.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -346,8 +352,6 @@
                   href: csi-secrets-store-identity-access.md
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
-                - name: Troubleshooting
-                  href: csi-secrets-store-troubleshooting.md
     - name: Configure private clusters
       items:
       - name: Create a private cluster
@@ -370,10 +374,14 @@
           href: api-server-vnet-integration.md
         - name: Bring your own CNI
           href: use-byo-cni.md
+        - name: Use Azure CNI Powered by Cilium (Preview)
+          href: azure-cni-powered-by-cilium.md
         - name: Create an internal load balancer
           href: internal-lb.md
         - name: Use a Standard Load Balancer
           href: load-balancer-standard.md
+        - name: Use kube-proxy configuration (IPVS)
+          href: configure-kube-proxy.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
         - name: Use an HTTP proxy
@@ -523,7 +531,7 @@
         - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
           href: keda-integrations.md
         - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
-          href: keda-troubleshoot.md
+          href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
     - name: Use Web Application Routing (preview)
       href: web-app-routing.md
     - name: Use cluster extensions
@@ -546,18 +554,6 @@
           href: automated-deployments.md
         - name: CI/CD with Azure Pipelines
           href: ../aks/devops-pipeline.md
-    - name: Troubleshoot
-      items:
-        - name: Common issues
-          href: troubleshooting.md
-        - name: Node access
-          href: node-access.md
-        - name: Linux performance tools
-          href: troubleshoot-linux.md
-        - name: Check for Resource Health events (preview)
-          href: aks-resource-health.md
-        - name: Azure Kubernetes Service Diagnostics (preview)
-          href: concepts-diagnostics.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -599,3 +595,5 @@
       href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
     - name: FAQ
       href: faq.md
+- name: Support and troubleshooting
+  href: aks-support-help.md

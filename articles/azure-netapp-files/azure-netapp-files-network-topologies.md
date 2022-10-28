@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 10/26/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -47,7 +47,6 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	France Central
 *   Germany West Central
 *   Japan East
-*   Japan West
 *   Korea Central
 *	North Central US
 *   North Europe
@@ -55,8 +54,10 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	South Central US
 *   South India 
 *   Southeast Asia
+*   Sweden Central
 *   Switzerland North
 *   UAE Central
+*   UAE North
 *   UK South
 *	West Europe
 *   West US
@@ -108,6 +109,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
+| Connectivity over Active/Passive Zone Redundant gateways | Yes | Yes |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
 
 \* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
