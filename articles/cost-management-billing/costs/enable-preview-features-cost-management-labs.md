@@ -166,7 +166,16 @@ Charts are enabled on the [Try preview](https://aka.ms/costmgmt/trypreview) page
 
 Show the forecast for the current period at the top of the cost analysis preview.
 
-Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
+The Forecast KPI can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
+
+
+<a name="cav3delta"></a>
+
+## Compare cost with previous period in the cost analysis preview
+
+Show the percentage difference in cost compared to the previous period at the top of the cost analysis preview. When your view is showing 3 months or less, the difference is calculated as the cost from the start of the period through yesterday compared to the the same days from the previous period. If showing more than 3 months, the date range uses the first month through last month. If the current day or month are not included, the entire period is compared to the previous period.
+
+The previous period delta can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
 
 
 <a name="productscolumn"></a>
@@ -175,7 +184,7 @@ Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview)
 
 Every service tracks different usage attributes of the resources you've deployed. Each of these usage attributes is tracked via a "meter" in your cost data. Meters are grouped into categories and include other metadata to help you understand the charges. We’re testing new columns in the Resources and Services views in the cost analysis preview for Microsoft Customer Agreement. You may see a single Product column instead of the Service, Tier, and Meter columns.
 
-You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Note this preview is only applicable for Microsoft Customer Agreement accounts.
+**The Product column is available by default in the cost analysis preview for Microsoft Customer Agreement accounts.**
 
 
 <a name="recommendationinsights"></a>
@@ -184,7 +193,7 @@ You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/
 
 Cost insights surface important details about your subscriptions, like potential anomalies or top cost contributors. To support your cost optimization goals, cost insights now include the total cost savings available from Azure Advisor for your subscription.
 
-You can enable cost savings insights for subscriptions from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
+**Cost savings insights are available by default for all subscriptions in the cost analysis preview.**
 
 
 <a name="resourceessentials"></a>
@@ -202,7 +211,7 @@ The view cost link is enabled by default in the [Azure preview portal](https://p
 
 Learn about new and updated features or other announcements directly from within the Cost Management experience in the Azure portal. You can also follow along using the [Cost Management updates on the Azure blog](https://aka.ms/costmgmt/blog).
 
-What's new can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
+**What's new is available by default from the [Cost Management overview](https://aka.ms/costmgmt/whatsnew) in the Azure portal.
 
 
 <a name="onlyinconfig"></a>
