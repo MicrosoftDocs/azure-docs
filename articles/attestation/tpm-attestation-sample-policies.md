@@ -313,7 +313,7 @@ c:[type=="events", issuer=="AttestationService"] => issue(type="DriverLoadPolicy
 
 ```
 
-### Attestation policy for Key attestation, validating keys and propterties of the key.
+### Attestation policy for Key attestation, validating keys and properties of the key.
 
 ```
 version=1.2;

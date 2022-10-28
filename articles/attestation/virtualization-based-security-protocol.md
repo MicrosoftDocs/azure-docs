@@ -1,5 +1,5 @@
 ---
-title: Virtualization-based Security (VBS) protocol for Azure Attestation
+title: Virtualization-based security (VBS) protocol for Azure Attestation
 description: VBS attestation protocol 
 services: attestation
 author: msmbaldwin
@@ -23,9 +23,7 @@ The protocol has 2 messages exchanges:
 * Init Message
 * Request Message
 
-<B><U> Insert image of protocol messages </B></U>
-
-### Init Message
+### Init message
 Message to establish context for the request message.
 
 #### Direction
@@ -67,7 +65,7 @@ Payload containing the data that is to be attested by the attestation service.
 
 Note: Support for IMA measurement logs and Keys has been added to Request message, and can be found in the Request Message V2 section
 
-## Request Message V1
+## Request message v1
 
 #### Direction
 
@@ -89,7 +87,7 @@ BASE64URL(JWS Payload) || '.' ||
 
 BASE64URL(JWS Signature)
 
-##### JWS Protected Header
+##### JWS protected header
 
 ```
 {
@@ -99,7 +97,7 @@ BASE64URL(JWS Signature)
 }
 ```
 
-##### JWS Payload
+##### JWS payload
 
 JWS payload can be of type basic or VBS. Basic is used when attestation evidence does not include VBS data. 
 
@@ -263,7 +261,7 @@ Azure Attestation -> Client
 
 **report** (JWT): The attestation report in JSON Web Token (JWT) format (RFC 7519).
 
-## Request Message V2
+## Request message v2
 
 
 ```
@@ -277,7 +275,7 @@ BASE64URL(UTF8(JWS Protected Header)) || '.' ||
 BASE64URL(JWS Payload) || '.' ||
 BASE64URL(JWS Signature)
 
-##### JWS Protected Header
+##### JWS protected header
 ```
 {
   "alg": "PS256",
@@ -286,7 +284,7 @@ BASE64URL(JWS Signature)
 }
 ```
 
-#### JWS Payload
+#### JWS payload
 
 JWS payload can be of type basic or vsm. Basic is used when attestation evidence does not include VSM data.
 
@@ -626,7 +624,7 @@ TPM + VBS enclave example:
 }
 ```
 
-**rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine id claim.
+**rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine ID claim.
 
 **rp_data** (BASE64URL(OCTETS)): Opaque data passed by the relying party. This is normally used by the relying party as a nonce to guarantee freshness of the report.
 
