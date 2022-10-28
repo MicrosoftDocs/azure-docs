@@ -26,12 +26,12 @@ The sections below will explain how to use `AzureClient` in your own application
 To connect to an Azure Fluid Relay instance, you first need to create an `AzureClient`. You must provide some configuration parameters including the tenant ID, service URL, and a token provider to generate the JSON Web Token (JWT) that will be used to authorize the current user against the service. The `@fluidframework/test-client-utils` package provides an `InsecureTokenProvider` that can be used for development purposes.
 
 > [!CAUTION]
-> The `InsecureTokenProvider` should only be used for development purposes because **using it exposes the tenant key secret in your client-side code bundle.** This must be replaced with an implementation of `ITokenProvider` that fetches the token from your own backend service that is responsible for signing it with the tenant key.
+> The `InsecureTokenProvider` should only be used for development purposes because **using it exposes the tenant key secret in your client-side code bundle.** This must be replaced with an implementation of `ITokenProvider` that fetches the token from your own backend service that is responsible for signing it with the tenant key. Note: the `id` and `name` fields are arbitrary.
 
 ```javascript
 const config = {
   tenantId: "myTenantId",
-  tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId" }),
+  tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId", name: "userName" }),
   endpoint: "https://myServiceEndpointUrl",
   type: "remote",
 };
