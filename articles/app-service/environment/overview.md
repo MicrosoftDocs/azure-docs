@@ -97,38 +97,53 @@ App Service Environment v3 is available in the following regions:
 
 ### Azure Public:
 
-| Region               | Normal and dedicated host    | Availability zone support   |
-| -------------------- | :--------------------------: | :-------------------------: |
-| Australia East       | ✅                           | ✅                          |
-| Australia Southeast  | ✅                           |                             |
-| Brazil South         | ✅                           | ✅                          |
-| Canada Central       | ✅                           | ✅                          |
-| Canada East          | ✅                           |                             |
-| Central India        | ✅                           | ✅                          |
-| Central US           | ✅                           | ✅                          |
-| East Asia            | ✅                           | ✅                          |
-| East US              | ✅                           | ✅                          |
-| East US 2            | ✅                           | ✅                          |
-| France Central       | ✅                           | ✅                          |
-| Germany West Central | ✅                           | ✅                          |
-| Japan East           | ✅                           | ✅                          |
-| Korea Central        | ✅                           | ✅                          |
-| North Central US     | ✅                           |                             |
-| North Europe         | ✅                           | ✅                          |
-| Norway East          | ✅                           | ✅                          |
-| South Africa North   | ✅                           | ✅                          |
-| South Central US     | ✅                           | ✅                          |
-| Southeast Asia       | ✅                           | ✅                          |
-| Sweden Central       | ✅                           | ✅                          |
-| Switzerland North    | ✅                           | ✅                          |
-| UAE North            | ✅                           |                             |
-| UK South             | ✅                           | ✅                          |
-| UK West              | ✅                           |                             |
-| West Central US      | ✅                           |                             |
-| West Europe          | ✅                           | ✅                          |
-| West US              | ✅                           |                             |
-| West US 2            | ✅                           | ✅                          |
-| West US 3            | ✅                           | ✅                          |
+| Region               | Single zone support          | Availability zone support   | Single zone support         |
+| -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
+|                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
+| Australia Central    |                              |                             | ✅                           | 
+| Australia Central 2  |                           |                             | ✅                           | 
+| Australia East       | ✅                           | ✅                          | ✅                           | 
+| Australia Southeast  | ✅                           |                             | ✅                           | 
+| Brazil South         | ✅                           | ✅                          | ✅                           | 
+| Brazil Southeast     |                              |                             | ✅                           |
+| Canada Central       | ✅                           | ✅                          | ✅                           |
+| Canada East          | ✅                           |                             | ✅                           | 
+| Central India        | ✅                           | ✅                          | ✅                           | 
+| Central US           | ✅                           | ✅                          | ✅                           | 
+| East Asia            | ✅                           | ✅                          | ✅                           |
+| East US              | ✅                           | ✅                          | ✅                           | 
+| East US 2            | ✅                           | ✅                          | ✅                           |
+| France Central       | ✅                           | ✅                          | ✅                           | 
+| France South         |                              |                             | ✅                           | 
+| Germany North        |                              |                             | ✅                           | 
+| Germany West Central | ✅                           | ✅                          | ✅                           | 
+| Japan East           | ✅                           | ✅                          | ✅                           | 
+| Japan West           |                              |                             | ✅                           | 
+| Jio India West       |                              |                             | ✅                           | 
+| Korea Central        | ✅                           | ✅                          | ✅                           | 
+| Korea South          |                              |                             | ✅                           | 
+| North Central US     | ✅                           |                             | ✅                           | 
+| North Europe         | ✅                           | ✅                          | ✅                           |
+| Norway East          | ✅                           | ✅                          | ✅                           | 
+| Norway West          |                              |                             | ✅                           | 
+| South Africa North   | ✅                           | ✅                          | ✅                           |
+| South Africa West    |                              |                             | ✅                           | 
+| South Central US     | ✅                           | ✅                          | ✅                           |
+| South India          |                              |                             | ✅                           | 
+| Southeast Asia       | ✅                           | ✅                          | ✅                           |
+| Sweden Central       | ✅                           | ✅                          |                              |
+| Switzerland North    | ✅                           | ✅                          | ✅                           |
+| Switzerland West     |                              |                             | ✅                           | 
+| UAE Central          |                              |                             | ✅                           | 
+| UAE North            | ✅                           |                             | ✅                           | 
+| UK South             | ✅                           | ✅                          | ✅                           | 
+| UK West              | ✅                           |                             | ✅                           | 
+| West Central US      | ✅                           |                             | ✅                           | 
+| West Europe          | ✅                           | ✅                          | ✅                           | 
+| West India           |                           |                             | ✅                           | 
+| West US              | ✅                           |                             | ✅                           | 
+| West US 2            | ✅                           | ✅                          | ✅                           | 
+| West US 3            | ✅                           | ✅                          | ✅                           | 
 
 ### Azure Government:
 
