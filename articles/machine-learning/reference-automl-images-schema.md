@@ -471,7 +471,7 @@ Along with the image, there are two extra parameters (`model_explainability` and
 | `model_explainability` | Whether to generate explanations or just the scoring<br>`Optional, Bool` | `False` |
 | `xai_parameters` | If `model_explainability` is True, then `xai_parameters` is a dictionary containing  explainability algorithm related parameters with `xai_algorithm`, `visualizations`, `attributions` ask keys. <br>`Optional, Dictionary` <br> If `xai_parameters` isn't passed, then the `xrai` explainability algorithm is used with its default value| `{"xai_algorithm": "xrai", "visualizations": True, "attributions": False}` |
 | `xai_algorithm` | Name of the Explainability algorithm to be used. Supported XAI algorithms are {`xrai`, `integrated_gradients`, `guided_gradcam`, `guided_backprop`}<br>`Optional, String`| `xrai` |
-| `visualizations` | whether to return visualizations of explanations.<br>`Optional, Bool`| `True` |
+| `visualizations` | Whether to return visualizations of explanations. <br>`Optional, Bool`| `True` |
 | `attributions` | whether to return feature attributions.<br>`Optional, Bool`| `False` |
 | `confidence_score_threshold_multilabel` | Confidence score threshold to select top classes to generate explanations in **multi-label classification**.<br>`Optional, Float`| `0.5` |
 
