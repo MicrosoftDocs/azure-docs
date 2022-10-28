@@ -41,7 +41,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 * The address range must be owned by you and registered under your name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/). If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
 
-* The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
+* An IPv4 range must be equal or between /21 to /24. IPv4 prefixes longer than /24 are generally nor accepted by Internet Service Providers. ([RFC7454](https://www.rfc-editor.org/rfc/rfc7454#section-6.1.3))
 
 * A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry (RIR) website or via their API. The RIR will require the ROA to be digitally signed with the Resource Public Key Infrastructure (RPKI) of your RIR.
     
