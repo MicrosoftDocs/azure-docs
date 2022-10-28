@@ -187,7 +187,7 @@ Your validation screen should look something like this:
 
 If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again.
 
-## Continue on to Part 3: Deployment and Post-deployment
+## Continue on to Part 3: Deployment and post-deployment
 
 After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps** below.
 

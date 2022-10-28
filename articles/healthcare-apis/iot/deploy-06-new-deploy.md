@@ -9,7 +9,7 @@ ms.date: 10/28/2022
 ms.author: jasteppe
 ---
 
-# Part 3: Manual Deployment and Post-deployment of MedTech service
+# Part 3: Manual deployment and post-deployment of MedTech service
 
 When you're satisfied with your configuration and it has been successfully validated, you can complete the deployment and post-deployment process.
 
@@ -30,7 +30,7 @@ Your screen should look something like this:
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\iot-deploy-manual-in-portal\created-medtech-service.png":::
 
-## Manual Post-deployment requirements
+## Manual post-deployment requirements
 
 There are two post-deployment steps you must perform or the MedTech service can't:
 
