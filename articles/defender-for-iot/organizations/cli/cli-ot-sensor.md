@@ -171,7 +171,8 @@ root@xsense: ntp disable 129.6.15.28
 root@xsense:
 ```
 
-## Reset local user passwords
+## Local Login & Passwords
+### Reset local user passwords
 
 Use the following commands to reset passwords for local users on your OT sensor.
 
@@ -202,7 +203,7 @@ The *cyberx_host* user can be changed after a successful login with the followin
 |---------|---------|---------|
 |**cyberx_host**  |   `passwd` | No attributes   |
 
-For example:
+For example with the cyberx_host user:
 
 ```bash
 cyberx_host@xsense:/# passwd
@@ -213,6 +214,25 @@ Retype new password:
 passwd: all authentication tokens updated successfully.
 cyberx_host@xsense:/#
 ```
+
+### Adjust protection against failed logins
+
+In the case of too many failed logins, the failed logins protection mechanism will disallow any user from logging in from that IP address.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**  |   `nano /var/cyberx/components/xsense-web/cyberx_web/settings.py` | No attributes   |
+
+1. By using SSH, log in as **cyberx** to sensor
+
+1. To change the setting, run the following command: <br>`nano /var/cyberx/components/xsense-web/cyberx_web/settings.py`
+
+1. Set  `"MAX_FAILED_LOGINS = 5"` to a desired value (eg. 10, 20 up to 100), taking into account the number of concurrent users.
+
+1. Write to the file and exit
+
+1. To apply changes, run the following command: `sudo monit restart all`
+
 
 ## Validate network settings
 
