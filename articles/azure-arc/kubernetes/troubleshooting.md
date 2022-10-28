@@ -247,7 +247,7 @@ az extension add --name k8s-configuration
 > [!NOTE]
 > Eventually Azure will stop supporting GitOps with Flux v1, so begin using [Flux v2](./tutorial-use-gitops-flux2.md) as soon as possible.
 
-To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
 
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
@@ -304,7 +304,7 @@ metadata:
 
 ### Flux v2 - General
 
-To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these Azure CLI commands with the `--debug` parameter specified:
 
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug

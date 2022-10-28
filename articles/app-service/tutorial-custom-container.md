@@ -411,7 +411,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
 
     An App Service plan corresponds to the virtual machine that hosts the web app. By default, the previous command uses an inexpensive [B1 pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/) that is free for the first month. You can control the tier with the `--sku` parameter.
 
-1. Create the web app with the [`az webpp create`](/cli/azure/webapp#az-webapp-create) command:
+1. Create the web app with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command:
 
     ```azurecli-interactive
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
