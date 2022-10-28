@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/18/2022
+ms.date: 10/28/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -43,7 +43,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90031` | Policy '{0}' does not specify a default user journey. Ensure that the policy or it's parents specify a default user journey as part of a relying party section. | [Default user journey](relyingparty.md#defaultuserjourney) |
 | `AADB2C90035` | The service is temporarily unavailable. Please retry after a few minutes. |  |
 | `AADB2C90036` | The request does not contain a URI to redirect the user to post logout. Specify a URI in the post_logout_redirect_uri parameter field. | [Send a sign-out request](openid-connect.md#send-a-sign-out-request) |
-| `AADB2C90037` | An error occurred while processing the request. Please contact administrator of the site you are trying to access. |  |
+| `AADB2C90037` | An error occurred while processing the request. Please locate the `CorellationId` from the response. | [Submit a new support request](find-help-open-support-ticket.md), and include the `CorrelationId`. |
 | `AADB2C90039` | The request contains a client assertion, but the provided policy '{0}' in tenant '{1}' is missing a client_secret in RelyingPartyPolicy. | deprecated | 
 | `AADB2C90040` | User journey '{0}' does not contain a send claims step. | [User journey orchestration steps](userjourneys.md#orchestrationsteps) |
 | `AADB2C90043` | The prompt included in the request contains invalid values. Expected 'none', 'login', 'consent' or 'select_account'. |  |
