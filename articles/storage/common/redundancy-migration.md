@@ -211,8 +211,8 @@ For more detailed guidance on how to perform a manual migration, see [Move an Az
 Limitations apply to some replication change scenarios depending on:
 
 - [Region](#region)
-- [Storage account type](#storage-account-type)
 - [Feature conflicts](#feature-conflicts)
+- [Storage account type](#storage-account-type)
 - [Access tier](#access-tier)
 - [Protocol support](#protocol-support)
 - [Failover and failback](#failover-and-failback)
@@ -228,6 +228,10 @@ The [customer-initiated conversion (preview)](#customer-initiated-conversion-pre
 - (North America) Canada Central
 - (North America) East US
 - (North America) East US 2
+
+### Feature conflicts
+
+Some storage account features are not compatible with other features or operations. For example, the ability to failover to the secondary region is the key feature of geo-redundancy, but [other features are not compatible with failover](storage-disaster-recovery-guidance.md#unsupported-features-and-services). For this reason, converting an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
 
 ### Storage account type
 
@@ -295,10 +299,6 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 To manually migrate your ZRS Classic account data to another type of replication, follow the steps to [perform a manual migration](#manual-migration).
 
 If you want to migrate your data into a zone-redundant storage account located in a region different from the source account, you must perform a manual migration. For more details, see [Move an Azure Storage account to another region](storage-account-move.md).
-
-### Feature conflicts
-
-Some storage account features are not compatible with other features or operations. For example, the ability to failover to the secondary region is the key feature of geo-redundancy, but [other features are not compatible with failover](storage-disaster-recovery-guidance.md#unsupported-features-and-services). For this reason, converting an account to GRS, GZRS, or RA-GZRS might be blocked or not recommended for storage accounts with certain features enabled.
 
 ### Access tier
 
