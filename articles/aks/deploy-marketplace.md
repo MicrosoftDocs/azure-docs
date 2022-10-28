@@ -40,9 +40,9 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ## Select and deploy a Kubernetes offer
 
-1. In the [Azure portal](https://ms.portal.azure.com/), search for **Marketplace** on the top search bar. In the results, under **Services**, select **Marketplace** .
+1. In the [Azure portal](https://ms.portal.azure.com/), search for **Marketplace** on the top search bar. In the results, under **Services**, select **Marketplace**.
 
-1. In Azure Marketplace, you can search for an offer or publisher directly by name or browse all offers. To find Kubernetes application offers, use the **Product Type** filter for **Azure Containers**. 
+1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, use the **Product Type** filter for **Azure Containers**. 
 
    :::image type="content" source="./media/deploy-marketplace/browse-marketplace-inline.png" alt-text="Screenshot of Azure Marketplace offers in the Azure portal, with the filter for product type set to Azure containers." lightbox="./media/deploy-marketplace/browse-marketplace-full.png":::
 
@@ -51,17 +51,17 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
    >
    > To ensure that you're searching for Kubernetes applications, include the term **KubernetesApps** in your search.
 
-1. After you've decided on an application, select the offer.
+1. After you decide on an application, select the offer.
 
 1. On the **Plans + Pricing** tab, select an option. Ensure that the terms are acceptable, and then select **Create**.
 
    :::image type="content" source="./media/deploy-marketplace/plans-pricing-inline.png" alt-text="Screenshot of the offer purchasing page in the Azure portal, including plan and pricing information." lightbox="./media/deploy-marketplace/plans-pricing-full.png":::
 
-1. Follow each page in the wizard, all the way through **Review + Create**. Fill in information for your resource group, cluster, and any configuration options that the application requires. You can decide to deploy on a new AKS cluster or use an existing cluster.
+1. Follow each page in the wizard, all the way through **Review + Create**. Fill in information for your resource group, your cluster, and any configuration options that the application requires. You can decide to deploy on a new AKS cluster or use an existing cluster.
 
    :::image type="content" source="./media/deploy-marketplace/purchase-experience-inline.png" alt-text="Screenshot of the Azure portal wizard for deploying a new offer, with the selector for creating a new cluster or using an existing cluster." lightbox="./media/deploy-marketplace/purchase-experience-full.png":::
 
-   When the application is deployed, the portal says **Your deployment is complete** and shows details of the deployment.
+   When the application is deployed, the portal shows **Your deployment is complete**, along with details of the deployment.
 
    :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal that shows a successful resource deployment to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
 
@@ -73,7 +73,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ## Manage the offer lifecycle
 
-For lifecycle management, an Azure Kubernetes offer is represented as a cluster extension for AKS. For more details, see [Cluster extensions for AKS][cluster-extensions].
+For lifecycle management, an Azure Kubernetes offer is represented as a cluster extension for AKS. For more information, see [Cluster extensions for AKS][cluster-extensions].
 
 Purchasing an offer from Azure Marketplace creates a new instance of the extension on your AKS cluster. You can view the extension instance from the cluster by using the following command:
 
@@ -83,11 +83,11 @@ az k8s-extension show --name <extension-name> --cluster-name <clusterName> --res
 
 ## Monitor billing and usage information
 
-To monitor billing and usage information for the offer that you've deployed:
+To monitor billing and usage information for the offer that you deployed:
 
 1. In the Azure portal, go to the page for your cluster's resource group.
 
-1. Select **Cost Management** > **Cost analysis**. Under **Product**, you can see a breakdown of cost for the plan that you've selected.
+1. Select **Cost Management** > **Cost analysis**. Under **Product**, you can see a cost breakdown for the plan that you selected.
 
    :::image type="content" source="./media/deploy-marketplace/billing-inline.png" alt-text="Screenshot of the Azure portal page for a resource group, with billing information broken down by offer plan." lightbox="./media/deploy-marketplace/billing-full.png":::
 
