@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 10/27/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,43 +17,41 @@ ms.collection: M365-identity-device-management
 ---
 # Remediate risks and unblock users
 
-After completing your [investigation](howto-identity-protection-investigate-risk.md), you need to take action to remediate the risk or unblock users. Organizations can enable automated remediation using their [risk policies](howto-identity-protection-configure-risk-policies.md). Organizations should try to close all risk detections that they're presented in a time period your organization is comfortable with. Microsoft recommends closing events quickly, because time matters when working with risk.
+After completing your [investigation](howto-identity-protection-investigate-risk.md), you need to take action to remediate the risky users or unblock them. Organizations can enable automated remediation by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). Organizations should try to invsetigate and remediate all risky users in a time period that your organization is comfortable with. Microsoft recommends acting quickly, because time matters when working with risks.
 
-## Remediation
+## Risk Remediation
 
-All active risk detections contribute to the calculation of a value called user risk level. The user risk level is an indicator (low, medium, high) for the probability that an account has been compromised. As an administrator, you want to get all risk detections closed, so that the affected users are no longer at risk.
+All active risk detections contribute to the calculation of the user's risk level. The user risk level is an indicator (low, medium, high) of the probability that the user's account has been compromised. As an administrator, after thorough investigation on the risky users and the corresponding risky sign-ins and detections, you want to remediate the risky users so that they are no longer at risk and will not be blocked.
 
-Some risks detections may be marked by Identity Protection as "Closed (system)" because the events were no longer determined to be risky.
+Some risk detections and the corresponding risky sign-ins may be marked by Identity Protection as dismissed with risk state "Dismissed" and risk detail "Azure AD Identity Protection assessed sign-in safe" because those events were no longer determined to be risky.
 
 Administrators have the following options to remediate:
-
-- Self-remediation with risk policy
+- Setup [risk-based policies](howto-identity-protection-configure-risk-policies.md) to allow users to self-remediate their risks
 - Manual password reset
 - Dismiss user risk
-- Close individual risk detections manually
 
-### Remediation framework
+### Self-remediation with risk-based policy
 
-1. If the account is confirmed compromised:
-   1. Select the event or user in the **Risky sign-ins** or **Risky users** reports and choose "Confirm compromised".
-   1. If a risk policy or a Conditional Access policy wasn't triggered at part of the risk detection, and the risk wasn't [self-remediated](#self-remediation-with-risk-policy), then:
-      1. [Request a password reset](#manual-password-reset).
-      1. Block the user if you suspect the attacker can reset the password or do multi-factor authentication for the user.
-      1. Revoke refresh tokens.
-      1. [Disable any devices](../devices/device-management-azure-portal.md) considered compromised.
-      1. If using [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md), revoke all access tokens.
+You can allow users to self-remediate their sign-in risks and user risks by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). If users pass the required access control, such as Azure AD multifactor authentication (MFA) or secure password change, then their risks are automatically remediated. The corresponding risk detections, risky sign-ins, and risky users will be reported with the risk state "Remediated" instead of "At risk". 
 
-For more information about what happens when confirming compromise, see the section [How should I give risk feedback and what happens under the hood?](howto-identity-protection-risk-feedback.md#how-should-i-give-risk-feedback-and-what-happens-under-the-hood).
+Here are the prerequisites on users before risk-based policies can be applied to them to allow self-remediation of risks:
+- To peform MFA to self-remediate a sign-in risk: 
+   - the user must have registered for Azure AD MFA
+- To peform secure password change to self-remediate a user risk:
+   -  the user must have registered for Azure AD MFA
+   -  for hybrid users that are synced from on-prem to cloud, password writeback must have been enabled on them
 
-### Self-remediation with risk policy
+Note that if a risk-based policy is applied to a user during sign-in before the above prerequisites are met, then the user will be blocked because they are not able to perform the required access control, and admin intervention will be required to unblock the user. 
 
-If you allow users to self-remediate, with Azure AD multifactor authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure AD MFA and SSPR for use when risk is detected.
+Risk-based policies are configured based on risk levels and will only apply if the risk level of the sign-in or user matches the configured level. Some detections may not raise risk to the level where the policy will apply, and administrators will need to handle those risky users manually. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
-Some detections may not raise risk to the level where a user self-remediation would be required but administrators should still evaluate these detections. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
+### Self-remediation with Self-service password reset(SSPR) 
+
+If a user has registered for self-service password reset (SSPR), then they can also remediate their own user risk by performing an SSPR.
 
 ### Manual password reset
 
-If requiring a password reset using a user risk policy isn't an option, administrators can close all risk detections for a user with a manual password reset.
+If requiring a password reset using a user risk policy isn't an option, administrators can remediate a risky user by requiring a password reset.
 
 Administrators are given two options when resetting a password for their users:
 
@@ -63,24 +61,35 @@ Administrators are given two options when resetting a password for their users:
 
 ### Dismiss user risk
 
-If a password reset isn't an option for you, you can choose to dismiss user risk detections.
+If after investigation, you have confirmed that the user account is not at risk of being compromised, then you can choose to dismiss the risky user.
 
-When you select **Dismiss user risk**, all events are closed and the affected user is no longer at risk. However, because this method doesn't have an impact on the existing password, it doesn't bring the related identity back into a safe state. 
+To **Dismiss user risk**, search for and select **Azure AD Risky users** in the Azure portal or the Entra portal, select the affected user, and select **Dismiss user(s) risk**.
 
-To **Dismiss user risk**, search for and select **Azure AD Risky users**, select the affected user, and select **Dismiss user(s) risk**.
+When you select **Dismiss user risk**, the user will no longer be at risk, and all the risky sign-ins of this user and the corresponding risk detections will be dismissed as well.
+y have a "At risk" risk state, all events are closed and the affected user is no longer at risk. 
+- Risky user: 
+   - Risk state: "At risk" -> "Dismissed"
+   - Risk detail (the risk remediation detail): "-" -> "Admin dismissed all risk for user" 
+- All the risky sign-ins of this user and the corresponding risk detections:
+   - Risk state: "At risk" -> "Dismissed"
+   - Risk detail (the risk remediation detail): "-" -> "Admin dismissed all risk for user" 
 
-### Close individual risk detections manually
+However, because this method doesn't have an impact on the existing password, it doesn't bring the related identity back into a safe state. 
 
-You can close individual risk detections manually. By closing risk detections manually, you can lower the user risk level. Typically, risk detections are closed manually in response to a related investigation. For example, when talking to a user reveals that an active risk detection isn't required anymore. 
- 
-When closing risk detections manually, you can choose to take any of the following actions to change the status of a risk detection:
+### Confirm a user to be compromised
 
-- Confirm user compromised
-- Dismiss user risk
-- Confirm sign-in safe
-- Confirm sign-in compromised
+If after investigation, an account is confirmed to be compromised:
+   1. Select the event or user in the **Risky sign-ins** or **Risky users** reports and choose "Confirm compromised".
+   2. If a risk-based policy wasn't triggered, and the risk wasn't [self-remediated](#self-remediation-with-risk-policy), then do one or more of the followings:
+      1. [Request a password reset](#manual-password-reset).
+      1. Block the user if you suspect the attacker can reset the password or do multi-factor authentication for the user.
+      1. Revoke refresh tokens.
+      1. [Disable any devices](../devices/device-management-azure-portal.md) that are considered compromised.
+      1. If using [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md), revoke all access tokens.
 
-#### Deleted users
+For more information about what happens when confirming compromise, see the section [How should I give risk feedback and what happens under the hood?](howto-identity-protection-risk-feedback.md#how-should-i-give-risk-feedback-and-what-happens-under-the-hood).
+
+### Deleted users
 
 It isn't possible for administrators to dismiss risk for users who have been deleted from the directory. To remove deleted users, open a Microsoft support case.
 
