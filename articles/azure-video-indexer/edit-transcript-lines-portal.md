@@ -1,14 +1,14 @@
 ---
-title: Insert or remove transcript lines in Azure Video Indexer portal 
-description: This article explains how to insert or remove a transcript line in Azure Video Indexer portal.
+title: Insert or remove transcript lines in Azure Video Indexer website 
+description: This article explains how to insert or remove a transcript line in the Azure Video Indexer website.
 ms.author: itnorman
 ms.topic: how-to
 ms.date: 05/03/2022
 ---
 
-# Insert or remove transcript lines in Video Indexer portal 
+# Insert or remove transcript lines in the Azure Video Indexer website 
 
-This article explains how to insert or remove a transcript line in Azure Video Indexer portal.
+This article explains how to insert or remove a transcript line in the [Azure Video Indexer website](https://www.videoindexer.ai/).
 
 ## Add new line to the transcript timeline 
 
