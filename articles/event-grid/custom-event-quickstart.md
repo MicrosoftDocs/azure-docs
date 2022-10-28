@@ -35,7 +35,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group using Bash in Azure Cloud Shell. Replace `<your-topic-name>` with a unique name for your topic. The custom topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group using Bash in Azure Cloud Shell. Replace `<your-topic-name>` with a unique name for your topic. The custom topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
 
 1. Copy the following command, specify a name for the topic, and press ENTER to run the command. 
 
@@ -75,7 +75,7 @@ You should see the site with no messages currently displayed.
 
 ## Subscribe to a custom topic
 
-You subscribe to an event grid topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the custom topic you created, and passes the URL from your web app as the endpoint for event notification.
+You subscribe to an Event Grid topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the custom topic you created, and passes the URL from your web app as the endpoint for event notification.
 
 The endpoint for your web app must include the suffix `/api/updates/`.
 
