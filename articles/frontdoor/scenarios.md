@@ -8,13 +8,13 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2022
+ms.date: 10/28/2022
 ms.author: jodowns
 ---
 
 # Accelerate and secure your web application with Azure Front Door
 
-Azure Front Door is...
+Azure Front Door is a globally distributed entry point to your application. Front Door provides a wide range of features including content delivery network, traffic acceleration, load balancing, and security.
 
 Consider deploying Front Door in conjunction with any publicly facing web application.
 
@@ -32,7 +32,7 @@ Additionally, Front Door's global traffic acceleration capabilities help to [imp
 
 Front Door's web application firewall (WAF) provides a range of security capabilities to your application. [Managed rule sets](../web-application-firewall/afds/waf-front-door-drs.md) scan incoming requests for suspicious content. [Bot protection rules](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set) identify and respond to traffic from bots. [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) and [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) features protect your application servers from unexpected traffic.
 
-Because of Front Door's architecture, it can also absorb large [distributed denial of service attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
+Because of Front Door's architecture, it can also absorb large [distributed denial of service (DDoS) attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
 
 [Private Link integration](private-link.md) helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
 
@@ -54,16 +54,33 @@ You can also deploy and configure Front Door by using infrastructure as code (Ia
 
 ## Solution architecture
 
-When you deploy a solution that uses Azure Front Door, you should consider...
+When you deploy a solution that uses Azure Front Door, you should consider how your traffic flows from your client to Front Door, and from Front Door to your origins.
+
+The following diagram illustrates a generic solution architecture using Front Door:
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png" border="false":::
 <!-- TODO redo this diagram -->
 
-
-
 ### Client to Front Door
 
+Traffic from your clients first arrives at a Front Door point of presence (PoP). Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide.
+
+Requests to your application are received by Front Door's PoP, and the clients' TCP and TLS connections terminate. The PoP performs a number of activities based on the configuration you specify in your Front Door profile, including:
+- Protecting your solution against many types of [DDoS attacks](front-door-ddos.md).
+- Terminating the [TLS connection](end-to-end-tls.md), and using either a Front Door-managed TLS certificate or a custom TLS certificate.
+- Scanning the request for known vulnerabilties by using the [Front Door WAF](web-application-firewall.md).
+- Returning [cached responses](front-door-caching.md), if they're stored at the Front Door PoP and are valid for the request.
+- Selecting the best origin to receive the traffic based on the [routing architecture](front-door-routing-architecture.md).
+
 ### Front Door to origin
+
+Front Door can send traffic to your origin in two different ways: by using Private Link, and by using public IP addresses.
+
+The premium SKU of Front Door supports sending traffic to some origin types by using Private Link. When you configure Private Link for your origin, traffic uses private IP addresses. This approach can be used to ensure that your origin only accepts traffic from your specific Front Door instance, and you can block traffic that came from the internet.
+
+When the Front Door PoP sends requests to your origin by using a public IP address, it initiates a new TCP connection. Because of this behavior, your origin server sees the request originating from Front Door's IP address instead of the client.
+
+Whichever approach you use to send traffic to your origin, it's usually a good practice to configure your origin to expect traffic from your Front Door profile, and to block traffic that doesn't flow through Front Door. For more information, see TODO.
 
 ## Next steps
 
