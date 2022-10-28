@@ -12,7 +12,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Quickstart: Media Streaming - Audio
+# Quickstart: Media Streaming
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
@@ -93,6 +93,7 @@ Audio streaming will automatically stop when the call ends or is canceled.
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
+- Learn more about [Media Streaming](../../concepts/voice-video-calling/media-streaming.md).
 - Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
 - Learn more about [Play action](../../concepts/voice-video-calling/play-action.md).
 - Learn more about [Recognize action](../../concepts/voice-video-calling/recognize-action.md).
