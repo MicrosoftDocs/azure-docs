@@ -473,7 +473,7 @@ Along with the image, there are two extra parameters (`model_explainability` and
 | `xai_algorithm` | Name of the Explainability algorithm to be used. Supported XAI algorithms are {`xrai`, `integrated_gradients`, `guided_gradcam`, `guided_backprop`}<br>`Optional, String`| `xrai` |
 | `visualizations` | Whether to return visualizations of explanations. <br>`Optional, Bool`| `True` |
 | `attributions` | whether to return feature attributions.<br>`Optional, Bool`| `False` |
-| `confidence_score_threshold_multilabel` | Confidence score threshold to select top classes to generate explanations in **multi-label classification**.<br>`Optional, Float`| `0.5` |
+| `confidence_score_threshold_multilabel` | Confidence score threshold to select top classes to generate explanations in **multi-label classification**. <br>`Optional, Float`| `0.5` |
 
 Following table describes the supported schemas for explainability.
 
