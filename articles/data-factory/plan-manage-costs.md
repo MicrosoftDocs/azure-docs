@@ -100,13 +100,13 @@ To view Data Factory costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-:::image type="content" source="media/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
+:::image type="content" source="media/plan-manage-costs/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
 
 - To narrow costs for a single service, like Data Factory, select **Add filter** and then select **Service name**. Then, select **Azure Data Factory v2**.
 
 Here's an example showing costs for just Data Factory.
 
-:::image type="content" source="media/service-specific-cost.png" alt-text="Example showing accumulated costs for ServiceName":::
+:::image type="content" source="media/plan-manage-costs/service-specific-cost.png" alt-text="Example showing accumulated costs for ServiceName":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Data Factory costs by resource group are also shown. From here, you can explore costs on your own.
 
