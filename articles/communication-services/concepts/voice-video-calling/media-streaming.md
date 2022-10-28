@@ -32,7 +32,7 @@ Audio streams can be used in many ways, below are some examples of how developer
 
 ## How Media Streaming workflow looks
 
-[IMAGE HERE]
+![Screenshot of flow for play action.](./media/media_streaming.png)
 
 ## Supported formats
 
