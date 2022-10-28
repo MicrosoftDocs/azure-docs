@@ -14,57 +14,49 @@ metadata:
 
 landingContent: 
   # Card
-  - title: About Azure reliability documentation?
+  - title: Azure reliability documentation
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Azure reliability documentation??
+          - text: Azure reliability documentation
             url: overview-reliability.md
   # Card
-  - title: Reliability guides
+  - title: Availability zone support
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure Batch
-            url: reliability-batch.md
-          - text: Azure Cache for Redis
-            url: reliability-cache.md
-          - text: Azure Functions 
-            url: reliability-functions.md
+          - text: What are Azure availability zones and regions?
+            url: az-overview.md
+          - text: Services and regions with availability zone support
+            url: az-service-support.md
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate to availability zone support
+            url: az-migration-overview.md
   # Card
-  - title: Availability zone guides
+  - title: Disaster recovery
     linkLists:
       - linkListType: concept
         links:
-          - text: API Management
-            url: migrate-api-mgt.md
-          - text: App Service Environment
-            url: migrate-app-service-environment.md
-          - text: App Service
-            url: migrate-app-service.md
-          - text: Application Gateway v2
-            url: migrate-app-gateway-v2.md
-          - text: Cache for Redis
-            url: migrate-cache-redis.md
-          - text: Log Analytics workspaces
-            url: migrate-monitor-log-analytics.md
-          - text: Container instances
-            url: migrate-container-instances.md
-          - text: Recovery Services vault
-            url: migrate-recovery-services-vault.md
-          - text: Storage accounts
-            url: migrate-storage.md
-          - text: Virtual Machines and virtual machine scale sets
-            url: migrate-vm.md
-
+          - text: Business continuity management program
+            url: business-continuity-management-program.md
+          - text: Cross-region replication
+            url: cross-region-replication-azure.md
+          - text: Use Azure Site Recovery
+            url: ../site-recovery/index.yml
+          - text: Use Azure Backup
+            url: ../backup/index.yml
   # Service availability
-  - title: Availability of services
+  - title: Service availability
     linkLists:
       - linkListType: concept
         links:
-          - text: Availability of services by category
+          - text: Service availability by category
             url: availability-service-by-category.md
-          - text: Availability of services by sovereign cloud
-            url: availability-service-by-sovereign-cloud.md
-          - text: Availability of services by region
+          - text: Service availability for US Government
+            url: sovereign-cloud-usgov.md
+          - text: Service availability for Azure in China
+            url: sovereign-cloud-china.md   
+          - text: ervice availability by region
             url: https://azure.microsoft.com/global-infrastructure/services/
+
