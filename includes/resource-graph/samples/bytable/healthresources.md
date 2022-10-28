@@ -220,9 +220,9 @@ Search-AzGraph -Query "HealthResources | where type == 'microsoft.resour
 
 ---
 
-### Count of resources in a region that have been impacted by an availability disruptions along with the type of impact
+### Count of resources in a region that have been impacted by an availability disruption along with the type of impact
 
-Returns the count of virtual machines that are currently not in an **Available** state, aggregated by their ID property. The query also shows the corresponding location and annotation details, including the cause for the VMs not be in an **Available** state.
+Returns the count of virtual machines that are currently not in an **Available** state, aggregated by their ID property. The query also shows the corresponding location and annotation details, including the cause for the VMs not being in an **Available** state.
 
 ```kusto
 HealthResources
