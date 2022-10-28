@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 10/27/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -129,7 +129,6 @@ Several features of Azure NetApp Files require that you have an Active Directory
         ![Screenshot of the AES description field. The field is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
         
         See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
-          ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
     * <a name="ldap-signing"></a>**LDAP Signing**   
 
