@@ -28,25 +28,25 @@ A Key Vault access policy determines whether a given security principal, namely 
 
 1.	Select **Access policies**, then select **Create**:
 
-	![Select Access policies, selecting Add role assignment](../media/authentication/AssignAccess1.png)
+	![Select Access policies, selecting Add role assignment](../media/authentication/assign-access-01.png)
 
 1.	Select the permissions you want under **Key permissions**, **Secret permissions**, and **Certificate permissions**. 
 
-	![Specifying access policy permissions](../media/authentication/AssignAccess2.png)
+	![Specifying access policy permissions](../media/authentication/assign-access-02.png)
 
 1. Under the **Principal** selection pane, enter the name of the user, app or service principal in the search field and select the appropriate result.
 
-	![Selecting the security principal for the access policy](../media/authentication/AssignAccess3.png)
+	![Selecting the security principal for the access policy](../media/authentication/assign-access-03.png)
 
     If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on security principals, see [Key Vault authentication](authentication.md).
  
 1.	Review the access policy changes and select **Create** to save the access policy.
 
-	![Adding the access policy with the security principal assigned](../media/authentication/AssignAccess4.png)
+	![Adding the access policy with the security principal assigned](../media/authentication/assign-access-04.png)
 
 1. Back on the **Access policies** page, verify that your access policy is listed. 
 
-	![Saving the access policy changes](../media/authentication/AssignAccess5.png)
+	![Saving the access policy changes](../media/authentication/assign-access-05.png)
 
 # [Azure CLI](#tab/azure-cli)
 
