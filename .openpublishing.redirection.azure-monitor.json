@@ -847,6 +847,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/export-power-bi.md",
+            "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs.md",
             "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
             "redirect_document_id": false
@@ -5272,6 +5277,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-alert.md",
+            "redirect_url": "/azure/azure-monitor/app/availability-standard-tests",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/dotnet-quickstart.md",
             "redirect_url": "/azure/azure-monitor/app/asp-net-core",
             "redirect_document_id": false
@@ -5454,6 +5464,12 @@
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-update-metrics.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-custom-metrics",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/automation/migrate-oms-update-deployments.md",
+            "redirect_url": "/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand",
             "redirect_document_id": false
         }
         ,
