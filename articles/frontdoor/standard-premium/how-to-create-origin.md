@@ -1,5 +1,5 @@
 ---
-title: Set up an Azure Front Door Standard/Premium (Preview) Origin
+title: Set up an Azure Front Door Standard/Premium Origin
 description: This article shows how to configure an origin with Endpoint Manager.
 services: frontdoor
 author: duongau
@@ -9,17 +9,12 @@ ms.date: 02/18/2021
 ms.author: qixwang 
 ---
 
-# Set up an Azure Front Door Standard/Premium (Preview) Origin
+# Set up an Azure Front Door Standard/Premium Origin
 
 > [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
 This article will show you how to create an Azure Front Door Standard/Premium origin in an existing origin group. 
-
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
