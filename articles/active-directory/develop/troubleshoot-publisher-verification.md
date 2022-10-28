@@ -188,9 +188,14 @@ Most commonly caused when verification is being performed via Graph API, and the
 
 ### ApplicationObjectisInvalid 
 
-The target application (AppId) is not valid. Please provide a valid application ID and try again. 
+The target application's object ID is invalid. Please provide a valid ID and try again. 
 
-Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. Note-the ID of the application must be provided, not the AppId/ClientId. 
+Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. 
+
+> [!NOTE] 
+> The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties at [application resource type - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/en-us/graph/api/resources/application?view=graph-rest-1.0) 
+
+ 
 
 ### B2CTenantNotAllowed
 
