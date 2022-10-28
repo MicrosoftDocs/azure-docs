@@ -69,7 +69,7 @@ Azure VMware Solution implements a shared responsibility model that defines dist
 
 The following table shows the high-level responsibilities between a customer and Microsoft for different aspects of the deployment/management of the private cloud and the customer application workloads.
 
-<!-- image here  -->
+:::image type="content" source="media/azure-introduction-shared-responsibility-matrix.png" alt-text="screenshot shows the high-level shared responsibility matrix." lightbox="media/azure-introduction-shared-responsibility-matrix.png":::
 
 The following table provides a detailed list of roles and responsibilities between the customer and Microsoft which encompasses the most frequent tasks and definitions. For further questions, please contact Microsoft.
 
