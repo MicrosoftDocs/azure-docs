@@ -528,7 +528,7 @@ predictions = json.loads(resp)
 
 Predictions made on model endpoints follow different schema depending on the task type. This section describes the output data formats for multi-class, multi-label image classification tasks.
 
-The following schemas are defined for the case of two input images
+The following schemas are defined for the case of two input images.
 
 #### Image classification (binary/multi-class)
 Output schema is [same as described above](#data-schema-for-online-scoring) except that `visualizations` and `attributions` key values won't be `None`, if these keys were set to `True` in the request.
