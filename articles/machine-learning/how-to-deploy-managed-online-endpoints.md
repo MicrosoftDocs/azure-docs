@@ -713,7 +713,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 
 # [Python](#tab/python)
 
-If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update`](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations.md#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update) module/method. 
+If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update`](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update) module/method. 
 
 > [!NOTE]
 > If you update instance count and along with other model settings (code, model, or environment) in a single `begin_create_or_update` method: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
@@ -788,7 +788,7 @@ To learn more, review these articles:
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
+- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
 - [Access Azure resources from an online endpoint with a managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 - [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
