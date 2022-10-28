@@ -76,7 +76,7 @@ increased storage and compute performance.
 > If your workload fits in 64 vCores, 256GB RAM and 2TB storage, you can use a
 > single-node cluster. In this case, distributing tables is optional. Later,
 > you can distribute tables as needed using
-> [create_distributed_table_concurrently](reference-functions#create_distributed_table_concurrently).
+> [create_distributed_table_concurrently](reference-functions.md#create_distributed_table_concurrently).
 >
 > This quickstart demonstrates distributing tables, despite the small example
 > dataset.
