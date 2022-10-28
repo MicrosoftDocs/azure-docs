@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage library v12 - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob storage blob npm package version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 09/13/2022
+ms.date: 10/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -34,7 +34,6 @@ Additional resources:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - [Node.js LTS](https://nodejs.org/en/download/).
-- [Microsoft Visual Studio Code](https://code.visualstudio.com)
 
 ## Object model
 
@@ -103,24 +102,11 @@ From the project directory:
 1. Create a new file named `index.js`.
 1. Copy the following code into the file. More code will be added as you go through this quickstart.
 
-    ```javascript
-    const { BlobServiceClient } = require('@azure/storage-blob');
-    const { v1: uuidv1} = require('uuid');
-    require('dotenv').config()
-    
-    async function main() {
-        console.log('Azure Blob storage v12 - JavaScript quickstart sample');
-
-        // Quick start code goes here
-
-    }
-
-    main()
-    .then(() => console.log('Done'))
-    .catch((ex) => console.log(ex.message));
-    ```
+    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/boilerplate.js" id="snippet_StorageAcctInfo":::
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
+
+
 
 ## Get the connection string
 
