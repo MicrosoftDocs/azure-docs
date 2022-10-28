@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
- ms.date: 10/20/2022
+ ms.date: 10/28/2022
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -55,6 +55,6 @@ A client can use the connection string to connect to the Service Bus namespace. 
 3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
 4. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
-    :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an S A S policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
+    :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" lightbox="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an S A S policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
 
     You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string. 

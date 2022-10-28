@@ -29,12 +29,13 @@ A combination of roles can be used to provide the right level of access. For exa
 
 ## Configuring access for Azure Device Update service principal in the IoT Hub
 
-Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
+Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor access for Azure Device Update Service Principal in the IoT Hub permissions.
 
 Below actions will be blocked with upcoming release, if these permissions are not set:
+
 * Create Deployment
 * Cancel Deployment
-* Retry Deployment 
+* Retry Deployment
 * Get Device
 
 1. Go to the **IoT Hub** connected to your Device Update Instance. Click **Access Control(IAM)**
@@ -44,6 +45,7 @@ Below actions will be blocked with upcoming release, if these permissions are no
 5. Click **Next** -> **Review + Assign**
 
 To validate that you've set permissions correctly:
+
 1. Go to the **IoT Hub** connected to your Device Update Instance. Click **Access Control(IAM)**
 2. Click **Check access**
 3. Select **User, group, or service principal** and search for '**Azure Device Update**'
