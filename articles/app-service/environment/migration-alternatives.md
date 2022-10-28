@@ -44,7 +44,7 @@ The [back up and restore](../manage-backup.md) feature allows you to keep your a
 :::image type="content" source="./media/migration/configure-custom-backup.png" alt-text="Screenshot that shows how to configure custom backup for an App Service app.":::
 >
 
-The step-by-step instructions in the current documentation for [backup and restore](../manage-backup.md) should be sufficient to allow you to use this feature. You can select a custom backup and use that to restore the app to an App Service in your App Service Environment v3.
+You can select a custom backup and restore it to an App Service in your App Service Environment v3. You must create the App Service you will restore to before restoring the app. You can choose to restore the backup to the production slot, an existing slot, or a newly created slot that you can create during the restoration process.
 
 :::image type="content" source="./media/migration/back-up-restore-sample.png" alt-text="Screenshot that shows how to use backup to restore App Service app in App Service Environment v3.":::
 
