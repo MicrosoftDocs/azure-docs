@@ -132,3 +132,61 @@ while (true) {
 }
 ```
 
+## Message schema
+When ACS has received the URL for your WebSocket server, it will create a connection to it. Once ACS has successfully connected to your WebSocket server it will send through the first data packet which contains metadata regarding the incoming media packets.
+
+``` code
+/**
+ * The first message upon WebSocket connection will be the metadata packet
+ * which contains the subscriptionId and audio format
+ */
+public class AudioMetadataSample {
+    public string kind; // What kind of data this is, e.g. AudioMetadata, AudioData.
+    public AudioMetadata audioMetadata;
+}
+
+public class AudioMetadata {
+    public string subscriptionId // unique identifier for a subscription request
+    public string encoding; // PCM only supported
+    public int sampleRate; // 16000 default
+    public int channels; // 1 default
+    public int length; // 640 default
+}
+```
+
+## Audio streaming schema
+After sending through the metadata packet, ACS will start streaming audio media to your WebSocket server. Below is an example of what the media object your server will receive looks like. 
+
+``` code
+/**
+ * The audio buffer object which is then serialized to JSON format
+ */
+public class AudioDataSample {
+    public string kind; // What kind of data this is, e.g. AudioMetadata, AudioData.
+    public AudioData audioData;
+}
+
+public class AudioData {
+    public string data; // Base64 Encoded audio buffer data
+    public string timestamp; // In ISO 8601 format (yyyy-mm-ddThh:mm:ssZ) 
+    public string participantRawID;
+    public boolean silent; // Indicates if the received audio buffer contains only silence.
+} 
+```
+
+Example of audio data being streamed 
+
+``` json
+{
+  "kind": "AudioData",
+  "audioData": {
+    "timestamp": "2022-10-03T19:16:12.925Z",
+    "participantRawID": "8:acs:3d20e1de-0f28-41c5-84a0-4960fde5f411_0000000b-faeb-c708-99bf-a43a0d0036b0",
+    "data": "5ADwAOMA6AD0AOIA4ADkAN8AzwDUANEAywC+ALQArgC0AKYAnACJAIoAlACWAJ8ApwCiAKkAqgCqALUA0wDWANAA3QDVAN0A8wDzAPAA7wDkANkA1QDPAPIA6QDmAOcA0wDYAPMA8QD8AP0AAwH+AAAB/QAAAREBEQEDAQoB9wD3APsA7gDxAPMA7wDpAN0A6gD5APsAAgEHAQ4BEAETARsBMAFHAUABPgE2AS8BKAErATEBLwE7ASYBGQEAAQcBBQH5AAIBBwEMAQ4BAAH+APYA6gDzAPgA7gDkAOUA3wDcANQA2gDWAN8A3wDcAMcAxwDIAMsA1wDfAO4A3wDUANQA3wDvAOUA4QDpAOAA4ADhAOYA5wDkAOUA1gDxAOcA4wDpAOEA4gD0APoA7wD9APkA6ADwAPIA7ADrAPEA6ADfANQAzQDLANIAzwDaANcA3QDZAOQA4wDXANwA1ADbAOsA7ADyAPkA7wDiAOIA6gDtAOsA7gDeAOIA4ADeANUA6gD1APAA8ADgAOQA5wDgAPgA8ADnAN8A5gDgAOoA6wDcAOgA2gDZANUAyQDPANwA3gDgAO4A8QDyAAQBEwEDAewA+gDpAN4A6wDeAO8A8QDwAO8ABAEKAQUB/gD5AAMBAwEIARoBFAEeARkBDgH8AP0A+gD8APcA+gDrAO0A5wDcANEA0QDHAM4A0wDUAM4A0wDZANQAxgDSAM4A1ADVAOMA4QDhANUA2gDjAOYA5wDrANQA5wDrAMsAxQDWANsA5wDpAOEA4QDFAMoA0QDKAMgAwgDNAMsAwgCwAKkAtwCrAKoAsACgAJ4AlQCeAKAAoQCmAKwApwCsAK0AnQCVAA==",
+    "silent": false
+  }
+}
+```
+
+## Stop audio streaming
+Audio streaming will automatically stop when the call ends or is cancelled. 
