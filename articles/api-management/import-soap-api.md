@@ -55,8 +55,55 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/cli)
 
+The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import a WSDL specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `--specification-path` parameter.
+
+For this example WSDL, the service name is *OrdersAPI*, and one of the available endpoints (interfaces) is *basic*.
+
+```azurecli-interactive
+# API Management service-specific details
+APIMServiceName="apim-hello-world"
+ResourceGroupName="myResourceGroup"
+
+# API-specific details
+APIId="order-api"
+APIPath="order"
+SpecificationFormat="Wsdl"
+SpecificationURL="https://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl"
+WsdlServiceName="OrdersAPI"
+WsdlEndpointName="basic"
+
+# Import API
+az apim api import --path $APIPath --resource-group $ResourceGroupName \
+    --service-name $APIMServiceName --api-id $APIId \
+    --specification-format $SpecificationFormat --specification-url $SpecificationURL \
+    --wsdl-service-name $WsdlServiceName --wsdl-endpoint-name $WsdlEndpointName
+```
 
 #### [PowerShell](#tab/powershell)
+
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import a WSDL specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `-SpecificationPath` parameter.
+
+For this example WSDL, the service name is *OrdersAPI*, and one of the available endpoints (interfaces) is *basic*.
+
+```powershell-interactive
+# API Management service-specific details
+$apimServiceName = "apim-hello-world"
+$resourceGroupName = "myResourceGroup"
+
+# API-specific det
+$apiId = "orders-api"
+$apiPath = "orders"
+$specificationFormat = "Wsdl"
+$specificationUrl = "https://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl"
+$wsdlServiceName = "OrdersAPI"
+$wsdlEndpointName = "basic"
+
+# Get context of the API Management instance. 
+$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
+
+# Import API
+Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath -WsdlServiceName $wsdlServiceName -WsdlEndpointName $wsdlEndpointName
+```
 
 ---
 

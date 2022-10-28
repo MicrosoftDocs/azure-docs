@@ -6,12 +6,12 @@ Operations can be called directly from the portal, which provides a convenient w
 1. Select the **Test** tab.
 1. Select an operation.
 
-    The page displays fields for query parameters and fields for the headers. 
+    The page displays fields for query parameters and fields for the headers.
 
     > [!NOTE]
     > In the test console, API Management automatically populates an **Ocp-Apim-Subscription-Key** header, and configures the subscription key of the built-in [all-access subscription](../articles/api-management/api-management-subscriptions.md#all-access-subscription). This key enables access to every API in the API Management instance. Optionally display the **Ocp-Apim-Subscription-Key** header by selecting the "eye" icon next to the **HTTP Request**.
-> 
-1. Select **Send**.
+
+1. Depending on the operation, enter query parameter values, header values, or a request body. Select **Send**.
 
     When the test is successful, the backend responds with **200 OK** and some data.
 

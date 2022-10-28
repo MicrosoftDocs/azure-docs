@@ -48,7 +48,7 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/cli)
 
-The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. Import using a path to a specification instead of a URL by using the `--specification-path` parameter.
+The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `--specification-path` parameter.
 
 ```azurecli-interactive
 # API Management service-specific details
@@ -57,7 +57,7 @@ ResourceGroupName="myResourceGroup"
 
 # API-specific details
 APIId="demo-conference-api"
-APIPath="myapi"
+APIPath="conference"
 SpecificationFormat="OpenAPI"
 SpecificationURL="https://conferenceapi.azurewebsites.net/?format=json"
 
@@ -71,16 +71,16 @@ After importing the API, if needed, you can update the settings by using the [az
 
 #### [PowerShell](#tab/powershell)
 
-The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. Import using a path to a specification instead of a URL by using the `-SpecificationPath` parameter.
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `-SpecificationPath` parameter.
 
 ```powershell-interactive
 # API Management service-specific details
 $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
-# API-specific det
+# API-specific details
 $apiId = "demo-conference-api"
-$apiPath = "myapi"
+$apiPath = "conference"
 $specificationFormat = "OpenAPI"
 $specificationUrl = "https://conferenceapi.azurewebsites.net/?format=json"
 
