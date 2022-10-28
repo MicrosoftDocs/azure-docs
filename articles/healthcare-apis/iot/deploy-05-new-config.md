@@ -76,7 +76,7 @@ The Basics tab should now look like this after you've filled it out:
 
   :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
 
-You're now ready to select the Device mapping tab and begin setting up the connection from the medical device to MedTech service.
+You're now ready to select the Device mapping tab and begin setting up the device mappings for your MedTech service.
 
 ## Configure the Device mapping tab
 
