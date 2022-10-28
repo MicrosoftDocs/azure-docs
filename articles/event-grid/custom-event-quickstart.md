@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
 description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
-ms.date: 07/01/2021
+ms.date: 10/28/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -13,7 +13,7 @@ Typically, you send events to an endpoint that processes the event data and take
 
 When you're finished, you see that the event data has been sent to the web app.
 
-![View results in the Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
+:::image type="content" source="./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png" alt-text="Screenshot showing the Event Grid Viewer sample with a sample event.":::
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,9 +25,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
-
-The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named *gridResourceGroup* in the *westus2* location. If you click **Try it**, you'll see the Azure Cloud Shell window in the right pane. Then, click **Copy** to copy the command and paste it in the Azure Cloud Shell window, and press ENTER to run the command. Change the name of the resource group and the location if you like. 
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -39,26 +37,36 @@ az group create --name gridResourceGroup --location westus2
 
 An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group using Bash in Azure Cloud Shell. Replace `<your-topic-name>` with a unique name for your topic. The custom topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
 
-```azurecli-interactive
-topicname=<your-topic-name>
+1. Copy the following command, specify a name for the topic, and press ENTER to run the command. 
 
-az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
-```
+    ```azurecli-interactive
+    topicname=<your-topic-name>
+    ```
+2. Use the [`az eventgrid topic create`](/cli/azure/eventgrid/topic?view=azure-cli-latest#az-eventgrid-topic-create) command to create a custom topic. 
+
+    ```azurecli-interactive
+    az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
+    ```
 
 ## Create a message endpoint
 
 Before subscribing to the custom topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
 
-```azurecli-interactive
-sitename=<your-site-name>
 
-az deployment group create \
-  --resource-group gridResourceGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
-  --parameters siteName=$sitename hostingPlanName=viewerhost
-```
+1. Copy the following command, specify a name for the web app (Event Grid Viewer sample), and press ENTER to run the command. Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
+
+    ```azurecli-interactive
+    sitename=<your-site-name>
+    ```
+2. Run the [`az deployment group create`](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create) to deploy the web app using an Azure Resource Manager template. 
+
+    ```azurecli-interactive
+    az deployment group create \
+      --resource-group gridResourceGroup \
+      --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
+      --parameters siteName=$sitename hostingPlanName=viewerhost
+    ```
 
 The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
