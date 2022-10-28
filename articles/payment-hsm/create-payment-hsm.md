@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Retrieve information about your payment HSM
 
 > [!NOTE]
-> If you wish to reuse an existing VNET, verify that you have met all of the [Prerequisites](#prerequisites) and then read [How to reuse an existing virtual network](how-to-reuse-vnet.md).
+> If you wish to reuse an existing VNET, verify that you have met all of the [Prerequisites](#prerequisites) and then read [How to reuse an existing virtual network](reuse-vnet.md).
 
 ## Prerequisites
 
