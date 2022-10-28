@@ -167,14 +167,6 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
 When you save your workflow, this step automatically publishes your updates to your deployed logic app, which is live in Azure. With only a trigger, your workflow just checks the SQL database based on your specified schedule. You have to [add an action](#add-sql-action) that responds to the trigger.
 
-<a name="trigger-recurrence-shift-drift"></a>
-
-## Trigger recurrence shift and drift (daylight saving time)
-
-Recurring connection-based triggers where you need to create a connection first, such as the SQL Server managed connector trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). For recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
-
-To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#recurrence-for-connection-based-triggers).
-
 <a name="add-sql-action"></a>
 
 ## Add a SQL Server action
