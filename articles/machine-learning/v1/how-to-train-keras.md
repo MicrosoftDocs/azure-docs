@@ -17,6 +17,9 @@ ms.custom: sdkv1, event-tier1-build-2022
 # Train Keras models at scale with Azure Machine Learning (SDK v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
+> * [v1](how-to-train-keras.md)
+> * [v2 (current version)](../how-to-train-keras.md)
 
 In this article, learn how to run your Keras training scripts with Azure Machine Learning.
 

@@ -97,7 +97,7 @@ Use API Management policies to ensure that your API Management instance accepts 
 
 ### Restrict incoming IP addresses
 
-You can configure an inbound [ip-filter](/api-management-access-restriction-policies.md#CheckHTTPHeader) policy in API Management to allow only Front Door-related traffic, which includes:
+You can configure an inbound [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) policy in API Management to allow only Front Door-related traffic, which includes:
 
 * **Front Door's backend IP address space** - Allow IP addresses corresponding to the *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
 
@@ -108,7 +108,7 @@ You can configure an inbound [ip-filter](/api-management-access-restriction-poli
 
 ### Check Front Door header
 
-Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](/api-management-access-restriction-policies.md#CheckHTTPHeader) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. This header value is the **Front Door ID**, which is shown in the portal on the **Overview** page of the Front Door profile.
+Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](api-management-access-restriction-policies.md#CheckHTTPHeader) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. This header value is the **Front Door ID**, which is shown in the portal on the **Overview** page of the Front Door profile.
 
 In the following policy example, the Front Door ID is specified using a [named value](api-management-howto-properties.md) named `FrontDoorId`. 
 

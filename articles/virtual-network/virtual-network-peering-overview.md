@@ -4,12 +4,12 @@ titlesuffix: Azure Virtual Network
 description: Learn about virtual network peering in Azure, including how it enables you to connect networks in Azure Virtual Network.
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/10/2022
-ms.author: mbender
+ms.author: allensu
 #customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
 ---
 # Virtual network peering

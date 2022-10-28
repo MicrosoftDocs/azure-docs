@@ -1,12 +1,12 @@
 ---
 title: Overview of manually deploying the MedTech service using the Azure portal - Azure Health Data Services
 description: In this article, you'll see an overview of how to manually deploy the MedTech service in the Azure portal.
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/30/2022
-ms.author: v-smcevoy
+ms.date: 10/10/2022
+ms.author: jasteppe
 ---
 
 # How to manually deploy MedTech service using the Azure portal
@@ -15,13 +15,13 @@ You may prefer to manually deploy MedTech service if you need to track every ste
 
 The explanation of MedTech service manual deployment using the Azure portal is divided into three parts that cover each of key tasks required:
 
-- Prerequisites (see Prerequisites below)
-- Configuration (see [Configure for manual deployment](./deploy-05-new-config.md))
-- Deployment and Post Deployment (see [Manual deployment and post-deployment](./deploy-06-new-deploy.md))
+- Part 1: Prerequisites (see Prerequisites below)
+- Part 2: Configuration (see [Configure for manual deployment](./deploy-05-new-config.md))
+- Part 3: Deployment and Post Deployment (see [Manual deployment and post-deployment](./deploy-06-new-deploy.md))
 
-If you need a diagram with information on the MedTech service deployment, there is an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resource (FHIR) Observation.
+If you need a diagram with information on the MedTech service deployment, there is an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation.
 
-## Prerequisites
+## Part 1: Prerequisites
 
 Before you can begin configuring to deploy MedTech services, you need to have the following five prerequisites:
 
@@ -86,11 +86,15 @@ There are three ways to deploy FHIR service:
 
 After you have deployed FHIR service, it will be ready to receive the data processed by MedTech and persist it as a FHIR service Observation.
 
+## Continue on to Part 2: Configuration
+
+After your prerequisites are successfully completed, you can go on to Part 2: Configuration. See **Next steps** below.
+
 ## Next steps
 
-In this article, you learned about the prerequisites needed to deploy the MedTech service manually. When you have completed all the prerequisite requirements and your FHIR service is deployed, you are ready for the next step of manual deployment, see
+When you are ready to begin Part 2 of Manual Deployment, see
 
 >[!div class="nextstepaction"]
->[Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md)
+>[Part 2: Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

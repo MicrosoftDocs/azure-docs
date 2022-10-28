@@ -1,12 +1,12 @@
 ---
 title: Dimensions for Azure Stream Analytics metrics
 description: This article describes dimensions for Azure Stream Analytics metrics.
-author: xujiang1
+author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.custom: 
-ms.date: 06/30/2022
+ms.custom: ignite-2022
+ms.date: 10/12/2022
 ---
 # Dimensions for Azure Stream Analytics metrics
 
@@ -51,16 +51,20 @@ The **Logical Name** dimension is available for filtering and splitting the foll
 
 ## Node Name dimension
 
-A streaming node represents a set of compute resources that's used to process your input data. Every six streaming units (SUs) translates to one node, which the service automatically manages on your behalf. For more information about the relationship between streaming units and streaming nodes, see [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md).
+A streaming node represents a set of compute resources that's used to process your input data. Every six streaming units (SUs) translate to one node, which the service automatically manages on your behalf. For more information about the relationship between streaming units and streaming nodes, see [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md).
 
 **Node Name** is a dimension at the streaming node level. It can help you to drill down certain metrics to the specific streaming node level. For example, you can split the **CPU % Utilization** metric by streaming node level to check the CPU utilization of an individual streaming node.
 
 :::image type="content" source="./media/stream-analytics-job-metrics-dimensions/07-average-cpu-splitting-by-node-name.png" alt-text="Screenshot of a chart that shows splitting average CPU utilization by the Node Name dimension." lightbox="./media/stream-analytics-job-metrics-dimensions/07-average-cpu-splitting-by-node-name.png":::
 
 The **Node Name** dimension is available for filtering and splitting the following metrics:
--	**CPU % Utilization** (preview)
--	**SU (Memory) % Utilization**
+-	**Backlogged Input Events**
+-	**CPU % Utilization (preview)** 
 -	**Input Events**
+-	**Output Events**
+-	**SU (Memory) % Utilization**
+-	**Watermark Delay**
+
 
 ## Partition ID dimension
 
@@ -86,5 +90,7 @@ The **Partition ID** dimension is available for filtering and splitting the foll
 
 * [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
 * [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
+* [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md)
+* [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md)
 * [Monitor a Stream Analytics job with the Azure portal](./stream-analytics-monitoring.md)
 * [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)
