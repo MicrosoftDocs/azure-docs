@@ -507,10 +507,8 @@
           items:
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Safe rollout for online endpoints (CLI)
+            - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Safe rollout for online endpoints (SDK)
-              href: how-to-safely-rollout-managed-endpoints-sdk-v2.md
             - name: Deployment scenarios
               items:
                 - name: Deploy a MLflow model with an online endpoint
