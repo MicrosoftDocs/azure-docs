@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Azure Blob storage library v12 - JavaScript"
-description: In this quickstart, you learn how to use the Azure Blob storage blob npm package version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+description: In this quickstart, you learn how to use the Azure Blob Storage for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/28/2022
