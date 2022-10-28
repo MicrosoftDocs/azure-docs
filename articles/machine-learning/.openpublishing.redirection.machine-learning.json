@@ -1556,6 +1556,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-safely-rollout-managed-endpoints-sdk-v2.md",
+        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-managed-endpoints",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-local-container-notebook-vm.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
         "redirect_document_id": false
