@@ -102,13 +102,13 @@ Microsoft partners with the following ISVs for Web Application Firewall (WAF).
 |  ![Screenshot of Azure WAF logo](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-azure-web-application-firewall.md) provides centralized protection of your web applications from common exploits and vulnerabilities.  |
 ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
 
-## Identity verification tools 
+## Developer tools 
 
 Microsoft partners with the following ISVs for tools that can help with implementation of your authentication solution.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of a grit ief editor logo.](./media/partner-gallery/grit-logo.png) | [Grit Visual Identity Experience Framework Editor](./partner-grit-editor.md) is a tool that saves time during authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.|
+| ![Screenshot of a grit ief editor logo.](./media/partner-gallery/grit-logo.png) | [Grit Visual Identity Experience Framework Editor](./partner-grit-editor.md) provides a low code/no code experience for developers to create sophisticated authentication user journeys. The tool comes with integrated debugger and templates for the most used scenarios.|
 
 ## Additional information
 

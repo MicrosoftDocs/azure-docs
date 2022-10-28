@@ -26,6 +26,10 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ## September 2022
 
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=Bh_VA8n-SL8&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=6]
+
 ### Data flow
 
 - Amazon S3 source connector added [Learn more](connector-amazon-simple-storage-service.md?tabs=data-factory)
@@ -57,8 +61,11 @@ DELETE method in the Web activity now supports sending a body with HTTP request 
 - Native UI support of parameterization added for 6 additional linked services – SAP ODP, ODBC, Microsoft Access, Informix, Snowflake, and DB2 [Learn more](parameterize-linked-services.md?tabs=data-factory#supported-linked-service-types)
 - Pipeline designer enhancements added in Studio Preview experience – users can view workflow inside pipeline objects like For Each, If Then, etc..  [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/azure-data-factory-updated-pipeline-designer/ba-p/3618755)
 
-
 ## August 2022
+
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=KCJ2F6Y_nfo&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=5]
 
 ### Data flow
 - Appfigures connector added as Source (Preview) [Learn more](connector-appfigures.md)
@@ -76,11 +83,11 @@ Service principal authentication type added for Azure Blob storage [Learn more](
 ### Continuous integration and continuous delivery (CI/CD)
 When CI/CD integrating ARM template, instead of turning off all triggers, it can exclude triggers that didn't change in deployment [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvements-related-to-pipeline-triggers-deployment/ba-p/3605064)
 
+## July 2022
+
 ### Video summary
 
-> [!VIDEO https://www.youtube.com/embed?v=KCJ2F6Y_nfo&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=5]
-
-## July 2022
+> [!VIDEO https://www.youtube.com/embed?v=EOVVt4qYvZI&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=4]
 
 ### Data flow
 
@@ -99,10 +106,6 @@ Include Global parameters supported in ARM template. [Learn more](https://techco
 ### Developer productivity
 
 Be a part of Azure Data Factory studio preview features - Experience the latest Azure Data Factory capabilities and be the first to share your feedback [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-azure-data-factory-studio-preview-experience/ba-p/3563880)
-
-### Video summary
-
-> [!VIDEO https://www.youtube.com/embed?v=EOVVt4qYvZI&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=4]
 
 ## More information
 

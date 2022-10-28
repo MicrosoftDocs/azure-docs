@@ -154,7 +154,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 3. Edit the `index.js` file and change the following lines:
 
     * `var topic = 'mytopic'`: Replace `mytopic` with the name of the Kafka topic used by this application.
-    * `var brokerHost = '176.16.0.13:9092`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
+    * `var brokerHost = '176.16.0.13:9092'`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
 
         To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
 

@@ -104,5 +104,6 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
+To learn more about data security and encryption
 > [!div class="nextstepaction"]
-> [How to manage users](how-to-manage-users.md)
+> [Data security and encryption in Microsoft Energy Data Services](how-to-manage-data-security-and-encryption.md)

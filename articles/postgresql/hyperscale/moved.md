@@ -7,15 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 recommendations: false
-ms.date: 10/12/2022
+ms.date: 10/13/2022
 ---
 
 # Azure Database for PostgreSQL - Hyperscale (Citus) is now Azure Cosmos DB for PostgreSQL
 
-Existing Hyperscale (Citus) server groups will automatically become Azure
-Cosmos DB for PostgreSQL clusters under the new name, with zero downtime.
-All features and pricing, including reserved compute pricing and
-regional availability, will be preserved under the new name.
+Existing Hyperscale (Citus) server groups will automatically become [Azure
+Cosmos DB for PostgreSQL](../../cosmos-db/postgresql/introduction.md) clusters
+under the new name, with zero downtime.  All features and pricing, including
+reserved compute pricing and regional availability, will be preserved under the
+new name.
 
 Once the name change is complete, all Hyperscale (Citus) information such as
 product overview, pricing information, documentation, and more will be moved

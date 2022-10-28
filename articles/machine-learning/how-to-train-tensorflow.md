@@ -16,10 +16,10 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 # Train TensorFlow models at scale with Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](v1/how-to-train-tensorflow.md)
-> * [v2 (preview)](how-to-train-tensorflow.md)
+> * [v2 (current version)](how-to-train-tensorflow.md)
 
 In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning Python SDK v2.
 
@@ -60,7 +60,7 @@ We're using `DefaultAzureCredential` to get access to the workspace. This creden
 
 If `DefaultAzureCredential` doesn't work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity) or [`Set up authentication`](how-to-setup-authentication.md?tabs=sdk) for more available credentials.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=credential)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=credential)]
 
 If you prefer to use a browser to sign in and authenticate, you should uncomment the following code and use it instead.
 
@@ -79,7 +79,7 @@ Next, get a handle to the workspace by providing your Subscription ID, Resource 
 2. Select your workspace name to show your Resource Group and Subscription ID.
 3. Copy the values for Resource Group and Subscription ID into the code.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=ml_client)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=ml_client)]
 
 The result of running this script is a workspace handle that you'll use to manage other resources and jobs.
 
@@ -90,9 +90,9 @@ The result of running this script is a workspace handle that you'll use to manag
 
 AzureML needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-In the following example script, we provision a Linux [`compute cluster`](/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Since we need a GPU cluster for this example, let's pick a *STANDARD_NC6* model and create an AzureML compute.
+In the following example script, we provision a Linux [`compute cluster`](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Since we need a GPU cluster for this example, let's pick a *STANDARD_NC6* model and create an AzureML compute.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=cpu_compute_target)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=cpu_compute_target)]
 
 ### Create a job environment
 
@@ -102,7 +102,7 @@ AzureML allows you to either use a curated (or ready-made) environment—useful 
 
 In this article, you'll reuse the curated AzureML environment `AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu`. You'll use the latest version of this environment using the `@latest` directive.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=curated_env_name)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=curated_env_name)]
 
 ## Configure and submit your training job
 
@@ -111,7 +111,7 @@ In this section, we'll begin by introducing the data for training. We'll then co
 ### Obtain the training data
 You'll use data from the Modified National Institute of Standards and Technology (MNIST) database of handwritten digits. This data is sourced from Yan LeCun's website and stored in an Azure storage account.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=data_url)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=data_url)]
 
 For more information about the MNIST dataset, visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
 
@@ -145,7 +145,7 @@ An AzureML `command` is a resource that specifies all the details needed to exec
 
 You'll use the general purpose `command` to run the training script and perform your desired tasks. Create a `Command` object to specify the configuration details of your training job.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=job)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=job)]
 
 - The inputs for this command include the data location, batch size, number of neurons in the first and second layer, and learning rate. Notice that we've passed in the web path directly as an input.
 
@@ -161,7 +161,7 @@ You'll use the general purpose `command` to run the training script and perform 
 
 It's now time to submit the job to run in AzureML. This time, you'll use `create_or_update` on `ml_client.jobs`.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=create_job)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=create_job)]
 
 Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in AzureML studio.
 
@@ -183,7 +183,7 @@ Now that you've seen how to do a TensorFlow training run using the SDK, let's se
 
 To tune the model's hyperparameters, define the parameter space in which to search during training. You'll do this by replacing some of the parameters (`batch_size`, `first_layer_neurons`, `second_layer_neurons`, and `learning_rate`) passed to the training job with special inputs from the `azure.ml.sweep` package.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=job_for_sweep)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=job_for_sweep)]
 
 Then, you'll configure sweep on the command job, using some sweep-specific parameters, such as the primary metric to watch and the sampling algorithm to use.
 
@@ -191,11 +191,11 @@ In the following code, we use random sampling to try different configuration set
 
 We also define an early termination policy—the `BanditPolicy`. This policy operates by checking the job every two iterations. If the primary metric, `validation_acc`, falls outside the top ten percent range, AzureML will terminate the job. This saves the model from continuing to explore hyperparameters that show no promise of helping to reach the target metric.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=sweep_job)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=sweep_job)]
 
 Now, you can submit this job as before. This time, you'll be running a sweep job that sweeps over your train job.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=create_sweep_job)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=create_sweep_job)]
 
 You can monitor the job by using the studio user interface link that is presented during the job run.
 
@@ -203,11 +203,11 @@ You can monitor the job by using the studio user interface link that is presente
 
 Once all the runs complete, you can find the run that produced the model with the highest accuracy.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=model)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=model)]
 
 You can then register this model.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=register_model)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=register_model)]
 
 
 ## Deploy the model as an online endpoint
@@ -224,13 +224,13 @@ For more information about deployment, see [Deploy and score a machine learning 
 
 As a first step to deploying your model, you need to create your online endpoint. The endpoint name must be unique in the entire Azure region. For this article, you'll create a unique name using a universally unique identifier (UUID).
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=online_endpoint_name)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=online_endpoint_name)]
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=endpoint)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=endpoint)]
 
 Once you've created the endpoint, you can retrieve it as follows:
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=get_endpoint)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=get_endpoint)]
 
 ### Deploy the model to the endpoint
 
@@ -243,7 +243,7 @@ The code to deploy the model to the endpoint does the following:
 - scores the model, using the `score.py` file; and
 - uses the same curated environment (that you declared earlier) to perform inferencing.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=blue_deployment)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=blue_deployment)]
 
 > [!NOTE]
 > Expect this deployment to take a bit of time to finish.
@@ -252,11 +252,11 @@ The code to deploy the model to the endpoint does the following:
 
 Now that you've deployed the model to the endpoint, you can predict the output of the deployed model, using the `invoke` method on the endpoint. To run the inference, use the sample request file `sample-request.json` from the *request* folder.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=invoke)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=invoke)]
 
 You can then print the returned predictions and plot them along with the input images. Use red font color and inverted image (white on black) to highlight the misclassified samples.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=test_invoke)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=test_invoke)]
 
 > [!NOTE]
 > Because the model accuracy is high, you might have to run the cell a few times before seeing a misclassified sample.
@@ -265,7 +265,7 @@ You can then print the returned predictions and plot them along with the input i
 
 If you won't be using the endpoint, delete it to stop using the resource. Make sure no other deployments are using the endpoint before you delete it.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=delete_endpoint)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=delete_endpoint)]
 
 > [!NOTE]
 > Expect this cleanup to take a bit of time to finish.

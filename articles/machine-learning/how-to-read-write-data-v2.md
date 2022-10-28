@@ -41,7 +41,7 @@ When you provide a data input/output to a Job, you'll need to specify a `path` p
 |---------|---------|
 |A path on your local computer     | `./home/username/data/my_data`         |
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
+|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/<path>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
 |A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
 |A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
 
@@ -380,10 +380,10 @@ The following example defines a pipeline containing three nodes and moves data b
 * `train_node` that trains a CNN model with Keras using the training data, `mnist_train.csv` .
 * `score_node` that scores the model using test data, `mnist_test.csv`.
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 ## Next steps
 
 * [Train models](how-to-train-model.md)
-* [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-python-sdk.md)
+* [Tutorial: Create production ML pipelines with Python SDK v2](tutorial-pipeline-python-sdk.md)
 * Learn more about [Data in Azure Machine Learning](concept-data.md)

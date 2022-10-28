@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 10/13/2022
 ms.author: aahi
 ---
 
@@ -165,4 +165,4 @@ See the following service-level language support articles for information on mod
 * [Opinion mining](../sentiment-opinion-mining/language-support.md#opinion-mining-language-support)
 * [Text Analytics for health](../text-analytics-for-health/language-support.md) 
 * [Summarization](../summarization/language-support.md?tabs=document-summarization) 
-* [Conversation summarization](../summarization/language-support.md?tabs=conversation-summarization)|
+* [Conversation summarization](../summarization/language-support.md?tabs=conversation-summarization)

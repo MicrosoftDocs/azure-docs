@@ -147,18 +147,6 @@
       items:
         - name: Back up and restore introduction
           href: ../online-backup-and-restore.md
-        - name: Continuous backup
-          items:
-            - name: Continuous backup - Introduction
-              href: ../continuous-backup-restore-introduction.md
-            - name: Continuous backup - FAQ
-              href: ../continuous-backup-restore-frequently-asked-questions.yml
-            - name: Continuous backup - Resource model
-              href: ../continuous-backup-restore-resource-model.md
-            - name: Latest restorable timestamp
-              href: ../latest-restore-timestamp-continuous-backup.md
-            - name: Auditing restore action with continuous backup
-              href: ../audit-restore-continuous.md
         - name: Manage periodic backup
           items:
             - name: Configure periodic backup
@@ -200,8 +188,16 @@
           href: ../security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: ../optimize-costs.yml
+        - name: Free tier
+          href: ../free-tier.md
+          displayName: free tier
+        - name: Limit total account throughput
+          displayName: cost, RUs, RU
+          href: ../limit-total-account-throughput.md
         - name: Plan and manage costs
           href: ../plan-manage-costs.md
         - name: Pricing model
@@ -228,6 +224,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Enterprise readiness
       items:
         - name: Service quotas
@@ -379,20 +377,14 @@
           href: ../sql/create-support-request-quota-increase.md
         - name: Access preview features
           href: ../access-previews.md
-    - name: Back up and restore
+    - name: Manage back up and restore
       items:
-        - name: Manage continuous backup
+        - name: Manage periodic backup
           items:
-            - name: Permissions and roles - Continuous backup
-              href: ../continuous-backup-restore-permissions.md
-            - name: Create account - Continuous backup
-              href: ../provision-account-continuous-backup.md
-            - name: Get the latest restorable timestamp
-              href: ../get-latest-restore-timestamp.md
-            - name: Restore an account - Continuous backup
-              href: ../restore-account-continuous-backup.md
-            - name: Migrate to continuous backup
-              href: ../migrate-continuous-backup.md
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Configure IP firewall

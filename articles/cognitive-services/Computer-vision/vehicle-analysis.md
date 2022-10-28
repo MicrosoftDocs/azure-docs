@@ -41,7 +41,7 @@ In addition to exposing the vehicle location, other estimated attributes for **c
 
 ### Operation parameters for vehicle analysis
 
-The following table shows the parameters required by each of the vehicle analysis operations. Many are shared with Spatial Analysis; the only one not shared is the `PARKING_REGIONS` setting. The full list of Spatial Analysis operation parameters can be found in the [Spatial Analysis container](/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge#iot-deployment-manifest) guide.
+The following table shows the parameters required by each of the vehicle analysis operations. Many are shared with Spatial Analysis; the only one not shared is the `PARKING_REGIONS` setting. The full list of Spatial Analysis operation parameters can be found in the [Spatial Analysis container](./spatial-analysis-container.md?tabs=azure-stack-edge#iot-deployment-manifest) guide.
 
 | Operation parameters| Description|
 |---------|---------|
