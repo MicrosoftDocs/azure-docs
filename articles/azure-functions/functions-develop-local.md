@@ -87,11 +87,11 @@ When you develop your functions locally, any local settings required by your app
 
 ## Triggers and bindings
 
-When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You do this by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local exeutions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to difference service during production. You can also use a local storage emulator.
+When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to difference service during production. You can also use a local storage emulator.
 
 ## Local storage emulator
 
-During local development, you can use the local [Azurite emulator](/storage/common/storage-use-azurite.md) when testing functions with Azure Storage bindings (Queue Storage, Blob Storage, and Table Storage), without having to rely on remote services. Azurite integrates with Visual Studio Code and Visual Studio, and you can run it from from command prompt using npm. For more information, see [Use the Azurite emulator for local Azure Storage development](/storage/common/storage-use-azurite.md).
+During local development, you can use the local [Azurite emulator](/storage/common/storage-use-azurite.md) when testing functions with Azure Storage bindings (Queue Storage, Blob Storage, and Table Storage), without having to rely on remote services. Azurite integrates with Visual Studio Code and Visual Studio, and you can run it from the command prompt using npm. For more information, see [Use the Azurite emulator for local Azure Storage development](/storage/common/storage-use-azurite.md).
 
 The following setting in the `Values` collection of the local.settings.json file tells the local Functions host to use Azurite for the default `AzureWebJobsStorage` connection:
 
