@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 10/28/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -20,7 +20,7 @@ This article shows you how to configure VMware VMware Spring Cloud Gateway with 
 
 [VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) a commercial VMware Tanzu component, is based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development. A Spring Cloud Gateway instance routes traffic according to rules. Both scale in/out and up/down are supported to meet dynamic traffic load.
 
-VMware Spring Cloud Gateway includes: 
+VMware Spring Cloud Gateway includes:
 
 - Dynamic routing configuration, independent of individual applications that can be applied and changed without recompilation.
 - Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
@@ -39,7 +39,6 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
   > To use VMware Spring Cloud Gateway, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
 
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
-
 
 ## Configure VMware Spring Cloud Gateway
 
@@ -62,6 +61,7 @@ Use the following steps to assign an endpoint to Spring Cloud Gateway and config
    ```azurecli
    az spring gateway update --assign-endpoint
    ```
+
 ### Configure VMware Spring Cloud Gateway metadata
 
 VMware Spring Cloud Gateway metadata is used to automatically generate OpenAPI version 3 documentation so that the [API portal](./how-to-use-enterprise-api-portal.md) can gather information to show the route groups. The available metadata options are described in the following table.
@@ -96,30 +96,28 @@ VMware Spring Cloud Gateway metadata is used to automatically generate OpenAPI v
 
 VMware Spring Cloud Gateway supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
 
-| Property     | Required? | Description                                                                                                                                                                                                                                                                                                        |
-|--------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| issuerUri    | Yes       | The URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
-| clientId     | Yes       | The OpenID Connect client ID provided by your IdP.                                                                                                                                                                                                                                                                 |
-| clientSecret | Yes       | The OpenID Connect client secret provided by your IdP.                                                                                                                                                                                                                                                             |
-| scope        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider.                                                                                                                                                                                     |
+| Property       | Required? | Description                                                                                                                                                                                                                                                                                                          |
+|----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `issuerUri`    | Yes       | The URI that is asserted as its Issuer Identifier. For example, if the `issuer-uri` provided is `https://example.com`, then an OpenID Provider Configuration Request will be made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
+| `clientId`     | Yes       | The OpenID Connect client ID provided by your IdP.                                                                                                                                                                                                                                                                   |
+| `clientSecret` | Yes       | The OpenID Connect client secret provided by your IdP.                                                                                                                                                                                                                                                               |
+| `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider.                                                                                                                                                                                       |
 
 To set up SSO with Azure AD, see [How to set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
 
-
 1. Use the following command to configure SSO properties for VMware Spring Cloud Gateway:
 
-    ```azurecli
-    az spring gateway update \
-        --client-id <client-id> \
-        --client-secret <client-secret> \
-        --issuer-uri <issuer-uri> \
-        --scope <scope>
-    ```
+   ```azurecli
+   az spring gateway update \
+       --client-id <client-id> \
+       --client-secret <client-secret> \
+       --issuer-uri <issuer-uri> \
+       --scope <scope>
+   ```
 
    You can also view or edit those properties in the Azure portal, as shown in the following screenshot:
 
    :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing including Single Sign On Configuration." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
-
 
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol are supported. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
@@ -149,7 +147,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 Customization of resource allocation for Spring Cloud Gateway instances is supported, including vCpu, memory, and instance count.
 
 > [!NOTE]
-> For high availablility, a single replica is not recommended.
+> For high availability, a single replica is not recommended.
 
 The following table describes the default resource usage:
 
@@ -157,7 +155,6 @@ The following table describes the default resource usage:
 |----------------------------------------------|----------------|-------------------|---------------------|
 | VMware Spring Cloud Gateway                  | 2              | 1 core            | 2Gi                 |
 | VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2Gi                 |
-
 
 ## Next steps
 

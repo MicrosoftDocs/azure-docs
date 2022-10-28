@@ -1,12 +1,11 @@
 ---
 title: How to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier
-titleSuffix: Azure Spring Apps Enterprise Tier
 description: Shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 10/28/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -41,9 +40,7 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
-
 ## Configure routes
-
 
 This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway.
 
@@ -117,17 +114,18 @@ The following tables list the route definitions. All the properties are optional
 Use the following steps to create an sample application using Spring Cloud Gateway.
 
 1. Create a test application in Azure Spring Apps.
+
    ```azurecli
    az spring app create test-app
    ```
 
-2. Assign a public endpoint to the gateway to access it.
+1. Assign a public endpoint to the gateway to access it.
 
    To view the running state and resources given to Spring Cloud Gateway, select the **Spring Cloud Gateway** section, then select **Overview**.
 
    To assign a public endpoint, select **Yes** next to **Assign endpoint**. You'll get a URL in a few minutes. Save the URL to use later.
 
-   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted.":::
+   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
    You can also use Azure CLI to assign the endpoint, as shown in the following command:
 
@@ -135,7 +133,7 @@ Use the following steps to create an sample application using Spring Cloud Gatew
    az spring gateway update --assign-endpoint
    ```
 
-3. Configure a routing rule to this app.
+1. Configure a routing rule to this app.
 
    Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
 
@@ -143,24 +141,24 @@ Use the following steps to create an sample application using Spring Cloud Gatew
 
    ```json
    [
-      "protocol": "HTTP",
-      "routes": [
-	{
-	  "title": "Test API",
-	  "description": "Retrieve a health check from our application",
-	  "predicates": [
-	    "Path=/test/api/healthcheck",
-	    "Method=GET"
-	  ],
-	  "filters": [
-	    "RateLimit=20,10s",
-	    "RewritePath=/api/healthcheck,/actuator/health"
-	  ],
-	  "tags": [
-	    "test"
-	  ]
-	}
-      ]
+     "protocol": "HTTP",
+     "routes": [
+       {
+         "title": "Test API",
+         "description": "Retrieve a health check from our application",
+         "predicates": [
+           "Path=/test/api/healthcheck",
+           "Method=GET"
+         ],
+         "filters": [
+           "RateLimit=20,10s",
+           "RewritePath=/api/healthcheck,/actuator/health"
+         ],
+         "tags": [
+           "test"
+         ]
+       }
+     ]
    ]
    ```
 
@@ -175,8 +173,7 @@ Use the following steps to create an sample application using Spring Cloud Gatew
 
    You can also view the routes in the portal.
 
-   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane.":::
-   
+   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png":::
 
 1. Use the following command to access the `test health check` API through the gateway endpoint:
 
