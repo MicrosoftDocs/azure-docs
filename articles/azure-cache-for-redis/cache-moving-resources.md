@@ -71,7 +71,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
 - You can't delete either linked cache, or the resource group that contains them, until you unlink the caches. For more information, see [Why did the operation fail when I tried to delete my linked cache?](cache-how-to-geo-replication.md#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - If the caches are in different regions, network egress costs apply to the data moved across regions. For more information, see [How much does it cost to replicate my data across Azure regions?](cache-how-to-geo-replication.md#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Failover is not automatic. You must start the failover from the primary to the secondary inked cache. For more information and information on how to failover a client application, see [Initiate a failover from geo-primary to geo-secondary (preview)](cache-how-to-geo-replication.md#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
+- Failover is not automatic. You must start the failover from the primary to the secondary inked cache. For more information on how to failover a client application, see [Initiate a failover from geo-primary to geo-secondary (preview)](cache-how-to-geo-replication.md#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
 
 ### Move
 
