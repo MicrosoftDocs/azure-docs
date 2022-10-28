@@ -57,22 +57,29 @@ The workflow of the migration process is illustrated in the following diagram:
 
 The following list describes details for each step in the workflow:
 
-1. **Source SQL Server**: A SQL Server instance on-premises, in a private cloud, or on a virtual machine in a public cloud. SQL Server 2008 and later versions on Windows and Linux are supported.
-1. **Target Azure SQL**: Supported Azure SQL targets are Azure SQL Managed Instance, SQL Server on Azure Virtual Machines (registered with the SQL infrastructure as a service extension in [full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes)), and Azure SQL Database.
-1. **Network File Share**: Server Message Block (SMB) network file share where backup files are stored for the database(s) to be migrated. Azure Storage blob containers and Azure Storage file share are also supported.
-1. **Azure Data Studio**: Download and install the [Azure SQL Migration extension in Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
-1. **Azure Database Migration Service**: Azure service that orchestrates migration pipelines to do data movement activities from on-premises to Azure. Database Migration Service is associated with Azure Data Factory's (ADF) self-hosted integration runtime (IR) and provides the capability to register and monitor the self-hosted IR.
-1. **Self-hosted integration runtime (IR)**: Self-hosted IR should be installed on a machine that can connect to the source SQL Server and the location of the backup file. Database Migration Service provides the authentication keys and registers the self-hosted IR.
-1. **Backup files upload to Azure Storage**: Database Migration Service uses self-hosted IR to upload valid backup files from the on-premises backup location to your Azure Storage account. Data movement activities and pipelines are automatically created in the migration workflow to upload the backup files.
-1. **Restore backups on target Azure SQL**: Database Migration Service restores backup files from your Azure Storage account to the supported target Azure SQL. 
+(1) **Source SQL Server**: An on-premises instance of SQL Server that's in a private cloud or an instance of SQL Server on a virtual machine in a public cloud. SQL Server 2008 and later versions on Windows and Linux are supported.
 
-    > [!NOTE]
-    > If your migration target is Azure SQL Database (Preview), you don't need backups to perform this migration. The migration to Azure SQL Database is considered a logical migration involving the database's pre-creation and data movement (performed by Database Migration Service).
+(2) **Target Azure SQL**: Supported Azure SQL targets are Azure SQL Managed Instance, SQL Server on Azure Virtual Machines (registered with the SQL infrastructure as a service extension in [full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes)), and Azure SQL Database.
 
-    > [!IMPORTANT]
-    > With online migration mode, Database Migration Service continuously uploads the backup source files to Azure Storage and restores them to the target until you complete the final step of cutting over to the target.
-    >
-    > In offline migration mode, Database Migration Service uploads the backup source files to Azure Storage and restores them to the target without requiring you to perform a cutover.
+(3) **Network file share**: A Server Message Block (SMB) network file share where backup files are stored for the databases to be migrated. Azure Blob Storage containers and Azure Storage file share also are supported.
+
+(4) **Azure Data Studio**: Download and install the [Azure SQL Migration extension in Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+
+(5) **Azure Database Migration Service**: An Azure service that orchestrates migration pipelines to do data movement activities from an on-premises environment to Azure. Database Migration Service is associated with the Azure Data Factory self-hosted integration runtime and provides the capability to register and monitor the self-hosted integration runtime.
+
+(6) **Self-hosted integration runtime**: A self-hosted integration runtime should be installed on a computer that can connect to the source SQL Server instance and the location of the backup file. Database Migration Service provides the authentication keys and registers the self-hosted integration runtime.
+
+(7) **Backup files upload to Azure Storage**: Database Migration Service uses a self-hosted integration runtime to upload valid backup files from the on-premises backup location to your Azure storage account. Data movement activities and pipelines are automatically created in the migration workflow to upload the backup files.
+
+(8) **Restore backups on target Azure SQL**: Database Migration Service restores backup files from your Azure storage account to the supported target Azure SQL instance.
+
+> [!NOTE]
+> If your migration target is Azure SQL Database (Preview), you don't need backups for this migration. Database migration to Azure SQL Database is considered a logical migration that involves the database's pre-creation and data movement (performed by Database Migration Service).
+
+> [!IMPORTANT]
+> In online migration mode, Database Migration Service continuously uploads the backup source files to Azure storage and restores them to the target until you complete the final step of cutting over to the target.
+>
+> In offline migration mode, Database Migration Service uploads the backup source files to Azure storage and restores them to the target without requiring a cutover.
 
 ## Prerequisites
 
@@ -92,34 +99,41 @@ The following sections walk through the prerequisites for each supported Azure S
 
 ---
 
-### Recommendations for using self-hosted integration runtime for database migrations
+### Recommendations for using a self-hosted integration runtime for database migrations
 
 - Use a single self-hosted integration runtime for multiple source SQL Server databases.
-- Install only one instance of self-hosted integration runtime on any single machine.
-- Associate only one self-hosted integration runtime with one Database Migration Service.
-- The self-hosted integration runtime uses resources (memory / CPU) on the machine where it's installed. Install the self-hosted integration runtime on a machine different from your source SQL Server. However, having the self-hosted integration runtime close to the data source reduces the time for the self-hosted integration runtime to connect to the data source. 
-- Use the self-hosted integration runtime only when you have your database backups in an on-premises SMB network share. Self-hosted integration runtime isn't required for database migrations if your source database backups are already in the Azure storage blob container.
-- We recommend up to 10 concurrent database migrations per self-hosted integration runtime on a single machine. To increase the number of concurrent database migrations, scale-out self-hosted runtime up to four nodes or create separate self-hosted integration runtime on different machines.
-- Configure self-hosted integration runtime to auto-update to automatically apply any new features, bug fixes, and enhancements that are released. To learn more, see [Self-hosted Integration Runtime Auto-update](../data-factory/self-hosted-integration-runtime-auto-update.md).
 
-## Monitor database migration progress from the Azure portal
+- Install only one instance of a self-hosted integration runtime on any single computer.
 
-When you migrate the database(s) using the Azure SQL Migration extension for Azure Data Studio, the migrations are orchestrated by the Azure Database Migration Service that was selected in the wizard. 
+- Associate only one self-hosted integration runtime with one instance of Database Migration Service.
 
-To monitor database migrations from the Azure portal:
+- The self-hosted integration runtime uses resources (memory and CPU) on the computer it's installed on. Install the self-hosted integration runtime on a computer that's separate from your source SQL Server instance. But the two computers should be in close proximity. Having the self-hosted integration runtime close to the data source reduces the time it takes for the self-hosted integration runtime to connect to the data source.
 
-1. Open the [Azure portal](https://portal.azure.com/)
-1. Search for your Azure Database Migration Service by the resource name
+- Use the self-hosted integration runtime only when you have your database backups in an on-premises SMB network share. A self-hosted integration runtime isn't required for database migrations if your source database backups are already in the Blob Storage container.
+
+- We recommend up to 10 concurrent database migrations per self-hosted integration runtime on a single computer. To increase the number of concurrent database migrations, scale out the self-hosted runtime to up to four nodes or create separate instances of the self-hosted integration runtime on different computers.
+
+- Configure the self-hosted integration runtime to auto-update, so it automatically applies any new features, bug fixes, and enhancements that are released. For more information, see [Self-hosted integration runtime auto-update](../data-factory/self-hosted-integration-runtime-auto-update.md).
+
+## Monitor database migration progress in the Azure portal
+
+When you migrate databases by using the Azure SQL Migration extension for Azure Data Studio, the migrations are orchestrated by the Database Migration Service instance that you selected in the migration wizard.
+
+To monitor database migrations in the Azure portal:
+
+1. Go to the [Azure portal](https://portal.azure.com/).
+
+1. Search for your instance of Database Migration Service by using the resource name.
   
-  :::image type="content" source="media/migration-using-azure-data-studio/search-dms-portal.png" alt-text="Search Azure Database Migration Service resource in portal":::
+  :::image type="content" source="media/migration-using-azure-data-studio/search-dms-portal.png" alt-text="Screenshot that shows how to search for a resource name in the Azure portal.":::
 
-1. Select the **Monitor migrations** tile on the **Overview** page to view the details of your database migrations.
+1. In the Database Migration Service instance overview, select the **Monitor migrations** tile to view the details of your database migrations.
 
-  :::image type="content" source="media/migration-using-azure-data-studio/dms-ads-monitor-portal.png" alt-text="Monitor migrations in Azure portal":::
+  :::image type="content" source="media/migration-using-azure-data-studio/dms-ads-monitor-portal.png" alt-text="Screenshot that shows how to monitor migrations in the Azure portal.":::
 
 ## Known issues and limitations
 
-- Overwriting existing databases using Database Migration Service in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
+- Overwriting existing databases by using Database Migration Service in your target instance of Azure SQL Managed Instance or SQL Server on Azure Virtual Machines isn't supported.
 - Configuring high availability and disaster recovery on your target to match source topology isn't supported by Database Migration Service.
 - The following server objects aren't supported:
 
@@ -131,20 +145,20 @@ To monitor database migrations from the Azure portal:
   - Server audit
 
 - SQL Server 2008 and earlier as target versions aren't supported for migrations to SQL Server on Azure Virtual Machines.
-- If you're using SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
-- You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with Database Migration Service. Initially, the self-hosted integration runtime should be created using the Azure SQL Migration extension in Azure Data Studio and can be reused for further database migrations.
+- If you use SQL Server 2014 or SQL Server 2012, you must store your source database backup files in an Azure Blob Storage container instead of using the network share option. Store the backup files as page blobs because block blobs are supported only in SQL Server 2016 and later versions.
+- You can't use an existing self-hosted integration runtime that was created from Azure Data Factory for database migrations with Database Migration Service. Initially, the self-hosted integration runtime should be created by using the Azure SQL Migration extension in Azure Data Studio. It can then be reused in future database migrations.
 
 ## Pricing
 
-- Azure Database Migration Service is free to use with the Azure SQL Migration extension in Azure Data Studio. You can migrate multiple SQL Server databases using the Azure Database Migration Service at no charge using the service or the Azure SQL Migration extension.
-- There's no data movement or data ingress cost for migrating your databases from on-premises to Azure. If the source database is moved from another region or an Azure VM, you may incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.
-- Provide your machine or on-premises server to install Azure Data Studio.
-- A self-hosted integration runtime is needed to access database backups from your on-premises network share.
+- Azure Database Migration Service is free to use with the Azure SQL Migration extension in Azure Data Studio. You can migrate multiple SQL Server databases by using Database Migration Service at no charge or the Azure SQL Migration extension.
+- No data movement or data ingress costs are associated when you migrate your databases from an on-premises environment to Azure. If the source database is moved from another region or from an Azure virtual machine, you might incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.
+- Use a virtual machine or on-premises server to install Azure Data Studio.
+- A self-hosted integration runtime is required to access database backups from your on-premises network share.
 
 ## Regional availability
 
-For the list of Azure regions that support database migrations using the Azure SQL Migration extension for Azure Data Studio (powered by Azure Database Migration Service), see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)
+For the list of Azure regions that support database migrations by using the Azure SQL Migration extension for Azure Data Studio (powered by Azure Database Migration Service), see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
 ## Next steps
 
-- For an overview and installation of the Azure SQL Migration extension, see [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+- Get an overview and learn how to install the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).

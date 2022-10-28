@@ -16,9 +16,9 @@ ms.date: 09/28/2022
 
 # Custom roles for SQL Server to Azure SQL Database (Preview) migrations using Azure Data Studio
 
-This article explains how to set up a custom role in Azure for Database Migrations. The custom role will only have the permissions necessary to create and run a Database Migration Service with Azure SQL Database (Preview) as a target. 
+This article explains how to set up a custom role in Azure for Database Migrations. The custom role will only have the permissions necessary to create and run a Database Migration Service with Azure SQL Database (Preview) as a target.
 
-The AssignableScopes section of the role definition json string allows you to control where the permissions appear in the **Add Role Assignment** UI in the portal. You'll likely want to define the role at the resource group or even resource level to avoid cluttering the UI with extra roles. This doesn't perform the actual role assignment.
+The AssignableScopes section of the role definition json string allows you to control where the permissions appear in the **Add role assignment** UI in the portal. You'll likely want to define the role at the resource group or even resource level to avoid cluttering the UI with extra roles. This doesn't perform the actual role assignment.
 
 ```json
 {
@@ -62,9 +62,10 @@ The AssignableScopes section of the role definition json string allows you to co
     }
 }
 ```
-You can use either the Azure portal, AZ PowerShell, Azure CLI or Azure REST API to create the roles.
 
-For more information, see the articles [Create custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md) and [Azure custom roles](../role-based-access-control/custom-roles.md).
+You can use either the Azure portal, Azure PowerShell, the Azure CLI, or the Azure REST API to create the roles.
+
+For more information, see [Create custom roles by using the Azure portal](../role-based-access-control/custom-roles-portal.md) and [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Description of permissions needed to migrate to Azure SQL Database (Preview)
 
@@ -94,14 +95,16 @@ For more information, see the articles [Create custom roles using the Azure port
 
 ## Role assignment
 
-To assign a role to users/APP ID, open the Azure portal, perform the following steps:
+To assign a role to a user or an app ID:
 
-1. Navigate to the resource, go to **Access Control**, and then scroll to find the custom roles you created.
+1. In the Azure portal, go to the resource.
 
-2. Select the appropriate role, select the User or APP ID, and then save the changes.
+1. In the left menu, select **Access control (IAM)**, and then scroll to find the custom roles you created.
 
-  The user or APP ID(s) now appears listed on the **Role assignments** tab.
+1. Select the appropriate role, select the user or app ID, and then save the changes.
+
+   The user or APP ID now appears on the **Role assignments** tab.
 
 ## Next steps
 
-* Review the migration guidance for your scenario in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+- Review the migration guidance for your scenario in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).

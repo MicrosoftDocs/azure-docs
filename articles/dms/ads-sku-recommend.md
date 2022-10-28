@@ -30,13 +30,13 @@ With the Azure SQL Migration extension, you can get a right-sized Azure recommen
 
 The following diagram shows the workflow for data collection and SKU recommendations:
 
-:::image type="content" source="media/ads-sku-recommend/ads-sql-sku-recommend.png" border="false" alt-text="Diagram that shows the SKU recommendation process.":::
+:::image type="content" source="media/ads-sku-recommend/ads-sql-sku-recommend.png" border="false" alt-text="Diagram that shows the workflow of the SKU recommendation process.":::
 
 1. **Performance data collection**: To start the performance data collection process in the migration wizard, select **Get Azure recommendation** and choose the option to collect performance data as shown below. Provide the folder where the collected data will be saved and select **Start**.
 
     :::image type="content" source="media/ads-sku-recommend/collect-performance-data.png" alt-text="Collect performance data for SKU recommendation":::
   
-    When you start the data collection process in the migration wizard, the Azure SQL Migration extension for Azure Data Studio collects data from your SQL Server instance that includes information about the hardware configuration and aggregated SQL Server specific performance data from system Dynamic Management Views (DMVs) such as CPU utilization, memory utilization, storage size, IO, throughput and IO latency.
+    When you start the data collection process in the migration wizard, the Azure SQL Migration extension for Azure Data Studio collects data from your SQL Server instance. The data collection includes hardware configuration and aggregated SQL Server-specific performance data from system Dynamic Management Views like CPU utilization, memory utilization, storage size, input/output (I/O), throughput, and I/O latency.
 
     > [!IMPORTANT]
     >
