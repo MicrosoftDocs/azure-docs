@@ -71,6 +71,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
  - The schema of your data is complex and/or changes frequently.
  - You only need a subset of data (for example: a sample of rows or files, specific columns, etc).
  - AutoML jobs requiring tabular data.
+ 
 If your scenario does not fit the above then it is likely that URIs are a more suitable type.
 
 ## Create a `uri_folder` data asset
