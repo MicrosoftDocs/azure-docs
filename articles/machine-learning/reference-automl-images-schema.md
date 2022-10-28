@@ -469,19 +469,19 @@ Along with the image, there are two extra parameters (`model_explainability` and
 | -------- |----------|-----|
 | `image_base64` | input image in base64 format<br>`Required, String` | - |
 | `model_explainability` | Whether to generate explanations or just the scoring<br>`Optional, Bool` | `False` |
-| `xai_parameters` | If `model_explainability` is True, then `xai_parameters` is a dictionary with keys `xai_algorithm`, explainability algorithm related parameters and `visualizations`, `attributions` <br>`Optional, Dictionary` <br> If `xai_parameters` isn't passed, then the `xrai` explainability algorithm is used with its default value| `{}` |
+| `xai_parameters` | If `model_explainability` is True, then `xai_parameters` is a dictionary containing  explainability algorithm related parameters with `xai_algorithm`, `visualizations`, `attributions` ask keys. <br>`Optional, Dictionary` <br> If `xai_parameters` isn't passed, then the `xrai` explainability algorithm is used with its default value| `{"xai_algorithm": "xrai", "visualizations": True, "attributions": False}` |
 | `xai_algorithm` | Name of the Explainability algorithm to be used. Supported XAI algorithms are {`xrai`, `integrated_gradients`, `guided_gradcam`, `guided_backprop`}<br>`Optional, String`| `xrai` |
-| `visualizations` | whether to return visualizations of explanations.<br>`Optional, Bool`| `True` |
-| `attributions` | whether to return feature attributions.<br>`Optional, Bool`| `False` |
-| `confidence_score_threshold_multilabel` | Confidence score threshold to select top classes to generate explanations in **multi-label classification**.<br>`Optional, Float`| `0.5` |
+| `visualizations` | Whether to return visualizations of explanations. <br>`Optional, Bool`| `True` |
+| `attributions` | Whether to return feature attributions. <br>`Optional, Bool`| `False` |
+| `confidence_score_threshold_multilabel` | Confidence score threshold to select top classes to generate explanations in **multi-label classification**. <br>`Optional, Float`| `0.5` |
 
 Following table describes the supported schemas for explainability.
 
 |Type | Schema |
 |---|----|
-|Inference on single image in base64 format | Dictionary with `image_base64` as key and value is base64 encoded image, <br> `model_explainability` key with True or False and `xai_parameters` dictionary with XAI algorithm specific parameters <br> `Required, Json String` <br> `works for one or more images`  |
+|Inference on single image in base64 format | Dictionary with `image_base64` as key and value is base64 encoded image, <br> `model_explainability` key with True or False and `xai_parameters` dictionary with XAI algorithm specific parameters <br> `Required, Json String` <br> `Works for one or more images`  |
 
-Each input image in the `request_json` defined in the code below is a base64 encoded string appended to the list `request_json["input_data"]["data"]`:
+Each input image in the `request_json`, defined in the code below, is a base64 encoded string appended to the list `request_json["input_data"]["data"]`:
 
 ```python
 import base64
@@ -526,9 +526,9 @@ predictions = json.loads(resp)
 ```
 ### Output format (XAI)
 
-Predictions made on model endpoints follow different schema depending on the task type. This section explores the output data formats for multi-class, multi-label image classification tasks.
+Predictions made on model endpoints follow different schema depending on the task type. This section describes the output data formats for multi-class, multi-label image classification tasks.
 
-The following schemas are defined for the case of two input images
+The following schemas are defined for the case of two input images.
 
 #### Image classification (binary/multi-class)
 Output schema is [same as described above](#data-schema-for-online-scoring) except that `visualizations` and `attributions` key values won't be `None`, if these keys were set to `True` in the request.
