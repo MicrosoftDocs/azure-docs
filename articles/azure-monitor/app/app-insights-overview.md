@@ -18,10 +18,10 @@ The [log trace](asp-net-trace-logs.md) is associated with other telemetry to giv
 
 Application Insights provides other features including, but not limited to:
 
-- [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment 
-- [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time 
-- [GitHub or Azure DevOps integration](work-item-integration.md) – create GitHub or Azure DevOps work items in context of Application Insights data 
-- [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application 
+- [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment
+- [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time
+- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](https://learn.microsoft.com/training/paths/github-administration-products/) or [Azure DevOps](https://learn.microsoft.com/azure/devops/?view=azure-devops) work items in context of Application Insights data
+- [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application
 - [Smart Detection](proactive-diagnostics.md) – automatic failure and anomaly detection through proactive telemetry analysis
 
 In addition, Application Insights supports [Distributed Tracing](distributed-tracing.md), also known as “distributed component correlation”. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a given execution or transaction. The ability to trace activity end-to-end is increasingly important for applications that have been built as distributed components or [microservices](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices).
@@ -48,7 +48,7 @@ Application Insights pricing is consumption-based; you pay for only what you use
 
 ## How do I instrument an application?
 
-[Auto-Instrumentation](codeless-overview.md) is the preferred instrumentation method. It requires no developer investment and eliminates future overhead related to [updating the SDK](sdk-support-guidance.md). It's the only way to instrument an application in which you don't have access to the source code.
+[Auto-Instrumentation](codeless-overview.md) is the preferred instrumentation method. It requires no developer investment and eliminates future overhead related to [updating the SDK](sdk-support-guidance.md). It's also the only way to instrument an application in which you don't have access to the source code.
 
 You only need to install the Application Insights SDK in the following circumstances:
 
@@ -58,48 +58,41 @@ You only need to install the Application Insights SDK in the following circumsta
 
 To use the SDK, you install a small instrumentation package in your app and then instrument the web app, any background components, and JavaScript within the web pages. The app and its components don't have to be hosted in Azure. The instrumentation monitors your app and directs the telemetry data to an Application Insights resource by using a unique token. The effect on your app's performance is small; tracking calls are non-blocking and batched to be sent in a separate thread.
 
-Refer to the decision tree below to see what is available to instrument your app.
-
 ### [.NET](#tab/net)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-dotnet.png" alt-text="Diagram of a decision tree providing .NET instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-dotnet.png":::
+Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
-- [Auto-Instrumentation](codeless-overview.md)
-- [Azure Application Insights libraries for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/insights)
-- [Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets](azure-vm-vmss-apps.md)
-- [Deploy Azure Monitor Application Insights Agent for on-premises servers](status-monitor-v2-overview.md)
+[Azure Monitor Application Insights Agent](status-monitor-v2-overview.md) is available for workloads running in on-premises virtual machines.
 
+A detailed view of all Auto-instrumentation supported environments, languages, and resource providers are available [here](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
+For other scenarios, the [Application Insights SDK](/dotnet/api/overview/azure/insights) is required.
+
+A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also available.
 
 ### [Java](#tab/java)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-java.png" alt-text="Diagram of a decision tree providing Java instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-java.png":::
+Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-Links:
-- [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md)
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
 
 ### [Node.js](#tab/nodejs)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-node.png" alt-text="Diagram of a decision tree providing Node instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-node.png":::
+Auto-instrumentation is available for [Azure App Service](azure-web-apps-nodejs.md).
 
-Links:
-- [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications](opentelemetry-enable.md)
-- [Monitor your Node.js services and apps with Application Insights](nodejs.md)
+The [Application Insights SDK](nodejs.md) is an alternative and we also have a preview [Open Telemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
 
 ### [JavaScript](#tab/javascript)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-js.png" alt-text="Diagram of a decision tree providing JavaScript instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-js.png":::
-
-Links:
-- [Application Insights for webpages](javascript.md)
+JavaScript requires the [Application Insights SDK](javascript.md).
 
 ### [Python](#tab/python)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-python.png" alt-text="Diagram of a decision tree providing Python instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-python.png":::
+Python applications can be monitored using [OpenCensus Python SDK via the Azure Monitor exporters](opencensus-python.md).
 
-Links:
-- [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications](opentelemetry-enable.md)
-- [Set up Azure Monitor for your Python application](opencensus-python.md)
+An extension is available for monitoring [Azure Functions](opencensus-python.md#integrate-with-azure-functions).
+
+A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also available.
 
 ---
 
@@ -124,4 +117,4 @@ Post coding questions to [Stack Overflow]() using an Application Insights tag.
 
 ### User Voice
 
-Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0).
+Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).

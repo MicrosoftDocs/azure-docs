@@ -16,6 +16,9 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 # Train scikit-learn models at scale with Azure Machine Learning (SDK v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
+> * [v1](how-to-train-scikit-learn.md)
+> * [v2 (current version)](../how-to-train-scikit-learn.md)
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
@@ -35,7 +38,7 @@ You can run this code in either an Azure Machine Learning compute instance, or y
  - Create a Jupyter Notebook server and run the code in the following sections.
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
-    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](how-to-configure-environment-v1.md).
 
 ## Set up the experiment
 

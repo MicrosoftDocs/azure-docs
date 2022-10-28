@@ -58,6 +58,12 @@
           href: automation-secure-asset-encryption.md
         - name: Management of Azure Automation data
           href: automation-managing-data.md
+    - name: High availability
+      items:
+        - name: Availability zones
+          href: automation-availability-zones.md
+        - name: Disaster recovery for Automation accounts 
+          href: automation-disaster-recovery.md        
 - name: How-to guides
   items:
     - name: Automation Account
@@ -78,8 +84,12 @@
               href: disable-managed-identity-for-automation.md
             - name: Remove user-assigned managed identity
               href: remove-user-assigned-identity.md
+            - name: Migrate Run As account to managed identity
+              href: migrate-run-as-accounts-managed-identity.md  
             - name: Troubleshoot managed identity
               href: troubleshoot/managed-identity.md
+            - name: FAQ on Migration to managed identity
+              href: automation-managed-identity-faq.md 
         - name: Run As account
           items:
             - name: Create Run As account

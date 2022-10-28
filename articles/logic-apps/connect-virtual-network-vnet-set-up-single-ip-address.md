@@ -10,8 +10,6 @@ ms.date: 08/20/2022
 
 # Set up a single IP address for one or more integration service environments in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
-
 When you work with Azure Logic Apps, you can set up an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting logic apps that need access to resources in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). When you have multiple ISE instances that need access to other endpoints that have IP restrictions, deploy an [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic) into your virtual network and route outbound traffic through that firewall or network virtual appliance. You can then have all the ISE instances in your virtual network use a single, public, static, and predictable IP address to communicate with the destination systems that you want. That way, you don't have to set up additional firewall openings at your destination systems for each ISE.
 
 This topic shows how to route outbound traffic through an Azure Firewall, but you can apply similar concepts to a network virtual appliance such as a third-party firewall from the Azure Marketplace. While this topic focuses on setup for multiple ISE instances, you can also use this approach for a single ISE when your scenario requires limiting the number of IP addresses that need access. Consider whether the additional costs for the firewall or virtual network appliance make sense for your scenario. Learn more about [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).

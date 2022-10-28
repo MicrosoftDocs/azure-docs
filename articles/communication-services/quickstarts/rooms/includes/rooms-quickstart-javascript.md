@@ -41,6 +41,8 @@ npm init -y
 
 ### Install the packages
 
+You'll need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-rooms) or above. 
+
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console

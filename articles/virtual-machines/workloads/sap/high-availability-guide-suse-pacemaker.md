@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 08/30/2022
+ms.date: 10/26/2022
 ms.author: radeltch
 
 ---
@@ -472,7 +472,7 @@ This section applies only if you want to use a fencing device with an Azure fenc
 This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure. 
 
 #### Using managed identity
-To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time.
+To create a managed identity (MSI), [create a system-assigned](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
 
 #### Using service principal
 
@@ -518,10 +518,10 @@ Use the following content for the input file. You need to adapt the content to y
 
 #### Using Managed Identity
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
-> Be aware assignment and removal of authorization with managed identities [can be delayed](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) until effective.
+> Be aware assignment and removal of authorization with managed identities [can be delayed](../../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
 
 #### Using Service Principal
 
@@ -581,6 +581,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
    </code></pre>
+   
+    c. Make sure vm.swappiness is set to 10 to reduce swap usage and favor memory.
+
+   <pre><code>sudo vi /etc/sysctl.conf
+   # Change/set the following setting
+   vm.swappiness = 10
+   </code></pre>
 
 1. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
 
@@ -639,9 +646,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
    >[!IMPORTANT]
-   > If using managed identity, the installed version of the *fence-agents* package must be fence-agents 4.5.2+git.1592573838.1eee0863 or later. Earlier versions will not work correctly with a managed identity configuration.  
-   > Currently only SLES 15 SP1 and older are supported for managed identity configuration.
-
+   > If using managed identity, the installed version of the *fence-agents* package must be 
+   > SLES 12 SP5: fence-agents 4.9.0+git.1624456340.8d746be9-3.35.2 or later  
+   > SLES 15 SP1 and higher: fence-agents 4.5.2+git.1592573838.1eee0863 or later.  
+   > Earlier versions will not work correctly with a managed identity configuration.  
+   
 1. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
 
     Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
@@ -799,7 +808,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
   
-   If using **managed identity** for your fence agent, run the following command (SLES 15 SP1 and newer, only)
+   If using **managed identity** for your fence agent, run the following command
    <pre><code>
    # replace the bold strings with your subscription ID and resource group of the VM
    
@@ -822,6 +831,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    
    sudo crm configure property stonith-timeout=900
    </code></pre>
+
+   If you are using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
    > [!IMPORTANT]
    > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.

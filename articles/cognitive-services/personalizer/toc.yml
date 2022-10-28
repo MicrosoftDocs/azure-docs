@@ -47,6 +47,8 @@
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
     href: how-to-offline-evaluation.md
+  - name: Enable inference explainability
+    href: how-to-inference-explainability.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
@@ -66,7 +68,7 @@
     displayName: best practice, design
   - name: Personalizer fundamentals
     items:
-    - name: "Features Action and Context"
+    - name: "Context and Action Features"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,
     - name: Learning policy
@@ -98,11 +100,11 @@
     href: concepts-scalability-performance.md
 - name: Tutorials
   items:
-  - name: Use Web app
+  - name: Web app integration tutorial
     href: tutorial-use-personalizer-web-app.md
-  - name: Use Chat bot
+  - name: Chat bot integration tutorial
     href: tutorial-use-personalizer-chat-bot.md
-  - name: Use Azure Notebook
+  - name: Jupyter notebook walkthrough
     href: tutorial-use-azure-notebook-generate-loop-data.md
     displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency
 - name: Reference

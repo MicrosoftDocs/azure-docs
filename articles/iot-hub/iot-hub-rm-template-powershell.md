@@ -15,21 +15,25 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Learn how to use an Azure Resource Manager template to create an IoT Hub and a consumer group. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
+This article shows you how to use an Azure Resource Manager template to create an IoT Hub and a [consumer group](https://learn.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups), using Azure PowerShell. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
+
+## Prerequisites
+
+[Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview)
+
+Azure Cloud Shell is useful if you don't want to install the PowerShell module locally, as Cloud Shell performs from a browser.
 
 ## Create an IoT hub
 
-The following [Resource Manager JSON template](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/) used in this article is one of many templates from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). This template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](/azure/templates/microsoft.devices/iothub-allversions).
+The [Resource Manager JSON template](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/) used in this article is one of many templates from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). The JSON template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](https://learn.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
-[!code-json[iothub-creation](~/quickstart-templates/quickstarts/microsoft.devices/iothub-with-consumergroup-create/azuredeploy.json)]
+Use the following PowerShell command to create a resource group which is then used to create an IoT hub. The JSON template is used in `-TemplateUri`.
 
-There are several methods for deploying a template.  You use Azure PowerShell in this article.
-
-To run the following PowerShell script, select **Try it** to open the Azure Cloud Shell. Copy the script, paste it into the shell, and answer the prompts to create a new resource, choose a region, and create a new IoT hub.
+To run the following PowerShell script, select **Try it** to open the Azure Cloud Shell. Copy the script, paste into your shell, then press enter. Answer the prompts. These prompts will help you to create a new resource, choose a region, and create a new IoT hub. Once answered, a confirmation of your IoT hub prints to the console.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$location = Read-Host -Prompt "Enter the location (for example: centralus)"
 $iotHubName = Read-Host -Prompt "Enter the IoT Hub name"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
@@ -41,6 +45,7 @@ New-AzResourceGroupDeployment `
 
 > [!NOTE]
 > To use your own template, upload your template file to the Cloud Shell, and then use the `-TemplateFile` switch to specify the file name.  For example, see [Deploy the template](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+
 
 ## Next steps
 

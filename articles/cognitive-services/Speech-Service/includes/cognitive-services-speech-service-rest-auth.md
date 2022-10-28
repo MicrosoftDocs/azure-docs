@@ -6,8 +6,6 @@ ms.date: 07/01/2021
 ms.author: erhopf
 ---
 
-## Authentication
-
 Each request requires an authorization header. This table illustrates which headers are supported for each feature:
 
 | Supported authorization header | Speech-to-text | Text-to-speech |
@@ -44,7 +42,7 @@ This example is a simple HTTP request to get a token. Replace `YOUR_SUBSCRIPTION
 ```http
 POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.api.cognitive.microsoft.com
+Host: eastus.api.cognitive.microsoft.com
 Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
@@ -62,7 +60,7 @@ $FetchTokenHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
 }
 
-$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://eastus.api.cognitive.microsoft.com/sts/v1.0/issueToken
  -Headers $FetchTokenHeader
 
 # show the token received
@@ -76,7 +74,7 @@ cURL is a command-line tool available in Linux (and in the Windows Subsystem for
 
 ```console
 curl -v -X POST \
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+ "https://eastus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
  -H "Content-Length: 0" \
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -90,7 +88,7 @@ This C# class illustrates how to get an access token. Pass your resource key for
 public class Authentication
 {
     public static readonly string FetchTokenUri =
-        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+        "https://eastus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
 
@@ -131,7 +129,7 @@ subscription_key = 'REPLACE_WITH_YOUR_KEY'
 
 
 def get_token(subscription_key):
-    fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'
+    fetch_token_url = 'https://eastus.api.cognitive.microsoft.com/sts/v1.0/issueToken'
     headers = {
         'Ocp-Apim-Subscription-Key': subscription_key
     }

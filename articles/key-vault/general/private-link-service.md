@@ -50,7 +50,7 @@ After configuring the key vault basics, select the Networking tab and follow the
 1. Click the "+ Add" Button to add a private endpoint.
 
     ![Screenshot that shows the 'Networking' tab on the 'Create key vault' page.](../media/private-link-service-1.png)
- 
+
 1. In the "Location" field of the Create Private Endpoint Blade, select the region in which your virtual network is located. 
 1. In the "Name" field, create a descriptive name that will allow you to identify this private endpoint. 
 1. Select the virtual network and subnet you want this private endpoint to be created in from the dropdown menu. 
@@ -58,7 +58,7 @@ After configuring the key vault basics, select the Networking tab and follow the
 1. Select "Ok".
 
     ![Screenshot that shows the 'Create private endpoint' page with settings selected.](../media/private-link-service-8.png)
- 
+
 You will now be able to see the configured private endpoint. You now have the option to delete and edit this private endpoint. 
 Select the "Review + Create" button and create the key vault. It will take 5-10 minutes for the deployment to complete. 
 

@@ -9,9 +9,9 @@ ms.author: aarathin
 ms.date: 03/15/2022
 ---
 
-# Prepare Azure container technical assets
+# Prepare Azure container technical assets for a container image
 
-This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace.
+This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace for a container image.
 
 ## Before you begin
 

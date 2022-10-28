@@ -1,21 +1,24 @@
 ---
-title: Copy data from Microsoft 365 (Office 365)
+title: Copy and transform data from Microsoft 365 (Office 365)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Microsoft 365 (Office 365) to supported sink data stores by using copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy and transform data from Microsoft 365 (Office 365) to supported sink data stores by using copy and mapping data flow activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 09/29/2022
 ms.author: jianleishen
 ---
-# Copy data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
+# Copy and transform data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Please refer to [this link](/graph/data-connect-concept-overview) for an overview on Microsoft Graph data connect and refer to [this link](/graph/data-connect-policies#licensing) for licensing information.
 
-This article outlines how to use the Copy Activity to copy data from Microsoft 365 (Office 365). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity to copy data and Data Flow to transform data from Microsoft 365 (Office 365). For an introduction to copy data, read the [copy activity overview](copy-activity-overview.md). For an introduction to transforming data, read [mapping data flow overview](concepts-data-flow-overview.md).
+
+> [!NOTE]
+> Microsoft 365 Data Flow connector is currently in preview. To participate, use this sign-up form: [M365 + Analytics Preview](https://aka.ms/m365-analytics-preview).
 
 ## Supported capabilities
 
@@ -24,32 +27,34 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 | Supported capabilities|IR |
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
+|[Lookup activity](control-flow-lookup-activity.md) (source/-)|&#9312; &#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
-ADF Microsoft 365 (Office 365) connector and Microsoft Graph data connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
+ADF Microsoft 365 (Office 365) connector and Microsoft Graph Data Connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 
-For now, within a single copy activity you can only **copy data from Microsoft 365 (Office 365) into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Microsoft 365 (Office 365) into other types of data stores or in other formats, you can chain the first copy activity with a subsequent copy activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
+For now, within a single copy activity and data flow, you can only **ingest data from Microsoft 365 (Office 365) into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Microsoft 365 (Office 365) into other types of data stores or in other formats, you can chain the first copy activity or data flow with a subsequent activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
 
 >[!IMPORTANT]
 >- The Azure subscription containing the data factory or Synapse workspace and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Microsoft 365 (Office 365) tenant.
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Microsoft 365 (Office 365) tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](/graph/data-connect-datasets#regions) for the list of supported Office regions and corresponding Azure regions.
 >- Service Principal authentication is the only authentication mechanism supported for Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 as destination stores.
 
-> [!Note]
-> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported. 
+> [!NOTE]
+> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported.
 
 ## Prerequisites
 
-To copy data from Microsoft 365 (Office 365) into Azure, you need to complete the following prerequisite steps:
+To copy and transform data from Microsoft 365 (Office 365) into Azure, you need to complete the following prerequisite steps:
 
 - Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
 - Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you will use to define the linked service for Microsoft 365 (Office 365):
-    - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
-    - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
-- Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner). 
-    - The user identity must be in the Microsoft 365 (Office 365) organization you are getting data from and must not be a Guest user.
+  - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+  - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+- Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
+  - The user identity must be in the Microsoft 365 (Office 365) organization you are getting data from and must not be a Guest user.
 
 ## Approving new data access requests
 
@@ -63,14 +68,14 @@ Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsof
 >[!TIP]
 >For a walkthrough of using Microsoft 365 (Office 365) connector, see [Load data from Microsoft 365 (Office 365)](load-office-365-data.md) article.
 
-You can create a pipeline with the copy activity by using one of the following tools or SDKs. Select a link to go to a tutorial with step-by-step instructions to create a pipeline with a copy activity. 
+You can create a pipeline with the copy activity and data flow by using one of the following tools or SDKs. Select a link to go to a tutorial with step-by-step instructions to create a pipeline with a copy activity.
 
 - [Azure portal](quickstart-create-data-factory-portal.md)
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
 - [REST API](quickstart-create-data-factory-rest-api.md)
-- [Azure Resource Manager template](quickstart-create-data-factory-resource-manager-template.md). 
+- [Azure Resource Manager template](quickstart-create-data-factory-resource-manager-template.md).
 
 ## Create a linked service to Microsoft 365 (Office 365) using UI
 
@@ -171,6 +176,7 @@ If you were setting `dateFilterColumn`, `startTime`, `endTime`, and `userScopeFi
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Microsoft 365 (Office 365) source.
+
 
 ### Microsoft 365 (Office 365) as source
 
@@ -327,6 +333,38 @@ To copy data from Microsoft 365 (Office 365), the following properties are suppo
     }
 ]
 ```
+
+## Transform data with the Microsoft 365 connector
+
+Microsoft 365 datasets can be used as a source with mapping data flows. The data flow will transform the data by flattening the dataset automatically. This allows users to concentrate on leveraging the flattened dataset to accelerate their analytics scenarios.
+
+### Mapping data flow properties
+
+To create a mapping data flow using the Microsoft 365 connector as a source, complete the following steps:
+
+1.	In ADF Studio, go to the **Data flows** section of the **Author** hub, select the **…** button to drop down the **Data flow actions** menu, and select the **New data flow** item. Turn on debug mode by using the **Data flow debug** button in the top bar of data flow canvas.
+
+    :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-data-flow-debug.png" alt-text="Screenshot of the data flow debug button in mapping data flow.":::
+
+2. In the mapping data flow editor, select **Add Source**.
+
+    :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-add-source.png" alt-text="Screenshot of add source in mapping data flow.":::
+
+3. On the tab **Source settings**, select **Inline** in the **Source type** property, **Microsoft 365 (Office 365)** in the **Inline dataset type**, and the Microsoft 365 linked service that you have created earlier.
+
+    :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
+
+4. On the tab **Source options** select the **Table name** of the Microsoft 365 table that you would like to transform. Also select the **Auto flatten** option to decide if you would like data flow to auto flatten the source dataset.
+
+    :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-source-options.png" alt-text="Screenshot of the source options of mapping data flow source.":::
+
+5. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
+
+6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

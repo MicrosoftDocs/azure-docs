@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 10/22/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -12,7 +12,8 @@ ms.reviewer: zezha-msft
 
 # azcopy copy
 
-Copies source data to a destination location.
+Copies source data to a destination location.  
+
 
 ## Synopsis
 
@@ -47,6 +48,12 @@ If you set an environment variable by using the command line, that variable will
 ```azcopy
 azcopy copy [source] [destination] [flags]
 ```
+
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 ## Examples
 
@@ -237,7 +244,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--content-type`   (string)    Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
 
-`--cpk-by-name`    (string)    Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
+`--cpk-by-name`    (string)    Client provided key by name that gives clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
 
 `--cpk-by-value`    Client provided key by name that let clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
 
