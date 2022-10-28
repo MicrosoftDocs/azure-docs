@@ -17,7 +17,7 @@ Azure [Event Hubs Capture][capture-overview] enables you to automatically delive
 
 ## Enable Capture when you create an event hub
 
-If you don't have an Event Hubs namespace to work with, create a **standard** tier namespace by following steps from the article: [Create an Event Hubs namespace](event-hubs-create.md#create-an-event-hubs-namespace.md). Make sure that you select **Standard** for the **pricing tier**. The basic tier doesn't support the Capture feature. 
+If you don't have an Event Hubs namespace to work with, create a **standard** tier namespace by following steps from the article: [Create an Event Hubs namespace](event-hubs-create.md#create-an-event-hubs-namespace). Make sure that you select **Standard** for the **pricing tier**. The basic tier doesn't support the Capture feature. 
 
 To create an event hub within the namespace, follow these steps:
 
