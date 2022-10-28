@@ -7,16 +7,19 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 10/28/2022
 ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Prevent anonymous public read access to containers and blobs
 
 Anonymous public read access to containers and blobs in Azure Storage is a convenient way to share data, but may also present a security risk. It's important to manage anonymous access judiciously and to understand how to evaluate anonymous access to your data. Operational complexity, human error, or malicious attack against data that is publicly accessible can result in costly data breaches. Microsoft recommends that you enable anonymous access only when necessary for your application scenario.
+
+> [!WARNING]
+> When a container is configured for public access, any client can read data in that container. Public access presents a potential security risk, so if your scenario does not require it, Microsoft recommends that you disallow it for the storage account.
 
 By default, public access to your blob data is always prohibited. However, the default configuration for a storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. For enhanced security, you can disallow all public access to storage account, regardless of the public access setting for an individual container. Disallowing public access to the storage account prevents a user from enabling public access for a container in the account. Microsoft recommends that you disallow public access to a storage account unless your scenario requires it. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
 
