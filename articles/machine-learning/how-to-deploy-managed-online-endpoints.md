@@ -733,7 +733,15 @@ for endpoint in ml_client.online_endpoints.list():
 
 # [ARM template](#tab/arm)
 
+The `show` command contains information in `provisioning_status` for endpoint and deployment:
 
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
+
+You can list all the endpoints in the workspace in a table format by using the `list` command:
+
+```azurecli
+az ml online-endpoint list --output table
+```
 
 ---
 
@@ -767,6 +775,10 @@ ml_client.online_deployments.get_logs(
 ```
 
 # [ARM template](#tab/arm)
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+
+By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `--container storage-initializer` flag.
 
 ---
 
@@ -818,6 +830,17 @@ ml_client.online_endpoints.invoke(
 ```
 
 # [ARM template](#tab/arm)
+
+You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
+
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+
+The following example shows how to get the key used to authenticate to the endpoint:
+
+> [!TIP]
+> You can control which Azure Active Directory security principals can get the authentication key by assigning them to a custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
 ---
 
@@ -920,6 +943,8 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
 # [ARM template](#tab/arm)
+
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ---
 
