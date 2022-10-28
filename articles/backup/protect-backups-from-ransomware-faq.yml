@@ -69,7 +69,7 @@ sections:
             
             For more information, see:
           
-            - [Encryption of data in the Recovery Services vault using CMK, PMK, Infrastructure-level encryption](backup-encryption.md#levels-of-encryption-in-azure-backup).
+            - [Encryption of data in the Recovery Services vault using CMK, PMK, Infrastructure-level encryption](backup-encryption.md#encryption-levels).
             - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
             - [Transport Layer Security in Azure Backup](transport-layer-security.md).
           
