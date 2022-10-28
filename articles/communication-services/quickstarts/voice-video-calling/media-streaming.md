@@ -18,7 +18,7 @@ zone_pivot_groups: acs-csharp-java
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Get started with using audio streams through Azure Communication Services Media Streaming API. This quickstart assumes you are already familiar with Call Automation APIs to build an automated call routing solution. 
+Get started with using audio streams through Azure Communication Services Media Streaming API. This quickstart assumes you're already familiar with Call Automation APIs to build an automated call routing solution. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Media Streaming with .NET](./includes/call-automation-media/media-streaming-quickstart-csharp.md)]
@@ -30,7 +30,7 @@ Get started with using audio streams through Azure Communication Services Media 
 
 
 ## Message schema
-When ACS has received the URL for your WebSocket server, it will create a connection to it. Once ACS has successfully connected to your WebSocket server it will send through the first data packet which contains metadata regarding the incoming media packets.
+When ACS has received the URL for your WebSocket server, it will create a connection to it. Once ACS has successfully connected to your WebSocket server, it will send through the first data packet which contains metadata regarding the incoming media packets.
 
 ``` code
 /**
@@ -86,4 +86,4 @@ Example of audio data being streamed
 ```
 
 ## Stop audio streaming
-Audio streaming will automatically stop when the call ends or is cancelled. 
+Audio streaming will automatically stop when the call ends or is canceled. 
