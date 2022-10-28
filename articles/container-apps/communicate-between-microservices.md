@@ -129,13 +129,13 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
     ---
@@ -163,13 +163,15 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-     docker push $ACR_NAME.azurecr.io/albumapp-ui 
+
+     docker push "$ACR_NAME.azurecr.io/albumapp-ui" 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker push $ACR_NAME.azurecr.io/albumapp-ui 
+
+    docker push "$ACR_NAME.azurecr.io/albumapp-ui"
     ```
 
     ---
@@ -230,8 +232,7 @@ az containerapp create \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
   --ingress 'external' \
-  --registry-server $ACR_NAME.azurecr.io \
-  --query configuration.ingress.fqdn
+  --registry-server $ACR_NAME.azurecr.io
 ```
 
 # [PowerShell](#tab/powershell)
@@ -241,12 +242,11 @@ az containerapp create `
   --name $FRONTEND_NAME `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
-  --image $ACR_NAME.azurecr.io/albumapp-ui  `
+  --image "$ACR_NAME.azurecr.io/albumapp-ui"  `
   --env-vars API_BASE_URL=https://$API_BASE_URL `
   --target-port 3000 `
   --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io"  `
-  --query configuration.ingress.fqdn
+  --registry-server "$ACR_NAME.azurecr.io"
 ```
 
 ---

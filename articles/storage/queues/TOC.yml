@@ -272,8 +272,30 @@
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/queues/toc.json
 - name: Reference
   items:
-  - name: Azure Queue storage reference
-    href: ../queues/reference.md
+  - name: APIs for data access
+    items:
+    - name: REST API
+      href: /rest/api/storageservices/queue-service-rest-api
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage
+    - name: Java SDK
+      href: /java/api/overview/azure/storage
+    - name: Python SDK
+      href: /python/api/overview/azure/storage
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage
+  - name: APIs for resource management
+    items:
+    - name: REST API
+      href: /rest/api/storagerp/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage/management
+    - name: Java SDK
+      href: /java/api/overview/azure/storage/management
+    - name: Python SDK
+      href: /python/api/overview/azure/storage#management
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage#management
   - name: Monitoring Azure Queue storage reference
     href: monitor-queue-storage-reference.md
   - name: Spring Integration with Azure Storage Queue

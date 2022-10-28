@@ -5,7 +5,7 @@ description: Learn guidelines to migrate your Azure HDInsight cluster to a newer
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/19/2022
+ms.date: 10/25/2022
 ---
 # Migrate HDInsight cluster to a newer version
 
@@ -48,7 +48,7 @@ For more information about database backup and restore, see [Recover a database 
 
 As mentioned above, Microsoft recommends that HDInsight clusters be regularly migrated to the latest version in order to take advantage of new features and fixes.  See the following list of reasons we would request that a cluster to be deleted and redeployed:
 
-* The cluster version is [Retired](hdinsight-retired-versions.md) or in [Basic support](hdinsight-36-component-versioning.md) and you're having a cluster issue that would be resolved with a newer version.
+* The cluster version is [Retired](hdinsight-retired-versions.md) or if you're having a cluster issue that would be resolved with a newer version.
 * The root cause of a cluster issue is determined to relate an undersized VM. [View Microsoft's recommended node configuration](hdinsight-supported-node-configuration.md).
 * A customer opens a support case and the Microsoft engineering team determines the issue has already been fixed in a newer cluster version.
 * A default metastore database (Ambari, Hive, Oozie, Ranger) has reached its utilization limit. Microsoft will ask you to recreate the cluster using a [custom metastore](hdinsight-use-external-metadata-stores.md#custom-metastore) database.

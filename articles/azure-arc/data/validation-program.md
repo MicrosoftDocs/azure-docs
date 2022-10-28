@@ -24,11 +24,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ## Partners
 
-### Cisco
+### DataON
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-|Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |1.21.13|v1.9.0_2022-07-12|16.0.312.4243| Not validated |
+|DataON AZS-6224|1.23.8|v1.12.0_2022-10-11|16.0.537.5223|)
 
 ### Dell
 
@@ -80,7 +80,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| OpenShift 4.7.13 | 1.20.0 | 1.0.0_2021-07-30 | 15.0.2148.140 | postgres 12.3 (Ubuntu 12.3-1)|
+| OpenShift 4.10.16 | v1.23.5 | v1.11.0_2022-09-13 | 16.0.312.4243 | postgres 12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 

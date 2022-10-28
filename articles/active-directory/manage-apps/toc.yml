@@ -212,9 +212,9 @@
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
-      - name: Enable single sign-on with SAML
-        href: add-application-portal-setup-oidc-sso.md
-      - name: Enable Linked based single sign-on
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
         href: configure-linked-sign-on.md
       - name: Enable OpenID Connect based single sign-on
         href: add-application-portal-setup-oidc-sso.md

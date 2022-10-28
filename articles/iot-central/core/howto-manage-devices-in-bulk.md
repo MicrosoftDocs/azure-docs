@@ -7,6 +7,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/22/2022
 ms.topic: how-to
+ms.custom: contperf-fy23q1
 ---
 
 # Manage devices in bulk in your Azure IoT Central application

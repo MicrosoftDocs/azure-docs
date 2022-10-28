@@ -4,7 +4,7 @@ description: Application performance monitoring for Java applications running in
 ms.topic: conceptual
 ms.date: 07/22/2022
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-2022
 ms.reviewer: mmcc
 ---
 
@@ -30,7 +30,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.4.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.1/applicationinsights-agent-3.4.1.jar) file.
+Download the [applicationinsights-agent-3.4.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.2/applicationinsights-agent-3.4.2.jar) file.
 
 > [!WARNING]
 >
@@ -42,7 +42,7 @@ Download the [applicationinsights-agent-3.4.1.jar](https://github.com/microsoft/
 >
 > Starting from 3.3.0:
 >
->    - `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    - `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logging-level-as-a-custom-dimension)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
 > Starting from 3.2.0:
@@ -62,7 +62,7 @@ Download the [applicationinsights-agent-3.4.1.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.4.1.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.2.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -80,7 +80,7 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.4.1.jar"` to your applicati
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.1.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.2.jar` with the following content:
 
         ```json
         {
@@ -205,7 +205,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
 * [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
-[//]: # "Cosmos 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
+[//]: # "Azure Cosmos DB 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
 
 [//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
 [//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
@@ -540,6 +540,8 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

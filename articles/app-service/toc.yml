@@ -24,7 +24,9 @@
     - name: Ruby
       href: quickstart-ruby.md
     - name: WordPress
-      href: quickstart-wordpress.md      
+      href: quickstart-wordpress.md
+    - name: Go (experimental)
+      href: quickstart-golang.md      
     - name: Static HTML site
       href: quickstart-html.md
     - name: ARM template
@@ -182,7 +184,7 @@
               href: ./scripts/cli-connect-to-storage.md
             - name: Connect to Azure Cache for Redis
               href: ./scripts/cli-connect-to-redis.md
-            - name: Connect to Cosmos DB
+            - name: Connect to Azure Cosmos DB
               href: ./scripts/cli-connect-to-documentdb.md
         - name: Backup and restore an app
           href: ./scripts/cli-backup-schedule-restore.md
@@ -224,6 +226,8 @@
           href: overview-authentication-authorization.md
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
+        - name: Subdomain takeover
+          href: reference-dangling-subdomain-prevention.md                
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy
@@ -500,6 +504,28 @@
           href: ../automation/automation-runbook-gallery.md
     - name: Troubleshooting
       items:
+        - name: Create or delete web apps FAQ 
+          href: /troubleshoot/azure/app-service/create-delete-resources-faq?toc=/azure/app-service/toc.json
+        - name: App performance FAQs
+          href: /troubleshoot/azure/app-service/web-apps-performance-faqs?toc=/azure/app-service/toc.json
+        - name: App Service Compliance with PCI Standards
+          href: /troubleshoot/azure/app-service/app-service-compliance-wit?toc=/azure/app-service/toc.json
+        - name: Back up and restore app services
+          href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
+        - name: Built-in Linux containers FAQs
+          href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
+        - name: Configuration and management FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-configuration-and-management-faqs?toc=/azure/app-service/toc.json
+        - name: Deployment FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-deployment-faqs?toc=/azure/app-service/toc.json
+        - name: FAQs about scaling web apps
+          href: /troubleshoot/azure/app-service/scaling-web-app-faq?toc=/azure/app-service/toc.json
+        - name: Open-source technologies FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-open-source-technologies-faqs?toc=/azure/app-service/toc.json
+        - name: Troubleshoot temporary storage
+          href: /troubleshoot/azure/app-service/temporary-storage-for-azure-app-service?toc=/azure/app-service/toc.json
+        - name: Troubleshoot instance-related issues
+          href:  /troubleshoot/azure/app-service/troubleshoot-instance-related-issues-on-azure-app-service?toc=/azure/app-service/toc.json
         - name: Troubleshoot intermittent outbound connection errors
           href: troubleshoot-intermittent-outbound-connection-errors.md
         - name: Troubleshoot with Visual Studio
@@ -512,6 +538,7 @@
           href: troubleshoot-performance-degradation.md
         - name: Troubleshoot domain and certificate issues
           href: troubleshoot-domain-ssl-certificates.md
+
     - name: IP address change
       items:
       - name: Inbound IP address

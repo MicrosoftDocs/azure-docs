@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/15/2022
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
 Azure Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration. We recommend that you set your job to compatability level 1.2 when using Azure Cosmos DB as output.
@@ -65,7 +65,7 @@ It's important to choose a partition key property that has a number of distinct 
 
 The storage size for documents that belong to the same partition key value is limited to 20 GB (the [physical partition size limit](../cosmos-db/partitioning-overview.md) is 50 GB). An [ideal partition key](../cosmos-db/partitioning-overview.md#choose-partitionkey) is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
 
-Partition keys used for Stream Analytics queries and Cosmos DB don't need to be identical. Fully parallel topologies recommend using *Input Partition key*, `PartitionId`, as the Stream Analytics query's partition key but that may not be the recommended choice for a Cosmos DB container's partition key.
+Partition keys used for Stream Analytics queries and Azure Cosmos DB don't need to be identical. Fully parallel topologies recommend using *Input Partition key*, `PartitionId`, as the Stream Analytics query's partition key but that may not be the recommended choice for an Azure Cosmos DB container's partition key.
 
 A partition key is also the boundary for transactions in stored procedures and triggers for Azure Cosmos DB. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Partitioning in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) gives more details on choosing a partition key.
 

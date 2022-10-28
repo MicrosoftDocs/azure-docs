@@ -3,8 +3,8 @@ title: Train models with the Azure ML Python SDK (v1) (preview)
 titleSuffix: Azure Machine Learning
 description: Add compute resources (compute targets) to your workspace to use for machine learning training and inference with SDK v1.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-attach-compute-targets.md)
-> * [v2 (preview)](../how-to-train-model.md)
+> * [v2 (current version)](../how-to-train-model.md)
 	 
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.
 
@@ -65,7 +65,7 @@ When you use your local computer for **inference**, you must have Docker install
 
 ## Remote virtual machines
 
-Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](../how-to-configure-environment.md#dsvm).
+Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](how-to-configure-environment-v1.md).
 
 > [!TIP]
 > Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](../concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).

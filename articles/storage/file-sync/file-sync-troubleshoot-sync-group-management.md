@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot Azure File Sync sync group management | Microsoft Docs
+title: Troubleshoot Azure File Sync sync group management
 description: Troubleshoot common issues in managing Azure File Sync sync groups, including cloud endpoint creation and server endpoint creation, deletion, and health.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 7/28/2022
+ms.date: 10/25/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -126,6 +126,9 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
         - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
         - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
         - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256  
+
+> [!Note]
+> Different Windows versions support different TLS cipher suites and priority order. See [TLS Cipher Suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel) for the corresponding Windows version and the supported cipher suites and default order in which they are chosen by the Microsoft Schannel Provider.
 
 - If **GetNextJob completed with status: -2134347764** is logged, the server is unable to communicate with the Azure File Sync service due to an expired or deleted certificate.  
     - Run the following PowerShell command on the server to reset the certificate used for authentication:
