@@ -151,6 +151,7 @@ When you configure the workflow file later, you use the secret for the input `cr
   with:
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
+
 # [OpenID Connect](#tab/openid)
 
 You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
@@ -277,6 +278,7 @@ jobs:
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         images: 'mycontainer.azurecr.io/myapp:${{ github.sha }}'
 ```
+
 # [Service principal](#tab/service-principal)
 
 ```yaml
@@ -359,6 +361,7 @@ jobs:
       run: |
         az logout
 ```
+
 ---
 
 ## Next steps

@@ -27,7 +27,7 @@ In this article, you learn how to prepare image data for training computer visio
 To generate models for computer vision tasks with automated machine learning, you need to bring labeled image data as input for model training in the form of an `MLTable`. 
 
 You can create an `MLTable` from labeled training data in JSONL format. 
-If your labeled training data is in a different format (like, pascal VOC or COCO), you can use a [conversion script](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/coco2jsonl.py) to first convert it to JSONL, and then create an `MLTable`. Alternatively, you can use  Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images, and export the labeled data to use for training your AutoML model.
+If your labeled training data is in a different format (like, pascal VOC or COCO), you can use a [conversion script](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/coco2jsonl.py) to first convert it to JSONL, and then create an `MLTable`. Alternatively, you can use  Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images, and export the labeled data to use for training your AutoML model.
 
 ## Prerequisites
 

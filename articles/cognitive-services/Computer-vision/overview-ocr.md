@@ -1,5 +1,5 @@
 ---
-title: What is Optical character recognition?
+title: What is Optical Character Recognition (OCR)?
 titleSuffix: Azure Cognitive Services
 description: The optical character recognition (OCR) service extracts print and handwritten text from images.
 services: cognitive-services
@@ -14,13 +14,13 @@ ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp, ignite-2022
 ---
 
-# What is Optical character recognition?
+# What is Optical Character Recognition (OCR)
 
-Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as posters, street signs and product labels, as well as from documents like articles, reports, forms, and invoices. 
+OCR or Optical Character Recognition is also referred to as text recognition or text extraction. Machine-learning based OCR techniques allow you to extract printed or handwritten text from images, such as posters, street signs and product labels, as well as from documents like articles, reports, forms, and invoices. The text is typically extracted as words, text lines, and paragraphs or text blocks, enabling access to digital version of the scanned text. This eliminates or significantly reduces the need for manual data entry.
 
-## How is OCR related to intelligent document processing (IDP)?
+## How is OCR related to Intelligent Document Processing (IDP)?
 
-OCR typically refers to the foundational technology focusing on extracting text while delegating the extraction of structure, relationships, key-values, entities, and other document-centric insights to intelligent document processing service like [Form Recognizer](../../applied-ai-services/form-recognizer/overview.md). Form Recognizer includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Form Recognizer Read OCR](../../applied-ai-services/form-recognizer/concept-read.md).
+Intelligent Document Processing (IDP) uses OCR as its foundational technology to additionally extract structure, relationships, key-values, entities, and other document-centric insights with an advanced machine-learning based AI service like [Form Recognizer](../../applied-ai-services/form-recognizer/overview.md). Form Recognizer includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Form Recognizer Read OCR](../../applied-ai-services/form-recognizer/concept-read.md).
 
 ## Read OCR engine
 Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). This allows them to extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
