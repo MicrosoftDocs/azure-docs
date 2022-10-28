@@ -42,7 +42,7 @@ An event grid topic provides a user-defined endpoint that you post your events t
     ```azurecli-interactive
     topicname=<your-topic-name>
     ```
-2. Use the [`az eventgrid topic create`](/cli/azure/eventgrid/topic?view=azure-cli-latest#az-eventgrid-topic-create) command to create a custom topic. 
+2. Use the [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) command to create a custom topic. 
 
     ```azurecli-interactive
     az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
@@ -59,7 +59,7 @@ Before subscribing to the custom topic, let's create the endpoint for the event 
     ```azurecli-interactive
     sitename=<your-site-name>
     ```
-2. Run the [`az deployment group create`](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create) to deploy the web app using an Azure Resource Manager template. 
+2. Run the [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create) to deploy the web app using an Azure Resource Manager template. 
 
     ```azurecli-interactive
     az deployment group create \
