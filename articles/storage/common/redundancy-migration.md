@@ -231,7 +231,7 @@ The [customer-initiated conversion (preview)](#customer-initiated-conversion-pre
 
 ### Feature conflicts
 
-Some storage account features are not compatible with other features or operations. For example, the ability to failover to the secondary region is the key feature of geo-redundancy, but other features are not compatible with failover. For more information about features and services not supported with failover, see [failover: unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services). Converting an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
+Some storage account features are not compatible with other features or operations. For example, the ability to failover to the secondary region is the key feature of geo-redundancy, but other features are not compatible with failover. For more information about features and services not supported with failover, see [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services). Converting an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
 
 ### Storage account type
 
