@@ -77,7 +77,7 @@ Once the workflow completes building and deploying your app, the GitHub bot adds
 
 1. Select the pre-production URL to see your staged changes.
 
-   :::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Pull request comment with the pre-production URL":::
+   :::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Screenshot of pull request comment with the pre-production URL.":::
 
    The URL is composed like this: `https://<SUBDOMAIN-PULL_REQUEST_ID>.<AZURE_REGION>.azurestaticapps.net`. For a given pull request, the URL remains the same, even if you push new updates. The same pre-production environment also gets reused for the life of the pull request.
 
@@ -92,7 +92,7 @@ Merge the pull request to publish to production.
 
    :::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Screenshot showing the Merge pull request button in GitHub interface.":::
 
-Your changes get copied to the tracked branch (the "production" branch). Then, the deployment workflow starts on the tracked branch and the changes go live after your application rebuilds.
+   Your changes get copied to the tracked branch (the "production" branch). Then, the deployment workflow starts on the tracked branch and the changes go live after    your application rebuilds.
 
 1. Open your production URL to load the live version of the website and verify.
 
