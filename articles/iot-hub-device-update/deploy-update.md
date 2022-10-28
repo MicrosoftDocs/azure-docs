@@ -104,8 +104,8 @@ The `device deployment create` command takes the following arguments:
 
 ```azurecli
 az iot du device deployment create \
-    -account <Device Update account name> \
-    -instance <Device Update instance name> \
+    --account <Device Update account name> \
+    --instance <Device Update instance name> \
     --group-id <device group id> \
     --deployment-id <deployment id> \
     --update-name <update name> \
@@ -123,8 +123,8 @@ If you want to create an automatic rollback policy, add the following parameters
 
 ```azurecli
 az iot du device deployment create \
-    -account <Device Update account name> \
-    -instance <Device Update instance name> \
+    --account <Device Update account name> \
+    --instance <Device Update instance name> \
     --group-id <device group id> \
     --deployment-id <deployment id> \
     --update-name <update name> \
@@ -141,8 +141,8 @@ If you want the deployment to start in the future, use the `--start-time` parame
 
 ```azurecli
 az iot du device deployment create \
-    -account <Device Update account name> \
-    -instance <Device Update instance name> \
+    --account <Device Update account name> \
+    --instance <Device Update instance name> \
     --group-id <device group id> \
     --deployment-id <deployment id> \
     --update-name <update name> \

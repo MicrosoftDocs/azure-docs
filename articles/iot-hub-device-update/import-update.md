@@ -3,7 +3,7 @@ title: Add an update to Device Update for IoT Hub | Microsoft Docs
 description: How-To guide to add an update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 10/26/2022
+ms.date: 10/28/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -124,7 +124,7 @@ az iot du update stage \
     --instance <Replace with your Device Update instance name> \
     --manifest-path <Replace with the full path to your import manifest> \
     --storage-account <Replace with your Storage account name> \
-    --storage-container <Replace with your container name>
+    --storage-container <Replace with your container name> \
     --overwrite --then-import
 ```
 
@@ -136,7 +136,7 @@ az iot du update stage \
     --instance myInstance \
     --manifest-path /my/apt/manifest/file.importmanifest.json \
     --storage-account deviceUpdateStorage \
-    --storage-container deviceUpdateDemo
+    --storage-container deviceUpdateDemo \
     --overwrite --then-import
 ```
 
@@ -150,7 +150,7 @@ az iot du update stage \
     --manifest-path /my/apt/manifest/child1.importmanifest.json \
     --manifest-path /my/apt/manifest/child2.importmanifest.json \
     --storage-account deviceUpdateStorage \
-    --storage-container deviceUpdateDemo
+    --storage-container deviceUpdateDemo \
     --overwrite --then-import
 ```
 

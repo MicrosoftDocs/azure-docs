@@ -3,7 +3,7 @@ title: Manage device groups in Device Update for Azure IoT Hub | Microsoft Docs
 description: Configure device groups in Device Update for Azure IoT Hub by using twin tags
 author: vimeht
 ms.author: vimeht
-ms.date: 10/26/2022
+ms.date: 10/28/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -112,7 +112,7 @@ az iot hub module-twin update \
     --hub-name <IoT Hub name> \
     --device-id <device name> \
     --module-id <module name> \
-    --tags `{"ADUGroup": "<custom_tag_value"}'
+    --tags '{"ADUGroup": "<custom_tag_value"}'
 ```
 
 ---

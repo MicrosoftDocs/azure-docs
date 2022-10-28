@@ -3,7 +3,7 @@ title: How to prepare an update to be imported into Azure Device Update for IoT 
 description: How-To guide for preparing to import a new update into Azure Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 10/26/2022
+ms.date: 10/28/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -97,7 +97,6 @@ az iot du update init v5 \
     --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> \
     --step handler=<replace with your chosen handler> \
     --file path=<replace with path(s) to your update file(s), including the full file name> \
-    --output json "<replace with the path where you want your import manifest created, including the full file name>"
 az iot du update init v5 \
     --update-provider <replace with child_2 update Provider> \
     --update-name <replace with child_2 update Name> \
@@ -105,7 +104,6 @@ az iot du update init v5 \
     --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> \
     --step handler=<replace with your chosen handler> \
     --file path=<replace with path(s) to your update file(s), including the full file name> \
-    --output json "<replace with the path where you want your import manifest created, including the full file name>"
 az iot du update init v5 \
     --update-provider <replace with the parent update Provider> \
     --update-name <replace with the parent update Name> \
@@ -115,7 +113,6 @@ az iot du update init v5 \
     --file path=<replace with path(s) to your update file(s), including the full file name> \
     --step updateId.provider=<replace with child_1 update provider> updateId.name=<replace with child_1 update name> updateId.version=<replace with child_1 update version> \
     --step updateId.provider=<replace with child_2 update provider> updateId.name=<replace with child_2 update name> updateId.version=<replace with child_2 update version> \
-    --output json "<replace with the path where you want your import manifest created, including the full file name>"
 ```
 
 ## Next steps
