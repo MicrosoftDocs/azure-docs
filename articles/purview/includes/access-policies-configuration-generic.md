@@ -19,17 +19,14 @@ This step is needed before a policy can be created in Microsoft Purview for that
 
    ![Screenshot shows how to access Access Control in Azure Portal to add a role assignment](../media/how-to-policies-data-owner-authoring-generic/assign-IAM-permissions.png)
 
-2) In addition, the same user needs to have Microsoft Purview Data source administrator (DSA) role at the **root collection level**. See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users). The following screenshot shows how to assign Data Source Admin at root collection level:
+2) In addition, the same user needs to have Microsoft Purview Data source administrator (DSA) role. See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users). The following screenshot shows how to assign Data Source Admin at root collection level:
 ![Screenshot shows how to assign Data Source Admin at root collection level](../media/how-to-policies-data-owner-authoring-generic/assign-purview-permissions.png)
-
->[!IMPORTANT]
-> Currently, Microsoft Purview roles related to access policy operations must be configured at **root collection level**.
 
 #### Delegation of access provisioning responsibility to roles in Microsoft Purview
 >[!IMPORTANT]
-> - Once a resource has been enabled for *Data Use Management*, **any** Microsoft Purview user with *Policy author* role at root-collection level will be able to provision access to that data source from Microsoft Purview.
+> - Once a resource has been enabled for *Data use management*, **any** Microsoft Purview user with *Policy author* role at root-collection level will be able to provision access to that data source from Microsoft Purview.
 > - The IAM Owner role for a data resource can be inherited from parent resource group, subscription or subscription Management group. Check which AAD users, groups and service principals hold or are inheriting IAM Owner for the resource.
-> - Note that **Any** Microsoft Purview root *Collection admin* can assign **new** users to root-collection *Data Source Admin* and *Policy author* roles. Minimize and carefully vet the users that hold Microsoft Purview *Collection admin*, *Data Source Admin* or *Policy author* roles at root collection level.
+> - Note that **Any** Microsoft Purview root *Collection admin* can assign **new** users to root *Policy author* roles. **Any** *Collection admin* can assign **new** users to *Data Source Admin* under the collection. Minimize and carefully vet the users that hold Microsoft Purview *Collection admin*, *Data Source Admin* or *Policy author* roles.
 > - If a Microsoft Purview account with published policies is deleted, such policies will stop being enforced within an amount of time dependent on the specific data source. This can have implications both on security and data access availability. The Contributor and Owner roles in IAM are able to delete Microsoft Purview accounts. You can check these permissions by navigating to the Access control (IAM) section for your Microsoft Purview account and selecting **Role Assignments**. You can also place a lock to prevent the Microsoft Purview account from being deleted through [ARM locks](../../azure-resource-manager/management/lock-resources.md).
 
 #### Configure Microsoft Purview permissions needed to create and publish data owner policies
@@ -41,7 +38,7 @@ The following permissions are needed in Microsoft Purview at the **root collecti
 Check the section on managing Microsoft Purview role assignments in this [guide](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 >[!IMPORTANT]
-> Currently, Microsoft Purview roles related to access policy operations must be configured at **root collection level**.
+> Currently, Microsoft Purview roles related to creating/updating/deleting/publishing policies must be configured at **root collection level**.
 
 >[!Note]
 > **Known issues** related to permissions
