@@ -13,8 +13,8 @@ Arabic|`ar-AE`<br/>`ar-BH`<br/>`ar-DZ`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-JO`<br/>`
 |Bengali|`bn-IN`|
 |Bulgarian|`bg-BG`|
 |Catalan|`ca-ES`|
-|Chinese, Mandarin|`zh-CN`<br/>`zh-TW`|
-|Chinese, Traditional|`zh-HK`|
+|Chinese (Mandarin)|`zh-CN`<br/>`zh-TW`|
+|Chinese (Cantonese)|`zh-HK`|
 |Croatian|`hr-HR`|
 |Czech|`cs-CZ`|
 |Danish|`da-DK`|

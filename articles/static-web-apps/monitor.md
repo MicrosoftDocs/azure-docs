@@ -36,7 +36,7 @@ Use the following steps to add Application Insights monitoring to your static we
 Once you create the Application Insights instance, it creates an associated application setting in the Azure Static Web Apps instance used to link the services together.
 
 > [!NOTE]
-> If you want to track how the different features of your web app are used end-to-end client side, you can insert trace calls in your JavaScript code. For more information, see [Application Insights for webpages](/azure-monitor/app/javascript?tabs=snippet).
+> If you want to track how the different features of your web app are used end-to-end client side, you can insert trace calls in your JavaScript code. For more information, see [Application Insights for webpages](/azure/azure-monitor/app/javascript?tabs=snippet).
 
 ## Access data
 

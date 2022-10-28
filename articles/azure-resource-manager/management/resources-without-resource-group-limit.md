@@ -85,7 +85,6 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.DevTestLab
 
-* labs/virtualMachines - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.DevTestLab/DisableLabVirtualMachineQuota 
 * schedules
 
 ## Microsoft.EdgeOrder

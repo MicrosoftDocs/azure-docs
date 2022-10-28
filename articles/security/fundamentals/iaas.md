@@ -27,7 +27,7 @@ In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (V
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
 
 > [!NOTE]
-> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad), you centrally control and enforce policies that allow or deny access to the VMs.
+> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux), you centrally control and enforce policies that allow or deny access to the VMs.
 >
 >
 

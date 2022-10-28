@@ -84,7 +84,7 @@ az feature register --namespace Microsoft.RedHatOpenShift --name preview
    > [!NOTE] 
    > ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended. Please note that the field `cloud.openshift.com` will be removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html . 
 
 1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 

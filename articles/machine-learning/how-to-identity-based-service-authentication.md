@@ -183,7 +183,7 @@ If you're training a model on a remote compute target and want to access the dat
 
 Certain machine learning scenarios involve working with private data. In such cases, data scientists may not have direct access to data as Azure AD users. In this scenario, the managed identity of a compute can be used for data access authentication. In this scenario, the data can only be accessed from a compute instance or a machine learning compute cluster executing a training job.
 
-With this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information on configuring the managed identity for the compute cluster, see the [compute cluster](#compute-cluster) section. For information on using configuring Azure RBAC for the storage, see [role-based access controls](/storage/blobs/assign-azure-role-data-access).
+With this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information on configuring the managed identity for the compute cluster, see the [compute cluster](#compute-cluster) section. For information on using configuring Azure RBAC for the storage, see [role-based access controls](../storage/blobs/assign-azure-role-data-access.md).
 
 ### Work with virtual networks
 

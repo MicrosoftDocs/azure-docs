@@ -73,3 +73,27 @@ sections:
           I updated all of the records in my source table. When I ran a query against the dedicated SQL pool I saw all of my data gone. I re-ran the query and all of the data was back - with the updates. Why does this happen?
         answer: |
           The ingestion service processes updates as a delete followed by an insert - all in the same transaction. By default, dedicated SQL pools run in READ UNCOMMITTED mode - which allows you to see the changes before the transaction has been committed. To ensure that you do not see these in-process changes, you can turn on READ COMMITTED SNAPSHOT ISOLATION.
+      - question: |
+          Will new tables added to my source database automatically be added to my link connection?
+        answer: |
+          No. You will need to edit the link connection in the Azure Synapse Analytics environment to add the new tables. You can add tables to a running connection without stopping it - the new tables will be included in the replication when you publish the changes to the link connection.
+      - question: |
+          What is the latency for data replicated from Azure SQL Database and SQL Server 2022 to Azure Synapse Analytics dedicated SQL pools?
+        answer: |
+          We do not have published latency SLA. If you are seeing high latency, you can adjust the number of cores allocated to the link connection, the size of the target dedicated SQL pool, or adjust the transactional consistency on write configuration to suit your workload.
+      - question: |
+          What format is used for the landing zone data? Can it be used for other purposes?
+        answer: |
+          The landing zone is a transient data store, and we do not support using that data for any purpose other than Azure Synapse Link for SQL.
+      - question: |
+          How is Azure Synapse Link for SQL different from using the ADF/Synapse Pipeline copy activity?
+        answer: |
+          Azure Synapse Link for SQL uses a push model where the source database writes data into a landing zone and is moved into the target dedicated SQL pool by an ingestion service that can either run continuously (providing near-real-time data processing) or in schedule mode. The copy activity uses a pull model where the data is queried from the source database and written into the target location on a scheduled basis.
+      - question: |
+          There is a documented limit of 7,500 bytes per row for Azure Synapse Link for SQL. What if I have larger data rows in my source database?
+        answer: |
+          This restriction is for on-page data only. For off-page data, the only thing that counts against the 7,500 byte limit is the 24 byte pointer to the off-page data.
+      - question: |
+          What data replication mechanism is used by Azure Synapse Link for SQL?
+        answer: |
+          A new change feed processor has been integrated into the Azure SQL Database and SQL Server 2022 engine to enable this functionality.

@@ -5,10 +5,6 @@
   items:
     - name: What is Anomaly Detector? 
       href: overview.md
-    - name: What is Univariate Anomaly Detector? 
-      href: overview-univariate.md
-    - name: What is Multivariate Anomaly Detector?
-      href: overview-multivariate.md
     - name: Pricing
       href: https://aka.ms/adpricing
     - name: What's new
@@ -35,8 +31,6 @@
   items:
     - name: Identify anomalies in your data (univariate)
       href: how-to/identify-anomalies.md
-    - name: Detect anomalies using Multivariate Anomaly Detector
-      href: how-to/multivariate-how-to.md
     - name: Deploy Anomaly Detector (univariate)
       items:
         - name: Deploy to IoT Edge
@@ -70,8 +64,6 @@
       href: concepts/multivariate-architecture.md
 - name: Tutorials
   items:
-    - name: Learn Multivariate Anomaly Detection in one hour
-      href: tutorials/learn-multivariate-anomaly-detection.md
     - name: Visualize anomalies as a batch using Power BI (univariate)
       href: tutorials/batch-anomaly-detection-powerbi.md
     - name: Azure Synapse with Multivariate Anomaly Detection

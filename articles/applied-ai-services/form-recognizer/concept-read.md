@@ -19,7 +19,7 @@ recommendations: false
 
 > [!NOTE]
 >
-> For general, in-the-wild images like labels, street signs, and posters, use the [Computer Vision v4.0 preview Read](../../cognitive-services/Computer-vision/concept-ocr.md) feature optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
+> For extracting text from in-the-wild images like labels, street signs, and posters, use the [Computer Vision v4.0 preview Read](../../cognitive-services/Computer-vision/concept-ocr.md) feature optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
 > 
 
 ## What is OCR for documents?
