@@ -90,18 +90,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-At this time, only specific triggers and bindings are supported by the v2 programming model. Supported triggers and bindings are as follows.
-
-| Type | Trigger | Input Binding | Output Binding |
-| --- | --- | --- | --- |
-| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
-| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
-| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
-| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
-| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
-| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
-| [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
-| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
+At this time, only specific triggers and bindings are supported by the v2 programming model. For more information, see [Triggers and inputs](#triggers-and-inputs).
 
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
@@ -259,10 +248,9 @@ app.register_functions(bp)
 ```
 
 ::: zone-end 
-
+::: zone pivot="python-mode-configuration"  
 ## Import behavior
 
-::: zone pivot="python-mode-configuration"  
 You can import modules in your function code using both absolute and relative references. Based on the folder structure shown above, the following imports work from within the function file *<project_root>\my\_first\_function\\_\_init\_\_.py*:
 
 ```python
@@ -350,7 +338,7 @@ When the function is invoked, the HTTP request is passed to the function as `req
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
 
-As an example, the following code demonstrates the difference between the two:
+As an example, the following code demonstrates how to define a Blob storage input binding:
 
 ```json
 // local.settings.json
@@ -358,7 +346,8 @@ As an example, the following code demonstrates the difference between the two:
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+    "AzureWebJobsStorage": "<azure-storage-connection-string>",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
   }
 }
 ```
@@ -393,7 +382,7 @@ At this time, only specific triggers and bindings are supported by the v2 progra
 | [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
 | [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
 
-To learn more about defining triggers and bindings in the v2 model, see this [documentation](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
+For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
 
 ::: zone-end
 
