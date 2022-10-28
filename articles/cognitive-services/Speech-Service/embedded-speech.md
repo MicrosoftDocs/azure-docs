@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-thirteen
 
 # Embedded Speech (preview)
 
-Embedded Speech is designed for on-device speech-to-text and text-to-speech scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in medical equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](/azure/cognitive-services/containers/disconnected-containers). 
+Embedded Speech is designed for on-device [speech-to-text](speech-to-text.md) and [text-to-speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in medical equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](/azure/cognitive-services/containers/disconnected-containers). 
 
 > [!IMPORTANT]
 > Microsoft limits access to embedded speech. You can apply for access through the Azure Cognitive Services [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context).
@@ -64,9 +64,7 @@ Embedded neural voices only support 24-kHz sample rate.
 
 ## Models and voices
 
-For embedded speech, you'll need to download the speech recognition models for speech-to-text and voices for text-to-speech. Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
-
-Speech recognition models are used for [speech-to-text](speech-to-text.md). Voices are used for [text-to-speech](text-to-speech.md).
+For embedded speech, you'll need to download the speech recognition models for [speech-to-text](speech-to-text.md) and voices for [text-to-speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
 ## Embedded speech configuration
 
@@ -99,6 +97,9 @@ embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 
 ::: zone pivot="programming-language-cpp"
 
+> [!TIP]
+> The `GetEnvironmentVariable` function is defined in the [speech-to-text quickstart](get-started-speech-to-text.md) and [text-to-speech quickstart](get-started-text-to-speech.md).
+
 ```cpp
 // Provide the location of the models and voices.
 vector<string> paths;
@@ -109,12 +110,12 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 // For speech-to-text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
     "Microsoft Speech Recognizer en-US FP Model V8", 
-    GetEnvironmentVariable("MODEL_KEY")); // GetEnvironmentVariable is defined in the quickstart.
+    GetEnvironmentVariable("MODEL_KEY"));
 
 // For text-to-speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    GetEnvironmentVariable("VOICE_KEY")); // GetEnvironmentVariable is defined in the quickstart.
+    GetEnvironmentVariable("VOICE_KEY"));
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
@@ -143,15 +144,19 @@ embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 
 ::: zone-end
 
-In the [speech-to-text quickstart](get-started-speech-to-text.md) and other Speech SDK code samples, you can replace `SpeechConfig` with the `EmbeddedSpeechConfig`. You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
+ You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
 
-## Hybrid Speech
+## Hybrid speech
 
-Hybrid speech with the `HybridSpeechConfig` object uses cloud speech services by default and embedded speech as a fallback in case cloud connectivity is limited or slow.
+Hybrid speech with the `HybridSpeechConfig` object uses the cloud speech service by default and embedded speech as a fallback in case cloud connectivity is limited or slow.
 
-With hybrid speech configuration in speech recognition, embedded is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is resumed later.
+With hybrid speech configuration for [speech-to-text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is later resumed.
 
-With hybrid speech configuration in speech synthesis, embedded and cloud synthesis are run in parallel and the result is selected based on which one gives a faster response. The best result is evaluated on each synthesis request.
+With hybrid speech configuration for [text-to-speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the result is selected based on which one gives a faster response. The best result is evaluated on each synthesis request.
+
+## Cloud speech
+
+For cloud speech, you use the `SpeechConfig` object, as shown in the [speech-to-text quickstart](get-started-speech-to-text.md) and [text-to-speech quickstart](get-started-text-to-speech.md). To run the quickstarts, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
 
 ## Next steps
 
