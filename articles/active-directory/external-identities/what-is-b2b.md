@@ -10,7 +10,7 @@ ms.date: 08/30/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: "engagement-fy23, it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -51,13 +51,13 @@ As an administrator, you can easily add guest users to your organization in the 
 
 - [Create a new guest user](b2b-quickstart-add-guest-users-portal.md) in Azure AD, similar to how you'd add a new user.
 - Assign guest users to apps or groups.
-- Send an invitation email that contains a redemption link, or send a direct link to an app you want to share.
+- [Send an invitation email](invitation-email-elements.md) that contains a redemption link, or send a direct link to an app you want to share.
 
-![Screenshot showing the New Guest User invitation entry page.](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
+:::image type="content" source="media/what-is-b2b/add-a-b2b-user-to-azure-portal.png" alt-text="Screenshot showing the Invite a new guest user invitation entry page.":::
 
 - Guest users follow a few simple [redemption steps](redemption-experience.md) to sign in.
 
-![Screenshot showing the Review permissions page.](media/what-is-b2b/consentscreen.png)
+:::image type="content" source="media/what-is-b2b/consentscreen.png" alt-text="Screenshot showing the Review permissions page.":::
 
 ## Allow self-service sign-up
 
@@ -65,7 +65,7 @@ With a self-service sign-up user flow, you can create a sign-up experience for e
 
 You can also use [API connectors](api-connectors-overview.md) to integrate your self-service sign-up user flows with external cloud systems. You can connect with custom approval workflows, perform identity verification, validate user-provided information, and more.
 
-![Screenshot showing the user flows page.](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+:::image type="content" source="media/what-is-b2b/self-service-sign-up-user-flow-overview.png" alt-text="Screenshot showing the user flows page.":::
 
 ## Use policies to securely share your apps and services
 
@@ -75,7 +75,7 @@ You can use authentication and authorization policies to protect your corporate 
 - At the application level.
 - For specific guest users to protect corporate apps and data.
 
-![Screenshot showing the Conditional Access option.](media/what-is-b2b/tutorial-mfa-policy-2.png)
+:::image type="content" source="media/what-is-b2b/tutorial-mfa-policy-2.png" alt-text="Screenshot showing the Conditional Access option.":::
 
 ## Let application and group owners manage their own guest users
 
@@ -84,7 +84,7 @@ You can delegate guest user management to application owners so that they can ad
 - Administrators set up self-service app and group management.
 - Non-administrators use their [Access Panel](https://myapps.microsoft.com) to add guest users to applications or groups.
 
-![Screenshot showing the Access panel for a guest user.](media/what-is-b2b/access-panel-manage-app.png)
+:::image type="content" source="media/what-is-b2b/access-panel-manage-app.png" alt-text="Screenshot showing the Access panel for a guest user.":::
 
 ## Customize the onboarding experience for B2B guest users
 
@@ -97,7 +97,7 @@ Bring your external partners on board in ways customized to your organization's 
 
 Azure AD supports external identity providers like Facebook, Microsoft accounts, Google, or enterprise identity providers. You can set up federation with identity providers so your external users can sign in with their existing social or enterprise accounts instead of creating a new account just for your application. Learn more about [identity providers for External Identities](identity-providers.md).
 
-![Screenshot showing the Identity providers page.](media/what-is-b2b/identity-providers.png)
+:::image type="content" source="media/what-is-b2b/identity-providers.png" alt-text="Screenshot showing the Identity providers page.":::
 
 ## Integrate with SharePoint and OneDrive
 
