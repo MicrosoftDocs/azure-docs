@@ -32,6 +32,23 @@ Private endpoints for Backup can be only created for Recovery Services vaults th
 
 See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) to learn how to create a vault using the Azure Resource Manager client. This creates a vault with its managed identity already enabled.
 
+## Deny public network access to the vault
+
+You can configure your vaults to deny access from public networks.
+
+Follow these steps:
+
+1. Go to the *vault* > **Networking**.
+
+2. On the **Public access** tab, select **Deny** to prevent access from public networks.
+
+   :::image type="content" source="./media/backup-azure-private-endpoints/deny-public-network.png" alt-text="Screenshot showing how to select the Deny option.":::
+
+   >[!Note]
+   >Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+
+3. Select **Apply** to save the changes.
+
 ## Enable Managed Identity for your vault
 
 Managed identities allow the vault to create and use private endpoints. This section talks about enabling the managed identity for your vault.
@@ -218,7 +235,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 
 In the VM in the locked down network, ensure the following:
 
-1. The VM should have access to AAD.
+1. The VM should have access to Azure AD.
 2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
 
 ### Configure backup
