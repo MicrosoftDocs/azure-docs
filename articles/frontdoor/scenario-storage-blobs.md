@@ -14,11 +14,26 @@ ms.author: jodowns
 
 # Use Azure Front Door with Azure Storage blobs
 
-- Arch diagram
+Arch diagram
+
+In this reference architecture, you deploy a storage account and Front Door profile with a single origin.
+
+## Scenarios
+
+- Static content delivery, such as images, files, and non-streaming video
+
+## Key considerations
+
+- Traffic acceleration
+- Custom domains
 - Enable caching
-- Origin configuration
+- Security
   - Private Link is a good idea
-  - You can use public IP address, but storage account won't block incoming traffic from the internet.
+  - Origin configuration
+    - Private Link is a good idea
+    - You can use public IP address, but storage account firewall can't easily restrict traffic to only that which flows through your Front Door profile
+- HA and DR
+  - Multi-region storage
 
 ## Next steps
 

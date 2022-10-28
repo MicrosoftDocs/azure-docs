@@ -16,7 +16,7 @@ ms.author: jodowns
 
 Azure Front Door is a globally distributed entry point to your application. Front Door provides a wide range of features including content delivery network, traffic acceleration, load balancing, and security.
 
-Consider deploying Front Door in conjunction with any publicly facing web application.
+Consider deploying Front Door in front of any publicly facing web application.
 
 ## Well-architected solutions on Azure
 
@@ -65,10 +65,11 @@ The following diagram illustrates a generic solution architecture using Front Do
 
 Traffic from your clients first arrives at a Front Door point of presence (PoP). Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide.
 
-Requests to your application are received by Front Door's PoP, and the clients' TCP and TLS connections terminate. The PoP performs a number of activities based on the configuration you specify in your Front Door profile, including:
+Requests to your application are received by Front Door's PoP, and the clients' TCP and TLS connections terminate. The PoP performs many functions based on the configuration you specify in your Front Door profile, including:
 - Protecting your solution against many types of [DDoS attacks](front-door-ddos.md).
+- Using your custom domain name.
 - Terminating the [TLS connection](end-to-end-tls.md), and using either a Front Door-managed TLS certificate or a custom TLS certificate.
-- Scanning the request for known vulnerabilties by using the [Front Door WAF](web-application-firewall.md).
+- Scanning the request for known vulnerabilties, by using the [Front Door WAF](web-application-firewall.md).
 - Returning [cached responses](front-door-caching.md), if they're stored at the Front Door PoP and are valid for the request.
 - Selecting the best origin to receive the traffic based on the [routing architecture](front-door-routing-architecture.md).
 
