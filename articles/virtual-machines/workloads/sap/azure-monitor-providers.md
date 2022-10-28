@@ -30,41 +30,27 @@ If you don't configure any providers at the time of deployment, the Azure Monito
 
 ## Provider type: SAP NetWeaver
 
-You can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. Azure Monitor for SAP solutions NetWeaver provider uses the existing [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information.
-
-For the current release, the following SOAP web methods are the standard, out-of-box methods invoked by Azure Monitor for SAP solutions.
-
-| Web method | ABAP support | Java support | Metrics |
-| ---------- | ------------ | ------------ | ------- |
-| **GetSystemInstanceList** | Yes | Yes | Instance availability, message server, gateway, ICM, ABAP availability |
-| **GetProcessList** | Yes | Yes | If instance list is red, you can find what process caused the issue |
-| **GetQueueStatistic** | Yes | Yes | Queue statistics (DIA, BATCH, UPD) |
-| **ABAPGetWPTable** | Yes | No | Work process utilization |
-| **EnqGetStatistic** | Yes | Yes | Locks |
+You can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. Azure Monitor for SAP solutions NetWeaver provider uses the existing 
+- [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information (also available in Azure Monitor for SAP Solutions classic ) 
+- SAP RFC - ability to collect additional information from the SAP system leveraging Standard SAP RFC. ( Available only in Azure Monitor for SAP solution )
 
 You can get the following data with the SAP NetWeaver provider: 
 
-- SAP system and application server availability
-    - Instance process availability of dispatcher
-    - ICM
-    - Gateway
-    - Message server
-    - Enqueue Server
-    - IGS Watchdog
-- Work process usage statistics and trends
-- Enqueue Lock statistics and trends
-- Queue usage statistics and trends
-- SMON Metrics (**/SDF/SMON**)
-- SWNC Workload, Memory, Transaction, User, RFC Usage (St03n)
-- Short Dumps (**ST22**)
-- Object Lock (**SM12**)
-- Failed Updates (**SM13**)
-- System Logs Analysis (**SM21**)
-- Batch Jobs Statistics (**SM37**)
-- Outbound Queues (**SMQ1**)
-- Inbound Queues (**SMQ2**)
-- Transactional RFC (**SM59**)
-- STMS Change Transport System Metrics (**STMS**)
+- SAP system and application server availability (e.g Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAPOsControl)
+- Work process usage statistics and trends (SAPOsControl)
+- Enqueue Lock statistics and trends (SAPOsControl)
+- Queue usage statistics and trends (SAPOsControl)
+- SMON Metrics (**Tcode - /SDF/SMON**) (RFC)
+- SWNC Workload, Memory, Transaction, User, RFC Usage (**Tcode - St03n**) (RFC)
+- Short Dumps (**Tcode - ST22**) (RFC)
+- Object Lock (**Tcode - SM12**) (RFC)
+- Failed Updates (**Tcode - SM13**) (RFC)
+- System Logs Analysis (**Tcode - SM21**) (RFC)
+- Batch Jobs Statistics (**Tcode - SM37**) (RFC)
+- Outbound Queues (**Tcode - SMQ1**) (RFC)
+- Inbound Queues (**Tcode - SMQ2**) (RFC)
+- Transactional RFC (**Tcode - SM59**) (RFC)
+- STMS Change Transport System Metrics (**Tcode - STMS**) (RFC)
 
 ![Diagram showing the NetWeaver provider architecture.](./media/azure-monitor-providers/netweaver-architecture.png)
 
@@ -78,6 +64,17 @@ You can see the following data with the SAP HANA provider:
 - SAP HANA host status
 - SAP HANA system replication
 - SAP HANA Backup data
+- Fetching Services
+- Network throughput between the nodes in a scaleout system
+- SAP HANA Long Idling Cursors
+- SAP HANA Long Running Transactions
+- Checks for configuration parameter values
+- SAP HANA Uncommitted Write Transactions
+- SAP HANA Disk Fragmentation
+- SAP HANA Statistics Server Health
+- SAP HANA High Memory Usage Service
+- SAP HANA Blocking Transactions
+
 
 Configuring the SAP HANA provider requires:
 - The host IP address,
