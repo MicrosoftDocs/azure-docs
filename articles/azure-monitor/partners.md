@@ -4,13 +4,15 @@ description: Learn about partners for Azure Monitor and how you can access docum
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/27/2022
 ms.reviewer: robb
 ---
 
 # Azure Monitor partner integrations
 
 The following partner products integrate with Azure Monitor. They're listed in alphabetical order. 
+
+This is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate additional appropropriate partners. 
 
 ## AIMS
 
@@ -137,7 +139,7 @@ Grafana is an open-source application that enables you to visualize metric data 
 
 ## InfluxData
 
-![InfluxData logo.](./media/partners/Influxdata.png)
+![InfluxData logo.](./media/partners/influxdata.png)
 
 InfluxData is the creator of InfluxDB, the open-source time series database. Its technology is purpose built to handle the massive volumes of time-stamped data produced by Internet of Things (IoT) devices, applications, networks, containers, and computers. 
 
@@ -213,9 +215,16 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ## New Relic
 
-![New Relic logo.](./media/partners/newrelic.png)
+![New Relic logo.](./media/partners/newrelic-logo.png)
 
-See the [New Relic documentation](https://newrelic.com/solutions/partners/azure).
+Microsoft Azure integration monitoring from New Relic gives you an overview of your ecosystem – cloud migrations, digital transformations, and cloud native applications using New Relic Observability Platform.
+ 
+**NewRelic Azure monitoring helps you to:**
+* Monitor the entire software stack with Full-stack monitoring.
+* Reduce friction between engineers and ITOps teams by identifying, triaging, and delegating application and infrastructure issues quickly.
+* Identify service dependencies through cross-application tracing using New Relic APM.
+ 
+Refer to [New Relic Azure integration](https://newrelic.com/instant-observability/?category=azure&search=azure) for more information. 
 
 ## OpsGenie
 
@@ -362,7 +371,7 @@ For more information, see the [SquaredUp website](https://squaredup.com/).
 
 ## Sumo Logic
 
-![Sumo Logic logo.](./media/partners/SumoLogic.png)
+![Sumo Logic logo.](./media/partners/sumologic.png)
 
 Sumo Logic is a secure, cloud-native analytics service for machine data. It delivers real-time, continuous intelligence from structured, semistructured, and unstructured data across the entire application lifecycle and stack. 
 
@@ -372,13 +381,23 @@ For more information, see the [Sumo Logic documentation](https://www.sumologic.c
 
 ## Turbonomic
 
-![Turbonomic logo.](./media/partners/Turbonomic.png)
+![Turbonomic logo.](./media/partners/turbonomic.png)
 
 Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate. Applications constantly get the resources they require to deliver their SLA, and nothing more, across compute, storage, and network for the IaaS and PaaS layer. 
 
 Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on time and within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
 
 For more information, see the [Turbonomic introduction](https://turbonomic.com/).
+
+## Zenduty
+
+![Zenduty logo.](./media/partners/zenduty.png)
+
+Zenduty is a novel collaborative incident management platform that provides end-to-end incident alerting, on-call management, and response orchestration, which gives teams greater control and automation over the incident management lifecycle. Zenduty is ideal for always-on services, helping teams orchestrate incident response for creating better user experiences and brand value and centralizing all incoming alerts through predefined notification rules to ensure that the right people are notified at the right time.
+
+Zenduty provides your NOC, SRE, and application engineers with detailed context around the Azure Monitor alert along with playbooks and a complete incident command framework to triage, remediate, and resolve incidents with speed.
+
+For more information, see the [Zenduty documentation](https://docs.zenduty.com/docs/microsoftazure).
 
 ## Partner tools with Event Hubs integration
 
