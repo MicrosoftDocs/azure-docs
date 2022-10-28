@@ -171,6 +171,8 @@
         items:
         - name: Overview
           href: scenarios.md
+        - name: Azure Storage blobs
+          href: scenario-storage-blobs.md
     - name: Classic
       items:
         - name: Caching

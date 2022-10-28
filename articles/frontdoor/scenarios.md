@@ -80,7 +80,7 @@ The premium SKU of Front Door supports sending traffic to some origin types by u
 
 When the Front Door PoP sends requests to your origin by using a public IP address, it initiates a new TCP connection. Because of this behavior, your origin server sees the request originating from Front Door's IP address instead of the client.
 
-Whichever approach you use to send traffic to your origin, it's usually a good practice to configure your origin to expect traffic from your Front Door profile, and to block traffic that doesn't flow through Front Door. For more information, see TODO.
+Whichever approach you use to send traffic to your origin, it's usually a good practice to configure your origin to expect traffic from your Front Door profile, and to block traffic that doesn't flow through Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
 ## Next steps
 
