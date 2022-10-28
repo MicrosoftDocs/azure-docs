@@ -18,7 +18,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure reliability documentation
+          - text: Azure reliability overview
             url: overview-reliability.md
   # Card
   - title: Availability zone support
@@ -57,6 +57,6 @@ landingContent:
             url: sovereign-cloud-usgov.md
           - text: Service availability for Azure in China
             url: sovereign-cloud-china.md   
-          - text: ervice availability by region
+          - text: Service availability by region
             url: https://azure.microsoft.com/global-infrastructure/services/
 

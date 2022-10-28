@@ -254,7 +254,7 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
 - name: Resources
   items:
-  - name: Microsoft Azure Well-Architected Framework Reliability documentation
+  - name: Reliability in Microsoft Azure Well-Architected Framework
     href: https://learn.microsoft.com/azure/architecture/framework/resiliency/
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
