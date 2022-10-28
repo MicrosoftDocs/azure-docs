@@ -15,8 +15,9 @@ ms.devlang: javascript
 # 2 - Create and load Search Index with JavaScript
 
 Continue to build your Search-enabled website by:
-* Creating a Search resource with the VS Code extension
-* Creating a new index and importing data with JavaScript using the sample script and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
+* Create a Search resource with the VS Code extension
+* Create a new index
+* Import data with JavaScript using the [sample script](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert/bulk_insert_books.js) and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
 
 ## Create an Azure Search resource 
 
