@@ -36,19 +36,19 @@ By specificing interactive applications at job creation, you can connect directl
 #### Enable during job submission
 1. Create a new job from the left navigation pane in the studio portal.
 
-  ![screenshot select-job-ui](media/create-job.png) 
+  ![screenshot select-job-ui](media/interactive-jobs/create-job.png) 
 
 2. Choose `Compute cluster` or `Attached compute` (Kubernetes) as the compute type, choose the compute target, and specify how many nodes you need in `Instance count`. 
 
-  ![screenshot select-compute-ui](media/select-compute.png) 
+  ![screenshot select-compute-ui](media/interactive-jobs/select-compute.png) 
 
 3. Follow the wizard to choose the environment you want to start the job.
 
-  ![screenshot select-environment-ui](media/select-environment.png) 
+  ![screenshot select-environment-ui](media/interactive-jobs/select-environment.png) 
 
 4. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
 
-  ![screenshot set-command](media/sleep-command.png) 
+  ![screenshot set-command](media/interactive-jobs/sleep-command.png) 
 
   Note that you can put `sleep <specific time>` at the end of your command to speicify the amount of time you want to reserve the compute resource. The format follows: 
     * sleep 1s
@@ -63,18 +63,18 @@ By specificing interactive applications at job creation, you can connect directl
 
 5. Select the training applications you want to use to interact with the job.
 
-  ![screenshot select-apps](media/select-training-apps.png) 
+  ![screenshot select-apps](media/interactive-jobs/select-training-apps.png) 
 
 6. Review and create the job.
 
 #### Connect to endpoints
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
-![screenshot debug-and-monitor](media/debug-and-monitor.png)
+![screenshot debug-and-monitor](media/interactive-jobs/debug-and-monitor.png)
 
 Clicking the applications in the panel opens a new tab for the applications. Please note that you can access the applications only when the applications is in **Running** status and only the **job owner** is authorized to access the applications. Note that if you are training on multiple nodes, you can pick the specific node you would like to interact with.
 
-![screenshot ij-right-panel](media/ij-right-panel.png)
+![screenshot ij-right-panel](media/interactive-jobs/ij-right-panel.png)
 
 It might take a few minutes to start the job and the training applications specified during job creation.
 
@@ -193,43 +193,43 @@ Please note that you can access the applications only when the applications is i
 ### Interact with the applications
 When you click on the endpoints to interact when your job, you are taken to the user container under your working directory, where you can access your code, inputs, outputs, and logs. If you run into any issues while connecting to the applications, the interactive capability and applications logs can be found from **system_logs->interactive_capability** under **Outputs + logs** tab.
 
-![screenshot check-logs](./media/ij-logs.png)
+![screenshot check-logs](./media/interactive-jobs/ij-logs.png)
 
 - You can open a terminal from Jupyter Lab and start interacting within the job container. You can also directly iterate on your training script with Jupyter Lab. 
 
-  ![screenshot jupyter-lab](./media/jupyter-lab.png)
+  ![screenshot jupyter-lab](./media/interactive-jobs/jupyter-lab.png)
 
 - You can also interact with the job container within VS Code. To attach a debugger to a job during job submission and pause execution, [navigate here](./how-to-interactive-jobs.md#attach-a-debugger-to-a-job).
 
-   ![screenshot vs-code-open](./media/vs-code-open.png)
+   ![screenshot vs-code-open](./media/interactive-jobs/vs-code-open.png)
 
 - If you have logged tensorflow events for your job, you can use TensorBoard to monitor the metrics when your job is running.
 
-   ![screenshot tensorboard-open](./media/tensorboard-open.png)
+   ![screenshot tensorboard-open](./media/interactive-jobs/tensorboard-open.png)
 
 ### End job
 Once you are done with the interactive training, you can also go to the job details page to cancel the job. This will release the compute resource. Alternatively, use `az ml job cancel -n <your job name>` in the CLI or `ml_client.job.cancel("<job name>")` in the SDK. 
 
-![screenshot cancel-job](./media/cancel-job.png)
+![screenshot cancel-job](./media/interactive-jobs/cancel-job.png)
 
 ## Attach a debugger to a job
 To submit a job with a debugger attached and the execution paused, you can use debugpy & VS Code. Note that you need to have `debugpy` installed in your job environment. 
 
 1. During job submission (either through the UI, the CLIv2 or the SDKv2) use the debugpy command to run your python script. For example, the below screenshot shows a sample command that uses debugpy to attach the debugger for a tensorflow script.
 
-   ![screenshot use-debugpy](./media/use-debugpy.png)
+   ![screenshot use-debugpy](./media/interactive-jobs/use-debugpy.png)
 
 2. Once the job has been submitted, [click out to VS Code](./how-to-interactive-jobs.md#interact-with-the-applications), and click on the in-built debugger.
 
-   ![screenshot open-debugger](./media/open-debugger.png)
+   ![screenshot open-debugger](./media/interactive-jobs/open-debugger.png)
 
 3. Use the "Remote Attach" debug configuration to attach to the submitted job and pass in the path and port you configured in your job submission command.
 
-   ![screenshot remote-attach](./media/remote-attach.png)
+   ![screenshot remote-attach](./media/interactive-jobs/remote-attach.png)
 
 4. Set breakpoints and walk through your job execution as you would in your local debugging workflow. 
 
-   ![screenshot set-breakpoints](./media/set-breakpoints.png)
+   ![screenshot set-breakpoints](./media/interactive-jobs/set-breakpoints.png)
 
 
 > [!NOTE]
