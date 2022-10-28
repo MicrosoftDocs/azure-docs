@@ -28,8 +28,6 @@ OCR traditionally started as a machine-learning based technique for extracting t
 
 The new Computer Vision v4.0 Image Analysis REST API preview offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 
-[!INCLUDE [read-editions](./includes/read-editions.md)]
-
 ## Use the V4.0 REST API preview
 
 The text extraction feature is part of the [v4.0 Analyze Image REST API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
