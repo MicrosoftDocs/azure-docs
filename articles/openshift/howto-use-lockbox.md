@@ -35,6 +35,13 @@ As a result of the selection:
 
 See [Customer Lockbox--workflow](/azure/security/fundamentals/customer-lockbox-overview#workflow) for additional details about the access request process.
 
+## Operating limitations
+
+- The Lockbox feature works only with customer support tickets.
+- Customers can only grant access through the Lockbox interface.
+- No action can be taken until customer approval is granted.
+- Lockbox cannot be intergrated with Kusto/Azure Data Explorer.
+
 ## Enable Lockbox for ARO
 
 You can enable Customer Lockbox from the [Administration module](https://aka.ms/customerlockbox/administration) in the Customer Lockbox blade.
@@ -42,16 +49,15 @@ You can enable Customer Lockbox from the [Administration module](https://aka.ms/
 > [!NOTE]
 > To enable Customer Lockbox, the user account needs to have the [Global Administrator role assigned](/azure/active-directory/roles/manage-roles-portal).
 
-
 ## ARO Lockbox actions
 
-Azure Lockbox can be used to control data access for the following ARO actions:
+The tables below list typical actions and whether or not they require Lockbox:
 
-|ARO Action  |Not Required Behind Lockbox  |Lockbox Required  |
+|ARO Action |Not Required Behind Lockbox |Lockbox Required |
 |------------|-----------------------------|------------------|
 |Create Kubernetes object | |X |
 |Update Kubernetes object | |X |
-|Delete Kubernetes object |X (softer delete does not require Lockbox) |X (VM or VMSS or Storage Account may require Lockbox) |
+|Delete Kubernetes object |X(softer delete does not require Lockbox) |X(VM or VMSS or Storage Account may require Lockbox) |
 |Get cluster |X (only service metadata)<br>No need behind Lockbox | |
 |Get VM serial console logs | |X |
 |List cluster Azure resources |X (ARM or above) | |
@@ -61,7 +67,13 @@ Azure Lockbox can be used to control data access for the following ARO actions:
 |Redeploy virtual machine |X | |
 |Upgrade cluster |X | |
 
+|Kubectl Commmand |Not Required Behind Lockbox |Lockbox Required |
+|------------|-----------------------------|------------------|
+|Top node | |X (do not return body of pods) |
+|Top pods | |X (do not return body of pods) |
 
-## Limitations
+## Auditing logs
+
+Lockbox logs are stored in activity logs. In the Azure portal, select Activity Logs to view auditing information related to Customer Lockbox requests. See [Customer Lockbox, Auditing Logs](/azure/security/fundamentals/customer-lockbox-overview#auditing-logs) for more information.
 
 
