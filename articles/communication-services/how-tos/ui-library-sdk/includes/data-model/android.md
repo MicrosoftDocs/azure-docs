@@ -16,9 +16,9 @@ The UI Library gives developers the ability to provide a more customized experie
 
 #### Local Options
 
-`CallCompositeLocalOptions` is data model that can have `CallCompositeParticipantViewData` and `CallCompositeNavigationBarViewData` that will represent the local participant.  By default, for remote particiants, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components locally and only in user's side. 
+`CallCompositeLocalOptions` is the data model that can have `CallCompositeParticipantViewData` and `CallCompositeSetupScreenViewData`. It will represent the local participant.  By default, for remote particiants, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components locally and only in user's side. 
 
-Similarly, for `CallCompositeNavigationBarViewData`, by default the UI library will display 'Setup' as the title and subtitle will be set to hidden. The `title` and `subtitle` in `CallCompositeNavigationBarViewData` would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. 
+Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. By default, the UI library will display 'Setup' as the title and subtitle will be set to hidden.
 
 #### Local Participant View Data
 
@@ -28,13 +28,13 @@ This class is held in the `CallCompositeLocalOptions` object that represents opt
 
 `displayName` differs from the `displayName` passed in via the `CallCompositeRemoteOptions`. `CallCompositeParticipantViewData` `displayName` is only used locally as an override, where `CallCompositeRemoteOptions` `displayName` is passed to the server and shared with other participants. When `CallCompositeParticipantViewData` `displayName` isn't provided, `CallCompositeRemoteOptions` `displayName` is used.
 
-#### Navigation Bar View Data
+#### Setup Screen View Data
 
-`CallCompositeNavigationBarViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle would always be set to hidden. Here `title` is a required field to build the object and `subtitle` is optional. This class is locally stored and its information will not be sent up to the server.
+`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle would always be set to hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information will not be sent up to the server.
 
 #### Usage
 
-To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParticipantViewData` and/or `CallCompositeNavigationBarViewData` and inject `CallCompositeLocalOptions` to `callComposite.launch`.
+To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParticipantViewData` and/or `CallCompositeSetupScreenViewData` and inject `CallCompositeLocalOptions` to `callComposite.launch`.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -44,7 +44,7 @@ val CallCompositeParticipantViewData participantViewData = CallCompositeParticip
     .setScaleType((ImageView.ScaleType) scaleType)
     .setDisplayName((String) displayName);
 
-val CallCompositeNavigationBarViewData navigationBarViewData = CallCompositeNavigationBarViewData()
+val CallCompositeSetupScreenViewData setupScreenViewData = CallCompositeSetupScreenViewData()
     .setTitle((String) title)
     .setSubtitle((String) subTitle);
 
@@ -63,7 +63,7 @@ final CallCompositeParticipantViewData participantViewData = new CallCompositePa
     .setScaleType((ImageView.ScaleType) scaleType)
     .setDisplayName((String) displayName);
 
-final CallCompositeNavigationBarViewData navigationBarViewData = new CallCompositeNavigationBarViewData()
+final CallCompositeSetupScreenViewData setupScreenViewData = new CallCompositeSetupScreenViewData()
     .setTitle((String) title)
     .setSubtitle((String) subTitle);
 
