@@ -479,7 +479,7 @@ Following table describes the supported schemas for explainability.
 
 |Type | Schema |
 |---|----|
-|Inference on single image in base64 format | Dictionary with `image_base64` as key and value is base64 encoded image, <br> `model_explainability` key with True or False and `xai_parameters` dictionary with XAI algorithm specific parameters <br> `Required, Json String` <br> `works for one or more images`  |
+|Inference on single image in base64 format | Dictionary with `image_base64` as key and value is base64 encoded image, <br> `model_explainability` key with True or False and `xai_parameters` dictionary with XAI algorithm specific parameters <br> `Required, Json String` <br> `Works for one or more images`  |
 
 Each input image in the `request_json` defined in the code below is a base64 encoded string appended to the list `request_json["input_data"]["data"]`:
 
