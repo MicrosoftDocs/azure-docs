@@ -53,7 +53,7 @@ The sign-in activity report is available in [all editions of Azure AD](reference
 
     To toggle back to the legacy view, select the **Click here to leave the preview**  link.
 
-    ![Screenshot of the preview link on the sign-in logs page.](./media/concept-all-sign-ins/sign-in-logs-leave-preview-link.png)
+    ![Screenshot of the leave preview link on the sign-in logs page.](./media/concept-all-sign-ins/sign-in-logs-leave-preview-link.png)
 
 You can also access the sign-in logs from the following areas of Azure AD:
 
