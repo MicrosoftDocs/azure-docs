@@ -56,10 +56,10 @@ By specificing interactive applications at job creation, you can connect directl
     * sleep 1h
     * sleep 1d
 
-    You can also use the ```sleep infinity``` command that would keep the job alive indefinitely. 
+  You can also use the ```sleep infinity``` command that would keep the job alive indefinitely. 
     
-    > [!NOTE]
-    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
+  > [!NOTE]
+  > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 5. Select the training applications you want to use to interact with the job.
 
