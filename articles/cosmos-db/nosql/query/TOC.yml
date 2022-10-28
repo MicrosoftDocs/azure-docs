@@ -226,6 +226,9 @@
         - name: Spatial functions
           displayName: spatial functions, spatial, system functions, built-in functions
           href: spatial-functions.md
+        - name: ST_AREA
+          displayName: ST_AREA, st area, area, built-in functions
+          href: st-area.md
         - name: ST_DISTANCE
           displayName: ST_DISTANCE, st distance, distance, built-in functions
           href: st-distance.md

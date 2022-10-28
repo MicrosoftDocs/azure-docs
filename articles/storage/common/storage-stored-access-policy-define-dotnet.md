@@ -30,7 +30,7 @@ The following Azure Storage resources support stored access policies:
 >
 > Stored access policies are supported for a service SAS only. Stored access policies are not supported for account SAS or user delegation SAS.
 
-For more information about stored access policies, see [Define a stored access policy](/rest/api/storageservices/define-stored-access-policy).
+For more information about stored access policies, see [Create a stored access policy](/rest/api/storageservices/define-stored-access-policy).
 
 ## Create a stored access policy
 
@@ -125,5 +125,5 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 ## See also
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
-- [Define a stored access policy](/rest/api/storageservices/define-stored-access-policy)
+- [Create a stored access policy](/rest/api/storageservices/define-stored-access-policy)
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md)
