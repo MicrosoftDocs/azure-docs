@@ -104,7 +104,8 @@ From the project directory:
 1. Create a new file named `index.js`.
 1. Copy the following code into the file. More code will be added as you go through this quickstart.
 
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/boilerplate.js":::
+    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/boilerplate.js" :::
+
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -112,7 +113,7 @@ From the project directory:
 
 These example code snippets show you how to do the following tasks with the Azure Blob Storage client library for JavaScript:
 
-- [Get the connection string](#get-the-connection-string)
+- [Get the connection string](#connection-string)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
