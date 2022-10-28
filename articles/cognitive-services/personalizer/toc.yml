@@ -45,8 +45,10 @@
     href: how-to-thick-client.md
   - name: Manage model and learning settings
     href: how-to-manage-model.md
-  - name: Analyze with an offline evaluation
+  - name: Run an offline evaluation
     href: how-to-offline-evaluation.md
+  - name: Run a feature evaluation
+    href: how-to-feature-evaluation.md
   - name: Enable inference explainability
     href: how-to-inference-explainability.md
   - name: Enterprise readiness
@@ -92,8 +94,6 @@
   - name: Offline evaluation
     href: concepts-offline-evaluation.md
     displayName: learning policy, Counterfactual, features
-  - name: Feature evaluation
-    href: concept-feature-evaluation.md
   - name: Auto-optimization
     href: concept-auto-optimization.md
   - name: Scalability and performance
