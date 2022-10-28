@@ -7,6 +7,7 @@ ms.service: firewall
 ms.topic: article
 ms.date: 10/28/2022
 ms.author: victorh
+ms.custom: engagement-fy23
 ---
 
 # Use FQDN filtering in network rules
