@@ -82,9 +82,6 @@ Features with low importance scores are good candidates for further analysis. No
     
 Removing features with low importance scores can help speed up model training by reducing the amount of data needed to learn. It can also potentially improve the performance of the model. However, this is not guaranteed and further analysis may be needed.  [Learn more about designing context and action features.](concepts-features.md)
 
-### Example Feature Evaluation
-**Placeholder for reading a feature evaluation report once UI changes are finished**
-
 ### Common issues and steps to improve features
 
 - **Sending features with high cardinality.** Features that have many distinct values that are not likely to repeat over many events. For example, PII specific to one individual (such as name, phone number, credit card number, IP address) shouldn't be used with Personalizer.
