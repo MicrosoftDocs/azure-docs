@@ -77,3 +77,7 @@ sections:
           Will new tables added to my source database automatically be added to my link connection?
         answer: |
           No. You will need to edit the link connection in the Azure Synapse Analytics environment to add the new tables. You can add tables to a running connection without stopping it - the new tables will be included in the replication when you publish the changes to the link connection.
+      - question: |
+          What is the latency for data replicated from Azure SQL Database and SQL Server 2022 to Azure Synapse Analytics dedicated SQL pools?
+        answer: |
+          We do not have published latency SLA. If you are seeing high latency, you can adjust the number of cores allocated to the link connection, the size of the target dedicated SQL pool, or adjust the transactional consistency on write configuration to suit your workload.
