@@ -61,6 +61,7 @@ Response<RecordingStateResult> response = await callAutomationClient.getCallReco
 ```
 
 ### 2.1. Only for Unmixed - Specify a user on a channel 0
+To produce unmixed audio recording files, you can use the `ChannelAffinity` functionality to specify which user you want to record on each channel. Channel 0 typically records the agent attending or making the call. If you use the affinity channel but don't specify any user to any channel, Call Recording will assign channel 0 to the first person on the call speaking. 
 
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
