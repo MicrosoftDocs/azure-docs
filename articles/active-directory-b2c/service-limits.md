@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.author: kengaderdus
-ms.date: 04/15/2022
+ms.date: 10/27/2022
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -168,6 +168,7 @@ The following table lists the administrative configuration limits in the Azure A
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
+|Number of API connectors per tenant     |19         |
 
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
