@@ -49,4 +49,4 @@ sections:
       - question: |
           How do I change the performance level or SKU of my payment HSM?
         answer: |
-          See [How to change the performance level of a payment HSM](how-to-change-performance-level.md).
+          See [How to change the performance level of a payment HSM](change-performance-level.md).
