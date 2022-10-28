@@ -981,10 +981,10 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ::: zone pivot="programming-language-csharp"
 
-The C# sample expects certificates in the PKCS#12 format (.pfx). The full chain certificates you created previously are in the PEM format. To convert the full chain certificates to PKCS#12 format, enter the following commands in your GitBash prompt from the directory where you previously ran the OpenSSL commands.
+The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS#12 formatted file (.pfx). The full chain certificates you created previously are in the PEM format. To convert the full chain certificates to PKCS#12 format, enter the following commands in your GitBash prompt from the directory where you previously ran the OpenSSL commands.
 
 ```bash
- openssl pkcs12 -inkey ./private/device-01.key.pem -in ./certs/device-01-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-01-full-chain.cert.pfx
+openssl pkcs12 -inkey ./private/device-01.key.pem -in ./certs/device-01-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-01-full-chain.cert.pfx
 
 openssl pkcs12 -inkey ./private/device-02.key.pem -in ./certs/device-02-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-02-full-chain.cert.pfx
 ```
@@ -1039,7 +1039,7 @@ In the rest of this section, you'll use your Windows command prompt.
 
 ::: zone pivot="programming-language-nodejs"
 
-In this section, you'll use your Windows command prompt.
+In the following steps, use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -1122,7 +1122,7 @@ In this section, you'll use your Windows command prompt.
 
 ::: zone pivot="programming-language-python"
 
-In this section, you'll use your Windows command prompt.
+In the following steps, use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -1220,7 +1220,7 @@ In this section, you'll use your Windows command prompt.
 
 ::: zone pivot="programming-language-java"
 
-In this section, you'll use both your Windows command prompt and your Git Bash prompt.
+In the following steps, you'll use both your Windows command prompt and your Git Bash prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -1445,15 +1445,48 @@ When you're finished testing and exploring this device client sample, use the fo
 
 1. Close the device client sample output window on your machine.
 
-1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning Service instance. Open **Manage Enrollments** for your service, and then select the **Enrollment Groups** tab. Select the check box next to the *Group Name* of the device group you created in this tutorial, and select **Delete** at the top of the pane.
+### Delete your enrollment group
 
-1. Select **Certificates** in DPS. For each certificate you uploaded and verified in this tutorial, select the certificate and select **Delete** to remove it.
+1. From the left-hand menu in the Azure portal, select **All resources**.
 
-1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub. Select the check box next to the *DEVICE ID* of the device that you registered in this tutorial. Select **Delete** at the top of the pane.
+1. Select your DPS instance.
+
+1. In the **Settings** menu, select **Manage enrollments**.
+
+1. Select the **Enrollment Groups** tab.
+
+1. Select the enrollment group you used for this tutorial, *custom-hsm-x509-devices*.
+
+1. On the **Enrollment Group Details** page, select the **Registration Records** tab. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete Registrations** at the top of the page to delete the registration records.
+
+    > [!IMPORTANT]
+    > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
+
+1. Go back to the **Manage Enrollments** page and make sure the **Enrollment Groups** tab is selected.
+
+1. Select the check box next to the *GROUP NAME* of the enrollment group you used for this tutorial, *custom-hsm-x509-devices*.
+
+1. At the top of the page, select  **Delete**.
+
+### Delete registered CA certificates from DPS
+
+1. Select **Certificates** from the left-hand menu of your DPS instance. For each certificate you uploaded and verified in this tutorial, select the certificate and select **Delete** and confirm your choice to remove it.
+
+### Delete device registration(s) from IoT Hub
+
+1. From the left-hand menu in the Azure portal, select **All resources**.
+
+2. Select your IoT hub.
+
+3. In the **Explorers** menu, select **IoT devices**.
+
+4. Select the check box next to the *DEVICE ID* of the devices you registered in this tutorial. For example, *device-01* and *device-02*..
+
+5. At the top of the page, select  **Delete**.
 
 ## Next steps
 
-In this tutorial, you provisioned an X.509 device using a custom HSM to your IoT hub. To learn how to provision IoT devices to multiple hubs continue to the next tutorial.
+In this tutorial, you provisioned X.509 devices using an enrollment group to your IoT hub. To learn how to provision IoT devices to multiple hubs continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Provision devices across load-balanced IoT hubs](tutorial-provision-multiple-hubs.md)

@@ -321,7 +321,7 @@ Keep the Git Bash prompt open. You'll need it later in this quickstart.
 
 ::: zone pivot="programming-language-csharp"
 
-The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS12 formatted file (`certificate.pfx`). You'll still need the PEM formatted public key certificate file (`device-cert.pem`) that you just created to create an individual enrollment entry later in this quickstart.
+The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS#12 formatted file (`certificate.pfx`). You'll still need the PEM formatted public key certificate file (`device-cert.pem`) that you just created to create an individual enrollment entry later in this quickstart.
 
 1. To generate the PKCS12 formatted file expected by the sample, enter the following command:
 
@@ -632,11 +632,9 @@ In this section, you'll use your Windows command prompt.
 
     * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances: `global.azure-devices-provisioning.net`.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** you used for your device, *device-01*.
+    * Replace `<registration-id>` with the **Registration ID** you used for your device, *my-x509-device*.
     * Replace `certificate-file-path` with the device certificate file you generated previously, *device-cert.pem*.
     * Replace `key-file-path` with the device private key file you generated previously, *device-key.pem*.
-
-    (The paths shown above are relative to the directory where you ran the OpenSSL commands to create your certificate chain. Modify them accordingly for your system.)
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
