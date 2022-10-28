@@ -16,8 +16,6 @@ ms.custom: devx-track-js, mode-api
 
 In this quickstart, you learn to manage blobs by using Node.js. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. 
 
-
-
 Additional resources:
 
 [API reference](/javascript/api/@azure/storage-blob) |
@@ -113,7 +111,7 @@ From the project directory:
 
 These example code snippets show you how to do the following tasks with the Azure Blob Storage client library for JavaScript:
 
-- [Get the connection string](#connection-string)
+- [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
