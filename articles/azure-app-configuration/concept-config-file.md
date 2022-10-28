@@ -5,7 +5,7 @@ author: zhenlan
 ms.author: zhenlwa
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 10/28/2022
 ---
 
 # Azure App Configuration support for configuration files
