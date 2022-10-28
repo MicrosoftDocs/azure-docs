@@ -23,7 +23,8 @@ When collaborating with external B2B guest users, it’s a good idea to protect 
 
 Example:
 
-![Diagram showing a guest user signing into a company's apps](media/tutorial-mfa/aad-b2b-mfa-example.png)
+:::image type="content" source="media/tutorial-mfa/aad-b2b-mfa-example.png" alt-text="Diagram showing a guest user signing into a company's apps.":::
+
 
 1. An admin or employee at Company A invites a guest user to use a cloud or on-premises application that is configured to require MFA for access.
 1. The guest user signs in with their own work, school, or social identity.
