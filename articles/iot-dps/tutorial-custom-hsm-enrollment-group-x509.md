@@ -981,7 +981,15 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ::: zone pivot="programming-language-csharp"
 
-In this section, you'll use your Windows command prompt.
+The C# sample expects certificates in the PKCS#12 format (.pfx). The full chain certificates you created previously are in the PEM format. To convert the full chain certificates to PKCS#12 format, enter the following commands in your GitBash prompt from the directory where you previously ran the OpenSSL commands.
+
+```bash
+ openssl pkcs12 -inkey ./private/device-01.key.pem -in ./certs/device-01-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-01-full-chain.cert.pfx
+
+openssl pkcs12 -inkey ./private/device-02.key.pem -in ./certs/device-02-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-02-full-chain.cert.pfx
+```
+
+In the rest of this section, you'll use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -991,39 +999,40 @@ In this section, you'll use your Windows command prompt.
 
 3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\Getting Started\X509Sample* directory off the directory where you cloned the samples on your computer.
 
-4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. The certificate file will default to *./certificate.pfx* and prompt for the .pfx password.
+4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. Replace `<your-certificate-folder>` with the full path to the folder where you ran your OpenSSL commands.
 
     ```cmd
-    dotnet run -- -s <IDScope>
+    run -- -s 0ne005ED5E1 -c <your-certificate-folder>/certs/device-01-full-chain.cert.pfx -p 1234
     ```
 
-    If you want to pass the certificate and password as a parameter, you can use the following format.
-    
-   >[!NOTE]
-   >Additional parameters can be passed along while running the application to change the TransportType (-t) and the GlobalDeviceEndpoint (-g).
-    
-
-    ```cmd
-    dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
-    ```
-
-5. The device will connect to DPS and be assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
+   The device connects to DPS and is assigned to an IoT hub. Then, the device sends a telemetry message to the IoT hub. You should see output similar to the following:
 
     ```output
     Loading the certificate...
-    Enter the PFX password for certificate.pfx:
-    ****
-    Found certificate: A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=my-x509-device; PrivateKey: True
-    Using certificate A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=my-x509-device
+    Found certificate: 3E5AA3C234B2032251F0135E810D75D38D2AA477 CN=Azure IoT Hub CA Cert Test Only; PrivateKey: False
+    Found certificate: 81FE182C08D18941CDEEB33F53F8553BA2081E60 CN=Azure IoT Hub Intermediate Cert Test Only; PrivateKey: False
+    Found certificate: 5BA1DB226D50EBB7A6A6071CED4143892855AE43 CN=device-01; PrivateKey: True
+    Using certificate 5BA1DB226D50EBB7A6A6071CED4143892855AE43 CN=device-01
     Initializing the device provisioning client...
-    Initialized for registration Id my-x509-device.
+    Initialized for registration Id device-01.
     Registering with the device provisioning service...
     Registration status: Assigned.
-    Device my-x509-device registered to MyExampleHub.azure-devices.net.
+    Device device-01 registered to contoso-hub-2.azure-devices.net.
     Creating X509 authentication for IoT Hub...
     Testing the provisioned device with IoT Hub...
     Sending a telemetry message...
     Finished.
+    ```
+
+   >[!NOTE]
+   > If you don't specify certificate and password on the command line, the certificate file will default to *./certificate.pfx* and you'll be prompted for your password.
+   >
+   > Additional parameters can be passed to change the TransportType (-t) and the GlobalDeviceEndpoint (-g). For a full list of parameters type `dotnet run -- --help`.
+
+5. To register your second device, re-run the sample using its full chain certificate.
+
+    ```cmd
+    run -- -s 0ne005ED5E1 -c <your-certificate-folder>/certs/device-02-full-chain.cert.pfx -p 1234
     ```
 
 ::: zone-end
@@ -1057,10 +1066,10 @@ In this section, you'll use your Windows command prompt.
 
 1. In the command prompt, run the following commands to set environment variables used by the sample:
 
-    * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
-    * Replace `<id-scope>` with the **ID Scope** that you copied in step 1.
+    * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances: `global.azure-devices-provisioning.net`.
+    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<registration-id>` with the **Registration ID** you used for your device, *device-01*.
-    * Replace `certificate-file-path` with the device full chain certificate file you generated previously, *certs\device-01-full-chain.cert.pem*
+    * Replace `certificate-file-path` with the device full chain certificate file you generated previously, *certs\device-01-full-chain.cert.pem*.
     * Replace `key-file-path` with the device private key file you generated previously, *private\device-01.key.pem*.
 
     (The paths shown above are relative to the directory where you ran the OpenSSL commands to create your certificate chain. Modify them accordingly for your system.)

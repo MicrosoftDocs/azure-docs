@@ -617,25 +617,46 @@ In this section, you'll use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
-1. Copy the **ID Scope** and **Global device endpoint** values.
+1. Copy the **ID Scope** value.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope on Azure portal.":::
 
 1. In your Windows command prompt, go to the sample directory, and install the packages needed by the sample. The path shown is relative to the location where you cloned the SDK.
 
     ```cmd
-    cd ./azure-iot-sdk-node/provisioning/device/samples
+    cd .\azure-iot-sdk-node\provisioning\device\samples
     npm install
     ```
 
-1. Edit the **register_x509.js** file and make the following changes:
+1. In the command prompt, run the following commands to set environment variables used by the sample:
 
-    * Replace `provisioning host` with the **Global Device Endpoint** noted in **Step 1** above.
-    * Replace `id scope` with the **ID Scope** noted in **Step 1** above.
-    * Replace `registration id` with the **Registration ID** noted in the previous section.
-    * Replace `cert filename` and `key filename` with the files you generated previously, *device-cert.pem* and *device-key.pem*.
+    * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances: `global.azure-devices-provisioning.net`.
+    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<registration-id>` with the **Registration ID** you used for your device, *device-01*.
+    * Replace `certificate-file-path` with the device certificate file you generated previously, *device-cert.pem*.
+    * Replace `key-file-path` with the device private key file you generated previously, *device-key.pem*.
 
-1. Save the file.
+    (The paths shown above are relative to the directory where you ran the OpenSSL commands to create your certificate chain. Modify them accordingly for your system.)
+
+    ```cmd
+    set PROVISIONING_HOST=global.azure-devices-provisioning.net
+    ```
+
+    ```cmd
+    set PROVISIONING_IDSCOPE=<id-scope>
+    ```
+
+    ```cmd
+    set PROVISIONING_REGISTRATION_ID=<registration-id>
+    ```
+
+    ```cmd
+    set CERTIFICATE_FILE=<certificate-file-path>
+    ```
+
+    ```cmd
+    set KEY_FILE=<key-file-path>
+    ```
 
 1. Run the sample and verify that the device was provisioned successfully.
 
@@ -643,8 +664,15 @@ In this section, you'll use your Windows command prompt.
     node register_x509.js
     ```
 
->[!TIP]
->The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For more information, see [Device concepts](./concepts-service.md).
+    You should see output similar to the following:
+
+    ```output
+    registration succeeded
+    assigned hub=contoso-hub-2.azure-devices.net
+    deviceId=my-x509-device
+    Client connected
+    send status: MessageEnqueued
+    ```
 
 ::: zone-end
 
