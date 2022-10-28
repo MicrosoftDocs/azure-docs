@@ -29,6 +29,10 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## October 2022
 
+### Form Recognizer Studio Sample Code
+
+Sample code the Form Recgonizer Studio labeling experience is now available on github - https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code. 
+
 ### Language expansion
 
 With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
