@@ -85,7 +85,6 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.DevTestLab
 
-* labs/virtualMachines - Limited to 800 instances.
 * schedules
 
 ## Microsoft.EdgeOrder
