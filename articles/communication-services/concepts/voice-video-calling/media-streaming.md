@@ -15,8 +15,7 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-CONTENT HERE
-
+Media Streaming API allows developers to get real-time access to media streams to capture, analyze and process audio content during active calls as we see in todays world consumption of live audio and video is very prevalent, this content could be in the forms of online meetings, online conferences, online schooling, customer support, etc. This consumption has only been exacerbated by the recent events of Covid-19, with many of the worlds work force working remotely from home. Developers can use audio from these media streams to enhance their applications and embed their own AI solutions into these calls in real-time for a more improved recommendations to their contact center agents.
 
 ## Common use cases
 Audio streams can be used in many ways, below are some examples of how developers may wish to use the audio streams in their applications.
@@ -37,9 +36,11 @@ Audio streams can be used in many ways, below are some examples of how developer
 
 ## Supported formats
 
-### Mixed 
+### Mixed format
+Contains mixed audio of all participants on the call.
 
 ### Unmixed
+Contains audio per participant per channel, up to four channels. 
 
 ## Additional information
 The table below describes information that will help developers convert the media packets into audible content that can be used by their applications.
