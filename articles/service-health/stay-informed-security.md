@@ -23,7 +23,7 @@ You receive security-related notifications affecting your Azure **subscription**
 Service health notifications are published by Azure and contain information about the resources under your subscription. You can review these security advisories in the Service Health experience in the Azure Portal and get notified about security advisories via your preferred channel by setting up Service Health alerts for this type of notification. You can create [Activity Log alerts](../service-health/alerts-activity-log-service-notifications-portal.md) on Service notifications by using the Azure Portal.
 
 >[!Note]
->Depending on your requirements, you can configure various alerts to use the same [action group](../azure-monitor/alerts/action-groups.md) or different action groups. Action group types include sending a voice call, SMS, or email. You can also trigger various types of automated actions. For detailed information about notification and action types, see [Action-specific information](../azure-monitor/alerts/action-groups#action-specific-information.md). 
+>Depending on your requirements, you can configure various alerts to use the same [action group](../azure-monitor/alerts/action-groups.md) or different action groups. Action group types include sending a voice call, SMS, or email. You can also trigger various types of automated actions. For detailed information about notification and action types, see [Action-specific information](../azure-monitor/alerts/action-groups.md#action-specific-information). 
 
 **2. Email Notification**
 
@@ -53,7 +53,7 @@ Ensure that there is a **contactable email address** entered for your [Global Ad
 
 Create **Azure Service Health** alerts for security events so that your organization can be alerted for any security event that Microsoft identifies. This is the same channel you would configure to be alerted of outages, or maintenance information on the platform: [Create Activity Log Alerts on Service Notifications using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-Depending on your requirements, you can configure various alerts to use the same [action group](../azure-monitor/alerts/action-groups.md) or different action groups. Action group types include sending a voice call, SMS, or email. You can also trigger various types of automated actions. For detailed information about notification and action types, see [Action-specific information](../azure-monitor/alerts/action-groups#action-specific-information.md).
+Depending on your requirements, you can configure various alerts to use the same [action group](../azure-monitor/alerts/action-groups.md) or different action groups. Action group types include sending a voice call, SMS, or email. You can also trigger various types of automated actions. For detailed information about notification and action types, see [Action-specific information](../azure-monitor/alerts/action-groups.md#action-specific-information).
 
 There’s an important difference between Service Health security advisories and [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) security notifications. Security advisories in Service Health provide notifications dealing with platform vulnerabilities and security and privacy breaches at the subscription and tenant level,   while security notifications in Microsoft Defender for Cloud communicate vulnerabilities that pertain to affected individual Azure resources.
 
