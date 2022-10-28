@@ -54,7 +54,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 1. In Visual Studio file explorer, open up your GitHub deployment action file. The file path and name _something_ looks `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
 1. The _part_ of the YAML file relevant to the Static web app is shown below:
 
-    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/tutorial-add-search-website-github-action.yml" highlight="28-33":::
+    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml" highlight="28-33":::
 
 1. If your action file doesn't contain the correct settings (including the location of the `api`), update those value, then commit that change and push back to your GitHub fork. 
 
