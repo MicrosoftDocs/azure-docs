@@ -196,11 +196,11 @@ This is likely due to misconfiguration of the container. In order to view the co
     kubectl get po <Prometheus-Pod-Name> -o json | jq -c  '.spec.containers[] | select( .name | contains(" <Azure-Monitor-Side-Car-Container-Name> "))'
      ``` 
 Output:
-{"env":[{"name":"INGESTION_URL","value":"https://rwtest-eus2-qu4m.eastus2-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-90b2d5e5feac43f486311dff33c3c116/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview"},{"name":"LISTENING_PORT","value":"8081"},{"name":"IDENTITY_TYPE","value":"userAssigned"},{"name":"AZURE_CLIENT_ID","value":"fe9b242a-1cdb-4d30-86e4-14e432f326de"}],"image":"mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2","imagePullPolicy":"Always","name":"prom-remotewrite","ports":[{"containerPort":8081,"name":"rw-port","protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/var/run/secrets/kubernetes.io/serviceaccount","name":"kube-api-access-vbr9d","readOnly":true}]}
+{"env":[{"name":"INGESTION_URL","value":"https://my-azure-monitor-workspace.eastus2-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-00000000000000000/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview"},{"name":"LISTENING_PORT","value":"8081"},{"name":"IDENTITY_TYPE","value":"userAssigned"},{"name":"AZURE_CLIENT_ID","value":"00000000-0000-0000-0000-00000000000"}],"image":"mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2","imagePullPolicy":"Always","name":"prom-remotewrite","ports":[{"containerPort":8081,"name":"rw-port","protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/var/run/secrets/kubernetes.io/serviceaccount","name":"kube-api-access-vbr9d","readOnly":true}]}
 
 Verify the configuration values especially “AZURE_CLIENT_ID” and “IDENTITY_TYPE”
 
 ## Next steps
 
-= [Setup Grafana to use Managed Prometheus as a data source](prometheus-grafana.md).
+- [Setup Grafana to use Managed Prometheus as a data source](prometheus-grafana.md).
 - [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
