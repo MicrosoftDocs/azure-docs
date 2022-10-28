@@ -27,6 +27,7 @@ If your environment meets the prerequisites, you're familiar with using ARM temp
 - You must have a running packet core. Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Identify the name of the site that hosts the packet core instance you want to upgrade.
+- Make a note of your current packet core version. You'll need this information in case you encounter any issues and need to revert the upgrade.
 
 ## Review the template
 
@@ -73,7 +74,7 @@ If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you ne
     - **Resource group:** select the resource group containing the mobile network resource representing your private mobile network.
     - **Region:** select **East US**.
     - **Existing packet core:** select the name of the packet core instance you want to upgrade.
-    - **Version:** enter the version to which you want to upgrade the packet core instance.
+    - **New version:** enter the version to which you want to upgrade the packet core instance.
 
     :::image type="content" source="media/upgrade-packet-core-arm-template/upgrade-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the upgrade ARM template.":::
 
@@ -85,7 +86,7 @@ If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you ne
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to upgrade the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been upgraded.
+1. Once your configuration has been validated, select **Create** to upgrade the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been upgraded.
 
 ### Review deployed resources
 
@@ -116,9 +117,30 @@ Once the upgrade completes, check if your deployment is operating normally.
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the previous version.
 
-Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the release notes for information on when new features were introduced.
+Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the packet core release notes for information on when new features were introduced.
 
-<!-- TODO: Add steps once we get more info on how rollback will work -->
+1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
+2. Select the following link to sign in to Azure and open the template.
+
+    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2FcreateUiDefinition.json)
+
+3. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+
+    - **Subscription:** select the Azure subscription you used to create your private mobile network.
+    - **Resource group:** select the resource group containing the mobile network resource representing your private mobile network.
+    - **Region:** select **East US**.
+    - **Existing packet core:** select the name of the packet core instance you want to upgrade.
+    - **New version:** enter the packet core version you want to downgrade to.
+
+    :::image type="content" source="media/upgrade-packet-core-arm-template/upgrade-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the upgrade ARM template.":::
+
+4. Select **Review + create**.
+5. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+
+     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
+
+6. Once your configuration has been validated, select **Create** to upgrade the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been downgraded.
+7. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
 
 ## Next steps
 
