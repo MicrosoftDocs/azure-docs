@@ -100,9 +100,9 @@
   - name: User Profile Management
     items:
     - name: FSLogix Overview
-      href: /fslogix/overview
+      href: /fslogix/overview?branch=main
     - name: Container Types
-      href: /fslogix/profile-container-office-container-cncpt
+      href: /fslogix/profile-container-office-container-cncpt?branch=main
     - name: FSLogix profile containers and Azure Files
       href: fslogix-containers-azure-files.md
     - name: Storage options for FSLogix profile containers
@@ -230,9 +230,9 @@
   - name: User Profile Management
     items:
       - name: Use FSLogix Group Policy template Files
-        href: /fslogix/use-group-policy-templates-ht
+        href: /fslogix/use-group-policy-templates-ht?branch=main
       - name: Configure storage for Profile and ODFC Containers
-        href: /fslogix/fslogix-storage-config-ht
+        href: /fslogix/fslogix-storage-config-ht?branch=main
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
