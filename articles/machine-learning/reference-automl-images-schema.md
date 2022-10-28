@@ -469,7 +469,7 @@ Along with the image, there are two extra parameters (`model_explainability` and
 | -------- |----------|-----|
 | `image_base64` | input image in base64 format<br>`Required, String` | - |
 | `model_explainability` | Whether to generate explanations or just the scoring<br>`Optional, Bool` | `False` |
-| `xai_parameters` | If `model_explainability` is True, then `xai_parameters` is a dictionary with keys `xai_algorithm`, explainability algorithm related parameters and `visualizations`, `attributions` <br>`Optional, Dictionary` <br> If `xai_parameters` isn't passed, then the `xrai` explainability algorithm is used with its default value| `{}` |
+| `xai_parameters` | If `model_explainability` is True, then `xai_parameters` is a dictionary containing  explainability algorithm related parameters with `xai_algorithm`, `visualizations`, `attributions` ask keys. <br>`Optional, Dictionary` <br> If `xai_parameters` isn't passed, then the `xrai` explainability algorithm is used with its default value| `{"xai_algorithm": "xrai", "visualizations": True, "attributions": False}` |
 | `xai_algorithm` | Name of the Explainability algorithm to be used. Supported XAI algorithms are {`xrai`, `integrated_gradients`, `guided_gradcam`, `guided_backprop`}<br>`Optional, String`| `xrai` |
 | `visualizations` | whether to return visualizations of explanations.<br>`Optional, Bool`| `True` |
 | `attributions` | whether to return feature attributions.<br>`Optional, Bool`| `False` |
