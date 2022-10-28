@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.service: network-watcher
 author: Sagav28
 ms.author: saggupta
-ms.date: 09/09/2022
+ms.date: 10/26/2022
 ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Topology (Preview)
 
-Topology provides a visualization of the entire hybrid network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
+Topology provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ To view a topology, follow these steps:
 
 The topology containing the resources according to the scope and resource type specified, appears.
 
-:::image type="content" source="./media/network-insights-topology/topology-start-screen.png" alt-text="Screenshot of Topology screen.":::
+   :::image type="content" source="./media/network-insights-topology/topology-start-screen.png" alt-text="Screenshot of Topology screen.":::
 
 Each edge of the topology represents an association between each of the resources. In the topology, similar types of resources are grouped together. 
 
@@ -73,17 +73,17 @@ You can view the resources in the added region as part of the topology.
 
 To drill down to the basic unit of each network, select the plus sign on each resource. When you hover on the resource, you can see the details of that resource. Selecting a resource displays a pane on the right with a summary of the resource. 
 
-:::image type="content" source="./media/network-insights-topology/resource-details.png" alt-text="Screenshot of resource details.":::
+   :::image type="content" source="./media/network-insights-topology/resource-details.png" alt-text="Screenshot of resource details.":::
 
 Drilling down into Azure resources such as Application Gateways and Firewalls displays the resource view diagram of that resource. 
 
-:::image type="content" source="./media/network-insights-topology/drill-down.png" alt-text="Screenshot of resource hierarchy.":::
+   :::image type="content" source="./media/network-insights-topology/drill-down.png" alt-text="Screenshot of resource hierarchy.":::
 
 ## Integration with diagnostic tools
 
 When you drill down to a VM within the topology, the summary pane contains the **Insights + Diagnostics** section from where you can find the next hop. 
 
-:::image type="content" source="./media/network-insights-topology/resource-summary.png" alt-text="Screenshot of resource summary pane.":::
+   :::image type="content" source="./media/network-insights-topology/resource-summary.png" alt-text="Screenshot of resource summary pane.":::
 
 Follow these steps to find the next hop.
 
