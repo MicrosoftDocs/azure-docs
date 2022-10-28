@@ -77,4 +77,4 @@ When you drill down to a VM within the topology, the summary pane contains the *
 
 ## Next steps
 
-[Learn more](/connection-monitor-overview.md) about connectivity related metrics. 
+[Learn more](/azure/network-watcher/connection-monitor-overview) about connectivity related metrics. 
