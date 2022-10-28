@@ -50,7 +50,7 @@ The sign-in activity report is available in [all editions of Azure AD](reference
 1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
 1. Go to **Azure Active Directory** > **Sign-ins log**.
 
-    ![Open sign-in logs](./media/concept-sign-ins/side-menu-sign-in-logs.png)
+    ![Screenshot of the Monitoring side menu with sign-in logs highlighted.](./media/concept-sign-ins/side-menu-sign-in-logs.png)
 
 You can also access the sign-in logs from the following areas of Azure AD:
 
@@ -70,7 +70,6 @@ The sign-ins log has a default view, but you can customize the view using over 3
 1. Select the columns you want to view and  select the **Save** button at the bottom of the window.
 
 ![Screenshot of the sign-in logs page with the Columns option highlighted.](./media/concept-sign-ins/sign-in-logs-columns.png)
-
 
 ### Filter the results <h3 id="filter-sign-in-activities"></h3>
 
@@ -122,11 +121,11 @@ Now that your sign-in logs table is formatted appropriately, you can more effect
 
 ### Sign-in error codes
 
-If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details.
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details. Because of the complexity of some Azure AD environments, we cannot document every possible error code and resolution. Some errors may require [submitting a support request](../fundamentals/how-to-get-support.md) to resolve the issue.
 
 ![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
 
-In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button.
+For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-aadsts-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
 
 ![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
 

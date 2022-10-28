@@ -47,9 +47,13 @@ The sign-in activity report is available in [all editions of Azure AD](reference
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
 1. Go to **Azure Active Directory** > **Sign-ins log**.
-1. Select the **Try out our new sign-ins preview** link. To toggle back to the legacy view, select the **Click here to leave the preview**  link.
+1. Select the **Try out our new sign-ins preview** link. 
 
     ![Screenshot of the preview link on the sign-in logs page.](./media/concept-all-sign-ins/sign-in-logs-preview-link.png)
+
+    To toggle back to the legacy view, select the **Click here to leave the preview**  link.
+
+    ![Screenshot of the preview link on the sign-in logs page.](./media/concept-all-sign-ins/sign-in-logs-leave-preview-link.png)
 
 You can also access the sign-in logs from the following areas of Azure AD:
 
@@ -141,8 +145,6 @@ Unlike interactive and non-interactive user sign-ins, service principal sign-ins
 
 You can't customize the fields shown in this report.
 
-![Disabled columns](./media/concept-all-sign-ins/disabled-columns.png "Disabled columns")
-
 To make it easier to digest the data in the service principal sign-in logs, service principal sign-in events are grouped. Sign-ins from the same entity under the same conditions are aggregated into a single row. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the service principal report when the following data matches:
 
 - Service principal name or ID
@@ -197,13 +199,13 @@ The following table provides the options and descriptions for the **Client app**
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
 |Autodiscover| |Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
 |Exchange ActiveSync| |This filter shows all sign-in attempts where the EAS protocol has been attempted.|
-|Browser|![Blue checkmark.](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using web browsers|
+|Browser|![Blue checkmark.](./media/concept-all-sign-ins/check.png)|Shows all sign-in attempts from users using web browsers|
 |Exchange ActiveSync| | Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
 |Exchange Online PowerShell| |Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange Web Services| |A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
 |IMAP4| |A legacy mail client using IMAP to retrieve email.|
 |MAPI over HTTP| |Used by Outlook 2010 and later.|
-|Mobile apps and desktop clients|![Blue checkmark.](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using mobile apps and desktop clients.|
+|Mobile apps and desktop clients|![Blue checkmark.](./media/concept-all-sign-ins/check.png)|Shows all sign-in attempts from users using mobile apps and desktop clients.|
 |Offline Address Book| |A copy of address list collections that are downloaded and used by Outlook.|
 |Outlook Anywhere (RPC over HTTP)| |Used by Outlook 2016 and earlier.|
 |Outlook Service| |Used by the Mail and Calendar app for Windows 10.|
@@ -217,11 +219,11 @@ Now that your sign-in logs table is formatted appropriately, you can more effect
 
 ### Sign-in error code
 
-If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details.
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details. Because of the complexity of some Azure AD environments, we cannot document every possible error code and resolution. Some errors may require [submitting a support request](../fundamentals/how-to-get-support.md) to resolve the issue.
 
-![[Screenshot of a sign-in error code.](./media/concept-all-sign-ins/error-code.png)
+![Screenshot of a sign-in error code.](./media/concept-all-sign-ins/error-code.png)
  
-In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button.
+For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-aadsts-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
 
 ![Screnshot of the error code lookup tool.](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
