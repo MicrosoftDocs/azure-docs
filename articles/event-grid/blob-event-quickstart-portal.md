@@ -67,7 +67,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 1. On the **Review + create** page, select **Create**. 
 1. The deployment may take a few minutes to complete. On the **Deployment** page, select **Go to resource group**. 
 
-    :::image type="content" source="./media/blob-event-quickstart-portal/navigate-resource-group.png" alt-text="Screenshot showing the deployment succeeded page with a link to go to the resource.":::
+    :::image type="content" source="./media/blob-event-quickstart-portal/navigate-resource-group.png" alt-text="Screenshot showing the deployment succeeded page with a link to go to the resource group.":::
 4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and the storage account in this list. 
 
     :::image type="content" source="./media/blob-event-quickstart-portal/resource-group-resources.png" alt-text="Screenshot that shows the selection of web app in the resource group.":::
@@ -102,7 +102,7 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
         :::image type="content" source="./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png" alt-text="Screenshot showing the Create Event Subscription page with Web Hook selected as an endpoint.":::
 4. For **Endpoint**, click **Select an endpoint**, and enter the URL of your web app and add `api/updates` to the home page URL (for example: `https://spegridsite.azurewebsites.net/api/updates`), and then select **Confirm Selection**.
 
-        :::image type="content" source="./media/blob-event-quickstart-portal/confirm-endpoint-selection.png" lightbox="./media/blob-event-quickstart-portal/confirm-endpoint-selection.png" alt-text="Screenshot showing the Select Web Hook page.":::
+    :::image type="content" source="./media/blob-event-quickstart-portal/confirm-endpoint-selection.png" lightbox="./media/blob-event-quickstart-portal/confirm-endpoint-selection.png" alt-text="Screenshot showing the Select Web Hook page.":::
 5. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. 
 
       :::image type="content" source="./media/blob-event-quickstart-portal/create-subscription.png" alt-text="Screenshot showing the Create Event Subscription page with all fields selected.":::
