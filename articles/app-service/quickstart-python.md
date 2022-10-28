@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 03/22/2022
+ms.date: 08/23/2022
 author: mijacobs
 ms.author: mijacobs
 ms.devlang: python
-ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22
+ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed
 ---
 
 # Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service
@@ -16,6 +16,8 @@ In this quickstart, you'll deploy a Python web app (Django or Flask) to [Azure A
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.9 or higher</a> installed locally.
+
+>**Note**: This article contains current instructions on deploying a Python web app using Azure App Service. Python on Windows is no longer supported.
 
 ## 1 - Sample application
 
@@ -123,12 +125,14 @@ code .
 |:----------------|-----------:|
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-visual-studio-code-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-1-240-px.png" alt-text="A Screenshot of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-1.png"::: |
 | [!INCLUDE [Create app service step 2](<./includes/quickstart-python/create-app-service-visual-studio-code-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-2-240-px.png" alt-text="A screenshot of the App Service section of Azure Tools extension and the context menu used to create a new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-2.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/quickstart-python/create-app-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-4-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to select Create a new Web App." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-4.png"::: |
-| [!INCLUDE [Create app service step 5](<./includes/quickstart-python/create-app-service-visual-studio-code-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-5-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to enter the globally unique name for the new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-5.png"::: |
-| [!INCLUDE [Create app service step 6](<./includes/quickstart-python/create-app-service-visual-studio-code-6.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-6-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to select the runtime stack for the new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-6.png"::: |
-| [!INCLUDE [Create app service step 7](<./includes/quickstart-python/create-app-service-visual-studio-code-7.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-7-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to a pricing tier for the new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-7.png"::: |
-| [!INCLUDE [Create app service step 8](<./includes/quickstart-python/create-app-service-visual-studio-code-8.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-8-240-px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-8.png"::: |
-| [!INCLUDE [Create app service step 9](<./includes/quickstart-python/create-app-service-visual-studio-code-9.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-9-240-px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-9.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/quickstart-python/create-app-service-visual-studio-code-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-4-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to select Create a new Web App." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-4.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/quickstart-python/create-app-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-5-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to enter the globally unique name for the new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-5.png"::: |
+| [!INCLUDE [Create app service step 5](<./includes/quickstart-python/create-app-service-visual-studio-code-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-6-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to select the runtime stack for the new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-6.png"::: |
+| [!INCLUDE [Create app service step 6](<./includes/quickstart-python/create-app-service-visual-studio-code-6.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-7-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to a pricing tier for the new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-7.png"::: |
+| [!INCLUDE [Create app service step 7](<./includes/quickstart-python/create-app-service-visual-studio-code-7.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-7b-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to start deploy to new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-7b.png"::: |
+| [!INCLUDE [Create app service step 8](<./includes/quickstart-python/create-app-service-visual-studio-code-8.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-7c-240-px.png" alt-text="A screenshot of the dialog box in VS Code used to select the folder to deploy as the new web app." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-7c.png"::: |
+| [!INCLUDE [Create app service step 9](<./includes/quickstart-python/create-app-service-visual-studio-code-9.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-8-240-px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-8.png"::: |
+| [!INCLUDE [Create app service step 10](<./includes/quickstart-python/create-app-service-visual-studio-code-10.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-9-240-px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-9.png"::: |
 
 ### [Azure portal](#tab/azure-portal)
 

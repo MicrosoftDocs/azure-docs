@@ -3,14 +3,14 @@
 - name: Overview
   expanded: true
   items:
-    - name: What is Univariate Anomaly Detector? 
+    - name: What is Anomaly Detector? 
       href: overview.md
-    - name: What is Multivariate Anomaly Detector?
-      href: overview-multivariate.md
     - name: Pricing
       href: https://aka.ms/adpricing
     - name: What's new
       href: whats-new.md
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: Client libraries (univariate)
@@ -24,15 +24,13 @@
     - name: Jupyter Notebook
       href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook
     - name: Azure samples (univariate)
-      href: https://github.com/Azure-Samples/AnomalyDetector
+      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/samples-univariate
     - name: Azure samples (multivariate)
       href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/samples-multivariate
 - name: How-to guides
   items:
     - name: Identify anomalies in your data (univariate)
       href: how-to/identify-anomalies.md
-    - name: Detect anomalies using Multivariate Anomaly Detector
-      href: how-to/multivariate-how-to.md
     - name: Deploy Anomaly Detector (univariate)
       items:
         - name: Deploy to IoT Edge
@@ -44,7 +42,7 @@
               href: anomaly-detector-container-howto.md
             - name: Configure containers
               href: anomaly-detector-container-configuration.md
-              displayName: docker, container, apikey, billing, log, mount, run, pull, port
+              displayName: docker, container, alike, billing, log, mount, run, pull, port
             - name: Use container instances
               href: how-to/deploy-anomaly-detection-on-container-instances.md
             - name: All Cognitive Services containers documentation
@@ -68,8 +66,8 @@
   items:
     - name: Visualize anomalies as a batch using Power BI (univariate)
       href: tutorials/batch-anomaly-detection-powerbi.md
-    - name: Learn Multivariate Anomaly Detection in one hour (multivariate)
-      href: tutorials/learn-multivariate-anomaly-detection.md
+    - name: Azure Synapse with Multivariate Anomaly Detection
+      href: tutorials/multivariate-anomaly-detection-synapse.md
 - name: Responsible use of AI
   items:
   - name: Transparency notes
@@ -84,28 +82,40 @@
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
-    - name: Anomaly Detector REST API preview 
+    - name: REST API (preview) 
       href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
-    - name: .NET 
-      href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
-    - name: Java
-      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector
-    - name: Python
-      href: https://pypi.org/project/azure-ai-anomalydetector
-    - name: Node.js
-      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector
+    - name: .NET (preview)
+      href: /dotnet/api/azure.ai.anomalydetector?view=azure-dotnet-preview&preserve-view=true
+    - name: Java (preview)
+      href: /java/api/overview/azure/ai-anomalydetector-readme?view=azure-java-preview&preserve-view=true 
+    - name: Python (preview)
+      href: /python/api/azure-ai-anomalydetector/azure.ai.anomalydetector?view=azure-python-preview&preserve-view=true
+    - name: Node.js (preview)
+      href: /javascript/api/@azure/ai-anomaly-detector/?view=azure-node-preview&preserve-view=true
+    - name: Packages
+      items:
+      - name: .NET
+        href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
+      - name: Java
+        href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector
+      - name: Python
+        href: https://pypi.org/project/azure-ai-anomalydetector
+      - name: Node.js
+        href: https://www.npmjs.com/package/@azure/ai-anomaly-detector
 - name: Resources
   items:
     - name: Enterprise readiness
       items:
         - name: Region support
           href: https://aka.ms/adregion
+        - name: Region support details
+          href: regions.md
         - name: Compliance and certification
           href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
-    - name: Microsoft Learn modules
-      href: /learn/modules/identify-abnormal-time-series-data-anomaly-detector/
+    - name: Learn modules
+      href: /training/modules/identify-abnormal-time-series-data-anomaly-detector/
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture (univariate)

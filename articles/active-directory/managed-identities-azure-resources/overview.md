@@ -4,7 +4,7 @@ description: An overview of the managed identities for Azure resources.
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -27,7 +27,7 @@ While developers can securely store the secrets in [Azure Key Vault](../../key-v
 
 The following video shows how you can use managed identities:</br>
 
-> [!VIDEO https://docs.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
 
 Here are some of the benefits of using managed identities:
 
@@ -101,3 +101,4 @@ Operations on managed identities can be performed by using an Azure Resource Man
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
+* Use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets

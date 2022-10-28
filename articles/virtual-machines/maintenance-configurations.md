@@ -45,7 +45,7 @@ With this scope, you can manage platform updates that do not require a reboot on
 Using this scope with maintenance configurations lets you decide when to apply upgrades to OS disks in your *virtual machine scale sets* through an easier and more predictable experience. An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. Some features and limitations unique to this scope are:
 
 - Scale sets need to have [automatic OS upgrades](/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) enabled in order to use maintenance configurations.
-- You can schedule recurrence up to a week(7 days).
+- You can schedule recurrence up to a week (7 days).
 - A minimum of 5 hours is required for the maintenance window.
 
 ### Guest

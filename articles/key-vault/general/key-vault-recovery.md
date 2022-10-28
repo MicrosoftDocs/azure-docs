@@ -6,7 +6,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 09/30/2020
+ms.date: 08/18/2022
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection
@@ -32,22 +32,21 @@ For more information about Key Vault, see
   |Microsoft.KeyVault/locations/operationResults/read| To check purging state of vault|
   |[Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|To recover soft-deleted vault|
 
-
 ## What are soft-delete and purge protection
 
 [Soft delete](soft-delete-overview.md) and purge protection are two different key vault recovery features.
 
-> [!IMPORTANT]
-> Turning on soft delete is critical to ensuring that your key vaults and credentials are protected from accidental deletion. However, turning on soft delete is considered a breaking change because it may require you to change your application logic or provide additional permissions to your service principals. Before turning on soft delete using the instructions below, please make sure that your application is compatible with the change using this document [**here**.](soft-delete-change.md)
-
 **Soft delete** is designed to prevent accidental deletion of your key vault and keys, secrets, and certificates stored inside key vault. Think of soft-delete like a recycle bin. When you delete a key vault or a key vault object, it will remain recoverable for a user configurable retention period or a default of 90 days. Key vaults in the soft deleted state can also be **purged** which means they are permanently deleted. This allows you to recreate key vaults and key vault objects with the same name. Both recovering and deleting key vaults and objects require elevated access policy permissions. **Once soft delete has been enabled, it cannot be disabled.**
+
+> [!IMPORTANT]
+> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete is deprecated and will be removed in February 2025. See full details [here](soft-delete-change.md)
 
 It is important to note that **key vault names are globally unique**, so you won't be able to create a key vault with the same name as a key vault in the soft deleted state. Similarly, the names of keys, secrets, and certificates are unique within a key vault. You won't be able to create a secret, key, or certificate with the same name as another in the soft deleted state.
 
 **Purge protection** is designed to prevent the deletion of your key vault, keys, secrets, and certificates by a malicious insider. Think of this as a recycle bin with a time based lock. You can recover items at any point during the configurable retention period. **You will not be able to permanently delete or purge a key vault until the retention period elapses.** Once the retention period elapses the key vault or key vault object will be purged automatically.
 
 > [!NOTE]
-> Purge Protection is designed so that no administrator role or permission can  override, disable, or circumvent purge protection. **Once purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
+> Purge Protection is designed so that no administrator role or permission can override, disable, or circumvent purge protection. **Once purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
 
 For more information about soft-delete, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
 
@@ -79,7 +78,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 1. Log in to the Azure portal.
 1. Click on the search bar at the top of the page.
-1. Under "Recent Services" click "Key Vault". Do not click an individual key vault.
+1. Search for the "Key Vault" service. Do not click an individual key vault.
 1. At the top of the screen click the option to "Manage deleted vaults"
 1. A context pane will open on the right side of your screen.
 1. Select your subscription.

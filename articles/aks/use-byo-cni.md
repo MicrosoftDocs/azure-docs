@@ -1,20 +1,18 @@
 ---
-title: Bring your own Container Network Interface (CNI) plugin (preview)
+title: Bring your own Container Network Interface (CNI) plugin
 description: Learn how to utilize Azure Kubernetes Service with your own Container Network Interface (CNI) plugin
 services: container-service
 ms.topic: article
-ms.date: 3/30/2022
+ms.date: 8/12/2022
 ---
 
-# Bring your own Container Network Interface (CNI) plugin with Azure Kubernetes Service (AKS) (PREVIEW)
+# Bring your own Container Network Interface (CNI) plugin with Azure Kubernetes Service (AKS)
 
 Kubernetes does not provide a network interface system by default; this functionality is provided by [network plugins][kubernetes-cni]. Azure Kubernetes Service provides several supported CNI plugins. Documentation for supported plugins can be found from the [networking concepts page][aks-network-concepts].
 
 While the supported plugins meet most networking needs in Kubernetes, advanced users of AKS may desire to utilize the same CNI plugin used in on-premises Kubernetes environments or to make use of specific advanced functionality available in other CNI plugins.
 
 This article shows how to deploy an AKS cluster with no CNI plugin pre-installed, which allows for installation of any third-party CNI plugin that works in Azure.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Support
 
@@ -24,8 +22,8 @@ Support will still be provided for non-CNI-related issues.
 
 ## Prerequisites
 
-* For ARM/Bicep, use at least template version 2022-01-02-preview
-* For Azure CLI, use at least version 0.5.55 of the `aks-preview` extension
+* For ARM/Bicep, use at least template version 2022-01-02-preview or 2022-06-01
+* For Azure CLI, use at least version 2.39.0
 * The virtual network for the AKS cluster must allow outbound internet connectivity.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range, or cluster virtual network address range.
 * The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
@@ -35,16 +33,6 @@ Support will still be provided for non-CNI-related issues.
 * AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic within the node CIDR range. For more details, see [Network security groups][aks-network-nsg].
 
 ## Cluster creation steps
-
-### Install the aks-preview CLI extension
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### Deploy a cluster
 
@@ -95,7 +83,7 @@ When using an Azure Resource Manager template to deploy, pass `none` to the `net
   "resources": [
     {
       "type": "Microsoft.ContainerService/managedClusters",
-      "apiVersion": "2022-02-02-preview",
+      "apiVersion": "2022-06-01",
       "name": "[parameters('clusterName')]",
       "location": "[parameters('location')]",
       "identity": {
@@ -132,7 +120,7 @@ param kubernetesVersion string = '1.22'
 param nodeCount int = 3
 param nodeSize string = 'Standard_B2ms'
 
-resource aksCluster 'Microsoft.ContainerService/managedClusters@2022-02-02-preview' = {
+resource aksCluster 'Microsoft.ContainerService/managedClusters@2022-06-01' = {
   name: clusterName
   location: location
   identity: {

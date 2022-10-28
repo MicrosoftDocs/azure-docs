@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Virtual Desktop autoscale FAQ preview - Azure
+  title: Azure Virtual Desktop autoscale FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: faq
@@ -8,8 +8,8 @@ metadata:
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
-title: Azure Virtual Desktop autoscale (preview) FAQ
-summary: This article answers frequently asked questions about how to use autoscale (preview) for Azure Virtual Desktop.
+title: Azure Virtual Desktop autoscale FAQ
+summary: This article answers frequently asked questions about how to use autoscale for Azure Virtual Desktop.
 
 
 sections:
@@ -94,3 +94,8 @@ sections:
          Does autoscale handle scaling session hosts in secondary regions if the session hosts in the primary region have an outage?
         answer: |
          No. Customers will need to set up their own disaster recovery strategy to manage outages. Autoscale only handles scaling existing VMs within the region they're created in.
+         
+      - question: |
+         Does autoscale consider availability zones during scaling operations if session hosts are created in multiple zones within a region?
+        answer: |
+         No. Autoscale does not know what availability zone a VM was created in and so may not perform scaling operations across all zones equally. 

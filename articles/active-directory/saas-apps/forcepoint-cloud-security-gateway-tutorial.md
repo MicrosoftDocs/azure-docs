@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/26/2022
+ms.date: 06/30/2022
 ms.author: jeedes
 
 ---
@@ -51,6 +51,8 @@ To configure the integration of Forcepoint Cloud Security Gateway - User Authent
 1. In the **Add from the gallery** section, type **Forcepoint Cloud Security Gateway - User Authentication** in the search box.
 1. Select **Forcepoint Cloud Security Gateway - User Authentication** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Forcepoint Cloud Security Gateway - User Authentication
 
 Configure and test Azure AD SSO with Forcepoint Cloud Security Gateway - User Authentication using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Forcepoint Cloud Security Gateway - User Authentication.
@@ -83,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://proxy-login.blackspider.com/`
 
     c. In the **Sign-on URL** text box, type the URL:
-    `https://mailcontrol.com`
+    `https://forcepoint.com`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 

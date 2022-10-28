@@ -7,17 +7,38 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 06/17/2022
+ms.date: 08/25/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release: September 2022
+
+* Support for [Fast Restore](./concepts-backup-restore.md) 
+* General availability of [Geo-Redundant Backups](./concepts-backup-restore.md)                
+ 
+Please see the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
+
+
+## Release: August 2022
+
+* Support for [PostgreSQL minor version](./concepts-supported-versions.md) 14.4. <sup>$</sup>
+* Support for [new regions](overview.md#azure-regions) Qatar Central, Switzerland West, France South.
+
+<sup>**$**</sup> New PostgreSQL 14 servers will be provisioned with version 14.4. Your existing PostgreSQL 14.3 servers will be upgraded to 14.4 in your server's future maintenance window.
+
+## Release: July 2022
+
+* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore) in [more regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
+
 ## Release: June 2022
 
+* Support for [**PostgreSQL version 14**](./concepts-supported-versions.md).
+* Support for [minor versions](./concepts-supported-versions.md) 14.3, 13.7, 12.11, 11.16. <sup>$</sup>
 * Support for [Same-zone high availability](concepts-high-availability.md) deployment option. 
 * Support for choosing [standby availability zone](./how-to-manage-high-availability-portal.md) when deploying zone-redundant high availability.
 * Support for [extensions](concepts-extensions.md) PLV8, pgrouting with new servers<sup>$</sup> 
@@ -50,7 +71,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: November 2021
 
-* Azure Database for PostgreSQL is [**Generally Available**](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/azure-database-for-postgresql-flexible-server-is-now-ga/ba-p/2987030)!!
+* Azure Database for PostgreSQL is [**Generally Available**](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/azure-database-for-postgresql-flexible-server-is-now-ga/ba-p/2987030).
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.4, 12.8 and 11.13 with new server creates<sup>$</sup>.
 * Support for [Geo-redundant backup and restore](concepts-backup-restore.md) feature in preview in selected paired regions - East US 2, Central US, North Europe, West Europe, Japan East, and Japan West.
 *  Support for [new regions](overview.md#azure-regions) North Central US, Sweden Central, and West US 3. 
@@ -71,7 +92,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
 * Support for [new regions](overview.md#azure-regions) Central India and Japan West.
 * Support for non-SSL mode of connectivity using a new `require_secure_transport` server parameter.
-* Support for `log_line_prefix` server parameter which adds the string at the beginning of each log line.
+* Support for `log_line_prefix` server parameter, which adds the string at the beginning of each log line.
 * Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Flexible server health diagnosis and to get support.
 * Several bug fixes, stability, and performance improvements.
 
@@ -135,7 +156,7 @@ In addition, consider the following points of contact as appropriate:
 
  Will Flexible Server replace Single Server or Will Single Server be retired soon?
 
-We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
+We continue to support Single Server and encourage you to adopt Flexible Server, which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
   
 
 ## Next steps

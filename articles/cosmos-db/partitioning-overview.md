@@ -1,17 +1,17 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB
 description: Learn about partitioning, logical, physical partitions in Azure Cosmos DB, best practices when choosing a partition key, and how to manage logical partitions
-author: deborahc
-ms.author: dech
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.custom: cosmos-db-video
-ms.reviewer: mjbrown
+ms.custom: cosmos-db-video, ignite-2022
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB uses partitioning to scale individual containers in a database to meet the performance needs of your application. In partitioning, the items in a container are divided into distinct subsets called *logical partitions*. Logical partitions are formed based on the value of a *partition key* that is associated with each item in a container. All the items in a logical partition have the same partition key value.
 
@@ -88,7 +88,7 @@ A partition key has two components: **partition key path** and the **partition k
 
 To learn about the limits on throughput, storage, and length of the partition key, see the [Azure Cosmos DB service quotas](concepts-limits.md) article.
 
-Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it is not possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key.
+Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it is not possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key. ([Container copy jobs](intra-account-container-copy.md) help with this process.)
 
 For **all** containers, your partition key should:
 
@@ -101,6 +101,9 @@ For **all** containers, your partition key should:
 * Spread request unit (RU) consumption and data storage evenly across all logical partitions. This ensures even RU consumption and storage distribution across your physical partitions.
 
 If you need [multi-item ACID transactions](database-transactions-optimistic-concurrency.md#multi-item-transactions) in Azure Cosmos DB, you will need to use [stored procedures or triggers](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). All JavaScript-based stored procedures and triggers are scoped to a single logical partition.
+
+> [!NOTE]
+> If you only have one physical partition, the value of the partition key may not be relevant as all queries will target the same physical partition. 
 
 ## Partition keys for read-heavy containers
 
@@ -138,9 +141,9 @@ Some things to consider when selecting the *item ID* as the partition key includ
 
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md).
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md).
-* Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
-* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
+* Learn how to [provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md).
+* See the training module on how to [Model and partition your data in Azure Cosmos DB.](/training/modules/model-partition-data-azure-cosmos-db/)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

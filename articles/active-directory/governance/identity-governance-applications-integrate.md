@@ -3,16 +3,16 @@ title: Integrate your applications for identity governance and establishing a ba
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can integrate your existing business critical third party on-premises and cloud-based applications with Azure AD for identity governance scenarios.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 6/28/2022
-ms.author: ajburnle
+ms.date: 7/29/2022
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +27,7 @@ Azure AD identity governance can be integrated with many applications, using [st
 In order for Azure AD identity governance to be used for an application, the application must first be integrated with Azure AD. An application being integrated with Azure AD means one of two requirements must be met:
 
 * The application relies upon Azure AD for federated SSO, and Azure AD controls authentication token issuance. If Azure AD is the only identity provider for the application, then only users who are assigned to one of the application's roles in Azure AD are able to sign into the application. Those users that lose their application role assignment can no longer get a new token to sign in to the application.
-* The application relies upon user or group lists that are provided to the application by Azure AD. This fulfillment could be done through a provisioning protocol such as SCIM or by the application querying Azure AD via Microsoft Graph.
+* The application relies upon user or group lists that are provided to the application by Azure AD. This fulfillment could be done through a provisioning protocol such as SCIM, by the application querying Azure AD via Microsoft Graph, or the application using AD Kerberos to obtain a user's group memberships.
 
 If neither of those criteria are met for an application, for example when the application doesn't rely upon Azure AD, then identity governance can still be used. However, there may be some limitations using identity governance without meeting the criteria. For instance, users that aren't in your Azure AD, or aren't assigned to the application roles in Azure AD, won't be included in access reviews of the application, until you add them to the application roles. For more information, see [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md).
 
@@ -71,7 +71,13 @@ Next, if the application implements a provisioning protocol, then you should con
      |----|-----|
      | SCIM | Configure an application with SCIM [for user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md) |
 
-   * Otherwise, if this is an on-premises or IaaS hosted application, then configure provisioning to that application, either via SCIM or to the underlying database or directory of the application.
+   * If this application uses AD, then configure group writeback, and either update the application to use the Azure AD-created groups, or nest the Azure AD-created groups into the applications' existing AD security groups.
+
+     |Application supports| Next steps|
+     |----|-----|
+     | Kerberos | Configure Azure AD Connect [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), create groups in Azure AD and [write those groups to AD](../enterprise-users/groups-write-back-portal.md) |
+
+   * Otherwise, if this is an on-premises or IaaS hosted application, and is not integrated with AD, then configure provisioning to that application, either via SCIM or to the underlying database or directory of the application.
 
      |Application supports| Next steps|
      |----|-----|
@@ -90,7 +96,9 @@ If this is a new application your organization hasn't used before, and therefore
 However, if the application already existed in your environment, then it's possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, before enabling policies for more users to be able to request access. This review will set a baseline of all users having been reviewed at least once, to ensure that those users are authorized for continued access.
 
 1. Follow the steps in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md).
-1. If the application wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
+1. If the application was not using Azure AD or AD, bring in any [existing users and create application role assignments](identity-governance-applications-existing-users.md) for them.  If the application was using AD security groups, then you'll need to review the membership of those security groups.
+1. If the application had its own directory or database and wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
+1. If the application was using AD security groups, and those groups were created in AD, then once the review is complete, you'll need to manually update the AD groups to remove memberships of those users who were denied.  Subsequently, to have denied access rights removed automatically, you can either update the application to use an AD group that was created in Azure AD and [written back to Azure AD](../enterprise-users/groups-write-back-portal.md), or move the membership from the AD group to the Azure AD group, and nest the written back group as the only member of the AD group.
 1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy conditional access and entitlement management policies for the application.
 
 Now that you have a baseline that ensures existing access has been reviewed, then you can [deploy the organization's policies](identity-governance-applications-deploy.md) for ongoing access and any new access requests.

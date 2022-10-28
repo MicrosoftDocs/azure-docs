@@ -26,7 +26,7 @@ This function returns the object that is passed during deployment. The propertie
 * deploying a local Bicep file.
 * deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
 
-When deploying a local Bicep file to a resource group: the function returns the following format:
+When deploying a local Bicep file to a resource group, the function returns the following format:
 
 ```json
 {
@@ -48,7 +48,7 @@ When deploying a local Bicep file to a resource group: the function returns the 
 }
 ```
 
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The location property is included when deploying a local Bicep file. The format is:
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property is not included when deploying a local Bicep file. The format is:
 
 ```json
 {
@@ -176,7 +176,7 @@ The preceding example returns the following object when deployed to global Azure
   "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
   "resourceManager": "https://management.azure.com/",
   "authentication": {
-    "loginEndpoint": "https://login.windows.net/",
+    "loginEndpoint": "https://login.microsoftonline.com/",
     "audiences": [
       "https://management.core.windows.net/",
       "https://management.azure.com/"

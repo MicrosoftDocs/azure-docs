@@ -26,13 +26,13 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 * **DevOps optimization** - Set up [continuous integration and deployment](deploy-continuous-deployment.md) with Azure DevOps, GitHub, BitBucket, Docker Hub, or Azure Container Registry. Promote updates through [test and staging environments](deploy-staging-slots.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azure/) or the [cross-platform command-line interface (CLI)](/cli/azure/install-azure-cli).
 * **Global scale with high availability** - Scale [up](manage-scale-up.md) or [out](../azure-monitor/autoscale/autoscale-get-started.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 * **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP), SaaS services (such as Salesforce), and internet services (such as Facebook). Access on-premises data using [Hybrid Connections](app-service-hybrid-connections.md) and [Azure Virtual Networks](./overview-vnet-integration.md).
-* **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/en-us/trustcenter). Authenticate users with [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md), or [Microsoft account](configure-authentication-provider-microsoft.md). Create [IP address restrictions](app-service-ip-restrictions.md) and [manage service identities](overview-managed-identity.md).
+* **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trustcenter). Authenticate users with [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md), or [Microsoft account](configure-authentication-provider-microsoft.md). Create [IP address restrictions](app-service-ip-restrictions.md) and [manage service identities](overview-managed-identity.md). [Prevent subdomain takeovers](reference-dangling-subdomain-prevention.md).
 * **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, and Drupal.
 * **Visual Studio and Visual Studio Code integration** - Dedicated tools in Visual Studio and Visual Studio Code streamline the work of creating, deploying, and debugging.
 * **API and mobile features** - App Service provides turn-key CORS support for RESTful API scenarios, and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
 * **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses (see [Azure Functions](../azure-functions/index.yml)).
 
-Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring-Cloud Service](../spring-cloud/index.yml) or [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](../service-fabric/index.yml).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](../virtual-machines/index.yml). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## App Service on Linux
 
@@ -40,7 +40,7 @@ App Service can also host web apps natively on Linux for supported application s
 
 ### Built-in languages and frameworks
 
-App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core, and Ruby. Run [`az webapp list-runtimes --os linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
+App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (8, 11, and 17), Tomcat, PHP, Python, .NET Core, and Ruby. Run [`az webapp list-runtimes --os linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
 
 Outdated runtimes are periodically removed from the Web Apps Create and Configuration blades in the Portal. These runtimes are hidden from the Portal when they are deprecated by the maintaining organization or found to have significant vulnerabilities. These options are hidden to guide customers to the latest runtimes where they will be the most successful.
 
@@ -84,7 +84,7 @@ Create your first web app.
 > [Python (on Linux)](quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [HTML (on Windows or Linux)](quickstart-html.md)
+> [HTML](quickstart-html.md)
 
 > [!div class="nextstepaction"]
 > [Custom container (Windows or Linux)](tutorial-custom-container.md)

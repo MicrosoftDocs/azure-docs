@@ -15,7 +15,7 @@ IoT Plug and Play devices should follow a set of conventions when they exchange 
 
 Devices can include [modules](../iot-hub/iot-hub-devguide-module-twins.md), or be implemented in an [IoT Edge module](../iot-edge/about-iot-edge.md) hosted by the IoT Edge runtime.
 
-You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) _model_. There are two types of model referred to in this article:
+You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) _model_. There are two types of model referred to in this article:
 
 - **No component** - A model with no components. The model declares telemetry, properties, and commands as top-level properties in the contents section of the main interface. In the Azure IoT explorer tool, this model appears as a single _default component_.
 - **Multiple components** - A model composed of two or more interfaces. A main interface, which appears as the _default component_, with telemetry, properties, and commands. One or more interfaces declared as components with additional telemetry, properties, and commands.
@@ -277,7 +277,7 @@ The device responds with an acknowledgment that looks like the following:
 
 ### Sample no component writable property
 
-When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or or combine the responses into a single payload.
+When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or combine the responses into a single payload.
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 
@@ -449,7 +449,7 @@ On a device or module, multiple component interfaces use command names with the 
 
 Now that you've learned about IoT Plug and Play conventions, here are some additional resources:
 
-- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)
+- [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
 - [IoT REST API](/rest/api/iothub/device)
 - [IoT Plug and Play modeling guide](concepts-modeling-guide.md)

@@ -58,9 +58,19 @@ items:
       href: how-to-recognize-speech.md
     - name: Get speech recognition results
       href: get-speech-recognition-results.md
-    - name: How to use batch transcription
-      href: batch-transcription.md
-    - name: Improve recognition with Custom Speech
+    - name: Display text formatting
+      href: display-text-format.md
+    - name: Batch transcription
+      items:
+      - name: What is batch transcription?
+        href: batch-transcription.md
+      - name: Locate audio files in storage
+        href: batch-transcription-audio-data.md
+      - name: Create a batch transcription
+        href: batch-transcription-create.md
+      - name: Get batch transcription results
+        href: batch-transcription-get.md
+    - name: Custom Speech
       items:
         - name: What is Custom Speech?
           href: custom-speech-overview.md
@@ -117,22 +127,30 @@ items:
       displayName: ipa, phoneme, phonetic, prosody
     - name: Lower speech synthesis latency
       href: how-to-lower-speech-synthesis-latency.md
-    - name: Get facial pose events for lip-sync
+    - name: Get facial position with viseme
       href: how-to-speech-synthesis-viseme.md
       displayName: viseme, phoneme, phonetic
     - name: Custom Neural Voice
       items:
-        - name: What is custom neural voice?
+        - name: What is Custom Neural Voice?
           href: custom-neural-voice.md
-        - name: Get started with custom neural voice
-          displayName: 'custom voice, neural voice'
-          href: how-to-custom-voice.md
-        - name: Prepare data for training
-          href: how-to-custom-voice-prepare-data.md
-        - name: Train your voice model
-          href: how-to-custom-voice-create-voice.md
-        - name: Deploy and use your voice model
-          href: how-to-deploy-and-use-endpoint.md
+        - name: Custom Neural Voice Lite
+          href: custom-neural-voice-lite.md
+        - name: Create a Custom Neural Voice 
+          items:
+          - name: Create a project
+            displayName: 'custom voice, neural voice'
+            href: how-to-custom-voice.md
+          - name: Set up voice talent
+            href: how-to-custom-voice-talent.md
+          - name: Prepare training data
+            href: how-to-custom-voice-prepare-data.md
+          - name: Train your voice model
+            href: how-to-custom-voice-create-voice.md
+          - name: Deploy and use your voice model
+            href: how-to-deploy-and-use-endpoint.md
+        - name: Training data types
+          href: how-to-custom-voice-training-data.md
         - name: How to record voice samples
           href: record-custom-voice-samples.md
     - name: Audio Content Creation
@@ -151,12 +169,10 @@ items:
       href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
-    - name: Intent recognition quickstart
-      href: get-started-intent-recognition.md
     - name: Pattern matching overview
       href: pattern-matching-overview.md
     - name: Recognize speech intents with LUIS
-      href: how-to-recognize-intents-from-speech-csharp.md
+      href: get-started-intent-recognition.md
     - name: Recognize speech intents with simple pattern matching
       href: how-to-use-simple-language-pattern-matching.md
     - name: Recognize speech intents with custom entity pattern matching
@@ -187,16 +203,20 @@ items:
         href: captioning-concepts.md
       - name: Captioning quickstart
         href: captioning-quickstart.md
-    - name: Handle call center scenarios
+    - name: Call Center
       items:
-      - name: Telephony data
-        displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-        href: call-center-transcription.md
+      - name: Overview
+        displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers, Post-Call Analytics
+        href: call-center-overview.md
+      - name: Post-call transcription and analytics quickstart
+        href: call-center-quickstart.md
       - name: Ingestion Client
         href: ingestion-client.md
+      - name: Telephony Integration
+        href: call-center-telephony-integration.md
     - name: Language learning
       items:
-        - name: Pronunciation Assessment
+        - name: Pronunciation Assessment with speech to text
           items:
             - name: Pronunciation Assessment in Speech Studio
               href: pronunciation-assessment-tool.md
@@ -315,6 +335,9 @@ items:
       - name: Set up Virtual Networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
         displayName: vpn
+    - name: Sovereign Clouds
+      displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+      href: sovereign-clouds.md
     - name: Storage and backup
       items:
       - name: Use customer-managed keys
@@ -340,6 +363,8 @@ items:
       displayName: rest
     - name: Speech containers
       items:
+        - name: Cognitive Services containers documentation
+          href: ../containers/index.yml?context=/azure/cognitive-services/speech-service/context/context
         - name: Install and run Speech containers
           displayName: 'containers,install container,run container'
           href: speech-container-howto.md
@@ -358,26 +383,24 @@ items:
           href: ../containers/disconnected-containers.md
         - name: Containers FAQ
           href: speech-container-faq.yml
-        - name: Cognitive Services containers documentation
-          href: ../containers/index.yml
     - name: Migration
       items:
         - name: Neural voice migration
           items:
-            - name: Migration to neural voice
+            - name: Migration overview
               href: migration-overview-neural-voice.md
             - name: Migrate to custom neural voice 
               href: how-to-migrate-to-custom-neural-voice.md  
             - name: Migrate to prebuilt neural voice
               href: how-to-migrate-to-prebuilt-neural-voice.md 
-        - name: From Speech-to-text v2.0
-          href: migrate-v2-to-v3.md
-        - name: From Bing Speech
-          href: how-to-migrate-from-bing-speech.md
-          displayName: migration, migrate 
-        - name: From the Translator Speech API
-          href: how-to-migrate-from-translator-speech-api.md
-          displayName: migration, migrate
+        - name: Speech-to-text REST API migration
+          items:
+          - name: From Speech-to-text v3.0 to v3.1
+            href: migrate-v3-0-to-v3-1.md
+            displayName: migrate,migration,deprecate,retire,sunset
+          - name: From Speech-to-text v2.0 to v3.0
+            href: migrate-v2-to-v3.md
+            displayName: migrate,migration,deprecate,retire,sunset
 - name: Devices
   items:
     - name: Devices overview
@@ -419,11 +442,8 @@ items:
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
           href: /python/api/azure-cognitiveservices-speech/
     - name: REST API reference
-      items:
-        - name: Conversation transcription REST APIs
-          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
-          displayName: reference 
-        - name: Speech-to-text REST API v3.0
+      items: 
+        - name: Speech-to-text REST API
           href: rest-speech-to-text.md
           displayName: reference 
         - name: Speech-to-text REST API for short audio
@@ -435,6 +455,9 @@ items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 
+        - name: Conversation transcription REST APIs
+          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
+          displayName: reference
 - name: Responsible use of AI
   items:
     - name: Speech-to-text
@@ -501,9 +524,6 @@ items:
   items:
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
-    - name: Sovereign Clouds
-      displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
-      href: sovereign-clouds.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
     - name: Azure roadmap

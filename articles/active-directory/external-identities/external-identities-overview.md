@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 05/17/2022
+ms.date: 06/30/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -91,7 +91,7 @@ The following table gives a detailed comparison of the scenarios you can enable 
 
 Azure AD B2B collaboration and B2B direct connect are features Azure AD, and they're managed in the Azure portal through the Azure Active Directory service. To control inbound and outbound collaboration, you can use a combination of *cross-tenant access settings* and *external collaboration settings*.
 
-### Cross-tenant access settings (Preview)
+### Cross-tenant access settings
 
 Cross-tenant access settings let you manage B2B collaboration and B2B direct connect with other Azure AD organizations. You can determine how other Azure AD organizations collaborate with you (inbound access), and how your users collaborate with other Azure AD organizations (outbound access). Granular controls let you determine the people, groups, and apps, both in your organization and in external Azure AD organizations, that can participate in B2B collaboration and B2B direct connect. You can also trust multi-factor authentication (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 

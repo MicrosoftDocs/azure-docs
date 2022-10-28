@@ -16,7 +16,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Enabling clustering on a data source
 
@@ -46,7 +46,7 @@ The `DataSource` class provides the following methods related to clustering as w
 |--------|-------------|-------------|
 | getClusterChildren(clusterId: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;number&gt; | Calculates a zoom level at which the cluster will start expanding or break apart. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the points in a cluster. By default the first 10 points are returned. To page through the points, use `limit` to specify the number of points to return, and `offset` to step through the index of points. To return all points, set `limit` to `Infinity` and don't set `offset`. |
 
 ## Display clusters using a bubble layer
 

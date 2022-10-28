@@ -15,8 +15,6 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets, Amazon RDS databases (public preview), Power BI
 
 In this how-to guide, you'll learn how to:

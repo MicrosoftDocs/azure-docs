@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 08/15/2022
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-ner, ignite-fall-2021, mode-api
@@ -17,8 +17,6 @@ zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: Detecting named entities (NER)
-
-Use this article to get started detecting entities in text, using the NER client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 

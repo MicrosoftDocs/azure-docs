@@ -3,7 +3,7 @@ title: Best practices for Azure AD roles - Azure Active Directory
 description: Best practices for using Azure Active Directory roles.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

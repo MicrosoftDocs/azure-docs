@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 06/23/2022
+  ms.date: 09/07/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -229,6 +229,32 @@ sections:
         answer: |
           The encrypted keys are not expected to be present in the target region as part of Cross Regions Restore (CRR). Therefore, you need to restore the encrypted keys and secrets using the restored file. When the restore is complete, you can create Azure encrypted VM using restored disks.
 
+      - question: Are there any recommended naming conventions of an Azure VM in Azure Backup?
+        answer: |
+          Microsoft Windows allows a VM name that has maximum of 15 characters. Also, you can't specify a DNS host name that differs from the *NETBIOS* host name. However, you can create host headers for a website hosted on an Azure VM with the name as per recommendation.
+
+          Learn more about the [VM naming convention limitations for Azure VMs](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou).
+
+      - question: Can I restore an Azure Virtual Machine in a different subscription?
+        answer: |
+          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
+
+      - question: Does Cross Subscription Restore support all Azure VM?
+        answer: |
+          No, it's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups) and [Trusted Launch VMs](backup-support-matrix-iaas.md#tvm-backup).
+
+      - question: Can I use Azure VM snapshots to restore in another subscription?
+        answer: |
+          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is unsupported from [snapshot](backup-azure-vms-introduction.md#snapshot-creation) restore.
+
+      - question: Can I perform Cross Subscription Restore for Azure VMs running in secondary regions?
+        answer: |
+          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) does not support restore from [secondary regions](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+
+      - question: Can I use Enhanced policy for Cross Subscription Restore?
+        answer: |
+          Yes, it's supported for [Cross subscription Restore](backup-azure-arm-restore-vms.md#restore-options).
+
   - name: Manage VM backups
     questions:
       - question: What happens if I modify a backup policy?
@@ -274,13 +300,13 @@ sections:
 
           One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
 
-          You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Go to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
+          You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Go to the Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
       - question: When the snapshot is moved from a storage account to a vault, how is encryption in the transit managed?
         answer: Azure VM Backup uses [HTTPS communication for encryption in transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). The data transfer uses Azure fabric (and not public endpoints), which do not need Internet access for VM backup.
 
       - question: How can I disable the File Recovery option?
         answer: |
-          [This API](/rest/api/backup/item-level-recovery-connections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
+          [This API](/rest/api/backup/item-level-recovery-connections/provision) provision a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
           - You can disable this option using **custom role-definitions** by excluding API action.
           - You can also use the [private endpoints](private-endpoints.md) to restrict access to the iSCSI server from within the private network.
           - You can also disable this option across an organization using the [deny assignment](../role-based-access-control/deny-assignments.md) feature.
@@ -319,7 +345,7 @@ sections:
 
       - question: How do I manage key rotations? How to ensure which key is used during backup and if it’s present to be used with the restored VM?
         answer: |
-          Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys is also possible.
+          Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys are also possible.
 
 
 

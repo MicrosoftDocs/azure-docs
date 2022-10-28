@@ -123,7 +123,12 @@ To get help with any Batch command, add `-h` to the end of your command. Don't a
 
 To return verbose command output, add `-v` or `-vv` to the end of your command. Use these switches to display the full error output. The `-vv` flag returns the actual REST requests and responses.
 
-To view the command output in JSON format, add `--json` to the end of your command. For example, to display the properties of a pool named **pool001**, run `az batch pool show pool001 --json`. Then, copy and modify the output to [create Batch resources using a JSON configuration file](#create-resources-with-json). 
+To view the command output in JSON format, add `--json` to the end of your command. For example, to display the properties of a pool named **pool001**, run `az batch pool show pool001 --json`. Then, copy and modify the output to [create Batch resources using a JSON configuration file](#create-resources-with-json).
+
+**General Azure CLI troubleshooting**
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

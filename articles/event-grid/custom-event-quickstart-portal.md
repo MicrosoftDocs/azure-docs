@@ -1,7 +1,7 @@
 ---
 title: 'Send custom events to web endpoint - Event Grid, Azure portal'
 description: 'Quickstart: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
-ms.date: 07/01/2021
+ms.date: 07/21/2022
 ms.topic: quickstart
 ms.custom: mode-ui
 ---
@@ -28,9 +28,11 @@ An event grid topic provides a user-defined endpoint that you post your events t
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the topic, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Search for and select Event Grid Topics":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid Topics.":::
 3. On the **Event Grid Topics** page, select **+ Create** on the toolbar. 
-4. On the **Create Topic** page, follow these steps:
+
+    :::image type="content" source="./media/custom-event-quickstart-portal/create-topic-button.png" alt-text="Screenshot showing the Create Topic button on Event Grid Topics page.":::
+1. On the **Create Topic** page, follow these steps:
     1. Select your Azure **subscription**.
     2. Select an existing resource group or select **Create new**, and enter a **name** for the **resource group**.
     3. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
@@ -43,7 +45,10 @@ An event grid topic provides a user-defined endpoint that you post your events t
         :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Review settings and create":::
 5. After the deployment succeeds, select **Go to resource** to navigate to the **Event Grid Topic** page for your topic. Keep this page open. You use it later in the quickstart. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Screenshot showing the Event Grid Topic home page":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Screenshot showing the Event Grid Topic home page.":::
+
+    > [!NOTE]
+    > To keep the quickstart simple, you'll be using only the **Basics** page to create a topic. For detailed steps about configuring network, security, and data residency settings on other pages of the wizard, see [Create a custom topic](create-custom-topic.md).
 
 ## Create a message endpoint
 Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.

@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
-author: lostmygithubaccount
-ms.author: copeters
+author: s-polly
+ms.author: scottpolly
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ---

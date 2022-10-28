@@ -6,6 +6,49 @@ ms.date: 02/22/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.24.0: October 2022 release
+
+#### New features
+
+- **All programing languages**: AMR-WB (16khz) added to the supported list of Text-to-speech audio output formats
+- **Python**: Package added for Linux ARM64 for supported Linux distributions.
+- **C#/C++/Java/Python**: Support added for ALAW & MULAW direct streaming to the speech service (in addition to existing PCM stream) using `AudioStreamWaveFormat`.
+- **C# MAUI**: NuGet package updated to support Android targets for [.NET MAUI](/dotnet/maui/what-is-maui) developers ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1649))
+- **Mac**: Added separate XCframework for Mac, which does not contain any iOS binaries. This offers an option for developers who need only Mac binaries using a smaller XCframework package.
+- **Microsoft Audio Stack** (MAS):
+  - When beam-forming angles are specified, sound originating outside of specified range will be suppressed better.
+  - Approximately 70% reduction in the size of `libMicrosoft.CognitiveServices.Speech.extension.mas.so` for Linux ARM32 and Linux ARM64.
+- **Intent Recognition using pattern matching**:
+  - Add orthography support for the languages `fr`, `de`, `es`, `jp`
+  - Added pre-built integer support for language `es`.
+
+#### Bug fixes
+
+- **iOS**: fix speech synthesis error on iOS 16 caused by compressed audio decoding failure ([Customer Issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1613)).
+- **JavaScript**:
+  - Fix authentication token not working when getting speech synthesis voice list ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/551)).
+  - Use data URL for worker loading ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/563)).
+  - Create audio processor worklet only when AudioWorklet is supported in browser ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/572)). This was a community contribution by [William Wong](https://github.com/compulim). Thank you William!
+  - Fix recognized callback when LUIS response `connectionMessage` is empty ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1644)).
+  - Properly set speech segmentation timeout.
+- **Intent Recognition using pattern matching**:
+  - Non-json characters inside models will now load properly.
+  - Fix hanging issue when `recognizeOnceAsync(text)` was called during continuous recognition.
+
+### Speech SDK 1.23.0: July 2022 release
+
+#### New features
+
+- **C#, C++, Java**: Added support for languages `zh-cn` and `zh-hk` in Intent Recognition with Pattern Matching.
+- **C#**: Added support for `AnyCPU` .NET Framework builds
+
+#### Bug fixes
+
+- **Android**: Fixed OpenSSL vulnerability CVE-2022-2068 by updating OpenSSL to 1.1.1q
+- **Python**: Fix crash when using PushAudioInputStream
+- **iOS**: Fix "EXC_BAD_ACCESS: Attempted to dereference null pointer" as reported on iOS ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1555))
+
+
 ### Speech SDK 1.22.0: June 2022 release
 
 #### New features
@@ -202,7 +245,7 @@ ms.author: eur
 - **Go**: We added support for speech synthesis/Text-to-Speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](../../get-started-text-to-speech.md?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the Speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](../../how-to-lower-speech-synthesis-latency.md).
 - **C++/C#/Java/Python/Objective-C/Go**: We now expose the latency and underrun time in `SpeechSynthesisResult` to help you monitor and diagnose speech synthesis latency issues. See details for [C++](/cpp/cognitive-services/speech/speechsynthesisresult), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesisresult) and [Go](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go#readme-reference).
-- **C++/C#/Java/Python/Objective-C**: Text-to-Speech [now uses neural voices](../../text-to-speech.md#core-features) by default when you don't specify a voice to be used. This gives you higher fidelity output by default, but also [increases the default price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/#pricing). You can specify any of our [over 70 standard voices](../../how-to-migrate-to-prebuilt-neural-voice.md) or [over 130 neural voices](../../language-support.md#prebuilt-neural-voices) to change the default.
+- **C++/C#/Java/Python/Objective-C**: Text-to-Speech [now uses neural voices](../../text-to-speech.md#core-features) by default when you don't specify a voice to be used. This gives you higher fidelity output by default, but also [increases the default price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/#pricing). You can specify any of our [over 70 standard voices](../../how-to-migrate-to-prebuilt-neural-voice.md) or [over 130 neural voices](../../language-support.md?tabs=stt-tts) to change the default.
 - **C++/C#/Java/Python/Objective-C/Go**: We added a Gender property to the synthesis voice info to make it easier to select voices based on gender. This addresses [GitHub issue #1055](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1055).
 - **C++, C#, Java, JavaScript**: We now support `retrieveEnrollmentResultAsync`, `getAuthorizationPhrasesAsync`, and `getAllProfilesAsync()` in Speaker Recognition to ease user management of all voice profiles for a given account. See documentation for [C++](/cpp/cognitive-services/speech/speaker-voiceprofileclient), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speaker.voiceprofileclient), [Java](/java/api/com.microsoft.cognitiveservices.speech.speaker.voiceprofileclient), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient). This addresses [GitHub issue #338](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/338).
 - **JavaScript**: We added retry for connection failures that will make your JavaScript based speech applications more robust.
@@ -391,7 +434,7 @@ Stay healthy!
 
 #### New features
 - **C#**: Added support for asynchronous conversation transcription. See documentation [here](../../how-to-async-conversation-transcription.md).
-- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [Node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: Added support for Language Identification/language ID. See documentation [here](../../how-to-automatic-language-detection.md?pivots=programming-language-javascript).
 - **Objective-C**: Added support for [multi-device conversation](../../multi-device-conversation.md) and [conversation transcription](../../conversation-transcription.md).
 - **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](../../how-to-use-codec-compressed-audio-input-streams.md).

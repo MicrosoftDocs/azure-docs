@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.2  
+title: Azure Synapse Runtime for Apache Spark 3.2
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.2.
 author: DaniBunny
 ms.service: synapse-analytics 
@@ -7,18 +7,16 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 06/13/2022 
 ms.author: dacoelho
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, ignite-2022
+ms.reviewer: martinle
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.2 (Preview)
-
-> [!IMPORTANT]
-> Azure Synapse Runtime for Apache Spark 3.2 is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Azure Synapse Runtime for Apache Spark 3.2
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2. 
 
 ## Component versions
+
 |  Component   | Version   |  
 | ----- | ----- |
 | Apache Spark | 3.2.1 |
@@ -30,6 +28,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | .NET | 2.0.0 |
 | Delta Lake | 1.2 |
 | Python | 3.8 |
+| R (Preview) | 4.2 | 
 
 ## Scala and Java libraries
 
@@ -2247,6 +2246,476 @@ typing-extensions==3.7.4.3
 websocket-client==1.2.1
 
 widgetsnbextension==3.5.2
+
+## R libraries (Preview)
+
+abind	1.4-5
+
+anomalize	0.2.2
+
+anytime	0.3.9
+
+arrow	7.0.0
+
+askpass	1.1
+
+assertthat	0.2.1
+
+backports	1.4.1
+
+base64enc	0.1-3
+
+BH	1.78.0-0
+
+bit	4.0.4
+
+bit64	4.0.5
+
+blob	1.2.3
+
+brew	1.0-7
+
+brio	1.1.3
+
+broom	0.8.0
+
+bslib	0.3.1
+
+cachem	1.0.6
+
+callr	3.7.0
+
+car	3.0-13
+
+carData	3.0-5
+
+caret	6.0-86
+
+cellranger	1.1.0
+
+checkmate	2.1.0
+
+chron	2.3-56
+
+cli	3.3.0
+
+clipr	0.8.0
+
+colorspace	2.0-3
+
+commonmark	1.8.0
+
+config	0.3.1
+
+corrplot	0.92
+
+covr	3.5.1
+
+cpp11	0.4.2
+
+crayon	1.5.1
+
+credentials	1.3.2
+
+crosstalk	1.2.0
+
+curl	4.3.2
+
+data.table	1.14.2
+
+DBI	1.1.2
+
+dbplyr	2.1.1
+
+desc	1.4.1
+
+devtools	2.3.2
+
+diffobj	0.3.5
+
+digest	0.6.29
+
+dplyr	1.0.9
+
+DT	0.22
+
+dtplyr	1.2.1
+
+dygraphs	1.1.1.6
+
+ellipsis	0.3.2
+
+evaluate	0.15
+
+extraDistr	1.9.1
+
+fansi	1.0.3
+
+farver	2.1.0
+
+fastmap	1.1.0
+
+forcats	0.5.1
+
+foreach	1.5.2
+
+forecast	8.13
+
+forge	0.2.0
+
+formatR	1.12
+
+fracdiff	1.5-1
+
+fs	1.5.2
+
+furrr	0.3.0
+
+futile.logger	1.4.3
+
+futile.options	1.0.1
+
+future	1.25.0
+
+future.apply	1.9.0
+
+gargle	1.2.0
+
+generics	0.1.2
+
+gert	1.6.0
+
+ggplot2	3.3.6
+
+gh	1.3.0
+
+gitcreds	0.1.1
+
+glmnet	4.1-4
+
+globals	0.14.0
+
+glue	1.6.2
+
+gower	1.0.0
+
+gridExtra	2.3
+
+gsubfn	0.7
+
+gtable	0.3.0
+
+gtools	3.8.2
+
+hardhat	0.2.0
+
+haven	2.5.0
+
+highr	0.9
+
+hms	1.1.1
+
+htmltools	0.5.2
+
+htmlwidgets	1.5.4
+
+httr	1.4.3
+
+hwriter	1.3.2.1
+
+ids	1.0.1
+
+ini	0.3.1
+
+inline	0.3.19
+
+ipred	0.9-12
+
+isoband	0.2.5
+
+iterators	1.0.14
+
+jquerylib	0.1.4
+
+jsonlite	1.7.2
+
+knitr	1.39
+
+labeling	0.4.2
+
+lambda.r	1.2.4
+
+later	1.3.0
+
+lava	1.6.10
+
+lazyeval	0.2.2
+
+lifecycle	1.0.1
+
+listenv	0.8.0
+
+lme4	1.1-29
+
+lmtest	0.9-40
+
+loo	2.5.1
+
+lubridate	1.8.0
+
+magrittr	2.0.3
+
+maptools	1.1-4
+
+markdown	1.1
+
+MatrixModels	0.5-0
+
+matrixStats	0.62.0
+
+memoise	2.0.1
+
+mime	0.12
+
+minqa	1.2.4
+
+ModelMetrics	1.2.2.2
+
+modelr	0.1.8
+
+munsell	0.5.0
+
+nloptr	2.0.1
+
+notebookutils	3.1.2-20220721.3
+
+numDeriv	2016.8-1.1
+
+openssl	2.0.0
+
+padr	0.6.0
+
+parallelly	1.31.1
+
+pbkrtest	0.5.1
+
+pillar	1.7.0
+
+pkgbuild	1.3.1
+
+pkgconfig	2.0.3
+
+pkgload	1.2.4
+
+plogr	0.2.0
+
+plotly	4.10.0
+
+plotrix	3.8-1
+
+plyr	1.8.7
+
+praise	1.0.0
+
+prettyunits	1.1.1
+
+pROC	1.18.0
+
+processx	3.5.3
+
+prodlim	2019.11.13
+
+progress	1.2.2
+
+progressr	0.10.0
+
+promises	1.2.0.1
+
+prophet	0.6.1
+
+proto	1.0.0
+
+ps	1.7.0
+
+purrr	0.3.4
+
+quadprog	1.5-8
+
+quantmod	0.4.20
+
+quantreg	5.93
+
+R.methodsS3	1.8.1
+
+R.oo	1.24.0
+
+R.utils	2.12.0
+
+r2d3	0.2.6
+
+R6	2.5.1
+
+randomForest	4.7-1
+
+rappdirs	0.3.3
+
+rcmdcheck	1.4.0
+
+RColorBrewer	1.1-3
+
+Rcpp	1.0.8.3
+
+RcppArmadillo	0.11.0.0.0
+
+RcppEigen	0.3.3.9.2
+
+RcppParallel	5.1.5
+
+RcppRoll	0.3.0
+
+readr	2.1.2
+
+readxl	1.4.0
+
+recipes	0.2.0
+
+rematch	1.0.1
+
+rematch2	2.1.2
+
+remotes	2.4.2
+
+reprex	2.0.1
+
+reshape2	1.4.3
+
+reticulate	1.18
+
+rex	1.2.1
+
+rlang	1.0.2
+
+rmarkdown	2.14
+
+RODBC	1.3-19
+
+roxygen2	7.1.2
+
+rprojroot	2.0.3
+
+rsample	0.1.1
+
+RSQLite	2.2.13
+
+rstan	2.21.5
+
+rstantools	2.2.0
+
+rstatix	0.7.0
+
+rstudioapi	0.13
+
+rversions	2.1.1
+
+rvest	1.0.2
+
+sass	0.4.1
+
+scales	1.2.0
+
+selectr	0.4-2
+
+sessioninfo	1.2.2
+
+shape	1.4.6
+
+slider	0.2.2
+
+sourcetools	0.1.7
+
+sp	1.4-7
+
+sparklyr	1.5.2
+
+SparseM	1.81
+
+sqldf	0.4-11
+
+SQUAREM	2021.1
+
+StanHeaders	2.21.0-7
+
+stringi	1.7.6
+
+stringr	1.4.0
+
+sweep	0.2.3
+
+sys	3.4
+
+testthat	3.1.4
+
+tibble	3.1.7
+
+tibbletime	0.1.6
+
+tidyr	1.2.0
+
+tidyselect	1.1.2
+
+tidyverse	1.3.1
+
+timeDate	3043.102
+
+timetk	2.8.0
+
+tinytex	0.38
+
+tseries	0.10-51
+
+tsfeatures	1.0.2
+
+TTR	0.24.3
+
+tzdb	0.3.0
+
+urca	1.3-0
+
+usethis	2.1.5
+
+utf8	1.2.2
+
+uuid	1.1-0
+
+vctrs	0.4.1
+
+viridisLite	0.4.0
+
+vroom	1.5.7
+
+waldo	0.4.0
+
+warp	0.2.0
+
+whisker	0.4
+
+withr	2.5.0
+
+xfun	0.30
+
+xml2	1.3.3
+
+xopen	1.0.0
+
+xtable	1.8-4
+
+xts	0.12.1
+
+yaml	2.3.5
+
+zip	2.2.0
+
+zoo	1.8-10
 
 ## Next steps
 

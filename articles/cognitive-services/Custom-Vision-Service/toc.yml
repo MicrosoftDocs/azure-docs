@@ -1,5 +1,5 @@
 items:
-- name: Custom Vision Service Documentation
+- name: Custom Vision Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -38,12 +38,6 @@ items:
     href: /legal/cognitive-services/custom-vision/custom-vision-cvs-guidance-integration-responsible-use?context=/azure/cognitive-services/custom-vision-service/context/context
   - name: Data, privacy, and security
     href: /legal/cognitive-services/custom-vision/custom-vision-cvs-data-privacy-security?context=/azure/cognitive-services/custom-vision-service/context/context
-- name: Tutorials
-  items:
-  - name: Report visual states on IoT device
-    href: iot-visual-alerts-tutorial.md
-  - name: Recognize logos on mobile
-    href: logo-detector-mobile.md
 - name: How-to guides
   items:
   - name: Test your model
@@ -82,6 +76,12 @@ items:
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
+- name: Tutorials
+  items:
+  - name: Report visual states on IoT device
+    href: iot-visual-alerts-tutorial.md
+  - name: Recognize logos on mobile
+    href: logo-detector-mobile.md
 - name: Reference
   items:
   - name: Custom Vision Training API  

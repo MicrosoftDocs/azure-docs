@@ -135,7 +135,7 @@ Alternatively, use the `> Azure ML: Create Dataset` command in the command palet
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to:
-    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple version of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
+    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple versions of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
     - **Preview dataset**. View your dataset directly in the VS Code Data Viewer. Note that this option is only available for tabular datasets.
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
@@ -196,24 +196,24 @@ To view your job in Azure Machine Learning studio:
 
 Alternatively, use the `> Azure ML: View Experiment in Studio` command respectively in the command palette.
 
-### Track run progress
+### Track job progress
 
-As you're running your job, you may want to see its progress. To track the progress of a run in Azure Machine Learning studio from the extension:
+As you're running your job, you may want to see its progress. To track the progress of a job in Azure Machine Learning studio from the extension:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the job node you want to track progress for.
-1. Right-click the run and select **View Run in Studio**.
-1. A prompt appears asking you to open the run URL in Azure Machine Learning studio. Select **Open**.
+1. Right-click the job and select **View Job in Studio**.
+1. A prompt appears asking you to open the job URL in Azure Machine Learning studio. Select **Open**.
 
-### Download run logs & outputs
+### Download job logs & outputs
 
-Once a run is complete, you may want to download the logs and assets such as the model generated as part of a run.
+Once a job is complete, you may want to download the logs and assets such as the model generated as part of a job.
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the job node you want to download logs and outputs for.
-1. Right-click the run:
+1. Right-click the job:
     - To download the outputs, select **Download outputs**.
     - To download the logs, select **Download logs**.
 
@@ -267,7 +267,7 @@ Alternatively, use the `Azure ML: Delete Compute instance` command in the comman
 
 ## Compute clusters
 
-For more information, see [training compute targets](concept-compute-target.md#train).
+For more information, see [training compute targets](concept-compute-target.md#training-compute-targets).
 
 ### Create compute cluster
 
@@ -300,7 +300,7 @@ Alternatively, use the `> Azure ML: Remove Compute` command in the command palet
 
 ## Inference Clusters
 
-For more information, see [compute targets for inference](concept-compute-target.md#deploy).
+For more information, see [compute targets for inference](concept-compute-target.md#compute-targets-for-inference).
 
 ### Manage inference clusters
 

@@ -53,7 +53,6 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 >  
 > Windows Server 2012 R2 Core and Windows Server 2016 Core requires the bdehdcfg component to be installed on the VM for encryption.
 
-
 ## Networking requirements
 To enable Azure Disk Encryption, the VMs must meet the following network endpoint configuration requirements:
   - To get a token to connect to your key vault, the Windows VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].

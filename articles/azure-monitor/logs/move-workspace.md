@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service:  azure-monitor
 author: yossi-y
 ms.author: yossiy
-ms.date: 03/01/2022
+ms.date: 09/01/2022
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -27,13 +27,13 @@ The workspace source and destination subscriptions must exist within the same Az
 
 ## Workspace move considerations
 - Managed solutions that are installed in the workspace will be moved in this operation. 
-- Workspace keys (both primary and secondary) are re-generated with workspace move operation. If you keep a copy of your workspace keys in key vault, update them with the new keys generated after the workspace move. 
-- Connected [MMA agents](../agents/log-analytics-agent.md) will remain connected and keep sending data to the workspace after the move. [AMA agents](../agents/azure-monitor-agent-overview.md) via DCR will be disconnected during the move and should be reconfigured after the move. 
-- Since the move operation requires that there are no Linked Services from the workspace, solutions that rely on that link must be removed to allow the workspace move. Solutions that must be removed before you can unlink your automation account:
+- The move operation requires that there are no Linked Services to workspace. Solutions that rely on Linked Services must be removed prior to the move, including Automation account. These solutions must be removed before you can unlink your automation account. Data collection for the solutions will stop, their tables removed from UI, but data remains in workspace per tables retention period. When adding solutions after the move, ingestion is restored and tables become visible with data. 
   - Update Management
   - Change Tracking
   - Start/Stop VMs during off-hours
   - Microsoft Defender for Cloud
+- Workspace keys (both primary and secondary) are re-generated with workspace move operation. If you keep a copy of your workspace keys in key vault, update them with the new keys generated after the workspace move. 
+- Connected [MMA agents](../agents/log-analytics-agent.md) remain connected and keep sending data to the workspace after the move. [AMA agents](../agents/azure-monitor-agent-overview.md) via DCR will be disconnected during the move and should be reconfigured after the move.
 
 >[!IMPORTANT]
 > **Microsoft Sentinel customers**

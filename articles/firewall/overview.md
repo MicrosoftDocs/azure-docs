@@ -6,8 +6,8 @@ ms.author: victorh
 ms.service: firewall
 services: firewall
 ms.topic: overview
-ms.custom: mvc, contperf-fy21q1
-ms.date: 06/17/2022
+ms.custom: mvc, contperf-fy21q1, references_regions
+ms.date: 10/13/2022
 
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -18,7 +18,8 @@ ms.date: 06/17/2022
 
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-Azure Firewall is offered in two SKUs: Standard and Premium.
+Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
+
 
 ## Azure Firewall Standard
 
@@ -38,6 +39,68 @@ To learn about Firewall Standard features, see [Azure Firewall Standard features
 
 To learn about Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
+## Azure Firewall Basic (preview)
+
+> [!IMPORTANT]
+> Azure Firewall Basic is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud 
+environments. It provides the essential protection SMB customers need at an affordable price point.
+
+:::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
+
+Azure Firewall Basic is similar to Firewall Standard, but has the following limitations:
+
+- Supports Threat Intel *alert mode* only.
+- Fixed scale unit to run the service on two virtual machine backend instances.
+- Recommended for environments with maximum throughput of 250 Mbps. The throughput may increase for feature general availability (GA).
+
+### Supported regions
+
+Azure Firewall Basic is available in the following regions during the preview:
+
+- East US
+- East US 2
+- West US
+- West US 2
+- West US 3
+- Central US
+- North Central US
+- South Central US
+- West Central US
+- East US 2 EUAP
+- Central US EUAP
+- North Europe
+- West Europe
+- East Asia
+- Southeast Asia
+- Japan East
+- Japan West
+- Australia East
+- Australia Southeast
+- Australia Central
+- Brazil South
+- South India
+- Central India
+- West India
+- Canada Central
+- Canada East
+- UK South
+- UK West
+- Korea Central
+- Korea South
+- France Central
+- South Africa North
+- UAE North
+- Switzerland North
+- Germany West Central
+- Norway East
+- Jio India West
+- Sweden Central
+- Qatar Central
+
+To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic (preview) and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
 
 ## Azure Firewall Manager
 
@@ -83,7 +146,7 @@ Azure Firewall Standard has the following known issues:
 |Availability zones can only be configured during deployment.|Availability zones can only be configured during deployment. You can't configure Availability Zones after a firewall has been deployed.|This is by design.|
 |SNAT on inbound connections|In addition to DNAT, connections via the firewall public IP address (inbound) are SNATed to one of the firewall private IPs. This requirement today (also for Active/Active NVAs) to ensure symmetric routing.|To preserve the original source for HTTP/S, consider using [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) headers. For example, use a service such as [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) or [Azure Application Gateway](../application-gateway/rewrite-http-headers-url.md) in front of the firewall. You can also add WAF as part of Azure Front Door and chain to the firewall.
 |SQL FQDN filtering support only in proxy mode (port 1433)|For Azure SQL Database, Azure Synapse Analytics, and Azure SQL Managed Instance:<br><br>SQL FQDN filtering is supported in proxy-mode only (port 1433).<br><br>For Azure SQL IaaS:<br><br>If you're using non-standard ports, you can specify those ports in the application rules.|For SQL in redirect mode (the default if connecting from within Azure), you can instead filter access using the SQL service tag as part of Azure Firewall network rules.
-|Outbound SMTP traffic on TCP port 25 is blocked|Outbound email messages that are sent directly to external domains (like `outlook.com` and `gmail.com`) on TCP port 25 are blocked by Azure Firewall. This is the default platform behavior in Azure. |Use authenticated SMTP relay services, which typically connect through TCP port 587, but also supports other ports.  For more information, see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Currently, Azure Firewall may be able to communicate to public IPs by using outbound TCP 25, but it's not guaranteed to work, and it's not supported for all subscription types. For private IPs like virtual networks, VPNs, and Azure ExpressRoute, Azure Firewall supports an outbound connection of TCP port 25.
+|Outbound SMTP traffic on TCP port 25 is blocked|Outbound email messages that are sent directly to external domains (like `outlook.com` and `gmail.com`) on TCP port 25 can be blocked by Azure platform. This is the default platform behavior in Azure, Azure Firewall does not introduce any additional specific restriction. |Use authenticated SMTP relay services, which typically connect through TCP port 587, but also supports other ports.  For more information, see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Currently, Azure Firewall may be able to communicate to public IPs by using outbound TCP 25, but it's not guaranteed to work, and it's not supported for all subscription types. For private IPs like virtual networks, VPNs, and Azure ExpressRoute, Azure Firewall supports an outbound connection of TCP port 25.
 |SNAT port exhaustion|Azure Firewall currently supports 2496 ports per Public IP address per backend virtual machine scale set instance. By default, there are two virtual machine scale set instances. So, there are 4992 ports per flow (destination IP, destination port and protocol (TCP or UDP).  The firewall scales up to a maximum of 20 instances. |This is a platform limitation. You can work around the limits by configuring Azure Firewall deployments with a minimum of five public IP addresses for deployments susceptible to SNAT exhaustion. This increases the SNAT ports available by five times. Allocate from an IP address prefix to simplify downstream permissions. For a more permanent solution, you can deploy a NAT gateway to overcome the SNAT port limits. This approach is supported for VNET deployments. <br /><br /> For more information, see [Scale SNAT ports with Azure Virtual Network NAT](integrate-with-nat-gateway.md).|
 |DNAT isn't supported with Forced Tunneling enabled|Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing.|This is by design because of asymmetric routing. The return path for inbound connections goes via the on-premises firewall, which hasn't seen the connection established.
 |Outbound Passive FTP may not work for Firewalls with multiple public IP addresses, depending on your FTP server configuration.|Passive FTP establishes different connections for control and data channels. When a Firewall with multiple public IP addresses sends data outbound, it randomly selects one of its public IP addresses for the source IP address. FTP may fail when data and control channels use different source IP addresses, depending on your FTP server configuration.|An explicit SNAT configuration is planned. In the meantime, you can configure your FTP server to accept data and control channels from different source IP addresses (see [an example for  IIS](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity)). Alternatively, consider using a single IP address in this situation.|
@@ -103,7 +166,8 @@ Azure Firewall Standard has the following known issues:
 |Unable to see Network Rule Name in Azure Firewall Logs|Azure Firewall network rule log data does not show the Rule name for network traffic.|Network rule name logging is in preview. For for information, see [Azure Firewall preview features](firewall-preview.md#network-rule-name-logging-preview).|
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
 |Can't upgrade to Premium with Availability Zones in the Southeast Asia region|You can't currently upgrade to Azure Firewall Premium with Availability Zones in the Southeast Asia region.|Deploy a new Premium firewall in Southeast Asia without Availability Zones, or deploy in a region that supports Availability Zones.|
-|Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.
+|Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.|
+|Azure private DNS zone isn't supported with Azure Firewall|Azure private DNS zone won't work with Azure Firewall regardless of Azure Firewall DNS settings.|To achieve the desire state of using a private DNS server, use Azure Firewall DNS proxy instead of an Azure private DNS zone.|
 
 ### Azure Firewall Premium
 
@@ -130,4 +194,4 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 - [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
-- [Learn module: Introduction to Azure Firewall](/learn/modules/introduction-azure-firewall/)
+- [Learn module: Introduction to Azure Firewall](/training/modules/introduction-azure-firewall/)

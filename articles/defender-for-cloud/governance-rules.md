@@ -6,13 +6,16 @@ author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 05/29/2022
+ms.date: 07/21/2022
 ---
 # Drive your organization to remediate security recommendations with governance
 
 Security teams are responsible for improving the security posture of their organizations but they may not have the resources or authority to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#building-an-automated-process-for-improving-security-with-governance-rules) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
 
 Stay on top of the progress on the recommendations in the security posture. Weekly email notifications to the owners and managers make sure that they take timely action on the recommendations that can improve your security posture and recommendations.
+
+You can learn more by watching this video from the Defender for Cloud in the Field video series:
+- [Remediate Security Recommendations with Governance](episode-fifteen.md)
 
 ## Building an automated process for improving security with governance rules
 
@@ -25,7 +28,7 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|Free|
+|Pricing:|Free while in preview and will be a paid service after preview|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
 
@@ -62,6 +65,9 @@ If there are existing recommendations that match the definition of the governanc
 
 - Assign an owner and due date to recommendations that don't already have an owner or due date.
 - Overwrite the owner and due date of existing recommendations.
+
+> [!NOTE]
+> When you delete or disable a rule, all existing assignments and notifications will remain.
 
 ## Manually assigning owners and due dates for recommendation remediation
 
@@ -108,7 +114,10 @@ You can track the assigned and overdue recommendations in:
 
 The governance report lets you select subscriptions that have governance rules and, for each rule and owner, shows you how many recommendations are completed, on time, overdue, or unassigned.
 
-To review the status of the recommendations in a rule:
+> [!NOTE]
+> Manual assignments will not appear on this report. To see all assignments by owner, use the Owner tab on the Security Posture page.
+
+**To review the status of the recommendations in a rule**:
 
 1. In **Recommendations**, select **Governance report (preview)**.
 1. Select the subscriptions that you want to review.
@@ -116,7 +125,7 @@ To review the status of the recommendations in a rule:
 
 You can see the list of owners and recommendations for the selected rules, and their status.
 
-To see the list of recommendations for each owner:
+**To see the list of recommendations for each owner**:
 
 1. Select **Security posture**.
 1. Select the **Owner (preview)** tab to see the list of owners and the number of overdue recommendations for each owner.

@@ -1,21 +1,15 @@
 ---
 title: SAP HANA availability across Azure regions | Microsoft Docs
 description: An overview of availability considerations when running SAP HANA on Azure VMs in multiple Azure regions.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP HANA availability across Azure regions
@@ -40,7 +34,7 @@ If you are using the scenario of sharing the DR target with a QA system in one V
 
 - There are two [operation modes](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) with delta_datashipping and logreplay, which are available for such a scenario
 - Both operation modes have different memory requirements without preloading data
-- Delta_datashipping might require drastically less memory without the preload option than logreplay could require. See chapter 4.3 of the SAP document [How To Perform System Replication for SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
+- Delta_datashipping might require drastically less memory without the preload option than logreplay could require. See chapter 4.3 of the SAP document [How To Perform System Replication for SAP HANA](https://www.sap.com/documents/2017/07/606a676e-c97c-0010-82c7-eda71af511fa.html)
 - The memory requirement of logreplay operation mode without preload is not deterministic and depends on the columnstore structures loaded. In extreme cases, you might require 50% of the memory of the primary instance. The memory for logreplay operation mode is independent on whether you chose to have the data preloaded set or not.
 
 
@@ -85,10 +79,3 @@ For step-by-step guidance on setting up these configurations in Azure, see:
 
 - [Set up SAP HANA system replication in Azure VMs](sap-hana-high-availability.md)
 - [High availability for SAP HANA by using system replication](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
-
- 
-
-
-
- 
-  

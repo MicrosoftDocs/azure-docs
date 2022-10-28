@@ -15,35 +15,42 @@ ms.custom: mqtt, devx-track-python
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. 
+
+This article shows you how to:
+
+* Send cloud-to-device messages, from your solution backend, to a single device through IoT Hub
+
+* Receive cloud-to-device messages on a device
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). It shows you how to:
+At the end of this article, you run two Python console apps:
 
-* From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
+* **SimulatedDevice.py**: a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), which connects to your IoT hub and receives cloud-to-device messages.
 
-* Receive cloud-to-device messages on a device.
+* **SendCloudToDeviceMessage.py**: sends cloud-to-device messages to the simulated device app through IoT Hub.
 
-You can find more information on cloud-to-device messages in the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
+>You can find more information on cloud-to-device messages in the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
 
-At the end of this tutorial, you run two Python console apps:
-
-* **SimulatedDevice.py**, a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), which connects to your IoT hub and receives cloud-to-device messages.
-
-* **SendCloudToDeviceMessage.py**, which sends cloud-to-device messages to the simulated device app through IoT Hub.
-
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+> [!NOTE]
+> IoT Hub has SDK support for many device platforms and languages (C, Java, Python, and JavaScript) through the [Azure IoT device SDKs](iot-hub-devguide-sdks.md).
 
 ## Prerequisites
 
-[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Receive messages in the simulated device app
 
-In this section, you create a Python console app to simulate the device and receive cloud-to-device messages from the IoT hub.
+In this section, you create a Python console app to simulate a device and receive cloud-to-device messages from the IoT hub.
 
 1. From a command prompt in your working directory, install the **Azure IoT Hub Device SDK for Python**:
 
@@ -117,15 +124,17 @@ In this section, you create a Python console app to simulate the device and rece
 
 1. Save and close the **SimulatedDevice.py** file.
 
+For more information about the cloud-to-device message lifecycle and how IoT Hub processes cloud-to-device messages, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
+
 ## Get the IoT hub connection string
 
-In this article, you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article, you create a backend service to send cloud-to-device messages through your IoT Hub. To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## Send a cloud-to-device message
 
-In this section, you create a Python console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart. You also need the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+In this section, you create a Python console app that sends cloud-to-device messages to the simulated device app. You need the device ID from your device and your IoT hub connection string.
 
 1. In your working directory, open a command prompt and install the **Azure IoT Hub Service SDK for Python**.
 
@@ -230,6 +239,6 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages.
+In this article, you learned how to send and receive cloud-to-device messages.
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

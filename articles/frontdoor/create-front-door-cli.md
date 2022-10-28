@@ -56,23 +56,27 @@ Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-cr
 ```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlanCentralUS \
-    --resource-group myRGFD
-
+    --resource-group myRGFD \
+    --location centralus
+```
+```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlanEastUS \
-    --resource-group myRGFD
+    --resource-group myRGFD \
+    --location eastus
 ```
 
 ### Create web apps
 
-Run [az webapp create](/cli/azure/webapp#az-webapp-create&preserve-view=true) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
+Run [az webapp create](/cli/azure/webapp#az-webapp-create) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
 
 ```azurecli-interactive
 az webapp create \
     --name WebAppContoso-01 \
     --resource-group myRGFD \
     --plan myAppServicePlanCentralUS
-
+```
+```azurecli-interactive
 az webapp create \
     --name WebAppContoso-02 \
     --resource-group myRGFD \
@@ -108,7 +112,7 @@ az afd endpoint create \
     --enabled-state Enabled
 ```
 
-## Create an origin group
+### Create an origin group
 
 Run [az afd origin-group create](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
 
@@ -178,6 +182,7 @@ az afd route create \
     --supported-protocols Http Https \
     --link-to-default-domain Enabled 
 ```
+Your Front Door profile would become fully functional with the last step.
 
 ## Create a new security policy
 

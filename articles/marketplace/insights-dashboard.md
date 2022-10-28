@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/29/2022
+ms.date: 08/09/2022
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -114,7 +114,12 @@ Select the ellipsis (three dots) to copy the widget image, download aggregated w
 
 ### Call to actions trend
 
-This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons. *Consent given* represents the total count of clicks for customer-provided consent to Microsoft or the partner. The following screenshot shows two places where *Consent given* clicks appear.
+This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons. *Consent given* represents the total count of clicks for customer-provided consent to Microsoft or the partner. 
+
+> [!NOTE]
+> Consent given is not equivalent to leads. For more information about leads from marketplace, see [Get leads insights](/partner-center/referral-leads-insights).
+
+The following screenshot shows two places where *Consent given* clicks appear.
 
 :::image type="content" source="./media/insights-dashboard/consent-given.png" alt-text="Illustrates a location where a consent button is selected.":::
 

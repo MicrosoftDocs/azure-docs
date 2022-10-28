@@ -4,7 +4,7 @@ description: This article describes the default configuration in Azure AD Connec
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
@@ -71,6 +71,7 @@ The following attribute rules apply:
 ### Contact out-of-box rules
 A contact object must satisfy the following to be synchronized:
 
+* Must have mail attribute value.
 * The contact must be mail-enabled. It is verified with the following rules:
   * `IsPresent([proxyAddresses]) = True)`. The proxyAddresses attribute must be populated.
   * A primary email address can be found in either the proxyAddresses attribute or the mail attribute. The presence of an \@ is used to verify that the content is an email address. One of these two rules must be evaluated to True.

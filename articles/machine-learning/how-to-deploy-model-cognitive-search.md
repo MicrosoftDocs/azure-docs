@@ -40,13 +40,13 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
 * A registered model. If you do not have a model, use the example notebook at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
-* A general understanding of [How and where to deploy models](how-to-deploy-and-where.md).
+* A general understanding of [How and where to deploy models](v1/how-to-deploy-and-where.md).
 
 ## Connect to your workspace
 
@@ -55,7 +55,7 @@ An Azure Machine Learning workspace provides a centralized place to work with al
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](v1/how-to-configure-environment-v1.md).
 
 ```python
 from azureml.core import Workspace
@@ -185,7 +185,7 @@ def run(raw_data):
         return json.dumps({"error": result, "tb": traceback.format_exc()})
 ```
 
-For more information on entry scripts, see [How and where to deploy](how-to-deploy-and-where.md).
+For more information on entry scripts, see [How and where to deploy](v1/how-to-deploy-and-where.md).
 
 ## Define the software environment
 
@@ -213,7 +213,7 @@ For more information on environments, see [Create and manage environments for tr
 The deployment configuration defines the Azure Kubernetes Service hosting environment used to run the web service.
 
 > [!TIP]
-> If you aren't sure about the memory, CPU, or GPU needs of your deployment, you can use profiling to learn these. For more information, see [How and where to deploy a model](how-to-deploy-and-where.md).
+> If you aren't sure about the memory, CPU, or GPU needs of your deployment, you can use profiling to learn these. For more information, see [How and where to deploy a model](v1/how-to-deploy-and-where.md).
 
 ```python
 from azureml.core.model import Model

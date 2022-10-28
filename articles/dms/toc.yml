@@ -30,20 +30,26 @@
     href: ads-sku-recommend.md  
   - name: Migrate databases at scale using automation
     href: migration-dms-powershell-cli.md  
-  - name: Prerequisites
-    href: pre-reqs.md  
   - name: Database migration scenario status
     href: resource-scenario-status.md
-  - name: Migration to SQL Managed Instance
+  - name: Prerequisites
+    href: pre-reqs.md  
+  - name: Migration to Azure SQL Managed Instance
     items: 
+    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with SQL Managed Instance as a target 
+      href: resource-custom-roles-sql-db-managed-instance-ads.md
     - name: Network topologies 
       href: resource-network-topologies.md
     - name: Custom roles 
       href: resource-custom-roles-sql-db-managed-instance.md
-    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with SQL Managed Instance as a target 
-      href: resource-custom-roles-sql-db-managed-instance-ads.md
+  - name: Migration to SQL Server on Azure Virtual Machine
+    items: 
     - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Virtual Machines as a target 
       href: resource-custom-roles-sql-db-virtual-machine-ads.md
+  - name: Migration to Azure SQL Database
+    items: 
+    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Azure SQL Database as a target 
+      href: resource-custom-roles-sql-database-ads.md
   - name: Migration to Azure Database for MySQL
     items: 
     - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
@@ -56,9 +62,9 @@
   expanded: true
   items:
   - name: Migrate SQL Server
-    items: 
-    - name: to Azure SQL Database
-      href: tutorial-sql-server-to-azure-sql.md
+    items:
+    - name: to Azure SQL Database (offline) using Azure Data Studio
+      href: tutorial-sql-server-azure-sql-database-offline-ads.md
     - name: to Azure SQL Managed Instance (online) using Azure Data Studio
       href: tutorial-sql-server-managed-instance-online-ads.md
     - name: to Azure SQL Managed Instance (offline) using Azure Data Studio
@@ -67,6 +73,8 @@
       href: tutorial-sql-server-to-virtual-machine-online-ads.md
     - name: to Azure SQL VM (offline) using Azure Data Studio
       href: tutorial-sql-server-to-virtual-machine-offline-ads.md
+    - name: to Azure SQL Database
+      href: tutorial-sql-server-to-azure-sql.md
     - name: to Azure SQL Managed Instance (offline)
       href: tutorial-sql-server-to-managed-instance.md
     - name: to Azure SQL Managed Instance (online)
@@ -74,7 +82,15 @@
   - name: Migrate MySQL
     items: 
     - name: to Azure Database for MySQL (offline)
-      href: tutorial-mysql-azure-mysql-offline-portal.md        
+      href: tutorial-mysql-azure-mysql-offline-portal.md  
+  - name: Migrate Azure DB for MySQL - Single Server
+    items:
+    - name: to Azure DB for MySQL Flexible Server (online)
+      href: tutorial-mysql-azure-single-to-flex-online-portal.md  
+    - name: to Azure DB for MySQL Flexible Server (offline)
+      href: tutorial-mysql-azure-single-to-flex-offline-portal.md   
+    - name: Frequently Asked Questions
+      href: faq-mysql-single-to-flex.md        
   - name: Migrate RDS MySQL
     items: 
     - name: to Azure Database for MySQL
@@ -95,9 +111,9 @@
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
   - name: Migrate MongoDB
     items: 
-    - name: to Azure Cosmos DB Mongo API (offline)
+    - name: to Azure Cosmos DB for MongoDB (offline)
       href: tutorial-mongodb-cosmos-db.md
-    - name: to Azure Cosmos DB Mongo API (online)
+    - name: to Azure Cosmos DB for MongoDB (online)
       href: tutorial-mongodb-cosmos-db-online.md  
 
 
@@ -126,8 +142,10 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/dms
-
+    href: /cli/azure/datamigration
+  - name: PowerShell
+    href: /powershell/module/az.datamigration
+  
 - name: Resources
   items: 
   - name: Frequently asked questions
@@ -156,24 +174,30 @@
       href: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
   - name: Troubleshooting and known issues
     items:
-    - name: Troubleshoot
-      items: 
-      - name: Common errors
-        href: known-issues-troubleshooting-dms.md
-      - name: Source database connectivity 
-        href: known-issues-troubleshooting-dms-source-connectivity.md
-    - name: Known issues
-      items: 
-      - name: Using hybrid mode
-        href: known-issues-dms-hybrid-mode.md
-    - name: Known migration issues
-      items:     
-      - name: SQL Managed Instance
-        href: known-issues-azure-sql-db-managed-instance-online.md
-      - name: PostgreSQL to Azure DB for PostgreSQL
-        href: known-issues-azure-postgresql-online.md
-      - name: MongoDB to Azure Cosmos DB API for MongoDB
-        href: known-issues-mongo-cosmos-db.md
+    - name: Azure SQL Migration extension for Azure Data Studio
+      items:
+      - name: Known issues, limitations and troubleshooting
+        href: known-issues-azure-sql-migration-azure-data-studio.md
+    - name: Database Migration Service
+      items:
+      - name: Troubleshoot
+        items: 
+        - name: Common errors
+          href: known-issues-troubleshooting-dms.md
+        - name: Source database connectivity 
+          href: known-issues-troubleshooting-dms-source-connectivity.md
+      - name: Known issues
+        items: 
+        - name: Using hybrid mode
+          href: known-issues-dms-hybrid-mode.md
+      - name: Known migration issues
+        items:     
+        - name: SQL Managed Instance
+          href: known-issues-azure-sql-db-managed-instance-online.md
+        - name: PostgreSQL to Azure DB for PostgreSQL
+          href: known-issues-azure-postgresql-online.md
+        - name: MongoDB to Azure Cosmos DB for MongoDB
+          href: known-issues-mongo-cosmos-db.md
 
   - name: Videos
     items:

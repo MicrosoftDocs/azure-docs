@@ -25,6 +25,9 @@ Get started with facial recognition using the Face client library for Python. Fo
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Identify faces
 
 1. Install the client library
@@ -39,6 +42,9 @@ Get started with facial recognition using the Face client library for Python. Fo
 
     Create a new Python script&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE and paste in the following code.
 
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
+
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart-single.py?name=snippet_single)]
 
 1. Enter your key and endpoint into the corresponding fields.
@@ -47,7 +53,7 @@ Get started with facial recognition using the Face client library for Python. Fo
     > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Run your face recognition app from the application directory with the `python` command.
 
@@ -57,6 +63,36 @@ Get started with facial recognition using the Face client library for Python. Fo
 
     > [!TIP]
     > The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>
+
+## Output
+
+```console
+Person group: c8e679eb-0b71-43b4-aa91-ab8200cae7df
+face 861d769b-d014-40e8-8b4a-7fd3bc9b425b added to person f80c1cfa-b8cb-46f8-9f7f-e72fbe402bc3
+face e3c356a4-1ac3-4c97-9219-14648997f195 added to person f80c1cfa-b8cb-46f8-9f7f-e72fbe402bc3
+face f9119820-c374-4c4d-b795-96ae2fec5069 added to person be4084a7-0c7b-4cf9-9463-3756d2e28e17
+face 67d626df-3f75-4801-9364-601b63c8296a added to person be4084a7-0c7b-4cf9-9463-3756d2e28e17
+face 19e2e8cc-5029-4087-bca0-9f94588fb850 added to person 3ff07c65-6193-4d3e-bf18-d7c106393cd5
+face dcc61e80-16b1-4241-ae3f-9721597bae4c added to person 3ff07c65-6193-4d3e-bf18-d7c106393cd5
+pg resource is c8e679eb-0b71-43b4-aa91-ab8200cae7df
+<msrest.pipeline.ClientRawResponse object at 0x00000240DAD47310>
+Training status: running.
+
+Training status: succeeded.
+
+Pausing for 10 seconds to avoid triggering rate limit on free account...
+Identifying faces in image
+Person for face ID 40582995-d3a8-41c4-a9d1-d17ae6b46c5c is identified in image, with a confidence of 0.96725.
+Person for face ID 7a0368a2-332c-4e7a-81c4-2db3d74c78c5 is identified in image, with a confidence of 0.96921.
+No person identified for face ID c4a3dd28-ef2d-457e-81d1-a447344242c4 in image.
+Person for face ID 360edf1a-1e8f-402d-aa96-1734d0c21c1c is identified in image, with a confidence of 0.92886.
+```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Face&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 

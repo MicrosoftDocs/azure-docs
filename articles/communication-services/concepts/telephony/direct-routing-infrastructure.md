@@ -65,6 +65,14 @@ Learn more:
  
 [Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
 
+>[!IMPORTANT]
+>Azure Communication Services direct routing supports only TLS 1.2 (or a later version). To avoid any service impact, ensure that your SBCs are configured to support TLS1.2 and can connect using one of the following cipher suites: 
+>
+>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 i.e. ECDHE-RSA-AES256-GCM-SHA384 
+>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 i.e. ECDHE-RSA-AES128-GCM-SHA256 
+>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 i.e. ECDHE-RSA-AES256-SHA384 
+>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 i.e. ECDHE-RSA-AES128-SHA256
+
 SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
 
@@ -72,9 +80,9 @@ SBC pairing works on the Communication Services resource level. It means you can
 
 The connection points for Communication Services direct routing are the following three FQDNs:
 
-- **sip.pstnhub.microsoft.com — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
-- **sip2.pstnhub.microsoft.com — Secondary FQDN — geographically maps to the second priority region.
-- **sip3.pstnhub.microsoft.com — Tertiary FQDN — geographically maps to the third priority region.
+- **sip.pstnhub.microsoft.com** — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
+- **sip2.pstnhub.microsoft.com** — Secondary FQDN — geographically maps to the second priority region.
+- **sip3.pstnhub.microsoft.com** — Tertiary FQDN — geographically maps to the third priority region.
 
 These three FQDNs in order are required to:
 
@@ -103,16 +111,16 @@ The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC
 
 ## Media traffic: IP and Port ranges
 
-The media traffic flows to and from a separate service in the Microsoft Cloud called Media Processor. The IP address range for media traffic: 
-- `20.202.0.0/16 (IP addresses from 20.202.0.1 to 20.202.255.254)`
+The media traffic flows to and from a separate service called Media Processor. At the moment of publishing, Media Processor for Communication Services can use any Azure IP address. 
+Download [the full list of addresses](https://www.microsoft.com/download/details.aspx?id=56519).
 
 ### Port ranges
 The port ranges of the Media Processors are shown in the following table: 
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|UDP/SRTP|Media Processor|SBC|3478–3481 and 49152–53247|Defined on the SBC|
-|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478–3481 and 49152–53247|
+|UDP/SRTP|Media Processor|SBC|49152–53247|Defined on the SBC|
+|UDP/SRTP|SBC|Media Processor|Defined on the SBC|49152–53247|
 
   > [!NOTE]
   > Microsoft recommends at least two ports per concurrent call on the SBC.

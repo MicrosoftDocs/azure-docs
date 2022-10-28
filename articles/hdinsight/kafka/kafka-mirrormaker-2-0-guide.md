@@ -42,8 +42,8 @@ The summary of the broker setup process is as follows:
 
 **MirrorCheckpointConnector:**
 
-   1. Consumes offset-syncsr.
-   1. Emits checkpoints to enable failover points.
+  1. Consumes offset-syncsr.
+  1. Emits checkpoints to enable failover points.
   
 **MirrorHeartBeatConnector:**
 
@@ -53,10 +53,10 @@ The summary of the broker setup process is as follows:
 
 1. Connect-mirror-maker.sh script bundled with the Kafka library implements a distributed MM2 cluster, which manages the Connect workers internally based on a config file. Internally MirrorMaker driver creates and handles pairs of each connector – MirrorSourceConnector, MirrorSinkConnector, MirrorCheckpoint connector and MirrorHeartbeatConnector.
 1. Start MirrorMaker 2.0.
-    
-```
-./bin/connect-mirror-maker.sh ./config/mirror-maker.properties    
-```
+
+   ```
+   ./bin/connect-mirror-maker.sh ./config/mirror-maker.properties    
+   ```
 
 > [!NOTE]
 > For Kerberos enabled clusters, the JAAS configuration must be exported to the KAFKA_OPTS or must be specified in the MM2 config file.
@@ -64,36 +64,37 @@ The summary of the broker setup process is as follows:
 ```
 export KAFKA_OPTS="-Djava.security.auth.login.config=<path-to-jaas.conf>"    
 ```
+
 ### Sample MirrorMaker 2.0 Configuration file
        
 ```
-    # specify any number of cluster aliases
-    clusters = src, dest
+# specify any number of cluster aliases
+clusters = source, destination
 
-    # connection information for each cluster
-    # This is a comma separated host:port pairs for each cluster
-    # for example. "A_host1:9092, A_host2:9092, A_host3:9092"
-    source.bootstrap.servers = wn0-src-kafka.azurehdinsight.net:9092,wn1-src-kafka.azurehdinsight.net:9092,wn2-src-kafka.azurehdinsight.net:9092
-    destination.bootstrap.servers = wn0-dest-kafka.azurehdinsight.net:9092,wn1-dest-kafka.azurehdinsight.net:9092,wn2-dest-kafka.azurehdinsight.net:9092
+# connection information for each cluster
+# This is a comma separated host:port pairs for each cluster
+# for example. "A_host1:9092, A_host2:9092, A_host3:9092"  and you can see the exact host name on Ambari > Hosts
+source.bootstrap.servers = wn0-src-kafka.bx.internal.cloudapp.net:9092,wn1-src-kafka.bx.internal.cloudapp.net:9092,wn2-src-kafka.bx.internal.cloudapp.net:9092
+destination.bootstrap.servers = wn0-dest-kafka.bx.internal.cloudapp.net:9092,wn1-dest-kafka.bx.internal.cloudapp.net:9092,wn2-dest-kafka.bx.internal.cloudapp.net:9092
 
-    # enable and configure individual replication flows
-    source->destination.enabled = true
+# enable and configure individual replication flows
+source->destination.enabled = true
 
-    # regex which defines which topics gets replicated. For eg "foo-.*"
-    source->destination.topics = toa.evehicles-latest-dev
-    groups=.*
-    topics.blacklist="*.internal,__.*"
+# regex which defines which topics gets replicated. For eg "foo-.*"
+source->destination.topics = toa.evehicles-latest-dev
+groups=.*
+topics.blacklist="*.internal,__.*"
 
-    # Setting replication factor of newly created remote topics
-    replication.factor=3
+# Setting replication factor of newly created remote topics
+replication.factor=3
 
-    checkpoints.topic.replication.factor=1
-    heartbeats.topic.replication.factor=1
-    offset-syncs.topic.replication.factor=1
+checkpoints.topic.replication.factor=1
+heartbeats.topic.replication.factor=1
+offset-syncs.topic.replication.factor=1
 
-    offset.storage.replication.factor=1
-    status.storage.replication.factor=1
-    config.storage.replication.factor=1    
+offset.storage.replication.factor=1
+status.storage.replication.factor=1
+config.storage.replication.factor=1    
 ```
     
 ### SSL configuration
@@ -108,7 +109,6 @@ destination.ssl.keystore.password=<password>
 destination.ssl.keystore.location=/path/to/kafka.server.keystore.jks
 destination.sasl.mechanism=GSSAPI
 ```
-
 
 ### Global configurations
 
@@ -167,9 +167,9 @@ destination.sasl.mechanism=GSSAPI
   Custom Replication Policy can be created by implementing the interface below.
 
 ```
-    /** Defines which topics are "remote topics", e.g. "us-west.topic1". */
-    public interface ReplicationPolicy {
- 
+/** Defines which topics are "remote topics", e.g. "us-west.topic1". */
+public interface ReplicationPolicy {
+
     /** How to rename remote topics; generally should be like us-west.topic1. */
     String formatRemoteTopic(String sourceClusterAlias, String topic);
  

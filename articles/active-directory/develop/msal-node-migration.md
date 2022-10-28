@@ -2,7 +2,7 @@
 title: "Migrate your Node.js application from ADAL to MSAL"
 description: How to update your existing Node.js application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
-ms.author: marsma
+ms.author: cwerner
 ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.
 ---
@@ -21,7 +21,7 @@ ms.custom: has-adal-ref
 
 ## Prerequisites
 
-- Node version 10, 12 or 14. See the [note on version support](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node#node-version-support)
+- Node version 10, 12, 14, 16 or 18. See the [note on version support](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node#node-version-support)
 
 ## Update app registration settings
 
@@ -71,7 +71,7 @@ const msal = require('@azure/msal-node');
 
 const pca = new msal.PublicClientApplication({
         auth: {
-            clientId = "YOUR_CLIENT_ID"
+            clientId: "YOUR_CLIENT_ID"
         }
     });
 ```
@@ -86,8 +86,8 @@ const msal = require('@azure/msal-node');
 
 const cca = new msal.ConfidentialClientApplication({
         auth: {
-            clientId = "YOUR_CLIENT_ID",
-            clientSecret = "YOUR_CLIENT_SECRET"
+            clientId: "YOUR_CLIENT_ID",
+            clientSecret: "YOUR_CLIENT_SECRET"
         }
     });
 ```
@@ -373,15 +373,18 @@ const cca = new msal.ConfidentialClientApplication(config);
 
 const refreshTokenRequest = {
     refreshToken: "", // your previous refresh token here
-    scopes: ["user.read"],
+    scopes: ["https://graph.microsoft.com/.default"],
+    forceCache: true,
 };
 
 cca.acquireTokenByRefreshToken(refreshTokenRequest).then((response) => {
-    console.log(JSON.stringify(response));
+    console.log(response);
 }).catch((error) => {
-    console.log(JSON.stringify(error));
+    console.log(error);
 });
 ```
+
+For more information, please refer to the [ADAL Node to MSAL Node migration sample](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/refresh-token).
 
 > [!NOTE]
 > We recommend you to destroy the older ADAL Node token cache once you utilize the still valid refresh tokens to get a new set of tokens using the MSAL Node's `acquireTokenByRefreshToken` method as shown above.
@@ -419,7 +422,7 @@ var adal = require('adal-node');
 // Authentication parameters
 var clientId = 'Enter_the_Application_Id_Here';
 var clientSecret = 'Enter_the_Client_Secret_Here';
-var tenant = 'common';
+var tenant = 'Enter_the_Tenant_Info_Here';
 var authorityUrl = 'https://login.microsoftonline.com/' + tenant;
 var redirectUri = 'http://localhost:3000/redirect';
 var resource = 'https://graph.microsoft.com';
@@ -501,7 +504,7 @@ const msal = require('@azure/msal-node');
 const config = {
     auth: {
         clientId: "Enter_the_Application_Id_Here",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
         clientSecret: "Enter_the_Client_Secret_Here"
     },
     system: {

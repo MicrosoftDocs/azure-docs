@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 08/19/2022
 ms.author: anfdocs
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
@@ -68,6 +68,10 @@ When you use `nconnect`, keep the following rules in mind:
 
 For details, see [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md).
 
+### `Nconnect` considerations
+
+[!INCLUDE [nconnect krb5 performance warning](includes/kerberos-nconnect-performance.md)]
+
 ## `Rsize` and `Wsize`
  
 Examples in this section provide information about how to approach performance tuning. You might need to make adjustments to suit your specific application needs.
@@ -86,7 +90,7 @@ sudo vi /etc/fstab
 10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
 ```
  
-Also for example, SAS Viya recommends a 256-KiB read and write sizes, and [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limits the `r/wsize` to 64 KiB while augmenting read performance with increased read-ahead for the NFS mounts. See [NFS read-ahead best practices for Azure NetApp Files](performance-linux-nfs-read-ahead.md) for details.
+For example, SAS Viya recommends a 256-KiB read and write sizes, and [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limits the `r/wsize` to 64 KiB while augmenting read performance with increased read-ahead for the NFS mounts. See [NFS read-ahead best practices for Azure NetApp Files](performance-linux-nfs-read-ahead.md) for details.
 
 The following considerations apply to the use of `rsize` and `wsize`:
 
@@ -108,9 +112,9 @@ The attributes `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` control the co
 
 For example, consider the default `acregmin` and `acregmax` values, 3 and 30 seconds, respectively.  For instance, the attributes are repeatedly evaluated for the files in a directory.  After 3 seconds, the NFS service is queried for freshness.  If the attributes are deemed valid, the client doubles the trusted time to 6 seconds, 12 seconds, 24 seconds, then as the maximum is set to 30, 30 seconds.  From that point on, until the cached attributes are deemed out of date (at which point the cycle starts over), trustworthiness is defined as 30 seconds being the value specified by `acregmax`.
 
-There are other cases that can benefit from a similar set of mount options, even when there is no complete ownership by the clients, for example, if the clients use the data as read only and data update is managed through another path.  For applications that use grids of clients like EDA, web hosting and movie rendering and have relatively static data sets (EDA tools or libraries, web content, texture data), the typical behavior is that the data set is largely cached on the clients. There are very few reads and no writes. There will be many `getattr`/access calls coming back to storage.  These data sets are typically updated through another client mounting the file systems and periodically pushing content updates.
+There are other cases that can benefit from a similar set of mount options, even when there's no complete ownership by the clients, for example, if the clients use the data as read only and data update is managed through another path.  For applications that use grids of clients like EDA, web hosting and movie rendering and have relatively static data sets (EDA tools or libraries, web content, texture data), the typical behavior is that the data set is largely cached on the clients. There are few reads and no writes. There will be many `getattr`/access calls coming back to storage.  These data sets are typically updated through another client mounting the file systems and periodically pushing content updates.
 
-In these cases, there is a known lag in picking up new content and the application still works with potentially out-of-date data.  In these cases, `nocto` and `actimeo` can be used to control the period where out-of-data date can be managed.  For example, in EDA tools and libraries, `actimeo=600` works well because this data is typically updated infrequently.  For small web hosting where clients need to see their data updates timely as they are editing their sites, `actimeo=10` might be acceptable. For large-scale web sites where there is content pushed to multiple file systems, `actimeo=60` might be acceptable.
+In these cases, there's a known lag in picking up new content and the application still works with potentially out-of-date data.  In these cases, `nocto` and `actimeo` can be used to control the period where out-of-data date can be managed.  For example, in EDA tools and libraries, `actimeo=600` works well because this data is typically updated infrequently.  For small web hosting where clients need to see their data updates timely as they're editing their sites, `actimeo=10` might be acceptable. For large-scale web sites where there's content pushed to multiple file systems, `actimeo=60` might be acceptable.
 
 Using these mount options significantly reduces the workload to storage in these cases. (For example, a recent EDA experience reduced IOPs to the tool volume from >150 K to ~6 K.) Applications can run significantly faster because they can trust the data in memory. (Memory access time is nanoseconds vs. hundreds of microseconds for `getattr`/access on a fast network.)
 
@@ -121,7 +125,7 @@ Close-to-open consistency (the `cto` mount option) ensures that no matter the st
 * When a directory is crawled (`ls`, `ls -l` for example) a certain set of PRC calls are issued.  
     The NFS server shares its view of the filesystem. As long as `cto` is used by all NFS clients accessing a given NFS export, all clients will see the same list of files and directories therein.  The freshness of the attributes of the files in the directory is controlled by the [attribute cache timers](#how-attribute-cache-timers-work).  In other words, as long as `cto` is used, files appear to remote clients as soon as the file is created and the file lands on the storage.
 * When a file is opened, the content of the file is guaranteed fresh from the perspective of the NFS server.  
-    If there is a race condition where the content has not finished flushing from Machine 1 when a file is opened on Machine 2, Machine 2 will only receive the data present on the server at the time of the open. In this case, Machine 2 will not retrieve more data from the file until the `acreg` timer is reached, and Machine 2 checks its cache coherency from the server again.  This scenario can be observed using a tail `-f` from Machine 2 when the file is still being written to from Machine 1.
+    If there's a race condition where the content has not finished flushing from Machine 1 when a file is opened on Machine 2, Machine 2 will only receive the data present on the server at the time of the open. In this case, Machine 2 will not retrieve more data from the file until the `acreg` timer is reached, and Machine 2 checks its cache coherency from the server again.  This scenario can be observed using a tail `-f` from Machine 2 when the file is still being written to from Machine 1.
 
 ### No close-to-open consistency  
 

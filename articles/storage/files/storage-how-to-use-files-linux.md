@@ -1,10 +1,10 @@
 ---
-title: Mount SMB Azure file share on Linux | Microsoft Docs
-description: Learn how to mount an Azure file share over SMB on Linux. See the list of prerequisites. Review SMB security considerations on Linux clients.
+title: Mount SMB Azure file share on Linux
+description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 10/21/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -12,7 +12,7 @@ ms.subservice: files
 # Mount SMB Azure file share on Linux
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
+The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
 
 | Distribution | SMB 3.1.1 | SMB 3.0 |
 |-|-----------|---------|
@@ -84,7 +84,7 @@ uname -r
         --resource-group $resourceGroupName \
         --name $storageAccountName \
         --query "primaryEndpoints.file" --output tsv | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
+    smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})
     fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
@@ -126,7 +126,7 @@ httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
@@ -143,7 +143,7 @@ httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
@@ -160,7 +160,7 @@ httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
@@ -232,12 +232,15 @@ sudo mkdir -p $mntPath
 
 Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You may wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
+> [!Tip]
+> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the CIFS mount options to avoid sending byte range lock requests to the server.
+
 ```bash
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
     echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null

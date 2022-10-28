@@ -3,12 +3,12 @@ title: Tutorial - Customize Azure Active Directory attribute mappings in Applica
 description: Learn what attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning are how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -204,7 +204,7 @@ Use the steps below to provision roles for a user to your application. Note that
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
-    
+    - SingleAppRoleAssignments is not compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
    ```json

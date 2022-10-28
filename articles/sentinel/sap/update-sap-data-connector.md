@@ -9,12 +9,7 @@ ms.date: 03/02/2022
 
 # Update Microsoft Sentinel's SAP data connector agent
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-This article shows you how to update an already existing SAP data connector to its latest version.
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version.
 
 If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
 
@@ -33,31 +28,31 @@ The SAP data connector Docker container on your machine is updated.
 Be sure to check for any other available updates, such as:
 
 - Relevant SAP change requests, in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR).
-- Microsoft Sentinel Threat Monitoring for SAP security content, in the **Microsoft Sentinel Threat Monitoring for SAP** solution.
+- Microsoft Sentinel Solution for SAP security content, in the **Microsoft Sentinel Solution for SAP** solution.
 - Relevant watchlists, in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists).
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel Threat Monitoring for SAP solutions:
+Learn more about the Microsoft Sentinel Solution for SAP:
 
-- [Deploy Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying Threat Monitoring for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Threat Monitoring for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Threat Monitoring for SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel Threat Monitoring for SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Threat Monitoring for SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

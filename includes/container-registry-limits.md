@@ -2,12 +2,11 @@
 title: include file
 description: include file
 services: container-registry
-author: dlepow
-
 ms.service: container-registry
 ms.topic: include
-ms.date: 10/22/2021
-ms.author: danlep
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: include file
 ---
 
@@ -34,7 +33,7 @@ ms.custom: include file
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
 | &bull; Tokens | N/A | N/A | 20,000 |
 | &bull; Scope maps | N/A | N/A | 20,000 |
-| &bull; Repositories per scope map | N/A | N/A | 500 |
+| &bull; Repositories per scope map<sup>5</sup> | N/A | N/A | 500 |
 
 
 <sup>1</sup> Storage included in the daily rate for each tier. Additional storage may be used, up to the registry storage limit, at an additional daily rate per GiB. For rate information, see [Azure Container Registry pricing][pricing]. If you need storage beyond the registry storage limit, please contact Azure Support.
@@ -55,6 +54,6 @@ ms.custom: include file
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
 [vnet]: ../articles/container-registry/container-registry-vnet.md
 [plink]: ../articles/container-registry/container-registry-private-link.md
-[cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
+[cmk]: ../articles/container-registry/tutorial-enable-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
 [zones]: ../articles/container-registry/zone-redundancy.md

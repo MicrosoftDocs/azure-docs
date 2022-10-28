@@ -56,7 +56,7 @@ Resource|Scenario|Steps|
 
 ## Limitations
 
-- You can't specify the IP addresses for the prefix. Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
+- You can't specify the set of IP addresses for the prefix (though you can specify which IP you want from the prefix). Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
 - You can create a prefix of up to 16 IP addresses. Review [Network limits increase requests](../../azure-portal/supportability/networking-quota-requests.md) and [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
 - The size of the range cannot be modified after the prefix has been created.
 - Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](public-ip-addresses.md#public-ip-addresses).
@@ -64,7 +64,8 @@ Resource|Scenario|Steps|
 - You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 - IPv6 is supported on basic public IPs with **dynamic** allocation only. Dynamic allocation means the IPv6 address will change if you delete and redeploy your resource in Azure. 
 - Standard IPv6 public IPs support static (reserved) allocation. 
-- Standard internal load balancers support dynamic allocation from within the subnet to which they're assigned.  
+- Standard internal load balancers support dynamic allocation from within the subnet to which they're assigned.
+- Routing preference Internet IPs are not supported in a public IP address prefix.
 
 ## Pricing
  

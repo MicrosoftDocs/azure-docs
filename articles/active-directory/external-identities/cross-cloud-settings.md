@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 06/30/2022
 
 ms.author: mimart
 author: msmimart
@@ -21,8 +21,8 @@ ms.collection: M365-identity-device-management
 
 When Azure AD organizations in separate Microsoft Azure clouds need to collaborate, they can use Microsoft cloud settings to enable Azure AD B2B collaboration. B2B collaboration is available between the following global and sovereign Microsoft Azure clouds:
 
-- Microsoft Azure global cloud and Microsoft Azure Government
-- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial cloud and Microsoft Azure Government
+- Microsoft Azure commercial cloud and Microsoft Azure China 21Vianet
 
 To set up B2B collaboration between partner organizations in different Microsoft Azure clouds, each partner mutually agrees to configure B2B collaboration with each other. In each organization, an admin completes the following steps:
 
@@ -47,15 +47,8 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
-> [!NOTE]
-> The admin experience is currently still deploying to national clouds. To access the admin experience in Microsoft Azure Government or Microsoft Azure China, you can use these links: 
->
->Microsoft Azure Government - https://aka.ms/cloudsettingsusgov
->
->Microsoft Azure China - https://aka.ms/cloudsettingschina
-
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
+1. Select **External Identities**, and then select **Cross-tenant access settings**.
 1. Select **Microsoft cloud settings (Preview)**.
 1. Select the checkboxes next to the external Microsoft Azure clouds you want to enable.
 
@@ -69,7 +62,7 @@ In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to c
 Follow these steps to add the tenant you want to collaborate with to your Organizational settings.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
+1. Select **External Identities**, and then select **Cross-tenant access settings**.
 1. Select **Organizational settings**.
 1. Select **Add organization**.
 1. On the **Add organization** pane, type the tenant ID for the organization (cross-cloud lookup by domain name isn't currently available).
@@ -81,11 +74,30 @@ Follow these steps to add the tenant you want to collaborate with to your Organi
 
    ![Screenshot showing an organization added with default settings.](media/cross-cloud-settings/org-specific-settings-inherited.png)
 
-
 1. If you want to change the cross-tenant access settings for this organization, select the **Inherited from default** link under the **Inbound access** or **Outbound access** column. Then follow the detailed steps in these sections:
 
    - [Modify inbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings)
    - [Modify outbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-outbound-access-settings)
+
+## Sign-in endpoints
+
+After enabling collaboration with an organization from a different Microsoft cloud, cross-cloud Azure AD guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Azure AD credentials.
+
+Cross-cloud Azure AD guest users can also use application endpoints that include your tenant information, for example:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://contoso.sharepoint.com/sites/testsite`
+
+You can also give cross-cloud Azure AD guest users a direct link to an application or resource by including your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
+
+## Supported scenarios with cross-cloud Azure AD guest users
+
+The following scenarios are supported when collaborating with an organization from a different Microsoft cloud:
+
+- Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
+- Use B2B collaboration to [share Power BI content to a user in the partner tenant](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
+- Apply Conditional Access policies to the B2B collaboration user and opt to trust multi-factor authentication or device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
 ## Next steps
 

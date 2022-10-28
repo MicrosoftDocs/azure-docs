@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 06/16/2022
+ms.date: 07/07/2022
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -195,7 +195,7 @@ Search-AzGraph -Query "SecurityResources | where type =~ 'microsoft.security/iot
 
 ### List Container Registry vulnerability assessment results
 
-Returns all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
+Returns all the all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
 
 ```kusto
 SecurityResources

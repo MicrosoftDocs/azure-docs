@@ -3,13 +3,13 @@ title: "Tutorial: Migrate SQL Server offline to Azure SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to Azure SQL Database offline by using Azure Database Migration Service.
 services: dms
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-2022
 ms.topic: tutorial
 ms.date: 01/03/2021
 ---
@@ -48,7 +48,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > - Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > - Storage endpoint
     > - Service bus endpoint
     >
@@ -259,7 +259,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Select databases for migration
 
-Select either all databases or specific databases that you want to migrate to Azure SQL Database. DMS provides you with the expected migration time for selected databases. If the migration downtimes are acceptable continue with the migration. If the migration downtimes are not acceptable, consider migrating to [SQL Managed Instance with near-zero downtime](tutorial-sql-server-managed-instance-online.md) or contacting the [DMS team](mailto:DMSFeedback@microsoft.com) for other options. 
+Select either all databases or specific databases that you want to migrate to Azure SQL Database. DMS provides you with the expected migration time for selected databases. If the migration downtimes are acceptable continue with the migration. If the migration downtimes are not acceptable, consider migrating to [SQL Managed Instance with near-zero downtime](tutorial-sql-server-managed-instance-online.md) or submit ideas/suggestions for improvement, and other feedback in the [Azure Community forum — Azure Database Migration Service](https://feedback.azure.com/d365community/forum/2dd7eb75-ef24-ec11-b6e6-000d3a4f0da0).
 
 1. Choose the database(s) you want to migrate from the list of available databases. 
 1. Review the expected downtime. If it's acceptable, select **Next: Select target >>**

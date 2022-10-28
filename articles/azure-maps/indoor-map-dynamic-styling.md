@@ -128,7 +128,7 @@ The web application that you previously opened in a browser should now reflect t
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
 
-[See live demo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
+[See live demo](https://samples.azuremaps.com/?sample=creator-indoor-maps)
 
 ## Next steps
 

@@ -4,10 +4,10 @@ description: Article describes how to upgrade an indirectly connected data contr
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 05/27/2022
+ms.date: 07/07/2022
 ms.topic: how-to
 ---
 
@@ -73,7 +73,7 @@ This section shows how to upgrade an indirectly connected data controller.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-[!INCLUDE [upgrade-supported-path](includes/upgrade-supported-path.md)]
+For supported upgrade paths, see [Upgrade Azure Arc-enabled data services](upgrade-overview.md).
 
 
 ### Upgrade
@@ -86,7 +86,7 @@ You'll need to connect and authenticate to a Kubernetes cluster and have an exis
    > [!IMPORTANT]
    > Requires Kubernetes permissions for creating service account, role binding, cluster role, cluster role binding, and all the RBAC permissions being granted to the service account.
 
-Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
+Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace of the data controller, for example: `arc`. Run the following command to create the deployer service account with the edited file.
 
 ```console
 kubectl apply --namespace arc -f arcdata-deployer.yaml
@@ -97,8 +97,11 @@ kubectl apply --namespace arc -f arcdata-deployer.yaml
 
 The following command creates a job for upgrading the bootstrapper and related Kubernetes objects.
 
+   > [!IMPORTANT]
+   > The yaml file in the following command defaults to mcr.microsoft.com/arcdata. Please save a copy of the yaml file and update it to a use a different registry/repository if necessary.
+
 ```console
-kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/upgrade/yaml/bootstrapper-upgrade-job.yaml
+kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/upgrade/yaml/bootstrapper-upgrade-job.yaml
 ```
 
 ### Upgrade the data controller
@@ -106,7 +109,7 @@ kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azu
 The following command patches the image tag to upgrade the data controller.
 
 ```console
-kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/upgrade/yaml/data-controller-upgrade.yaml
+kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/upgrade/yaml/data-controller-upgrade.yaml
 ```
 
 
@@ -133,6 +136,4 @@ monitorstack   Updating   41m
 monitorstack   Ready      41m
 ```
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

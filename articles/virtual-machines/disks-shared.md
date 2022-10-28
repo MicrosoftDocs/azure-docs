@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 10/14/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -35,7 +35,7 @@ Shared disks support several operating systems. See the [Windows](#windows) or [
 
 When you share a disk, your billing could be impacted in two different ways, depending on the type of disk.
 
-For shared premium SSDs, in addition to cost of the disk's tier, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
+For shared premium SSD disks, in addition to cost of the disk's tier, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
 Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Normally, an ultra disk has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two additional throttles allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 

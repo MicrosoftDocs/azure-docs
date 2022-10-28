@@ -61,15 +61,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- There are no specific prerequisites required to deploy this app.
-- You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create in-store analytics application
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/iotc-retail-homepage.png" alt-text="Connected logistics template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab.
 
 1. Select **Create app** under **In-store analytics - checkout**.
 
@@ -93,7 +91,7 @@ To select a predefined application theme:
 
 3. Select **Save**.
 
-Rather than use a predefined theme, you can create a custom theme. If you want to use a set of sample images to customize the application and complete the tutorial, download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/retail).
+Rather than use a predefined theme, you can create a custom theme. If you want to use a set of sample images to customize the application and complete the tutorial, download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/retail).
 
 To create a custom theme:
 
@@ -109,9 +107,7 @@ To create a custom theme:
 
 1. Optionally, replace the default **Browser colors** by adding HTML hexadecimal color codes. For the **Header**, add *#008575*.  For the **Accent**, add *#A1F3EA*. 
 
-1. Select **Save**. 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/select-application-logo.png" alt-text="Azure IoT Central customized logo.":::
+1. Select **Save**.
 
     After you save, the application updates the browser colors, the logo in the masthead, and the browser icon.
 
@@ -145,8 +141,6 @@ To add a RuuviTag device template to your application:
 
 1. Select **Next: Review**.
 
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png" alt-text="Screenshot that highlights the Next: Customize button.":::
-
 1. Select **Create**. The application adds the RuuviTag device template.
 
 1. Select **Device templates** on the left pane. The page displays all device templates included in the application template, and the RuuviTag device template you just added.
@@ -173,7 +167,7 @@ To customize the built-in interfaces of the RuuviTag device template:
 
     :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-summary-view.png" alt-text="Azure IoT Central RuuviTag device template summary view.":::
 
-1. Select **Customize** in the RuuviTag device template menu. 
+1. Select **RuvviTag** model in the RuuviTag device template menu. 
 
 1. Scroll in the list of capabilities and find the `RelativeHumidity` telemetry type. It's the row item with the editable **Display name** value of *RelativeHumidity*.
 
@@ -193,13 +187,11 @@ For the `RelativeHumidity` telemetry type, make the following changes:
 
 To add a cloud property to a device template in your application:
 
-1. Select **Cloud Properties** in the RuuviTag device template menu.
-
-1. Select **Add Cloud Property**. 
-
 Specify the following values to create a custom property to store the location of each device:
 
 1. Enter the value *Location* for the **Display Name**. This value is automatically copied to the **Name** field, which is a friendly name for the property. You can use the copied value or change it.
+
+1. Select **Capability Type** as **Cloud Property**.
 
 1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device.
 

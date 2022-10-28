@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 06/29/2022
 ms.author: banders
 ---
 
@@ -184,13 +184,13 @@ You can request billing ownership of products for the subscription types listed 
 - [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)<sup>2</sup>
 - [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)<sup>1</sup>
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
-    - Transfers are only supported for direct EA customers. A direct enterprise agreement is one that's signed between Microsoft and an enterprise agreement customer.
-    - Transfers aren't supported for indirect EA customers. An indirect EA is one where a customer signs an agreement with a Microsoft partner.
+    - Subscription and reservation transfer are supported for direct EA customers. A direct enterprise agreement is one that's signed between Microsoft and an enterprise agreement customer.
+    - Only subscription transfers are supported for indirect EA customers. Reservation transfers aren't supported. An indirect EA agreement is one where a customer signs an agreement with a Microsoft partner.
 - [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
+- [Microsoft Cloud Partner Program](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)<sup>1</sup>
 - [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)<sup>1</sup>
-- [Visual Studio Enterprise (MPN) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)<sup>1</sup>
+- [Visual Studio Enterprise (Cloud Partner Program) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)<sup>1</sup>
 - [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)<sup>1</sup>
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)<sup>1</sup>
 - [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)<sup>1</sup>

@@ -4,7 +4,7 @@ description: Learn how to use Azure Table storage to configure leads for Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: durior1
+author: urimsft
 ms.author: uridor
 ms.date: 12/02/2021
 ---
@@ -46,7 +46,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure storage key.":::
 
-1. From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
+1. (Optional) From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 

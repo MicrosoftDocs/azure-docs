@@ -5,18 +5,19 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 01/24/2022
-ms.custom: template-how-to, ignite-fall-2021
+ms.date: 10/04/2022
+ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
-# Connect to Azure Data Lake Gen2 in Microsoft Purview
+# Connect to Azure Data Lake Storage in Microsoft Purview
 
-This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
+This article outlines the process to register an Azure Data Lake Storage (ADLS Gen2) data source in Microsoft Purview including instructions to authenticate and interact with the ADLS Gen2 source.
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (Preview)](#access-policy) | Limited** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (preview)](#access-policy)  | Limited** |[Yes](#data-sharing)|
+
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -31,8 +32,10 @@ This article outlines the process to register an Azure Data Lake Storage Gen2 da
 * You need to have at least [Reader permission on the ADLS Gen 2 account](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac) to be able to register it.
 
 ## Register
+This section will enable you to register the ADLS Gen2 data source for scan and data share in Purview.
 
-This section will enable you to register the ADLS Gen2 data source and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
+### Prerequisites for register
+* You'll need to be a Data Source Admin and one of the other Purview roles (for example, Data Reader or Data Share Contributor) to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ### Steps to register
 
@@ -58,7 +61,7 @@ It's important to register the data source in Microsoft Purview prior to setting
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**. Leave the **Data Use Management** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**. Leave the **Data Use Management** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-policies-data-owner-storage.md).
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
@@ -115,11 +118,11 @@ It's important to give your Microsoft Purview account or user-assigned managed i
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Microsoft Purview account":::
 
-> [!Note]
-> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
+    > [!Note]
+    > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
-> [!NOTE]
-> If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
+    > [!NOTE]
+    > If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
 
 1. Go into your ADLS Gen2 storage account in [Azure portal](https://portal.azure.com)
 1. Navigate to **Security + networking > Networking**
@@ -272,16 +275,73 @@ It's important to give your service principal the permission to scan the ADLS Ge
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
+## Data sharing
+Microsoft Purview Data Sharing (preview) enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive share](how-to-receive-share.md) for step by step guide on how to use data share.
+
+### Storage accounts supported for in-place data sharing
+The following storage accounts are supported for in-place data sharing:
+
+* Regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North
+* Redundancy options: LRS, GRS, RA-GRS
+* Tiers: Hot, Cool
+
+Only use storage account without production workload for the preview.
+
+>[!NOTE]
+> Source and target storage accounts must be in the same region as each other. They don't need to be in the same region as the Microsoft Purview account.
+
+### Storage account permissions required to share data
+To add or update a storage account asset to a share, you need ONE of the following permissions:
+
+* **Microsoft.Authorization/roleAssignments/write** - This permission is available in the *Owner* role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/** - This permission is available in the *Blob Storage Data Owner* role.
+
+### Storage account permissions required to receive shared data
+To map a storage account asset in a received share, you need ONE of the following permissions:
+
+* **Microsoft.Storage/storageAccounts/write** - This permission is  available in the *Contributor* and *Owner* role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the *Contributor*, *Owner*, *Storage Blob Data Contributor* and *Storage Blob Data Owner* role.
+
+### Update shared data in source storage account
+Updates you make to shared files or data in the shared folder from source storage account will be made available to recipient in target storage account in near real time. When you delete subfolder or files within the shared folder, they'll disappear for recipient. To delete the shared folder, file or parent folders or containers, you need to first revoke access to all your shares from the source storage account.
+
+### Access shared data in target storage account
+The target storage account enables recipient to access the shared data read-only in near real time. You can connect analytics tools such as Synapse Workspace and Databricks to the shared data to perform analytics. Cost of accessing the shared data is charged to the target storage account. 
+
+### Service limit
+Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, contact Support.
+
 ## Access policy
 
-To create an access policy for Azure Data Lake Storage Gen 2, follow these guides:
-* [Single storage account](./how-to-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single Azure Storage account in your subscription.
-* [All sources in a subscription or resource group](./how-to-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [Data owner policies](concept-policies-data-owner.md)
+- [Self-service access policies](concept-self-service-data-access-policy.md)
+
+### Access policy pre-requisites on Azure Storage accounts
+[!INCLUDE [Access policies Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
+
+### Configure the Microsoft Purview account for policies
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+
+### Register the data source in Microsoft Purview for Data Use Management
+The Azure Storage resource needs to be registered first with Microsoft Purview before you can create access policies.
+To register your resource, follow the **Prerequisites** and **Register** sections of this guide:
+-   [Register Azure Data Lake Storage (ADLS) Gen2 in Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
+
+After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
+
+Once your data source has the  **Data Use Management** option set to **Enabled**, it will look like this screenshot:
+![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png)
+
+### Create a policy
+To create an access policy for Azure Data Lake Storage Gen2, follow these guides:
+* [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure Storage account in your subscription.
+* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
 
 ## Next steps
-
-Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-
+Follow the below guides to learn more about Microsoft Purview and your data.
+- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
-- [Search Data Catalog](how-to-search-catalog.md)
+- [Data share in Microsoft Purview](concept-data-share.md)

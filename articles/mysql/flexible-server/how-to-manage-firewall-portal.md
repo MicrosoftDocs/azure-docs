@@ -1,11 +1,11 @@
 ---
 title: Manage firewall rules - Azure portal - Azure Database for MySQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
+author: vivgk
+ms.author: vivgk
 ms.date: 9/21/2020
 ---
 

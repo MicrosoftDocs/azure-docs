@@ -22,7 +22,7 @@ All Azure App Service hosting plans are available for use with Azure Static Web 
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
-> The integration with Azure API Management is currently in preview and requires the Static Web Apps Standard plan.
+> The integration with Azure App Service is currently in preview and requires the Static Web Apps Standard plan.
 > 
 > You cannot link a web app to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
 
@@ -30,7 +30,7 @@ All Azure App Service hosting plans are available for use with Azure Static Web 
 
 To link a web app as the API backend for a static web app, follow these steps:
 
-1. In the Azure portal, navigate to the static web app.
+1. In the Azure portal, go to the static web app.
 
 1. Select **APIs** from the navigation menu.
 
@@ -54,7 +54,7 @@ Your App Service app is configured with an identity provider named `Azure Static
 
 To unlink a web app from a static web app, follow these steps:
 
-1. In the Azure portal, navigate to the static web app.
+1. In the Azure portal, go to the static web app.
 
 1. Select **APIs** from the navigation menu.
 

@@ -7,12 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 10/14/2022
 ---
 
 # Relevance and scoring in Azure Cognitive Search
 
-This article describes relevance and the scoring algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
+This article explains the relevance and the scoring algorithms used to compute search scores in Azure Cognitive Search. A relevance score is computed for each match found in a [full text search](search-lucene-query-architecture.md), where the strongest matches are assigned higher search scores. 
+
+Relevance applies to full text search only. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
 
 In Azure Cognitive Search, you can tune search relevance and boost search scores through these mechanisms:
 
@@ -46,7 +48,7 @@ Both BM25 and Classic are TF-IDF-like retrieval functions that use the term freq
 BM25 offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms. For more information, see [Configure the scoring  algorithm](index-ranking-similarity.md).
 
 > [!NOTE]
-> If you're using a search service that was created before July 2020, the scoring algorithm is most likely the previous default, `ClassicSimilarity`, which you an upgrade on a per-index basis. See [Enable BM25 scoring on older services](index-ranking-similarity.md#enable-bm25-scoring-on-older-services) for details.
+> If you're using a search service that was created before July 2020, the scoring algorithm is most likely the previous default, `ClassicSimilarity`, which you can upgrade on a per-index basis. See [Enable BM25 scoring on older services](index-ranking-similarity.md#enable-bm25-scoring-on-older-services) for details.
 
 The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
 
@@ -87,7 +89,7 @@ As long as the same `sessionId` is used, a best-effort attempt will be made to t
 
 ## Scoring profiles
 
-You can customize the way different fields are ranked by defining a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
+You can customize the way different fields are ranked by defining a *scoring profile*. Scoring profiles provide criteria for boosting the search score of a match based on content characteristics. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
 
 A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
 

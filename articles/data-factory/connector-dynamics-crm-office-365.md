@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 06/01/2022
+ms.date: 09/05/2022
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -19,11 +19,16 @@ This article outlines how to use a copy activity in Azure Data Factory or Synaps
 
 This connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from Dynamics 365 (Microsoft Dataverse) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+
+For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 >[!NOTE]
 >Effective November 2020, Common Data Service has been renamed to [Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro). This article is updated to reflect the latest terminology. 
@@ -53,6 +58,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Field Service
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
+
 This connector doesn't support other application types like Finance, Operations, and Talent.
 
 >[!TIP]
@@ -110,7 +116,7 @@ The following properties are supported for the Dynamics linked service.
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
 | servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
-| servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault. | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
 | credentials | Specify the user-assigned managed identity as the credential object. <br/><br/> [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), assign them to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.| Yes when authentication is "ManagedIdentity" |
@@ -504,6 +510,29 @@ If all of your source records map to the same target entity and your source data
 
 :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Dynamics lookup-field adding an entity-reference column":::
 
+## Writing data to a lookup field via alternative keys
+
+To write data into a lookup field using alternate key columns, follow this guidance and example: 
+
+1. Ensure your source contains all the lookup key columns. 
+
+2. The alternate key columns must be mapped to the column with the special naming pattern `{lookup_field_name}@{alternate_key_column_name}`. The column doesn't exist in Dynamics. It's used to indicate that this column is used to look up the record in the target entity.
+
+3. Go to **Mapping** tab in the sink transformation of mapping data flows. Select the alternate key as output columns under the Lookup field. The value after indicates the key columns of this alternate key.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/select-alternate-key-columns.png" alt-text="Screenshot shows selecting alternate key columns.":::
+
+4. Once selected, the alternate key columns will automatically display in below.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-1.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 1.":::
+
+5. Map your input columns on left with the output columns.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-2.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 2.":::
+
+> [!Note]
+> Currently this is only supported when you use inline mode in the sink transformation of mapping data flows.
+
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read from and write to tables in Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
@@ -582,6 +611,7 @@ IncomingStream sink(allowSchemaDrift: true,
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> DynamicsSink
 ```
+
 ## Lookup activity properties
 
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).

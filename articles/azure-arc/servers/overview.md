@@ -11,7 +11,7 @@ Azure Arc-enabled servers lets you manage Windows and Linux physical servers and
 
 When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
-To connect hybrid machines, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
+To connect hybrid machines to Azure, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
 
 * Proactively monitor the OS and workloads running on the machine
 * Manage it using Automation runbooks or solutions like Update Management
@@ -26,7 +26,7 @@ You can install the Connected Machine agent manually, or on multiple machines at
 When you connect your machine to Azure Arc-enabled servers, you can perform many operational functions, just as you would with native Azure virtual machines. Below are some of the key supported actions for connected machines.
 
 * **Govern**:
-  * Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) to audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc-enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/).
+  * Assign [Azure Policy guest configurations](../../governance/machine-configuration/overview.md) to audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc-enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/).
 * **Protect**:
   * Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint), included through [Microsoft Defender for Cloud](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Microsoft Defender for Cloud presents the alerts and remediation suggestions from the threats detected.
   * Use [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources.
@@ -36,7 +36,7 @@ When you connect your machine to Azure Arc-enabled servers, you can perform many
   * Perform post-deployment configuration and automation tasks using supported [Arc-enabled servers VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine.
 * **Monitor**:
   * Monitor operating system performance and discover application components to monitor processes and dependencies with other resources using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
-  * Collect other log data, such as performance data and events, from the operating system or workloads running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+  * Collect other log data, such as performance data and events, from the operating system or workloads running on the machine with the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!NOTE]
 > At this time, enabling Azure Automation Update Management directly from an Azure Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and [how to enable Update Management for non-Azure VMs](../../automation/update-management/enable-from-automation-account.md#enable-non-azure-vms).
@@ -73,7 +73,7 @@ Azure Arc-enabled servers support the management of physical servers and virtual
 
 The status for a connected machine can be viewed in the Azure portal under **Azure Arc > Servers**.
 
-The Connected Machine agent sends a regular heartbeat message to the service every five minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline, and its status will automatically be changed to **Disconnected** within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed back to **Connected**. 
+The Connected Machine agent sends a regular heartbeat message to the service every five minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline, and its status will automatically be changed to **Disconnected** within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed back to **Connected**.
 
 If a machine remains disconnected for 45 days, its status may change to **Expired**. An expired machine can no longer connect to Azure and requires a server administrator to disconnect and then reconnect it to Azure to continue managing it with Azure Arc. The exact date upon which a machine will expire is determined by the expiration date of the managed identity's credential, which is valid up to 90 days and renewed every 45 days.
 
@@ -82,6 +82,10 @@ If a machine remains disconnected for 45 days, its status may change to **Expire
 Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level.
 
 To learn more about resource type limits, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
+
+## Data residency
+
+Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 

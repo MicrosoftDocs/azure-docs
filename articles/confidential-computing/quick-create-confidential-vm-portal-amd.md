@@ -1,5 +1,5 @@
 ---
-title: Create an Azure AMD-based confidential VM in the Azure portal (preview)
+title: Create an Azure AMD-based confidential VM in the Azure portal
 description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
 ms.service: virtual-machines
@@ -11,11 +11,7 @@ ms.author: RunCai
 ms.custom: mode-ui
 ---
 
-# Quickstart: Create confidential VM on AMD in the Azure portal (preview)
-
-> [!IMPORTANT]
-> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Quickstart: Create confidential VM on AMD in the Azure portal
 
 You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](virtual-machine-solutions-amd.md) with AMD SEV-SNP technology.
 
@@ -24,7 +20,7 @@ You can use the Azure portal to create a [confidential VM](confidential-vm-overv
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 - If you're using a Linux-based confidential VM, use a BASH shell for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- If Confidential disk encryption with a customer-managed key is required, please run below command to opt-in service principal `Confidential VM Orchestrator` to your tenant. 
+- If Confidential disk encryption with a customer-managed key is required, please run below command to opt in service principal `Confidential VM Orchestrator` to your tenant. 
 
     ```azurecli
     Connect-AzureAD -Tenant "your tenant ID"
@@ -56,7 +52,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. For **Security Type**, select **Confidential virtual machines**.
 
-    1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu Server 20.04 LTS (Confidential VM preview)**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
+    1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu Server 20.04 LTS (Confidential VM)**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
 
         > [!TIP]
         > Optionally, select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.

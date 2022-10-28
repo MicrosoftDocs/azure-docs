@@ -2,15 +2,15 @@
 title: "What's new in the Microsoft identity platform docs"
 description: "New and updated documentation for the Microsoft identity platform."
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 06/02/2022
+ms.date: 09/03/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.author: marsma
+ms.author: henrymbugua
 ms.custom: has-adal-ref
 ---
 
@@ -18,38 +18,49 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## May 2022
-
-### Updated articles
-
-- [Developer guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
-- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-- [Protected web API: App registration](scenario-protected-web-api-app-registration.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
-- [Set up your application's Azure AD test environment](test-setup-environment.md)
-- [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md)
-- [Single sign-on with MSAL.js](msal-js-sso.md)
-- [Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
-- [What's new for authentication?](reference-breaking-changes.md)
-
-## March 2022
+## September 2022
 
 ### New articles
 
-- [Secure access control using groups in Azure AD](secure-group-access-control.md)
+- [Configure a user-assigned managed identity to trust an external identity provider (preview)](workload-identity-federation-create-trust-user-assigned-managed-identity.md)
+- [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md)
 
 ### Updated articles
 
-- [Authentication flow support in MSAL](msal-authentication-flows.md)
+- [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
+- [Run automated integration tests](test-automate-integration-testing.md)
+- [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)](tutorial-v2-javascript-spa.md)
+
+## August 2022
+
+### Updated articles
+
+- [Access Azure AD protected resources from an app in Google Cloud (preview)](workload-identity-federation-create-trust-gcp.md)
+- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
+- [Configure an app's publisher domain](howto-configure-publisher-domain.md)
+- [Configure an app to trust an external identity provider](workload-identity-federation-create-trust.md)
+- [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
+- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
+- [Microsoft identity platform UserInfo endpoint](userinfo.md)
+- [OpenID Connect on the Microsoft identity platform](v2-protocols-oidc.md)
+- [Publisher verification](publisher-verification-overview.md)
+- [Protected web API: Code configuration](scenario-protected-web-api-app-configuration.md)
+- [Provide optional claims to your app](active-directory-optional-claims.md)
+- [Using directory extension attributes in claims](active-directory-schema-extensions.md)
+
+## July 2022
+
+### New articles
+
+- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
+
+### Updated articles
+
+- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
+- [Application configuration options](msal-client-application-configuration.md)
+- [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
 - [Claims mapping policy type](reference-claims-mapping-policy-type.md)
-- [Configure an app to trust an external identity provider (preview)](workload-identity-federation-create-trust.md)
-- [OAuth 2.0 and OpenID Connect in the Microsoft identity platform](active-directory-v2-protocols.md)
-- [Signing key rollover in the Microsoft identity platform](active-directory-signing-key-rollover.md)
-- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
-
-## February 2022
-
-### Updated articles
-
-- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)
+- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- [Microsoft identity platform access tokens](access-tokens.md)
+- [Single-page application: Sign-in and Sign-out](scenario-spa-sign-in.md)
+- [Tutorial: Add sign-in to Microsoft to an ASP.NET web app](tutorial-v2-asp-webapp.md)

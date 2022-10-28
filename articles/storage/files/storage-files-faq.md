@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 06/06/2022
+ms.date: 09/08/2022
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -57,7 +57,7 @@ ms.topic: conceptual
     
 * <a id="afs-resource-move"></a>
   **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant?**  
-   Yes, the storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](../file-sync/file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+   Yes, the storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](../file-sync/file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
@@ -87,14 +87,18 @@ ms.topic: conceptual
 * <a id="access-based-enumeration"></a>
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
-  No, this scenario isn't supported.
-
+  Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
 **Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
 
     No, this scenario isn't supported.
+
+* <a id="ad-file-mount-cname"></a>
+**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication (AD DS or Azure AD DS)?**
+
+    No, this scenario isn't supported. As an alternative to CNAME, you can use DFS Namespaces with SMB Azure file shares. To learn more, see [How to use DFS Namespaces with Azure Files](files-manage-namespaces.md).
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Azure AD credentials from a VM under a different subscription?**
@@ -150,6 +154,15 @@ ms.topic: conceptual
     
        net use <drive-letter/share-path> /delete
 
+* <a id="ad-sid-to-upn"></a>
+**Is it possible to view the userPrincipalName (UPN) of a file/directory owner in Windows Explorer instead of the security identifier (SID)?**
+
+    In Windows Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
+
+    ```PowerShell
+    Get-ChildItem <Path> | Get-ACL | Select Path, Owner
+    ```
+
 ## Network File System (NFS v4.1)
 
 * <a id="when-to-use-nfs"></a>
@@ -197,6 +210,11 @@ ms.topic: conceptual
 * <a id="share-snapshot-price"></a>
 **How much do share snapshots cost?**  
     Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You're billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you're billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## Interoperability with other services
+* <a id="cluster-witness"></a>
+**Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  
+    Currently, this configuration is not supported for an Azure file share. For more information about how to set this up for Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
 * [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)

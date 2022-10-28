@@ -3,8 +3,8 @@ title: 'Tutorial: Using Service Connector to build a Django app with Postgres on
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework, the app is hosted on Azure App Service on Linux, and the App Service and Database is connected with Service Connector.
 ms.devlang: python
 ms.custom: event-tier1-build-2022
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022
@@ -334,7 +334,7 @@ The resource group, app name, db name are drawn from the cached values. You need
 
 ::: zone pivot="postgres-flexible-server"
 ```azurecli
-az webapp connection create postgres --client-type django
+az webapp connection create postgres-flexible --client-type django
 ```
 
 The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.

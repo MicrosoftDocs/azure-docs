@@ -42,7 +42,7 @@ For more information on creating snapshots, see:
 
 * [Create copy of VHD stored as a Managed Disk](./windows/snapshot-copy-managed-disk.md)
 
-## Virtual machine restore points (preview)
+## Virtual machine restore points
 
 At this time, you can use Azure REST APIs to back up and restore your VMs. This approach is most often used by independent software vendor (ISVs) or organizations with a relatively small number of VMs to manage.
 

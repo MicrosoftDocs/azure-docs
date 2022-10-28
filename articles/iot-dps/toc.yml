@@ -14,6 +14,9 @@ items:
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
+    - name: Bicep
+      displayName: Resource Manager,ARM,template
+      href: quick-setup-auto-provision-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
@@ -25,28 +28,18 @@ items:
     href: quick-create-simulated-device-tpm.md
 - name: Tutorials
   items:
-  - name: 1 - Provision sets of devices with enrollment groups
+  - name: Provision sets of devices with enrollment groups
     items:
      - name: Provision devices with symmetric keys
        href: how-to-legacy-device-symm-key.md
-     - name: Use custom allocation policies
-       href: tutorial-custom-allocation-policies.md
      - name: Provision multiple X.509 devices
        href: tutorial-custom-hsm-enrollment-group-x509.md
-  - name: 2 - Provision devices to multiple hubs
+  - name: Provision devices to multiple hubs
     items:
-     - name: Link multiple hubs to DPS
-       href: tutorial-provision-multiple-hubs.md
-     - name: Provision for multitenancy
+     - name: Use custom allocation policies
+       href: tutorial-custom-allocation-policies.md
+     - name: Provision for geolatency
        href: how-to-provision-multitenant.md
-- name: Samples
-  items:
-  - name: Create device enrollments using DPS APIs
-    items:
-    - name: Group enrollment using X.509 Certificate Attestation
-      href: quick-enroll-device-x509.md
-    - name: Individual device enrollment using TPM attestation
-      href: quick-enroll-device-tpm.md
 - name: Concepts
   items:
   - name: DPS terminology
@@ -57,6 +50,8 @@ items:
     href: concepts-x509-attestation.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
+  - name: Custom allocation policies
+    href: concepts-custom-allocation.md
   - name: Control access to DPS
     items:
     - name: Overview
@@ -87,14 +82,26 @@ items:
     items:
     - name: How to send additional data from devices
       href: how-to-send-additional-data.md
-    - name: Provision devices using custom allocation policies
-      href: how-to-use-custom-allocation-policies.md
+    - name: Create an X.509 enrollment group with DPS service SDK
+      href: quick-enroll-device-x509.md
+    - name: Create a TPM individual enrollment with DPS service SDK
+      href: quick-enroll-device-tpm.md
     - name: Communicate with your DPS using MQTT protocol
       href: iot-dps-mqtt-support.md
+    - name: Provision devices using HTTPS protocol
+      items:
+      - name: Use HTTPS protocol with symmetric keys
+        href: iot-dps-https-sym-key-support.md
+      - name: Use HTTPS protocol with X.509 certificates
+        href: iot-dps-https-x509-support.md
   - name: Manage
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
+    - name: Manage linked IoT hubs
+      href: how-to-manage-linked-iot-hubs.md
+    - name: Manage allocation policies
+      href: how-to-use-allocation-policies.md
     - name: Configure verified CA certificates
       href: how-to-verify-certificates.md
     - name: Roll device certificates
@@ -141,22 +148,24 @@ items:
     href: /dotnet/api/microsoft.azure.devices.provisioning.client
   - name: .NET (Service)
     href: /dotnet/api/microsoft.azure.devices.provisioning.service
+  - name: .NET (Management)
+    href: /dotnet/api/overview/azure/deviceprovisioningservice/management
   - name: Java (Device)
     href: /java/api/com.microsoft.azure.sdk.iot.provisioning.device
   - name: Java (Service)
     href: /java/api/com.microsoft.azure.sdk.iot.provisioning.service
   - name: Node.js (Device)
-    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+    href: /javascript/api/azure-iot-provisioning-device
   - name: Node.js (Service)
-    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+    href: /javascript/api/azure-iot-provisioning-service
   - name: Node.js (Management)
-    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+    href: /javascript/api/overview/azure/arm-deviceprovisioningservices-readme
   - name: Python (Device)
     href: /python/api/azure-iot-device/azure.iot.device.aio.provisioningdeviceclient
   - name: Python (Management)
     href: /python/api/azure-mgmt-iothubprovisioningservices
   - name: Azure IoT SDK for C API documentation
-    href: /azure/iot-hub/iot-c-sdk-ref
+    href: /azure/iot-hub/iot-hub-device-sdk-c-intro
   - name: REST API
     href: /rest/api/iot-dps
   - name: Resource Manager template
@@ -186,11 +195,11 @@ items:
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
     - name: Node.js
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure-Samples/azure-iot-samples-java
     - name: Python
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
     - name: iOS Platform

@@ -14,8 +14,6 @@ ms.date: 05/16/2022
 
 Like all other permissions in Microsoft Purview, Data Estate Insights access is given through collections. This article describes what permissions are needed to access Data Estate Insights in Microsoft Purview.
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 ## Insights reader role
 
 The insights reader role gives users read permission to the Data Estate Insights application in Microsoft Purview. However, a user with this role will only have access to information for collections that they also have at least data reader access to.

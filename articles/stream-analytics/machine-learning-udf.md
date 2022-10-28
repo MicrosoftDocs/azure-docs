@@ -17,14 +17,13 @@ You can implement machine learning models as a user-defined function (UDF) in yo
 
 Complete the following steps before you add a machine learning model as a function to your Stream Analytics job:
 
-1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-and-where.md).
+1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-managed-online-endpoints.md).
 
-2. Your machine learning endpoint must have an associated [swagger](../machine-learning/how-to-deploy-advanced-entry-script.md) that helps Stream Analytics understand the schema of the input and output. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/asa-mlswagger.json) as a reference to ensure you have set it up correctly.
+2. Your machine learning endpoint must have an associated [swagger](../machine-learning/v1/how-to-deploy-advanced-entry-script.md) that helps Stream Analytics understand the schema of the input and output. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/asa-mlswagger.json) as a reference to ensure you have set it up correctly.
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
-4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal.
-
+4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-managed-online-endpoints.md#use-different-cpu-and-gpu-instance-types) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal.
 ## Add a machine learning model to your job
 
 You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal or Visual Studio Code.

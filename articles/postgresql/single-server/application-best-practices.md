@@ -32,9 +32,6 @@ Configure your PostgreSQL server to be [secure](./concepts-security.md) and not 
 
 For security, you must always connect to your PostgreSQL server over SSL and configure your PostgreSQL server and your application to use TLS 1.2. See [How to configure SSL/TLS](./concepts-ssl-connection-security.md).
 
-### Tune your server parameters
-
-For read-heavy workloads tuning server parameters, `tmp_table_size` and `max_heap_table_size` can help optimize for better performance. To calculate the values required for these variables, look at the total per-connection memory values and the base memory. The sum of per-connection memory parameters, excluding `tmp_table_size`, combined with the base memory accounts for total memory of the server.
 
 ### Use environment variables for connection information
 

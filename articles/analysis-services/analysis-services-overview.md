@@ -1,8 +1,8 @@
 ---
-title: What is Azure Analysis Services | Microsoft Docs
+title: What is Azure Analysis Services?
 description: Learn about Azure Analysis Services, a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: overview
 ms.date: 02/15/2022
 ms.author: owend
@@ -248,7 +248,7 @@ Because tabular models in Azure Analysis Services are much the same as tabular m
 
 ### Contribute!
 
-Analysis Services documentation, like this article, is open source. To learn more about how you can contribute, see the [Docs contributor guide](/contribute/). 
+Analysis Services documentation, like this article, is open source. To learn more about how you can contribute, see our [contributor guide](/contribute/). 
 
 Azure Analysis Services documentation also uses [GitHub Issues](/teamblog/a-new-feedback-system-is-coming-to-docs). You can provide feedback about the product or documentation. Use **Feedback** at the bottom of an article. GitHub Issues are not enabled for the shared Analysis Services documentation. 
 
@@ -258,7 +258,7 @@ Things are changing rapidly. Get the latest information on the [Power BI blog](h
 
 ## Q&A
 
-Microsoft [Q&A](/answers/products/) is a technical community platform part of Microsoft Docs that provides a rich online experience in answering your technical questions. Join the conversation on [Q&A - Azure Analysis Services forum](/answers/topics/azure-analysis-services.html).
+Microsoft [Q&A](/answers/products/) is a technical community platform that provides a rich online experience in answering your technical questions. Join the conversation on [Q&A - Azure Analysis Services forum](/answers/topics/azure-analysis-services.html).
 
 ## Next steps
 

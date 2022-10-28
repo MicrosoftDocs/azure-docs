@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 07/18/2022
 ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.

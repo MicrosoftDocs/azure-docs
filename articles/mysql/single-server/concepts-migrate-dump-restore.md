@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article explains two common ways to back up and restore databases in your Azure Database for MySQL
 - Dump and restore from the command-line (using mysqldump)
 - Dump and restore using PHPMyAdmin
@@ -34,9 +36,9 @@ To step through this how-to guide, you need to have:
 Most common use-cases are:
 
 - **Moving from other managed service provider** - Most managed service provider may not provide access to the physical storage file for security reasons so logical backup and restore is the only option to migrate.
-- **Migrating from on-premises environment or Virtual machine** - Azure Database for MySQL doesn't support restore of physical backups which makes logical backup and restore as the ONLY approach.
-- **Moving your backup storage from locally redundant to geo-redundant storage** - Azure Database for MySQL allows configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, dump and restore is the ONLY option. 
--  **Migrating from alternative storage engines to InnoDB** - Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
+- **Migrating from on-premises environment or Virtual machine** - Azure Database for MySQL doesn't support restore of physical backups, which makes logical backup and restore as the ONLY approach.
+- **Moving your backup storage from locally redundant to geo-redundant storage** - Azure Database for MySQL allows configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you can't change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, dump and restore is the ONLY option. 
+-  **Migrating from alternative storage engines to InnoDB** - Azure Database for MySQL supports only InnoDB Storage engine, and therefore doesn't support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
 
     For example, if you have a WordPress or WebApp using the MyISAM tables, first convert those tables by migrating into InnoDB format before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore.
 
@@ -73,13 +75,13 @@ Add the connection information into your MySQL Workbench.
 
 ## Preparing the target Azure Database for MySQL server for fast data loads
 To prepare the target Azure Database for MySQL server for faster data loads, the following server parameters and configuration needs to be changed.
-- max_allowed_packet – set to 1073741824 (i.e. 1GB) to prevent any overflow issue due to long rows.
+- max_allowed_packet – set to 1073741824 (that is, 1 GB) to prevent any overflow issue due to long rows.
 - slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
 - query_store_capture_mode – set to NONE to turn off the Query Store. This will eliminate the overhead caused by sampling activities by Query Store.
 - innodb_buffer_pool_size – Scale up the server to 32 vCore Memory Optimized SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size. Innodb_buffer_pool_size can only be increased by scaling up compute for Azure Database for MySQL server.
 - innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
 - innodb_write_io_threads & innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
-- Scale up Storage tier – The IOPs for Azure Database for MySQL server increases progressively with the increase in storage tier. For faster loads, you may want to increase the storage tier to increase the IOPs provisioned. Please do remember the storage can only be scaled up, not down.
+- Scale up Storage tier – The IOPs for Azure Database for MySQL server increases progressively with the increase in storage tier. For faster loads, you may want to increase the storage tier to increase the IOPs provisioned. Do remember the storage can only be scaled up, not down.
 
 Once the migration is completed, you can revert back the server parameters and compute tier configuration to its previous values.
 
@@ -93,12 +95,12 @@ $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 
 The parameters to provide are:
 - [uname] Your database username
-- [pass] The password for your database (note there is no space between -p and the password)
+- [pass] The password for your database (note there's no space between -p and the password)
 - [dbname] The name of your database
 - [backupfile.sql] The filename for your database backup
 - [--opt] The mysqldump option
 
-For example, to back up a database named 'testdb' on your MySQL server with the username 'testuser' and with no password to a file testdb_backup.sql, use the following command. The command backs up the `testdb` database into a file called `testdb_backup.sql`, which contains all the SQL statements needed to re-create the database. Make sure that the username 'testuser' has at least the SELECT privilege for dumped tables, SHOW VIEW for dumped views, TRIGGER for dumped triggers, and LOCK TABLES if the --single-transaction option is not used.
+For example, to back up a database named 'testdb' on your MySQL server with the username 'testuser' and with no password to a file testdb_backup.sql, use the following command. The command backs up the `testdb` database into a file called `testdb_backup.sql`, which contains all the SQL statements needed to re-create the database. Make sure that the username 'testuser' has at least the SELECT privilege for dumped tables, SHOW VIEW for dumped views, TRIGGER for dumped triggers, and LOCK TABLES if the `--single-transaction` option isn't used.
 
 ```bash
 GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
@@ -113,30 +115,32 @@ To select specific tables in your database to back up, list the table names sepa
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-To back up more than one database at once, use the --database switch and list the database names separated by spaces.
+To back up more than one database at once, use the `--database` switch and list the database names separated by spaces.
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
 ```
 
-### Restore your MySQL database using command-line or MySQL Workbench
-Once you have created the target database, you can use the mysql command or MySQL Workbench to restore the data into the specific newly created database from the dump file.
+### Restore your MySQL database using command-line 
+Once you've created the target database, you can use the mysql command  to restore the data into the specific newly created database from the dump file.
 ```bash
 mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 In this example, restore the data into the newly created database on the target Azure Database for MySQL server.
 
-Here is an example for how to use this **mysql** for **Single Server** :
+Here's an example for how to use this **mysql** for **Single Server** :
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
-Here is an example for how to use this **mysql** for **Flexible Server** :
+Here's an example for how to use this **mysql** for **Flexible Server** :
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql
 ```
 ---
 
+>[!Note]
+>You can also use [MySQL Workbench client utility to restore MySQL database](./concepts-migrate-import-export.md#import-and-export-data-by-using-mysql-workbench).
 ## Dump and restore using PHPMyAdmin
 Follow these steps to dump and restore a database using PHPMyadmin.
 
@@ -146,20 +150,20 @@ Follow these steps to dump and restore a database using PHPMyadmin.
 ### Export with PHPMyadmin
 To export, you can use the common tool phpMyAdmin, which you may already have installed locally in your environment. To export your MySQL database using PHPMyAdmin:
 1. Open phpMyAdmin.
-2. Select your database. Click the database name in the list on the left.
-3. Click the **Export** link. A new page appears to view the dump of database.
-4. In the Export area, click the **Select All** link to choose the tables in your database.
-5. In the SQL options area, click the appropriate options.
-6. Click the **Save as file** option and the corresponding compression option and then click the **Go** button. A dialog box should appear prompting you to save the file locally.
+2. Select your database. Select the database name in the list on the left.
+3. Select the **Export** link. A new page appears to view the dump of database.
+4. In the Export area, select the **Select All** link to choose the tables in your database.
+5. In the SQL options area, select the appropriate options.
+6. Select the **Save as file** option and the corresponding compression option and then select the **Go** button. A dialog box should appear prompting you to save the file locally.
 
 ### Import using PHPMyAdmin
 Importing your database is similar to exporting. Do the following actions:
 1. Open phpMyAdmin.
-2. In the phpMyAdmin setup page, click **Add** to add your Azure Database for MySQL server. Provide the connection details and login information.
-3. Create an appropriately named database and select it on the left of the screen. To rewrite the existing database, click the database name, select all the check boxes beside the table names, and select **Drop** to delete the existing tables.
-4. Click the **SQL** link to show the page where you can type in SQL commands, or upload your SQL file.
+2. In the phpMyAdmin setup page, select **Add** to add your Azure Database for MySQL server. Provide the connection details and log in information.
+3. Create an appropriately named database and select it on the left of the screen. To rewrite the existing database, select the database name, select all the check boxes beside the table names, and select **Drop** to delete the existing tables.
+4. Select the **SQL** link to show the page where you can type in SQL commands, or upload your SQL file.
 5. Use the **browse** button to find the database file.
-6. Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
+6. Select the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
 ## Known Issues
 For known issues, tips and tricks, we recommend you to look at our [techcommunity blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/tips-and-tricks-in-using-mysqldump-and-mysql-restore-to-azure/ba-p/916912).
@@ -167,4 +171,4 @@ For known issues, tips and tricks, we recommend you to look at our [techcommunit
 ## Next steps
 - [Connect applications to Azure Database for MySQL](./how-to-connection-string.md).
 - For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
-- If you are looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [how to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
+- If you're looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [how to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

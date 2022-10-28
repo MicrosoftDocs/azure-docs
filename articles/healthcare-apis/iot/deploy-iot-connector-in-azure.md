@@ -1,238 +1,95 @@
 ---
-title: MedTech service in the Azure portal - Azure Health Data Services
-description: In this article, you'll learn how to deploy MedTech service in the Azure portal.
+title: Choosing a method of deployment for the MedTech service in Azure - Azure Health Data Services
+description: In this article, you'll learn how to choose a method to deploy the MedTech service in Azure.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/07/2022
+ms.date: 10/28/2022
 ms.author: jasteppe
-ms.custom: mode-api
 ---
 
-# Deploy MedTech service in the Azure portal
+# Choose a deployment method
 
-In this quickstart, you'll learn how to deploy MedTech service in the Azure portal. The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages that will allow you to customize your development environment to suit your needs.
 
-## Prerequisites
+The different deployment methods are:
 
-It's important that you have the following prerequisites completed before you begin the steps of creating a MedTech service instance in Azure Health Data Services.
+- Azure Resource Manager (ARM) Quickstart template with Deploy to Azure button
+- Azure PowerShell and Azure CLI automation
+- Manual deployment
 
-* [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
-* [Resource group deployed in the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md)
-* [Event Hubs namespace and event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
-* [Workspace deployed in Azure Health Data Services](../healthcare-apis-quickstart.md)  
-* [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
+## Azure ARM Quickstart template with Deploy to Azure button
 
-> [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
->
-> Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see, [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
->
-> Examples: 
->* Two MedTech services accessing the same device message event hub.
->* A MedTech service and a storage writer application accessing the same device message event hub.
+Using a Quickstart template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity RBAC roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but doesn't allow for much customization.
 
-## Deploy MedTech service 
+For more information about the Quickstart template and the Deploy to Azure button, see [Deploy the MedTech service with a Quickstart template](deploy-02-new-button.md).
 
-1. Sign in the [Azure portal](https://portal.azure.com), and then enter your Health Data Services workspace resource name in the **Search** bar field.
- 
-   ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png#lightbox)
+## Azure PowerShell and Azure CLI automation
 
-2. Select **Deploy MedTech service**.
+Azure provides Azure PowerShell and Azure CLI to speed up your configurations when used in enterprise environments. Deploying MedTech service with Azure PowerShell or Azure CLI can be useful for adding automation so that you can scale your deployment for a large number of developers. This method is more detailed but provides extra speed and efficiency because it allows you to automate your deployment.
 
-   ![Screenshot of MedTech services blade.](media/iot-connector-blade.png#lightbox)
+For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](deploy-08-new-ps-cli.md).
 
-3. Next, select **Add MedTech service**.
+## Manual deployment
 
-   ![Screenshot of add MedTech services.](media/add-iot-connector.png#lightbox)
+The manual deployment method uses the Azure portal to implement each deployment task individually. Using the manual deployment method will allow you to see all the details of how to complete the sequence of each deployment task. The manual deployment method can be beneficial if you need to customize or troubleshoot your deployment process. The manual deployment is the most complex method, but it provides valuable technical information and developmental options that will enable you to fine-tune your deployment precisely.
 
-## Configure MedTech service to ingest data
+For more information about manual deployment with portal, see [Overview of how to manually deploy the MedTech service using the Azure portal](deploy-03-new-manual.md).
 
-Under the **Basics** tab, complete the required fields under **Instance details**.
+## Deployment architecture overview
 
-![Screenshot of IoT configure instance details.](media/basics-instance-details.png#lightbox)
+The following data-flow diagram outlines the basic steps of MedTech service deployment and shows how these steps fit together with its data processing procedures. These basic steps may help you analyze the options and determine which deployment method is best for you.
 
-1. Enter the **MedTech service name**.
+:::image type="content" source="media/iot-get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architecture overview." lightbox="media/iot-get-started/get-started-with-iot.png":::
 
-   The **MedTech service name** is a friendly name for MedTech service. Enter a unique name for your IoT connector. As an example, you can name it `healthdemo-iot`.
+There are six different steps of the MedTech service PaaS. Only the first four apply to deployment. All the methods of deployment will implement each of these four steps. However, the QuickStart template method will automatically implement part of step 1 and all of step 2. The other two methods will have to implement all of the steps individually. Here's a summary of each of the four deployment steps:
 
-2. Enter the **Event Hub name**.
+### Step 1: Prerequisites
 
-   The event hub name is the name of the **Event Hubs Instance** that you've deployed. 
+- Have an Azure subscription
+- Create RBAC roles contributor and user access administrator or owner. This feature is automatically done in the Quickstart template method with the Deploy to Azure button. It isn't included in the manual or PowerShell/CLI methods and needs to be implemented individually.
 
-   For information about Azure Event Hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
+### Step 2: Provision
 
-3. Enter the **Consumer Group**.
+The QuickStart template method with the Deploy to Azure button automatically provides all these steps, but they aren't included in the manual or the PowerShell/CLI method and must be completed individually.
 
-   The Consumer Group name is located by using the **Search** bar to go to the Event Hubs instance that you've deployed and by selecting the  **Consumer groups** blade.
+- Create a resource group and workspace for Event Hubs, FHIR, and MedTech services.
+- Provision an Event Hubs instance to a namespace.
+- Provision a FHIR service instance to the same workspace.
+- Provision a MedTech service instance in the same workspace.
 
-   ![Screenshot of Consumer group name.](media/consumer-group-name.png#lightbox)
+### Step 3: Configure
 
-   For information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
+Each method needs to provide **all** these configuration details. They include: 
 
-4. Enter the name of the **Fully Qualified Namespace**.
+- Configure MedTech service to ingest data from an event hub.
+- Configure device mapping properties.
+- Configure destination mappings to an Observation resource in the FHIR service.
+- When the prerequisites, provisioning, and configuration are complete, create and deploy MedTech service.
 
-    The **Fully Qualified Namespace** is the **Host name** located on your Event Hubs Namespace's **Overview** page.
+### Step 4: Post-Deployment
 
-    ![Screenshot of Fully qualified namespace.](media/event-hub-hostname.png#lightbox)  
+Each method must add **all** these post-deployment tasks:
 
-    For more information about Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
+- Connect to services using device and destination mapping.
+- Use managed identity to grant access to the device message event hub.
+- Use managed identity to grant access to the FHIR service, enabling FHIR to receive data from the MedTech service.
+- Note: only the ARM Quickstart method requires a shared access key for post-deployment.
 
-5. Select **Next: Device mapping**. 
-  
-## Configure Device mapping properties
+### Granting access to the device message event hub
 
-> [!TIP]
-> The IoMT Connector Data Mapper is an open source tool to visualize the mapping configuration for normalizing a device's input data, and then transform it to FHIR resources. Developers can use this tool to edit and test Devices and FHIR destination mappings, and to export the data to upload to an MedTech service in the Azure portal. This tool also helps developers understand their device's Device and FHIR destination mapping configurations.
->
-> For more information, see the open source documentation:
->
-> [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)
->
-> [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping)
+For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-06-new-deploy.md#grant-access-to-the-device-message-event-hub).
 
-1. Under the **Device Mapping** tab, enter the Device mapping JSON code associated with your MedTech service.
+### Granting access to the FHIR service
 
-   ![Screenshot of Configure device mapping.](media/configure-device-mapping.png#lightbox)
-
-2. Select **Next: Destination >** to configure the destination properties associated with your MedTech service.
-
-## Configure FHIR destination mapping properties
-
-Under the **Destination** tab, enter the destination properties associated with the MedTech service.
-
-   ![Screenshot of Configure destination properties.](media/configure-destination-properties.png#lightbox)
-
-1. Enter the Azure Resource ID of the **FHIR service**.
-
-   The **FHIR Server** name (also known as the **FHIR service**) is located by using the **Search** bar to go to the FHIR service that you've deployed and by selecting the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
-
-    ![Screenshot of Enter FHIR server name.](media/fhir-service-resource-id.png#lightbox) 
-
-2. Enter the **Destination Name**.
-
-   The **Destination Name** is a friendly name for the destination. Enter a unique name for your destination. As an example, you can name it `iotmedicdevice`.
-
-3. Select **Create** or **Lookup** for the **Resolution Type**.
-
-    > [!NOTE]
-    > For the MedTech service destination to create a valid observation resource in the FHIR service, a device resource and patient resource **must** exist in the FHIR Server, so the observation can properly reference the device that created the data, and the patient the data was measured from. There are two modes the MedTech service can use to resolve the device and patient resources.
-
-   **Create**
-
-     The MedTech service destination attempts to retrieve a device resource from the FHIR Server using the device identifier included in the event hub message. It also attempts to retrieve a patient resource from the FHIR Server using the patient identifier included in the event hub message. If either resource isn't found, new resources will be created (device, patient, or both) containing just the identifier contained in the event hub message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the IoT Connector destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR Server.
-
-   **Lookup**
-
-     The MedTech service destination attempts to retrieve a device resource from the FHIR service using the device identifier included in the event hub message. If the device resource isn't found, an error will occur, and the data won't be processed. For **Lookup** to function properly, a device resource with an identifier matching the device identifier included in the event hub message **must** exist and the device resource **must** have a reference to a patient resource that also exists. In other words, when the MedTech service destination is in the Lookup mode, device and patient resources **must** be added to the FHIR Server before data can be processed.
-
-   For more information, see the open source documentation [FHIR destination mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
-
-4. Under **Destination Mapping**, enter the JSON code inside the code editor.
-
-   For information about the Mapper Tool, see [IoMT Connector Data Mapper Tool](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
-
-5. You may select **Review + create**, or you can select **Next: Tags >** if you want to configure tags.  
-
-## (Optional) Configure Tags
-
-Tags are name and value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
-
-Under the **Tags** tab, enter the tag properties associated with the MedTech service.
-
-   ![Screenshot of Tag properties.](media/tag-properties.png#lightbox)
- 
-1. Enter a **Name**.
-2. Enter a **Value**.
-3. Select **Review + create**.
-
-   You should notice a **Validation success** message like what's shown in the image below. 
-
-   ![Screenshot of Validation success message.](media/iot-connector-validation-success.png#lightbox) 
-
-   > [!NOTE]
-   > If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. It's recommended that you review the properties under each MedTech service tab that you've configured.
-
-4. Next, select **Create**.
-
-   The newly deployed MedTech service will display inside your Azure Resource groups page.
-
-   ![Screenshot of Deployed MedTech service listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png#lightbox)  
-
-    Now that your MedTech service has been deployed, we're going to walk through the steps of assigning permissions to access the event hub and FHIR service. 
-
-## Granting MedTech service access
-
-To ensure that your MedTech service works properly, it must have granted access permissions to the event hub and FHIR service. 
-
-### Accessing the MedTech service from the event hub
-
-1. In the **Azure Resource group** list, select the name of your **Event Hubs Namespace**.
-
-2. Select the **Access control (IAM)** blade, and then select **+ Add**.   
-
-   ![Screenshot of access control of Event Hubs Namespace.](media/access-control-blade-add.png#lightbox)
-
-3. Select **Add role assignment**.
-
-   ![Screenshot of add role assignment.](media/event-hub-add-role-assignment.png#lightbox)
- 
-4. Select the **Role**, and then select **Azure Event Hubs Data Receiver**.
-
-   ![Screenshot of add role assignment required fields.](media/event-hub-add-role-assignment-fields.png#lightbox)
-
-   The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive data from this event hub.
-
-   For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
-
-5. Select **Assign access to**, and keep the default option selected **User, group, or service principal**.
-
-6. In the **Select** field, enter the security principal for your MedTech service.  
-
-   `<your workspace name>/iotconnectors/<your MedTech service name>`
- 
-   When you deploy a MedTech service, it creates a managed identity. The managed identify name is a concatenation of the workspace name, resource type (that's the MedTech service), and the name of the MedTech service.
-
-7. Select **Save**.
-
-   After the role assignment has been successfully added to the event hub, a notification will display a green check mark with the text "Add Role assignment."  This message indicates that the MedTech service can now read from the event hub.
-
-   ![Screenshot of added role assignment message.](media/event-hub-added-role-assignment.png#lightbox)
-
-For more information about authoring access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
-
-### Accessing the MedTech service from the FHIR service
-
-1. In the **Azure Resource group list**, select the name of your **FHIR service**.
- 
-2. Select the **Access control (IAM)** blade, and then select **+ Add**. 
-
-3. Select **Add role assignment**.
-
-  ![Screenshot of add role assignment for the FHIR service.](media/fhir-service-add-role-assignment.png#lightbox)
-
-4. Select the **Role**, and then select **FHIR Data Writer**.
-
-   The FHIR Data Writer role provides read and write access that the MedTech service uses to function. Because the MedTech service is deployed as a separate resource, the FHIR service will receive requests from the MedTech service. If the FHIR service doesn’t know who's making the request, or if it doesn't have the assigned role, it will deny the request as unauthorized.
-
-   For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
-
-5. In the **Select** field, enter the security principal for your MedTech service.  
-
-    `<your workspace name>/iotconnectors/<your MedTech service name>`
-
-6. Select **Save**.
-
-   ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-assignment.png#lightbox)
-
-   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC](.././configure-azure-rbac.md).
+For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-06-new-deploy.md#grant-access-to-the-fhir-service).
 
 ## Next steps
 
-In this article, you've learned how to deploy a MedTech service in the Azure portal. For an overview of MedTech service, see
+In this article, you learned about the different types of deployment for MedTech service. To learn more about MedTech service, see
 
->[!div class="nextstepaction"]
->[MedTech service overview](iot-connector-overview.md)
+> [!div class="nextstepaction"]
+> [What is MedTech service?](iot-connector-overview.md).
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

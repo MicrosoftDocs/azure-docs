@@ -4,7 +4,7 @@ description: Description of managed identities for Azure resources work with Azu
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory

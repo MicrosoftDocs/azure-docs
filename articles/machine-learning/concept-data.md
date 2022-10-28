@@ -23,10 +23,11 @@ ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 Azure Machine Learning lets you bring data from a local machine or an existing cloud-based storage. In this article you will learn the main data concepts in Azure Machine Learning, including:
 
 > [!div class="checklist"]
-> - [**URIs**](#uris) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs.
-> - [**Data asset**](#data-asset) - Create data assets in your workspace to share with team members, version, and track data lineage.
-> - [**Datastore**](#datastore) - Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts.
-> - [**MLTable**](#mltable) - a method to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
+> - [**URIs**](#uris) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`. If you want to consume a file as an input of a job, You can define this job input by providing `type` as `uri_file`, `path` as where the file is.
+> - [**MLTable**](#mltable) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+> - [**Data asset**](#data-asset) - If you plan to share your data (URIs or MLTables) in your workspace to team members, or you want to track data versions, or track lineage, you can create data assets from URIs or MLTables you have. But if you didn't create data asset, you can still consume the data in jobs without lineange tracking, version management, etc.
+> - [**Datastore**](#datastore) - Azure Machine Learning Datastores securely keep the connection information(storage container name, credentials) to your data storage on Azure, so you don't have to code it in your scripts. You can use AzureML datastore uri and relative path to your data to point to your data. You can also register files/folders in your AzureML datastore into data assets.
+
 
 ## URIs
 A URI (uniform resource identifier) represents a storage location on your local computer, an attached Datastore, blob/ADLS storage, or a publicly available http(s) location. In addition to local paths (for example: `./path_to_my_data/`), several different protocols are supported for cloud storage locations:
@@ -138,7 +139,8 @@ az ml data create --file data-example.yml --version 1
 
 # [Consume data asset](#tab/cli-data-consume-example)
 
-To consume a data asset in a job, define your job specification in a YAML file the path to be `azureml:<NAME_OF_DATA_ASSET>:<VERSION>`, for example:
+To consume a registered/created data asset in a job, you can define your job specification in a YAML file, you need to specify the type of your data asset (type will be set as ` uri_folder` by default if you don't provide a type value), and you can specify the path to be `azureml:<NAME_OF_DATA_ASSET>:<VERSION>` to spare the effort of checking what is the datastore uri or storage uri (these 2 paths are also supported).
+For example:
 
 ```yml
 # hello-data-uri-file.yml
@@ -318,7 +320,7 @@ traits:
 transformations:
     - read_delimited:
         encoding: ascii
-        header: all_files_have_same_headers
+        header: all_files_same_headers
         delimiter: " "
     - keep_columns: ["store_location", "zip_code", "date", "amount", "x", "y", "z"]
     - convert_column_types:
@@ -345,6 +347,6 @@ Just like `uri_file` and `uri_folder`, you can create a data asset with `mltable
 
 - [Install and set up the CLI (v2)](how-to-configure-cli.md#install-and-set-up-the-cli-v2)
 - [Create datastores](how-to-datastore.md#create-datastores)
-- [Create data assets](how-to-create-register-data-assets.md#create-data-assets)
+- [Create data assets](how-to-create-data-assets.md#create-data-assets)
 - [Read and write data in a job](how-to-read-write-data-v2.md#read-and-write-data-in-a-job)
 - [Data administration](how-to-administrate-data-authentication.md#data-administration)

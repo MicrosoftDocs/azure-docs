@@ -10,7 +10,7 @@ ms.custom: contperf-fy21q1, deploy, cliv1, sdkv1
 ms.author: larryfr
 author: blackmist
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster with v1
@@ -31,7 +31,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. For information on connecting an AKS cluster to your workspace, see [Create and attach an Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](../how-to-troubleshoot-deployment-local.md)
+> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](how-to-troubleshoot-deployment-local.md)
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -41,9 +41,11 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](../how-to-deploy-and-where.md).
+- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -51,13 +53,13 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these variables, see [How and where to deploy models](../how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](../how-to-deploy-and-where.md).
+- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - An Azure Kubernetes Service cluster connected to your workspace. For more information, see [Create and attach an Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md).
 
-    - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
+    - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There's no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
 
 ## Understand the deployment processes
 
@@ -73,8 +75,8 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
         - Custom docker steps (see [Deploy a model using a custom Docker base image](../how-to-deploy-custom-container.md))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](../how-to-use-environments.md))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
-    1. If it is not found, it looks for a match in the global ACR
-    1. If it is not found, the system builds a new image (which will be cached and pushed to the workspace ACR)
+    1. If it isn't found, it looks for a match in the global ACR
+    1. If it isn't found, the system builds a new image (which will be cached and pushed to the workspace ACR)
 1. Downloading your zipped project file to temporary storage on the compute node
 1. Unzipping the project file
 1. The compute node executing `python <entry script> <arguments>`
@@ -83,7 +85,7 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 
 ### Azure ML router
 
-The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](../how-to-create-attach-kubernetes.md). There is one azureml-fe service per cluster, which may be running on multiple pods.
+The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](../how-to-create-attach-kubernetes.md). There's one azureml-fe service per cluster, which may be running on multiple pods.
 
 > [!IMPORTANT]
 > When using a cluster configured as __dev-test__, the self-scaler is **disabled**. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
@@ -92,7 +94,7 @@ Azureml-fe scales both up (vertically) to use more cores, and out (horizontally)
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
-When scale-up or scale-down, azureml-fe pods will be restarted to apply the cpu/memory changes. Inferencing requests are not affected by the restarts.
+When scale-up or scale-down, azureml-fe pods will be restarted to apply the cpu/memory changes. Inferencing requests aren't affected by the restarts.
 
 <a id="connectivity"></a>
 
@@ -125,7 +127,7 @@ DNS resolution within an existing VNet is under your control. For example, a fir
 | `<account>.blob.core.windows.net` | Azure Storage Account (blob storage) |
 | `api.azureml.ms` | Azure Active Directory (Azure AD) authentication |
 | `ingest-vienna<region>.kusto.windows.net` | Kusto endpoint for uploading telemetry |
-| `<leaf-domain-label + auto-generated suffix>.<region>.cloudapp.azure.com` | Endpoint domain name, if you autogenerated by Azure Machine Learning. If you used a custom domain name, you do not need this entry. |
+| `<leaf-domain-label + auto-generated suffix>.<region>.cloudapp.azure.com` | Endpoint domain name, if you autogenerated by Azure Machine Learning. If you used a custom domain name, you don't need this entry. |
 
 ### Connectivity requirements in chronological order: from cluster creation to model deployment
 
@@ -136,7 +138,7 @@ In the process of AKS create or attach, Azure ML router (azureml-fe) is deployed
 
 Right after azureml-fe is deployed, it will attempt to start and this requires to:
 * Resolve DNS for AKS API server
-* Query AKS API server to discover other instances of itself (it is a multi-pod service)
+* Query AKS API server to discover other instances of itself (it's a multi-pod service)
 * Connect to other instances of itself
 
 Once azureml-fe is started, it requires the following connectivity to function properly:
@@ -151,20 +153,20 @@ At model deployment time, for a successful model deployment AKS node should be a
 * Resolve DNS for Azure BLOBs where model is stored
 * Download models from Azure BLOBs
 
-After the model is deployed and service starts, azureml-fe will automatically discover it using AKS API and will be ready to route request to it. It must be able to communicate to model PODs.
+After the model is deployed and service starts, azureml-fe will automatically discover it using AKS API, and will be ready to route request to it. It must be able to communicate to model PODs.
 >[!Note]
 >If the deployed model requires any connectivity (e.g. querying external database or other REST service, downloading a BLOB etc), then both DNS resolution and outbound communication for these services should be enabled.
 
 ## Deploy to AKS
 
-To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](../how-to-deploy-and-where.md).
+To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > The number of models to be deployed is limited to 1,000 models per deployment (per container).
 
 <a id="using-the-cli"></a>
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -234,7 +236,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_max_replicas=4)
 ```
 
-Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds `autoscale_target_utilization`, then more replicas are created. If it is lower, then replicas are reduced. By default, the target utilization is 70%.
+Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds `autoscale_target_utilization`, then more replicas are created. If it's lower, then replicas are reduced. By default, the target utilization is 70%.
 
 Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute).
 
@@ -269,7 +271,7 @@ To __disable__ authentication, set the `auth_enabled=False` parameter when creat
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md).
+For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
 
 ### Authentication with keys
 
@@ -285,7 +287,7 @@ print(primary)
 
 ### Authentication with tokens
 
-To enable token authentication, set the `token_auth_enabled=True` parameter when you are creating or updating a deployment. The following example enables token authentication using the SDK:
+To enable token authentication, set the `token_auth_enabled=True` parameter when you're creating or updating a deployment. The following example enables token authentication using the SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
@@ -313,11 +315,11 @@ Microsoft Defender for Cloud provides unified security management and advanced t
 ## Next steps
 
 * [Use Azure RBAC for Kubernetes authorization](../../aks/manage-azure-rbac.md)
-* [Secure inferencing environment with Azure Virtual Network](../how-to-secure-inferencing-vnet.md)
+* [Secure inferencing environment with Azure Virtual Network](how-to-secure-inferencing-vnet.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
-* [Deployment troubleshooting](../how-to-troubleshoot-deployment.md)
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Update web service](../how-to-deploy-update-web-service.md)
-* [Use TLS to secure a web service through Azure Machine Learning](../how-to-secure-web-service.md)
-* [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights.md)
-* [Collect data for models in production](../how-to-enable-data-collection.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)

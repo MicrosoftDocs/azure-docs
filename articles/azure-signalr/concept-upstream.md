@@ -56,10 +56,24 @@ The URL of upstream is not encryption at rest. If you have any sensitive informa
 
 2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
 
-3. Replace your sensitive text with the syntax `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` in the Upstream URL Pattern.
+3. Replace your sensitive text with the below syntax in the Upstream URL Pattern:
+   ```
+   {@Microsoft.KeyVault(SecretUri=<secret-identity>)}
+   ```
+   `<secret-identity>` is the full data-plane URI of a secret in Key Vault, optionally including a version, e.g., https://myvault.vault.azure.net/secrets/mysecret/ or https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931
+   
+   For example, a complete reference would look like the following:
+   ```
+   {@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)}
+   ```
+   
+   An upstream URL to Azure Function would look like the following:
+   ```
+   https://contoso.azurewebsites.net/runtime/webhooks/signalr?code={@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)}
+   ```
 
 > [!NOTE]
-> The secret content only rereads when you change the Upstream settings or change the managed identity. Make sure you have granted secret read permission to the managed identity before using the Key Vault secret reference.
+> The service rereads the secret content every 30 minutes or whenever the upstream settings or managed identity changes. Try updating the Upstream settings if you'd like an immediate update when the Key Vault content is changed.
 
 ### Rule settings
 

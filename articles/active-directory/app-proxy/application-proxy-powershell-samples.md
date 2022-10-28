@@ -3,7 +3,7 @@ title: PowerShell samples for Azure Active Directory Application Proxy
 description: Use these PowerShell samples for Azure Active Directory Application Proxy to get information about Application Proxy apps and connectors in your directory, assign users and groups to apps, and get certificate information.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

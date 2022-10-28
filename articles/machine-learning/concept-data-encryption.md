@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 10/20/2022
 ---
 
 # Data encryption with Azure Machine Learning
@@ -63,7 +63,12 @@ For an example of creating a workspace using an existing Azure Container Registr
 
 ### Azure Container Instance
 
+> [!IMPORTANT]
+> Deployments to ACI rely on the Azure Machine Learning Python SDK and CLI v1.
+
 You may encrypt a deployed Azure Container Instance (ACI) resource using customer-managed keys. The customer-managed key used for ACI can be stored in the Azure Key Vault for your workspace. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
 
@@ -74,10 +79,10 @@ To use the key when deploying a model to Azure Container Instance, create a new 
 For more information on creating and using a deployment configuration, see the following articles:
 
 * [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
-* [Where and how to deploy](how-to-deploy-and-where.md)
 
+* [Where and how to deploy](./v1/how-to-deploy-and-where.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 
 ### Azure Kubernetes Service
 
@@ -114,7 +119,7 @@ You may also want to encrypt [diagnostic information logged from your deployed e
 
 Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
 
-To secure external calls made to the scoring endpoint, Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](./how-to-secure-web-service.md).
+To secure external calls made to the scoring endpoint, Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
 
 ## Data collection and handling
 
@@ -142,6 +147,6 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 * [Connect to Azure storage](how-to-access-data.md)
 * [Get data from a datastore](how-to-create-register-datasets.md)
-* [Connect to data](how-to-connect-data-ui.md)
-* [Train with datasets](how-to-train-with-datasets.md)
+* [Connect to data](v1/how-to-connect-data-ui.md)
+* [Train with datasets](v1/how-to-train-with-datasets.md)
 * [Customer-managed keys](concept-customer-managed-keys.md).

@@ -13,8 +13,6 @@ ms.custom: mimckitt
 ---
 # Design Considerations For Scale Sets
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 This article discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](./overview.md).
 
 ## When to use scale sets instead of virtual machines?
@@ -43,8 +41,6 @@ Scale sets can be created with [Azure Managed Disks](../virtual-machines/managed
 - You do not have to pre-create a set of Azure storage accounts for the scale set VMs.
 - You can define [attached data disks](virtual-machine-scale-sets-attached-disks.md) for the VMs in your scale set.
 - Scale sets can be configured to [support up to 1,000 VMs in a set](virtual-machine-scale-sets-placement-groups.md). 
-
-If you have an existing template, you can also [update the template to use Managed Disks](virtual-machine-scale-sets-convert-template-to-md.md).
 
 ### User-managed Storage
 A scale set that is not defined with Azure Managed Disks relies on user-created storage accounts to store the OS disks of the VMs in the set. A ratio of 20 VMs per storage account or less is recommended to achieve maximum IO and also take advantage of _overprovisioning_ (see below). It is also recommended that you spread the beginning characters of the storage account names across the alphabet. Doing so helps spread load across different internal systems. 

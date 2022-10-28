@@ -1,9 +1,9 @@
 This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database.  
  
-For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md).
+For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md). The following video provides an overview of on-premises provisioning.
 
->[!IMPORTANT]
->The default verbosity of the logs is set to `Verbose`. If you are using the SQL connector without Windows Integrated Auth, please set the verbosity to `Error` as described [here](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md#turn-on-verbose-logging).
+
+> [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ## Prerequisites for provisioning to a SQL Database
 
@@ -163,7 +163,7 @@ In this section, you'll create the connector configuration for your database.
      |Property|Description|
      |-----|-----|
      |DSN File|The Data Source Name file you created in the previous step, which is used to connect to the SQL instance.|
-     |User Name|The username of an account with rights to make updates to the table in the SQL instance. If the target database is SQL Server, the user name must be in the form of hostname\sqladminaccount for standalone servers or domain\sqladminaccount for domain member servers.|
+     |User Name|The username of an account with rights to make updates to the table in the SQL instance. If the target database is SQL Server and you are using Windows authentication, the user name must be in the form of hostname\sqladminaccount for standalone servers or domain\sqladminaccount for domain member servers.|
      |Password|The password of the username just provided.|
      |DN is Anchor|Unless your environment is known to require these settings, don't select the **DN is Anchor** and **Export Type:Object Replace** checkboxes.|
 
@@ -185,6 +185,10 @@ After having provided credentials, the ECMA Connector Host will be ready to retr
      |-----|-----|
      |User:Attribute Detection|Table|
      |User:Table/View/SP|Employees|
+
+    >[!NOTE]
+    >If an error occurs, check your database configuration to ensure that the user you specified on the **Connectivity** page has read access to the database's schema.
+
  7. Once you clicked **Next**, an additional page will automatically appear, for you to select the columns of the `Employees` table that are to be used as the `Anchor` and `DN` of users.  On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
      ![Screenshot that shows the Schema 3 page.](.\media\active-directory-app-provisioning-sql\conn-5.png)
 
@@ -287,7 +291,7 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
 Now you need to map attributes between the representation of the user in Azure AD and the representation of a user in the on-premises application's SQL database.
 
 #### Configure attribute mapping
- 1. In the Azure AD portal, under **Enterprise applications**, select the the **On-premises ECMA app** application, and then the **Provisioning** page.
+ 1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
  2. Select **Edit provisioning**, and wait 10 seconds.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
      ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
@@ -312,6 +316,11 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and th
 
 >[!IMPORTANT]
 >If you were signed in using a Hybrid Identity Administrator role, you need to sign-out and sign-in with an account that has the Application Administrator, Cloud Application Administrator or Global Administrator role, for this section.  The Hybrid Identity Administrator role does not have permissions to assign users to applications.
+
+
+If there are existing users in the SQL database, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
+
+Otherwise, if there are no current users of the application, then select a test user from Azure AD who will be provisioned to the application.
 
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.

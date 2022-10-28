@@ -33,7 +33,7 @@ The [Azure IoT device SDKs](#device-sdks) include support for the IoT Plug and P
 
 ### Device model
 
-A device model is defined by using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl) modeling language. This language lets you define:
+A device model is defined by using the [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) modeling language. This language lets you define:
 
 - The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
 - The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
@@ -46,7 +46,7 @@ A DTDL model can be a _no-component_ or a _multi-component_ model:
 - Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
 > [!TIP]
-> You can [export a device model](howto-set-up-template.md#interfaces-and-components) from an IoT Central device template as a DTDL v2 file.
+> You can [import and export a complete device model or individual interface](howto-set-up-template.md#interfaces-and-components) from an IoT Central device template as a DTDL v2 file.
 
 To learn more about device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
 

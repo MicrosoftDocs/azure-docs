@@ -85,7 +85,7 @@ The following list describes the levels at which you can scope access to Azure D
 
 ### Troubleshoot permissions
 
-If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshoot failed service request: Error 403 (Forbidden)](troubleshoot-error-403.md).
+If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshoot Azure Digital Twins failed service request: Error 403 (Forbidden)](troubleshoot-error-403-digital-twins.md).
 
 ## Managed identity for accessing other resources
 
@@ -115,10 +115,10 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [Ena
 
 When working with Private Link for Azure Digital Twins, here are some factors you may want to consider:
 * Pricing: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
-* Regional availability: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
+* Regional availability: Private Link for Azure Digital Twins is available in all the Azure regions where Azure Digital Twins is available. 
+* Azure Digital Twins Explorer: The [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can't access Azure Digital Twins instances that have public access disabled. You can, however, use Azure functions to deploy the Azure Digital Twins Explorer codebase privately in the cloud. For instructions on how to do this, see [Azure Digital Twins Explorer: Running in the cloud](https://github.com/Azure-Samples/digital-twins-explorer#running-in-the-cloud).
 * Maximum number of private endpoints per Azure Digital Twins instance: 10
-
-For information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
+* Other limits: For more information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
 
 ## Service tags
 

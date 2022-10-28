@@ -1,16 +1,20 @@
 ---
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/07/2022
-ms.author: aahi
+ms.date: 08/15/2022
+ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+
+Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify the language that a text sample was written in.
+
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
 
 ## Prerequisites
@@ -19,7 +23,7 @@ ms.custom: ignite-fall-2021
 * The current version of [cURL](https://curl.haxx.se/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
@@ -46,10 +50,26 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/languages/ \
+curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", text: "This is a document written in English."}]}'
+-H "Ocp-Apim-Subscription-Key:<your-language-resource-key>" \
+-d \
+'
+{
+    "kind": "LanguageDetection",
+    "parameters": {
+        "modelVersion": "latest"
+    },
+    "analysisInput":{
+        "documents":[
+            {
+                "id":"1",
+                "text": "This is a document written in English."
+            }
+        ]
+    }
+}
+'
 ```
 
 > [!div class="nextstepaction"]
@@ -60,22 +80,19 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/lan
 
 ```json
 {
-   "documents":[
-      {
-         "id":"1",
-         "detectedLanguage":{
-            "name":"English",
-            "iso6391Name":"en",
-            "confidenceScore":1.0
-         },
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2021-01-05"
+	"kind": "LanguageDetectionResults",
+	"results": {
+		"documents": [{
+			"id": "1",
+			"detectedLanguage": {
+				"name": "English",
+				"iso6391Name": "en",
+				"confidenceScore": 1.0
+			},
+			"warnings": []
+		}],
+		"errors": [],
+		"modelVersion": "2021-11-20"
+	}
 }
 ```

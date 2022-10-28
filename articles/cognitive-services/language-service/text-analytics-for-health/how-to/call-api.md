@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 09/05/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -38,7 +38,10 @@ By default, Text Analytics for health will use the latest available AI model on 
 
 | Supported Versions | latest version |
 |--|--|
+| `2022-08-15-preview` | `2022-08-15-preview`   |
+| `2022-03-01` | `2022-03-01`   |
 | `2021-05-15` | `2021-05-15`   |
+
 
 ### Text Analytics for health container
 
@@ -46,7 +49,10 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `3.0.016230002-onprem-amd64` (latest)            | `2021-05-15`  |
+| `/entities/health`              | `3.0.59413252-onprem-amd64` (latest)            | `2022-03-01`  |
+| `/entities/health`              | `3.0.59413252-latin-onprem-amd64` (latin)            | `2022-08-15-preview`  |
+| `/entities/health`              | `3.0.59413252-semitic-onprem-amd64` (semitic)            | `2022-08-15-preview`  |
+| `/entities/health`              | `3.0.016230002-onprem-amd64`            | `2021-05-15`  |
 | `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
 | `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
@@ -56,7 +62,7 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 ### Input languages
 
-Currently the Text Analytics for health only [supports](../language-support.md) the English language. 
+The Text Analytics for health supports English in addition to multiple languages that are currently in preview. You can use the hosted API or deploy the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
 
 ## Submitting data
 
@@ -68,6 +74,17 @@ To send an API request, You will need your Language resource endpoint and key.
 Analysis is performed upon receipt of the request. If you send a request using the REST API or client library, the results will be returned asynchronously. If you're using the Docker container, they will be returned synchronously.  
 
 [!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
+
+
+## Submitting a Fast Healthcare Interoperability Resources (FHIR) request
+
+To receive your result using the **FHIR** structure, you must send the FHIR version in the API request body. You can also send the **document type** as a parameter to the FHIR API request body. If the request does not specify a document type, the value is set to none.
+
+| Parameter Name  | Type |  Value |
+|--|--|--|
+| fhirVersion |  string  | `4.0.1` |
+| documentType | string | `ClinicalTrial`, `Consult`, `DischargeSummary`,  `HistoryAndPhysical`, `Imaging`, `None`, `Pathology`, `ProcedureNote`, `ProgressNote`|
+
 
 
 ## Getting results from the feature

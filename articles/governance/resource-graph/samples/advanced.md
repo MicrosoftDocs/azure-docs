@@ -20,7 +20,7 @@ We'll walk through the following advanced queries:
 - [Remove columns from results](#remove-column)
 - [List all tag names](#list-all-tags)
 - [Virtual machines matched by regex](#vm-regex)
-- [List Cosmos DB with specific write locations](#mvexpand-cosmosdb)
+- [List Azure Cosmos DB with specific write locations](#mvexpand-cosmosdb)
 - [Key vaults with subscription name](#join)
 - [List SQL Databases and their elastic pools](#join-sql)
 - [List virtual machines with their network interface and public IP](#join-vmpip)
@@ -228,7 +228,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="mvexpand-cosmosdb"></a>List Cosmos DB with specific write locations
+## <a name="mvexpand-cosmosdb"></a>List Azure Cosmos DB with specific write locations
 
 The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag
 for **properties.writeLocations**, then project specific fields and limit the results further to
@@ -603,7 +603,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networkinter
 
 ## <a name="vm-powerstate"></a>Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../concepts/query-language.md#extended-properties-preview) on
+This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.
 
 ```kusto

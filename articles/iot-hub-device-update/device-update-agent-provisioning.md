@@ -1,8 +1,8 @@
 ---
 title: Provisioning Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Provisioning Device Update for Azure IoT Hub Agent
-author: ValOlson
-ms.author: valls
+author: eross-msft
+ms.author: lizross
 ms.date: 1/26/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
@@ -105,10 +105,10 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
         sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
         ```
 	
-    - For any 'rc' i.e. release candidate agent versions from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) : Download the .dep file to the machine you want to install the Device Update agent on, then:
+    - For any 'rc' i.e. release candidate agent versions from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) : Download the .deb file to the machine you want to install the Device Update agent on, then:
    
         ```shell
-        sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
+        sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEB FILE NAME>"
         ```
 	
 1. You are now ready to start the Device Update agent on your IoT Edge device. 

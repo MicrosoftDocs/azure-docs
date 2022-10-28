@@ -2,7 +2,7 @@
 title: Handling errors in Durable Functions - Azure
 description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 07/01/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 ---
@@ -122,8 +122,16 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
+By default, cmdlets in PowerShell do not raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
+
+1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
+2. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
+
 ```powershell
 param($Context)
+
+$ErrorActionPreference = "Stop"
+
 $transferDetails = $Context.Input
 
 Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
@@ -134,6 +142,8 @@ try {
     Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
 }
 ```
+
+For more information on error handling in PowerShell, see the [Try-Catch-Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell documentation.
 
 # [Java](#tab/java)
 

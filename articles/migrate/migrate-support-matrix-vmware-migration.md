@@ -46,7 +46,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 --- | ---
 **Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x <br/> - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x <br/> - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 **Boot requirements** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **Disk size** | up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
@@ -58,7 +58,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
-**Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
+**Storage vMotion** | Supported. 
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
@@ -120,7 +120,7 @@ This table summarizes assessment support and limitations for VMware virtualizati
 **VMware requirements** | **Details**
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
-**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, or 6.7.
+**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
 **vCenter Server permissions** | A read-only account for vCenter Server.
 
 ### VM requirements (agent-based)

@@ -122,7 +122,7 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following section can help identify the probable cause and suggested steps to resolve your problem. 
 
-If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc ](../azure-arc/servers/troubleshoot-agent-onboard.md)
+If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](../azure-arc/servers/troubleshoot-agent-onboard.md)
 
 ### Error 60001 - UnableToConnectToPhysicalServer  
 

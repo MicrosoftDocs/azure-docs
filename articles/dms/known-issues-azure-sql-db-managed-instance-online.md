@@ -2,7 +2,7 @@
 title: Known issues and limitations with online migrations to Azure SQL Managed Instance
 description: Learn about known issues/migration limitations associated with online migrations to Azure SQL Managed Instance.
 services: database-migration
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
@@ -18,7 +18,7 @@ ms.date: 02/20/2020
 Known issues and limitations that are associated with online migrations from SQL Server to Azure SQL Managed Instance are described below.
 
 > [!IMPORTANT]
-> With online migrations of SQL Server to Azure SQL Database, migration of SQL_variant data types is not supported.
+> With online migrations of SQL Server to Azure SQL Managed Instance, migration of SQL_variant data types is not supported.
 
 ## Backup requirements
 
@@ -59,7 +59,9 @@ Known issues and limitations that are associated with online migrations from SQL
 
     SQL Managed Instance is a PaaS service with automatic patching and version updates. During migration of your SQL Managed Instance, non-critical updates are held for up to 36 hours. Afterwards (and for critical updates), if the migration is disrupted, the process resets to a full restore state.
 
-    Migration cutover can only be called after the full backup is restored and catches up with all log backups. If your production migration cutovers are affected, contact the [Azure DMS Feedback alias](mailto:dmsfeedback@microsoft.com).
+    Migration cutover can only be called after the full backup is restored and catches up with all log backups. If your production migration cutovers are affected by unexpected issues, [open a support ticket to get assistance](https://azure.microsoft.com/support/create-ticket/).
+    
+    You can submit ideas/suggestions for improvement, and other feedback, including bugs in the [Azure Community forum — Azure Database Migration Service](https://feedback.azure.com/d365community/forum/2dd7eb75-ef24-ec11-b6e6-000d3a4f0da0).
 
 ## SMB file share connectivity
 

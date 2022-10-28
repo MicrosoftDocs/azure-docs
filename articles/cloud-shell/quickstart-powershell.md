@@ -4,7 +4,7 @@ description: Learn how to use the PowerShell in your browser with Azure Cloud Sh
 author: maertendmsft
 ms.author: damaerte
 tags: azure-resource-manager
-ms.service: azure
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
@@ -35,13 +35,19 @@ Run regular PowerShell commands in the Cloud Shell, such as:
 
 ```azurepowershell-interactive
 PS Azure:\> Get-Date
+```
 
-# Expected Output
+```output
+# You will see output similar to the following:
 Friday, July 27, 2018 7:08:48 AM
+```
 
+```azurepowershell-interactive
 PS Azure:\> Get-AzVM -Status
+```
 
-# Expected Output
+```output
+# You will see output similar to the following:
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
 -----------------       ----       --------                ------   ------     -----------------  ----------
 MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
@@ -55,7 +61,10 @@ You can find all your virtual machines under the current subscription via `Virtu
 
 ```azurepowershell-interactive
 PS Azure:\MySubscriptionName\VirtualMachines> dir
+```
 
+```output
+# You will see output similar to the following:
     Directory: Azure:\MySubscriptionName\VirtualMachines
 
 
@@ -83,7 +92,9 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
+  ```
 
+  ```output
   # You will see output similar to the following:
 
   PSComputerName                                          : 65.52.28.207
@@ -119,7 +130,10 @@ By entering into the `WebApps` directory, you can easily navigate your web apps 
 
 ```azurepowershell-interactive
 PS Azure:\MySubscriptionName> dir .\WebApps\
+```
 
+```output
+# You will see output similar to the following:
     Directory: Azure:\MySubscriptionName\WebApps
 
 Name            State    ResourceGroup      EnabledHostNames                  Location
@@ -127,17 +141,27 @@ Name            State    ResourceGroup      EnabledHostNames                  Lo
 mywebapp1       Stopped  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
 mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
+```
 
+```azurepowershell-interactive
 # You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+```
 
+```output
+# You will see output similar to the following:
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
+```
 
+```azurepowershell-interactive
 # Refresh the current state with -Force
 PS Azure:\MySubscriptionName\WebApps> dir -Force
+```
 
+```output
+# You will see output similar to the following:
     Directory: Azure:\MySubscriptionName\WebApps
 
 Name            State    ResourceGroup      EnabledHostNames                  Location

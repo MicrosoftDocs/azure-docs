@@ -1,3 +1,4 @@
+items:
 - name: Fundamentals documentation
   href: index.yml
 - name: Overview
@@ -5,38 +6,146 @@
   items:
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
-  - name: Compare Azure AD with ADDS
-    href: active-directory-compare-azure-ad-to-ad.md
-  - name: What's new in Azure Active Directory
-    href: whats-new.md
-- name: Quickstarts
+- name: First steps
   expanded: true
   items:
-  - name: Access the portal and create a tenant
+  - name: Create a Directory
     href: active-directory-access-create-new-tenant.md
-  - name: View your groups with assigned members
-    href: active-directory-groups-view-azure-portal.md
-- name: Concepts
-  expanded: true
+  - name: Add a custom domain name
+    href: add-custom-domain.md
+  - name: Associate an Azure subscription
+    href: active-directory-how-subscriptions-associated-directory.md
+  - name: Add your privacy info
+    href: active-directory-properties-area.md
+  - name: Add company branding
+    href: customize-branding.md
+- name: Users, groups, and licenses
+  expanded: false
   items:
-  - name: Groups and users
-    items:
-    - name: Groups and access management
-      href: active-directory-manage-groups.md
-    - name: Group-based licensing
-      href: active-directory-licensing-whatis-azure-portal.md
+  - name: Create or delete a user
+    href: add-users-azure-active-directory.md
+  - name: Apply licenses to users
+    href: license-users-groups.md
+  - name: Manage users
+    expanded: false
+    items: 
+    - name: Update user info
+      href: active-directory-users-profile-azure-portal.md
+    - name: Assign roles to users
+      href: active-directory-users-assign-role-azure-portal.md
+    - name: Reset a user's password
+      href: active-directory-users-reset-password-azure-portal.md
+    - name: Restore a deleted user
+      href: active-directory-users-restore.md
     - name: Default user permissions
       href: users-default-permissions.md
+  - name: Manage groups
+    expanded: false
+    items:
+    - name: Learn about groups
+      href: concept-learn-about-groups.md
+    - name: Create a group and add members
+      href: active-directory-groups-view-azure-portal.md
+    - name: Manage groups
+      href: how-to-manage-groups.md
+  - name: Manage licenses
+    expanded: false
+    items: 
+    - name: Group-based licensing
+      href: active-directory-licensing-whatis-azure-portal.md
+    - name: Sign up for Azure AD Premium
+      href: active-directory-get-started-premium.md 
+- name: Quick security wins
+  expanded: false
+  items:
+  - name: Enable MFA
+    href: concept-fundamentals-mfa-get-started.md
+  - name: Identity secure score
+    href: identity-secure-score.md
+  - name: Secure remote workers
+    href: concept-secure-remote-workers.md
+  - name: Integrating all your apps with Azure AD
+    href: five-steps-to-full-application-integration-with-azure-ad.md
+  - name: Deployment 30, 90, and beyond
+    href: active-directory-deployment-checklist-p2.md
+  - name: Security defaults
+    href: concept-fundamentals-security-defaults.md
+  - name: Block less secure authentications
+    href: ../conditional-access/block-legacy-authentication.md?toc=/azure/active-directory/fundamentals/toc.json
+- name: Support and help
+  expanded: false
+  items:
+  - name: Find your tenant ID
+    href: active-directory-how-to-find-tenant.md
+  - name: Get support for Azure AD
+    href: how-to-get-support.md
+- name: Reference
+  expanded: false
+  items:
+  - name: What's new?
+    expanded: false
+    items:
+    - name: What's new in Azure Active Directory
+      href: whats-new.md
+    - name: What's new in sovereign clouds?
+      href: whats-new-sovereign-clouds.md  
+    - name: Archive for What's new? in Azure AD
+      href: whats-new-archive.md
+  - name: Frequently asked questions
+    href: active-directory-faq.yml
+  - name: Compliance
+    expanded: false
+    items:
+    - name: Identity data storage for Europe
+      href: active-directory-data-storage-eu.md
+    - name: Customer data storage for Australia and New Zealand
+      href: active-directory-data-storage-australia.md
+    - name: Identity data storage for Australia and New Zealand
+      href: active-directory-data-storage-australia-newzealand.md
+    - name: Identity data storage for Japan
+      href: active-directory-data-storage-japan.md
+  - name: Compare Azure AD with AD DS
+    href: active-directory-compare-azure-ad-to-ad.md
   - name: Custom security attributes
-    href: custom-security-attributes-overview.md
+    expanded: false
+    items:
+    - name: What are custom security attributes
+      href: custom-security-attributes-overview.md
+    - name: Add or deactivate attributes
+      href: custom-security-attributes-add.md
+    - name: Manage access to attributes
+      href: custom-security-attributes-manage.md
+    - name: Troubleshoot attributes
+      href: custom-security-attributes-troubleshoot.md
+  - name: Frontline worker management
+    href: frontline-worker-management.md
+- name: Identity architecture and deployment
+  expanded: false
+  items:
   - name: Architecture
     items:
     - name: Azure AD architecture
       href: active-directory-architecture.md
-    - name: Integrating all your apps with Azure AD
-      href: five-steps-to-full-application-integration-with-azure-ad.md
+    - name: Road to the cloud
+      items:
+      - name: Introduction
+        href: road-to-the-cloud-introduction.md
+      - name: Cloud transformation posture
+        href: road-to-the-cloud-posture.md
+      - name: Establish an Azure AD footprint
+        href: road-to-the-cloud-establish.md
+      - name: Implement a cloud-first approach
+        href: road-to-the-cloud-implement.md
+      - name: Transition to the cloud
+        href: road-to-the-cloud-migrate.md
     - name: Parallel identity options
       href: azure-active-directory-parallel-identity-options.md
+    - name: Automate identity provisioning to applications
+      items:
+      - name: Automate identity provisioning to applications introduction
+        href: automate-provisioning-to-applications-introduction.md
+      - name: Solutions to automate identity provisioning to applications
+        href: automate-provisioning-to-applications-solutions.md
     - name: Multi-tenant user management
       items:
       - name: Multi-tenant user management introduction
@@ -66,7 +175,7 @@
       - name: Remote desktop gateway authentication
         href: auth-remote-desktop-gateway.md
       - name: SAML authentication
-        href: auth-saml.md  
+        href: auth-saml.md
       - name: SSH authentication
         href: auth-ssh.md
       - name: Windows authentication - KCD
@@ -74,7 +183,7 @@
       - name: Directory synchronization
         href: sync-directory.md
       - name: LDAP synchronization
-        href: sync-ldap.md                
+        href: sync-ldap.md
       - name: SCIM synchronization
         href: sync-scim.md
     - name: Recoverability
@@ -96,7 +205,7 @@
         - name: Credential management
           href: resilience-in-credentials.md
         - name: Device states
-          href: resilience-with-device-states.md     
+          href: resilience-with-device-states.md
         - name: Continuous access evaluation
           href: resilience-with-continuous-access-evaluation.md
         - name: External user authentication
@@ -126,21 +235,31 @@
         - name: Daemon applications
           href: resilience-daemon-app.md
         - name: OpenID Connect metadata refresh
-          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md
+          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md?toc=/azure/active-directory/fundamentals/toc.json
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
     - name: Certificate authorities used in Azure
       href: certificate-authorities.md
+    - name: Secure with Azure Active Directory
+      items:
+      - name: Introduction
+        href: secure-with-azure-ad-introduction.md
+      - name: Fundamentals
+        href: secure-with-azure-ad-fundamentals.md
+      - name: Resource management
+        href: secure-with-azure-ad-resource-management.md
+      - name: Delegating administration in a single tenant
+        href: secure-with-azure-ad-single-tenant.md
+      - name: Delegating administration in multiple tenants
+        href: secure-with-azure-ad-multiple-tenants.md
+      - name: Best practices
+        href: secure-with-azure-ad-best-practices.md
   - name: Deployment guide
     items:
-    - name: Deployment 30, 90, and beyond
-      href: active-directory-deployment-checklist-p2.md
     - name: Azure Active Directory deployment plans
       href: active-directory-deployment-plans.md
     - name: Azure Active Directory B2C deployment plans
       href: azure-active-directory-b2c-deployment-plans.md
-  - name: Frontline worker management
-    href: frontline-worker-management.md
   - name: Azure AD Operations reference
     items:
     - name: Introduction
@@ -163,6 +282,8 @@
         href: security-operations-introduction.md
       - name: Security operations for user accounts
         href: security-operations-user-accounts.md
+      - name: Security operations for consumer accounts
+        href: security-operations-consumer-accounts.md
       - name: Security operations for privileged accounts
         href: security-operations-privileged-accounts.md
       - name: Security operations for PIM
@@ -174,7 +295,7 @@
       - name: Security operations for Infrastructure
         href: security-operations-infrastructure.md
     - name: Protect Microsoft 365 from on-premises attacks 
-      href: protect-m365-from-on-premises-attacks.md    
+      href: protect-m365-from-on-premises-attacks.md
     - name: Secure external collaboration
       items:
       - name: Secure external access overview 
@@ -206,7 +327,7 @@
       - name: Secure service principals
         href: service-accounts-principal.md
       - name: Govern Azure service accounts
-        href: service-accounts-governing-azure.md       
+        href: service-accounts-governing-azure.md
       - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Secure group MSAs
@@ -219,93 +340,3 @@
         href: service-accounts-user-on-premises.md
       - name: Govern on-premises user service accounts
         href: service-accounts-govern-on-premises.md
-    - name: Enable MFA
-      href: concept-fundamentals-mfa-get-started.md
-    - name: Security defaults
-      href: concept-fundamentals-security-defaults.md
-    - name: Block legacy authentication
-      href: concept-fundamentals-block-legacy-authentication.md
-    - name: Identity secure score
-      href: identity-secure-score.md
-    - name: Secure remote workers
-      href: concept-secure-remote-workers.md
-- name: How-to guides
-  expanded: true
-  items:
-  - name: Organization
-    items:
-    - name: Sign up for Azure AD as an organization
-      href: sign-up-organization.md
-    - name: Sign up for Azure AD Premium
-      href: active-directory-get-started-premium.md    
-    - name: Add a custom domain name
-      href: add-custom-domain.md
-    - name: Add company branding
-      href: customize-branding.md
-    - name: Add your privacy info
-      href: active-directory-properties-area.md
-    - name: Configure 'Stay signed in?'
-      href: keep-me-signed-in.md
-    - name: Associate an Azure subscription
-      href: active-directory-how-subscriptions-associated-directory.md
-  - name: Users
-    items:
-    - name: Add or delete a new user
-      href: add-users-azure-active-directory.md
-    - name: Add or change user profile info
-      href: active-directory-users-profile-azure-portal.md
-    - name: Reset a user's password
-      href: active-directory-users-reset-password-azure-portal.md
-    - name: Assign roles to users
-      href: active-directory-users-assign-role-azure-portal.md
-    - name: Assign or remove licenses from users
-      href: license-users-groups.md
-    - name: Restore a deleted user
-      href: active-directory-users-restore.md
-  - name: Groups
-    items:
-    - name: Create a group and add members
-      href: active-directory-groups-create-azure-portal.md
-    - name: Add or remove group members
-      href: active-directory-groups-members-azure-portal.md
-    - name: Delete a group and its members
-      href: active-directory-groups-delete-group.md
-    - name: Add or remove a group from another group
-      href: active-directory-groups-membership-azure-portal.md
-    - name: Edit group information
-      href: active-directory-groups-settings-azure-portal.md
-    - name: Add or remove group owners
-      href: active-directory-accessmanagement-managing-group-owners.md
-    - name: Manage access to resources with groups
-      href: active-directory-manage-groups.md
-  - name: Custom security attributes
-    items:
-    - name: Add or deactivate attributes
-      href: custom-security-attributes-add.md
-    - name: Manage access to attributes
-      href: custom-security-attributes-manage.md
-    - name: Troubleshoot attributes
-      href: custom-security-attributes-troubleshoot.md
-- name: Troubleshooting
-  expanded: true
-  items:
-  - name: How to find tenant ID
-    href: active-directory-how-to-find-tenant.md
-  - name: Get support for Azure Active Directory
-    href: active-directory-troubleshooting-support-howto.md
-  - name: Support and help options for Azure AD
-    href: support-help-options.md
-- name: Reference
-  items:
-  - name: What's new in Microsoft 365 Government
-    href: whats-new-microsoft-365-government.md
-  - name: Archive for What's new? in Azure AD
-    href: whats-new-archive.md
-  - name: Data storage
-    items:
-    - name: Identity data storage for Europe
-      href: active-directory-data-storage-eu.md
-    - name: Identity data storage for Australia and New Zealand
-      href: active-directory-data-storage-australia-newzealand.md
-    - name: Identity data storage for Japan
-      href: active-directory-data-storage-japan.md

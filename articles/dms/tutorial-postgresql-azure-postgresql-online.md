@@ -3,13 +3,13 @@ title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online via
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the CLI.
 services: dms
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019, devx-track-azurecli"
+ms.custom: seo-lt-2019, devx-track-azurecli, ignite-2022
 ms.topic: tutorial
 ms.date: 04/11/2020
 ---
@@ -47,7 +47,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > * Storage endpoint
     > * Service bus endpoint
     >
@@ -83,12 +83,12 @@ To complete all the database objects like table schemas, indexes and stored proc
 1. Use pg_dump -s command to create a schema dump file for a database. 
 
     ```
-    pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
+    pg_dump -O -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
 
     For example, to dump a schema file dvdrental database:
     ```
-    pg_dump -o -h localhost -U postgres -d dvdrental -s  > dvdrentalSchema.sql
+    pg_dump -O -h localhost -U postgres -d dvdrental -s  > dvdrentalSchema.sql
     ```
 
     For more information about using the pg_dump utility, see the examples in the [pg-dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html#PG-DUMP-EXAMPLES) tutorial.
@@ -344,7 +344,7 @@ To complete all the database objects like table schemas, indexes and stored proc
         az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output
         ```
 
-    * You can also use [JMESPATH](https://jmespath.org/) query format to only extract the migrationState from the expand output:
+    * You can also use [JMESPath](/cli/azure/query-azure-cli) query format to only extract the migrationState from the expand output:
 
         ```azurecli
         az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output --query 'properties.output[].migrationState'

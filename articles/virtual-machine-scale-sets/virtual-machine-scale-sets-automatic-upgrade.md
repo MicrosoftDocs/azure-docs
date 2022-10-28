@@ -6,14 +6,12 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 07/29/2021
+ms.date: 08/24/2022
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Enabling automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
@@ -27,6 +25,9 @@ Automatic OS upgrade has the following characteristics:
 - The OS Disk of a VM is replaced with the new OS Disk created with latest image version. Configured extensions and custom data scripts are run, while persisted data disks are retained.
 - [Extension sequencing](virtual-machine-scale-sets-extension-sequencing.md) is supported.
 - Can be enabled on a scale set of any size.
+
+> [!NOTE]
+>Before enabling automatic OS image upgrades, check [requirements section](#requirements-for-configuring-automatic-os-image-upgrade) of this documentation.
 
 ## How does automatic OS image upgrade work?
 
@@ -74,24 +75,45 @@ The following platform SKUs are currently supported (and more are added periodic
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Canonical               | UbuntuServer  | 16.04-LTS          |
-| Canonical               | UbuntuServer  | 18.04-LTS          |
+| Canonical               | UbuntuServer  | 18.04-LTS          |  
+| Canonical               | UbuntuServer  | 18_04-LTS-Gen2          |  
+| Canonical               | 0001-com-ubuntu-server-focal  | 20_04-LTS          |                   
+| Canonical               | 0001-com-ubuntu-server-focal  | 20_04-LTS-Gen2     | 
+| Canonical               | 0001-com-ubuntu-server-jammy  | 22_04-LTS    | 
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-1      |                 
+| MicrosoftCblMariner     | Cbl-Mariner   | 1-Gen2             |                   
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2                        
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2-Gen2 |    
+| MicrosoftSqlServer      | Sql2017-ws2019| enterprise |   
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gensecond    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gs        |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-containers-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
-| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk |
-| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core-with-Containers |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gensecond |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gs |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |                 
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers-gs |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk-g2 |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-g2 |
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
 
 
 ## Requirements for configuring automatic OS image upgrade
 
 - The *version* property of the image must be set to *latest*.
-- Use application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md) for non-Service Fabric scale sets, or Service Fabric scale sets on Bronze durability with Stateless-only node types.
+- Must use application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md) for non-Service Fabric scale sets. For Service Fabric requirements, see [Service Fabric requirement](#service-fabric-requirements).
 - Use Compute API version 2018-10-01 or higher.
 - Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
 - For scale sets using Windows virtual machines, starting with Compute API version 2019-03-01, the property *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
@@ -99,7 +121,7 @@ The following platform SKUs are currently supported (and more are added periodic
 ### Service Fabric requirements
 
 If you are using Service Fabric, ensure the following conditions are met:
--	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze (except Stateless-only node types, which do support automatic OS image upgrades).
+-	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types supports automatic OS image upgrades).
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
 - An additional health probe or use of application health extension is not required for Silver or Gold durability. Bronze durability with Stateless-only node types requires an additional health probe.
@@ -125,7 +147,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition.
 
 > [!NOTE]
-> **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the scale set. When there are changes in the scale set template, the Upgrade Policy `mode` will determine what happens to existing instances in the scale set. However, Automatic OS Upgrade Policy `enableAutomaticOSUpgrade` is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image. 
+> **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the scale set. When there are changes in the scale set template, the Upgrade Policy `mode` will determine what happens to existing instances in the scale set. However, Automatic OS Upgrade Policy `enableAutomaticOSUpgrade` is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image.
 
 ### REST API
 The following example describes how to set automatic OS upgrades on a scale set model:

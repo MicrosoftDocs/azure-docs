@@ -4,8 +4,8 @@ description: Learn how to upgrade an Azure Red Hat OpenShift cluster running Ope
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 1/10/2021
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure, MUO, managed, upgrade, operator
 #Customer intent: I need to understand how to upgrade my Azure Red Hat OpenShift cluster running OpenShift 4.
 ---

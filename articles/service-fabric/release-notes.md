@@ -1,8 +1,12 @@
 ---
 title: Azure Service Fabric releases
 description: Release notes for Azure Service Fabric. Includes information on the latest features and improvements in Service Fabric.
-ms.date: 04/13/2021
-ms.topic: conceptual
+ms.date: 07/14/2022
+ms.topic: reference
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
 hide_comments: true
 hideEdit: true
 ---
@@ -25,7 +29,7 @@ We are excited to announce that 9.0 release of the Service Fabric runtime has st
 ### Key announcements
 - **General Availability** Support for .NET 6.0
 - **General Availability** Support for Ubuntu 20.04
-- **General Availability** Support for Multi-AZ within a single VM Scale Set (VMSS)
+- **General Availability** Support for Multi-AZ within a single virtual machine scale set
 - Added support for IHost, IHostBuilder and Minimal Hosting Model
 - Enabling opt-in option for Data Contract Serialization (DCS) based remoting exception
 - Support creation of End-to-End Developer Experience for Linux development on Windows using WSL2
@@ -40,12 +44,19 @@ We are excited to announce that 9.0 release of the Service Fabric runtime has st
 - Introduced a property in Service Fabric runtime that can be set via SFRP as the ARM resource ID
 - Exposed application type provision timestamp
 - Support added for Service Fabric Resource Provider (SFRP) metadata to application type + version entities, starting with ARM resource ID
+- Windows Server 2022 is now supported as of the 9.0 CU2 release.
+- Mirantis Container runtime support on Windows for Service Fabric containers
+- The Microsoft Web Platform Installer (WebPI) used for installing Service Fabric SDK and Tools was retired on July 1, 2022.
+- Azure Service Fabric will block deployments that do not meet Silver or Gold durability requirements starting on 9/30/2022. 5 VMs or more will be enforced with this change to help avoid data loss from VM-level    infrastructure requests for production workloads. Enforcement for existing clusters will be rolled out in the coming months.
+- Azure Service Fabric node types with VMSS durability of Silver or Gold should always have Windows update explicitly disabled to avoid unintended OS restarts due to the Windows updates, which can impact the production workloads. This can be done by setting the "enableAutomaticUpdates": false, in the VMSS OSProfile. Consider enabling Automatic VMSS Image upgrades instead. The deployments will start failing from 09/30/2022 for new clusters, if the WindowsUpdates are not disabled on the VMSS. Enforcement for existing clusters will be rolled out in the coming months.
 
 ### Service Fabric 9.0 releases
 | Release date | Release | More info |
 |---|---|---|
 | April 29, 2022 | [Azure Service Fabric 9.0](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-9-0-release/ba-p/3299108)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90.md)|
 | June 06, 2022 | [Azure Service Fabric 9.0 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-0-first-refresh-release/ba-p/3469489)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU1.md)|
+| July 14, 2022 | [Azure Service Fabric 9.0 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-0-second-refresh-release/ba-p/3575842)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU2.md)|
+| September 13, 2022 | [Azure Service Fabric 9.0 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-0-third-refresh-update-release/ba-p/3631367)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU3.md)|
 
 
 ## Service Fabric 8.2
@@ -62,6 +73,7 @@ We are excited to announce that 8.2 release of the Service Fabric runtime has st
 | December 16, 2021 | [Azure Service Fabric 8.2 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-8-2-first-refresh-release/ba-p/3040415)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU1.md)|
 | February 12, 2022 | [Azure Service Fabric 8.2 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-8-2-second-refresh-release/ba-p/3095454)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU2.md)|
 | June 06, 2022 | [Azure Service Fabric 8.2 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-8-2-third-refresh-release/ba-p/3469508)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU3.md)|
+| July 14, 2022 | [Azure Service Fabric 8.2 Fourth Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-8-2-fourth-refresh-release/ba-p/3575845)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU4.md)|
 
 
 ## Service Fabric 8.1

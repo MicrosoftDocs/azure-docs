@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 09/06/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
 
 >[!NOTE]
 >Currently, Azure Synapse lake databases are not supported.
@@ -137,10 +137,11 @@ The steps below will set permissions for all three.
 
 ### Apply permissions to scan the contents of the workspace
 
-You can set up authentication for an Azure Synapse source in either of two ways. Select your scenario below for steps to apply permissions.
+You can set up authentication for an Azure Synapse source any of the following options. Select your scenario below for steps to apply permissions.
 
 - Use a managed identity
 - Use a service principal
+- Use SQL Authentication
 
 > [!IMPORTANT]
 > These steps for serverless databases **do not** apply to replicated databases. Currently in Synapse, serverless databases that are replicated from Spark databases are read-only. For more information, go [here](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-isnt-allowed-for-a-replicated-database).
@@ -229,22 +230,59 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
     ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
 
+# [SQL Authentication](#tab/SQLAuth)
+
+#### Use SQL Authentication for dedicated SQL databases
+
+> [!NOTE]
+> You must first set up a new *credential* of type *SQL Authentication* by following the instructions in [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
+
+1. Go to your **Azure Synapse workspace**.
+1. Go to the **Data** section, and then look for one of your dedicated SQL databases.
+1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
+1. Add the **SQL Authentication login name** as **db_datareader** on the dedicated SQL database. You do so by running the following command in your SQL script:
+
+    ```sql
+    CREATE USER [SQLUser] FROM LOGIN [SQLUser];
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [SQLUser]; 
+    GO
+    ```
+
+> [!NOTE]
+> Repeat the previous step for all dedicated SQL databases in your Synapse workspace. 
+
+#### Use SQL Authentication for serverless SQL databases
+
+1. Go to your Azure Synapse workspace.
+1. Go to the **Data** section, and then look for one of your serverless SQL databases.
+1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
+1. Add the **SQL Authentication login name** on the serverless SQL databases. You do so by running the following command in your SQL script:
+    ```sql
+    CREATE USER [SQLUser] FROM LOGIN [SQLUser];
+    GO
+    ```
+    
+1. Add **Service Principal ID** as **db_datareader** on each of the serverless SQL databases you want to scan. You do so by running the following command in your SQL script:
+   ```sql
+   ALTER ROLE db_datareader ADD MEMBER [SQLUser];
+   GO
+    ```
 ---
 
 ### Set up Azure Synapse workspace firewall access
 
 1. In the Azure portal, go to the Azure Synapse workspace. 
 
-1. On the left pane, select **Firewalls**.
+1. On the left pane, select **Networking**.
 
 1. For **Allow Azure services and resources to access this workspace** control, select **ON**.
 
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, we do not support setting up scans for an Azure Synapse workspace from the Microsoft Purview governance portal, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. In this case:
->  - You can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
->  - You must use **SQL Auth** as authentication mechanism.
+> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, to scan serverless DBs, you can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to set up scan. Refer to [this example](#set-up-scan-using-api).
 
 ### Create and run scan
 
@@ -274,6 +312,45 @@ To create and run a new scan, do the following:
 1. Review your scan, and then select **Save** to complete the setup.  
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+### Set up scan using API
+
+Here is an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings.
+
+```http
+PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_source_name>/scans/{scan_name}?api-version=2022-02-01-preview
+```
+
+```json
+{
+    "properties":{
+        "resourceTypes":{
+            "AzureSynapseServerlessSql":{
+                "scanRulesetName":"AzureSynapseSQL",
+                "scanRulesetType":"System",
+                "resourceNameFilter":{
+                    "resources":[ "{serverless_database_name_1}", "{serverless_database_name_2}", ...]
+                }
+            }
+        },
+        "credential":{
+            "referenceName":"{credential_name}",
+            "credentialType":"SqlAuth | ServicePrincipal | ManagedIdentity (if UAMI authentication)"
+        },
+        "collection":{
+            "referenceName":"{collection_name}",
+            "type":"CollectionReference"
+        },
+        "connectedVia":{
+            "referenceName":"{integration_runtime_name}",
+            "integrationRuntimeType":"SelfHosted (if self-hosted IR) | Managed (if VNet IR)"
+        }
+    },
+    "kind":"AzureSynapseWorkspaceCredential | AzureSynapseWorkspaceMsi (if system-assigned managed identity authentication)"
+}
+```
+
+To schedule the scan, additionally create a trigger for it after scan creation, refer to [Triggers - Create Trigger](/rest/api/purview/scanningdataplane/triggers/create-trigger).
 
 ## Next steps
 

@@ -32,12 +32,14 @@ landingContent:
             url: catalog-permissions.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
+          - text: Share and receive data
+            url: concept-data-share.md
           - text: Data classification
             url: concept-classification.md
       - linkListType: learn
         links:
           - text: Introduction to Microsoft Purview
-            url: /learn/modules/intro-to-azure-purview/
+            url: /training/modules/intro-to-azure-purview/
   # Card
   - title: Get started
     linkLists:
@@ -47,6 +49,8 @@ landingContent:
             url: create-catalog-portal.md
           - text: Create a Collection - Portal
             url: quickstart-create-collection.md
+          - text: Share and receive data - Portal
+            url: quickstart-data-share.md
       - linkListType: how-to-guide
         links:
           - text: Manage access and collections
@@ -118,6 +122,19 @@ landingContent:
         - text: Search for assets, terms, annotations, and contacts
           url: how-to-search-catalog.md
   #Card
+  - title: Share data in Microsoft Purview
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Share data
+          url: how-to-share-data.md
+        - text: Receive shared data
+          url: how-to-receive-share.md
+        - text: Share data from Azure Storage
+          url: register-scan-azure-blob-storage-source.md#data-sharing
+        - text: Share data from ADLS Gen 2
+          url: register-scan-adls-gen2.md#data-sharing
+  #Card
   - title: Scan non-Azure data sources
     linkLists:
     - linkListType: how-to-guide
@@ -163,19 +180,31 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-        - text: Data owner policies
-          url: concept-data-owner-policies.md
+        - text: DevOps policies
+          url: concept-policies-devops.md
         - text: Self-service data access policy
           url: concept-self-service-data-access-policy.md
+        - text: Data owner policies
+          url: concept-policies-data-owner.md
     - linkListType: how-to-guide
       links:
         - text: Registering data sources for Data Use Management
           url: how-to-enable-data-use-management.md
         - text: Authoring and publishing data owner access policies
-          url: how-to-data-owner-policy-authoring-generic.md
+          url: how-to-policies-data-owner-authoring-generic.md
     - linkListType: tutorial
       links:
         - text: Data owner policies for Azure Storage
-          url: how-to-data-owner-policies-storage.md
+          url: how-to-policies-data-owner-storage.md
         - text: Data owner policies on resource groups or subscriptions
-          url: how-to-data-owner-policies-resource-group.md
+          url: how-to-policies-data-owner-resource-group.md
+
+  #Card
+  - title: Master Data Management - MDM
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Profisee MDM Master Data Management
+          url: how-to-deploy-profisee-purview-integration.md
+        
+ 

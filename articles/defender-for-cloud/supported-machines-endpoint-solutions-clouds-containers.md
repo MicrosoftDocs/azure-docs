@@ -2,8 +2,10 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 06/29/2022
-ms.custom: references_regions
+author: bmansheim
+ms.author: benmansheim
+ms.date: 10/24/2022
+ms.custom: references_regions, ignite-2022
 ---
 
 # Defender for Containers feature availability
@@ -16,26 +18,66 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
-| Compliance | Docker CIS | VM, VMSS | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Compliance | Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Vulnerability Assessment <sup>[2](#footnote2)</sup> | Registry scan - OS packages | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Vulnerability Assessment <sup>[3](#footnote3)</sup> | Registry scan - language specific packages | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds |
 | Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | Preview | Defender profile | Defender for Containers | Commercial clouds |
 | Hardening | Control plane recommendations | ACR, AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Hardening | Kubernetes data plane recommendations | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Runtime protection| Threat detection (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Runtime protection| Threat detection (workload) | AKS | Preview | - | Defender profile | Defender for Containers | Commercial clouds |
+| Runtime protection| Threat detection (workload) | AKS | GA | - | Defender profile | Defender for Containers | Commercial clouds |
 | Discovery and provisioning | Discovery of unprotected clusters | AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Discovery and provisioning | Collection of control plane threat data | AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery and provisioning | Auto provisioning of Defender profile | AKS | Preview | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Discovery and provisioning | Auto provisioning of Defender profile | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Discovery and provisioning | Auto provisioning of Azure policy add-on | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for these [OS packages](#registries-and-images). 
+
+<sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images).
+
+## Additional environment information
+
+### Registries and images
+
+| Aspect | Details |
+|--|--|
+| Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available.<br><br>**Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
+| OS Packages | **Supported** <br> • Alpine Linux 3.12-3.15 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6, 7, 8 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11, 12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
+| Language specific packages (Preview) <br><br> (**Only supported for Linux images**) | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
+
+### Kubernetes distributions and configurations
+
+| Aspect | Details |
+|--|--|
+| Kubernetes distributions and configurations | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br>• [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Google Kubernetes Engine (GKE) Standard](https://cloud.google.com/kubernetes-engine/) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
+
+<sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
+
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you'll need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+
+> [!NOTE]
+> For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn off data ingestion.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
 ### [**AWS (EKS)**](#tab/aws-eks)
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment | Registry scan | - | - | - | - | - |
+| Vulnerability Assessment | Registry scan | ECR | Preview | - | Agentless | Defender for Containers |
 | Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | EKS | Preview | - | Azure Policy extension | Defender for Containers |
@@ -46,7 +88,44 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Defender extension | - | - | - | - | - |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | - | - | - | - | - |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## Additional environment information
+
+### Images
+
+| Aspect | Details |
+|--|--|
+| Registries and images | **Unsupported** <br>• Images that have at least one layer over 2 GB<br> • Public repositories and manifest lists <br>• Images in the AWS management account aren't scanned so that we don't create resources in the management account. |
+
+### Kubernetes distributions and configurations
+
+| Aspect | Details |
+|--|--|
+| Kubernetes distributions and configurations | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br>• [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Google Kubernetes Engine (GKE) Standard](https://cloud.google.com/kubernetes-engine/) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
+
+<sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
+
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you'll need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+
+> [!NOTE]
+> For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn off data ingestion.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
+
+#### Outbound proxy support
+
+Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
 ### [**GCP (GKE)**](#tab/gcp-gke)
 
@@ -64,27 +143,64 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Defender extension | GKE | Preview | - | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | GKE | Preview | - | Agentless | Defender for Containers |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Additional information
+
+### Kubernetes distributions and configurations
+
+| Aspect | Details |
+|--|--|
+| Kubernetes distributions and configurations | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br>• [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Google Kubernetes Engine (GKE) Standard](https://cloud.google.com/kubernetes-engine/) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
+
+<sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
+
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you'll need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+
+> [!NOTE]
+> For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn off data ingestion.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
+
+#### Outbound proxy support
+
+Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
 ### [**On-prem/IaaS (Arc)**](#tab/iaas-arc)
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | Arc enabled VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers |
-| Vulnerability Assessment | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
+| Vulnerability Assessment <sup>[2](#footnote2)</sup> | Registry scan - OS packages | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers |
+| Vulnerability Assessment <sup>[3](#footnote3)</sup> | Registry scan - language specific packages | ACR, Private ACR | Preview | - | Agentless | Defender for Containers |
+| Vulnerability Assessment  | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
-| Runtime protection| Threat detection (workload) | Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
+| Runtime protection <sup>[4](#footnote4)</sup> | Threat detection (workload)| Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
 | Discovery and provisioning | Discovery of unprotected clusters | Arc enabled K8s clusters | Preview | - | Agentless | Free |
 | Discovery and provisioning | Collection of control plane threat data | Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | - | Agentless | Defender for Containers |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
----
+<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for these [OS packages](#registries-and-images-1). 
+
+<sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images-1).
+
+<sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems).
+
 
 ## Additional information
 
@@ -93,7 +209,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Aspect | Details |
 |--|--|
 | Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available.<br><br>**Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
-
+| OS Packages | **Supported** <br> • Alpine Linux 3.12-3.15 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6, 7, 8 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11, 12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
+| Language specific packages (Preview) <br><br> (**Only supported for Linux images**) | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
 ### Kubernetes distributions and configurations
 
@@ -101,14 +218,52 @@ The **tabs** below show the features that are available, by environment, for Mic
 |--|--|
 | Kubernetes distributions and configurations | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br>• [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Google Kubernetes Engine (GKE) Standard](https://cloud.google.com/kubernetes-engine/) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
 
-<sup><a name="footnote1"></a>1</sup>Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.<br>
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
+
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you'll need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-## Next steps
+### Supported host operating systems
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
+Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
+
+- Amazon Linux 2
+- CentOS 8
+- Debian 10
+- Debian 11
+- Google Container-Optimized OS 
+- Mariner 1.0 
+- Mariner 2.0 
+- Red Hat Enterprise Linux 8
+- Ubuntu 16.04 
+- Ubuntu 18.04
+- Ubuntu 20.04
+- Ubuntu 22.04
+
+Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
+
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn off data ingestion.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
+
+#### Outbound proxy support
+
+Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
+
+---
+
+## Next steps
+    
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).

@@ -70,7 +70,7 @@ sections:
       - question: |
           How can I benchmark and test the performance of my cache?
         answer: |
-          * [Enable cache diagnostics](cache-how-to-monitor.md#export-cache-metrics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+          * [Enable cache diagnostics](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
           * You can use redis-benchmark.exe to load test your Redis server.
           * Ensure that the load testing client and the Azure Cache for Redis are in the same region.
           * Use redis-cli.exe and monitor the cache using the INFO command.

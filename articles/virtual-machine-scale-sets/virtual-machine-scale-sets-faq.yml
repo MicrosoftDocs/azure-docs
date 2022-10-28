@@ -42,6 +42,11 @@ sections:
           All regions support scale sets.
 
       - question: |
+          Which SKUs are supported for virtual machine scale sets?
+        answer: |
+          All SKUs are supported for virtual machine scale sets.
+
+      - question: |
           How do I create a scale set by using a custom image?
         answer: |
           Create and capture a VM image, and then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md).
@@ -739,7 +744,7 @@ sections:
       - question: |
           How do I troubleshoot other issues?
         answer: |
-          Visit [Troubleshooting common issue with virtual machine scale sets](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
+          Visit [Troubleshooting common issue with virtual machine scale sets](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
 
   - name: Virtual machine properties
     questions:
@@ -749,6 +754,8 @@ sections:
           You can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
 
           /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+          
+          Note that fault domain is not returned when the scale set uses max spreading (platformFaultDomainCount = 1), because there is no guarantee as to how many fault domains would be used with this setting.
 
       - question: |
           Can I pass different extension arguments to different VMs in a virtual machine scale set?

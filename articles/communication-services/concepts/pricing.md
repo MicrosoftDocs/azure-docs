@@ -70,6 +70,23 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
+### Pricing example: Outbound Call from Microsoft Dynamics 365 Omnichannel for Customer Service agent application via Azure Communication Services direct routing
+
+Alice is a Dynamics 365 contact center agent, who makes an outbound call from Omnichannel for Customer Service to a telephone number (Bob) via Azure Communication Services direct routing.
+- Alice uses Omnichannel for Customer Service client application 
+- Omnichannel for Customer Service bot starts new outgoing call via direct routing
+- Call goes to a Session Border Controller (SBC) connected via Communication Services direct routing
+- Dynamics 365 Omnichannel for Customer Service bot adds Alice to a call by escalating the direct routing call to a group call
+- The call lasts a total of 10 minutes. 
+
+**Cost calculations**
+
+- One participant on the VoIP leg (Alice) from Omnichannel for Customer Service client application x 10 minutes x $0.004 per participant leg per minute = $0.04
+- One participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
+- Omnichannel for Customer Servicebot does not introduce additional ACS charges.
+
+**Total cost for the call**: $0.04 + $0.04 = $0.08
+
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
 Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
@@ -85,55 +102,6 @@ Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's
 Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 **Total cost for the VoIP + escalation call**: $0.16 + $0.13 = $.29
-
-
-### Pricing example: A user of the Communication Services JavaScript SDK joins a scheduled Microsoft Teams meeting
-
-Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the healthcare provider website, which connects to the meeting using the Communication Services JavaScript SDK. Bob will use his mobile phone to enter the meeting using a web browser (iPhone with Safari). Chat will be available during the virtual visit.
-
-- The call lasts a total of 30 minutes.
-- When Bob joins the meeting, he's placed in the Teams meeting lobby per Teams policy. After one minute, Alice admits him into the meeting.
-- After Bob is admitted to the meeting, Alice and Bob participate for the entire call. Alice turns on her video five minutes after the call starts and shares her screen for 13 minutes. Bob has his video on for the whole call.
-- Alice sends five messages, Bob replies with three messages.
-
-
-**Cost calculations**
-
-- One Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged at regular rate of meetings) = $0.004
-- One participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
-- One participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
-- One participant (Bob) x three chat messages x $0.0008 = $0.0024.
-- One participant (Alice) x five chat messages x $0.000  = $0.0*.
-
-*Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client won't be charged.
-
-**Total cost for the visit**:
-- User joining using the Communication Services JavaScript SDK: $0.004 + $0.116 + $0.0024 = $0.1224
-- User joining on Teams Desktop Application: $0 (covered by Teams license)
-
-### Pricing example: Inbound PSTN call to the Communication Services JavaScript SDK with Teams identity elevated to group call with another Teams user on Teams desktop client
-
-Alice has ordered a product from Contoso and struggles to set it up. Alice calls from her phone (Android) 800-CONTOSO to ask for help with the received product. Bob is a customer support agent in Contoso and sees an incoming call from Alice on the customer support website (Windows, Chrome browser). Bob accepts the incoming call via Communication Services JavaScript SDK initialized with Teams identity. Teams calling plan enables Bob to receive PSTN calls. Bob sees on the website the product ordered by Alice. Bob decides to invite product expert Charlie to the call. Charlie sees an incoming group call from Bob in the Teams Desktop client and accepts the call.
-
-- The call lasts a total of 30 minutes.
-- Bob accepts the call from Alice.
-- After five minutes, Bob adds Charlie to the call. Charlie has his camera turned off for 10 minutes. Then turns his camera on for the rest of the call. 
-- After another 10 minutes, Alice leaves the call. 
-- After another five minutes, both Bob and Charlie leave the call
-
-**Cost calculations**
-
-- One Participant (Alice) called the phone number associated with Teams user Bob using Teams Calling plan x 25 minutes deducted from Bob's tenant Teams minute pool
-- One participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
-- One participant (Charlie) x 25 minutes x $0.000 per participant per minute = $0.0*.
-
-*Charlie's participation is covered by his Teams license.
-
-**Total cost of the visit**:
-- Teams cost for a user joining using the Communication Services JavaScript SDK: 25 minutes from Teams minute pool
-- Communication Services cost for a user joining using the Communication Services JavaScript SDK: $0.12
-- User joining on Teams Desktop client: $0 (covered by Teams license)
-
 
 ## Call Recording
 

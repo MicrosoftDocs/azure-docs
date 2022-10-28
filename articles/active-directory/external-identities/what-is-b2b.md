@@ -6,8 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 05/17/2022
-
+ms.date: 08/30/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -26,7 +25,7 @@ A simple invitation and redemption process lets partners use their own credentia
 Developers can use Azure AD business-to-business APIs to customize the invitation process or write applications like self-service sign-up portals. For licensing and pricing information related to guest users, refer to [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 > [!IMPORTANT]
-> We've begun rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode). Soon, we'll stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption.
+> The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 ## Collaborate with any partner using their identities
 
@@ -40,7 +39,7 @@ With Azure AD B2B, the partner uses their own identity management solution, so t
 
 B2B collaboration is enabled by default, but comprehensive admin settings let you control your inbound and outbound B2B collaboration with external partners and organizations:
 
-- For B2B collaboration with other Azure AD organizations, use [cross-tenant access settings (preview)](cross-tenant-access-overview.md). Manage inbound and outbound B2B collaboration, and scope access to specific users, groups, and applications. Set a default configuration that applies to all external organizations, and then create individual, organization-specific settings as needed. Using cross-tenant access settings, you can also trust multi-factor (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
+- For B2B collaboration with other Azure AD organizations, use [cross-tenant access settings](cross-tenant-access-overview.md). Manage inbound and outbound B2B collaboration, and scope access to specific users, groups, and applications. Set a default configuration that applies to all external organizations, and then create individual, organization-specific settings as needed. Using cross-tenant access settings, you can also trust multi-factor (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
 - Use [external collaboration settings](external-collaboration-settings-configure.md) to define who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 

@@ -3,12 +3,12 @@ title: Configure object replication
 titleSuffix: Azure Storage
 description: Learn how to configure object replication to asynchronously copy block blobs from a container in one storage account to another.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/05/2022
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -26,6 +26,8 @@ Before you configure object replication, create the source and destination stora
 Object replication requires that blob versioning is enabled for both the source and destination account, and that blob change feed is enabled for the source account. To learn more about blob versioning, see [Blob versioning](versioning-overview.md). To learn more about change feed, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). Keep in mind that enabling these features can result in additional costs.
 
 To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
+
+Object replication is not yet supported in accounts that have a hierarchical namespace enabled.
 
 ## Configure object replication with access to both storage accounts
 

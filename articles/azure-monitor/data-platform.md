@@ -1,14 +1,12 @@
 ---
-title: Azure Monitor data platform | Microsoft Docs
-description: Monitoring data collected by Azure Monitor is separated into metrics that are lightweight and capable of supporting near-real-time scenarios and logs that are used for advanced analysis.
-documentationcenter: ''
+title: Azure Monitor data platform
+description: Overview of the Azure Monitor data platform and collection of observability data.
 author: bwren
-manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 04/05/2022
-ms.author: bwren
+ms.date: 07/28/2022
 ms.reviewer: bwren
 ---
 
@@ -18,17 +16,14 @@ Today's complex computing environments run distributed applications that rely on
 
 [Azure Monitor](overview.md) collects and aggregates data from various sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources. You can gain deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
-![Screenshot that shows Azure Monitor overview.](media/data-platform/overview.png)
+![Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data.](media/overview/azure-monitor-overview-2022_10_15-add-prometheus-opt.svg)
 
 ## Observability data in Azure Monitor
+Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. A monitoring tool must collect and analyze these three different kinds of data to provide sufficient observability of a monitored system. Observability can be achieved by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed by using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
 
-Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. A monitoring tool must collect and analyze these three different kinds of data to provide sufficient observability of a monitored system.
 
-Observability can be achieved by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed by using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
+Azure resources generate a significant amount of monitoring data. Azure Monitor consolidates this data along with monitoring data from other sources into either a Metrics or Logs platform. Each is optimized for particular monitoring scenarios, and each supports different features in Azure Monitor. Features such as data analysis, visualizations, or alerting require you to understand the differences so that you can implement your required scenario in the most efficient and cost effective manner. Insights in Azure Monitor such as [Application Insights](app/app-insights-overview.md) or [Container insights](containers/container-insights-overview.md) have analysis tools that allow you to focus on the particular monitoring scenario without having to understand the differences between the two types of data. 
 
-Azure resources generate a significant amount of monitoring data. Azure Monitor consolidates this data along with monitoring data from other sources into either a Metrics or Logs platform. Each platform is optimized for particular monitoring scenarios, and each one supports different features in Azure Monitor.
-
-Features such as data analysis, visualizations, or alerting require you to understand the differences so that you can implement your required scenario in the most efficient and cost-effective manner. Insights in Azure Monitor such as [Application Insights](app/app-insights-overview.md) or [VM insights](vm/vminsights-overview.md) have analysis tools that allow you to focus on the particular monitoring scenario without having to understand the differences between the two types of data.
 
 ### Metrics
 
@@ -63,22 +58,32 @@ Distributed tracing in Azure Monitor is enabled with the [Application Insights S
 
 Read more about distributed tracing at [What is distributed tracing?](app/distributed-tracing.md).
 
+### Changes
+
+[Changes](./change/change-analysis-visualizations.md) are a series of events that occur in your Azure application, from the infrastructure layer through application deployment. Changes are traced on a subscription-level using [the Change Analysis tool](./change/change-analysis.md). The Change Analysis tool increases observability by building on the power of [Azure Resource Graph](../governance/resource-graph/overview.md) to provide detailed insights into your application changes. 
+
+Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription to make the resource properties and configuration change data available. Change Analysis provides data for various management and troubleshooting scenarios to help users understand what changes might have caused the issues:
+- Troubleshoot your application via the [Diagnose & solve problems tool](./change/change-analysis-enable.md).
+- Perform general management and monitoring via the [Change Analysis standalone UI](./change/change-analysis-visualizations.md#the-change-analysis-standalone-ui) and [the activity log](./change/change-analysis-visualizations.md#activity-log-change-history).
+- [Learn more about how to view data results for other scenarios](./change/change-analysis-visualizations.md).
+
+Read more about Change Analysis, including data sources in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).
+
 ## Compare Azure Monitor metrics and logs
 
 The following table compares metrics and logs in Azure Monitor.
 
 | Attribute  | Metrics | Logs |
 |:---|:---|:---|
-| Benefits | Lightweight and capable of near-real-time scenarios such as alerting. Ideal for fast detection of issues. | Analyzed with rich query language. Ideal for deep analysis and identifying root cause. |
-| Data | Numerical values only. | Text or numeric data. |
-| Structure | Standard set of properties including sample time, resource being monitored, and numeric value. Some metrics include multiple dimensions for further definition. | Unique set of properties depending on the log type. |
-| Collection | Collected at regular intervals. | Might be collected sporadically as events trigger a record to be created. |
-| View in the Azure portal | Metrics Explorer. | Log Analytics. |
-| Data sources include | Platform metrics collected from Azure resources.<br>Applications monitored by Application Insights.<br>Custom defined by application or API. | Application and resource logs.<br>Monitoring solutions.<br>Agents and VM extensions.<br>Application requests and exceptions.<br>Microsoft Defender for Cloud.<br>Data Collector API. |
+| Benefits | Lightweight and capable of near-real time scenarios such as alerting. Ideal for fast detection of issues. | Analyzed with rich query language. Ideal for deep analysis and identifying root cause. |
+| Data | Numerical values only | Text or numeric data |
+| Structure | Standard set of properties including sample time, resource being monitored, a numeric value. Some metrics include multiple dimensions for further definition. | Unique set of properties depending on the log type. |
+| Collection | Collected at regular intervals. | May be collected sporadically as events trigger a record to be created. |
+| Analyze in Azure portal | Metrics Explorer | Log Analytics |
+| Data sources include | Platform metrics collected from Azure resources<br>Applications monitored by Application Insights<br>Azure Monitor agent<br>Custom defined by application or API | Application and resource logs<br>Azure Monitor agent<br>Application requests and exceptions<br>Logs ingestion API<br>Azure Sentinel<br>Microsoft Defender for Cloud |
 
 ## Collect monitoring data
-
-Different [sources of data for Azure Monitor](agents/data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores. Others might write to another location, such as Azure Storage, and require some configuration to populate logs or metrics.
+Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
 
 For a listing of different data sources that populate each type, see [Metrics in Azure Monitor](essentials/data-platform-metrics.md) and [Logs in Azure Monitor](logs/data-platform-logs.md).
 
@@ -88,8 +93,11 @@ In addition to using the tools in Azure to analyze monitoring data, you might ha
 
 Some sources can be configured to send data directly to an event hub while you can use another process, such as a logic app, to retrieve the required data. For more information, see [Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md).
 
-## Next steps
 
-- Read more about [metrics in Azure Monitor](essentials/data-platform-metrics.md).
-- Read more about [logs in Azure Monitor](logs/data-platform-logs.md).
-- Learn about the [monitoring data available](agents/data-sources.md) for different resources in Azure.
+
+
+
+## Next steps
+- Read more about [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
+- Read more about [Logs in Azure Monitor](logs/data-platform-logs.md).
+- Learn about the [monitoring data available](data-sources.md) for different resources in Azure.

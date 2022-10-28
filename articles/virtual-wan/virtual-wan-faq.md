@@ -4,7 +4,7 @@ description: See answers to frequently asked questions about Azure Virtual WAN n
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/20/2022
+ms.date: 10/13/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
@@ -96,7 +96,7 @@ There are two options to add DNS servers for the P2S clients. The first method i
 
 ### For User VPN (point-to-site)- how many clients are supported?
 
-The table below describes the number of concurrent connections and aggregate throughput of the Point-to-site VPN Gateway supported at different scale units.
+The table below describes the number of concurrent connections and aggregate throughput of the Point-to-site VPN gateway supported at different scale units.
 
 Scale Unit | Gateway Instances | Supported Concurrent Connections | Aggregate Throughput|
 | ---- | ---| ---| ---|
@@ -188,6 +188,8 @@ All virtual WAN APIs are OpenAPI. You can go over the documentation [Virtual WAN
 
 Virtual WAN partners automate IPsec connectivity to Azure VPN end points. If the Virtual WAN partner is an SD-WAN provider, then it's implied that the SD-WAN controller manages automation and IPsec connectivity to Azure VPN end points. If the SD-WAN device requires its own end point instead of Azure VPN for any proprietary SD-WAN functionality, you can deploy the SD-WAN end point in an Azure VNet and coexist with Azure Virtual WAN.
 
+Virtual WAN supports [BGP Peering](create-bgp-peering-hub-portal.md) and also has the ability to [deploy NVA's into a virtual WAN hub](how-to-nva-hub.md).
+
 ### How many VPN devices can connect to a single hub?
 
 Up to 1,000 connections are supported per virtual hub. Each connection consists of four links and each link connection supports two tunnels that are in an active-active configuration. The tunnels terminate in an Azure virtual hub VPN gateway. Links represent the physical ISP link at the branch/VPN device.
@@ -204,6 +206,8 @@ An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gate
 
 The Gateway Reset button should be used if your on-premises devices are all working as expected, but the site-to-site VPN connection in Azure is in a Disconnected state. Virtual WAN VPN gateways are always deployed in an Active-Active state for high availability. This means there's always more than one instance deployed in a VPN gateway at any point of time. When the Gateway Reset button is used, it reboots the instances in the VPN gateway in a sequential manner so your connections aren't disrupted. There will be a brief gap as connections move from one instance to the other, but this gap should be less than a minute. Additionally, note that resetting the gateways won't change your Public IPs.
 
+This scenario only applies to the S2S connections.
+
 ### Can the on-premises VPN device connect to multiple hubs?
 
 Yes. Traffic flow, when commencing, is from the on-premises device to the closest Microsoft network edge, and then to the virtual hub.
@@ -218,7 +222,7 @@ Yes, you can connect your favorite network virtual appliance (NVA) VNet to the A
 
 ### Can I create a Network Virtual Appliance inside the virtual hub?
 
-A Network Virtual Appliance (NVA) can't be deployed inside a virtual hub. However, you can create it in a spoke VNet that is connected to the virtual hub and enable appropriate routing to direct traffic per your needs.
+A Network Virtual Appliance (NVA) can be deployed inside a virtual hub. For steps, see [About NVA's in a Virtual WAN hub](about-nva-hub.md).
 
 ### Can a spoke VNet have a virtual network gateway?
 
@@ -266,9 +270,9 @@ When VPN sites connect into a hub, they do so with connections. Virtual WAN supp
 
 Yes, NAT traversal (NAT-T) is supported. The Virtual WAN VPN gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, ensure the on-premises device initiates the IPsec tunnel.
 
-### I don't see the 20-Gbps setting for the virtual hub in portal. How do I configure that?
+### How can I configure a scale unit to a specific setting like 20-Gbps?
 
-Navigate to the VPN gateway inside a hub on the portal, then click on the scale unit to change it to the appropriate setting.
+Go to the VPN gateway inside a hub on the portal, then click on the scale unit to change it to the appropriate setting.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel, or is it always a single VPN tunnel?
 
@@ -303,7 +307,7 @@ If a virtual hub learns the same route from multiple remote hubs, the order in w
 1. Longest prefix match.
 1. Local routes over interhub.
 1. Static routes over BGP: This is in context to the decision being made by the virtual hub router. However, if the decision maker is the VPN gateway where a site advertises routes via BGP or provides static address prefixes, static routes may be preferred over BGP routes.
-1. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore, in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios.
+1. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore, in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios. However, you can [configure virtual hub routing preference](howto-virtual-hub-routing-preference.md) to change the default preference.
 1. AS path length (Virtual hubs prepend routes with the AS path 65520-65520 when advertising routes to each other).
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
@@ -316,11 +320,11 @@ When multiple ExpressRoute circuits are connected to a virtual hub, routing weig
 
 ### Does Virtual WAN prefer ExpressRoute over VPN for traffic egressing Azure
 
-Yes. Virtual WAN prefers ExpressRoute over VPN for traffic egressing Azure.
+Yes. Virtual WAN prefers ExpressRoute over VPN for traffic egressing Azure. However, you can configure virtual hub routing preference to change the default preference. For steps, see [Configure virtual hub routing preference](howto-virtual-hub-routing-preference.md).
 
 ### When a Virtual WAN hub has an ExpressRoute circuit and a VPN site connected to it, what would cause a VPN connection route to be preferred over ExpressRoute?
 
-When an ExpressRoute circuit is connected to virtual hub, the Microsoft Edge routers are the first node for communication between on-premises and Azure. These edge routers communicate with the Virtual WAN ExpressRoute gateways that, in turn, learn routes from the virtual hub router that controls all routes between any gateways in Virtual WAN. The Microsoft Edge routers process virtual hub ExpressRoute routes with higher preference over routes learned from on-premises.
+When an ExpressRoute circuit is connected to a virtual hub, the Microsoft Edge routers are the first node for communication between on-premises and Azure. These edge routers communicate with the Virtual WAN ExpressRoute gateways that, in turn, learn routes from the virtual hub router that controls all routes between any gateways in Virtual WAN. The Microsoft Edge routers process virtual hub ExpressRoute routes with higher preference over routes learned from on-premises.
 
 For any reason, if the VPN connection becomes the primary medium for the virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN), unless the VPN site has a longer AS Path length, the virtual hub will continue to share VPN learned routes with the ExpressRoute gateway. This causes the Microsoft Edge routers to prefer VPN routes over on-premises routes.
 
@@ -332,7 +336,11 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 * Contact the product team to take part in the gated public preview. In this preview, traffic between the 2 hubs traverses through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft Edge routers/MSEE). To use this feature during preview, email **previewpreferh2h@microsoft.com** with the Virtual WAN IDs, Subscription ID, and the Azure region. Expect a response within 48 business hours (Monday-Friday) with confirmation that the feature is enabled.
 
-### Can hubs be created in different resource group in Virtual WAN?
+### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a non Virtual WAN VNet, what is the path for the non Virtual WAN VNet to reach the Virtual WAN hub? 
+
+The current behavior is to prefer the ExpressRoute circuit path for non Virtual WAN VNet to Virtual WAN connectivity. It is recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the non Virtual WAN VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
+
+### Can hubs be created in different resource groups in Virtual WAN?
 
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.
 
@@ -352,7 +360,7 @@ For the point-to-site User VPN scenario with internet breakout via Azure Firewal
 
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 
-A minimum version of 05-01-2020 (May 1 2020) is required.
+A minimum version of 05-01-2022 (May 1, 2022) is required.
 
 ### Are there any Virtual WAN limits?
 
@@ -372,7 +380,7 @@ Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Ma
 
 ### How does Virtual WAN hub routing differ from Azure Route Server in a VNet?
 
-Both Azure Virtual WAN hub and Azure Route Server provide Border Gateway Protocol (BGP) peering capabilities that can be utilized by NVAs (Network Virtual Appliance) to advertise IP addresses from the NVA to the user’s Azure virtual networks. The deployment options differ in the sense that Azure Route Server is typically deployed by a self-managed customer hub VNet whereas Azure Virtual WAN provides a zero-touch fully meshed hub service to which customers connect their various spokes end points (Azure VNet, on-premise branches with site-to-site VPN or SDWAN, remote users with point-to-site/Remote User VPN and Private connections with ExpressRoute) and enjoy BGP Peering for NVAs deployed in spoke VNet along with other vWAN capabilities such as transit connectivity for VNet-to-VNet, transit connectivity between VPN and ExpressRoute, custom/advanced routing, custom route association and propagation, routing intent/policies for no hassle inter-region security, Secure Hub/Azure firewall etc. For more details about Virtual WAN BGP Peering, please see [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md).
+Both Azure Virtual WAN hub and Azure Route Server provide Border Gateway Protocol (BGP) peering capabilities that can be utilized by NVAs (Network Virtual Appliance) to advertise IP addresses from the NVA to the user’s Azure virtual networks. The deployment options differ in the sense that Azure Route Server is typically deployed by a self-managed customer hub VNet whereas Azure Virtual WAN provides a zero-touch fully meshed hub service to which customers connect their various spokes end points (Azure VNet, on-premises branches with site-to-site VPN or SDWAN, remote users with point-to-site/Remote User VPN and Private connections with ExpressRoute) and enjoy BGP Peering for NVAs deployed in spoke VNet along with other vWAN capabilities such as transit connectivity for VNet-to-VNet, transit connectivity between VPN and ExpressRoute, custom/advanced routing, custom route association and propagation, routing intent/policies for no hassle inter-region security, Secure Hub/Azure firewall etc. For more details about Virtual WAN BGP Peering, please see [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md).
 
 ### If I'm using a third-party security provider (Zscaler, iBoss or Checkpoint) to secure my internet traffic, why don't I see the VPN site associated to the third-party security provider in the Azure Portal?
 
@@ -397,7 +405,12 @@ Yes, BGP communities generated by on-premises will be preserved in Virtual WAN. 
 
 The Virtual WAN team has been working on upgrading virtual routers from their current Cloud Services infrastructure to Virtual Machine Scale Sets based deployments. This will enable the virtual hub router to now be availability zone aware. If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the latest version by clicking on the button. Azure-wide Cloud Services-based infrastructure is deprecating. If you would like to take advantage of new Virtual WAN features, such as [BGP peering with the hub](create-bgp-peering-hub-portal.md), you'll have to update your virtual hub router via Azure Portal. 
 
-You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of 30 minutes per hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update. If the update fails for any reason, your hub will be auto recovered to the old version to ensure there is still a working setup.
+You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of up to 30 minutes per hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update unless you have already configured BGP peering between your Virtual WAN hub and an NVA in a spoke VNet. In this case, you will have to [delete and then recreate the BGP peer](create-bgp-peering-hub-portal.md). Since the virtual hub router's IP addresses change after the upgrade, you will also have to reconfigure your NVA to peer with the virtual hub router's new IP addresses. These IP addresses are represented as the "virtualRouterIps" field in the Virtual Hub's Resource JSON.
+
+If the update fails for any reason, your hub will be auto recovered to the old version to ensure there is still a working setup.
+
+>[!NOTE]
+> The user will need to have an **owner** or **contributor** role to see an accurate status of the hub router version. If a user is assigned a **reader** role to the Virtual WAN resource and subscription, then Azure portal will display to that user that the hub router needs to be upgraded to the latest version, even if the hub is already on the latest version. 
 
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 

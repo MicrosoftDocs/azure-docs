@@ -26,9 +26,9 @@ By default, when a container app is linked to a static web app, the container ap
 
 ## Link a container app
 
-To link a web app as the API backend for a static web app, follow these steps:
+To link a container app as the API backend for a static web app, follow these steps:
 
-1. In the Azure portal, navigate to the static web app.
+1. In the Azure portal, go to the static web app.
 
 1. Select **APIs** from the navigation menu.
 
@@ -52,7 +52,7 @@ Your container app is configured with an identity provider named `Azure Static W
 
 To unlink a container app from a static web app, follow these steps:
 
-1. In the Azure portal, navigate to the static web app.
+1. In the Azure portal, go to the static web app.
 
 1. Select **APIs** from the navigation menu.
 

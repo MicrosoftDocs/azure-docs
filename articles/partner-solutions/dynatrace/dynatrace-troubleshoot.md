@@ -1,21 +1,21 @@
 ---
-title: Troubleshooting Dynatrace for Azure (preview) - Azure partner solutions
+title: Troubleshooting Dynatrace for Azure - Azure partner solutions
 description: This article provides information about troubleshooting Dynatrace for Azure 
 ms.topic: conceptual
 ms.collection: na
 author: flang-msft
 ms.author: franlanglois
-ms.date: 06/07/2022
+ms.date: 10/12/2022
 
 ---
 
 # Troubleshoot Dynatrace for Azure
 
-This article describes how to contact support when working with a Dynatrace for Azure (preview) resource. Before contacting support, see [Fix common errors](#fix-common-errors).
+This article describes how to contact support when working with a Dynatrace for Azure resource. Before contacting support, see [Fix common errors](#fix-common-errors).
 
 ## Contact support
 
-To contact support about the Azure Datadog integration, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
+To contact support about the Azure Dynatrace integration, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
 
 :::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support request selected in resource menu.":::
 
@@ -40,12 +40,11 @@ This document contains information about troubleshooting your solutions that use
 
 ### Single sign-on errors
 
-- **Single sign-on configuration indicates lack of permissions** - This happens when the user that is trying to configure single sign-on doesn't have tenant
+- **Single sign-on configuration indicates lack of permissions** - This occurs when the user that is trying to configure single sign-on doesn't have Manage users permissions for the Dynatrace account. For a description of how to configure this permission, see [here](https://www.dynatrace.com/support/help/shortlink/azure-native-integration#setup).
 - **Unable to save single sign-on settings** - This error happens when there's another Enterprise app that is using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section.
     To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
 
 - **App not showing in Single sign-on settings page** - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
-    The following image shows the correct values.
 
 ## Next steps
 

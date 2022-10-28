@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 07/14/2022
 
 ---
 ## Enable the plan
@@ -15,15 +15,15 @@ ms.date: 05/12/2022
 1. In the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), enable **Defender for Containers**.
 
     > [!TIP]
-    > If the subscription already has Defender for Kubernetes and/or Defender for container registries enabled, an update notice is shown. Otherwise, the only option will be **Defender for Containers**.
+    > If the subscription already has Defender for Kubernetes or Defender for container registries enabled, an update notice is shown. Otherwise, the only option will be **Defender for Containers**.
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
 1. By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace.
 
-    If you want to disable auto provisioning during the onboading process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable auto provisioning for each component.
+    If you want to disable auto provisioning during the onboarding process, select **Edit configuration** for the **Containers** plan. The Advanced options will appear, and you can disable auto provisioning for each component.
 
-   In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
+   In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
@@ -37,6 +37,7 @@ ms.date: 05/12/2022
     - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
     - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
     - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+    - Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
 
 ## Prerequisites
 
@@ -79,7 +80,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 ### Use Azure CLI to deploy the Defender extension
 
-1. Log in to Azure:
+1. Sign in to Azure:
 
     ```azurecli
     az login

@@ -4,7 +4,7 @@ description: Introduction to usage and insights report in the Azure Active Direc
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/27/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: besiler
 ---

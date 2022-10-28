@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 09/30/2022
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Throttling Resource Manager requests
@@ -72,6 +72,7 @@ For information about throttling in other resource providers, see:
 
 * [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md)
 * [AKS troubleshooting](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
+* [Managed identities](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#are-there-any-rate-limits-that-apply-to-managed-identities)
 
 ## Error code
 

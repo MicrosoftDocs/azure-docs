@@ -20,7 +20,10 @@ The OSM project was originated by Microsoft and has since been donated and is go
 OSM can be added to your Azure Kubernetes Service (AKS) cluster by enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep template][osm-bicep]. The OSM add-on provides a fully supported installation of OSM that is integrated with AKS.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *1.0.0* of OSM on your cluster.
+> Based on the version of Kubernetes your cluster is running, the OSM add-on installs a different version of OSM:
+> - If your cluster is running Kubernetes version 1.24.0 or greater, the OSM add-on installs version *1.2.0* of OSM.
+> - If your cluster is running a version of Kubernetes between 1.23.5 and 1.24.0, the OSM add-on installs version *1.1.1* of OSM.
+> - If your cluster is running a version of Kubernetes below 1.23.5, the OSM add-on installs version *1.0.0* of OSM.
 
 ## Capabilities and features
 
@@ -49,6 +52,7 @@ The OSM AKS add-on has the following limitations:
 
 * [Iptables redirection][ip-tables-redirection] for port IP address and port range exclusion must be enabled using `kubectl patch` after installation. For more details, see [iptables redirection][ip-tables-redirection].
 * Pods that are onboarded to the mesh that need access to IMDS, Azure DNS, or the Kubernetes API server must have their IP addresses to the global list of excluded outbound IP ranges using [Global outbound IP range exclusions][global-exclusion].
+* At this time, OSM does not support Windows Server containers.
 
 ## Next steps
 

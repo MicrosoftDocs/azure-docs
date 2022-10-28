@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 04/08/2022
+ms.date: 10/21/2022
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -423,7 +423,7 @@ The following tables list the values for the number of artifacts limited to each
 | Assemblies | 10 | 25 | 1,000 |
 | Certificates | 25 | 2 | 1,000 |
 | Batch configurations | 5 | 1 | 50 |
-||||
+| RosettaNet partner interface process (PIP) | 10 | 1 | 500 |
 
 <a name="artifact-capacity-limits"></a>
 
@@ -536,7 +536,7 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 
 <a name="multi-tenant-inbound"></a>
 
-#### Multi-tenant & single-tenant - Inbound IP addresses
+#### Multi-tenant - Inbound IP addresses
 
 | Region | IP |
 |--------|----|
@@ -560,7 +560,7 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 | Jio India West | 20.193.206.48,20.193.206.49,20.193.206.50,20.193.206.51 |
 | Korea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42, 20.200.207.29, 20.200.231.229 |
 | Korea South | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
-| North Central US | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64, 20.94.151.41, 20.88.209.113 |
+| North Central US | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64, 52.162.177.104, 23.101.174.98 |
 | North Europe | 13.79.173.49, 52.169.218.253, 52.169.220.174, 40.112.90.39, 40.127.242.203, 51.138.227.94, 40.127.145.51 |
 | Norway East | 51.120.88.93, 51.13.66.86, 51.120.89.182, 51.120.88.77, 20.100.27.17, 20.100.36.102 |
 | South Africa North | 102.133.228.4, 102.133.224.125, 102.133.226.199, 102.133.228.9, 20.87.92.64, 20.87.91.171 |
@@ -613,7 +613,7 @@ Also, if your workflow also uses any [managed connectors](../connectors/managed.
 
 <a name="multi-tenant-outbound"></a>
 
-#### Multi-tenant & single-tenant - Outbound IP addresses
+#### Multi-tenant - Outbound IP addresses
 
 This section lists the outbound IP addresses that Azure Logic Apps requires in your logic app's Azure region to communicate through your firewall. Also, if your workflow uses any managed connectors or custom connectors, your firewall has to allow traffic in your logic app's Azure region for [*all the managed connectors' outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If you have custom connectors that access on-premises resources through the on-premises data gateway resource in Azure, set up your *gateway installation* to allow access for the corresponding managed connector outbound IP addresses. 
 
@@ -639,7 +639,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 | Jio India West | 20.193.206.128, 20.193.206.129, 20.193.206.130, 20.193.206.131, 20.193.206.132, 20.193.206.133, 20.193.206.134, 20.193.206.135 |
 | Korea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39, 20.200.206.170, 20.200.202.75, 20.200.231.222, 20.200.231.139 |
 | Korea South | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 |
-| North Central US | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225, 20.94.150.220, 20.94.149.199, 20.88.209.97, 20.88.209.88 |
+| North Central US | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225, 52.162.177.90, 52.162.177.30, 23.101.160.111, 23.101.167.207 |
 | North Europe | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181, 40.127.242.159, 40.127.240.183, 51.138.226.19, 51.138.227.160, 40.127.144.251, 40.127.144.121 |
 | Norway East | 51.120.88.52, 51.120.88.51, 51.13.65.206, 51.13.66.248, 51.13.65.90, 51.13.65.63, 51.13.68.140, 51.120.91.248, 20.100.26.148, 20.100.26.52, 20.100.36.49, 20.100.36.10 |
 | South Africa North | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51, 20.87.92.40, 20.87.91.122, 20.87.91.169, 20.87.88.47 |

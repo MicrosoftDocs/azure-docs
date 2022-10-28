@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure Database for MySQL Flexible Server by using Azure Monitor workbooks
 description: This article describes how you can monitor Azure Database for MySQL Flexible Server by using Azure Monitor workbooks.
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
+author: code-sidd
+ms.author: sisawant
 ms.date: 10/01/2021
 ---
 # Monitor Azure Database for MySQL Flexible Server by using Azure Monitor workbooks

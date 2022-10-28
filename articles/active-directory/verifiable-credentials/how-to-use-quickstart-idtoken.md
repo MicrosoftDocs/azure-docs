@@ -1,42 +1,38 @@
 ---
-title: How to create verifiable credentials for idTokens
-description: Learn how to use the QuickStart to create custom credentials for idTokens
+title: Create verifiable credentials for ID tokens
+description: Learn how to use a quickstart to create custom credentials for ID tokens
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/22/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am looking for information to help me disable 
+#Customer intent: As an administrator, I am looking for information to help me create verifiable credentials for ID tokens. 
 ---
 
-# How to create verifiable credentials for idTokens
+# Create verifiable credentials for ID tokens
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) using the [idTokens attestation](rules-and-display-definitions-model.md#idtokenattestation-type) will produce an issuance flow where the user will be required to do an interactive sign-in to an OIDC identity provider in the Authenticator. Claims in the id_token the identity provider returns can be used to populate the issued verifiable credential. The claims mapping section in the rules definition specifies which claims are used. 
+A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [idTokens attestation](rules-and-display-definitions-model.md#idtokenattestation-type) produces an issuance flow where you're required to do an interactive sign-in to an OpenID Connect (OIDC) identity provider in Microsoft Authenticator. Claims in the ID token that the identity provider returns can be used to populate the issued verifiable credential. The claims mapping section in the rules definition specifies which claims are used. 
 
-## Create a Custom credential with the idTokens attestation type
+## Create a custom credential with the idTokens attestation type
 
-When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and select Next. 
+In the Azure portal, when you select **Add credential**, you get the option to launch two quickstarts. Select **custom credential**, and then select **Next**. 
 
-![Screenshot of VC quickstart](media/how-to-use-quickstart/quickstart-startscreen.png)
+![Screenshot of the "Issue credentials" quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
 
-In the next screen, you enter JSON for the Display and the Rules definitions and give the credential a type name. Select Create to create the credential.
+On the **Create a new credential** page, enter the JSON code for the display and the rules definitions. In the **Credential name** box, give the credential a type name. To create the credential, select **Create**.
 
-![screenshot of create new credential section with JSON sample](media/how-to-use-quickstart/quickstart-create-new.png)
+![Screenshot of the "Create a new credential" page, displaying JSON samples for the display and rules files.](media/how-to-use-quickstart/quickstart-create-new.png)
 
-## Sample JSON Display definitions
+## Sample JSON display definitions
 
-The Display JSON definition is very much the same regardless of attestation type. You just have to adjust the labels depending on what claims your VC have. The Display JSON definition is the same regardless of attestation type. The expected JSON for the Display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries with a comma as separator. 
+The JSON display definition is nearly the same, regardless of attestation type. You only have to adjust the labels according to the claims that your verifiable credential has. The expected JSON for the display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, add multiple entries with a comma as separator. 
 
 ```json
 {
@@ -81,9 +77,12 @@ The Display JSON definition is very much the same regardless of attestation type
 }
 ```
 
-## Sample JSON Rules definitions
+## Sample JSON rules definitions
 
-The JSON attestation definition should contain the **idTokens** name, the [OIDC configuration details](rules-and-display-definitions-model.md#idtokenattestation-type) and the claims mapping section. The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. The claims mapping in the below example will require that you do the token configuration as explained below in the section [Claims in id_token from Identity Provider](#claims-in-id_token-from-identity-provider).
+The JSON attestation definition should contain the **idTokens** name, the [OIDC configuration details](rules-and-display-definitions-model.md#idtokenattestation-type) (clientId, configuration, redirectUri and scope) and the claims mapping section. The expected JSON for the rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. 
+
+The claims mapping in the following example requires that you configure the token as explained in the [Claims in the ID token from the identity provider](#claims-in-the-id-token-from-the-identity-provider) section.
+
 
 ```json
 {
@@ -123,46 +122,58 @@ The JSON attestation definition should contain the **idTokens** name, the [OIDC 
         "required": false
       }
     ]
+  },
+  "validityInterval": 2592000,
+  "vc": {
+    "type": [
+      "VerifiedCredentialExpert"
+    ]
   }
 }
 ```
 
-## Application Registration
 
-The **clientId** attribute is the AppId of a registered application in the OIDC identity provider. For **Azure Active Directory**, you create the application via these steps.
+## Application registration
 
-1. Navigate to [Azure Active Directory in portal.azure.com](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps).
-1. Select **App registrations** and select on **+New registration** and give the app a name 
-1. Let the selection of **Accounts in this directory only** if you only want accounts in your tenant to be able to sign in
-1. In **Redirect URI (optional)**, select **Public client/native (mobile & desktop)** and enter value **vcclient://openid**
+The clientId attribute is the application ID of a registered application in the OIDC identity provider. For Azure Active Directory, you create the application by doing the following:
+
+1. In the Azure portal, go to [Azure Active Directory](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps).
+
+1. Select **App registrations**, select **New registration**, and then give the app a name. 
+
+   If you want only accounts in your tenant to be able to sign in, keep the **Accounts in this directory only** checkbox selected. 
+
+1. In **Redirect URI (optional)**, select **Public client/native (mobile & desktop)**, and then enter **vcclient://openid**.
  
-If you want to be able to test what claims are in the token, do the following
-1. Select **Authentication** in the left hand menu and do
-1. **+Add platform**
-1. **Web**
-1. Enter **https://jwt.ms** as **Redirect URI** and select **ID Tokens (used for implicit and hybrid flows)**
-1. Select on **Configure**
+If you want to be able to test what claims are in the Azure Active Directory ID token, do the following:
 
-Once you finish testing your id_token, you should consider removing **https://jwt.ms** and the support for **implicit and hybrid flows**.
+1. On the left pane, select **Authentication**> **Add platform** > **Web**.
 
-For **Azure Active Directory**, you can test your app registration and that you get an id_token via running the following in the browser if you have enabled support for redirecting to jwt.ms. 
+1. For **Redirect URI**, enter **https://jwt.ms**, and then select **ID Tokens (used for implicit and hybrid flows)**.
+
+1. Select **Configure**.
+
+After you've finished testing your ID token, consider removing **https://jwt.ms** and the support for **implicit and hybrid flows**.
+
+**For Azure Active Directory**: You can test your app registration and, if you've enabled support for redirecting to **https://jwt.ms**, you can get an ID token by running the following in your browser: 
 
 ```http
 https://login.microsoftonline.com/<your-tenantId>/oauth2/v2.0/authorize?client_id=<your-appId>&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid%20profile&response_type=id_token&prompt=login
 ```
 
-Replace the <your-tenantidNote that you need to have **profile** as part of the **scope** in order to get the extra claims.
+In the code, replace \<your-tenantId> with your tenant ID. To get the extra claims, you need to have **profile** as part of the **scope**.
 
-For **Azure Active Directory B2C**, the app registration process is the same but B2C has built in support in the portal for testing your B2C policies via the **Run user flow** functionality.
+**For Azure Active Directory B2C**: The app registration process is the same, but B2C has built-in support in the Azure portal for testing your B2C policies via the **Run user flow** functionality.
 
-## Claims in id_token from Identity Provider
+## Claims in the ID token from the identity provider
 
-Claims must exist in the returned identity provider so that they can successfully populate your VC.
-If the claims don't exist, there will be no value in the issued VC. Most OIDC identity providers don't issue a claim in an id_token if the claim has a null value in the user's profile. Make sure you include the claim in the id_token definition and that the user has a value for the claim in the user profile.
+Claims must exist in the returned identity provider so that they can successfully populate your verifiable credential.
 
-For **Azure Active Directory**, see documentation [Provide optional claims to your app](../../active-directory/develop/active-directory-optional-claims.md) on how to configure what claims to include in your token. The configuration is per application, so the configuration you make should be for the app with AppId specified in the **clientId** in the rules definition.
+If the claims don't exist, there's no value in the issued verifiable credential. Most OIDC identity providers don't issue a claim in an ID token if the claim has a null value in your profile. Be sure to include the claim in the ID token definition, and ensure that you've entered a value for the claim in your user profile.
 
-To match the above Display & Rules definition, you should have your application manifest having its **optionalClaims** looking like below.
+**For Azure Active Directory**: To configure the claims to include in your token, see [Provide optional claims to your app](../../active-directory/develop/active-directory-optional-claims.md). The configuration is per application, so this configuration should be for the app that has the application ID specified in the client ID in the rules definition.
+
+To match the display and rules definitions, you should make your application's optionalClaims JSON look like the following:
 
 ```json
 "optionalClaims": {
@@ -197,26 +208,22 @@ To match the above Display & Rules definition, you should have your application 
 },
 ```
 
-For **Azure Active Directory B2C**, configuring other claims in your id_token depends on if your B2C policy is a **User Flow** or a **Custom Policy**. For documentation on User Flows, see [Set up a sign-up and sign-in flow in Azure Active Directory B2C](../../active-directory-b2c/add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow) and for Custom Policy, see documentation [Provide optional claims to your app](../../active-directory-b2c/configure-tokens.md?pivots=b2c-custom-policy#provide-optional-claims-to-your-app).  
+**For Azure Active Directory B2C**: Configuring other claims in your ID token depends on whether your B2C policy is a *user flow* or a *custom policy*. For information about user flows, see [Set up a sign-up and sign-in flow in Azure Active Directory B2C](../../active-directory-b2c/add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow). For information about custom policy, see [Provide optional claims to your app](../../active-directory-b2c/configure-tokens.md?pivots=b2c-custom-policy#provide-optional-claims-to-your-app).  
 
 For other identity providers, see the relevant documentation.
 
-## Configure the samples to issue and verify your Custom credential
+## Configure the samples to issue and verify your custom credential
 
-To configure your sample code to issue and verify using custom credentials, you need:
+To configure your sample code to issue and verify your custom credentials, you need:
 
-- Your tenant's issuer DID
+- Your tenant's issuer decentralized identifier (DID)
 - The credential type
-- The manifest url to your credential. 
+- The manifest URL to your credential 
 
-The easiest way to find this information for a Custom Credential is to go to your credential in the portal, select **Issue credential** and switch to Custom issue.
+The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**. Then you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
 
-![Screenshot of QuickStart issue credential screen.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
-
-After switching to custom issue, you have access to a textbox with a JSON payload for the Request Service API. Replace the place holder values with your environment's information. The issuer’s DID is the authority value.
-
-![Screenshot of Quickstart custom issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
+![Screenshot of the quickstart custom credential issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
 ## Next steps
 
-- Reference for [Rules and Display definitions model](rules-and-display-definitions-model.md)
+See the [Rules and display definitions reference](rules-and-display-definitions-model.md).

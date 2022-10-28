@@ -68,7 +68,10 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 
 Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
 
-Objects in Key Vault can be addressed by specifying a version or by omitting version for operations on current version of the object. For example, given a Key with the name `MasterKey`, performing operations without specifying a version causes the system to use the latest available version. Performing operations with the version-specific identifier causes the system to use that specific version of the object.  
+Objects in Key Vault can be retrived by specifying a version or by omitting version to get latest version of the object. Performing operations on objects requires providing version to use specific version of the object.
+
+> [!NOTE]
+> The values you provide for Azure resource or object IDs may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
 
 ### Vault-name and Object-name
 Objects are uniquely identified within Key Vault using a URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  

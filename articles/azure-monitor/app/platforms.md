@@ -2,7 +2,7 @@
 title: 'Application Insights: languages, platforms, and integrations | Microsoft Docs'
 description: Languages, platforms, and integrations available for Application Insights
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 10/24/2022
 ms.reviewer: mmcc
 ---
 
@@ -20,7 +20,7 @@ ms.reviewer: mmcc
 * [Azure VM and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
-* [Azure Cloud Services](./cloudservices.md), including both web and worker roles
+* [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 ### Auto-instrumentation (enable without code changes)
 * [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
@@ -47,13 +47,13 @@ ms.reviewer: mmcc
 ## Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Java, Log4J, or Logback](java-2x-trace-logs.md)
+* [Log4J, Logback, or java.util.logging](./java-in-process-agent.md#autocollected-logs)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
 ## Export and data analysis
 * [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
-* [Stream Analytics](./export-power-bi.md)
+* [Power BI for workspace-based resources](../logs/log-powerbi.md)
 
 ## Unsupported SDKs
 Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when using the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.

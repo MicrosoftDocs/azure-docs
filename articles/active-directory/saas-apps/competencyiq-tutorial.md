@@ -49,6 +49,8 @@ To configure the integration of CompetencyIQ into Azure AD, you need to add Comp
 1. In the **Add from the gallery** section, type **CompetencyIQ** in the search box.
 1. Select **CompetencyIQ** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for CompetencyIQ
 
 Configure and test Azure AD SSO with CompetencyIQ using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in CompetencyIQ.
@@ -81,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<customer>.competencyiq.com/`
 
     > [!NOTE]
-    > The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [CompetencyIQ Client support team](https://www.competencyiq.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact CompetencyIQ Client support team to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -117,11 +119,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CompetencyIQ SSO
 
-To configure single sign-on on **CompetencyIQ** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CompetencyIQ support team](https://www.competencyiq.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CompetencyIQ** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to CompetencyIQ support team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create CompetencyIQ test user
 
-In this section, you create a user called Britta Simon in CompetencyIQ. Work with [CompetencyIQ support team](https://www.competencyiq.com/) to add the users in the CompetencyIQ platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in CompetencyIQ. Work with CompetencyIQ support team to add the users in the CompetencyIQ platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

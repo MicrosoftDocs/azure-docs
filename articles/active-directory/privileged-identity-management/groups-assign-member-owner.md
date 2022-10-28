@@ -3,15 +3,15 @@ title: Assign eligible owners and members for privileged access groups - Azure A
 description: Learn how to assign eligible owners or members of a role-assignable group in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/24/2022
-ms.author: curtand
+ms.date: 07/29/2022
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role, the Privileged Role Administrator role, or the group Owner role.
 
-1. Select **Groups** and then select the role-assignable group you want to manage. You can search or filter the list.
+1. Select **Groups** and then select the [role-assignable group](concept-privileged-access-versus-role-assignable.md) you want to manage. You can search or filter the list.
 
     ![find a role-assignable group to manage in PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
@@ -63,7 +63,7 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
-1. If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on your organization's settings, the check box might not appear or might not be editable.
+1. If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on your organization's settings, the check box might not appear or might not be editable. For more information, check out the [Configure privileged access group settings](groups-role-settings.md#assignment-duration) article.
 
 1. When finished, select **Assign**.
 

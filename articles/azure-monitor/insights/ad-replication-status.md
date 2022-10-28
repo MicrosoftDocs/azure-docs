@@ -17,8 +17,6 @@ Active Directory is a key component of an enterprise IT environment. To ensure h
 
 The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
-
 ## Installing and configuring the solution
 
 Use the following information to install and configure the solution.

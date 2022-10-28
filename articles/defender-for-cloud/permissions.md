@@ -1,7 +1,8 @@
 ---
-title: Permissions in Microsoft Defender for Cloud | Microsoft Docs
+title: Permissions in Microsoft Defender for Cloud
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: overview
+ms.custom: ignite-2022
 ms.date: 05/22/2022
 ---
 
@@ -34,7 +35,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 
 
-For **auto provisioning**, the specific role required depends on the extension you're deploying. For full details, check the tab for the specific extension in the [availability table on the auto provisioning quick start page](enable-data-collection.md#availability).
+The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.

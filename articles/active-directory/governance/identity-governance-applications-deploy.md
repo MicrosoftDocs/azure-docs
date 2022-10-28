@@ -3,8 +3,8 @@ title: Deploying policies for governing access to applications integrated with A
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can use entitlement management and other identity governance features to enforce the policies for access.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 6/28/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -35,7 +35,7 @@ Conditional access is only possible for applications that rely upon Azure AD for
 
 1. **Upload the terms of use (TOU) document, if needed.** If you require users to accept a terms of use (TOU) prior to accessing the application, then create and [upload the TOU document](../conditional-access/terms-of-use.md) so that it can be included in a conditional access policy.
 1. **Verify users are ready for Azure Active Directory Multi-Factor Authentication.** We recommend requiring Azure AD Multi-Factor Authentication for business critical applications integrated via federation. For these applications, there should be a policy that requires the user to have met a multi-factor authentication requirement prior to Azure AD permitting them to sign into the application.  Some organizations may also block access by locations, or [require the user to access from a registered device](../conditional-access/howto-conditional-access-policy-compliant-device.md).  If there's no suitable policy already that includes the necessary conditions for authentication, location, device and TOU, then [add a policy to your conditional access deployment](../conditional-access/plan-conditional-access.md).
-1. **Bring the application into scope of the appropriate conditional access policy**. If you have an existing conditional access policy that was created for another application subject to the same governance requirements, you could update that policy to have it apply to this application as well, to avoid having a large number of policies.  Once you have made the updates, check to ensure that the expected policies are being applied. You can see what policies would apply to a user with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
+1. **Bring the application web endpoint into scope of the appropriate conditional access policy**. If you have an existing conditional access policy that was created for another application subject to the same governance requirements, you could update that policy to have it apply to this application as well, to avoid having a large number of policies.  Once you have made the updates, check to ensure that the expected policies are being applied. You can see what policies would apply to a user with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
 1. **Create a recurring access review if any users will need temporary policy exclusions**. In some cases, it may not be possible to immediately enforce conditional access policies for every authorized user.  For example, some users may not have an appropriate registered device. If it's necessary to exclude one or more users from the CA policy and allow them access, then configure an access review for the group of [users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).
 1. **Document the token lifetime and applications' session settings.** How long a user who has been denied continued access can continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. The session lifetime for an application depends upon the application itself. To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/active-directory-configurable-token-lifetimes.md).
 
@@ -48,7 +48,7 @@ In this section, you'll configure Azure AD entitlement management so users can r
 1. **Create an access package for each role or group which users can request.** For each of the applications' roles or groups, [create an access package](../governance/entitlement-management-access-package-create.md) that includes that role or group as its resource. At this stage of configuring  that access package, configure the access package assignment policy for direct assignment, so that only administrators can create assignments.  In that policy, set the access review requirements for existing users, if any, so that they don't keep access indefinitely.
 1. **Configure access packages to enforce separation of duties requirements.** If you have [separation of duties](entitlement-management-access-package-incompatible.md) requirements, then configure the incompatible access packages or existing groups for your access package.  If your scenario requires the ability to override a separation of duties check, then you can also [set up additional access packages for those override scenarios](entitlement-management-access-package-incompatible.md#configuring-multiple-access-packages-for-override-scenarios).
 1. **Add assignments of existing users, who already have access to the application, to the access packages.** For each access package, assign existing users of the application in that role, or members of that group, to the access package. You can [directly assign a user](entitlement-management-access-package-assignments.md) to an access package using the Azure portal, or in bulk via Graph or PowerShell.
-1. **Create policies for users to request access.** In each access package, [create additional access package assignment policies](../governance/entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings) for users to request access.  Configure the approval and recurring access review requirements in that policy.
+1. **Create policies for users to request access.** In each access package, [create additional access package assignment policies](../governance/entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-with-different-request-settings) for users to request access.  Configure the approval and recurring access review requirements in that policy.
 1. **Create recurring access reviews for other groups used by the application.** If there are groups that are used by the application but aren't resource roles for an access package, then [create access reviews](create-access-review.md) for the membership of those groups.
 
 ## View reports on access
@@ -57,7 +57,7 @@ Azure AD, in conjunction with Azure Monitor, provides several reports to help yo
 
 * An administrator, or a catalog owner, can [retrieve the list of users who have access package assignments](entitlement-management-access-package-assignments.md), via the Azure portal, Graph or PowerShell.
 * You can also send the audit logs to Azure Monitor and view a history of [changes to the access package](entitlement-management-logs-and-reporting.md#view-events-for-an-access-package), in the Azure portal, or via PowerShell.
-* You can view the last 30 days of sign ins to an application in the [sign ins report](../reports-monitoring/howto-find-activity-reports.md#sign-ins-report) in the Azure portal, or via [Graph](/graph/api/signin-list?view=graph-rest-1.0&tabs=http).
+* You can view the last 30 days of sign ins to an application in the [sign ins report](../reports-monitoring/howto-find-activity-reports.md#sign-ins-report) in the Azure portal, or via [Graph](/graph/api/signin-list?view=graph-rest-1.0&tabs=http&preserve-view=true).
 * You can also send the [sign in logs to Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) to archive sign in activity for up to two years.
 
 ## Monitor to adjust entitlement management policies and access as needed

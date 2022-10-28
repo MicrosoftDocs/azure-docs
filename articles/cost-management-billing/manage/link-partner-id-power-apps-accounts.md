@@ -6,7 +6,7 @@ ms.reviewer: tpalmer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/13/2021
+ms.date: 07/11/2021
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -42,17 +42,17 @@ Before you link your partner ID, your customer must give you access to their Pow
 
 ## Link your access account to your partner ID
 
-Linking your access account to your partner ID is also called *PAL association*. When you have access to a Production Environment access account, you can use PAL to link the account to your Microsoft Partner Network ID (Location MPN ID)
+Linking your access account to your partner ID is also called *PAL association*. When you have access to a Production Environment access account, you can use PAL to link the account to your Microsoft partner location ID.
 
-For directory accounts (user or service), use the graphical web-based Azure portal, PowerShell, or the Azure CLI to link to your Microsoft Partner Network ID (Location Account MPN ID).
+For directory accounts (user or service), use the graphical web-based Azure portal, PowerShell, or the Azure CLI to link to your Microsoft partner location ID.
 
-For service principal, use PowerShell or the Azure CLI to provide the link your Microsoft Partner Network ID (Location Account MPN ID). Link the partner ID to each customer resource.
+For service principal, use PowerShell or the Azure CLI to provide the link your Microsoft partner location ID. Link the partner ID to each customer resource.
 
 To use the Azure portal to link to a new partner ID:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Go to [Link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
-3. Enter the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID** shown on your partner center profile. It's typically known as your [Partner Location Account MPN ID](/partner-center/account-structure).  
+3. Enter the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner center profile. It's typically known as your [partner location ID](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Screenshot showing the Link to a partner ID window." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 
 > [!NOTE]
@@ -106,7 +106,6 @@ The following table shows the tooling compatibility to change the owner or co-ow
 | Power App Model Driven | ✘ | ✘ | ✔  | ✔  |
 | Power Automate | ✔  | ✔  | ✔  | ✔  |
 | Power BI (Publishing) | ✘ | ✔  | ✘ | ✘ |
-| Power Virtual Agent | ✘ | ✘ | ✔  | ✔  |
 
 The following table shows the tooling compatibility to change a previously assigned user account to an **Application Registration known as a Service Principal**.
 
@@ -116,7 +115,6 @@ The following table shows the tooling compatibility to change a previously assig
 | Power App Model Driven | ✘ | ✘ | ✔  | ✔  |
 | Power Automate | ✔  | ✔  | ✔  | ✔  |
 | Power BI (Publishing) | ✘ | ✔  | ✘ | ✘ |
-| Power Virtual Agent | ✘ | ✘ | ✔  | ✔  |
 
 ### Use PowerShell to link to a new partner ID
 
@@ -128,7 +126,7 @@ Sign into the customer's tenant with either the user account or the service prin
 Update-AzManagementPartner -PartnerId 12345
 ```
 
-Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID**  shown on your partner profile.
+Link to the new partner ID. The partner ID is the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID**  shown on your partner profile.
 
 ```azurepowershell-interactive
 new-AzManagementPartner -PartnerId 12345
@@ -166,7 +164,7 @@ Sign into the customer's tenant with either the user account or the service prin
 az login --tenant TenantName
 ```
 
-Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
+Link to the new partner ID. The partner ID is the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization.
 
 ```azurecli-interactive
 az managementpartner create --partner-id 12345

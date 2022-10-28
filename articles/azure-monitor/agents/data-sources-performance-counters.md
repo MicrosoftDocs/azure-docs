@@ -4,7 +4,7 @@ description: Performance counters are collected by Azure Monitor to analyze perf
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/26/2021
+ms.date: 06/28/2022
 
 ---
 
@@ -16,7 +16,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Agents configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
+Configure Performance counters from the [Agents configuration menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
 
 When you first configure Windows or Linux Performance counters for a new workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 

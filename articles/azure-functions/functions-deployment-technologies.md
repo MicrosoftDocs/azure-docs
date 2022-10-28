@@ -1,10 +1,9 @@
 ---
 title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
-ms.custom: vs-azure
+ms.custom: vs-azure, vscode-azure-extension-update-not-needed
 ms.topic: conceptual
 ms.date: 05/18/2022
-
 ---
 
 # Deployment technologies in Azure Functions

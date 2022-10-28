@@ -6,6 +6,12 @@ items:
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
+- name: Release notes
+  items:
+  - name: 2209 - Current
+    href: azure-private-5g-core-release-notes-2209.md
+  - name: 2208 
+    href: azure-private-5g-core-release-notes-2208.md
 - name: Quickstarts
   items:
   - name: Deploy a private mobile network and site - ARM template
@@ -18,6 +24,8 @@ items:
   items:
   - name: Key components of a private mobile network
     href: key-components-of-a-private-mobile-network.md
+  - name: Private mobile network design requirements
+    href: private-mobile-network-design-requirements.md
   - name: Statement of compliance
     href: statement-of-compliance.md
   - name: Policy control
@@ -52,8 +60,10 @@ items:
       href: create-a-site.md
     - name: Create a site - ARM template
       href: create-site-arm-template.md
-    - name: Upgrade a packet core instance
+    - name: Upgrade a packet core instance - Azure portal
       href: upgrade-packet-core-azure-portal.md
+    - name: Upgrade a packet core instance - ARM template
+      href: upgrade-packet-core-arm-template.md
   - name: Policy control
     items:
     - name: Collect the required information for a service
@@ -68,10 +78,14 @@ items:
       href: configure-service-sim-policy-arm-template.md
   - name: SIMs
     items:
-    - name: Provision SIMs - Azure portal
+    - name: Provision new SIMs - Azure portal
       href: provision-sims-azure-portal.md
-    - name: Provision SIMs - ARM template
+    - name: Provision new SIMs - ARM template
       href: provision-sims-arm-template.md
+    - name: Manage existing SIMs
+      href: manage-existing-sims.md
+    - name: Manage SIM groups
+      href: manage-sim-groups.md
   - name: Log Analytics
     items:
     - name: Enable Log Analytics for a packet core instance

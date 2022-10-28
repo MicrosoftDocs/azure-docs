@@ -8,8 +8,9 @@ ms.author: gabsta
 author: MsGabsta
 ms.collection: linux
 ms.date: 05/10/2018
-
+ms.custom: GGAL-freshness822
 ---
+
 # Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI
 ## Overview
 The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
@@ -103,7 +104,7 @@ The following examples use raw JSON files. Use [az vm extension set](/cli/azure/
 ### Reset user access
 If you have lost access to root on your Linux VM, you can launch a VMAccess script to update a user's SSH key or password.
 
-To update the SSH public key of a user, create a file named `update_ssh_key.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters:
+To update the SSH public key of a user, create a file named `update_ssh_key.json` and add settings in the following format. Replace `username` and `ssh_key` with your own information:
 
 ```json
 {
@@ -124,7 +125,7 @@ az vm extension set \
   --protected-settings update_ssh_key.json
 ```
 
-To reset a user password, create a file named `reset_user_password.json` and add settings in the following format. Substitute your own values for the `username` and `password` parameters:
+To reset a user password, create a file named `reset_user_password.json` and add settings in the following format. Replace `username` and `password` with your own information:
 
 ```json
 {
@@ -146,7 +147,7 @@ az vm extension set \
 ```
 
 ### Restart SSH
-To restart the SSH daemon and reset the SSH configuration to default values, create a file named `reset_sshd.json`. Add the following content:
+To restart the SSH daemon and reset the SSH configuration to default values, create a file named `reset_sshd.json`. Add the following text:
 
 ```json
 {
@@ -190,7 +191,7 @@ az vm extension set \
   --protected-settings create_new_user.json
 ```
 
-To delete a user, create a file named `delete_user.json` and add the following content. Substitute your own value for the `remove_user` parameter:
+To delete a user, create a file named `delete_user.json` and add the following content. Change the data for `remove_user` to the user you're trying to delete:
 
 ```json
 {
@@ -213,7 +214,7 @@ az vm extension set \
 ### Check or repair the disk
 Using VMAccess you can also check and repair a disk that you added to the Linux VM.
 
-To check and then repair the disk, create a file named `disk_check_repair.json` and add settings in the following format. Substitute your own value for the name of `repair_disk`:
+To check and then repair the disk, create a file named `disk_check_repair.json` and add settings in the following format. Change the data for `repair_disk` to the disk you're trying to repair:
 
 ```json
 {

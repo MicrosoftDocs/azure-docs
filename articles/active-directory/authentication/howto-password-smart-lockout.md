@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 07/20/2020
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
-ms.reviewer: sajiang
+manager: amycolannino
+ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
 ---
@@ -28,14 +28,14 @@ Smart lockout tracks the last three bad password hashes to avoid incrementing th
 > [!NOTE]
 > Hash tracking functionality isn't available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
 
-Federated deployments that use AD FS 2016 and AF FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
+Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
 Smart lockout is always on, for all Azure AD customers, with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Premium P1 or higher licenses for your users.
 
 Using smart lockout doesn't guarantee that a genuine user is never locked out. When smart lockout locks a user account, we try our best to not lock out the genuine user. The lockout service attempts to ensure that bad actors can't gain access to a genuine user account. The following considerations apply:
 
+* Each Azure AD data center tracks lockout independently. A user has (*threshold_limit * datacenter_count*) number of attempts, if the user hits each data center.
 * Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Unfamiliar and familiar locations both have separate lockout counters.
-* Due to the geo-distributed nature of the Azure AD authentication service, there may be slight variance in the total number of failed sign-in attempts before a user gets locked out. For example, if the lockout threshold is set to 10, up to 12 total failed sign-in attempts may occur before the account is locked out.
 
 Smart lockout can be integrated with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises AD DS.
 
@@ -87,12 +87,16 @@ When the smart lockout threshold is triggered, you will get the following messag
 
 *Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.*
 
+When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (*threshold_limit * datacenter_count*) number of bad attempts before being completely locked out.
+
 Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior won't cause the account to lock out.
+
 
 ## Default protections
 In addition to Smart lockout, Azure AD also protects against attacks by analyzing signals including IP traffic and identifying anomalous behavior. Azure AD will block these malicious sign-ins by default and return [AADSTS50053 - IdsLocked error code](../develop/reference-aadsts-error-codes.md), regardless of the password validity.
 
 ## Next steps
 
-- To customize the experience further, you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
-- To help users reset or change their password from a web browser, you can [configure Azure AD self-service password reset](tutorial-enable-sspr.md).
+To customize the experience further, you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
+
+To help users reset or change their password from a web browser, you can [configure Azure AD self-service password reset](tutorial-enable-sspr.md).

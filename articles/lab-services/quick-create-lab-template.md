@@ -61,7 +61,7 @@ The Azure portal is used here to deploy the template. You can also use Azure Pow
 
 You can either use the Azure portal to check the lab, or use the Azure PowerShell script to list the lab resource created.
 
-To use Azure PowerShell, first verify the Az.LabServices (preview) module is installed. Then use the **Get-AzLabServicesLab** cmdlet.
+To use Azure PowerShell, first verify the Az.LabServices module is installed. Then use the **Get-AzLabServicesLab** cmdlet.
 
 ```azurepowershell-interactive
 Import-Module Az.LabServices

@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 08/22/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -30,7 +30,7 @@ OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. U
 When the access token expires or the app session is invalidated, Azure Static Web App initiates a new authentication request and redirects users to Azure AD B2C. If the Azure AD B2C [SSO session](session-behavior.md) is active, Azure AD B2C issues an access token without prompting users to sign in again. If the Azure AD B2C session expires or becomes invalid, users are prompted to sign in again.
 
 ## Prerequisites
-
+- A premium Azure subscription. 
 - If you haven't created an app yet, follow the guidance how to create an [Azure Static Web App](../static-web-apps/overview.md).
 - Familiarize yourself with the Azure Static Web App [staticwebapp.config.json](../static-web-apps/configuration.md) configuration file.
 - Familiarize yourself with the Azure Static Web App [App Settings](../static-web-apps/application-settings.md).
@@ -127,7 +127,7 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
 
 1. Navigate to `/.auth/login/aadb2c`. The `/.auth/login` points the Azure Static app login endpoint. The `aadb2c` references to your [OpenID Connect identity provider](#31-add-an-openid-connect-identity-provider).  The following URL demonstrates an Azure Static app login endpoint: `https://witty-island-11111111.azurestaticapps.net/.auth/login/aadb2c`.
 1. Complete the sign up or sign in process.
-1. In your browser debugger, [run the following JavaScript in the Console](/microsoft-edge/devtools-guide-chromium/console/console-javascript.md). The JavaScript code will present information about the sign in user.
+1. In your browser debugger, [run the following JavaScript in the Console](/microsoft-edge/devtools-guide-chromium/console/console-javascript). The JavaScript code will present information about the sign in user.
 
     ```javascript
     async function getUserInfo() {
@@ -136,10 +136,9 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
       const { clientPrincipal } = payload;
       return clientPrincipal;
     }
-  
+    
     await getUserInfo();
     ```
-
 
 > [!TIP]
 > If you can't run the above JavaScript code in your browser, navigate to the following URL `https://<app-name>.azurewebsites.net/.auth/me`. Replace the `<app-name>` with your Azure Web App.

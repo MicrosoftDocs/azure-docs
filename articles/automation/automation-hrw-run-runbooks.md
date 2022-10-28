@@ -10,6 +10,10 @@ ms.custom: devx-track-azurepowershell
 
 # Run Automation runbooks on a Hybrid Runbook Worker
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
+
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
 
 When you author a runbook to run on a Hybrid Runbook Worker, you should edit and test the runbook on the machine that hosts the worker. The host machine has all the PowerShell modules and network access required to manage the local resources. Once you test the runbook on the Hybrid Runbook Worker machine, you can then upload it to the Azure Automation environment, where it can be run on the worker.
@@ -116,7 +120,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
     
     # [VM's system-assigned managed identity](#tab/sa-mi)
    
-    1. [Configure](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-vm) a System Managed Identity for the VM.
+    1. [Configure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md) a System Managed Identity for the VM.
     1. Grant this identity the [required permissions](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) within the subscription to perform its tasks.
     1. Update the runbook to use the [Connect-Az-Account](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As Account and perform the associated account management.
 
@@ -137,8 +141,8 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
      
     # [VM's user-assigned managed identity](#tab/ua-mi)
 
-    1. [Configure](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) a User Managed Identity for the VM.
-    1. Grant this identity the [required permissions](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal) within the Subscription to perform its tasks.
+    1. [Configure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) a User Managed Identity for the VM.
+    1. Grant this identity the [required permissions](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) within the Subscription to perform its tasks.
     1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity ` and `AccountID` parameters to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
     ```powershell
@@ -163,7 +167,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
 
 ---
 
-**An Arc-enabled server running as a Hybrid Runbook Worker** already has a built-in System Managed Identity assigned to it which can be used for authentication.
+**An Arc-enabled server or Arc-enabled VMware vSphere VM** running as a Hybrid Runbook Worker already has a built-in System Managed Identity assigned to it which can be used for authentication.
 
 1. You can grant this Managed Identity access to resources in your subscription in the Access control (IAM) blade for the resource by adding the appropriate role assignment.
 
@@ -203,7 +207,7 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Select **Settings**.
 1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
 1. Select the credential and click **Save**.
-1. If the following permissions are not assigned for Custom users, jobs might get suspended. 
+1. If the following permissions are not assigned for Custom users, jobs might get suspended. Add these permission to the Hybrid Runbook Worker account on the runbook worker machine, instead of adding the account to **Administrators** group because the `Filtered Token` feature of UAC would grant standard user rights to this account when logging-in. For more details, refer to - [Information about UAC on Windows Server](/troubleshoot/windows-server/windows-security/disable-user-account-control#more-information).
 Use your discretion in assigning the elevated permissions corresponding to the following registry keys/folders: 
     
 **Registry path**

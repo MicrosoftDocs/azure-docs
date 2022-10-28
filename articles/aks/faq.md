@@ -36,7 +36,7 @@ Yes, you can use different virtual machine sizes in your AKS cluster by creating
 
 ## Are security updates applied to AKS agent nodes?
 
-Azure automatically applies security patches to the Linux nodes in your cluster on a nightly schedule. However, you're responsible for ensuring that those Linux nodes are rebooted as required. You have several options for rebooting nodes:
+AKS patches CVE’s that have a "vendor fix" every week. CVE's without a fix are waiting on a "vendor fix" before it can be remediated.  The AKS images will get automatically updated inside of 30 days and it recommended that customer apply an updated Node Image on a regular cadence to ensure that latest patched images and OS patches are all applied and current:
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. The cluster upgrades [cordon and drain nodes][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
@@ -216,7 +216,7 @@ No, AKS is a managed service, and manipulation of the IaaS resources isn't suppo
 
 ## Does AKS store any customer data outside of the cluster's region?
 
-The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo.
+No, all data is stored in the cluster's region.
 
 ## Are AKS images required to run as root?
 
@@ -300,6 +300,10 @@ FIPS-enabled nodes are currently are now supported on Linux-based node pools. Fo
 ## Can I configure NSGs with AKS?
 
 AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. AKS only modifies the network interfaces NSGs settings. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you must also ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more information, see [Network security groups](concepts-network.md#network-security-groups).
+
+## How does Time syncronization work in AKS?
+
+AKS nodes run the "chrony" service which pulls time from the localhost.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
 
 <!-- LINKS - internal -->
 

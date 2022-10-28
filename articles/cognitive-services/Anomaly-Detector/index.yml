@@ -13,7 +13,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 02/10/2022
+  ms.date: 10/27/2022
   ms.author: mbullwin
 
 
@@ -62,14 +62,8 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-      - text: What is Multivariate Anomaly Detector?
-        url: overview-multivariate.md
       - text: Introducing Multivariate Anomaly Detection
         url: https://techcommunity.microsoft.com/t5/azure-ai/introducing-multivariate-anomaly-detection/ba-p/2260679
-    - linkListType: how-to-guide
-      links:
-      - text: 🆕Use Multivariate Anomaly Detector on your time series data
-        url: How-to/multivariate-how-to.md
     - linkListType: quickstart
       links:
         - text: Using C# (multivariate)
@@ -88,8 +82,6 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-        - text: What is Univariate Anomaly Detector?
-          url: overview.md
         - text: Introducing Azure Anomaly Detector API (univariate) 
           url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
     - linkListType: how-to-guide
@@ -116,7 +108,6 @@ landingContent:
       links:
       - text: Visualize (univariate) anomalies using batch detection and Power BI
         url: tutorials/batch-anomaly-detection-powerbi.md
-
 # Card 5
 
 - title: Optimize your detection results

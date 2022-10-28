@@ -38,7 +38,10 @@ The recommendation is:
 
 ## [ASP.NET Core web apps and web APIs](#tab/aspnetcore)
 
-The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library.
+The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library. 
+
+If you're using the MSAL library directly in an ASP.NET Core app, consider moving to use [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web), which provides a simpler, higher-level API. Otherwise, see the [Non-ASP.NET Core web apps and web APIs](/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet#configuring-the-token-cache), which covers direct MSAL usage.
+
 
 | Extension method | Description  |
 | ---------------- | ------------ |
@@ -98,11 +101,11 @@ Here are examples of possible distributed caches:
 services.Configure<MsalDistributedTokenCacheAdapterOptions>(options => 
   {
     // Optional: Disable the L1 cache in apps that don't use session affinity
-    //                 by setting DisableL1Cache to 'false'.
+    //                 by setting DisableL1Cache to 'true'.
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
-    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024, // 1 GB
+    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024; // 1 GB
 
     // You can choose if you encrypt or not encrypt the cache
     options.Encrypt = false;
@@ -110,7 +113,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     // And you can set eviction policies for the distributed
     // cache.
     options.SlidingExpiration = TimeSpan.FromHours(1);
-  }
+  });
 
 // Then, choose your implementation of distributed cache
 // -----------------------------------------------------
@@ -685,6 +688,9 @@ namespace CommonCacheMsalV3
  }
 }
 ```
+
+For more details see the sample: https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/TokenCacheMigration/ADAL2MSAL
+
 
 ---
 

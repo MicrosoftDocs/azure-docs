@@ -3,12 +3,12 @@ title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -73,7 +73,7 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": "False"
         }
     ]
-}
+  }
   ```
 
 **With feature flag**
@@ -89,7 +89,7 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": false
         }
     ]
-}
+  }
   ```
 
 **Requests made to add a single-value string attribute:**

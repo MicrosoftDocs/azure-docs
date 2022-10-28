@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Data history (with Azure Data Explorer) (preview)
+title: Data history (with Azure Data Explorer)
 titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/28/2022
+ms.date: 10/25/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins data history (with Azure Data Explorer) (preview)
+# Azure Digital Twins data history (with Azure Data Explorer)
 
-**Data history (preview)** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
+**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
 
 Once twin property values are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
@@ -25,7 +25,7 @@ For more of an introduction to data history, including a quick demo, watch the f
 
 <iframe src="https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15" width="1080" height="530"></iframe>
 
-## Required resources and data flow
+## Resources and data flow
 
 Data history requires the following resources:
 * Azure Digital Twins instance, with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled
@@ -42,9 +42,17 @@ Data moves through these resources in this order:
 1. The event hub forwards the message to the target Azure Data Explorer cluster. 
 1. The Azure Data Explorer cluster maps the message fields to the data history schema, and stores the data as a timestamped record in a data history table.
 
-When working with data history, you'll also need to use the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the APIs.
+When working with data history, use the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the APIs.
 
-### Required permissions
+### History from multiple Azure Digital Twins instances
+
+If you'd like, you can have multiple Azure Digital Twins instances historize twin property updates to the same Azure Data Explorer cluster.
+
+Each Azure Digital Twins instance will have its own data history connection targeting the same Azure Data Explorer cluster. Within the cluster, instances can send their twin data to either...
+* **different tables** in the Azure Data Explorer cluster.
+* **the same table** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table name while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schema](#data-schema), the `ServiceId` column will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record.
+
+## Required permissions
 
 In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up.
 * Event Hubs resource: **Azure Event Hubs Data Owner**
@@ -55,9 +63,9 @@ Later, your Azure Digital Twins instance must have the following permission on t
 
 ## Creating a data history connection
 
-Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
+Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
 
-For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer (preview)](how-to-use-data-history.md).
+For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
 ## Data schema
 
@@ -66,7 +74,7 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `TimeStamp` | DateTime | The date/time the property update message was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
-| `SourceTimeStamp` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the **2021-06-30-preview** version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
+| `SourceTimeStamp` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the **2022-05-31** version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
 | `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
 | `Id` | String | The twin ID |
 | `ModelId` | String | The DTDL model ID (DTMI) |

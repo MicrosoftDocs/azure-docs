@@ -3,8 +3,8 @@ title: Renew expired group owner or member assignments in Privileged Identity Ma
 description: Learn how to extend or renew role-assignable group assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.reviewer: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---

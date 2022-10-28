@@ -29,7 +29,7 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 ## How do I choose the assessment type?
 
 - Use **Azure VM assessments** when you want to assess servers from your on-premises [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs. [Learn More](concepts-assessment-calculation.md).
-- Use assessment type **Azure SQL** when you want to assess your on-premises SQL Server from your VMware environment for migration to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md).
+- Use assessment type **Azure SQL** when you want to assess your on-premises SQL Server in your VMware, Microsoft Hyper-V, and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. for migration to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md).
 - Use assessment type **Azure App Service** when you want to assess your on-premises ASP.NET web apps running on IIS web server from your VMware environment for migration to Azure App Service. [Learn More](concepts-assessment-calculation.md).
 - Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 - You can use a common group with VMware machines only to run both types of assessments. If you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
@@ -94,7 +94,7 @@ There could be two reasons:
 
 ## I want to try out the new Azure SQL assessment
 
-Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
+Discovery and assessment of SQL Server instances and databases running in your VMware, Microsoft Hyper-V, and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## I want to try out the new Azure App Service assessment
 
@@ -103,7 +103,7 @@ Discovery and assessment of .NET web apps running in your VMware environment is 
 ## I can't see some servers when I am creating an Azure SQL assessment
 
 - Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, wait for some time for the discovery to get completed and then create the assessment.
-- If you are not able to see a previously created group while creating the assessment, remove any non-VMware server or any server without a SQL instance from the group.
+- If you are not able to see a previously created group while creating the assessment, remove any server without a SQL instance from the group.
 - If you are running Azure SQL assessments in Azure Migrate for the first time, it is advisable to create a new group of servers.
 
 ## I can't see some servers when I am creating an Azure App Service assessment
@@ -180,7 +180,7 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM vs Azure SQL Database/Azure SQL Managed Instance
 
-You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
+You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md)
 
 ## The storage cost in my Azure SQL assessment is zero
 
@@ -290,7 +290,7 @@ The differences between agentless visualization and agent-based visualization ar
 **Requirement** | **Agentless** | **Agent-based**
 --- | --- | ---
 Support | This option is currently in preview, and is only available for servers in VMware environment. [Review](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) supported operating systems. | In general availability (GA).
-Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md), and the [Dependency agent](../azure-monitor/agents/agents-overview.md#dependency-agent). 
+Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md), and the [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md). 
 Prerequisites | [Review](concepts-dependency-visualization.md#agentless-analysis) the prerequisites and deployment requirements. | [Review](concepts-dependency-visualization.md#agent-based-analysis) the prerequisites and deployment requirements.
 Log Analytics | Not required. | Azure Migrate uses the [Service Map](../azure-monitor/vm/service-map.md) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization. [Learn more](concepts-dependency-visualization.md#agent-based-analysis).
 How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
@@ -311,7 +311,7 @@ No. Learn more about [Azure Migrate pricing](https://azure.microsoft.com/pricing
 To use agent-based dependency visualization, download and install agents on each on-premises machine that you want to evaluate:
 
 - [Microsoft Monitoring Agent (MMA)](../azure-monitor/agents/agent-windows.md)
-- [Dependency agent](../azure-monitor/agents/agents-overview.md#dependency-agent)
+- [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md)
 - If you have machines that don't have internet connectivity, download and install the Log Analytics gateway on them.
 
 You need these agents only if you use agent-based dependency visualization.

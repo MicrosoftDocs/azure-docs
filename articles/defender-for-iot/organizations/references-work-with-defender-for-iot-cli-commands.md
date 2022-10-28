@@ -9,7 +9,6 @@ ms.topic: article
 
 This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to the following users:
 
-- Administrator
 - CyberX 
 - Support
 - cyberx_host
@@ -289,7 +288,7 @@ When you're using the tool:
 
 ## Sign out of a support shell
 
-Starting in version 22.1.3, you're automatically signed out of an SSH session after an inactive period of 300 seconds.
+You're automatically signed out of an SSH session after an inactive period of 300 seconds.
 
 To sign out of your session manually, enter the following command:
 

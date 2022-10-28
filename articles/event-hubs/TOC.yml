@@ -35,6 +35,8 @@
           href: event-hubs-java-get-started-send.md
         - name: Java (azure-eventhubs - legacy)
           href: event-hubs-java-get-started-send-legacy.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
         - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs)
@@ -70,7 +72,7 @@
     - name: Analyze fraudulent call data with Stream Analytics
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
     - name: Capture Event Hubs data in Parquet format
-      href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md
+      href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=/azure/event-hubs/TOC.json
       maintainContext: true
     - name: Build real time dashboards with Power BI
       href: ../stream-analytics/no-code-power-bi-tutorial.md
@@ -87,7 +89,11 @@
 - name: Concepts
   items:
     - name: Event Hubs Capture
-      href: event-hubs-capture-overview.md
+      items:
+      - name: Capture event data in Event Hubs
+        href: event-hubs-capture-overview.md
+      - name: Explore captured Avro files
+        href: explore-captured-avro-files.md
     - name: Application groups
       href: resource-governance-overview.md     
     - name: Tiers 
@@ -105,7 +111,7 @@
       - name: Event processor (latest SDK)
         href: event-processor-balance-partition-load.md
       - name: Event processing with no code editor
-        href: ../stream-analytics/no-code-stream-processing.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+        href: ../stream-analytics/no-code-stream-processing.md?toc=/azure/event-hubs/toc.json
 
     - name: Federation 
       items:
@@ -175,6 +181,8 @@
       items:
         - name: Get Event Hubs connection string
           href: event-hubs-get-connection-string.md
+        - name: Connect to an event hub (.NET)
+          href: connect-event-hub.md
         - name: Configure processing units for a premium namespace
           href: configure-processing-units-premium-namespace.md
         - name: Add custom data to events
@@ -184,31 +192,35 @@
         - name: Use Blob Storage as checkpoint store on Azure Stack Hub
           href: use-blob-storage-checkpoint-store-azure-stack-hub.md
         - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
-          href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+          href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
         - name: Exchange events between applications using different protocols
           href: event-hubs-exchange-events-different-protocols.md
-        - name: Programming guides
+        - name: Programming language samples
           items:
-            - name: .NET (Azure.Messaging.EventHubs)
+            - name: .NET samples in GitHub
               href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md
-            - name: Java (azure-messaging-eventhubs)
+            - name: Java samples in GitHub (azure-messaging-eventhubs)
               href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
-            - name: Python (azure-eventhub)
+            - name: Python samples in GitHub (azure-eventhub)
               href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
-            - name: JavaScript (azure/event-hubs)
+            - name: JavaScript in GitHub (azure/event-hubs)
               href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
-            - name: .NET (Microsoft.Azure.EventHubs)
-              href: event-hubs-programming-guide.md
     - name: Process data
       items:
         - name: Capture Event Hubs data in Parquet format
-          href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=%2fazure%2fevent-hubs%2ftoc.json
-        - name: Materialize data to Cosmos DB
-          href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+          href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
+        - name: Materialize data to Azure Cosmos DB
+          href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=/azure/event-hubs/toc.json
         - name: Filter and ingest Synapse SQL data
-          href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+          href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=/azure/event-hubs/toc.json
         - name: Filter and ingest to Data Lake Storage Gen2
-          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=/azure/event-hubs/toc.json
+        - name: Enrich data and ingest to event hub
+          href: ../stream-analytics/no-code-enrich-event-hub-data.md?toc=/azure/event-hubs/toc.json
+        - name: Transform and ingest to SQL database
+          href: ../stream-analytics/no-code-transform-filter-ingest-sql.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest to Azure Data Explorer
+          href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
     - name: Integrate with Spring framework
@@ -319,6 +331,12 @@
               href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy&preserve-view=true
         - name: Management library
           href: /java/api/com.microsoft.azure.management.eventhub
+    - name: Spring
+      items:
+        - name: Spring integration
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-event-hubs?toc=/azure/event-hubs/TOC.json
+        - name: Spring Cloud Stream
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-event-hubs?toc=/azure/event-hubs/TOC.json
     - name: Python
       items:
         - name: Client library
@@ -352,8 +370,8 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-event-hubs
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-hubs
     - name: FAQ
       href: event-hubs-faq.yml
     - name: Azure Roadmap

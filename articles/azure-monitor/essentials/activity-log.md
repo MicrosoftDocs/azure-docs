@@ -1,12 +1,13 @@
 ---
 title: Azure activity log
 description: View the Azure Monitor activity log and send it to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
-author: bwren
+author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.author: bwren
-ms.reviewer: lualderm
+ms.custom: ignite-2022
+ms.date: 07/01/2022
+ms.author: guywild
+ms.reviewer: orens
 ---
 
 # Azure Monitor activity log
@@ -22,7 +23,8 @@ For more functionality, create a diagnostic setting to send the activity log to 
 For details on how to create a diagnostic setting, see [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md).
 
 > [!NOTE]
-> Entries in the activity log are system generated and can't be changed or deleted.
+> * Entries in the Activity Log are system generated and can't be changed or deleted.
+> * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](https://learn.microsoft.com/azure/azure-monitor/essentials/resource-logs)
 
 ## Retention period
 
@@ -69,8 +71,8 @@ You can also access activity log events by using the following methods:
 - Use log queries to perform complex analysis and gain deep insights on activity log entries.
 - Use log alerts with Activity entries for more complex alerting logic.
 - Store activity log entries for longer than the activity log retention period.
-- Incur no data ingestion charges for activity log data stored in a Log Analytics workspace.
-- Incur no data retention charges for the first 90 days for activity log data stored in a Log Analytics workspace.
+- Incur no data ingestion or retention charges for activity log data stored in a Log Analytics workspace.
+- The default retention period in Log Analytics is 90 days
 
  Select **Export Activity Logs** to send the activity log to a Log Analytics workspace.
 
@@ -100,7 +102,7 @@ Send the activity log to Azure Event Hubs to send entries outside of Azure, for 
 
 The following sample output data is from event hubs for an activity log:
 
-``` JSON
+```json
 {
     "records": [
         {
@@ -172,34 +174,36 @@ For example, a particular blob might have a name similar to:
 insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/y=2020/m=06/d=08/h=18/m=00/PT1H.json
 ```
 
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL, for example, h=12. During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00 because resource log events are broken into individual blobs per hour.
+Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they are received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
 
 Each event is stored in the PT1H.json file with the following format. This format uses a common top-level schema but is otherwise unique for each category, as described in [Activity log schema](activity-log-schema.md).
 
-``` JSON
+```json
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
 ```
 
 ## Legacy collection methods
 
-This section describes legacy methods for collecting the activity log that were used prior to diagnostic settings. If you're using these methods, consider transitioning to diagnostic settings that provide better functionality and consistency with resource logs.
+If you're collecting activity logs using the legacy collection method, we recommend you [export activity logs to your Log Analytics workspace](#send-to-log-analytics-workspace) and disable the legacy collection using the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) as follows:
 
-### Log profiles
+1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs by setting `filter=kind='AzureActivityLog'`.
 
-Log profiles are the legacy method for sending the activity log to storage or event hubs. Use the following procedure to continue working with a log profile or to disable it in preparation for migrating to a diagnostic setting.
+    :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api.png" alt-text="Screenshot showing the configuration of the Data Sources - List By Workspace API." lightbox="media/activity-log/data-sources-list-by-workspace-api.png":::    
 
-1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
-1. Select **Export Activity Logs**.
+1. Copy the name of the connection you want to disable from the API response.
 
-   ![Screenshot that shows exporting activity logs.](media/activity-log/diagnostic-settings-export.png)
+    :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api-connection.png" alt-text="Screenshot showing the connection information you need to copy from the output of the Data Sources - List By Workspace API." lightbox="media/activity-log/data-sources-list-by-workspace-api-connection.png":::    
+ 
+1. Use the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) to stop collecting activity logs for the specific resource.
 
-1. Select the purple banner for the legacy experience.
+    :::image type="content" source="media/activity-log/data-sources-delete-api.png" alt-text="Screenshot of the configuration of the Data Sources - Delete API." lightbox="media/activity-log/data-sources-delete-api.png":::
+### Managing legacy log profiles
 
-    ![Screenshot that shows the legacy experience.](media/activity-log/legacy-experience.png)
+Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, consider transitioning to diagnostic settings, which provide better functionality and consistency with resource logs.
 
-### Configure a log profile by using PowerShell
+#### [PowerShell](#tab/powershell)
 
-If a log profile already exists, you first must remove the existing log profile and then create a new one.
+If a log profile already exists, you first must remove the existing log profile, and then create a new one.
 
 1. Use `Get-AzLogProfile` to identify if a log profile exists. If a log profile exists, note the `Name` property.
 
@@ -225,9 +229,9 @@ If a log profile already exists, you first must remove the existing log profile 
     | RetentionInDays |Yes |Number of days for which events should be retained in the storage account, from 1 through 365. A value of zero stores the logs indefinitely. |
     | Category |No |Comma-separated list of event categories to be collected. Possible values are Write, Delete, and Action. |
 
-### Example script
+**Example script**
 
-The following sample PowerShell script is used to create a log profile that writes the activity log to both a storage account and an event hub.
+This sample PowerShell script creates a log profile that writes the activity log to both a storage account and an event hub.
 
    ```powershell
    # Settings needed for the new log profile
@@ -247,9 +251,9 @@ The following sample PowerShell script is used to create a log profile that writ
    Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
-### Configure a log profile by using the Azure CLI
+#### [CLI](#tab/cli)
 
-If a log profile already exists, you first must remove the existing log profile and then create a log profile.
+If a log profile already exists, you first must remove the existing log profile, and then create a log profile.
 
 1. Use `az monitor log-profiles list` to identify if a log profile exists.
 1. Use `az monitor log-profiles delete --name "<log profile name>` to remove the log profile by using the value from the `name` property.
@@ -267,21 +271,7 @@ If a log profile already exists, you first must remove the existing log profile 
     |enabled | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
-### Log Analytics workspace
-
-The legacy method for sending the activity log into a Log Analytics workspace is connecting the sign-in for the workspace configuration.
-
-1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to collect the activity log.
-1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
-1. Select the subscription that you want to connect to.
-
-    ![Screenshot that shows Log Analytics workspace with Azure Activity log selected.](media/activity-log/workspaces.png)
-
-1. Select **Connect** to connect the activity sign-in subscription to the selected workspace. If the subscription is already connected to another workspace, select **Disconnect** first to disconnect it.
-
-    ![Screenshot that shows connecting workspaces.](media/activity-log/connect-workspace.png)
-
-To disable the setting, do the same procedure and select **Disconnect** to remove the subscription from the workspace.
+---
 
 ### Data structure changes
 

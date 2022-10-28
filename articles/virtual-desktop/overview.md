@@ -3,7 +3,7 @@ title: What is Azure Virtual Desktop? - Azure
 description: An overview of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/16/2022
+ms.date: 08/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -19,6 +19,9 @@ Here's what you can do when you run Azure Virtual Desktop on Azure:
 - Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
 - Virtualize both desktops and apps
 - Manage desktops and apps from different Windows and Windows Server operating systems with a unified management experience
+
+> [!IMPORTANT]
+> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
 
 ## Introductory video
 

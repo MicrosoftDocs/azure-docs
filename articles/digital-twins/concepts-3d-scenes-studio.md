@@ -58,9 +58,9 @@ To work with 3D Scenes Studio, you'll need the following required resources:
     * To **view** 3D scenes, you'll need at least *Storage Blob Data Reader* access to these storage resources. To **build** 3D scenes, you'll need *Storage Blob Data Contributor* or *Storage Blob Data Owner* access. 
 
         You can grant required roles at either the storage account level or the container level. For more information about Azure storage permissions, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
-    * You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. For complete CORS setting information, see [Use 3D Scenes Studio (preview)](how-to-use-3d-scenes-studio.md#prerequisites).
+    * You should also configure [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. For complete CORS setting information, see [Use 3D Scenes Studio (preview)](how-to-use-3d-scenes-studio.md#prerequisites).
 
-Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes).
+Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes).
 
 Once there, you'll link your 3D environment to your storage resources, and configure your first scene. For detailed instructions on how to perform these actions, see [Initialize your 3D Scenes Studio environment](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment) and [Create, edit, and view scenes](how-to-use-3d-scenes-studio.md#create-edit-and-view-scenes).
 

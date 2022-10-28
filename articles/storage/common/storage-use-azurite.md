@@ -1,10 +1,9 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
-author: normesta
-
-ms.author: normesta
-ms.date: 06/03/2022
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 08/04/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -13,7 +12,7 @@ ms.custom: devx-track-csharp
 
 # Use the Azurite emulator for local Azure Storage development
 
-The Azurite open-source emulator provides a free local environment for testing your Azure blob, queue storage, and table storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
+The Azurite open-source emulator provides a free local environment for testing your Azure Blob, Queue Storage, and Table Storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
 
 Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
 
@@ -39,21 +38,24 @@ To configure Azurite within Visual Studio Code, select the extensions pane. Sele
 
 The following settings are supported:
 
-   - **Azurite: Blob Host** - The Blob service listening endpoint. The default setting is 127.0.0.1.
-   - **Azurite: Blob Port** - The Blob service listening port. The default port is 10000.
-   - **Azurite: Cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
-   - **Azurite: Debug** - Output the debug log to the Azurite channel. The default value is **false**.
-   - **Azurite: Key** - Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file.
-   - **Azurite: Location** - The workspace location path. The default is the Visual Studio Code working folder.
-   - **Azurite: Loose** - Enable loose mode, which ignores unsupported headers and parameters.
-   - **Azurite: Oauth** - Optional OAuth level.
-   - **Azurite: Pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
-   - **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
-   - **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
-   - **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
-   - **Azurite: Skip Api Version Check** - Skip the request API version check. The default value is **false**.
-   - **Azurite: Table Host** - The Table service listening endpoint, by default setting is 127.0.0.1.
-   - **Azurite: Table Port** - The Table service listening port, by default 10002.
+   - **azurite.blobHost** - The Blob service listening endpoint. The default setting is 127.0.0.1.
+   - **azurite.blobPort** - The Blob service listening port. The default port is 10000.
+   - **azurite.queueHost** - The Queue service listening endpoint. The default setting is 127.0.0.1.
+   - **azurite.queuePort** - The Queue service listening port. The default port is 10001.
+   - **azurite.tableHost** - The Table service listening endpoint, by default setting is 127.0.0.1.
+   - **azurite.tablePort** - The Table service listening port, by default 10002.
+   - **azurite.cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
+   - **azurite.debug** - Output the debug log to the Azurite channel. The default value is **false**.
+   - **azurite.key** - Path to a locally trusted PEM key file, required when 
+   - **azurite.location** - The workspace location path. The default is the Visual Studio Code working folder.
+   - **azurite.loose** - Enable loose mode, which ignores unsupported headers and parameters.
+   - **azurite.oauth** - Optional OAuth level.
+   - **azurite.pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
+
+   - **azurite.silent** - Silent mode disables the access log. The default value is **false**.
+   - **azurite.skipApiVersionCheck** - Skip the request API version check. The default value is **false**.
+   - **azurite.disableProductStyleUrl** Force the parsing of the storage account name from request Uri path, instead of from request Uri host.
+
 
 ### [npm](#tab/npm)
 
@@ -70,33 +72,6 @@ Use [DockerHub](https://hub.docker.com/) to pull the [latest Azurite image](http
 ```console
 docker pull mcr.microsoft.com/azure-storage/azurite
 ```
-
-**Run the Azurite Docker image**:
-
-The following command runs the Azurite Docker image. The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
-
-```console
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
-    mcr.microsoft.com/azure-storage/azurite
-```
-
-**Specify the workspace location**:
-
-In the following example, the `-v c:/azurite:/data` parameter specifies *c:/azurite* as the Azurite persisted data location. The directory, *c:/azurite*, must be created before running the Docker command.
-
-```console
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
-    -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
-```
-
-**Run just the blob service**
-
-```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
-    azurite-blob --blobHost 0.0.0.0 --blobPort 10000
-```
-
-For more information about configuring Azurite at start-up, see [Command-line options](#command-line-options).
 
 ### [GitHub](#tab/github)
 
@@ -191,6 +166,24 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
 
 ### [Docker Hub](#tab/docker-hub)
+
+**Run the Azurite Docker image**:
+
+The following command runs the Azurite Docker image. The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
+
+```console
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
+    mcr.microsoft.com/azure-storage/azurite
+```
+
+**Specify the workspace location**:
+
+In the following example, the `-v c:/azurite:/data` parameter specifies *c:/azurite* as the Azurite persisted data location. The directory, *c:/azurite*, must be created before running the Docker command.
+
+```console
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
+    -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+```
 
 **Run just the blob service**
 
@@ -432,6 +425,14 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 azurite --skipApiVersionCheck
 ```
 
+### Disable Production Style Url
+
+**Optional**. When using the fully-qualified domain name instead of the IP in request Uri host, by default Azurite will parse the storage account name from request Uri host. You can force the parsing of the storage account name from request Uri path by using `--disableProductStyleUrl`:
+
+```cmd
+azurite --disableProductStyleUrl
+```
+
 ## Authorization for tools and SDKs
 
 Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
@@ -447,7 +448,7 @@ Azurite accepts the same well-known account and key used by the legacy Azure Sto
 
 ### Custom storage accounts and keys
 
-Azurite supports custom storage account names and keys by setting the `AZURITE_ACCOUNTS` environment variable in the following format: `account1:key1[:key2];account2:key1[:key2];...`.
+Azurite supports custom storage account names and keys by setting the `AZURITE_ACCOUNTS` environment variable in the following format: `account1:key1[:key2];account2:key1[:key2];...`. 
 
 For example, use a custom storage account that has one key:
 
@@ -458,6 +459,9 @@ set AZURITE_ACCOUNTS="account1:key1"
 ```bash
 export AZURITE_ACCOUNTS="account1:key1"
 ```
+
+> [!NOTE]
+> The account keys must be a base64 encoded string.
 
 Or use multiple storage accounts with two keys each:
 
@@ -473,6 +477,8 @@ Azurite refreshes custom account names and keys from the environment variable ev
 
 > [!NOTE]
 > The default `devstoreaccount1` storage account is disabled when you set custom storage accounts.
+
+The account keys must be a base64 encoded string.
 
 ### Connection strings
 
@@ -508,7 +514,7 @@ To connect to the table service only, the connection string is:
 
 The full HTTPS connection string is:
 
-`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;TableEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;`
 
 To use the blob service only, the HTTPS connection string is:
 
@@ -520,11 +526,11 @@ To use the queue service only, the HTTPS connection string is:
 
 To use the table service only, the HTTPS connection string is:
 
-`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;`
 
 If you used `dotnet dev-certs` to generate your self-signed certificate, use the following connection string.
 
-`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;TableEndpoint=https://localhost:10001/devstoreaccount1;`
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;TableEndpoint=https://localhost:10002/devstoreaccount1;`
 
 Update the connection string when using [custom storage accounts and keys](#custom-storage-accounts-and-keys).
 
@@ -589,17 +595,17 @@ You can also instantiate a TableClient or TableServiceClient.
 ```csharp
 // With table URL and DefaultAzureCredential
 var client = new Client(
-    new Uri("https://127.0.0.1:10001/devstoreaccount1/table-name"), new DefaultAzureCredential()
+    new Uri("https://127.0.0.1:10002/devstoreaccount1/table-name"), new DefaultAzureCredential()
   );
 
 // With connection string
 var client = new TableClient(
-    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "table-name"
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;", "table-name"
   );
 
 // With account name and key
 var client = new TableClient(
-    new Uri("https://127.0.0.1:10001/devstoreaccount1/table-name"),
+    new Uri("https://127.0.0.1:10002/devstoreaccount1/table-name"),
     new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==")
   );
 ```
@@ -679,13 +685,48 @@ The following URI is a valid address for a blob in an Azure Storage account:
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-Since the local computer doesn't do domain name resolution, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in Azurite:
+
+#### IP-style URL
+
+Since the local computer doesn't resolve domain names, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in Azurite:
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
 The following address might be used for accessing a blob in Azurite:
 
 `http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
+
+#### Production-style URL
+
+Optionally, you could modify your hosts file to access an account with _production-style_ URL.
+
+First, add one or more lines to your hosts file. For example:
+
+```
+127.0.0.1 account1.blob.localhost
+127.0.0.1 account1.queue.localhost
+127.0.0.1 account1.table.localhost
+```
+
+Next, set environment variables to enable customized storage accounts and keys:
+
+```
+set AZURITE_ACCOUNTS="account1:key1:key2"
+```
+
+You could add more accounts. See the [Custom storage accounts and keys](#custom-storage-accounts-and-keys) section of this article.
+
+Start Azurite and use a customized connection string to access your account. The example connection string below assumes that the default ports are used. 
+
+```
+DefaultEndpointsProtocol=http;AccountName=account1;AccountKey=key1;BlobEndpoint=http://account1.blob.localhost:10000;QueueEndpoint=http://account1.queue.localhost:10001;TableEndpoint=http://account1.table.localhost:10002;
+```
+
+Do not access default account in this way with Azure Storage Explorer. There is a bug that Storage Explorer is always adding account name in URL path, causing failures.
+
+By default, when using Azurite with a production-style URL, the account name should be the host name in fully-qualified domain name such as "http://devstoreaccount1.blob.localhost:10000/container". To use production-style URL with account name in the URL path such as "http://foo.bar.com:10000/devstoreaccount1/container", make sure to use the `--disableProductStyleUrl` parameter when you start Azurite.
+
+If use `host.docker.internal` as request Uri host (For example: `http://host.docker.internal:10000/devstoreaccount1/container`), Azurite will always get the account name from the request Uri path. This is true regardless of whether you use the `--disableProductStyleUrl` parameter when you start Azurite. 
 
 ### Scaling and performance
 

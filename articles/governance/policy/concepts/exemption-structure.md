@@ -1,7 +1,7 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 05/18/2022
+ms.date: 07/09/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -17,17 +17,21 @@ see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only
 
 You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 
-- display name
-- description
-- metadata
-- policy assignment
-- policy definitions within an initiative
-- exemption category
-- expiration
+- [display name](#display-name-and-description)
+- [description](#display-name-and-description)
+- [metadata](#metadata)
+- [policy assignment](#policy-assignment-id)
+- [policy definitions within an initiative](#policy-definition-ids)
+- [exemption category](#exemption-category)
+- [expiration](#expiration)
+- [resource selectors](#resource-selectors-preview)
+- [assignment scope validation](#assignment-scope-validation-preview)
 
 > [!NOTE]
 > A policy exemption is created as a child object on the resource hierarchy or the individual
 > resource granted the exemption, so the target isn't included in the exemption definition.
+> If the parent resource to which the exemption applies is removed, then the exemption
+> is removed as well.
 
 For example, the following JSON shows a policy exemption in the **waiver** category of a resource to
 an initiative assignment named `resourceShouldBeCompliantInit`. The resource is _exempt_ from only
@@ -56,7 +60,8 @@ two of the policy definitions in the initiative, the `customOrgPolicy` custom po
             "allowedLocations"
         ],
         "exemptionCategory": "waiver",
-        "expiresOn": "2020-12-31T23:59:00.0000000Z"
+        "expiresOn": "2020-12-31T23:59:00.0000000Z",
+        "assignmentScopeValidation": "Default"
     }
 }
 ```
@@ -133,6 +138,62 @@ format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 > [!NOTE]
 > The policy exemptions isn't deleted when the `expiresOn` date is reached. The object is preserved
 > for record-keeping, but the exemption is no longer honored.
+
+## Resource selectors (preview)
+
+Exemptions support an optional property `resourceSelectors`. This property works the same way in exemptions as it does in assignments, allowing for gradual rollout or rollback of an _exemption_ to certain subsets of resources in a controlled manner based on resource type, resource location, or whether the resource has a location. More details about how to use resource selectors can be found in the [assignment structure](assignment-structure.md#resource-selectors-preview). Below is an example exemption JSON which leverages resource selectors. In this example, only resources in `westcentralus` will be exempt from the policy assignment:
+
+```json
+{
+    "properties": {
+        "policyAssignmentId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+        "policyDefinitionReferenceIds": [
+            "limitSku", "limitType"
+        ],
+        "exemptionCategory": "Waiver",
+        "resourceSelectors": [
+            {
+                "name": "TemporaryMitigation",
+                "selectors": [
+                    {
+                        "kind": "resourceLocation",
+                        "in": [ "westcentralus" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subId}/resourceGroups/demoCluster/providers/Microsoft.Authorization/policyExemptions/DemoExpensiveVM",
+    "type": "Microsoft.Authorization/policyExemptions",
+    "name": "DemoExpensiveVM"
+}
+```
+
+Regions can be added or removed from the `resourceLocation` list in the example above. Resource selectors allow for greater flexibility of where and how exemptions can be created and managed.
+
+## Assignment scope validation (preview)
+
+In most scenarios, the exemption scope is validated to ensure it is at or under the policy assignment scope. The optional `assignmentScopeValidation` property can allow an exemption to bypass this validation and be created outside of the assignment scope. This is intended for situations where a subscription needs to be moved from one management group (MG) to another, but the move would be blocked by policy due to properties of resources within the subscription. In this scenario, an exemption could be created for the subscription in its current MG to exempt its resources from a policy assignment on the destination MG. That way, when the subscription is moved into the destination MG, the operation is not blocked because resources are already exempt from the policy assignment in question. The use of this property is illustrated below:
+
+```json
+{
+    "properties": {
+        "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/{mgB}/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+        "policyDefinitionReferenceIds": [
+            "limitSku", "limitType"
+        ],
+        "exemptionCategory": "Waiver",
+        "assignmentScopeValidation": "DoNotValidate",
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subIdA}/providers/Microsoft.Authorization/policyExemptions/DemoExpensiveVM",
+    "type": "Microsoft.Authorization/policyExemptions",
+    "name": "DemoExpensiveVM"
+}
+```
+
+Allowed values for `assignmentScopeValidation` are `Default`and `DoNotValidate`. If not specified, the default validation process will occur.
 
 ## Required permissions
 

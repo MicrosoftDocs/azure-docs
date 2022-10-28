@@ -39,6 +39,10 @@
     href: app-service-app-service-environment-custom-settings.md
   - name: App Service Environment v3 network settings
     href: configure-network-settings.md
+  - name: Custom domain suffix
+    href: how-to-custom-domain-suffix.md
+  - name: Upgrade preference for planned maintenance
+    href: how-to-upgrade-preference.md
   - name: Migrate to App Service Environment v3
     href: migration-alternatives.md
   - name: Use the migration feature

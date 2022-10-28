@@ -380,7 +380,7 @@ General default limitations and maximum limitations of Azure subscriptions can b
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](./hana-overview-architecture.md), which allow scale-up HANA deployments of up to 24 TB and SAP HANA scale-out deployments of up to 120 TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well.
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](./hana-overview-architecture.md), which allow scale-up HANA deployments of up to 24 TB and SAP HANA scale-out deployments of up to 120 TB. One can state today that nearly all on-premises SAP scenarios can be run in Azure as well.
 
 For a rough description of the scenarios and some non-supported scenarios, see the document [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md).
 
@@ -552,7 +552,7 @@ Microsoft Azure provides a network infrastructure, which allows the mapping of a
 * Cross-premises Connectivity between a customer's on-premises network and the Azure network
 * Cross Azure Region or data center connectivity between Azure sites
 
-For more information, see the [Virtual Network documentation](/azure/virtual-network/).
+For more information, see the [Virtual Network documentation](../../../virtual-network/index.yml).
 
 There are many different possibilities to configure name and IP resolution in Azure. There is also an Azure DNS service, which can be used instead of setting up your own
 DNS server. More information can be found in [this article][virtual-networks-manage-dns-in-vnet] and on [this page](https://azure.microsoft.com/services/dns/).
@@ -567,7 +567,7 @@ By building up an Azure Virtual Network, you can define the address range of the
 
 Every Virtual Machine in Azure needs to be connected to a Virtual Network.
 
-More details can be found in [this article][resource-groups-networking] and on [this page](https://azure.microsoft.com/documentation/services/virtual-network/).
+More details can be found in [this article][resource-groups-networking] and on [this page](../../../virtual-network/index.yml).
 
 
 > [!NOTE]
@@ -640,7 +640,7 @@ Microsoft Azure ExpressRoute allows the creation of private connections between 
 
 Find more details on Azure ExpressRoute and offerings here:
 
-* [ExpressRoute documentation](https://azure.microsoft.com/documentation/services/expressroute/)
+* [ExpressRoute documentation](../../../expressroute/index.yml)
 * [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/)
 * [ExpressRoute FAQ](../../../expressroute/expressroute-faqs.md)
 
@@ -1022,7 +1022,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 ##### Azure Storage tools
 
-* [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](../../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 Professional editions of Azure Storage Explorers can be found here:
 
@@ -1589,7 +1589,7 @@ In the table below typical SAP communication ports are listed. Basically it is s
 **) sid = SAP-System-ID
 
 For more information, see [TCP/IP Ports Used by SAP Applications]
-(https://scn.sap.com/docs/DOC-17124). Using this document, you can open dedicated ports in the VPN device necessary for specific SAP products and scenarios.
+(https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html). Using this document, you can open dedicated ports in the VPN device necessary for specific SAP products and scenarios.
 
 Other security measures when deploying VMs in such a scenario could be to create a [Network Security Group][virtual-networks-nsg] to define access rules.
 
@@ -1796,7 +1796,7 @@ We can separate the discussion about SAP high availability in Azure into two par
 
 and how it can be combined with Azure infrastructure HA.
 
-SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes [standard SAP High Availability configurations in virtualized environments on Windows](https://scn.sap.com/docs/DOC-44415). There is no sapinst-integrated SAP-HA configuration for Linux. For more information about SAP HA on-premises for Linux, see [SAP High Availability Partner Information](https://scn.sap.com/docs/DOC-8541).
+SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes [standard SAP High Availability configurations in virtualized environments on Windows](https://help.sap.com/docs/SAP_NETWEAVER_703/a2cf03bc73a44b2a87d535cdb35e529e/45237d7e9f9b4002e10000000a155369.html). There is no sapinst-integrated SAP-HA configuration for Linux. For more information about SAP HA on-premises for Linux, see [SAP High Availability Partner Information](https://scn.sap.com/docs/DOC-8541).
 
 ### Azure Infrastructure High Availability
 

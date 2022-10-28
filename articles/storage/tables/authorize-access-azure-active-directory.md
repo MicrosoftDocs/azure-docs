@@ -3,12 +3,12 @@ title: Authorize access to tables using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure tables using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/13/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 

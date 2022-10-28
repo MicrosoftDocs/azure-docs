@@ -8,15 +8,19 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 09/06/2022
 ms.author: ergreenl
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to disable the way a user signs in for an application so that no user can sign in to it in Azure Active Directory.
 ---
-# Disable how a user signs in for an application
+# Disable user sign-in for an application
 
-In this article, you disable how a user signs in to an application in Azure Active Directory.
+There may be situations while configuring or managing an application where you don't want tokens to be issued for an application. Or, you may want to preemptively block an application that you do not want your employees to try to access. To accomplish this, you can disable user sign-in for the application, which will prevent all tokens from being issued for that application.
+
+In this article, you will learn how to disable how a user signs in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you are looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
+
+
 
 ## Prerequisites
 
@@ -39,7 +43,7 @@ To disable how a user signs in, you need:
 
 Ensure you have installed the AzureAD module (use the command Install-Module -Name AzureAD). In case you are prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 
-If you know the AppId of an app that doesn't appear on the Enterprise apps list (for example, because you deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft), you can manually create the service principal for the app and then disable it by using [AzureAD PowerShell cmdlet](/powershell/module/azuread/New-AzureADServicePrincipal).
+If you know the AppId of an app that doesn't appear on the Enterprise apps list (for example, because you deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft), you can manually create the service principal for the app and then disable it by using the cmdlet below.
 
 ```PowerShell
 # The AppId of the app to be disabled

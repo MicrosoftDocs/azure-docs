@@ -2,7 +2,7 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 10/24/2022
 ms.custom: references_regions
 ms.reviewer: mmcc
 ---
@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this purpose. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
 
 > [!IMPORTANT]
-> * Continuous export has been deprecated and is only supported for classic Application Insights resources.
+> * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
 > * When [migrating to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry. All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
 > * Diagnostic settings export may increase costs. ([more information](export-telemetry.md#diagnostic-settings-based-export))
 
@@ -20,7 +20,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
 * [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
-* If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
+* If you're looking to [explore your data in Power BI](../logs/log-powerbi.md), you can do that without using Continuous Export if you've [migrated to a workspace-based resource](convert-classic-resource.md).
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
@@ -68,7 +68,7 @@ Continuous Export is supported in the following regions:
 
 Continuous Export **does not support** the following Azure storage features/configurations:
 
-* Use of [VNET/Azure Storage firewalls](../../storage/common/storage-network-security.md) in conjunction with Azure Blob storage.
+* Use of [VNET/Azure Storage firewalls](../../storage/common/storage-network-security.md) with Azure Blob storage.
 
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
@@ -251,7 +251,7 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 ## Diagnostic settings based export
 
-Diagnostic settings export is preferred because it provides additional features.
+Diagnostic settings export is preferred because it provides extra features.
  > [!div class="checklist"]
  > * Azure storage accounts with virtual networks, firewalls, and private links
  > * Export to Event Hubs
@@ -262,11 +262,18 @@ Diagnostic settings export further differs from continuous export in the followi
  > [!IMPORTANT]
  > Additional costs may be incurred due to an increase in calls to the destination, such as a storage account.
 
-To migrate to diagnostic settings-based export:
+To migrate to diagnostic settings export:
 
 1. Disable current continuous export.
 2. [Migrate application to workspace-based](convert-classic-resource.md).
 3. [Enable diagnostic settings export](create-workspace-resource.md#export-telemetry). Select **Diagnostic settings > add diagnostic setting** from within your Application Insights resource.
+
+> [!CAUTION]
+> If you want to store diagnostic logs in a Log Analytics workspace, there are two things to consider to avoid seeing duplicate data in Application Insights:
+> * The destination can't be the same Log Analytics workspace that your Application Insights resource is based on.
+> * The Application Insights user can't have access to both workspaces. This can be done by setting the Log Analytics [Access control mode](../logs/log-analytics-workspace-overview.md#permissions) to **Requires workspace permissions** and ensuring through [Azure role-based access control (Azure RBAC)](./resources-roles-access-control.md) that the user only has access to the Log Analytics workspace the Application Insights resource is based on.
+> 
+> These steps are necessary because Application Insights accesses telemetry across Application Insight resources (including Log Analytics workspaces) to provide complete end-to-end transaction operations and accurate application maps. Because diagnostic logs use the same table names, duplicate telemetry can be displayed if the user has access to multiple resources containing the same data.
 
 <!--Link references-->
 

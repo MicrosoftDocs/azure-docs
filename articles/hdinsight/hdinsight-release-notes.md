@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 08/01/2022
 ---
 
 # Azure HDInsight release notes
@@ -16,103 +16,106 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 06/03/2022
+## Release date: 08/10/2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
-## Release highlights
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
 
-**The Hive Warehouse Connector (HWC) on Spark v3.1.2**
 
-The Hive Warehouse Connector (HWC) allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. HWC is currently supported for Spark v2.4 only.  This feature adds business value by allowing ACID transactions on Hive Tables using Spark. This feature is useful for customers who use both Hive and Spark in their data estate.
-For more information, see [Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight | Microsoft Docs](./interactive-query/apache-hive-warehouse-connector.md)
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+## New Feature
 
-## Ambari
+**1. Attach external disks in HDI Hadoop/Spark clusters**
 
-* Scaling and provisioning improvement changes
-* HDI hive is now compatible with OSS version 3.1.2
+HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes and features available in open source Hive 3.1.2 version.
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
 
 > [!NOTE]
-> **Spark**
+> The added disks are only configured for node manager local directories.
 > 
-> * If you are using Azure User Interface to create Spark Cluster for HDInsight, you will see from the dropdown list an additional version Spark 3.1.(HDI 5.0) along with the older versions.  This version is a renamed version of Spark 3.1.(HDI 4.0). This is only an UI level change, which doesn’t impact anything for the existing users and users who are already using the ARM template.
 
-![Screenshot_of spark 3.1 for HDI 5.0.](media/hdinsight-release-notes/spark-3-1-for-hdi-5-0.png)
+For more information, [see here](./hdinsight-hadoop-provision-linux-clusters.md#configuration--pricing)
 
-> [!NOTE]
-> **Interactive Query**
-> 
-> * If you are creating an Interactive Query Cluster, you will see from the dropdown list an additional version as Interactive Query 3.1 (HDI 5.0).
-> * If you are going to use Spark 3.1 version along with Hive which require ACID support, you need to select this version Interactive Query 3.1 (HDI 5.0).
+**2. Selective logging analysis**
 
-![Screenshot_of interactive query 3.1 for HDI 5.0.](media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-0.png)
+Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
 
-## TEZ bug fixes
+1. The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
+1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
+1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
 
-| Bug Fixes|Apache JIRA|
-|---|---|
-|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception |[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
-|TezUtils createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4113)|
+For more information, [see here](./selective-logging-analysis.md)
 
-## HBase bug fixes
 
-| Bug Fixes|Apache JIRA|
-|---|---|
-|TableSnapshotInputFormat should use ReadType.STREAM for scanning HFiles |[HBASE-26273](https://issues.apache.org/jira/browse/HBASE-26273)|
-|Add option to disable scanMetrics in TableSnapshotInputFormat |[HBASE-26330](https://issues.apache.org/jira/browse/HBASE-26330)|
-|Fix for ArrayIndexOutOfBoundsException when balancer is executed |[HBASE-22739](https://issues.apache.org/jira/browse/HBASE-22739)|
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+## Fixed
 
-## Hive bug fixes
+#### **Log analytics**
+
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates.
+Customers using older version of cluster with OMS version 13 need to install OMS version 14 to meet the security requirements. (How to check current version & Install 14) 
+
+**How to check your current OMS version**
+
+1. Log in to the cluster using SSH.
+1. Run the following command in your SSH Client.
+
+```
+sudo /opt/omi/bin/ominiserver/ --version
+```
+![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
+
+**How to upgrade your OMS version from 13 to 14**
+
+1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. From the resource group, select the HDInsight cluster resource 
+1. Click **Script actions** 
+1. From **Submit script action** panel, choose **Script type** as custom 
+1. Paste the following link in the Bash script URL box
+https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
+1. Select **Node type(s)**
+1. Click **Create** 
+
+![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+
+1. Verify the successful installation of the patch using the following steps:  
+
+  1. Log in to the cluster using SSH.
+  1. Run the following command in your SSH Client.
+
+  ```
+  sudo /opt/omi/bin/ominiserver/ --version
+  ```
+
+### Other bug fixes
+
+1. Yarn log’s CLI failed to retrieve the logs if any TFile is corrupt or empty. 
+2. Resolved invalid service principal details error while getting the OAuth token from Azure Active Directory.
+3. Improved cluster creation reliability when 100+ worked nodes are configured.
+
+### Open source bug fixes
+
+#### TEZ bug fixes
 
 |Bug Fixes|Apache JIRA|
 |---|---|
-| NPE when inserting data with 'distribute by' clause with dynpart sort optimization|[HIVE-18284](https://issues.apache.org/jira/browse/HIVE-18284)|
-| MSCK REPAIR Command with Partition Filtering Fails While Dropping Partitions|[HIVE-23851](https://issues.apache.org/jira/browse/HIVE-23851)|
-| Wrong exception thrown if capacity<=0|[HIVE-25446](https://issues.apache.org/jira/browse/HIVE-25446)|
-| Support parallel load for HastTables - Interfaces|[HIVE-25583](https://issues.apache.org/jira/browse/HIVE-25583)|
-| Include MultiDelimitSerDe in HiveServer2 By Default|[HIVE-20619](https://issues.apache.org/jira/browse/HIVE-20619)|
-| Remove glassfish.jersey and mssql-jdbc classes from jdbc-standalone jar|[HIVE-22134](https://issues.apache.org/jira/browse/HIVE-22134)|
-| Null pointer exception on running compaction against an MM table.|[HIVE-21280 ](https://issues.apache.org/jira/browse/HIVE-21280)|
-| Hive query with large size via knox fails with Broken pipe Write failed|[HIVE-22231](https://issues.apache.org/jira/browse/HIVE-22231)|
-| Adding ability for user to set bind user|[HIVE-21009](https://issues.apache.org/jira/browse/HIVE-21009)|
-| Implement UDF to interpret date/timestamp using its internal representation and Gregorian-Julian hybrid calendar|[HIVE-22241](https://issues.apache.org/jira/browse/HIVE-22241)|
-| Beeline option to show/not show execution report|[HIVE-22204](https://issues.apache.org/jira/browse/HIVE-22204)|
-| Tez: SplitGenerator tries to look for plan files, which won't exist for Tez|[HIVE-22169 ](https://issues.apache.org/jira/browse/HIVE-22169)|
-| Remove expensive logging from the LLAP cache hotpath|[HIVE-22168](https://issues.apache.org/jira/browse/HIVE-22168)|
-| UDF: FunctionRegistry synchronizes on org.apache.hadoop.hive.ql.udf.UDFType class|[HIVE-22161](https://issues.apache.org/jira/browse/HIVE-22161)|
-| Prevent the creation of query routing appender if property is set to false|[HIVE-22115](https://issues.apache.org/jira/browse/HIVE-22115)|
-| Remove cross-query synchronization for the partition-eval|[HIVE-22106](https://issues.apache.org/jira/browse/HIVE-22106)|
-| Skip setting up hive scratch dir during planning|[HIVE-21182](https://issues.apache.org/jira/browse/HIVE-21182)|
-| Skip creating scratch dirs for tez if RPC is on|[HIVE-21171](https://issues.apache.org/jira/browse/HIVE-21171)|
-| switch Hive UDFs to use Re2J regex engine|[HIVE-19661 ](https://issues.apache.org/jira/browse/HIVE-19661)|
-| Migrated clustered tables using bucketing_version 1 on hive 3 uses bucketing_version 2 for inserts|[HIVE-22429](https://issues.apache.org/jira/browse/HIVE-22429)|
-| Bucketing: Bucketing version 1 is incorrectly partitioning data|[HIVE-21167 ](https://issues.apache.org/jira/browse/HIVE-21167)|
-| Adding ASF License header to the newly added file|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
-| Schema tool enhancements to support mergeCatalog|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
-| Hive with TEZ UNION ALL and UDTF results in data loss|[HIVE-21915](https://issues.apache.org/jira/browse/HIVE-21915)|
-| Split text files even if header/footer exists|[HIVE-21924](https://issues.apache.org/jira/browse/HIVE-21924)|
-| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than the once are present in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
-| LLAP external client - Need to reduce LlapBaseInputFormat#getSplits() footprint|[HIVE-22221](https://issues.apache.org/jira/browse/HIVE-22221)|
-| Column name with reserved keyword is unescaped when query including join on table with mask column is rewritten (Zoltan Matyus via Zoltan Haindrich)|[HIVE-22208](https://issues.apache.org/jira/browse/HIVE-22208)|
-|Prevent LLAP shutdown on AMReporter related RuntimeException|[HIVE-22113](https://issues.apache.org/jira/browse/HIVE-22113)|
-| LLAP status service driver may get stuck with wrong Yarn app ID|[HIVE-21866](https://issues.apache.org/jira/browse/HIVE-21866)|
-| OperationManager.queryIdOperation doesn't  properly clean up multiple queryIds|[HIVE-22275](https://issues.apache.org/jira/browse/HIVE-22275)|
-| Bringing a node manager down blocks restart of LLAP service|[HIVE-22219](https://issues.apache.org/jira/browse/HIVE-22219)|
-| StackOverflowError when drop lots of partitions|[HIVE-15956](https://issues.apache.org/jira/browse/HIVE-15956)|
-| Access check is failed when a temporary directory is removed|[HIVE-22273](https://issues.apache.org/jira/browse/HIVE-22273)|
-| Fix wrong results/ArrayOutOfBound exception in left outer map joins on specific boundary conditions|[HIVE-22120](https://issues.apache.org/jira/browse/HIVE-22120)|
-| Remove distribution management tag from pom.xml|[HIVE-19667](https://issues.apache.org/jira/browse/HIVE-19667)|
-| Parsing time can be high if there's deeply nested subqueries|[HIVE-21980](https://issues.apache.org/jira/browse/HIVE-21980)|
-| For ALTER TABLE t SET TBLPROPERTIES ('EXTERNAL'='TRUE'); `TBL_TYPE` attribute changes not reflecting for non-CAPS|[HIVE-20057 ](https://issues.apache.org/jira/browse/HIVE-20057)|
-| JDBC: HiveConnection shades log4j interfaces|[HIVE-18874](https://issues.apache.org/jira/browse/HIVE-18874)|
-| Update repo URLs in poms - branh 3.1 version|[HIVE-21786](https://issues.apache.org/jira/browse/HIVE-21786)|
-| DBInstall tests broken on master and branch-3.1|[HIVE-21758](https://issues.apache.org/jira/browse/HIVE-21758)|
-| Load data into a bucketed table is ignoring partitions specs and loads data into default partition|[HIVE-21564](https://issues.apache.org/jira/browse/HIVE-21564)|
-| Queries with join condition having timestamp or timestamp with local time zone literal throw SemanticException|[HIVE-21613](https://issues.apache.org/jira/browse/HIVE-21613)|
-| Analyze compute stats for column leave behind staging dir on HDFS|[HIVE-21342](https://issues.apache.org/jira/browse/HIVE-21342)|
-| Incompatible change in Hive bucket computation|[HIVE-21376](https://issues.apache.org/jira/browse/HIVE-21376)|
-| Provide a fallback authorizer when no other authorizer is in use|[HIVE-20420](https://issues.apache.org/jira/browse/HIVE-20420)|
-| Some alterPartitions invocations throw 'NumberFormatException: null'|[HIVE-18767](https://issues.apache.org/jira/browse/HIVE-18767)|
-| HiveServer2: Preauthenticated subject for http transport isn't retained for entire duration of http communication in some cases|[HIVE-20555](https://issues.apache.org/jira/browse/HIVE-20555)|
+|Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
+
+#### Hive bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
+|Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
+|Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
+|Vectorized OrcAcidRowBatchReader.computeOffset and bucket optimization|[HIVE-17917](https://issues.apache.org/jira/browse/HIVE-17917)|
+
+### Known issues
+
+HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.

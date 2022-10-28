@@ -1,18 +1,18 @@
 ---
-title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Kubernetes Service (AKS)
-description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
+title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
+description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/15/2022
+ms.date: 07/21/2022
 author: palma21
 
 ---
 
-# Use Azure Files Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
+# Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
 
-The Azure Files Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares.
+The Azure Files Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
-The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
+By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
 To create an AKS cluster with CSI drivers support, see [Enable CSI drivers on AKS][csi-drivers-overview].
 
@@ -312,7 +312,7 @@ This option is optimized for random access workloads with in-place data updates 
 
 ### Create NFS file share storage class
 
-Create a ile named `nfs-sc.yaml` and copy the manifest below.
+Create a file named `nfs-sc.yaml` and copy the manifest below.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -406,7 +406,8 @@ The output of the commands resembles the following example:
 
 ## Next steps
 
-- To learn how to use CSI drivers for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
+- To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver][azure-disk-csi].
+- To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
@@ -423,6 +424,8 @@ The output of the commands resembles the following example:
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
+[azure-disk-csi]: azure-disk-csi.md
+[azure-blob-csi]: azure-blob-csi.md
 [persistent-volume-claim-overview]: concepts-storage.md#persistent-volume-claims
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md

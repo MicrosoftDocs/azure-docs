@@ -14,6 +14,16 @@
   items:
   - name: Migration
     items:
+      - name: Single Server to Flexible Server migration (preview)
+        items:
+          - name: Single to Flexible server migration tool (Preview) - Concepts
+            href: migrate/concepts-single-to-flexible.md
+          - name: Single to Flexible server migration tool (Preview) - Using portal
+            href: migrate/how-to-migrate-single-to-flexible-portal.md
+          - name: Single to Flexible server migration tool (Preview)- Using CLI
+            href: migrate/how-to-migrate-single-to-flexible-cli.md
+          - name: Single to Flexible server migration (Preview) - Set up Azure AD app using portal
+            href: migrate/how-to-set-up-azure-ad-app-portal.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
@@ -474,10 +484,16 @@
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
+    - name: Azure AD Authentication
+      href: flexible-server/concepts-azure-ad-authentication.md
+    - name: Compliance
+      href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
       href: flexible-server/concepts-extensions.md
+    - name: Encryption with Customer Managed Keys
+      href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
@@ -488,7 +504,7 @@
       items:
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: flexible-server/concepts-backup-restore.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
@@ -515,13 +531,41 @@
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
-      href: flexible-server/concepts-logical.md
+      items:
+        - name: Read replicas
+          href: flexible-server/concepts-read-replicas.md
+          displayName: replication, read replica
+        - name: Logical replication and logical decoding
+          href: flexible-server/concepts-logical.md
+          displayName: logical decoding, logical replication
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
-    items:
-    - name: Troubleshoot CLI errors
-      href: flexible-server/how-to-troubleshoot-cli-errors.md
+    items:  
+    - name: Functional troubleshooting
+      items:
+      - name: Troubleshoot CLI errors
+        href: flexible-server/how-to-troubleshoot-cli-errors.md 
+    - name: Performance troubleshooting
+      items:
+      - name: Troubleshoot high CPU utilization
+        href: flexible-server/how-to-high-cpu-utilization.md 
+        displayName: High CPU Utilization
+      - name: Troubleshoot high memory utilization
+        href: flexible-server/how-to-high-memory-utilization.md 
+        displayName: High Memory Utilization
+      - name: Troubleshoot High IO utilization
+        href: flexible-server/how-to-high-io-utilization.md 
+        displayName: High IOPS Utilization
+      - name: Troubleshoot autovacuum 
+        href: flexible-server/how-to-autovacuum-tuning.md
+        displayName: Autovacuum troubleshooting, tuning
+      - name: Best practices for bulk data upload 
+        href: flexible-server/how-to-bulk-load-data.md
+        displayName: Best practices for bulk data upload
+      - name: Best practices for pg_dump and restore
+        href: flexible-server/how-to-pgdump-restore.md
+        displayName: Best practices for pg_dump and restore
   - name: How-to guides
     items:
     - name: Manage a server
@@ -570,6 +614,18 @@
       - name: Azure CLI
         href: flexible-server/howto-configure-server-parameters-using-cli.md
         displayName: application development, server parameters
+    - name: Enable Authentication
+      items:
+        - name: Create users
+          href: flexible-server/how-to-create-users.md
+          displayName: non-admin user, application development
+        - name: Configure Azure AD integration
+          href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
+          displayName: application development, azure ad, active directory
+        - name: Connect with Managed Identity
+          href: flexible-server/how-to-connect-with-managed-identity.md
+        - name: Manage Azure AD users
+          href: flexible-server/how-to-manage-azure-ad-users.md
     - name: Scale a server
       items:
       - name: Azure portal
@@ -598,6 +654,11 @@
         href: flexible-server/how-to-manage-high-availability-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-configure-high-availability-cli.md
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-read-replicas-portal.md
+        displayName: replica
     - name: Monitor
       items:
       - name: Create alerts on metrics using portal
@@ -606,215 +667,8 @@
         href: flexible-server/howto-configure-and-access-logs.md
 - name: Hyperscale (Citus)
   items:
-  - name: Hyperscale (Citus) documentation
-    href: hyperscale/index.yml
-  - name: Overview
-    items:
-    - name: What is Hyperscale (Citus)?
-      href: hyperscale/overview.md
-    - name: Product updates
-      href: hyperscale/product-updates.md
-  - name: Quickstart
-    items:
-    - name: Create server group
-      href: hyperscale/quickstart-create-portal.md
-    - name: Connect
-      href: hyperscale/quickstart-connect-psql.md
-    - name: Model and load data
-      href: hyperscale/quickstart-distribute-tables.md
-    - name: Run queries
-      href: hyperscale/quickstart-run-queries.md
-  - name: Tutorials
-    items:
-      - name: Model data
-        items:
-        - name: Shard data on worker nodes
-          href: hyperscale/tutorial-shard.md
-        - name: Design a multi-tenant database
-          href: hyperscale/tutorial-design-database-multi-tenant.md
-          displayName: hyperscale, tutorial, multi-tenant
-        - name: Design a real-time dashboard
-          href: hyperscale/tutorial-design-database-realtime.md
-          displayName: hyperscale, tutorial, real-time
-      - name: Administer
-        items:
-        - name: Set up private access
-          href: hyperscale/tutorial-private-access.md
-          displayName: hyperscale, tutorial, private
-  - name: Concepts
-    items:
-    - name: Server group
-      href: hyperscale/concepts-server-group.md
-    - name: Distributed data
-      items:
-      - name: Nodes and tables
-        href: hyperscale/concepts-nodes.md
-        displayName: nodes, tables
-      - name: Table colocation
-        href: hyperscale/concepts-colocation.md
-    - name: Security and data access
-      items:
-      - name: Overview
-        href: hyperscale/concepts-security-overview.md
-      - name: Public access
-        href: hyperscale/concepts-firewall-rules.md
-        displayName: firewall, rules, hyperscale
-      - name: Private access
-        href: hyperscale/concepts-private-access.md
-        displayName: private, link, hyperscale
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
-    - name: Scheduled maintenance
-      href: hyperscale/concepts-maintenance.md
-    - name: Business continuity
-      items:
-      - name: Backup and restore
-        href: hyperscale/concepts-backup.md
-        displayName: backup, restore, outage, hyperscale
-      - name: High availability
-        href: hyperscale/concepts-high-availability.md
-    - name: Replication
-      href: hyperscale/concepts-read-replicas.md
-    - name: Connection pooling
-      href: hyperscale/concepts-connection-pool.md
-    - name: Monitor and tune
-      items:
-      - name: Monitoring
-        href: hyperscale/concepts-monitoring.md
-      - name: Audit logs
-        href: hyperscale/concepts-audit.md
-    - name: Columnar storage
-      href: hyperscale/concepts-columnar.md
-  - name: How-to guides
-    items:
-    - name: Connect and query
-      href: hyperscale/howto-connect.md
-    - name: App stacks
-      items:
-        - name: Overview
-          href: hyperscale/howto-app-stacks-overview.md
-        - name: Python
-          href: hyperscale/howto-app-stacks-python.md
-        - name: Node.js
-          href: hyperscale/howto-app-stacks-nodejs.md
-        - name: C#
-          href: hyperscale/howto-app-stacks-csharp.md
-        - name: Java
-          href: hyperscale/howto-app-stacks-java.md
-        - name: Ruby
-          href: hyperscale/howto-app-stacks-ruby.md
-    - name: Build scalable apps
-      items:
-      - name: Overview
-        href: hyperscale/howto-build-scalable-apps-overview.md
-      - name: Fundamental concepts
-        href: hyperscale/howto-build-scalable-apps-concepts.md
-      - name: Classify workload
-        href: hyperscale/howto-build-scalable-apps-classify.md
-      - name: Model multi-tenant apps
-        href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
-      - name: Model real-time apps
-        href: hyperscale/howto-build-scalable-apps-model-real-time.md
-      - name: Model high-throughput apps
-        href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
-    - name: Ingest data
-      items:
-      - name: Azure Stream Analytics (ASA)
-        href: hyperscale/howto-ingest-azure-stream-analytics.md
-      - name: Azure Data Factory (ADF)
-        href: hyperscale/howto-ingest-azure-data-factory.md
-    - name: Server group size
-      items:
-      - name: Pick initial size
-        href: hyperscale/howto-scale-initial.md
-      - name: Scale server group
-        href: hyperscale/howto-scale-grow.md
-      - name: Rebalance shards
-        href: hyperscale/howto-scale-rebalance.md
-      - name: Change compute quotas
-        href: hyperscale/howto-compute-quota.md
-    - name: Security and data access
-      items:
-      - name: Manage public access
-        href: hyperscale/howto-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
-      - name: Manage private access
-        href: hyperscale/howto-private-access.md
-        displayName: network, private link
-      - name: Configure SSL
-        href: hyperscale/howto-ssl-connection-security.md
-        displayName: hyperscale, ssl
-    - name: Create users
-      href: hyperscale/howto-create-users.md
-    - name: Distributed data
-      items:
-      - name: Determine application type
-        href: hyperscale/howto-app-type.md
-      - name: Determine table size
-        href: hyperscale/howto-table-size.md
-      - name: Choose a distribution column
-        href: hyperscale/howto-choose-distribution-column.md
-      - name: Distribute and modify tables
-        href: hyperscale/howto-modify-distributed-tables.md
-    - name: Configure high availability
-      href: hyperscale/howto-high-availability.md
-    - name: Manage read replicas
-      href: hyperscale/howto-read-replicas-portal.md
-      displayName: replication, read replica
-    - name: Schedule maintenance
-      href: hyperscale/howto-maintenance.md
-    - name: Restart server group
-      href: hyperscale/howto-restart.md
-    - name: Monitor
-      items:
-      - name: View metrics
-        href: hyperscale/howto-monitoring.md
-      - name: Create alerts on metrics
-        href: hyperscale/howto-alert-on-metric.md
-        dispalyName: alerts on hyperscale
-      - name: Access database logs
-        href: hyperscale/howto-logging.md
-        displayName: log, hyperscale
-    - name: Restore server group
-      href: hyperscale/howto-restore-portal.md
-    - name: Upgrade server group
-      href: hyperscale/howto-upgrade.md
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot connection errors
-        href: hyperscale/howto-troubleshoot-common-connection-issues.md
-        displayName: connection errors, hyperscale
-      - name: Troubleshoot read-only access
-        href: hyperscale/howto-troubleshoot-read-only.md
-        displayName: read-only, hyperscale
-      - name: Useful diagnostic queries
-        href: hyperscale/howto-useful-diagnostic-queries.md
-  - name: Reference
-    items:
-      - name: PostgreSQL versions
-        href: hyperscale/reference-versions.md
-      - name: PostgreSQL extensions
-        href: hyperscale/reference-extensions.md
-      - name: Hyperscale (Citus) SQL API
-        items:
-        - name: Overview
-          href: hyperscale/reference-overview.md
-        - name: SQL functions
-          href: hyperscale/reference-functions.md
-        - name: Server parameters
-          href: hyperscale/reference-parameters.md
-        - name: System tables
-          href: hyperscale/reference-metadata.md
-      - name: Limits and limitations
-        href: hyperscale/reference-limits.md
-  - name: Resources
-    items:
-      - name: Pricing
-        href: hyperscale/resources-pricing.md
-      - name: Regional availability
-        href: hyperscale/resources-regions.md
-      - name: Compute and storage
-        href: hyperscale/resources-compute.md
+  - name: Where is Hyperscale (Citus)?
+    href: hyperscale/moved.md
 - name: Samples
   items:
   - name: Azure CLI samples
@@ -846,8 +700,8 @@
      href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Deployment templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
   - name: Azure Roadmap

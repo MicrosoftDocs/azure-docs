@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Query Performance Insight for Azure Database for MySQL Flexible Server'
 description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL Flexible Server.'
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: tutorial
+author: code-sidd
+ms.author: sisawant
 ms.date: 10/01/2021
 ---
 

@@ -1,12 +1,14 @@
 ---
 title: Actors diagnostics and monitoring 
 description: This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it.
-author: abhishekram
-
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: abhisram
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Diagnostics and performance monitoring for Reliable Actors
 The Reliable Actors runtime emits [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) events and [performance counters](/dotnet/api/system.diagnostics.performancecounter). These provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 

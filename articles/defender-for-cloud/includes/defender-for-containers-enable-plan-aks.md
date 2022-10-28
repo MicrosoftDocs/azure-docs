@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 06/19/2022
+ms.date: 07/14/2022
 ---
 
 ## Enable the plan
@@ -21,9 +21,9 @@ ms.date: 06/19/2022
 
 1. By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace.
 
-    If you want to disable auto provisioning during the onboading process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable auto provisioning for each component.
+    If you want to disable auto provisioning during the onboarding process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable auto provisioning for each component.
    
-    In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
+    In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
@@ -36,10 +36,11 @@ ms.date: 06/19/2022
 
     - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
     - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
-    - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+    - Azure Arc-enabled Kubernetes Defender extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+    - Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
 
     > [!Note]
-    >Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
+    > Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
     >
     > If you choose to disable all of the auto provision configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
 
@@ -49,7 +50,8 @@ You can enable the Defender for Containers plan and deploy all of the relevant c
 
 Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
 
-The Defender security profile is a preview feature. [!INCLUDE [Legalese](../../../includes/defender-for-cloud-preview-legal-text.md)]
+> [!NOTE]
+> The Defender profile is deployed to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
 
 ### [**Azure portal**](#tab/aks-deploy-portal)
 
@@ -73,7 +75,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 1. From the unhealthy resources list, select a cluster and select **Remediate** to open the pane with the remediation confirmation.
 
-1. Select **Fix *[x]* resources**.
+1. Select **Fix X resources**.
 
 ### [**REST API**](#tab/aks-deploy-rest)
 
@@ -94,7 +96,7 @@ Request query parameters:
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
+| ApiVersion     | API version, must be >= 2022-06-01 | Yes       |
 
 Request Body:
 
@@ -103,9 +105,11 @@ Request Body:
   "location": "{{Location}}",
   "properties": {
     "securityProfile": {
-            "azureDefender": {
-                "enabled": true,
-                "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}"
+            "defender": {
+                "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}",
+                "securityMonitoring": {
+                    "enabled": true,
+                }
             }
         }
     }
@@ -114,17 +118,17 @@ Request Body:
 
 Request body parameters:
 
-| Name                                                                     | Description                                                                              | Mandatory |
-|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
-| location                                                                 | Cluster's location                                                                       | Yes       |
-| properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
-| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
+| Name | Description | Mandatory |
+|--|--|--|
+| location | Cluster's location | Yes |
+| properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
+| properties.securityProfile.defender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
 ### Use Azure CLI to deploy the Defender extension
 
-1. Log in to Azure:
+1. Sign in to Azure:
 
     ```azurecli
     az login
@@ -158,12 +162,12 @@ Request body parameters:
 
     | Property | Description |
     |----------|-------------|
-    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md) |
+    | logAnalyticsWorkspaceResourceId | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md) |
 
     You can include these settings in a JSON file and specify the JSON file in the `az aks create` and `az aks update` commands with this parameter: `--defender-config <path-to-JSON-file>`. The format of the JSON file must be:
 
     ```json
-    {"logAnalyticsWorkspaceResourceID": "<workspace-id>"}
+    {"logAnalyticsWorkspaceResourceId": "<workspace-id>"}
     ```
 
     Learn more about AKS CLI commands in [az aks](/cli/azure/aks).
@@ -174,7 +178,7 @@ Request body parameters:
     kubectl get pods -n kube-system
     ```
 
-    When the profile is added, you should see a pods called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
+    When the profile is added, you should see a pod called `microsoft-defender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 
@@ -190,17 +194,19 @@ To install the 'SecurityProfile' on an existing cluster with Resource Manager:
 ```
 { 
     "type": "Microsoft.ContainerService/managedClusters", 
-    "apiVersion": "2021-07-01", 
+    "apiVersion": "2022-06-01", 
     "name": "string", 
     "location": "string",
     "properties": {
         …
         "securityProfile": { 
-            "azureDefender": { 
-                "enabled": true, 
-                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId "
+            "defender": { 
+                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId",
+                "securityMonitoring": {
+                    "enabled": true
+                }
             }
-        },
+        }
     }
 }
 ```
