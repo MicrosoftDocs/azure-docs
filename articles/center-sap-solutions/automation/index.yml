@@ -1,0 +1,23 @@
+### YamlMime:Landing
+
+title: SAP deployment automation framework on Azure
+summary:  The SAP deployment automation framework on Azure is an open-source orchestration tool for deploying, installing and maintaining SAP environments.
+metadata:
+  title: SAP deployment automation framework on Azure
+  description: Learn about the SAP deployment automation framework on Azure. This framework is an open-source orchestration tool for deploying, installing and maintaining SAP environments.
+  ms.service: azure-center-sap-solutions
+  ms.topic: landing-page
+  author: lauradolan
+  ms.author: ladolan
+  ms.date: 10/28/2022
+
+landingContent:
+  - title: 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: 
+            url: 
+          - text: 
+            url: 
+          
