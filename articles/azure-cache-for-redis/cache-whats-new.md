@@ -6,11 +6,28 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 10/2/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## October 2022
+
+### Enhancements for passive geo-replication
+
+Several enhancements have been made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
+
+- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
+  
+  - Geo Replication Connectivity Lag (preview)
+  - Geo Replication Data Sync Offset (preview)
+  - Geo Replication Full Sync Event Finished (preview)
+  - Geo Replication Full Sync Event Started (preview)
+
+- Customers can now initiate a failover between geo-primary and geo-replica caches with a single selection or CLI command, eliminating the hassle of manually unlinking and relinking caches. For more information, see [Initiate a failover from geo-primary to geo-secondary (preview)](cache-how-to-geo-replication.md#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
+
+- A global cache URL is also now offered that automatically updates their DNS records after geo-failovers are triggered, allowing their application to manage only one cache address. For more information, see [Geo-primary URLs (preview)](cache-how-to-geo-replication.md#geo-primary-urls-preview).
 
 ## September 2022
 
