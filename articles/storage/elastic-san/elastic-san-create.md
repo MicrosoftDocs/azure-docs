@@ -103,10 +103,10 @@ The following command creates an Elastic SAN that uses locally-redundant storage
 
 ```azurecli
 ## Variables
-$sanName="yourSANNameHere"
-$resourceGroupName="yourResourceGroupNameHere"
-$sanLocation="desiredRegion"
-$volumeGroupName="desiredVolumeGroupName"
+sanName="yourSANNameHere"
+resourceGroupName="yourResourceGroupNameHere"
+sanLocation="desiredRegion"
+volumeGroupName="desiredVolumeGroupName"
 
 az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation --base-size-tib 100 --extended-capacity-size-tib 20 --sku “{name:Premium_LRS,tier:Premium}”
 ```
