@@ -94,7 +94,7 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 |--|--|--|--|
 | Can authenticate as | Indicates that an Azure resource can authenticate to an identity and use its privileges | Azure VM, Azure VMSS, Azure Storage Account, Azure App Services, SQL Servers | AAD Managed identity |
 | Has permission to | Indicates that an identity has permissions to a resource or a group of resources | AAD user account, Managed Identity, IAM user, EC2 instance | All Azure & AWS resources|
-| Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, Github owner, Azure DevOps project, Azure DevOps organization | All Azure & AWS resources, All Kubernetes entities, All DevOps entities |
+| Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, GitHub owner, Azure DevOps project, Azure DevOps organization | All Azure & AWS resources, All Kubernetes entities, All DevOps entities |
 | Routes traffic to | Indicates that the source entity can route network traffic to the target entity | Public IP, Load Balancer, VNET, Subnet, VPC, Internet Gateway, Kubernetes service, Kubernetes pod| Azure VM, Azure VMSS, AWS EC2, Subnet, Load Balancer, Internet gateway, Kubernetes pod, Kubernetes service |
 | Is running | Indicates that the source entity is running the target entity as a process | Azure VM, Kubernetes container | SQL, Kubernetes image, Kubernetes pod |
 | Member of | Indicates that the source identity is a member of the target identities group | AAD group, AAD user | AAD group |

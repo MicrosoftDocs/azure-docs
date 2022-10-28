@@ -27,8 +27,6 @@ For additional information on supported operating systems, or to request access 
 
 ## Azure RTOS micro agent
 
-The Microsoft Defender for IoT micro agent provides a comprehensive and lightweight security solution for devices that use Azure RTOS. Microsoft Defender for IoT micro agent provides coverage for common threats, and potential malicious activities on real-time operating system (RTOS) devices. The micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity.
-
 The Microsoft Defender for IoT micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity. The micro agent consists of a comprehensive and lightweight security solution that provides coverage for common threats, and potential malicious activities on a real-time operating system (RTOS) devices.
 
 ## Next steps

@@ -53,8 +53,14 @@
       href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
-    - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
+    - name: Jupyter notebooks
+      items:
+        - name: Create notebook
+          href: tutorial-create-notebook.md
+        - name: Import notebooks from GitHub
+          href: tutorial-import-notebooks.md
+    - name: Deploy app on AKS cluster using Bicep
+      href: tutorial-deploy-app-bicep-aks.md
 - name: Samples
   items:
     - name: .NET
@@ -352,8 +358,10 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: ../optimize-costs.yml
         - name: Free tier
           href: ../free-tier.md
           displayName: free tier
@@ -386,6 +394,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Jupyter notebooks
       items:
         - name: Overview
@@ -596,6 +606,8 @@
               href: best-practice-java.md
             - name: Performance tips for Java SDK v4
               href: performance-tips-java-sdk-v4.md
+            - name: Connection Configurations for Java SDK v4
+              href: tune-connection-configurations-java-sdk-v4.md
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
@@ -686,7 +698,7 @@
         - name: Using Resource Manager templates
           href: manage-with-templates.md
           displayName: ARM
-        - name: Using Terraform 
+        - name: Using Terraform
           href: manage-with-terraform.md
           displayName: Terraform
         - name: Move between regions

@@ -157,6 +157,12 @@ items:
       href: how-to-request-weather-data.md
     - name: Request elevation data
       href: how-to-request-elevation-data.md
+  - name: Develop with the REST SDK
+    items:
+    - name: REST SDK Developer Guide
+      href: rest-sdk-developer-guide.md
+    - name: C# REST SDK Developers Guide
+      href: how-to-dev-guide-csharp-sdk.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
@@ -427,6 +433,14 @@ items:
         href: /rest/api/maps/v2/tileset
       - name: WFS service
         href: /rest/api/maps/v2/wfs
+      - name: V20220901Preview
+        items:
+        - name: Map configuration
+          href: /rest/api/maps/v20220901preview/map-configuration
+        - name: Style
+          href: /rest/api/maps/v20220901preview/style
+        - name: Tileset
+          href: /rest/api/maps/v20220901preview/tileset
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript
@@ -447,6 +461,8 @@ items:
     href: /cli/azure/maps
 - name: Resources
   items:
+  - name: Azure Maps code samples
+    href: https://samples.azuremaps.com/
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
