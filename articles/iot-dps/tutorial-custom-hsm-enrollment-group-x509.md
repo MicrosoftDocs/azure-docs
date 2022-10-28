@@ -812,13 +812,13 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 1. In the **Add Enrollment Group** panel, enter the following information, then select **Save**.
 
-    | Field        | Value           |
-    | :----------- | :-------------- |
-    | **Group name** | For this tutorial, enter **custom-hsm-x509-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
-    | **Attestation Type** | Select **Certificate** |
-    | **IoT Edge device** | Select **False** |
-    | **Certificate Type** | Select **Intermediate Certificate** |
-    | **Primary certificate .pem or .cer file** | Navigate to the intermediate certificate that you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*). This intermediate certificate is signed by the root certificate that you already uploaded and verified. DPS trusts that root once it's verified. DPS can verify that the intermediate provided with this enrollment group is truly signed by the trusted root. DPS will trust each intermediate truly signed by that root certificate, and therefore be able to verify and trust leaf certificates signed by the intermediate.  |
+    * **Group name**: For this tutorial, enter **custom-hsm-x509-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
+    * **Attestation Type**: Select **Certificate**.
+    * **IoT Edge device**: Select **False**.
+    * **Certificate Type**: Select **Intermediate Certificate**.
+    * **Primary certificate .pem or .cer file**: Navigate to the intermediate certificate that you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*) and upload it.
+
+        Your intermediate certificate is signed by the root certificate that you already uploaded and verified. Because DPS trusts that root certificate, it will trust any intermediate certificate that is either directly signed by the root, or whose signing chain contains the root. DPS will permit any device to register through the enrollment group whose certificate signing chain contains the intermediate certificate and the verified (root) certificate.
 
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png" alt-text="Screenshot that shows adding an enrollment group in the portal.":::
 
@@ -1274,7 +1274,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
         "-----END PRIVATE KEY-----";
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
+        To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
 
         ```Bash
         sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./private/device-01.key.pem
@@ -1294,7 +1294,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
         "-----END CERTIFICATE-----";        
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `rootPublicPem` string constant value and write it to the output.
+        To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `rootPublicPem` string constant value and write it to the output.
 
         ```Bash
         sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./certs/azure-iot-test-only.root.ca.cert.pem
@@ -1314,7 +1314,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
         "-----END CERTIFICATE-----";        
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `intermediatePublicPem` string constant value and write it to the output.
+        To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `intermediatePublicPem` string constant value and write it to the output.
 
         ```Bash
         sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' ./certs/azure-iot-test-only.intermediate.cert.pem
@@ -1329,7 +1329,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
         //signerCertificatePemList.add("<Your Signer/intermediate Certificate Here>");
         ```
 
-        Add these two lines directly beneath them to add your intermediate and root CA certificates to the signing chain.
+        Add these two lines directly beneath them to add your intermediate and root CA certificates to the signing chain. Your signing chain should include the whole certificate chain up to and including a certificate that you've verified with DPS.
 
         ```java
         signerCertificatePemList.add(intermediatePublicPem);
