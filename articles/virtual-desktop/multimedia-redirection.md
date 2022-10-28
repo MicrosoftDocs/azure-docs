@@ -165,7 +165,7 @@ To enable Insider features:
    - **Name**: ReleaseRing
    - **Data**: insider
 
-   You can do this with PowerShell. On your local device, open an elevated PowerShell prompt and run the following commands:
+   You can do configure the registry with PowerShell. On your local device, open an elevated PowerShell prompt and run the following commands:
 
    ```powershell
    New-Item -Path "HKLM:\SOFTWARE\Microsoft\MSRDC\Policies" -Force
@@ -184,7 +184,7 @@ You can check the extension status by visiting a website with media content, suc
 
 :::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of the MMR extension in the Microsoft Edge extension bar.":::
 
-Another way you can check the extension status is by selecting the extension icon, then selecting **Features supported on this website** from the drop-down menu to see whether the website supports the redirection extension.
+Another way you can check the extension status is by selecting the extension icon, then you'll see a list of **Features supported on this website** with a green check mark if the website supports that feature.
 
 ## Teams live events
 
@@ -194,11 +194,31 @@ To use multimedia redirection with Teams live events:
 
 1. Open the link to the Teams live event in either the Edge or Chrome browser.
 
-1. Make sure you can see a green check mark next to the [multimedia redirection status icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
+1. Make sure you can see a green play icon as part of the [multimedia redirection status icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon). If the green play icon is there, MMR is enabled for Teams live events.
 
 1. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the native Teams app, MMR won't work.
 
    :::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
+
+## Enable video playback for all sites
+
+During the preview, multimedia redirection is limited to the sites listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. However you can enable video playback for all sites to allow you to test the feature with other websites. To enable video playback for all sites:
+
+1. Select the extension icon in your browser.
+
+1. Select **Show Advanced Settings**.
+
+1. Toggle **Enable video playback for all sites(beta)** to **on**.
+
+## Redirected video outlines
+
+Redirected video outlines will allow you to highlight the currently redirected video elements. When this is enabled, you will see a bright highlighted boarder around the video element that is being redirected. To enable redirected video outlines:
+
+1. Select the extension icon in your browser.
+
+1. Select **Show Advanced Settings**.
+
+1. Toggle **Redirected video outlines** to **on**. You will need to refresh the webpage for the change to take effect.
 
 ## Next steps
 

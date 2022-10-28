@@ -144,7 +144,7 @@ The following image shows the first flow:
 1. Back in your Logic App, create an **Upload video and index** action.
     
     1. Select **Video Indexer(V2)**.
-    1. From Video Indexer(V2) chose **Upload Video and index**.
+    1. From Video Indexer(V2), select **Upload Video and index**.
     1. Set the connection to the Video Indexer account.
 
         |Key| Value|
@@ -198,7 +198,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 1. Get Video Indexer insights.
 
     1. Search for "Video Indexer".
-    1. From **Video Indexer(V2)** chose **Get Video Index** action.
+    1. From **Video Indexer(V2)**, select the **Get Video Index** action.
     
         Set the connection name:
         

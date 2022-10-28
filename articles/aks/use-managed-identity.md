@@ -148,7 +148,7 @@ Example:
 az role assignment create --assignee 22222222-2222-2222-2222-222222222222 --role "Contributor" --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/custom-resource-group"
 ```
 
-For user-assigned kubelet identity which is outside the default woker node resource group, you need to assign the `Managed Identity Operator`on kubelet identity.
+For user-assigned kubelet identity which is outside the default worker node resource group, you need to assign the `Managed Identity Operator`on kubelet identity.
 
 ```azurecli-interactive
 az role assignment create --assignee <control-plane-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"

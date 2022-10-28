@@ -18,6 +18,9 @@
       - name: "Workspace"
         displayName: migration, v1, v2
         href: ../migrate-to-v2-resource-workspace.md
+      - name: "Compute"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-resource-compute.md
       - name: "Datastore"
         displayName: migration, v1, v2
         href: ../migrate-to-v2-resource-datastore.md

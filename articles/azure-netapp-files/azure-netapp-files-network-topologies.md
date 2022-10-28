@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 09/28/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -84,10 +84,10 @@ The following table describes what’s supported for each network features confi
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
 |     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
-|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
+|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)    |
 
 > [!IMPORTANT]
-> Conversion between Basic and Standard networking features in either direction is not currently supported.
+> Conversion between Basic and Standard networking features in either direction is not currently supported. Additionally, you cannot create a Standard volume from the snapshot of a Basic volume.
 
 ### Supported network topologies
 
