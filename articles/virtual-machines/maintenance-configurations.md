@@ -15,7 +15,7 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance Configurations give you the ability to control and manage updates for many Azure virtual machine resources since Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users, but some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance configurations is integrated with Azure Resource Graph (ARG) for low latency and high scale customer experience.
+Maintenance Configurations gives you the ability to control and manage updates for many Azure virtual machine resources since Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users, but some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance Configurations is integrated with Azure Resource Graph (ARG) for low latency and high scale customer experience.
 
 >[!IMPORTANT]
 > Users are required to have a role of at least contributor in order to use maintenance configurations.
@@ -42,7 +42,7 @@ With this scope, you can manage platform updates that do not require a reboot on
 
 ### OS image
 
-Using this scope with maintenance configurations lets you decide when to apply upgrades to OS disks in your *virtual machine scale sets* through an easier and more predictable experience. An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. Some features and limitations unique to this scope are:
+Using this scope with maintenance configurations lets you decide when to apply upgrades to OS disks in your *Virtual Machine Scale Sets* through an easier and more predictable experience. An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. Some features and limitations unique to this scope are:
 
 - Scale sets need to have [automatic OS upgrades](/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) enabled in order to use maintenance configurations.
 - You can schedule recurrence up to a week (7 days).
