@@ -139,9 +139,9 @@ The GitHub integration with Data Factory supports both public GitHub (that is, [
 
 ### GitHub settings
 
-:::image type="content" source="media/author-visually/github-integration-pane.png" alt-text="GitHub repository settings":::
+:::image type="content" source="media/author-visually/github-configure-repository-pane.png" alt-text=" Screenshot showing GitHub Configure a repository pane.":::
 
-:::image type="content" source="media/author-visually/use-git-enterprise-server-pane.png" alt-text="GitHub repository settings":::
+:::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot showing GitHub Configure a repository using enterprise server pane.":::
 
 :::image type="content" source="media/author-visually/github-integration-image2.png" alt-text="GitHub repository settings":::
 
@@ -200,9 +200,9 @@ If you connect to GitHub Enterprise Server, you need to use personal access toke
 > [!Note]
 > GitHub Enterprise Server is in your self-hosted private environment, so you need have full control on the firewall, network policies and VPN when you use this authentication. For more information, see [About GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.6/admin/overview/about-github-enterprise-server#about-github-enterprise-server).
 
-:::image type="content" source="media/author-visually/use-git-enterprise-server-pane.png" alt-text="GitHub repository settings":::
+:::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot shows GitHub Configure a repository using enterprise server pane.":::
 
-:::image type="content" source="media/author-visually/github-enterprise-server-access-token.png" alt-text="Grant access":::
+:::image type="content" source="media/author-visually/github-enterprise-server-access-token.png" alt-text="Screenshot showing using enterprise server access token authentication.":::
 
 ### Known GitHub limitations
 
