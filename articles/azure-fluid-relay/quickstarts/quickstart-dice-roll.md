@@ -57,13 +57,13 @@ import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
 import { AzureClient } from "@fluidframework/azure-client";
 ```
 To configure the Azure client, replace the local connection `serviceConfig` object in `app.js` with your Azure Fluid Relay
-service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced
+service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced (note: the `id` and `name` fields are arbitrary)
 
 ```javascript
 const serviceConfig = {
     connection: {
         tenantId: "MY_TENANT_ID", // REPLACE WITH YOUR TENANT ID
-        tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
+        tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId", name: "userName" }),
         endpoint: "https://myServiceEndpointUrl", // REPLACE WITH YOUR SERVICE ENDPOINT
         type: "remote",
     }
