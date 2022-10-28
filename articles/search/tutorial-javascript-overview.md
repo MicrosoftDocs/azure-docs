@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 08/30/2022
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -81,9 +81,9 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 ## Create a resource group for your Azure resources
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
-1. In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.
+1. In Resources, select Add (**+**), and then select **Create Resource Group**.
 
-    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.":::
+    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In Resources, select Add (**+**), and then select **Create Resource Group**.":::
 1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
 1. Select a location close to you.
 1. When you create the Cognitive Search and Static Web App resources, later in the tutorial, use this resource group. 

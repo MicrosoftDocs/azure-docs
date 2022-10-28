@@ -4,7 +4,7 @@ description: Tutorial - Step-by-step instructions on how to build Apache Spark m
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
-ms.date: 04/07/2020
+ms.date: 08/28/2022
 
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 ---

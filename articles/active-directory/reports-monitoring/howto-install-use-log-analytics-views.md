@@ -4,7 +4,7 @@ description: Learn how to install and use the log analytics views for Azure Acti
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 

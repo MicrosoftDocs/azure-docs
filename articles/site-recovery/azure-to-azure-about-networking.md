@@ -14,7 +14,7 @@ ms.author: v-pgaddala
 
 
 
-This article provides networking guidance when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
+This article provides networking guidance for platform connectivity when you're replicating Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
 ## Before you start
 

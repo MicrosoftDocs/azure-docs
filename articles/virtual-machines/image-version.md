@@ -134,7 +134,7 @@ For more information about the parameters you can specify for an image definitio
 
 In this example, the image definition is named *myImageDefinition*, and is for a [specialized](shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az sig image-definition create \
    --resource-group myGalleryRG \
    --gallery-name myGallery \
@@ -325,6 +325,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ---
 
+## New Features
+Many new features like ARM64, Accelerated Networking, TrustedVM etc. are only supported through Azure Compute Gallery and not available for 'Managed images'.  For a complete list of new features available through Azure Compute Gallery, please refer
+https://learn.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create
 
 ## Next steps
 

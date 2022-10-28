@@ -5,7 +5,7 @@ description: Provides a general overview of flagged sign-ins in Azure Active Dir
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
@@ -14,7 +14,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/02/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: tspring  
 

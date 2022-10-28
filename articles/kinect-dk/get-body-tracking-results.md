@@ -2,7 +2,7 @@
 title: Azure Kinect get body tracking results
 description: Learn how to get body tracking results using the Azure Kinect Body Tracking SDK.
 author: qm13
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.author: quentinm
 ms.reviewer: yijwan
 ms.date: 06/26/2019

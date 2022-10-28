@@ -1,8 +1,8 @@
 ---
 title: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift
 description: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: encryption, byok, deploy, openshift, red hat, key
 ms.topic: how-to

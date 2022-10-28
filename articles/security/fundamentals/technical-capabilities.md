@@ -237,13 +237,13 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/configure-ssl-bindings.md)
 
-  - [Force all incoming traffic over HTTPS connection](http://microsoftazurewebsitescheatsheet.info/)
+  - Force all incoming traffic over HTTPS connection
 
-  - [Enable Strict Transport Security (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
+  - Enable Strict Transport Security (HSTS)
 
-- [Restrict access to your app by client's IP address](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
+- Restrict access to your app by client's IP address
 
-- [Restrict access to your app by client's behavior - request frequency and concurrency](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
+- Restrict access to your app by client's behavior - request frequency and concurrency
 
 - [Configure TLS mutual authentication to require client certificates to connect to your web app](../../app-service/app-service-web-configure-tls-mutual-auth.md)
 
@@ -328,7 +328,7 @@ With Azure Monitor, you can manage any instance in any cloud, including on-premi
 
 ### Azure Monitor logs
 
-[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Azure Monitor logs](/azure/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 ![Azure Monitor logs](./media/technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
@@ -438,4 +438,4 @@ Resource Manager provides several benefits:
 
 ## Next step
 
-The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of security recommendations you can use to help secure the services you use in Azure.
+The [Microsoft cloud security benchmark](/security/benchmark/azure) includes a collection of security recommendations you can use to help secure the services you use in Azure.

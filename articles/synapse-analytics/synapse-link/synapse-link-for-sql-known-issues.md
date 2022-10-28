@@ -20,9 +20,6 @@ This article lists the known limitations and issues with Azure Synapse Link for 
 This is the list of known limitations for Azure Synapse Link for SQL.
 
 ### Azure SQL DB and SQL Server 2022
-* Users must use an Azure Synapse Analytics workspace created on or after May 24, 2022, to get access to Azure Synapse Link for SQL functionality.
-* Running Azure Synapse Analytics in a managed virtual network isn't supported. Users need to check "Disable Managed virtual network" and "Allow connections from all IP addresses" when creating their workspace.
-* If you are using a schema other than `dbo`, that schema must be manually created in the target dedicated SQL pool before it can be used.
 * Source tables must have primary keys.
 * The following data types aren't supported for primary keys in the source tables:
   * real
@@ -64,15 +61,13 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * System tables can't be replicated.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
-* Source tables with non-default collations: UTF8, Japanese can't be replicated to Synapse. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* Source tables with collations that are unsupported by Synapse SQL dedicated pool, such as UTF8 and certain Japanese collations, can’t be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 * Single row updates (including off-page storage) of > 370MB are not supported.
-* Single transactions of > 500MB could cause data ingestion to the Azure Synapse Analytics dedicated SQL pool to fail.
 
 ### Azure SQL DB only
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
 * Azure Synapse Link for SQL isn't supported on SQL Managed Instances.
-* Users need to check "Allow Azure services and resources to access this server" in the firewall settings of their source database server.
-* Service principal and user-assigned managed identity aren't supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked Service, choose SQL authentication or service assigned managed Identity (SAMI).
+* Service principal isn't supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked Service, choose SQL authentication, user-assigned managed identity (UAMI) or service assigned managed Identity (SAMI).
 * Azure Synapse Link can't be enabled on the secondary database once a GeoDR failover has happened if the secondary database has a different name from the primary database.
 * If you enabled Azure Synapse Link for SQL on your database as an Microsoft Azure Active Directory (Azure AD) user, Point-in-time restore (PITR) will fail. PITR will only work when you enable Azure Synapse Link for SQL on your database as a SQL user.
 * If you create a database as an Azure AD user and enable Azure Synapse Link for SQL, a SQL authentication user (for example, even sysadmin role) won't be able to disable/make changes to Azure Synapse Link for SQL artifacts.  However, another Azure AD user will be able to enable/disable Azure Synapse Link for SQL on the same database. Similarly, if you create a database as an SQL authentication user, enabling/disabling Azure Synapse Link for SQL as an Azure AD user won't work.
@@ -109,10 +104,23 @@ This is the list of known limitations for Azure Synapse Link for SQL.
         ```sql
         EXEC sys.sp_change_feed_disable_db
 
-### User may receive error indicating invalid primary key column data type even when primary key is of a supported type
+### DateTime2(7) and Time(7) Could Cause Snapshot Hang
 * Applies To - Azure SQL Database
-* Issue - If your source database contains a table with a primary key that is an unsupported data type (real, float, hierarchyid, sql_variant, and timestamp), it could cause a table with a supported primary key data type to not be enabled for Azure Synapse Link for SQL.
-* Resolution - Change the data type of all primary key columns to a supported data type.
+* Issue - One of the preview limitations with the data types DateTime2(7) and Time(7) is the loss of precision (only 6 digits are supported). When certain database settings are turned on (`NUMERIC_ROUNDABORT`, `ANSI_WARNINGS`, and `ARITHABORT`), the snapthot process can hang, requiring a database failover to recover.
+* Resolution - To resolve this situation, take the following steps:
+1. Turn off all three database settings.
+    ```sql
+    ALTER DATABASE <logical_database_name> SET NUMERIC_ROUNDABORT OFF
+    ALTER DATABASE <logical_database_name> SET ANSI_WARNINGS OFF
+    ALTER DATABASE <logical_database_name> SET ARITHABORT OFF
+    ```
+1. Run the following query to verify that the settings are in fact turned off.
+    ```sql
+    SELECT name, is_numeric_roundabort_on, is_ansi_warnings_on, is_arithabort_on
+    FROM sys.databases
+    WHERE name = 'logical_database_name'
+    ```
+1. Open an Azure support ticket requesting a database failover. Alternately, you could change the Service Level Objective (SLO) of your database instead of opening a ticket.
 
 ## Next steps
 

@@ -2,11 +2,11 @@
 title: Related GitHub Projects for Azure Health Data Services
 description: List all Open Source (GitHub) repositories
 services: healthcare-apis
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: reference
 ms.date: 06/06/2022
-ms.author: ginle
+ms.author: mikaelw
 ---
 # GitHub Projects
 
@@ -73,6 +73,9 @@ This solution enables you to transform the data into tabular format as it gets w
 
 * [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): a Swift library that automates the export of Apple HealthKit Data to a FHIR Server.
 
+## DICOM service
+
+The DICOM service provides an open-source [Medical Imaging Server](https://github.com/microsoft/dicom-server) for DICOM that is easily deployed on Azure. It allows standards-based communication with any DICOMweb™ enabled systems, and injects DICOM metadata into a FHIR server to create a holistic view of patient data. See [DICOM service](./dicom/get-started-with-dicom.md) for more information.
 
 ## Next steps
 

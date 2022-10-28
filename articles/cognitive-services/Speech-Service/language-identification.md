@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 09/16/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # Language identification (preview)
 
-Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification).
+Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).
 
 Language identification (LID) use cases include:
 
@@ -41,7 +41,7 @@ Code snippets are included with the concepts described next. Complete samples fo
 
 You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for [at-start LID](#at-start-and-continuous-language-identification) or up to 10 languages for [continuous LID](#at-start-and-continuous-language-identification).
 
-You must provide the full 4-letter locale, but language identification only uses one locale per base language. Do not include multiple locales (e.g., "en-US" and "en-GB") for the same language.
+You must provide the full locale with dash (`-`) separator, but language identification only uses one locale per base language. Do not include multiple locales (e.g., "en-US" and "en-GB") for the same language.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -92,7 +92,7 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 
 ::: zone-end
 
-For more information, see [supported languages](language-support.md#language-identification).
+For more information, see [supported languages](language-support.md?tabs=language-identification).
 
 ### At-start and Continuous language identification
 

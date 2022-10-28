@@ -41,18 +41,34 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ## Regional availability 
 
-Custom text classification is only available in some Azure regions. To use custom text classification, you must choose a Language resource in one of following regions:
+Custom text classification is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
 
-* West US 2
-* East US 
-* East US 2
-* West US 3
-* South Central US
-* West Europe
-* North Europe
-* UK south
-* Australia East
- 
+| Region             | Authoring | Prediction  |
+|--------------------|-----------|-------------|
+| Australia East     | ✓         | ✓           |
+| Brazil South       |           | ✓           |
+| Canada Central     |           | ✓           |
+| Central India      | ✓         | ✓           |
+| Central US         |           | ✓           |
+| East Asia          |           | ✓           |
+| East US            | ✓         | ✓           |
+| East US 2          | ✓         | ✓           |
+| France Central     |           | ✓           |
+| Japan East         |           | ✓           |
+| Japan West         |           | ✓           |
+| Jio India West     |           | ✓           |
+| Korea Central      |           | ✓           |
+| North Central US   |           | ✓           |
+| North Europe       | ✓         | ✓           |
+| Norway East        |           | ✓           |
+| South Africa North |           | ✓           |
+| South Central US   | ✓         | ✓           |
+| Southeast Asia     |           | ✓           |
+| Sweden Central     |           | ✓           |
+| Switzerland North  | ✓         | ✓           |
+| UAE North          |           | ✓           |
+| UK South           | ✓         | ✓           |
+| West Central US    |           | ✓           |
 
 ## API limits
 
@@ -92,7 +108,7 @@ The following limits are observed for the custom text classification.
 |Documents count | 10 | 100,000 |
 |Document length in characters | 1 | 128,000 characters; approximately 28,000 words or 56 pages. |
 |Count of classes | 1 | 200 |
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits

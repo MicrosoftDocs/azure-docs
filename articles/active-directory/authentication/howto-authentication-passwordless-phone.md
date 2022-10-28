@@ -7,12 +7,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/14/2022
+ms.date: 09/15/2022
 
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
@@ -48,14 +48,14 @@ The Azure AD accounts can be in the same tenant or different tenants. Guest acco
 To use passwordless phone sign-in with Microsoft Authenticator, the following prerequisites must be met:
 
 - Recommended: Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
-- Latest version of Microsoft Authenticator installed on devices running iOS 12.0 or greater, or Android 6.0 or greater.
+- Latest version of Microsoft Authenticator installed on devices running iOS or Android.
 - For Android, the device that runs Microsoft Authenticator must be registered to an individual user. We're actively working to enable multiple accounts on Android. 
 - For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
   - balas@contoso.com
   - balas@wingtiptoys.com and bsandhu@wingtiptoys
-- For iOS, the option in Microsoft Authenticator to allow Microsoft to gather usage data must be enabled. It's not enabled by default. To enable it in Microsoft Authenticator, go to **Settings** > **Usage Data**.
+- For iOS, we recommend enabling the option in Microsoft Authenticator to allow Microsoft to gather usage data. It's not enabled by default. To enable it in Microsoft Authenticator, go to **Settings** > **Usage Data**.
   
-  :::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/telemetry.png" alt-text="Screenshot os Usage Data in Microsoft Authenticator.":::
+  :::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/telemetry.png" alt-text="Screenshot of Usage Data in Microsoft Authenticator.":::
 
 To use passwordless authentication in Azure AD, first enable the combined registration experience, then enable users for the passwordless method.
 

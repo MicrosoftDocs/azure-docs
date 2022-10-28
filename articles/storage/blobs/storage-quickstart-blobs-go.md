@@ -1,8 +1,8 @@
 ---
 title: Azure Quickstart - Create a blob in object storage using Go | Microsoft Docs
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-author: normesta
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 12/10/2021
 ms.service: storage
 ms.subservice: blobs
@@ -158,7 +158,7 @@ if err != nil {
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart.
 
-The SDK offers [high-level APIs](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/storage/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadBufferToBlockBlob*** function uses StageBlock (PutBlock) operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses Upload (PutBlob) instead to complete the transfer in a single transaction.
+The SDK offers [high-level APIs](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/messaging/azeventhubs/internal/blob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadBufferToBlockBlob*** function uses StageBlock (PutBlock) operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses Upload (PutBlob) instead to complete the transfer in a single transaction.
 
 The following example uploads the file to your container called **quickstartblob-[randomstring]**.
 

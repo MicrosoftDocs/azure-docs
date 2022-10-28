@@ -16,7 +16,7 @@ ms.author: glenga
 # [JavaScript](#tab/javascript)
 
 * [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/main/samples)
 
 # [Python](#tab/python)
 

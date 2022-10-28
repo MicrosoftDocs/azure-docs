@@ -64,7 +64,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.22.0</version>
+            <version>1.23.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -122,14 +122,14 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
     </repositories>
     ```
 
-   * Add a `dependencies` element, with Speech SDK version 1.22.0 as a dependency:
+   * Add a `dependencies` element, with Speech SDK version 1.23.0 as a dependency:
 
     ```xml
     <dependencies>
       <dependency>
         <groupId>com.microsoft.cognitiveservices.speech</groupId>
         <artifactId>client-sdk</artifactId>
-        <version>1.22.0</version>
+        <version>1.23.0</version>
       </dependency>
     </dependencies>
     ```
@@ -153,7 +153,7 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.22.0", ext: "jar"
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.23.0", ext: "jar"
 }
 ```
 ---

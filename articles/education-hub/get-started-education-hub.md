@@ -12,7 +12,7 @@ ms.custom: mode-other
 
 # Getting started with Azure Education Hub
 
-The Education Hub Get Started page provides quick links upon first landing into the Education Hub. There, you can find information about how to set up your course, learn about different services through Microsoft Learn, or easily deploy your first services through Quickstart Templates.
+The Education Hub Get Started page provides quick links upon first landing into the Education Hub. There, you can find information about how to set up your course, learn about different services, or easily deploy your first services through Azure Quickstart Templates.
 
 :::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="The Get Started page in the Azure Education Hub." border="false":::
 

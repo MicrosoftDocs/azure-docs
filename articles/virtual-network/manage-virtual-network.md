@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
-ms.author: mbender
+ms.author: allensu
 ---
 
 # Create, change, or delete a virtual network
@@ -33,14 +33,16 @@ Complete the following tasks before completing steps in any section of this arti
 
 1. Select **+ Create a resource** > **Networking** > **Virtual network**.
 2. In **Create virtual network**, enter or select values for the following settings on the *Basics* tab:
+
     | **Setting** | **Description** |
     | --- | --- |
-    | **Project details** | |
-    | **Subscription** | Select a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). You cannot use the same virtual network in more than one Azure subscription. However, you can connect a virtual network in one subscription to virtual networks in other subscriptions with [virtual network peering](virtual-network-peering-overview.md). Any Azure resource that you connect to the virtual network must be in the same subscription as the virtual network.|
-    |**Resource group**|Select an existing [resource group](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) or create a new one. An Azure resource that you connect to the virtual network can be in the same resource group as the virtual network or in a different resource group.|
-    | **Instance details** |
-   | **Name** |The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Following a naming convention can help make it easier to manage multiple virtual networks.|
-    | **Region** | Select an Azure [region](https://azure.microsoft.com/regions/). A virtual network can be in only one Azure region. However, you can connect a virtual network in one region to a virtual network in another region by using a VPN gateway. Any Azure resource that you connect to the virtual network must be in the same region as the virtual network.|
+    | **Project details** |  |
+    | **Subscription** | Select a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). You cannot use the same virtual network in more than one Azure subscription. However, you can connect a virtual network in one subscription to virtual networks in other subscriptions with [virtual network peering](virtual-network-peering-overview.md). Any Azure resource that you connect to the virtual network must be in the same subscription as the virtual network. |
+    |**Resource group**| Select an existing [resource group](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) or create a new one. An Azure resource that you connect to the virtual network can be in the same resource group as the virtual network or in a different resource group. |
+    | **Instance details** | |
+   | **Name** | The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Following a naming convention can help make it easier to manage multiple virtual networks. |
+    | **Region** | Select an Azure [region](https://azure.microsoft.com/regions/). A virtual network can be in only one Azure region. However, you can connect a virtual network in one region to a virtual network in another region by using a VPN gateway. Any Azure resource that you connect to the virtual network must be in the same region as the virtual network. |
+    
 1. Select **IP Addresses** tab or **Next: IP Addresses >**, and enter the following IP address information:
    - **Address space**: The address space for a virtual network is composed of one or more non-overlapping address ranges that are specified in CIDR notation. The address range you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you've connected to the virtual network. You can't add the following address ranges:
      - 224.0.0.0/4 (Multicast)

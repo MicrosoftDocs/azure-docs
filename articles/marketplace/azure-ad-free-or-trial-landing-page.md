@@ -3,7 +3,6 @@ title: Build the landing page for your free or trial SaaS offer in the commercia
 description: Learn how to build a landing page for your free or trial SaaS offer.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

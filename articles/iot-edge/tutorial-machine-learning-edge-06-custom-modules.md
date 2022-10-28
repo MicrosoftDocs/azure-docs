@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
+monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
 
@@ -65,7 +66,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 
 During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, packaged that model so that the image is deployable as an Azure IoT Edge module.
 
-In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
+In this step, we are going to create an Azure IoT Edge solution using the "Azure Machine Learning" module and point the module to the image we published using Azure Notebooks.
 
 1. Open a remote desktop session to your development VM.
 
@@ -274,7 +275,7 @@ Add four additional routes to the $edgeHub route parameter, to handle outputs fr
    "deadLetter": "FROM /messages/modules/turboFanRouter/outputs/deadMessages INTO $upstream"
    ```
 
-With all the routes taken together your “$edgeHub” node should look like
+With all the routes taken together your "$edgeHub" node should look like
 the following JSON:
 
 ```json
@@ -303,7 +304,7 @@ the following JSON:
 
 The Avro Writer module has two responsibilities in our solution, to store messages and upload files.
 
-* **Store messages**: when the Avro Writer module receives a message, it writes the message to the local file system in Avro format. We use a bind mount, which mounts a directory (in this case /data/avrofiles) into a path in the module’s container. This mount allows the module to write to a local path (/avrofiles) and have those files accessible directly from the IoT Edge device.
+* **Store messages**: when the Avro Writer module receives a message, it writes the message to the local file system in Avro format. We use a bind mount, which mounts a directory (in this case /data/avrofiles) into a path in the module's container. This mount allows the module to write to a local path (/avrofiles) and have those files accessible directly from the IoT Edge device.
 
 * **Upload files**: the Avro Writer module uses the Azure IoT Hub file upload feature to upload files to an Azure storage account. Once a file is successfully uploaded, the module deletes the file from disk
 
@@ -336,7 +337,7 @@ The Avro Writer module has two responsibilities in our solution, to store messag
 
 ### Bind mount for data files
 
-As mentioned previously, the writer module relies on the presence of a bind mount to write Avro files to the device’s file system.
+As mentioned previously, the writer module relies on the presence of a bind mount to write Avro files to the device's file system.
 
 #### Add directory to device
 
@@ -368,7 +369,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
 
 #### Add directory to the module
 
-To add the directory to the module’s container, we will modify the Dockerfiles associated with the avroFileWriter module. There are three Dockerfiles associated with the module: Dockerfile.amd64, Dockerfile.amd64.debug, and Dockerfile.arm32v7. These files should be kept in sync in case we wish to debug or deploy to an arm32 device. For this article, focus only on Dockerfile.amd64.
+To add the directory to the module's container, we will modify the Dockerfiles associated with the avroFileWriter module. There are three Dockerfiles associated with the module: Dockerfile.amd64, Dockerfile.amd64.debug, and Dockerfile.arm32v7. These files should be kept in sync in case we wish to debug or deploy to an arm32 device. For this article, focus only on Dockerfile.amd64.
 
 1. On your development VM, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\Dockerfile.amd64** file.
 
@@ -514,7 +515,7 @@ We need to add one more bind for the writer module. This bind gives the module a
 
 ## Install dependencies
 
-The writer module takes a dependency on two Python libraries, fastavro and PyYAML. We need to install the dependencies on our development machine and instruct the Docker build process to install them in our module’s image.
+The writer module takes a dependency on two Python libraries, fastavro and PyYAML. We need to install the dependencies on our development machine and instruct the Docker build process to install them in our module's image.
 
 ### PyYAML
 
@@ -623,7 +624,7 @@ With the router and classifier in place, we expect to receive regular messages c
     }
     ```
 
-1. Select **Test route**. If the test is successful, you see “The message matched the query.”
+1. Select **Test route**. If the test is successful, you see "The message matched the query."
 
 1. Click **Save**.
 
@@ -675,7 +676,7 @@ We don't want to route the new prediction data to our old storage location, so u
    }
    ```
 
-1. Select **Test route**. If the test is successful, you see “The message matched the query.”
+1. Select **Test route**. If the test is successful, you see "The message matched the query."
 
 1. Select **Save**.
 
@@ -702,7 +703,7 @@ Now that we have made the configuration changes, we are ready to build the image
 
 * **Deployment lag:** since the IoT Edge runtime must recognize the change to its desired properties before it starts to reconfigure, it can take some amount of time after you deploy your modules until the runtime picks them up and starts to update the IoT Edge device.
 
-* **Module versions matter:** if you publish a new version of a module’s container to your container registry using the same version tags as the previous module, the runtime will not download the new version of the module. It does a comparison of the version tag of the local image and the desired image from the deployment manifest. If those versions match, the runtime takes no action. Therefore, it is important to increment the version of your module each time you wish to deploy new changes. Increment the version by changing the **version** property under the **tag** property in the module.json file for the module you are changing. Then build and publish the module.
+* **Module versions matter:** if you publish a new version of a module's container to your container registry using the same version tags as the previous module, the runtime will not download the new version of the module. It does a comparison of the version tag of the local image and the desired image from the deployment manifest. If those versions match, the runtime takes no action. Therefore, it is important to increment the version of your module each time you wish to deploy new changes. Increment the version by changing the **version** property under the **tag** property in the module.json file for the module you are changing. Then build and publish the module.
 
     ```json
     {
@@ -792,7 +793,7 @@ the device.
    ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
    ```
 
-1. List all running containers. We expect to see a container for each module with a name that corresponds to the module. Also, this command lists the exact image for the container including version so you can match with your expectation. You can also list images by substituting “image” for “container” in the command.
+1. List all running containers. We expect to see a container for each module with a name that corresponds to the module. Also, this command lists the exact image for the container including version so you can match with your expectation. You can also list images by substituting "image" for "container" in the command.
 
    ```bash
    sudo docker container ls
@@ -822,7 +823,7 @@ This tutorial is part of a set where each article builds on the work done in the
 
 ## Next steps
 
-In this article, we created an IoT Edge Solution in Visual Studio Code with three modules: a classifier, a router, and a file writer/uploader. We set up the routes to allow the modules to communicate with each other on the edge device. We modified the configuration of the edge device, and updated the Dockerfiles to install dependencies and add bind mounts to the modules’ containers. 
+In this article, we created an IoT Edge Solution in Visual Studio Code with three modules: a classifier, a router, and a file writer/uploader. We set up the routes to allow the modules to communicate with each other on the edge device. We modified the configuration of the edge device, and updated the Dockerfiles to install dependencies and add bind mounts to the modules' containers. 
 
 Next, we updated the configuration of the IoT Hub to route our messages based on type and to handle file uploads. With everything in place, we deployed the modules to the IoT Edge device and ensured the modules were running correctly.
 

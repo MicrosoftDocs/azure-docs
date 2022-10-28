@@ -31,7 +31,7 @@ A *QoS profile* has two main components.
   The required parameters for each 5QI value are pre-configured in the Next Generation Node B (gNB).
 
 > [!NOTE]
-> Azure Private 5G Core does not support dynamically assigned 5QI, where specific QoS characteristics are signalled to the gNB during QoS flow creation.
+> Azure Private 5G Core does not support dynamically assigned 5QI, where specific QoS characteristics are signaled to the gNB during QoS flow creation.
 
 - An *allocation and retention priority (ARP) value*. The ARP value defines a QoS flow's importance. It controls whether a particular QoS flow should be retained or preempted when there's resource constraint in the network, based on its priority compared to other QoS flows. The QoS profile may also define whether the QoS flow can preempt or be preempted by another QoS flow.
 
@@ -63,7 +63,14 @@ A *service* is a representation of a set of QoS characteristics that you want to
 
 Each service includes:
 
-- A set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS flow or EPS bearer to bind to matching SDFs. You can specify the following QoS settings on a service:
+- One or more *data flow policy rules*, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have:
+
+  - One or more *data flow templates*, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address, and target port. The target IP address and port refer to the component on the data network's end of the connection.
+  - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
+  - A precedence value, which the packet core instance can use to rank data flow policy rules by importance.
+
+- Optionally, a set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS flow or EPS bearer to bind to matching SDFs. If you don't configure QoS characteristics, the default characteristics of the parent SIM policy will be used instead.  
+You can specify the following QoS settings on a service:
 
   - The maximum bit rate (MBR) for uplink traffic (away from the UE) across all matching SDFs.
   - The MBR for downlink traffic (towards the UE) across all matching SDFs.
@@ -72,20 +79,14 @@ Each service includes:
   - A preemption capability setting. This setting determines whether the QoS flow or EPS bearer created for this service can preempt another QoS flow or EPS bearer with a lower ARP priority level.
   - A preemption vulnerability setting. This setting determines whether the QoS flow or EPS bearer created for this service can be preempted by another QoS flow or EPS bearer with a higher ARP priority level.
 
-- One or more *data flow policy rules*, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have:
-
-  - One or more *data flow templates*, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address, and target port. The target IP address and port refer to the component on the data network's end of the connection.
-  - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
-  - A precedence value, which the packet core instance can use to rank data flow policy rules by importance. 
-
 ### SIM policies
 
-*SIM policies* let you define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM to a SIM policy before the SIM can use the private mobile network.
+*SIM policies* let you define different sets of policies and interoperability settings that can each be assigned to one or more SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
 Each SIM policy includes:
 
-- Top-level settings that are applied to every SIM assigned to the SIM policy. These settings include the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
-- A *network scope*, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
+- Top-level settings that are applied to every SIM using the SIM policy. These settings include the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
+- A *network scope*, which defines how SIMs using this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
 
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
@@ -105,7 +106,7 @@ When you first come to design the policy control configuration for your own priv
 1. Learn about each of the available options for a service in [Collect the required information for a service](collect-required-information-for-service.md). Compare these options with the requirements of the SDFs to decide on the services you'll need.
 1. Collect the appropriate policy configuration values you'll need for each service, using the information in [Collect the required information for a service](collect-required-information-for-service.md).
 1. Configure each of your services as described in [Configure a service - Azure portal](configure-service-azure-portal.md).
-1. Group your SIMs according to the services they'll require. For each group, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
+1. Categorize your SIMs according to the services they'll require. For each category, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
 
     1. [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
     1. [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)

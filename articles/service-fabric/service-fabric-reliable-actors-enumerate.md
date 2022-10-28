@@ -10,7 +10,7 @@ ms.date: 07/11/2022
 ---
 
 # Enumerate Service Fabric Reliable Actors
-The Reliable Actors service allows a client to enumerate metadata about the actors that the service is hosting. Because the actor service is a partitioned stateful service, enumeration is performed per partition. Because each partition might contain many actors, the enumeration is returned as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all active actors in one partition of an actor service:
+The Reliable Actors service allows a client to enumerate metadata about the actors that the service is hosting. Because the actor service is a partitioned stateful service, enumeration is performed per partition. Because each partition might contain many actors, the enumeration is returned as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all [active](service-fabric-reliable-actors-lifecycle.md) actors in one partition of an actor service:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -73,7 +73,7 @@ List<Guid> actorIds = new();
 foreach(var partition in partitions)
 {
     //Retrieve the partition information
-    Int64RangePartitionInformation partitionInformation = (Int64RangePartitionInformation)partition.PartitionInformation; //Actors are restricted to the uniform Int64 scheme per https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-actors-introduction#distribution-and-failover
+    Int64RangePartitionInformation partitionInformation = (Int64RangePartitionInformation)partition.PartitionInformation; //Actors are restricted to the uniform Int64 scheme per https://learn.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#distribution-and-failover
     IActorService actorServiceProxy = ActorServiceProxy.Create(serviceName, partitionInformation.LowKey);
     
     ContinuationToken? continuationToken = null;

@@ -64,7 +64,7 @@ New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Res
 > [!NOTE]
 > Log Analytics was previously called Operational Insights. The PowerShell cmdlets use Operational Insights in Log Analytics commands.
   
-After you've created a workspace, [configure a Log Analytics workspace in Azure Monitor by using PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration).
+After you've created a workspace, [configure a Log Analytics workspace in Azure Monitor by using PowerShell](./powershell-workspace-configuration.md).
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -76,7 +76,7 @@ Run the [az group create](/cli/azure/group#az-group-create) command to create a 
        --workspace-name <myWorkspace>
 ```
 
-For more information about Azure Monitor Logs in Azure CLI, see [Managing Azure Monitor Logs in Azure CLI](/azure/azure-monitor/logs/azure-cli-log-analytics-workspace-sample).
+For more information about Azure Monitor Logs in Azure CLI, see [Managing Azure Monitor Logs in Azure CLI](./azure-cli-log-analytics-workspace-sample.md).
 
 ## [Resource Manager template](#tab/azure-resource-manager)
 

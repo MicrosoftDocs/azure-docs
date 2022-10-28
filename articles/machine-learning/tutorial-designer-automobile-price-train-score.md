@@ -51,19 +51,32 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 ### Create the pipeline
 
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
+
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
-1. Select **Designer**.
+1. Select **Designer** -> **Classic prebuilt**
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/launch-designer.png" alt-text="Screenshot of the visual workspace showing how to access the designer.":::
 
-1. Select **Easy-to-use prebuilt components**.
+1. Select **Create a new pipeline using classic prebuilt components**.
 
-1. Open the ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) **Settings** pane to the right of the canvas, and scroll to **Draft name** text box. Rename it to *Automobile price prediction*. The name doesn't need to be unique.
+1. Click the pencil icon beside the automatically generated pipeline draft name, rename it to *Automobile price prediction*. The name doesn't need to be unique.
+
+![Screenshot of pencil icon to change pipeline draft name.](./media/tutorial-designer-automobile-price-train-score/change-pipeline-draft-name.png) 
+
 
 ## Set the default compute target
 
-A pipeline runs on a compute target, which is a compute resource that's attached to your workspace. After you create a compute target, you can reuse it for future runs.
+A pipeline jobs on a compute target, which is a compute resource that's attached to your workspace. After you create a compute target, you can reuse it for future jobs.
 
 
 > [!Important]
@@ -82,7 +95,7 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 1. Select **Create**.
 
     > [!NOTE]
-    > It takes approximately five minutes to create a compute resource. After the resource is created, you can reuse it and skip this wait time for future runs.
+    > It takes approximately five minutes to create a compute resource. After the resource is created, you can reuse it and skip this wait time for future jobs.
     >
     > The compute resource autoscales to zero nodes when it's idle to save cost. When you use it again after a delay, you might experience approximately five minutes of wait time while it scales back up.
 
@@ -90,11 +103,12 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
 There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)**.
 
-1. To the left of the pipeline canvas is a palette of datasets and components. Select **Data**.
+1. To the left of the pipeline canvas is a palette of datasets and components. Select **Component** -> **Sample data**.
 
 1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
-   :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/drag-data.gif" alt-text="Gif of dragging the Automobile price data to the canvas.":::
+   :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/automobile-data.png" alt-text="Gif of dragging the Automobile price data to the canvas.":::
+
 
 ### Visualize the data
 
@@ -275,14 +289,14 @@ Use the **Evaluate Model** component to evaluate how well your model scored the 
 
 ## Submit the pipeline
 
-Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a valid pipeline run at any point, which can be used to review changes to your pipeline during development.
+Now that your pipeline is all setup, you can submit a pipeline job to train your machine learning model. You can submit a valid pipeline job at any point, which can be used to review changes to your pipeline during development.
 
 1. At the top of the canvas, select **Submit**.
 
 1. In the **Set up pipeline job** dialog box, select **Create new**.
 
     > [!NOTE]
-    > Experiments group similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs.
+    > Experiments group similar pipeline jobs together. If you run a pipeline multiple times, you can select the same experiment for successive jobs.
 
     1. For **New experiment Name**, enter **Tutorial-CarPrices**.
 
@@ -292,7 +306,7 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
         :::image type="content" source="./media/how-to-run-batch-predictions-designer/submission-list.png" alt-text="Screenshot of the submitted jobs list with a success notification.":::
 
-    If this is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
+    If this is the first job, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline jobs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
 ### View scored labels
 
@@ -300,7 +314,7 @@ In the job detail page, you can check the pipeline job status, results and logs.
 
 :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Screenshot showing the pipeline job detail page.":::
 
-After the run completes, you can view the results of the pipeline run. First, look at the predictions generated by the regression model.
+After the job completes, you can view the results of the pipeline job. First, look at the predictions generated by the regression model.
 
 1. Right-click the **Score Model** component, and select **Preview data** > **Scored dataset** to view its output.
 

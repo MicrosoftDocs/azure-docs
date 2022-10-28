@@ -19,6 +19,8 @@ To use this API, you need a bearer token for the `management.azure.com` resource
 az account get-access-token --resource https://management.azure.com
 ```
 
+To learn how to manage IoT Central application by using the IoT Central UI, see [Create an IoT Central application.](../core/howto-create-iot-central-application.md)
+
 ## List your applications
 
 To get a list of the IoT Central applications in a subscription:

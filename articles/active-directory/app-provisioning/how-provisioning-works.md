@@ -3,12 +3,12 @@ title: Understand how Application Provisioning in Azure Active Directory
 description: Understand how Application Provisioning works in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/03/2022
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -74,13 +74,13 @@ You can use scoping filters to define attribute-based rules that determine which
 
 ### B2B (guest) users
 
-It's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications. 
+It's possible to use the Azure AD user provisioning service to provision B2B (guest) users in Azure AD to SaaS applications. 
 However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../external-identities/configure-saas-apps.md).
 
 > [!NOTE]
-> The userPrincipalName for a guest user is often displayed as "alias#EXT#@domain.com". When the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
-userPrincipalName = alias@domain.com
-originalUserPrincipalName = alias#EXT#@domain.com
+> The userPrincipalName for a B2B user represents the external user's email address alias@theirdomain as "alias_theirdomain#EXT#@yourdomain". When the userPrincipalName attribute is included in your attribute mappings as a source attribute, and a B2B user is being provisioned, the #EXT# and your domain is stripped from the userPrincipalName, so only their original alias@theirdomain is used for matching or provisioning. If you require the full user principal name including #EXT# and your domain to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. <br />
+userPrincipalName = alias@theirdomain<br />
+originalUserPrincipalName = alias_theirdomain#EXT#@yourdomain
 
 ## Provisioning cycles: Initial and incremental
 

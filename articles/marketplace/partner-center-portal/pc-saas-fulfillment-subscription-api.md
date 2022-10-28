@@ -4,7 +4,7 @@ description: Learn how to use the Subscription APIs, which are part of the  the 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 07/06/2022
+ms.date: 08/10/2022
 author: arifgani
 ms.author: argani
 ---
@@ -54,7 +54,7 @@ Response body example:
   "subscriptionName": "Contoso Cloud Solution", // SaaS subscription name
   "offerId": "offer1", // purchased offer ID
   "planId": "silver", // purchased offer's plan ID
-  "quantity": "20", // number of purchased seats, might be empty if the plan is not per seat
+  "quantity": 20, // number of purchased seats, might be empty if the plan is not per seat
   "subscription": { // full SaaS subscription details, see Get Subscription APIs response body for full description
     "id": "<guid>",
     "publisherId": "contoso",
@@ -82,7 +82,7 @@ Response body example:
       "autoRenew": true/false,
     "isTest": true/false,
     "isFreeTrial": false,
-    "allowedCustomerOperations": ["Delete", "Update", "Read"],
+    "allowedCustomerOperations": <CSP purchases>["Read"] <All Others> ["Delete", "Update", "Read"],
       "sandboxType": "None",
       "lastModified": "0001-01-01T00:00:00",
       "quantity": 5,

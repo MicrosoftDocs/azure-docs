@@ -1,7 +1,6 @@
 ---
 title: How to unsubscribe from a SaaS plan - Azure Marketplace
 description: Learn how to unsubscribe from a SaaS plan in Azure Marketplace.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

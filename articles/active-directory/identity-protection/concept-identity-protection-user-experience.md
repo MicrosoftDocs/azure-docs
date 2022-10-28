@@ -10,7 +10,7 @@ ms.date: 01/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 With Azure Active Directory Identity Protection, you can:
 
-* Require users to register for Azure AD Multi-Factor Authentication (MFA)
+* Require users to register for Azure AD multifactor authentication (MFA)
 * Automate remediation of risky sign-ins and compromised users
 
 All of the Identity Protection policies have an impact on the sign in experience for users. Allowing users to register for and use tools like Azure AD MFA and self-service password reset can lessen the impact. These tools along with the appropriate policy choices gives users a self-remediation option when they need it.
@@ -34,7 +34,7 @@ Enabling the Identity Protection policy requiring multi-factor authentication re
    
     ![More information required](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Complete the guided steps to register for Azure AD Multi-Factor Authentication and complete your sign-in.
+1. Complete the guided steps to register for Azure AD multifactor authentication and complete your sign-in.
 
 ## Risky sign-in remediation
 

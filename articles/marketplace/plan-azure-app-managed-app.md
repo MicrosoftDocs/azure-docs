@@ -3,11 +3,10 @@ title: Plan an Azure managed application for an Azure application offer
 description: Learn what is required to create a managed application plan for a new Azure application offer using the commercial marketplace portal in Microsoft Partner Center.
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 08/18/2022
 ---
 
 # Plan an Azure managed application for an Azure application offer
@@ -69,6 +68,9 @@ Maximum file sizes supported are:
 
 - Up to 1 Gb in total compressed .zip archive size
 - Up to 1 Gb for any individual uncompressed file within the .zip archive
+
+> [!TIP]
+> Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before publishing your Azure Application.
 
 ## Azure regions
 

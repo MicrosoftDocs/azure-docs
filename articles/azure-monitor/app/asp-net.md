@@ -71,8 +71,8 @@ This section will guide you through manually adding Application Insights to a te
 
 3. Copy the following XML configuration into your newly created file:
 
-     ```xml
-     <?xml version="1.0" encoding="utf-8"?>
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
       <TelemetryInitializers>
         <Add Type="Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer, Microsoft.AI.DependencyCollector" />
@@ -214,7 +214,7 @@ This section will guide you through manually adding Application Insights to a te
       -->
       <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     </ApplicationInsights>
-     ```
+    ```
 
 4. Before the closing `</ApplicationInsights>` tag, add the connection string for your Application Insights resource. You can find your connection string on the overview pane of the newly created Application Insights resource.
 
@@ -249,7 +249,6 @@ This section will guide you through manually adding Application Insights to a te
             }
         }
     }
-    
     ```
 
 6. In the *App_Start* folder, open the *FilterConfig.cs* file and change it to match the sample:
@@ -366,9 +365,11 @@ For the template-based ASP.NET MVC app from this article, the file that you need
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
 
-There's a known issue in the current version of Visual Studio 2019: storing the instrumentation key or connection string in a user secret is broken for .NET Framework-based apps. The key ultimately has to be hardcoded into the *applicationinsights.config* file to work around this bug. This article is designed to avoid this issue entirely, by not using user secrets.  
+There's a known issue in the current version of Visual Studio 2019: storing the instrumentation key or connection string in a user secret is broken for .NET Framework-based apps. The key ultimately has to be hardcoded into the *applicationinsights.config* file to work around this bug. This article is designed to avoid this issue entirely, by not using user secrets.
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 

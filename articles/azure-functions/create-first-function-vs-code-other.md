@@ -4,7 +4,7 @@ description: Learn how to create a Go function as an Azure Functions custom hand
 ms.topic: quickstart
 ms.date: 06/22/2022
 ms.devlang: golang, rust
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a Go or Rust function in Azure using Visual Studio Code

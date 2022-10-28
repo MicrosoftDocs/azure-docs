@@ -13,13 +13,10 @@ ms.date: 06/27/2022
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 This article shows you how to assess discovered SQL instances in preparation for migration to Azure SQL, using the Azure Migrate: Discovery and assessment tool.
 
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
-
 ## Before you start
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project and have the Azure Migrate: Discovery and assessment tool added.
-- To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The appliance discovers on-premises servers, and sends metadata and performance data to Azure Migrate. [Learn more](migrate-appliance.md).
+- To create an assessment, you need to set up an Azure Migrate appliance for VMware, Hyper-V or Physical environment, whichever applicable. The appliance discovers on-premises servers, and sends metadata and performance data to Azure Migrate. [Learn more](migrate-appliance.md).
 
 ## Azure SQL assessment overview
 You can create an Azure SQL assessment with sizing criteria as **Performance-based**. 

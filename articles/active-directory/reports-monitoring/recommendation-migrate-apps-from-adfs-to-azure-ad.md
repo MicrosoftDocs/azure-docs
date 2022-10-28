@@ -4,7 +4,7 @@ description: Learn why you should migrate apps from ADFS to Azure AD in Azure AD
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/31/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: hafowler
 

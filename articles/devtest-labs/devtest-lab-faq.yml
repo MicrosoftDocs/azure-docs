@@ -3,7 +3,7 @@ metadata:
   title: 'Azure DevTest Labs FAQ'
   description: 'This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.'
   ms.topic: faq
-  ms.service: azure
+  ms.service: devtest-lab
   ms.author: rosemalcolm
   author: RoseHJM
   ms.date: 07/17/2020 

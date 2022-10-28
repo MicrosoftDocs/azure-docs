@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 10/26/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0 or later.
    - Don't exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to Azure AD, see [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
    - If the computer objects of the devices you want to be hybrid Azure AD joined belong to specific organizational units (OUs), configure the correct OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
-- Global administrator credentials for your Azure AD tenant.
+- Global Administrator credentials for your Azure AD tenant.
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
 - (**For federated domains**) At least Windows Server 2012 R2 with Active Directory Federation Services installed.
 - Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
@@ -42,7 +42,7 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 - Your organization's Security Token Service (STS) (**For federated domains**)
 
 > [!WARNING]
-> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to `https://devices.login.microsoftonline.com` is excluded from TLS break-and-inspect. Failure to exclude this URL may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
 
 If your organization requires access to the internet via an outbound proxy, you can use [Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 or newer computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)).
 
@@ -64,7 +64,7 @@ Configure hybrid Azure AD join by using Azure AD Connect for a managed domain:
 1. Start Azure AD Connect, and then select **Configure**.
 1. In **Additional tasks**, select **Configure device options**, and then select **Next**.
 1. In **Overview**, select **Next**.
-1. In **Connect to Azure AD**, enter the credentials of a global administrator for your Azure AD tenant.
+1. In **Connect to Azure AD**, enter the credentials of a Global Administrator for your Azure AD tenant.
 1. In **Device options**, select **Configure Hybrid Azure AD join**, and then select **Next**.
 1. In **Device operating systems**, select the operating systems that devices in your Active Directory environment use, and then select **Next**.
 1. In **SCP configuration**, for each forest where you want Azure AD Connect to configure the SCP, complete the following steps, and then select **Next**.
@@ -98,7 +98,7 @@ Configure hybrid Azure AD join by using Azure AD Connect for a federated environ
 1. Start Azure AD Connect, and then select **Configure**.
 1. On the **Additional tasks** page, select **Configure device options**, and then select **Next**.
 1. On the **Overview** page, select **Next**.
-1. On the **Connect to Azure AD** page, enter the credentials of a global administrator for your Azure AD tenant, and then select **Next**.
+1. On the **Connect to Azure AD** page, enter the credentials of a Global Administrator for your Azure AD tenant, and then select **Next**.
 1. On the **Device options** page, select **Configure Hybrid Azure AD join**, and then select **Next**.
 1. On the **SCP** page, complete the following steps, and then select **Next**:
    1. Select the forest.

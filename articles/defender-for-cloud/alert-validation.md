@@ -2,7 +2,7 @@
 title: Alert validation in Microsoft Defender for Cloud
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 10/06/2022
 
 ---
 # Alert validation in Microsoft Defender for Cloud
@@ -10,9 +10,14 @@ ms.date: 07/04/2022
 This document helps you learn how to verify if your system is properly configured for Microsoft Defender for Cloud alerts.
 
 ## What are security alerts?
-Alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Defender for Cloud also provides recommendations for how you can remediate an attack.
-For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.md)
 
+Alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Defender for Cloud also provides recommendations for how you can remediate an attack.
+
+For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.md).
+
+## Prerequisites
+
+To receive all the alerts, your machines and the connected Log Analytics workspaces need to be in the same tenant.
 
 ## Generate sample security alerts
 
@@ -111,19 +116,34 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 **To simulate a a Kubernetes workload security alert**:
  
-1. Access one of the `azuredefender-publisher-<XXX>` pods deployed in your Kubernetes cluster.
+1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create created using this sample yaml configuration:
+    
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: mdc-test
+    spec:
+        containers:
+            - name: mdc-test
+              image: ubuntu:18.04
+              command: ["/bin/sh"]
+              args: ["-c", "while true; do echo sleeping; sleep 3600;done"]
+    ```
+
+    To create the pod run:
+    
+    ```bash
+    kubectl apply -f <path_to_the_yaml_file>
+    ```
 
 1. Run the following command from the cluster:
 
     ```bash
-    kubectl exec -it azuredefender-publisher-xx-xxxxx -n <namespace> -- bash
+    kubectl exec -it mdc-test -- bash
     ```
 
-    For AKS - `<namespace>` = `kube-system`<br>
-    For ARC - `<namespace>` = `mdc`
-
-1. Select an executable, copy it to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
-`cp /bin/echo ./asc_alerttest_662jfi039n`.
+1. Copy the executable to a separate location and rename it to `./asc_alerttest_662jfi039n` with the following command `cp /bin/echo ./asc_alerttest_662jfi039n`.
 
 1. Execute the file `./asc_alerttest_662jfi039n testing eicar pipe`.
 

@@ -3,7 +3,7 @@ title: Enable Profiler for Azure Cloud Services | Microsoft Docs
 description: Profile live Azure Cloud Services with Application Insights Profiler.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 05/25/2022
+ms.date: 07/15/2022
 ---
 
 # Enable Profiler for Azure Cloud Services
@@ -25,7 +25,7 @@ In this article, you will:
 
 ## Track requests with Application Insights
 
-When publishing your CloudService to Azure portal, add the [Application Insights SDK to Azure Cloud Services](../app/cloudservices.md).
+When publishing your CloudService to Azure portal, add the [Application Insights SDK to Azure Cloud Services](../app/azure-web-apps-net-core.md).
 
 :::image type="content" source="./media/profiler-cloudservice/enable-app-insights.png" alt-text="Screenshot showing the checkbox for sending information to Application Insights.":::
 
@@ -59,29 +59,10 @@ Add the following `SinksConfig` section as a child element of `WadCfg`:
 
 Deploy your service with the new Diagnostics configuration. Application Insights Profiler is now configured to run on your Cloud Service.
 
-## Generate traffic to your service
-
-Now that your Azure Cloud Service is deployed with Profiler, you can generate traffic to view Profiler traces.
-
-Generate traffic to your application by setting up an [availability test](../app/monitor-web-app-availability.md). Wait 10 to 15 minutes for traces to be sent to the Application Insights instance.
-
-Navigate to your Azure Cloud Service's Application Insights resource. In the left side menu, select **Performance**.
-
-:::image type="content" source="./media/profiler-cloudservice/cloud-service-performance.png" alt-text="Screenshot of the Application Insights performance option in the left menu of the Azure portal.":::
-
-Select the **Profiler** for your Cloud Service.
-
-:::image type="content" source="./media/profiler-cloudservice/select-profiler.png" alt-text="Screenshot of selecting the Profiler from the Cloud Service App Insights performance pane.":::
-
-Select **Profile now** to start a profiling session. This process will take a few minutes.
-
-:::image type="content" source="./media/profiler-cloudservice/profile-now.png" alt-text="Screenshot of selecting Profile Now to start a profiling session.":::
-
-For more instructions on profiling sessions, see the [Profiler overview](./profiler-overview.md#start-a-profiler-on-demand-session).
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
- 
 ## Next steps
 
-- Learn more about [configuring Profiler](./profiler-settings.md).
-- [Troubleshoot Profiler issues](./profiler-troubleshooting.md).
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]

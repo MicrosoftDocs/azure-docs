@@ -6,7 +6,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
-ms.date: 07/08/2022
+ms.date: 09/08/2022
 
 #Customer intent: As an IT admin/developer, I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard.
 ---
@@ -27,11 +27,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start, make sure you have completed the following steps:
+Before you start, make sure you've completed the following steps:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Download the phone call event generator app [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
-* You will need Power BI account.
+* If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/free/).
+* Download the **phone call event generator app**, [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) from the Microsoft Download Center or get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
+* You'll need a **Power BI** account.
 
 ## Sign in to Azure
 
@@ -39,47 +39,44 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an event hub
 
-Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you will send data to Azure by using  [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you'll send data to Azure by using  [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Use the following steps to create an event hub and send call data to that event hub:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Create a resource** > **Internet of Things** > **Event Hubs**.
+2. Select **Create a resource** > **Internet of Things** > **Event Hubs**. 
 
-   ![Create an event hub in the Azure portal.](media/stream-analytics-real-time-fraud-detection/find-event-hub-resource.png)
-
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/find-event-hub-resource.png" alt-text="Screenshot showing the Event Hubs creation page.":::
 3. Fill out the **Create Namespace** pane with the following values:
 
    |**Setting**  |**Suggested value** |**Description**  |
    |---------|---------|---------|
-   |Name     | asaTutorialEventHub        |  A unique name to identify the event hub namespace.       |
    |Subscription     |   \<Your subscription\>      |   Select an Azure subscription where you want to create the event hub.      |
    |Resource group     |   MyASADemoRG      |  Select **Create New** and enter a new resource-group name for your account.       |
+   |Namespace name     | asaTutorialEventHubNS        |  A unique name to identify the event hub namespace.       |
    |Location     |   West US2      |    Location where the event hub namespace can be deployed.     |
-
 4. Use default options on the remaining settings and select **Review + create**. Then select **Create** to start the deployment.
 
-   ![Create event hub namespace in the Azure portal](media/stream-analytics-real-time-fraud-detection/create-event-hub-namespace.png)
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-event-hub-namespace.png" alt-text="Screenshot showing the Create Namespace page.":::
+5. After the namespace is deployed successfully, select **Go to resource** to navigate to the **Event Hubs Namespace** page.
+6. On the **Event Hubs Namespace** page, select **+Event Hub** on the command bar.
 
-5. When the namespace has finished deploying, go to **All resources** and find *asaTutorialEventHub* in the list of Azure resources. Select *asaTutorialEventHub* to open it.
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/add-event-hub-button.png" alt-text="Screenshot showing the Add event hub button on the Event Hubs Namespace page.":::    
+1. On the **Create Event Hub** page, enter a **Name** for the event hub. Set the **Partition Count** to 2.  Use the default options in the remaining settings and select **Create**. Then wait for the deployment to succeed.
 
-6. Next select **+Event Hub** and enter a **Name** for the event hub. Set the **Partition Count** to 2.  Use the default options in the remaining settings and select **Create**. Then wait for the deployment to succeed.
-
-   ![Event hub configuration in the Azure portal](media/stream-analytics-real-time-fraud-detection/create-event-hub-portal.png)
-
-7. After the deployment is complete, select **Configuration** under **Settings** in your Event Hubs namespace and change the Minimum TLS version to **Version 1.0**.
-   ![Screenshot of Event hub TLS configuration version 1.0 in the Azure portal.](media/stream-analytics-real-time-fraud-detection/event-hubs-tls-version.png)
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-event-hub-portal.png" alt-text="Screenshot showing the Create event hub page.":::    
 
 ### Grant access to the event hub and get a connection string
 
 Before an application can send data to Azure Event Hubs, the event hub must have a policy that allows access. The access policy produces a connection string that includes authorization information.
 
-1. Navigate to the event hub you created in the previous step, *MyEventHub*. Select **Shared access policies** under **Settings**, and then select **+ Add**.
+1. On the **Event Hubs Namespace**, select **Event Hubs** under **Entities** on the left menu, and then select the event hub you created.
 
-2. Name the policy **MyPolicy** and ensure **Manage** is checked. Then select **Create**.
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/select-event-hub.png" alt-text="Screenshot showing the selection of an event hub on the Event Hubs page."::: 
+1. On the **Event Hubs instance** page, select **Shared access policies** under **Settings** on the left menu, and then select **+ Add** on the command bar. 
+2. Name the policy **MyPolicy**, ensure **Manage** is checked, and then select **Create**.
 
-   ![Create event hub shared access policy](media/stream-analytics-real-time-fraud-detection/create-event-hub-access-policy.png)
-
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-event-hub-access-policy.png" alt-text="Screenshot showing Shared access policies page for an event hub."::: 
 3. Once the policy is created, select the policy name to open the policy. Find the **Connection string–primary key**. Select the **copy** button next to the connection string.
 
    ![Save the shared access policy connection string](media/stream-analytics-real-time-fraud-detection/save-connection-string.png)
@@ -96,14 +93,12 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
 Before you start the TelcoGenerator app, you should configure it to send data to the Azure Event Hubs you created earlier.
 
-1. Extract the contents of [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.
-2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice There is more than one `.config` file, so be sure that you open the correct one.
-
+1. Extract the contents of [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) file.
+2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice There's more than one `.config` file, so be sure that you open the correct one.
 3. Update the `<appSettings>` element in the config file with the following details:
 
-   * Set the value of the *EventHubName* key to the value of the EntityPath in the connection string.
-   * Set the value of the *Microsoft.ServiceBus.ConnectionString* key to the connection string without the EntityPath value. Don't forget to remove the semicolon that precedes the EntityPath value.
-
+   * Set the value of the **EventHubName** key to the value of the **EntityPath** at the end of the connection string.
+   * Set the value of the **Microsoft.ServiceBus.ConnectionString** key to the connection string **without** the EntityPath value at the end. **Don't forget** to remove the semicolon that precedes the EntityPath value.
 4. Save the file.
 
 5. Next open a command window and change to the folder where you unzipped the TelcoGenerator application. Then enter the following command:
@@ -133,33 +128,31 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 Now that you have a stream of call events, you can create a Stream Analytics job that reads data from the event hub.
 
 1. To create a Stream Analytics job, navigate to the [Azure portal](https://portal.azure.com/).
-
 2. Select **Create a resource** and search for **Stream Analytics job**. Select the **Stream Analytics job** tile and select **Create**.
-
 3. Fill out the **New Stream Analytics job** form with the following values:
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
-   |Job name     |  ASATutorial       |   A unique name to identify the event hub namespace.      |
    |Subscription    |  \<Your subscription\>   |   Select an Azure subscription where you want to create the job.       |
    |Resource group   |   MyASADemoRG      |   Select **Use existing** and enter a new resource-group name for your account.      |
+   |Job name     |  ASATutorial       |   A unique name to identify the event hub namespace.      |
    |Location   |    West US2     |   	Location where the job can be deployed. It's recommended to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.      |
    |Hosting environment    | Cloud        |     Stream Analytics jobs can be deployed to cloud or edge. **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.    |
    |Streaming units     |    1	     |   	Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.      |
-
 4. Use default options on the remaining settings, select **Create**, and wait for the deployment to succeed.
 
    ![Create an Azure Stream Analytics job](media/stream-analytics-real-time-fraud-detection/create-stream-analytics-job.png)
+5. After the job is deployed, select **Go to resource** to navigate to the **Stream Analytics job** page. 
 
 ## Configure job input
 
 The next step is to define an input source for the job to read data using the event hub you created in the previous section.
 
-1. From the Azure portal, open the **All resources** page, and find the *ASATutorial* Stream Analytics job.
+2. On the **Stream Analytics job** page, in the **Job Topology** section on the left menu, select **Inputs**.
+3. On the **Inputs** page, select **+ Add stream input** and **Event hub**. 
 
-2. In the **Job Topology** section of the Stream Analytics job, select **Inputs**.
-
-3. Select **+ Add stream input** and **Event hub**. Fill out the input form with the following values:
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/add-input-event-hub-menu.png" lightbox="media/stream-analytics-real-time-fraud-detection/add-input-event-hub-menu.png" alt-text="Screenshot showing the Input page for a Stream Analytics job."::: 
+4. Fill out the input form with the following values:
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
@@ -167,11 +160,12 @@ The next step is to define an input source for the job to read data using the ev
    |Subscription    |   \<Your subscription\>      |   Select the Azure subscription where you created the event hub. The event hub can be in same or a different subscription as the Stream Analytics job.       |
    |Event hub namespace    |  asaTutorialEventHub       |  Select the event hub namespace you created in the previous section. All the event hub namespaces available in your current subscription are listed in the dropdown.       |
    |Event hub name    |   MyEventHub      |  Select the event hub you created in the previous section. All the event hubs available in your current subscription are listed in the dropdown.       |
-   |Event hub policy name   |  MyPolicy       |  Select the event hub shared access policy you created in the previous section. All the event hubs policies available in your current subscription are listed in the dropdown.       |
+   | Authentication mode  |   Connection string      |  In this tutorial, you'll use the connection string to connect to the event hub.   |
+   |Event hub policy name   |  MyPolicy       |  Select **Use existing**, and then select the policy you created earlier in this tutorial.  |
 
 4. Use default options on the remaining settings and select **Save**.
 
-   ![Configure Azure Stream Analytics input](media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-input.png)
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-input.png" alt-text="Screenshot showing the Event Hubs configuration page for an input."::: 
 
 ## Create a consumer group
 
@@ -180,30 +174,21 @@ We recommend that you use a distinct consumer group for each Stream Analytics jo
 To add a new consumer group:
 
 1. In the Azure portal, go to your Event Hubs instance.
-
 1. In the left menu, under **Entities**, select **Consumer groups**.
-
-1. Select **+ Consumer group**.
-
-1. In **Name**, enter a name for your new consumer group. For example, *MyConsumerGroup*.
-
-1. Select **Create**.
+1. Select **+ Consumer group** on the command bar.
 
    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-consumer-group.png" alt-text="Screenshot that shows creating a new consumer group.":::
+1. In **Name**, enter a name for your new consumer group. For example, *MyConsumerGroup*.
+1. Select **Create**.
 
 ## Configure job output
 
 The last step is to define an output sink where the job can write the transformed data. In this tutorial, you output and visualize data with Power BI.
 
 1. From the Azure portal, open **All resources**, and select the *ASATutorial* Stream Analytics job.
-
 2. In the **Job Topology** section of the Stream Analytics job, select the **Outputs** option.
-
-3. Select **+ Add** > **Power BI**. Then, select **Authorize** and follow the prompts to authenticate Power BI.
-
-:::image type="content" source="media/stream-analytics-real-time-fraud-detection/authorize-power-bi.png" alt-text="authorize button for Power BI":::
-
-4. Fill the output form with the following details and select **Save**:
+3. Select **+ Add** > **Power BI**. 
+4. Fill the output form with the following details:
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
@@ -212,8 +197,10 @@ The last step is to define an output sink where the job can write the transforme
    |Dataset name  |   ASAdataset  |
    |Table name |  ASATable  |
    | Authentication mode | User token |
+5. Select **Authorize** and follow the prompts to authenticate Power BI. 
 
    ![Configure Stream Analytics output](media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-output.png)
+6. Select **Save** at the bottom of the **Power BI** page. 
 
    This tutorial uses the *User token* authentication mode. To use Managed Identity, see [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md).
 
@@ -231,8 +218,7 @@ To learn more about the language, see the [Azure Stream Analytics Query Language
 
 If you want to archive every event, you can use a pass-through query to read all the fields in the payload of the event.
 
-1. Navigate to your Stream Analytics job in the Azure portal and select **Query** under *Job topology*. 
-
+1. Navigate to your Stream Analytics job in the Azure portal and select **Query** under **Job topology** on the left menu. 
 2. In the query window, enter this query:
 
    ```SQL
@@ -246,7 +232,6 @@ If you want to archive every event, you can use a pass-through query to read all
     >As with SQL, keywords are not case-sensitive, and whitespace is not significant.
 
     In this query, `CallStream` is the alias that you specified when you created the input. If you used a different alias, use that name instead.
-
 3. Select **Test query**.
 
     The Stream Analytics job runs the query against the sample data from the input and displays the output at the bottom of the window. The results indicate that the Event Hubs and the Streaming Analytics job are configured correctly.
@@ -262,7 +247,9 @@ In many cases, your analysis doesn't need all the columns from the input stream.
 Run the following query and notice the output.
 
 ```SQL
-SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNumCalledNum 
+SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
+INTO
+    [MyPBIoutput]
 FROM 
     CallStream
 ```
@@ -287,7 +274,7 @@ For this transformation, you want a sequence of temporal windows that don't over
 
     The projection includes `System.Timestamp`, which returns a timestamp for the end of each window. 
 
-    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](/stream-analytics-query/tumbling-window-azure-stream-analytics) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you will get a count by country/region for every 5 seconds' worth of calls.
+    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](/stream-analytics-query/tumbling-window-azure-stream-analytics) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you'll get a count by country/region for every 5 seconds' worth of calls.
 
 2. Select **Test query**. In the results, notice that the timestamps under **WindowEnd** are in 5-second increments.
 
@@ -295,7 +282,7 @@ For this transformation, you want a sequence of temporal windows that don't over
 
 For this example, consider fraudulent usage to be calls that originate from the same user but in different locations within 5 seconds of one another. For example, the same user can't legitimately make a call from the US and Australia at the same time.
 
-To check for these cases, you can use a self-join of the streaming data to join the stream to itself based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country/region of origin) is not the same.
+To check for these cases, you can use a self-join of the streaming data to join the stream to itself based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country/region of origin) isn't the same.
 
 When you use a join with streaming data, the join must provide some limits on how far the matching rows can be separated in time. As noted earlier, the streaming data is effectively endless. The time bounds for the relationship are specified inside the `ON` clause of the join, using the `DATEDIFF` function. In this case, the join is based on a 5-second interval of call data.
 
@@ -312,9 +299,9 @@ When you use a join with streaming data, the join must provide some limits on ho
    	GROUP BY TumblingWindow(Duration(second, 1))
 	```
 
-    This query is like any SQL join except for the `DATEDIFF` function in the join. This version of `DATEDIFF` is specific to Streaming Analytics, and it must appear in the `ON...BETWEEN` clause. The parameters are a time unit (seconds in this example) and the aliases of the two sources for the join. This is different from the standard SQL `DATEDIFF` function.
+    This query is like any SQL join except for the `DATEDIFF` function in the join. This version of `DATEDIFF` is specific to Streaming Analytics, and it must appear in the `ON...BETWEEN` clause. The parameters are a time unit (seconds in this example) and the aliases of the two sources for the join. This function is different from the standard SQL `DATEDIFF` function.
 
-    The `WHERE` clause includes the condition that flags the fraudulent call: the originating switches are not the same.
+    The `WHERE` clause includes the condition that flags the fraudulent call: the originating switches aren't the same.
 
 2. Select **Test query**. Review the output, and then select **Save query**.
 
@@ -346,7 +333,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 For this part of the tutorial, you'll use a sample [ASP.NET](https://asp.net/) web application created by the Power BI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](/power-bi/developer/embedding) article.
 
-To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since we are using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
+To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since we're using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Select **Sign in to Power BI**, which grants the application access to the dashboards in your Power BI account.

@@ -4,7 +4,7 @@ description: Tutorial:Containerize & migrate Java web applications to Azure Kube
 services:
 author: rahugup
 manager: bsiva
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, migration-java
 ms.topic: tutorial
 ms.date: 6/30/2021
 ms.author: rahugup

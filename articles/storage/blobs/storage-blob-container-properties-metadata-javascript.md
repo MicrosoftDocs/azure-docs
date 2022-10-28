@@ -3,12 +3,13 @@ title: Use JavaScript to manage properties and metadata for a blob container
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/28/2022
-ms.author: normesta
+
 ms.devlang: javascript
 ms.custom: devx-track-javascript
 ---

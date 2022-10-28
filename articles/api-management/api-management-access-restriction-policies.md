@@ -235,7 +235,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
-        retry-after-header-name="header name" 
+        retry-after-header-name="custom header name, replaces default 'Retry-After'" 
         retry-after-variable-name="policy expression variable name"
         remaining-calls-header-name="header name"  
         remaining-calls-variable-name="policy expression variable name"
@@ -275,7 +275,7 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -312,8 +312,10 @@ For more information and examples of this policy, see [Advanced request throttli
                    increment-condition="condition"
                    increment-count="number"
                    counter-key="key value" 
-                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
-                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   retry-after-header-name="custom header name, replaces default 'Retry-After'" 
+                   retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  
+                   remaining-calls-variable-name="policy expression variable name"
                    total-calls-header-name="header name"/> 
 
 ```
@@ -353,7 +355,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
 | increment-count | The number by which the counter is increased per request.        | No       | 1     |
 | renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -370,6 +372,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 
 The `ip-filter` policy filters (allows/denies) calls from specific IP addresses and/or address ranges.
+
+> [!NOTE]
+> The policy filters the immediate caller's IP address. However, if API Management is hosted behind Application Gateway, the policy considers its IP address, not the originator of the API request. Presently, IP addresses in the `X-Forwarded-For` are not considered.
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -420,7 +425,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
-The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
+The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
 To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
@@ -471,7 +476,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | name           | The name of the API or operation for which the quota applies.                                             | Yes                                                              | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.| Yes                                                              | N/A     |
+| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes                                                              | N/A     |
 
 ### Usage
 
@@ -485,7 +490,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 > [!IMPORTANT]
 > This feature is unavailable in the **Consumption** tier of API Management.
 
-The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call rate is exceeded, the caller receives a `403 Forbidden` response status code.
+The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -540,7 +545,7 @@ In the following example, the quota is keyed by the caller IP address.
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | counter-key         | The key to use for the quota policy. For each key value, a single counter is used for all scopes at which the policy is configured.              | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
-| renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
+| renewal-period      | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to `first-perdiod-start`. When `renewal-period` is set to `0`, the period is set to infinite.                                                   | Yes                                                              | N/A     |
 | first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
 
 > [!NOTE]
@@ -555,11 +560,11 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value. 
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
-> The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key may be provided either via an Open ID configuration endpoint, or by providing the ID of an uploaded certificate that contains the public key or modulus-exponent pair of the public key.
+> The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key may be provided either via an Open ID configuration endpoint, or by providing the ID of an uploaded certificate that contains the public key or modulus-exponent pair of the public key but in PFX format.
 > The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
@@ -645,7 +650,7 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration" />
     <audiences>
         <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
     </audiences>
@@ -713,7 +718,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | issuer-signing-keys | A list of Base64-encoded security keys used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or one succeeds (useful for token rollover). Key elements have an optional `id` attribute used to match against `kid` claim. <br/><br/>Alternatively supply an issuer signing key using:<br/><br/> - `certificate-id` in format `<key certificate-id="mycertificate" />` to specify the identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management<br/>- RSA modulus `n` and exponent `e` pair in format `<key n="<modulus>" e="<exponent>" />` to specify the RSA parameters in base64url-encoded format               | No       |
 | decryption-keys     | A list of Base64-encoded keys used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds. Key elements have an optional `id` attribute used to match against `kid` claim.<br/><br/>Alternatively supply a decryption key using:<br/><br/> - `certificate-id` in format `<key certificate-id="mycertificate" />` to specify the identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management                                                 | No       |
 | issuers             | A list of acceptable principals that issued the token. If multiple issuer values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.                                                                                                                                         | No       |
-| openid-config       | The element used for specifying a compliant Open ID configuration endpoint from which signing keys and issuer can be obtained.                                                                                                                                                                                                                        | No       |
+| openid-config       | Add one or more of these elements to specify a compliant OpenID configuration endpoint from which signing keys and issuer can be obtained.<br/><br/>Configuration including the JSON Web Key Set (JWKS) is pulled from the endpoint every 1 hour and cached. If the token being validated references a validation key (using `kid` claim) that is missing in cached configuration, or if retrieval fails, API Management pulls from the endpoint at most once per 5 min. These intervals are subject to change without notice.                                                                                                                                                                                                                      | No       |
 | required-claims     | Contains a list of claims expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all` every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any` at least one claim must be present in the token for validation to succeed. | No       |
 
 ### Attributes
@@ -732,7 +737,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | require-scheme                  | The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.                                                                                                                                                                                                                                                                                    | No                                                                               | N/A                                                                               |
 | require-signed-tokens           | Boolean. Specifies whether a token is required to be signed.                                                                                                                                                                                                                                                                                                                                                                                           | No                                                                               | true                                                                              |
 | separator                       | String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/A                                                                               |
-| url                             | Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`. | Yes                                                                              | N/A                                                                               |
+| url                             | Open ID configuration endpoint URL from where OpenID configuration metadata can be obtained. The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. <br/><br/>For Azure Active Directory use the OpenID Connect [metadata endpoint](../active-directory/develop/v2-protocols-oidc.md#find-your-apps-openid-configuration-document-uri) configured in your app registration such as:<br/>- (v2) `https://login.microsoftonline.com/{tenant-name}/v2.0/.well-known/openid-configuration`<br/> - (v2 multitenant) ` https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration`<br/>- (v1) `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` <br/><br/> substituting your directory tenant name or ID, for example `contoso.onmicrosoft.com`, for `{tenant-name}`. | Yes                                                                              | N/A                                                                               |
 | output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
 
 ### Usage

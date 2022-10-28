@@ -3,7 +3,7 @@ title: Proxy server guidelines Azure Virtual Desktop - Azure
 description: Some guidelines and recommendations for using proxy servers in Azure Virtual Desktop deployments.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 08/08/2022
 ms.author: helohr
 ms.reviewer: denisgun
 manager: femila
@@ -65,6 +65,9 @@ Proxy servers have capacity limits. Unlike regular HTTP traffic, RDP traffic has
 
 Session hosts running on Windows 7 don't support proxy server connections for reverse-connect RDP data. If the session host can't directly connect to the Azure Virtual Desktop gateways, the connection won't work.
 
+> [!IMPORTANT]
+> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
+
 ### Proxy servers and  Teams optimization
 
 Azure Virtual Desktop doesn't support proxy servers for Teams optimization.
@@ -110,7 +113,7 @@ The following table shows which Azure Virtual Desktop clients support proxy serv
 | macOS | Yes |
 | Windows Store | Yes |
 
-For more information about proxy support on Linux based thin clients, see [Thin client support](./user-documentation/linux-overview.md).
+For more information about proxy support on Linux based thin clients, see [Thin client support](users/connect-thin-clients.md).
 
 ## Support limitations
 

@@ -65,12 +65,13 @@ https://management.azure.com/subscriptions/{{subscription}}/resourcegroups/{{res
 
 ## Limitations
 
-- Resource sync rule does not hydrate Azure Arc Data controller. The Azure Arc Data controller must be deployed via ARM API. 
+- Resource sync rule does not project Azure Arc Data controller. The Azure Arc Data controller must be deployed via ARM API. 
 - Resource sync only applies to the data services such as Arc enabled SQL managed instance, post deployment of Data controller. 
-- Resource sync rule does not hydrate Azure Arc enabled PostgreSQL
-- Resource sync rule does not hydrate Azure Arc Active Directory connector
-- Resource sync rule does not hydrate Azure Arc Instance Failover Groups
+- Resource sync rule does not project Azure Arc enabled PostgreSQL
+- Resource sync rule does not project Azure Arc Active Directory connector
+- Resource sync rule does not project Azure Arc Instance Failover Groups
 
 ## Next steps
 
-[Create Azure Arc-enabled data controller using Kubernetes tools](create-data-controller-using-kubernetes-native-tools.md)
+[Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md)
+

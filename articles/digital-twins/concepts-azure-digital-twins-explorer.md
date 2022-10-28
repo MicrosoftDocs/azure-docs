@@ -66,7 +66,7 @@ Azure Digital Twins Explorer is an open-source tool that welcomes contributions 
 
 To view the source code for the tool and read detailed instructions on how to contribute to the code, visit its GitHub repository: [digital-twins-explorer](https://github.com/Azure-Samples/digital-twins-explorer).
 
-To view instructions for contributing to this documentation, visit the [Microsoft Docs contributor guide](/contribute/).
+To view instructions for contributing to this documentation, review our [contributor guide](/contribute/).
 
 ## Other considerations
 

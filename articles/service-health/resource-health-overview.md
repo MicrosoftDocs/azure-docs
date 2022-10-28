@@ -2,14 +2,14 @@
 title: Azure Resource Health overview
 description: Learn how Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources.
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 05/10/2022
 
 ---
 # Resource Health overview
  
 Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources. It reports on the current and past health of your resources.
 
-[Azure status](https://status.azure.com) reports on service problems that affect a broad set of Azure customers. Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources have been unavailable because of Azure service problems. This data makes it easy for you to see if an SLA was violated.
+[Azure status](https://azure.status.microsoft) reports on service problems that affect a broad set of Azure customers. Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources have been unavailable because of Azure service problems. This data makes it easy for you to see if an SLA was violated.
 
 ## Resource definition and health assessment
 
@@ -63,14 +63,14 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
-For VMSS, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
+For virtual machine scale sets, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
 
 ## History information
 
 > [!NOTE]
 > You can list current service health events in subscription and query data up to 1 year using the QueryStartTime parameter of [Events - List By Subscription Id](/rest/api/resourcehealth/events/list-by-subscription-id) REST API but currently there is no QueryStartTime parameter under [Events - List By Single Resource](/rest/api/resourcehealth/events/list-by-single-resource) REST API so you cannot query data up to 1 year while listing current service health events for given resource.
  
-You can access up to 30 days of history in the **Health history** section of Resource Health from Azure Portal.
+You can access up to 30 days of history in the **Health history** section of Resource Health from Azure portal.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
 
@@ -96,4 +96,5 @@ You can also access Resource Health by selecting **All services** and typing **r
 
 Check out these references to learn more about Resource Health:
 -  [Resource types and health checks in Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Resource Health virtual machine Health Annotations](resource-health-vm-annotation.md)
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)

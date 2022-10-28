@@ -2,8 +2,8 @@
 title: Review your access to groups & apps in access reviews - Azure AD
 description: Learn how to review your own access to groups or applications in Azure Active Directory access reviews.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/22/2020
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---

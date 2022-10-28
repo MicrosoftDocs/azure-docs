@@ -17,13 +17,16 @@ ms.author: gwallace
 ---
 # Overview of DevOps Starter
 
+>[!IMPORTANT] 
+>DevOps Starter will be retired on March 31, 2023. [Learn more](/azure/devops-project/retirement-and-migration).
+
  DevOps Starter makes it easy to get started on Azure using either GitHub actions or Azure DevOps. It  helps you launch your favorite app on the Azure service of your choice in just a few quick steps from the Azure portal. 
 
  DevOps Starter sets up everything you need for developing, deploying, and monitoring your application. You can use the DevOps Starter dashboard to monitor code commits, builds, and deployments, all from a single view in the Azure portal.
 
 ## Advantages of using DevOps Starter
 
-  DevOps starter the following supports two CI/CD providers, to automate your deployments
+  DevOps starter supports the following two CI/CD providers, to automate your deployments
   * [GitHub Actions](https://github.com/features/actions)
   * [Azure DevOps](https://azure.microsoft.com/services/devops)
 

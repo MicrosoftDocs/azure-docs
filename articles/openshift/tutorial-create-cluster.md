@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create an Azure Red Hat OpenShift 4 cluster
 description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: joharder
+ms.author: joharder
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
@@ -19,7 +19,7 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 
 ## Before you begin
 
-If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
 
@@ -84,7 +84,7 @@ az feature register --namespace Microsoft.RedHatOpenShift --name preview
    > [!NOTE] 
    > ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended. Please note that the field `cloud.openshift.com` will be removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html . 
 
 1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 

@@ -3,16 +3,12 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 04/29/2022
+ms.date: 08/15/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Autoscale is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You create a scaling plan that can be based on:
 
@@ -29,24 +25,26 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager (ARM) templates or first-party tools from Microsoft.
 
-> [!IMPORTANT]
-> The preview version of autoscale currently has the following limitations:
+>[!IMPORTANT]
+>Deploying scaling plans with autoscale is currently limited to the following Azure regions:
 >
-> - You can only use autoscale in the Azure public cloud.
-> - You can only configure autoscale with the Azure portal.
-> - You can only deploy a scaling plan to these regions:
+>   - Australia East
 >   - Canada Central
 >   - Canada East
 >   - Central US
 >   - East US
 >   - East US 2
+>   - Japan East
 >   - North Central US
 >   - North Europe
 >   - South Central US
+>   - UK South
+>   - UK West
 >   - West Central US
 >   - West Europe
 >   - West US
 >   - West US 2
+>   - West US 3
 
 ## How a scaling plan works
 
@@ -63,9 +61,9 @@ Before you create your plan, keep the following things in mind:
 - Make sure you understand usage patterns before defining your schedule. You'll need to schedule around the following times of day:
 
     - Ramp-up: the start of the day, when usage picks up.
-    - Peak hours: the time of day when usage is highest.
+    - Peak hours: the time of day when usage is expected to be at its highest.
     - Ramp-down: when usage tapers off. This is usually when you shut down your VMs to save costs.
-    - Off-peak hours: the time with the lowest possible usage. You can define the maximum number of VMs that can be active during this time.
+    - Off-peak hours: the time of the day when usage is expected to be at its lowest.
 
 - The scaling plan will take effect as soon as you enable it.
 

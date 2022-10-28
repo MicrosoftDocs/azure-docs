@@ -2,13 +2,14 @@
 title:  Enable Permissions Management in your organization
 description: How to enable Permissions Management in your organization.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Enable Permissions Management in your organization
@@ -17,6 +18,8 @@ This article describes how to enable Permissions Management in your organization
 
 > [!NOTE]
 > To complete this task, you must have *global administrator* permissions as a user in that tenant. You can't enable Permissions Management as a user from other tenant who has signed in via B2B or via Azure Lighthouse.
+
+:::image type="content" source="media/onboard-enable-tenant/dashboard.png" alt-text="A preview of what the permissions management dashboard looks like." lightbox="media/onboard-enable-tenant/dashboard.png":::
 
 ## Prerequisites
 
@@ -27,11 +30,17 @@ To enable Permissions Management in your organization:
 
 > [!NOTE]
 > During public preview, Permissions Management doesn't perform a license check.
+> The public preview environment will only be available until October 7th, 2022. You will be no longer be able view or access your configuration and data in the public preview environment after that date.
+> Once you complete all the steps and confirm to use Microsoft Entra Permissions Management, access to the public preview environment will be lost. You can take a note of your configuration before you start. 
+> To start using generally available Microsoft Entra Permissions Management, you must purchase a license or begin a trial. From the public preview console, initiate the workflow by selecting Start.
+
+
+
 
 ## How to enable Permissions Management on your Azure AD tenant
 
 1. In your browser:
-    1. Go to [Entra services](https://entra.microsoft.com) and use your credentials to sign in to [Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+    1. Go to [Entra services](https://entra.microsoft.com) and use your credentials to sign in to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
     1. If you aren't already authenticated, sign in as a global administrator user.
     1. If needed, activate the global administrator role in your Azure AD tenant.
     1. In the Azure AD portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.

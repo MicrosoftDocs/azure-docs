@@ -3,7 +3,7 @@ title: Retrieve pronoun information from Workday
 description: Learn how to retrieve pronoun information from Workday
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
