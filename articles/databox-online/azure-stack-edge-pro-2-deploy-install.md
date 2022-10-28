@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/17/2022
+ms.date: 10/28/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
@@ -84,7 +84,6 @@ This device is shipped in a single box. Complete the following steps to unpack y
     - One single enclosure Azure Stack Edge Pro 2 device.
     - One power cord.
     - One packaged bezel.
-    - A pair of packaged Wi-Fi antennas in the accessory box.
     - One packaged mounting accessory which could be:
         - A 4-post rack slide rail, or
         - A 2-post rack slide, or 
@@ -103,7 +102,6 @@ This device is shipped in two boxes. Complete the following steps to unpack your
     - One single enclosure Azure Stack Edge Pro 2 device.
     - One power cord.
     - One packaged bezel.
-    - A pair of packaged Wi-Fi antennas in the accessory box.
     - One packaged mounting accessory which could be:
         - A 4-post rack slide rail, or
         - A 2-post rack slide, or 
@@ -215,7 +213,6 @@ Before you start cabling your device, you need the following things:
     For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products). 
 - Access to one power distribution unit.
 - At least one 100-GbE network switch to connect a 10/1-GbE or a 100-GbE network interface to the internet for data. At least one data network interface from among Port 2, Port 3, and Port 4 needs to be connected to the Internet (with connectivity to Azure).
-- A pair of Wi-Fi antennas (included in the accessory box).
 
 ::: zone-end
 
@@ -233,7 +230,6 @@ Before you start cabling your device, you need the following things:
 
     For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products). 
 - At least one 100-GbE network switch to connect a 1-GbE or a 100-GbE network interface to the internet for data for each device.
-- A pair of Wi-Fi antennas (included in the accessory box).
  
 ::: zone-end
 
@@ -302,20 +298,6 @@ Follow these steps to cable your device for power:
 1. Press the power buttons on the front panels to turn on both the devices.
 
 ::: zone-end
-
-### Wi-Fi antenna installation
-
-Follow these steps to install Wi-Fi antennas on your device: 
-
-1. Locate the two Wi-Fi SMA RF threaded connectors on the back plane of the device. These gold-colored connectors are located on the faceplate of PCIe card slot, right below Port 3 and Port 4.
-
-1. Use a clockwise motion to thread the antennas onto the SMA connectors. Secure them using only your fingers. Do not use a tool or wrench.
-
-    >[!NOTE]
-    > Tighten the connectors sufficiently so that the antenna's rotary joints can turn without causing the threaded connectors to become loose.
-
-1. To position the antennas as desired, articulate the hinge and turn the rotary joint.
-
 
 ### Network cabling
 
