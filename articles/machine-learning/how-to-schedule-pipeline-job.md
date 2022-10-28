@@ -1,5 +1,5 @@
 ---
-title: Schedule Azure Machine Learning pipeline jobs (preview)
+title: Schedule Azure Machine Learning pipeline jobs
 titleSuffix: Azure Machine Learning
 description: Learn how to schedule pipeline jobs that allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
@@ -9,18 +9,12 @@ ms.author: lochen
 author: cloga
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, ignite-2022
 ---
 
 # Schedule machine learning pipeline jobs (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as retrain models or do batch predictions regularly to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI and SDK.
 
@@ -67,7 +61,7 @@ List continues below.
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=create_schedule_recurrence)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule_recurrence)]
 
 `RecurrenceTrigger` contains following properties:
 
@@ -113,7 +107,7 @@ List continues below.
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=create_schedule_cron)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule_cron)]
 
 The `CronTrigger` section defines the schedule details and contains following properties:
 
@@ -164,7 +158,7 @@ When defining a schedule using an existing job, you can change the runtime setti
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=change_run_settings)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=change_run_settings)]
 
 ---
 
@@ -202,7 +196,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=create_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule)]
 
 ---
 
@@ -218,7 +212,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=show_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=show_schedule)]
 
 ---
 
@@ -234,7 +228,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=list_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=list_schedule)]
 
 ---
 
@@ -250,7 +244,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=create_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule)]
 
 ---
 
@@ -264,7 +258,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [Python SDK](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=disable_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=disable_schedule)]
 
 ---
 
@@ -280,7 +274,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=enable_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=enable_schedule)]
 
 ---
 
@@ -316,7 +310,7 @@ You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to que
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/schedules/job-schedule.ipynb?name=delete_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=delete_schedule)]
 
 ---
 

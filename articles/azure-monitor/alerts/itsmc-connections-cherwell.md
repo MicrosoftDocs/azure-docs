@@ -20,7 +20,7 @@ The following sections provide details about how to connect your Cherwell produc
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-definition.md#add-it-service-management-connector).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-definition.md#install-it-service-management-connector).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 

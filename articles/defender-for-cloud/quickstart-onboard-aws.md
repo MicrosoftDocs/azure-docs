@@ -2,13 +2,15 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/29/2022
+ms.date: 09/20/2022
+author: bmansheim
+ms.author: benmansheim
 zone_pivot_groups: connect-aws-accounts
-ms.custom: mode-other
+ms.custom: mode-other, ignite-2022
 ---
 # Quickstart: Connect your AWS accounts to Microsoft Defender for Cloud
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub and Azure DevOps (ADO).
 
 To protect your AWS-based resources, you can connect an AWS account with either:
 
@@ -37,7 +39,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Pricing:|The **CSPM plan** is free.<br>The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure, the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines.<br>Learn more about [Defender plan pricing and billing](enhanced-security-features-overview.md#faq---pricing-and-billing)|
+|Pricing:|The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure, the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines.<br>Learn more about [Defender plan pricing and billing](enhanced-security-features-overview.md#faq---pricing-and-billing)|
 |Required roles and permissions:|**Contributor** permission for the relevant Azure subscription. <br> **Administrator** on the AWS account.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -69,7 +71,7 @@ The native cloud connector requires:
     - Additional extensions should be enabled on the Arc-connected machines.
     - Log Analytics (LA) agent on Arc machines, and ensure the selected workspace has security solution installed. The LA agent is currently configured in the subscription level. All of your multicloud AWS accounts and GCP projects under the same subscription will inherit the subscription settings.
         
-        Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+        Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
 - **To enable the Defender for Servers plan**, you'll need:
     
@@ -88,14 +90,14 @@ The native cloud connector requires:
         
         - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
         
-    - Additional extensions should be enabled on the Arc-connected machines.
+    - Additional extensions should be enabled on the Arc-connected machines:
         - Microsoft Defender for Endpoint
-        - VA solution (TVM/ Qualys)
+        - VA solution (TVM/Qualys)
         - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
         
             The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to the LA agent.
 
-        Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+        Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
         > [!NOTE]
         > Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
@@ -133,7 +135,7 @@ The native cloud connector requires:
     > [!IMPORTANT]
     > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: `arn:aws:iam::[accountId]:role/CspmMonitorAws` (this is the default role name, confirm the role name configured on your account).
 
-1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2. Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
+1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2. Ensure you've fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
     
     - (Optional) Select **Configure**, to edit the configuration as required. 
 
@@ -354,7 +356,7 @@ The following IAM permissions are needed to discover AWS resources:
 | API Gateway | `apigateway:GET` |
 | Application Auto Scaling | `application-autoscaling:Describe*` |
 | Auto scaling | `autoscaling-plans:Describe*` <br> `autoscaling:Describe*` |
-| Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe* <br>acm:List*` |
+| Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe*` <br> `acm:List*` |
 | CloudFormation | `cloudformation:Describe*` <br> `cloudformation:List*` |
 | CloudFront | `cloudfront:DescribeFunction` <br> `cloudfront:GetDistribution` <br> `cloudfront:GetDistributionConfig` <br> `cloudfront:List*` |
 | CloudTrail | `cloudtrail:Describe*` <br> `cloudtrail:GetEventSelectors` <br> `cloudtrail:List*` <br> `cloudtrail:LookupEvents` |
@@ -374,10 +376,10 @@ The following IAM permissions are needed to discover AWS resources:
 | ELB – elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
 | Elastic search | `es:Describe*` <br> `es:List*` |
 | EMR – elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
-| GuardDute | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
+| GuardDuty | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
 | IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
 | KMS | `kms:Describe*` <br> `kms:List*` |
-| LAMBDA | `lambda:GetPolicy` <br> `lambda:List*` |
+| Lambda | `lambda:GetPolicy` <br> `lambda:List*` |
 | Network firewall | `network-firewall:DescribeFirewall` <br> `network-firewall:DescribeFirewallPolicy` <br> `network-firewall:DescribeLoggingConfiguration` <br> `network-firewall:DescribeResourcePolicy` <br> `network-firewall:DescribeRuleGroup` <br> `network-firewall:DescribeRuleGroupMetadata` <br> `network-firewall:ListFirewallPolicies` <br> `network-firewall:ListFirewalls` <br> `network-firewall:ListRuleGroups` <br> `network-firewall:ListTagsForResource` |
 | RDS | `rds:Describe*` <br> `rds:List*` |
 | RedShift | `redshift:Describe*` |

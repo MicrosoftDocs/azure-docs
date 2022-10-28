@@ -1,28 +1,24 @@
 ---
-title: How to mount Azure Blob storage as a file system on Linux with BlobFuse v1 | Microsoft Docs
+title: How to mount Azure Blob Storage as a file system on Linux with BlobFuse v1 | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how to mount an Azure Blob storage container with BlobFuse v1, a virtual file system driver on Linux.
+description: Learn how to mount an Azure Blob Storage container with BlobFuse v1, a virtual file system driver on Linux.
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 10/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to mount Blob storage as a file system with BlobFuse v1
-
-## Overview
+# How to mount Azure Blob Storage as a file system with BlobFuse v1
 
 > [!IMPORTANT]
-> [BlobFuse2](blobfuse2-what-is.md) is the latest version of BlobFuse and has many significant improvements over the version discussed in this article, BlobFuse v1. To learn about the improvements made in BlobFuse2, see [the list of BlobFuse2 enhancements](blobfuse2-what-is.md#blobfuse2-enhancements). BlobFuse2 is currently in preview and might not be suitable for production workloads.
->
-> This article is about the original version of BlobFuse. It is simply referred to as "BlobFuse" in many cases, but is also referred to as "BlobFuse v1" in this and other articles to distinguish it from the next generation of BlobFuse, BlobFuse2.
+> [BlobFuse2](blobfuse2-what-is.md) is the latest version of BlobFuse and has many significant improvements over the version discussed in this article, BlobFuse v1. To learn about the improvements made in BlobFuse2, see [the list of BlobFuse2 enhancements](blobfuse2-what-is.md#blobfuse2-enhancements-from-blobfuse-v1). BlobFuse2 is currently in preview and might not be suitable for production workloads.
 
-[BlobFuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob storage. BlobFuse allows you to access your existing block blob data in your storage account through the Linux file system. BlobFuse uses the virtual directory scheme with the forward-slash '/' as a delimiter.
+[BlobFuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage. BlobFuse allows you to access your existing block blob data in your storage account through the Linux file system. BlobFuse uses the virtual directory scheme with the forward-slash '/' as a delimiter.
 
-This guide shows you how to use BlobFuse v1, and mount a Blob storage container on Linux and access data. To learn more about BlobFuse, see the [readme](https://github.com/Azure/azure-storage-fuse) and [wiki](https://github.com/Azure/azure-storage-fuse/wiki).
+This guide shows you how to use BlobFuse v1 and mount a Blob Storage container on Linux and access data. To learn more about BlobFuse v1, see the [readme](https://github.com/Azure/azure-storage-fuse) and [wiki](https://github.com/Azure/azure-storage-fuse/wiki).
 
 > [!WARNING]
 > BlobFuse doesn't guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](/rest/api/storageservices/blob-service-rest-api). For example, rename operations are atomic in POSIX, but not in BlobFuse.

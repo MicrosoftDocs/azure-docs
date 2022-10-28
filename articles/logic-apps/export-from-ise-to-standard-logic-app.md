@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 09/28/2022
+ms.custom: engagement-fy23
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
 
@@ -63,6 +64,8 @@ This article provides information about the export process and shows how to expo
 ## Prerequisites
 
 - An existing ISE with the logic app workflows that you want to export.
+
+- Azure contributor subscription-level access to the ISE, not just resource group-level access.
 
 - To include and deploy managed connections in your workflows, you'll need an existing Azure resource group for deploying these connections. This option is recommended only for non-production environments.
 
@@ -146,7 +149,7 @@ Consider the following recommendations when you select logic apps for export:
 
    The export tool downloads your project to your selected folder location, expands the project in Visual Studio Code, and deploys any managed connections, if you selected that option.
 
-   ![Screenshot showing the 'Export status` section with export progress.](media/export-from-ise-to-standard-logic-app/export-status.png)
+   ![Screenshot showing the 'Export status' section with export progress.](media/export-from-ise-to-standard-logic-app/export-status.png)
 
 1. After this process completes, Visual Studio Code opens a new workspace. You can now safely close the export window.
 
