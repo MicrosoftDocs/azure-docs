@@ -22,7 +22,7 @@ You require at least one Log Analytics workspace to enable [Azure Monitor Logs](
 
 - Collecting data such as logs from Azure resources.
 - Collecting data from the guest operating system of Azure Virtual Machines.
-- Enabling most Azure Monitor insights.
+- Enabling most Azure Monitor Insights.
 
 Other services such as Microsoft Sentinel and Microsoft Defender for Cloud also use a Log Analytics workspace and can share the same one that you use for Azure Monitor.
 
