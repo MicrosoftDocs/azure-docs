@@ -51,6 +51,8 @@ Verifiable credentials can be used to enable faster and easier user onboarding b
 
 Learn more about [account onboarding](https://learn.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
 
+In this account onboarding scenario, Vu plays the Trusted ID proofing issuer role.
+
 :::image type="content" source="media/partner-vu/vc-solution-architecture-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
 
 ## Configure your application to use VU Identity Card
@@ -71,7 +73,7 @@ As a developer you can share these steps with your tenant administrator to obtai
 
 3. Choose **Select Issuer**.
 
-4. Look for **VU Identity Card** in the Search/select issuers
+4. Look for **VUSecurity** in the Search/select issuers
    drop-down.
 
    [ ![Screenshot of the portal section used to choose issuers.](./media/partner-vu/select-issuers.png)](./media/partner-vu/select-issuers.png#lightbox)
