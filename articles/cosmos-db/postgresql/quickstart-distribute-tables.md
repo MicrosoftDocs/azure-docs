@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui, ignite-2022
 ms.topic: quickstart
-ms.date: 10/14/2022
+ms.date: 10/28/2022
 ---
 
 # Create and distribute tables
@@ -70,6 +70,16 @@ datatype for storing semi-structured data.
 provides to distribute tables and use resources across multiple machines.  The
 function decomposes tables into shards, which can be spread across nodes for
 increased storage and compute performance.
+
+> [!NOTE]
+>
+> If your workload fits in 64 vCores, 256GB RAM and 2TB storage, you can use a
+> single-node cluster. In this case, distributing tables is optional. Later,
+> you can distribute tables as needed using
+> [create_distributed_table_concurrently](reference-functions#create_distributed_table_concurrently).
+>
+> This quickstart demonstrates distributing tables, despite the small example
+> dataset.
 
 Let's distribute the tables:
 

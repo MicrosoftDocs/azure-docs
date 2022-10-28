@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 02/24/2022
+ms.date: 10/28/2022
 ---
 
 # Azure Cosmos DB for PostgreSQL functions
@@ -67,6 +67,15 @@ table shards will be moved together unnecessarily in a \"cascade.\"
 If a new distributed table isn't related to other tables, it's best to
 specify `colocate_with => 'none'`.
 
+**shard\_count:** (Optional) the number of shards to create for the new
+distributed table. When specifying `shard_count` you can’t specify a value of
+`colocate_with` other than none. To change the shard count of an existing table
+or colocation group, use the [alter_distributed_table](#alter_distributed_table
+function.
+
+Possible values for `shard_count` are between 1 and 64000. For guidance on
+choosing the optimal value, see [Shard Count](howto-shard-count.md).
+
 #### Return Value
 
 N/A
@@ -83,6 +92,12 @@ SELECT create_distributed_table('github_events', 'repo_id');
 SELECT create_distributed_table('github_events', 'repo_id',
                                 colocate_with => 'github_repo');
 ```
+
+### create\_distributed\_table\_concurrently
+
+This function has the same interface and purpose as
+[create_distributed_function](#create_distributed_table), but doesn't block
+writes during table distribution.
 
 ### truncate\_local\_data\_after\_distributing\_table
 
