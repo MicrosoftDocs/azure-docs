@@ -202,8 +202,8 @@ You can also increase and decrease replication bandwidth based on a schedule usi
 Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don't want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained or when customers want replication to go through only during non-business hours, etc.
 
 > [!NOTE]
-> The existing replication cycles at the start of the blackout window will complete before the replication pauses.
-> For any migration initiated during the blackout window, the final replication will not run, causing the migration to fail.
+> - The existing replication cycles at the start of the blackout window will complete before the replication pauses.
+> - For any migration initiated during the blackout window, the final replication will not run, causing the migration to fail.
 
 A blackout window can be specified for the appliance by creating/updating the file GatewayDataWorker.json in C:\ProgramData\Microsoft Azure\Config. A typical file would be of the form:
 
