@@ -1,6 +1,6 @@
 ---
-title: Configure single sign-on for Azure Virtual Desktop - Azure
-description: How to configure single sign-on for an Azure Virtual Desktop environment.
+title: Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication - Azure
+description: How to configure single sign-on for an Azure Virtual Desktop environment using Azure AD Authentication.
 services: virtual-desktop
 author: Heidilohr
 manager: femila
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/22/2022
 ms.author: helohr
 ---
-# Configure single sign-on for Azure Virtual Desktop
+# Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication
 
 > [!IMPORTANT]
 > Single sign-on using Azure AD authentication is currently in public preview.
