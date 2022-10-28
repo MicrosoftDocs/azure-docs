@@ -16,7 +16,7 @@ By default, an Azure Container Apps environment provides a DNS suffix in the for
 > [!NOTE]
 > To configure a custom domain for individual container apps, see [Custom domain names and certificates in Azure Container Apps](custom-domains-certificates.md).
 
-## Add a custom domain and certificate
+## Add a custom DNS suffix and certificate
 
 1. Go to your Container Apps environment in the [Azure portal](https://portal.azure.com)
 
@@ -28,10 +28,10 @@ By default, an Azure Container Apps environment provides a DNS suffix in the for
 
 1. In a new browser window, go to your domain provider's website and add the DNS records shown in the *Domain validation* section to your domain.
 
-    | Record type | Description |
-    | -- | -- |
-    | A | A wildcard record configured to the IP address of the environment. |
-    | TXT | A TXT record with the value of the validation token. (Not required for Container Apps environment with internal load balancer) |
+    | Record type | Host | Value | Description |
+    | -- | -- | -- | -- |
+    | A | `*.<DNS_SUFFIX>` | Environment inbound IP address | Wildcard record configured to the IP address of the environment. |
+    | TXT | `asuid.<DNS_SUFFIX>` | Validation token | TXT record with the value of the validation token (not required for Container Apps environment with internal load balancer). |
 
 1. Back in the *Custom DNS suffix* window, in **Certificate file**, browse and select a certificate for the TLS binding.
 
