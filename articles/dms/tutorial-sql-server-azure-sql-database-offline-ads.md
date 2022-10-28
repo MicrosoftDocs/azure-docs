@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline by using Azure Data Studio"
+title: "Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Migrate SQL Server to Azure SQL Database (preview) offline by using Azure Data Studio and Azure Database Migration Service
+description: Learn how to migrate on-premises SQL Server to Azure SQL Database (preview) offline by using Azure Data Studio and Azure Database Migration Service.
 services: dms
 author: croblesm
 ms.author: roblescarlos
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 09/28/2022
 ---
 
-# Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline by using Azure Data Studio and Azure Database Migration Service
+# Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio
 
-You can use the Azure SQL Migration extension in Azure Data Studio to migrate databases from a SQL Server instance to Azure SQL Database (preview).
+You can use Azure Database Migration Service and the Azure SQL Migration extension in Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database (preview) offline and with minimal downtime.
 
 > [!NOTE]
 > The option to migrate a SQL Server database to Azure SQL Database by using Azure Data Studio currently is in preview. Azure SQL Database targets are available only by using the [Azure Data Studio Insiders](/sql/azure-data-studio/download-azure-data-studio#download-the-insiders-build-of-azure-data-studio) version of the Azure SQL Migration extension.
 
-In this tutorial, learn how to migrate the AdventureWorks2019 database from an on-premises instance of SQL Server to Azure SQL Database by using the Azure SQL Migration extension for Azure Data Studio. This tutorial focuses on the offline migration mode. The offline migration mode considers an acceptable downtime during the migration process.
+In this tutorial, learn how to migrate the AdventureWorks2019 database from an on-premises instance of SQL Server to an instance of Azure SQL Database by using the Azure SQL Migration extension for Azure Data Studio. This tutorial focuses on the offline migration mode, which considers an acceptable downtime during the migration process.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -47,97 +47,100 @@ Before you begin the tutorial:
 - [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 - Have an Azure account that is assigned to one of the following built-in roles:
 
-  - Contributor for the target Azure SQL Database
-  - Reader role for the Azure Resource Groups containing the target Azure SQL Database.
-  - Owner or Contributor role for the Azure subscription (required if creating a new Database Migration Service service).
+  - Contributor for the target instance of Azure SQL Database.
+  - Reader role for the Azure resource groups that contain the target instance of Azure SQL Database.
+  - Owner or Contributor role for the Azure subscription (required if you create a new instance of Azure Database Migration Service).
   
-  As an alternative to using the preceding built-in roles, you can [assign a custom role](resource-custom-roles-sql-database-ads.md). 
+  As an alternative to using one of the preceding built-in roles, you can [assign a custom role](resource-custom-roles-sql-database-ads.md).
   
   > [!IMPORTANT]
-  > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or for Azure recommendation steps in the migration wizard in Azure Data Studio.
+  > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or for Azure recommendation in the migration wizard in Azure Data Studio.
 
-- Create a target [Azure SQL Database](/azure/azure/azure-sql/database/single-database-create-quickstart).
-- Ensure that the SQL Server login to connect the source SQL Server is a member of the `db_datareader` and the login for the target SQL server is `db_owner`.
-- Migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
+- Create a target instance of [Azure SQL Database](/azure/azure/azure-sql/database/single-database-create-quickstart).
+
+- Make sure that the SQL Server login that connects to the source SQL Server is a member of the db_datareader role and that the login for the target SQL Server instance is a member of the db_owner role.
+
+- Migrate the database schema from source to target by using the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio.
+
 - If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration resource provider is registered in your subscription. You can complete the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
 ## Open the Migrate to Azure SQL wizard in Azure Data Studio
 
-1. In Azure Data Studio, go to the connections section. Select and connect to your on-premises instance of SQL Server. You also can connect to SQL Server on an Azure virtual machine.
+1. In Azure Data Studio, go to Connections. Select and connect to your on-premises instance of SQL Server. You also can connect to SQL Server on an Azure virtual machine.
 
 1. Right-click the server connection and select **Manage**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/azure-data-studio-manage-panel.png" alt-text="Screenshot of server connection.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/azure-data-studio-manage-panel.png" alt-text="Screenshot that shows a server connection and the Manage option.":::
 
 1. On the server's home page, under **General**, select the **Azure SQL Migration** extension.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/launch-migrate-to-azure-sql-wizard-1.png" alt-text="Screenshot of Azure Data Studio general panel.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/launch-migrate-to-azure-sql-wizard-1.png" alt-text="Screenshot that shows the Azure Data Studio General pane.":::
 
-1. In the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
+1. In the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to open the migration wizard.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/launch-migrate-to-azure-sql-wizard-2.png" alt-text="Screenshot of Migrate to Azure SQL wizard.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/launch-migrate-to-azure-sql-wizard-2.png" alt-text="Screenshot that shows the Migrate to Azure SQL wizard.":::
 
 1. On the first page of the wizard, start a new session or resume a previously saved session. If no earlier session is saved, the **Database assessment** page appears.
 
 ## Run database assessment, collect performance data, and get right-sized recommendations
 
-1. Select the databases to run the assessment on, and then select **Next**.
+1. Select the databases you want to assess, and then select **Next**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-database-selection.png" alt-text="Screenshot of database assessment.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-database-selection.png" alt-text="Screenshot that shows database assessment.":::
 
 1. For the target, select **Azure SQL Database (Preview)**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-target-selection.png" alt-text="Screenshot of selection of the Azure SQL Database target.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-target-selection.png" alt-text="Screenshot that shows selection of the Azure SQL Database target.":::
 
 1. Select **View/Select** to view the assessment results.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment.png" alt-text="Screenshot of view/select assessment results.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment.png" alt-text="Screenshot that shows view/select assessment results.":::
 
 1. Select the database, and then review the assessment report to make sure that no issues were found.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-issues-details.png" alt-text="Screenshot of assessment report.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-issues-details.png" alt-text="Screenshot that shows assessment report.":::
 
 1. Select **Get Azure recommendation** to open the recommendations panel.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation.png" alt-text="Screenshot of Azure recommendations.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation.png" alt-text="Screenshot that shows Azure recommendations.":::
 
-1. Select the **Collect performance data now** option. Then select a folder on your local computer to store the performance logs in. Then select **Start**.
+1. Select the **Collect performance data now** option. Select a folder on your local computer to store the performance logs in, and then select **Start**.
 
-   Azure Data Studio collects performance data until you either stop the collection or close Azure Data Studio.  
+   Azure Data Studio collects performance data until you either stop data collection or close Azure Data Studio.  
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-zoom.png" alt-text="Screenshot of performance data collection.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-zoom.png" alt-text="Screenshot that shows performance data collection.":::
 
-1. After 10 minutes, Azure Data Studio displays **recommendation available** for Azure SQL Database (Preview). After the first recommendation is generated, you can select **Restart data collection** to continue the data collection process to refine the SKU recommendation, especially if your usage patterns vary for an extended time.
+1. After 10 minutes, Azure Data Studio indicates that a recommendation is available for Azure SQL Database (Preview). After the first recommendation is generated, you can select **Restart data collection** to continue the data collection process to refine the SKU recommendation. An extended assessment if especially helpful if your usage patterns vary for an extended time.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-collected.png" alt-text="Screenshot of performance data collected.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-collected.png" alt-text="Screenshot that shows performance data collected.":::
 
-1. Go to your Azure SQL target section. With **Azure SQL Database (Preview)** selected, select **View details** to open the detailed SKU recommendation report. You can also select  **Save recommendation report** at the bottom of this page for later analysis.
+1. Go to your Azure SQL target section. With **Azure SQL Database (Preview)** selected, select **View details** to open the detailed SKU recommendation report. You can also select  **Save recommendation report** at the bottom of this pane for later analysis.
 
-    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/azure-sku-recommendation-zoom.png" alt-text="Screenshot of SKU recommendation details.":::
+    :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/azure-sku-recommendation-zoom.png" alt-text="Screenshot that shows SKU recommendation details.":::
 
-1. Close the recommendations page. Select **Next** to continue with your migration.
+1. Close the recommendations pane. Select **Next** to continue with your migration.
 
 ## Configure migration settings
 
-1. In the upper section, set your Azure account details. Select your subscription, location, and resource group in the corresponding dropdowns.
+1. To set your target, select your subscription, location, and resource group in the corresponding dropdowns, and then select **Next**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-account.png" alt-text="Screenshot of Azure account details.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-account.png" alt-text="Screenshot that shows Azure account details.":::
   
-1. In the next section, select the target Azure SQL Database server (logical server) from the dropdown. Set the target username and password. Then select **Connect** to verify the connectivity by using the credentials.
+1. In the next section, select the target Azure SQL Database server (logical server) in the dropdown. Set the target username and password. Then, select **Connect** to verify the connectivity by using the credentials.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-database.png" alt-text="Screenshot of Azure SQL Database details.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-database.png" alt-text="Screenshot that shows Azure SQL Database details.":::
 
-1. Map the source and target databases for the migration by using the dropdown for the Azure SQL Database target. Then select **Next** to move to the next step in the migration wizard.
+1. Map the source and target databases for the migration by using the dropdown for the Azure SQL Database target. Then, select **Next** to move to the next step in the migration wizard.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-map.png" alt-text="Screenshot of source and target mapping.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-map.png" alt-text="Screenshot that shows source and target mapping.":::
 
 1. For the migration mode, select **Offline migration**, and then select **Next**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-mode.png" alt-text="Screenshot of offline migrations selection.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-mode.png" alt-text="Screenshot that shows offline migrations selection.":::
 
 1. Enter the source SQL Server credentials. Select **Edit** to select the list of tables to migrate between source and target.  
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-source-credentials.png" alt-text="Screenshot of source SQL Server credentials.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-source-credentials.png" alt-text="Screenshot that shows source SQL Server credentials.":::
 
 1. Select the tables that you want to migrate to the target. The **Has rows** column indicates whether the target table has rows in the target database. You can select one or more tables.
 
@@ -145,14 +148,14 @@ In the example below, a text filter is applied to select only  tables that conta
 
 When you're ready, select **Update** to go to the next step.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-source-tables.png" alt-text="Screenshot of table selection.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-source-tables.png" alt-text="Screenshot that shows table selection.":::
 
 1. You can update the list of selected tables anytime before you start the migration. When you're ready to move to the next step in the migration wizard, select **Next**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-target-tables.png" alt-text="Screenshot of selected tables to migrate.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-target-tables.png" alt-text="Screenshot that shows selected tables to migrate.":::
 
 > [!NOTE]
-> If no tables are selected or if a username and password aren't entered, the **Next** button isn't available to select..
+> If no tables are selected or if a username and password aren't entered, the **Next** button isn't available to select.
 
 ## Create a Database Migration Service instance
 
@@ -165,7 +168,7 @@ When you're ready, select **Update** to go to the next step.
 
 1. To reuse an existing instance of Database Migration Service, select the instance in the dropdown list. Then select **Next** to view the summary screen. When you're ready to start the migration, press **Start migration**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms.png" alt-text="Screenshot of Database Migration Service selection.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms.png" alt-text="Screenshot that shows Database Migration Service selection.":::
 
 1. To create a new instance of Database Migration Service, select **Create new**. In **Create Azure Database Migration Service**, enter a name for your Database Migration Service instance, and then select **Create**.  
 
@@ -173,7 +176,7 @@ When you're ready, select **Update** to go to the next step.
 
    Select **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the prerequisites of connecting to the source SQL Server instance.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-details.png" alt-text="Screenshot of Integration runtime.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-details.png" alt-text="Screenshot that shows Integration runtime.":::
 
 1. When installation is finished, Microsoft Integration Runtime Configuration Manager automatically opens to begin the registration process.  
 
@@ -186,53 +189,53 @@ When you're ready, select **Update** to go to the next step.
 
 1. In **Create Azure Database Migration Service** in Azure Data Studio, select **Test connection**  to validate that the newly created Database Migration Service instance is connected to the newly registered self-hosted integration runtime.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-connected.png" alt-text="Screenshot of IR connectivity test.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-connected.png" alt-text="Screenshot that shows IR connectivity test.":::
 
 1. Review the summary and select **Start migration** to start the database migration.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/summary-start-migration.png" alt-text="Screenshot of start migration.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/summary-start-migration.png" alt-text="Screenshot that shows start migration.":::
 
 ## Monitor your migration
 
-1. On the Azure SQL Migration dashboard, go to the **Database Migration Status** section.
+1. In the Azure SQL Migration dashboard, go to the **Database Migration Status** section.
 
 1. You can use the different options in the dashboard to track migrations that are in progress, completed, and failed (if any), or you can list all database migrations.  
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard.png" alt-text="Screenshot of monitor migration dashboard.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard.png" alt-text="Screenshot that shows monitor migration dashboard.":::
 
-1. Select **Database migrations in progress** to view ongoing migrations and to see details.
+1. Select **Database migrations in progress** to view ongoing migrations. To get more information about a specific migration, select the database name.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-details.png" alt-text="Screenshot of database migration details.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-details.png" alt-text="Screenshot that shows database migration details.":::
 
 1. Database Migration Service returns the latest known migration status every time the migration status section is refreshed. Use the following table to learn more about the possible statuses:
 
     | Status | Description |
     |--------|-------------|
-    |Preparing for copy| Disabling autostats, triggers, and indexes for target table |
-    |Copying| Data is being copied from source to target |
-    |Copy finished| Data copy has finished and is waiting on other tables to finish copying to begin final steps to return tables to original schema|
-    |Rebuilding indexes| Rebuilding indexes on target tables|
+    |Preparing for copy| Disabling autostats, triggers, and indexes for target table. |
+    |Copying| Data is being copied from source to target. |
+    |Copy finished| Data copy has finished and is waiting on other tables to finish copying to begin final steps to return tables to original schema. |
+    |Rebuilding indexes| Rebuilding indexes on target tables. |
     |Succeeded| All data is copied and the indexes are rebuilt. |
 
 1. The migration details page displays the current status per database. As you can see from the following screenshot, the AdventureWorks2019 database migration has the status **Creating**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-creating.png" alt-text="Screenshot of creating migration status.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-creating.png" alt-text="Screenshot that shows creating migration status.":::
 
 1. Select **Refresh** to update the migration status. In the next screenshot, Database Migration Service has updated the migration status to **In progress**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-in-progress.png" alt-text="Screenshot of migration in progress status.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-in-progress.png" alt-text="Screenshot that shows migration in progress status.":::
 
 1. Select the database name to open the table-level view. The upper section of this dashboard displays the current status of the migration. The lower section provides a detailed status of each table.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-in-progress.png" alt-text="Screenshot of monitoring table migration.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-in-progress.png" alt-text="Screenshot that shows monitoring table migration.":::
 
 1. After all table data is migrated to the Azure SQL Database (Preview) target, Database Migration Service updates the migration status from **In progress** to **Succeeded**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-succeeded.png" alt-text="Screenshot of succeeded status.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-succeeded.png" alt-text="Screenshot that shows succeeded status.":::
 
 1. Select the database name to open the table-level view. The upper section of this dashboard displays the current status of the migration. The lower section displays information you can use to verify that all data is the same on both the source and the target (*rows read vs. rows copied*).
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-succeeded.png" alt-text="Screenshot of succeeded migration.":::  
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-succeeded.png" alt-text="Screenshot that shows succeeded migration.":::  
 
 > [!NOTE]
 > Database Migration Service optimizes migration by skipping tables with no data (0 rows). Tables that don't have data don't appear in the list, even if you select the tables when you create the migration.
@@ -244,6 +247,6 @@ You've completed the migration to Azure SQL Database. We encourage you to go t
 
 ## Next steps
 
-- For a tutorial that shows you how to create an Azure SQL Database by using the Azure portal, PowerShell, or Azure CLI commands, see [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
-- For information about Azure SQL Database, see [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- For information about connecting to Azure SQL Database, see [Connect applications](/azure/azure-sql/database/connect-query-content-reference-guide).
+- Complete a tutorial that [creates an Azure SQL Database by using the Azure portal, PowerShell, and Azure CLI commands](/azure/azure-sql/database/single-database-create-quickstart).
+- Learn more about [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
+- Learn how to [connect apps to Azure SQL Database](/azure/azure-sql/database/connect-query-content-reference-guide).
