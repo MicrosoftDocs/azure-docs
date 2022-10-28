@@ -1,54 +1,55 @@
 ---
-title: How to use VMware Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier
-description: Shows you how to use VMware Spring Cloud Gateway for VMware Kubernetes with Azure Spring Apps Enterprise tier to route requests to your applications.
+title: How to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier
+description: Shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
 author: karlerickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 10/28/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Use Spring Cloud Gateway for Kubernetes
+# Use Spring Cloud Gateway
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use VMware Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier to route requests to your applications.
+This article shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
 
-[Spring Cloud Gateway for Kubernetes](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html), a commercial VMware Tanzu component, is based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway for Kubernetes also has the following features:
+Spring Cloud Gateway also has the following features:
 
-- Other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Dynamic routing configuration, independent of individual applications that can be applied and changed without recompilation.
+- Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
 - Client certificate authorization.
 - Rate-limiting approaches.
 - Circuit breaker configuration.
 - Support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Kubernetes automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
+To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Kubernetes enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
-  > To use Spring Cloud Gateway for Kubernetes, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
+  > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
 
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
 ## Configure routes
 
-This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway for Kubernetes.
+This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway.
 
 ### Define route config
 
 The route configuration definition includes the following parts:
 
-- OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition.
-- routes: A list of route rules about how the traffic goes to one app.
+- OpenAPI URI: This URI references an OpenAPI specification. A public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition may be used. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will also be shown in API portal if enabled.
+- routes: A list of route rules to direct traffic to apps and apply filters.
 - protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. Its supported values are `HTTP` or `HTTPS`, the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
@@ -108,15 +109,19 @@ The following tables list the route definitions. All the properties are optional
 > - BasicAuth
 > - JWTKey
 
-## Use routes for Spring Cloud Gateway for Kubernetes
+## Use routes for Spring Cloud Gateway
 
-Use the following steps to create an example application using Spring Cloud Gateway for Kubernetes.
+Use the following steps to create an sample application using Spring Cloud Gateway.
 
-1. To create an app in Azure Spring Apps that the Spring Cloud Gateway for Kubernetes would route traffic to, follow the instructions in the [Animal Rescue Sample App](https://github.com/Azure-Samples/animal-rescue) through the [Build and Deploy Applications](https://github.com/Azure-Samples/animal-rescue#build-and-deploy-applications) section.
+1. Create a test application in Azure Spring Apps.
+
+   ```azurecli
+   az spring app create test-app
+   ```
 
 1. Assign a public endpoint to the gateway to access it.
 
-   To view the running state and resources given to Spring Cloud Gateway and its operator, select the **Spring Cloud Gateway** section, then select **Overview**.
+   To view the running state and resources given to Spring Cloud Gateway, select the **Spring Cloud Gateway** section, then select **Overview**.
 
    To assign a public endpoint, select **Yes** next to **Assign endpoint**. You'll get a URL in a few minutes. Save the URL to use later.
 
@@ -128,57 +133,63 @@ Use the following steps to create an example application using Spring Cloud Gate
    az spring gateway update --assign-endpoint
    ```
 
-1. Configure routing rules to apps.
+1. Configure a routing rule to this app.
 
-   Create rules to access apps deployed in the above step through Spring Cloud Gateway for Kubernetes.
+   Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
 
-   Save the following content to the *adoption-api.json* file.
+   Save the following content to a *test-api.json* file.  It includes a RateLimit filter, which allows twenty requests every ten seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
 
    ```json
    [
-      {
-        "title": "Retrieve pets for adoption.",
-        "description": "Retrieve all of the animals who are up for pet adoption.",
-        "predicates": [
-          "Path=/api/animals",
-          "Method=GET"
-        ],
-        "filters": [
-          "RateLimit=2,10s"
-        ],
-        "tags": [
-          "pet adoption"
-        ]
-      }
+     "protocol": "HTTP",
+     "routes": [
+       {
+         "title": "Test API",
+         "description": "Retrieve a health check from our application",
+         "predicates": [
+           "Path=/test/api/healthcheck",
+           "Method=GET"
+         ],
+         "filters": [
+           "RateLimit=20,10s",
+           "RewritePath=/api/healthcheck,/actuator/health"
+         ],
+         "tags": [
+           "test"
+         ]
+       }
+     ]
    ]
    ```
 
-   Use the following command to apply the rule to the app `animal-rescue-backend`:
+   Use the following command to apply the rule to the app `test-app`:
 
    ```azurecli
    az spring gateway route-config create \
-       --name adoption-api-routes \
-       --app-name animal-rescue-backend \
-       --routes-file adoption-api.json
+       --name test-api-routes \
+       --app-name test-app \
+       --routes-file test-api.json
    ```
 
    You can also view the routes in the portal.
 
    :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png":::
 
-1. Use the following command to access the `animal rescue backend` API through the gateway endpoint:
+1. Use the following command to access the `test health check` API through the gateway endpoint:
 
    ```bash
-   curl https://<endpoint-url>/api/animals
+   curl https://<endpoint-url>/test/api/healthcheck
    ```
 
 1. Use the following commands to query the routing rules:
 
    ```azurecli
-   az configure --defaults group=<resource group name> spring-cloud=<service name>
+   az configure --defaults group=<resource group name> spring=<service name>
+
    az spring gateway route-config show \
-       --name adoption-api-routes \
+       --name test-api-routes \
        --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
+       
    az spring gateway route-config list \
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```
@@ -193,7 +204,7 @@ You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kuberne
 
 ### Use commercial filters
 
-For examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the Spring Cloud Gateway for Kubernetes documentation. These examples are written using Kubernetes resource definitions.
+For more examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
 
 The following example shows how to use the [AddRequestHeadersIfNotPresent](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#add-request-headers-if-not-present) filter by converting the Kubernetes resource definition.
 
