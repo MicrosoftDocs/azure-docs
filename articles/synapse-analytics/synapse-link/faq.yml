@@ -85,3 +85,7 @@ sections:
           What format is used for the landing zone data? Can it be used for other purposes?
         answer: |
           The landing zone is a transient data store, and we do not support using that data for any purpose other than Azure Synapse Link for SQL.
+      - question: |
+          How is Azure Synapse Link for SQL different from using the ADF/Synapse Pipeline copy activity?
+        answer: |
+          Azure Synapse Link for SQL uses a push model where the source database writes data into a landing zone and is moved into the target dedicated SQL pool by an ingestion service that can either run continuously (providing near-real-time data processing) or in schedule mode. The copy activity uses a pull model where the data is queried from the source database and written into the target location on a scheduled basis.
