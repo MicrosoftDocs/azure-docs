@@ -44,7 +44,7 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
 1. Select the **Raw data** tab:
 
-    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Raw data view":::
+    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Screenshot that shows the raw data view." lightbox="media/concepts-telemetry-properties-commands/raw-data.png":::
 
     On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
