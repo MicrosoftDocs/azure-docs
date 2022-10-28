@@ -29,12 +29,13 @@ This article assumes you're using online endpoints, that is, endpoints that are 
 In this article, you'll learn to:
 
 > [!div class="checklist"]
-> * Confirm that an online endpoint called "blue" and serves version 1 of the model exists
-> * Scale this deployment so that it can handle more requests
-> * Deploy version 2 of the model to an endpoint called "green" that accepts no live traffic
+> * Define an online endpoint and a deployment called "blue" to serve version 1 of a model
+> * Scale the blue deployment so that it can handle more requests
+> * Deploy version 2 of the model (called the "green" deployment) to the endpoint, but send the deployment no live traffic
 > * Test the green deployment in isolation
-> * Send 10% of live traffic to the green deployment
-> * Fully cut-over all live traffic to the green deployment
+> * Mirror a percentage of live traffic to the green deployment to validate it (preview)
+> * Send a small percentage of live traffic to the green deployment
+> * Send over all live traffic to the green deployment
 > * Delete the now-unused v1 blue deployment
 
 ## Prerequisites
