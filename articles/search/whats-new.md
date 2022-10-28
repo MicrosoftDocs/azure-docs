@@ -16,17 +16,17 @@ ms.custom: references_regions
 Learn about the latest updates to Azure Cognitive Search functionality, docs, and samples.
 
 > [!NOTE]
-> Looking for preview feature status? Preview features are announced in this what's new article, but we also maintain a [preview features list](search-api-preview.md) so that you can find them all in one place.
+> Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
 
 ## October 2022
 
-|Sample&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
+|Sample&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
 |------------------------------------|--------------|
 | [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 
 |Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
 |------------------------------------|--------------|
-| [Compliance risk analysis using Azure Cognitive Search](https://learn.microsoft.com/azure/architecture/guide/ai/compliance-risk-analysis) | Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
+| [Compliance risk analysis using Azure Cognitive Search](/azure/architecture/guide/ai/compliance-risk-analysis) | Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
 | [Beiersdorf customer story using Azure Cognitive Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search) | This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |
 
 ## September 2022
@@ -88,11 +88,11 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 ## 2020 announcements
 
-See [2019 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2020) in the content archive.
+See [2020 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2020) in the content archive.
 
 ## 2019 announcements
 
-See [2020 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2019) in the content archive.
+See [2019 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2019) in the content archive.
 
 <a name="new-service-name"></a>
 
