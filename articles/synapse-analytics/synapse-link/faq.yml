@@ -81,3 +81,7 @@ sections:
           What is the latency for data replicated from Azure SQL Database and SQL Server 2022 to Azure Synapse Analytics dedicated SQL pools?
         answer: |
           We do not have published latency SLA. If you are seeing high latency, you can adjust the number of cores allocated to the link connection, the size of the target dedicated SQL pool, or adjust the transactional consistency on write configuration to suit your workload.
+      - question: |
+          What format is used for the landing zone data? Can it be used for other purposes?
+        answer: |
+          The landing zone is a transient data store, and we do not support using that data for any purpose other than Azure Synapse Link for SQL.
