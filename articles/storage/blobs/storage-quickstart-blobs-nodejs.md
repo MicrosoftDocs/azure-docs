@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Azure Blob storage library v12 - JavaScript"
+title: "Quickstart: Azure Blob storage library - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob storage blob npm package version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
@@ -11,7 +11,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
 
-# Quickstart: Manage blobs with JavaScript v12 SDK in Node.js
+# Quickstart: Manage blobs with JavaScript SDK in Node.js
 
 In this quickstart, you learn to manage blobs by using Node.js. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. 
 
@@ -26,18 +26,18 @@ In this quickstart, you learn to manage blobs by using Node.js. Blobs are object
 
 ## Create the Node.js project
 
-Create a JavaScript application named *blob-quickstart-v12*.
+Create a JavaScript application named *blob-quickstart*.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
 
     ```console
-    mkdir blob-quickstart-v12
+    mkdir blob-quickstart
     ```
 
-1. Switch to the newly created *blob-quickstart-v12* directory.
+1. Switch to the newly created *blob-quickstart* directory.
 
     ```console
-    cd blob-quickstart-v12
+    cd blob-quickstart
     ```
 
 1. Create a *package.json*. 
@@ -284,7 +284,7 @@ The preceding code cleans up the resources the app created by removing the entir
 2. The output of the app is similar to the following example:
 
     ```output
-    Azure Blob storage v12 - JavaScript quickstart sample
+    Azure Blob storage - JavaScript quickstart sample
     
     Creating container...
              quickstart4a0780c0-fb72-11e9-b7b9-b387d3c488da
@@ -310,7 +310,7 @@ This quickstart created a container and blob on the Azure cloud. You can also us
 
 ## Clean up 
 
-1. When you're done with this quickstart, delete the `blob-quickstart-v12` directory.
+1. When you're done with this quickstart, delete the `blob-quickstart` directory.
 1. If you're done using your Azure Storage resource, use the [Azure CLI to remove the Storage resource](storage-quickstart-blobs-cli.md#clean-up-resources). 
 
 ## Next steps
@@ -323,5 +323,5 @@ For tutorials, samples, quickstarts, and other documentation, visit:
 > [Azure for JavaScript developer center](/azure/developer/javascript/)
 
 - To learn how to deploy a web app that uses Azure Blob storage, see [Tutorial: Upload image data in the cloud with Azure Storage](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)
-- To see Blob storage sample apps, continue to [Azure Blob storage package library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
+- To see Blob storage sample apps, continue to [Azure Blob storage package library JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
 - To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
