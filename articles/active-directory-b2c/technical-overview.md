@@ -147,7 +147,7 @@ See how localization works in [Language customization in Azure Active Directory 
 
 Azure AD B2C ensures valid email addresses by requiring customers to verify them during the sign-up, and password reset flows. It also prevents malicious actors from using automated processes to generate fraudulent accounts in your applications.
 
-:::image type="content" source="media/technical-overview/email-verification.png" alt-text="Screenshot of three sign in pages showing UI text in different languages.":::
+:::image type="content" source="media/technical-overview/email-verification.png" alt-text="Screenshots showing the process for email verification.":::
 
 You can customize the email to users that sign up to use your applications. By using the third-party email provider, you can use your own email template and From: address and subject, as well as support localization and custom one-time password (OTP) settings. For more information, see:
 
