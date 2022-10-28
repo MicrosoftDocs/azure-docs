@@ -38,7 +38,7 @@ To get started with the VU Identity Card, ensure the following prerequisites are
 
 - The tenant must complete the VU Identity Card onboarding process.
 
-  - To create an account, [contact VU Security](https://www.vusecurity.com/en/contact).
+  - To create an account, [contact VU Security](https://landings.vusecurity.com/microsoft-verifiable-credentials/).
 
 >[!Important]
 >Before you proceed, you must have received the URL from VU Security for users to be issued Verified IDs. If you have not yet received it, follow up with VU Security before you attempt following the steps documented in this article.
