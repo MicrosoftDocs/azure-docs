@@ -884,7 +884,7 @@ Following picture describes the Visualization of explanations for a sample input
 Decoded base64 figure will have four image sections within a 2 x 2 grid.
 
 - Image at Top-left corner (0, 0) is the cropped input image
-- Image at top-right corner (0, 1) is the heatmap of attributions on a color scale bgyw (blue green yello white) where the contribution of white pixels on the predicted class is the highest and blue pixels is the lowest.
+- Image at top-right corner (0, 1) is the heatmap of attributions on a color scale bgyw (blue green yellow white) where the contribution of white pixels on the predicted class is the highest and blue pixels is the lowest.
 - Image at bottom left corner (1, 0) is blended heatmap of attributions on cropped input image
 - Image at bottom right corner (1, 1) is the cropped input image with top 30 percent of the pixels based on attribution scores.
 
