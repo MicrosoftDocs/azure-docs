@@ -93,3 +93,7 @@ sections:
           There is a documented limit of 7,500 bytes per row for Azure Synapse Link for SQL. What if I have larger data rows in my source database?
         answer: |
           This restriction is for on-page data only. For off-page data, the only thing that counts against the 7,500 byte limit is the 24 byte pointer to the off-page data.
+      - question: |
+          What data replication mechanism is used by Azure Synapse Link for SQL?
+        answer: |
+          A new change feed processor has been integrated into the Azure SQL Database and SQL Server 2022 engine to enable this functionality.
