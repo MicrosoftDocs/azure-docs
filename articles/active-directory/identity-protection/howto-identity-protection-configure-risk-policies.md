@@ -34,19 +34,18 @@ Configured trusted [network locations](../conditional-access/location-condition.
 
 ### Risk remediation
 
-Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD multifactor authentication (MFA) and secure self-service password reset (SSPR).
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD multifactor authentication (MFA), secure password change, and self-service password reset (SSPR).
 
 > [!WARNING]
-> Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
-> 
-> Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password reset.
+> Users must have registered for Azure AD MFA before they can perform a secure password change to remediate their user risks. Hybrid users who are synced from on-prem to cloud will also need to have password writeback enabled. Otherwise, they will be blocked when the user risk policy applies and require administrator intervention.
+
 
 ### Microsoft's recommendation
 
 Microsoft recommends the below risk policy configurations to protect your organization:
 
 - User risk policy
-   - Require a secure password reset when user risk level is **High**. Azure AD MFA is required before the user can create a new password with SSPR to remediate their risk. 
+   - Require a secure password change when user risk level is **High**. Azure AD MFA is required before the user can change their password to remediate their risk. 
 - Sign-in risk policy
    - Require Azure AD MFA when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
 
