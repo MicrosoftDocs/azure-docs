@@ -15,14 +15,14 @@ zone_pivot_groups: programming-languages-set-thirteen
 
 # Embedded Speech (preview)
 
-Embedded Speech is designed for on-device scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in medical equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](/azure/cognitive-services/containers/disconnected-containers). 
+Embedded Speech is designed for on-device speech-to-text and text-to-speech scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in medical equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](/azure/cognitive-services/containers/disconnected-containers). 
 
 > [!IMPORTANT]
 > Microsoft limits access to embedded speech. You can apply for access through the Azure Cognitive Services [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context).
 
 ## Platform requirements
 
-Embedded speech is included with the Speech SDK for C#, C++, and Java (version 1.24 and higher). Refer to the general [Speech SDK installation requirements](quickstarts/setup-platform.md) for programming language and target platform specific details.
+Embedded speech is included with the Speech SDK (version 1.24 and higher) for C#, C++, and Java. Refer to the general [Speech SDK installation requirements](quickstarts/setup-platform.md) for programming language and target platform specific details.
 
 **Choose your target environment**
 
@@ -58,13 +58,13 @@ The Speech SDK for Java doesn't support Windows on ARM64.
 
 Embedded speech is only available with C#, C++, and Java SDKs. 
 
-Embedded speech recognition only supports mono 16 bit, 16 kHz PCM-encoded WAV audio. 
+Embedded speech recognition only supports mono 16 bit, 16-kHz PCM-encoded WAV audio. 
 
-Embedded neural voices only support 24kHz sample rate.
+Embedded neural voices only support 24-kHz sample rate.
 
 ## Models and voices
 
-You'll need to download the speech recognition models and voices that you want to use with embedded speech. Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+For embedded speech, you'll need to download the speech recognition models for speech-to-text and voices for text-to-speech. Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
 Speech recognition models are used for [speech-to-text](speech-to-text.md). Voices are used for [text-to-speech](text-to-speech.md).
 
@@ -109,12 +109,12 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 // For speech-to-text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
     "Microsoft Speech Recognizer en-US FP Model V8", 
-    GetEnvironmentVariable("MODEL_KEY"));
+    GetEnvironmentVariable("MODEL_KEY")); // GetEnvironmentVariable is defined in the quickstart.
 
 // For text-to-speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    GetEnvironmentVariable("VOICE_KEY"));
+    GetEnvironmentVariable("VOICE_KEY")); // GetEnvironmentVariable is defined in the quickstart.
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
