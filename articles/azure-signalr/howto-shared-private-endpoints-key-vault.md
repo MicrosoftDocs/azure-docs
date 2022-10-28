@@ -16,7 +16,6 @@ Through Shared Private Endpoints, Azure SignalR Service can access your Key Vaul
 
    :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
-
 You can create private endpoints through Azure SignalR Service APIs for shared access to a resource integrated with [Azure Private Link service](https://azure.microsoft.com/services/private-link/).   These endpoints, called *shared private link resources*, are created inside the SignalR execution environment and are not accessible outside this environment.
 
 In this article, you learn how to create a shared private endpoint to Key Vault.
@@ -24,8 +23,8 @@ In this article, you learn how to create a shared private endpoint to Key Vault.
 ## Prerequisites
 
 QUESTION: Do we need to add any prerequisites here?
-- You have an Azure SignalR Service instance.
-- You have an Azure Key Vault instance.
+- You will need an Azure SignalR Service instance.
+- You will need an Azure Key Vault instance.
 
 
 QUESTION:  Does it matter what the user calls the Key Vault, SignalR and endpoints?  I'm assuming they can be named anything, but I'm not sure.
