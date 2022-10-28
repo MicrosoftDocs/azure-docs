@@ -90,7 +90,7 @@ To complete the scenario in this tutorial, you need:
 1. In the **Assignments** section, choose the link under **Cloud apps or actions**.
 1. Choose **Select apps**, and then choose the link under **Select**.
 
-    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-app-access.png" alt-text="Screenshot showing the Cloud apps page and the Select option.":::
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-app-access.png" alt-text="Screenshot showing the Cloud apps page and the Select option." lightbox="media/tutorial-mfa/tutorial-mfa-app-access.png":::
 
 1. On the **Select** page, choose **Microsoft Azure Management**, and then choose **Select**.
 
@@ -119,7 +119,7 @@ To complete the scenario in this tutorial, you need:
 
 1. Select the link under **Cloud apps, actions, or authentication content**. Choose **Select apps**, and then choose the link under **Select**.
 
-    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-what-if-app.png" alt-text="Screenshot showing the Microsoft Azure Management app selected.":::
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-what-if-app.png" alt-text="Screenshot showing the Microsoft Azure Management app selected." lightbox="media/tutorial-mfa/tutorial-mfa-what-if-app.png":::
 
 1. On the **Cloud apps** page, in the applications list, choose **Microsoft Azure Management**, and then choose **Select**.
 1. Choose **What If**, and verify that your new policy appears under **Evaluation results** on the **Policies that will apply** tab.
