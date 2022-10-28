@@ -13,7 +13,7 @@ ms.author: gahllevy
 
 Multi-region writes in Azure Cosmos DB for MongoDB enable your clients to write to multiple regions. This results in lower latency and better availability for your writes. It's important to note that unlike other MongoDB services, Azure Cosmos DB for MongoDB enables you to write data from the same shard to multiple regions. Multi-region writes is a true active-active setup.
 
-### Configure in Azure Portal
+## Configure in Azure portal
 To enable multi-region writes from Azure portal, use the following steps:
 
 1. Sign-in to the [Azure portal](https://portal.azure.com/).
@@ -26,10 +26,10 @@ To enable multi-region writes from Azure portal, use the following steps:
 
 1. After you update the region list, select **save** to apply the changes.
 
-   :::image type="content" source="./media/how-to-multi-region-write/enable-multi-region-writes.png" alt-text="Screenshot to enable multi-region writes using Azure portal" lightbox="./media/how-to-multi-region-write/enable-multi-region-writes.png":::
+   :::image type="content" source="./media/how-to-multi-region-write/enable-multi-region-writes.png" alt-text="Screenshot to enable multi-region writes using Azure portal." lightbox="./media/how-to-multi-region-write/enable-multi-region-writes.png":::
 
 
-### Connect your client
+## Connect your client
 MongoDB connection strings supports the “appName” parameter, which is a means to identify client workloads. appName is used to identify the preferred write region for your connection. AppName can be specified in the connection string or using SDK specific initialization methods/properties. 
 
 The appName parameter can be in one of the following formats​:
@@ -40,9 +40,9 @@ appName=<user-workload-name>@<preferred-write-region>​
 appName=<user-workload-name>@<cosmosdb-account-name>@<preferred-write-region>
 ```
 
-On multi-region write accounts, Azure Portal supports generation of region-specific connection strings to encode the preferred region list​. Selecting the preferred region dropdown will change the appName in the connection string to set the preferred write region. Simply copy the connection string after setting the preferred region. 
+On multi-region write accounts, Azure portal supports generation of region-specific connection strings to encode the preferred region list​. Selecting the preferred region dropdown will change the appName in the connection string to set the preferred write region. Simply copy the connection string after setting the preferred region. 
 
-   :::image type="content" source="./media/how-to-multi-region-write/connect-multi-region-writes.png" alt-text="Screenshot to connect to multi-region writes account using Azure portal" lightbox="./media/how-to-multi-region-write/connect-multi-region-writes.png":::
+   :::image type="content" source="./media/how-to-multi-region-write/connect-multi-region-writes.png" alt-text="Screenshot to connect to multi-region writes account using Azure portal." lightbox="./media/how-to-multi-region-write/connect-multi-region-writes.png":::
 
 We recommend applications deployed to different regions to use the region-specific connection string with the correct preferred region for low-latency writes.
 
