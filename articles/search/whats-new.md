@@ -24,6 +24,11 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 |------------------------------------|--------------|
 | [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 
+|Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
+|------------------------------------|--------------|
+| [Compliance risk analysis using Azure Cognitive Search](https://learn.microsoft.com/azure/architecture/guide/ai/compliance-risk-analysis) | Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
+| [Beiersdorf customer story using Azure Cognitive Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search) | This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |
+
 ## September 2022
 
 |Sample&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
