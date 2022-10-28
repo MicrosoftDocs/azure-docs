@@ -2,10 +2,9 @@
 title: Configure Linux provider for Azure Monitor for SAP solutions (preview)
 description: This article explains how to configure a Linux OS provider for Azure Monitor for SAP solutions.
 author: MightySuz
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
+ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 10/27/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to configure a Linux provider so that I can use Azure Monitor for SAP solutions for monitoring.
 ---
@@ -20,7 +19,7 @@ This content applies to both versions of the service, *Azure Monitor for SAP sol
 ## Prerequisites
 
 - An Azure subscription. 
-- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
+- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](quickstart-portal.md) or the [quickstart for PowerShell](quickstart-powershell.md).
 - Install [node exporter version 1.3.0](https://prometheus.io/download/#node_exporter) in each SAP host that you want to monitor, either BareMetal or Azure virtual machine (Azure VM). For more information, see [the node exporter GitHub repository](https://github.com/prometheus/node_exporter).    
 
 ## Create Linux provider
@@ -46,4 +45,4 @@ This content applies to both versions of the service, *Azure Monitor for SAP sol
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Monitor for SAP solutions provider types](azure-monitor-providers.md)
+> [Learn about Azure Monitor for SAP solutions provider types](providers.md)

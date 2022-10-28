@@ -2,10 +2,9 @@
 title: What are providers in Azure Monitor for SAP solutions? (preview)
 description: This article provides answers to frequently asked questions about Azure Monitor for SAP solutions providers.
 author: rdeltcheva
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
+ms.service: azure-center-sap-solutions
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 10/27/2022
 ms.author: radeltch
 #Customer intent: As a developer, I want to learn what providers are available for Azure Monitor for SAP solutions so that I can connect to these providers.
 ---
@@ -20,9 +19,9 @@ This content applies to both versions of the service, *Azure Monitor for SAP sol
    
 You can choose to configure different provider types for data collection from the corresponding component in their SAP landscape. For example, you can configure one provider for the SAP HANA provider type, another provider for high availability cluster provider type, and so on.  
 
-You can also configure multiple providers of a specific provider type to reuse the same SAP monitor resource and associated managed group. For more information, see [Manage Azure Resource Manager resource groups by using the Azure portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md).
+You can also configure multiple providers of a specific provider type to reuse the same SAP monitor resource and associated managed group. For more information, see [Manage Azure Resource Manager resource groups by using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-![Diagram showing Azure Monitor for SAP solutions connection to available providers.](./media/azure-monitor-providers/providers.png)
+![Diagram showing Azure Monitor for SAP solutions connection to available providers.](./media/providers/providers.png)
 
 It's recommended to configure at least one provider when you deploy an Azure Monitor for SAP solutions resource. By configuring a provider, you start data collection from the corresponding component for which the provider is configured.   
 
@@ -66,7 +65,7 @@ You can get the following data with the SAP NetWeaver provider:
 - Transactional RFC (**SM59**)
 - STMS Change Transport System Metrics (**STMS**)
 
-![Diagram showing the NetWeaver provider architecture.](./media/azure-monitor-providers/netweaver-architecture.png)
+![Diagram showing the NetWeaver provider architecture.](./media/providers/netweaver-architecture.png)
 
 ## Provider type: SAP HANA
 
@@ -86,7 +85,7 @@ Configuring the SAP HANA provider requires:
 
 It's recommended to configure the SAP HANA provider against **SYSTEMDB**. However, more providers can be configured against other database tenants.
 
-![Diagram shows Azure Monitor for SAP solutions providers - SAP HANA architecture.](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
+![Diagram shows Azure Monitor for SAP solutions providers - SAP HANA architecture.](./media/providers/azure-monitor-providers-hana.png)
 
 ## Provider type: Microsoft SQL server
 
@@ -105,7 +104,7 @@ Configuring Microsoft SQL Server provider requires:
 - The SQL Server port number
 - The SQL Server username and password
 
-![Diagram shows Azure Monitor for SAP solutions providers - SQL architecture.](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+![Diagram shows Azure Monitor for SAP solutions providers - SQL architecture.](./media/providers/azure-monitor-providers-sql.png)
 
 ## Provider type: High-availability cluster
 
@@ -117,7 +116,7 @@ In public preview, you can expect to see the following data with the High-availa
  - Trends
  - [others](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
 
-![Diagram shows Azure Monitor for SAP solutions providers - High-availability cluster architecture.](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
+![Diagram shows Azure Monitor for SAP solutions providers - High-availability cluster architecture.](./media/providers/azure-monitor-providers-pacemaker-cluster.png)
 
 To configure a High-availability cluster provider, two primary steps are involved:
 
@@ -175,11 +174,11 @@ You can configure one or more IBM Db2 providers. The following data is available
 - Waits and current locks
 - Top 20 runtime and executions 
 
-![Diagram shows Azure Monitor for SAP solutions providers - IBM Db2 architecture.](./media/azure-monitor-sap/azure-monitor-providers-db2.png)
+![Diagram shows Azure Monitor for SAP solutions providers - IBM Db2 architecture.](./media/providers/azure-monitor-providers-db2.png)
 
 ## Next steps
 
 Learn how to deploy Azure Monitor for SAP solutions from the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Monitor for SAP solutions by using the Azure portal](./azure-monitor-sap-quickstart.md)
+> [Deploy Azure Monitor for SAP solutions by using the Azure portal](./quickstart-portal.md)

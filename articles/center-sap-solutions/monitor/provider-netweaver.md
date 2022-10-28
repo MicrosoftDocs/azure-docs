@@ -2,10 +2,9 @@
 title: Configure SAP NetWeaver for Azure Monitor for SAP solutions (preview)
 description: Learn how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions.
 author: MightySuz
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
+ms.service: azure-center-sap-solutions
 ms.topic: article
-ms.date: 10/19/2022
+ms.date: 10/27/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
 ---
@@ -22,7 +21,7 @@ The SAP start service provides multiple services, including monitoring the SAP s
 ## Prerequisites
 
 - An Azure subscription. 
-- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
+- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](quickstart-portal.md) or the [quickstart for PowerShell](quickstart-powershell.md).
 
 ## Configure NetWeaver for Azure Monitor for SAP solutions
 
@@ -243,7 +242,7 @@ You must restart **SAPStartSRV** on each instance of the SAP system for the SAPC
 
 On Windows, open the SAP Microsoft Management Console (MMC) / SAP Management Console (MC).  Right-click on each instance and select **All Tasks** &gt; **Restart Service**.
   
-![Screenshot of the MMC console, showing the Restart Service option being selected.](./media/azure-monitor-sap/azure-monitor-providers-netweaver-mmc-output.png)
+![Screenshot of the MMC console, showing the Restart Service option being selected.](./media/provider-netweaver/azure-monitor-providers-netweaver-mmc-output.png)
 
 On Linux, run the command `sapcontrol -nr <NN> -function RestartService`. Replace `<NN>` with the SAP instance number to restart the host.
 
@@ -316,4 +315,4 @@ Don't specify an IP address for the hostname if your SAP system is part of netwo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Monitor for SAP solutions provider types](azure-monitor-providers.md)
+> [Learn about Azure Monitor for SAP solutions provider types](providers.md)

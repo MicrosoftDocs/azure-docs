@@ -4,17 +4,16 @@ description: Important reference material needed when you monitor SAP on Azure.
 author: lauradolan
 ms.topic: reference
 ms.author: ladolan
-ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap 
+ms.service: azure-center-sap-solutions
 ms.custom: subject-monitoring
-ms.date: 10/19/2022
+ms.date: 10/27/2022
 ---
 
 # Data reference for Azure Monitor for SAP solutions (preview)
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-This article provides a reference of log data collected to analyze the performance and availability of Azure Monitor for SAP solutions. See [Monitor SAP on Azure (preview)](monitor-sap-on-azure.md) for details on collecting and analyzing monitoring data for SAP on Azure.
+This article provides a reference of log data collected to analyze the performance and availability of Azure Monitor for SAP solutions. See [Monitor SAP on Azure (preview)](about-azure-monitor-sap-solutions.md) for details on collecting and analyzing monitoring data for SAP on Azure.
 
 ## Metrics
 
@@ -162,5 +161,5 @@ For more information, see [sys.sysprocesses (Transact-SQL)](/sql/relational-data
 
 ## Next steps
 
-- For more information on using Azure Monitor for SAP solutions, see [Monitor SAP on Azure](monitor-sap-on-azure.md).
-- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../../azure-monitor/essentials/monitor-azure-resource.md).
+- For more information on using Azure Monitor for SAP solutions, see [Monitor SAP on Azure](about-azure-monitor-sap-solutions.md).
+- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
