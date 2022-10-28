@@ -39,7 +39,7 @@ Before you begin the tutorial:
 
 - [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 - [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
-- Have an Azure account that is assigned to one of the built-in roles listed below:
+- Have an Azure account that's assigned to one of these built-in roles:
 
     - Contributor for the target SQL Server on Azure Virtual Machines (and Storage Account to upload your database backup files from SMB network share).
     - Reader role for the Azure Resource Groups containing the target SQL Server on Azure Virtual Machines or the Azure storage account.
