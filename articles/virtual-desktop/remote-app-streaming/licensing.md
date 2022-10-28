@@ -70,6 +70,11 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
 
 The Azure Virtual Desktop per-user access license isn't a full replacement for a Windows or Microsoft 365 license. Per-user licenses only grant access rights to Azure Virtual Desktop and don't include Microsoft Office, Microsoft 365 Defender, or Universal Print. This means that if you choose a per-user license, you'll need to separately license other products and services to grant your users access to them in your Azure Virtual Desktop environment.
 
+For example, to provide Microsoft Office to users, you can:
+- Sell licences via [Microsoft's Cloud Solutions Provider (CSP) program](https://learn.microsoft.com/partner-center/csp-overview)
+- Distribute via [Microsoft's Services Provider License Agreement (SPLA)](https://www.microsoft.com/licensing/licensing-programs/spla-program)
+- Prompt users [sign in to Office](https://support.microsoft.com/office/sign-in-to-office-b9582171-fd1f-4284-9846-bdd72bb28426) with their own Microsoft Office account
+
 ## Next steps
 
 Now that you're familiar with your licensing pricing options, you can start planning your Azure Virtual Desktop environment. Here are some articles that might help you:
