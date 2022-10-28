@@ -207,6 +207,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 > [!NOTE]
 > To create a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class.
+
 ---
 
 ## Confirm your existing deployment
