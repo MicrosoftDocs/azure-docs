@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create a Azure Payment HSM using an Azure Resource Manager template
+title: Azure Quickstart - Create an Azure Payment HSM using an Azure Resource Manager template
 description: Quickstart showing how to create Azure Payment HSM using Resource Manager template
 services: payment-hsm
 author: msmbaldwin
@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 #Customer intent: As a security admin who is new to Azure, I want to create a payment HSM using an Azure Resource Manager template.
 ---
 
-# Quickstart: Create a Azure payment HSM using an ARM template
+# Quickstart: Create an Azure payment HSM using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM.  Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. For more information, see [Azure Payment HSM: Overview](/azure/payment-hsm/overview).
 
@@ -327,7 +327,7 @@ You should see the name of your newly created payment HSM.
 
 ## Next steps
 
-In this quickstart you deployed an Azure Resource Manager template to create a payment HSM, verified the deployment, and deleted the payment HSM. To learn more about Azure Payment HSM and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you deployed an Azure Resource Manager template to create a payment HSM, verified the deployment, and deleted the payment HSM. To learn more about Azure Payment HSM and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Payment HSM](overview.md)
 - Find out how to [get started with Azure Payment HSM](getting-started.md)

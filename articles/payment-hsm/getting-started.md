@@ -10,6 +10,7 @@ ms.workload: security
 ms.topic: article
 ms.date: 01/25/2022
 ms.author: mbaldwin
+ms.custom: references_regions
 ---
 
 # Getting started with Azure Payment HSM

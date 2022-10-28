@@ -1,6 +1,6 @@
 ---
-title: Remove a commissioned payment HSM
-description: Remove a commissioned payment HSM
+title: Remove a commissioned Azure Payment HSM
+description: Remove a commissioned Azure Payment HSM
 services: payment-hsm
 author: msmbaldwin
 ms.service: payment-hsm
@@ -26,7 +26,7 @@ Navigate to the payshield manager, following the steps in [Access the payShield 
 > [!IMPORTANT]
 > The payment HSM must be in a Secure state before RELEASE button is enabled. To do this, login with both Left and Right Keys and change state to Secure.
 
-:::image type="content" source="./media/payshield-manager-remove-device.png" alt-text="Screenshot of payShield Manager":::
+:::image type="content" source="./media/payshield-manager-remove-device.png" alt-text="Screenshot of payShield Manager.":::
 
 ## Delete the payment HSM
 

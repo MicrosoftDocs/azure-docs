@@ -56,7 +56,7 @@ Microsoft support can be contacted by creating a support ticket through the Azur
 
 Thales will provide payment application-level support including client software, HSM configuration and backup, and HSM operation support.
 
-All Azure Payment HSM customers have Enhanced Support Plan with Thales. The [Thales Welcome Pack for Authentication and Encryption Products](https://supportportal.thalesgroup.com/csm?sys_kb_id=1d2bac074f13f340102400818110c7d9&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=e7f1843d87f3c9107b0664e80cbb352e&sysparm_article=KB0019882) is an important reference for customers, as it explains the Thales support plan, scope, and responsiveness. Please download the [Thales Welcome Pack PDF](https://supportportal.thalesgroup.com/sys_attachment.do?sys_id=52681fca1b1e0110e2af520f6e4bcb96).
+All Azure Payment HSM customers have Enhanced Support Plan with Thales. The [Thales Welcome Pack for Authentication and Encryption Products](https://supportportal.thalesgroup.com/csm?sys_kb_id=1d2bac074f13f340102400818110c7d9&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=e7f1843d87f3c9107b0664e80cbb352e&sysparm_article=KB0019882) is an important reference for customers, as it explains the Thales support plan, scope, and responsiveness. Download the [Thales Welcome Pack PDF](https://supportportal.thalesgroup.com/sys_attachment.do?sys_id=52681fca1b1e0110e2af520f6e4bcb96).
 
 Thales support can be contacted through the [Thales CPL Customer Support Portal](https://supportportal.thalesgroup.com/csm).
 
@@ -68,7 +68,7 @@ Depending on the nature of your issue or query, you may need to contact Microsof
 |--|--|--|--|
 | HSM provisioning, HSM networking, HSM hardware, management and host port connection | X | | |
 | HSM reset, HSM delete | X | | |
-| HSM Tamper event | X | | Microsoft can recover logs from medium Tamper based on customer's request. It is highly recommended that customer should implement Realtime log replication and backup. |
+| HSM Tamper event | X | | Microsoft can recover logs from medium Tamper based on customer's request. It is highly recommended that you implement real time log replication and backup. |
 | payShield manager operation, key management | | X | |
 | payShield applications, host commands | | X | |
 | payShield firmware upgrade, security patch | | X | Customers are responsible for upgrading their allocated HSM's firmware and applying security patches. Firmware versions below 1.4a 1.8.3. are not supported.<br><br>Microsoft is responsible for applying payShield security patches to unallocated HSMs. |
@@ -76,7 +76,7 @@ Depending on the nature of your issue or query, you may need to contact Microsof
 | TMD | | X | The customer can purchase TMD through their Thales representatives. |
 | Hosted HSM End User Guide | | X | Customers must download "Hosted HSM End User Guide" from Thales support portal for more details on the changes to payShield to this service. |
 | payShield 10K documentation, TMD documentation | | X | |
-| payShield audit and error logs backup | N/A | N/A | The customer is responsible for implementing their own mechanism to back up their audit and error logs. It is highly recommended that customer implement real time log replication and backup. |
+| payShield audit and error logs backup | N/A | N/A | The customer is responsible for implementing their own mechanism to back up their audit and error logs. It is highly recommended that you implement real time log replication and backup. |
 | Key backup | N/A | N/A | Customers are responsible to implement their own mechanism to back up keys. |
 | Custom firmware | | X | If customers are using payShield on premise today with a custom firmware, a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Contact Thales account manager to request a quote. Custom firmware will be supported by Thales support. |
 

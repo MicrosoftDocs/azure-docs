@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure payment HSM with Azure PowerShell
+title: Quickstart - Create an Azure Payment HSM with Azure PowerShell
 description: Create, show, list, update, and delete Azure Payment HSMs by using Azure PowerShell
 services: payment-hsm
 ms.service: payment-hsm
@@ -57,7 +57,7 @@ Before creating a payment HSM, you must first create a virtual network and a sub
 First, set some variables for use in the subsequent operations:
 
 ```azurepowershell-interactive
-$VNETAddressPrefix = @("10.0.0.0/16")
+$VNetAddressPrefix = @("10.0.0.0/16")
 $SubnetAddressPrefix = "10.0.0.0/24"
 $tags = @{fastpathenabled="true"}
 ```
@@ -80,10 +80,10 @@ $myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -Add
 To create an Azure Virtual Network, use the Azure PowerShell [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-New-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Tag $tags -AddressPrefix $VNETAddressPrefix -Subnet $myPHSMSubnetConfig
+New-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Tag $tags -AddressPrefix $VNetAddressPrefix -Subnet $myPHSMSubnetConfig
 ```
 
-To verify that the VNET was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
+To verify that the VNet was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
@@ -97,7 +97,7 @@ Make note of the value returned as "Id", as you will need it for the next step. 
 
 ## Create a payment HSM
 
-To create a payment HSM, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNET ID from the previous step:
+To create a payment HSM, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
 
 ```azurepowershell-interactive
 New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"

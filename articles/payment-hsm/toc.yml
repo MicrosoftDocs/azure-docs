@@ -20,13 +20,13 @@
   items:
   - name: 1. Create a payment HSM
     items:
-    - name: With host and management ports in same VNET
+    - name: With host and management ports in same VNet
       href: create-payment-hsm.md
-    - name: With host and management ports different VNETs
+    - name: With host and management ports different VNets
       href: create-different-vnet.md
-    - name: With host and management port with IP addresses in different different VNETs
+    - name: With host and management port with IP addresses in different different VNets
       href: create-different-ip-addresses.md
-  - name: 3. Access the payShield manager for your payment HSM
+  - name: 2. Access the payShield manager for your payment HSM
     href: access-payshield-manager.md
   - name: 3. Delete a commissioned payment HSM
     href: remove-payment-hsm.md

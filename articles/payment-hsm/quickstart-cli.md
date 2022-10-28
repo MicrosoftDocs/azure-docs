@@ -62,10 +62,10 @@ Afterward, use the Azure CLI [az network vnet subnet update](/cli/azure/network/
 az network vnet subnet update -g "myResourceGroup" --vnet-name "myVNet" -n "myPHSMSubnet" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-To verify that the VNET and subnet were created correctly, use the Azure CLI [az network vnet show](/cli/azure/network/vnet) command:
+To verify that the VNet and subnet were created correctly, use the Azure CLI [az network vnet show](/cli/azure/network/vnet) command:
 
 ```azurecli-interactive
-az network vnet show -n "myVNET" -g "myResourceGroup"
+az network vnet show -n "myVNet" -g "myResourceGroup"
 ```
 
 Make note of the value returned as "id", as you will need it for the next step.  The "id" will be in the format:

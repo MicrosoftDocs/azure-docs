@@ -1,6 +1,6 @@
 ---
-title: Create a payment HSM with host and management port in different VNETs using ARM template
-description: Create a payment HSM with host and management port in different VNETs using ARM template
+title: Create an Azure Payment HSM with host and management port in different VNets using ARM template
+description: Create an Azure Payment HSM with host and management port in different VNets using ARM template
 services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
@@ -416,7 +416,7 @@ You should see the name of your newly created payment HSM.
 
 ## Next steps
 
-Advance to the next article to learn how to how to access the payShield manager for your payment HSM
+Advance to the next article to learn how to access the payShield manager for your payment HSM
 > [!div class="nextstepaction"]
 > [Access the payShield manager](access-payshield-manager.md)
 

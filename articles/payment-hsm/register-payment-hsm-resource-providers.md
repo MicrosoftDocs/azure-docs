@@ -9,9 +9,11 @@ ms.date: 09/12/2022
 ms.author: mbaldwin
 
 ---
-# Register the Azure Payment HSM resource provider and resource provider features
+# Register the Azure Payment HSM resource providers and resource provider features
 
-Before using Azure Payment HSM, you must first register the Azure Payment HSM resource provider and the resource provider features. A resource provider is a service that supplies Azure resources. 
+Before using Azure Payment HSM, you must first register the Azure Payment HSM resource provider and the resource provider features. A resource provider is a service that supplies Azure resources.
+
+## Register the resource providers and features
 
 # [Azure CLI](#tab/azure-cli)
 

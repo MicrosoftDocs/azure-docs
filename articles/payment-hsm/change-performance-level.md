@@ -1,6 +1,6 @@
 ---
-title: How to change the performance level of a payment HSM
-description: How to change the performance level of a payment HSM
+title: How to change the performance level of an Azure Payment HSM
+description: How to change the performance level of an Azure Payment HSM
 services: payment-hsm
 author: msmbaldwin
 ms.service: payment-hsm
@@ -11,11 +11,11 @@ ms.author: mbaldwin
 ---
 # How to change the performance level of a payment HSM
 
-Azure Payment HSM supports several SKUs; for a list, see [Azure Payment HSM overview: supported SKUs](overview.md#supported-skus). The performance license level of your payment HSM is initially determined by the SKU you specify during the creation process. 
+Azure Payment HSM supports several SKUs; for a list, see [Azure Payment HSM overview: supported SKUs](overview.md#supported-skus). The performance license level of your payment HSM is initially determined by the SKU you specify during the creation process.
 
 You can change performance level of an existing payment HSM by changing its SKU. There will be no interruption in your production payment HSMs while performance level is being updated.
 
-The SKU of a payment HSM can be updated through ARMClient and PowerShell. 
+The SKU of a payment HSM can be updated through ARMClient and PowerShell.
 
 ## Updating the SKU via ARMClient
 

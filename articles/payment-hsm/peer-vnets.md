@@ -1,6 +1,6 @@
 ---
-title: How to peer payment HSM virtual networks
-description: How to peer payment HSM virtual networks
+title: How to peer Azure Payment HSM virtual networks
+description: How to peer Azure Payment HSM virtual networks
 services: payment-hsm
 author: msmbaldwin
 

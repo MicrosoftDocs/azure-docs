@@ -1,6 +1,6 @@
 ---
-title: Create a payment HSM with Azure Payment HSM
-description: Create a payment HSM with Azure Payment HSM
+title: Create an Azure Payment HSM with Azure Payment HSM
+description: Create an Azure Payment HSM with Azure Payment HSM
 services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
@@ -12,7 +12,7 @@ ms.date: 09/12/2022
 
 # Tutorial: Create a payment HSM
 
-Azure Payment HSM Service is a "BareMetal" service delivered using Thales payShield 10K payment hardware security modules (HSM) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. This article describes how to create a Azure Payment HSM with the host and management port in same virtual network.  
+Azure Payment HSM Service is a "BareMetal" service delivered using Thales payShield 10K payment hardware security modules (HSM) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. This article describes how to create an Azure Payment HSM with the host and management port in same virtual network.  
 
 In this tutorial, you learn how to:
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Retrieve information about your payment HSM
 
 > [!NOTE]
-> If you wish to reuse an existing VNET, verify that you have met all of the [Prerequisites](#prerequisites) and then read [How to reuse an existing virtual network](reuse-vnet.md).
+> If you wish to reuse an existing VNet, verify that you have met all of the [Prerequisites](#prerequisites) and then read [How to reuse an existing virtual network](reuse-vnet.md).
 
 ## Prerequisites
 
@@ -104,10 +104,10 @@ Afterward, use the Azure CLI [az network vnet subnet update](/cli/azure/network/
 az network vnet subnet update -g "myResourceGroup" --vnet-name "myVNet" -n "myPHSMSubnet" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-To verify that the VNET and subnet were created correctly, use the Azure CLI [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) command:
+To verify that the VNet and subnet were created correctly, use the Azure CLI [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) command:
 
 ```azurecli-interactive
-az network vnet subnet show -g "myResourceGroup" --vnet-name "myVNET" -n myPHSMSubnet
+az network vnet subnet show -g "myResourceGroup" --vnet-name "myVNet" -n myPHSMSubnet
 ```
 
 Make note of the subnet's ID, as you will need it for the next step.  The ID of the subnet will end with the name of the subnet:
@@ -123,7 +123,7 @@ Before creating a payment HSM, you must first create a virtual network and a sub
 First, set some variables for use in the subsequent operations:
 
 ```azurepowershell-interactive
-$VNETAddressPrefix = @("10.0.0.0/16")
+$VNetAddressPrefix = @("10.0.0.0/16")
 $SubnetAddressPrefix = "10.0.0.0/24"
 $tags = @{fastpathenabled="true"}
 ```
@@ -146,10 +146,10 @@ $myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -Add
 To create an Azure Virtual Network, use the Azure PowerShell [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-New-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Tag $tags -AddressPrefix $VNETAddressPrefix -Subnet $myPHSMSubnetConfig
+New-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Tag $tags -AddressPrefix $VNetAddressPrefix -Subnet $myPHSMSubnetConfig
 ```
 
-To verify that the VNET was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
+To verify that the VNet was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
@@ -181,7 +181,7 @@ az dedicated-hsm create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To create a payment HSM, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNET ID from the previous step:
+To create a payment HSM, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
 
 ```azurepowershell-interactive
 New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"
@@ -233,7 +233,7 @@ Get-AzResource -ResourceGroupName "myResourceGroup" -ResourceType "Microsoft.Har
 
 ## Next steps
 
-Advance to the next article to learn how to how to access the payShield manager for your payment HSM
+Advance to the next article to learn how to access the payShield manager for your payment HSM
 > [!div class="nextstepaction"]
 > [Access the payShield manager](access-payshield-manager.md)
 
