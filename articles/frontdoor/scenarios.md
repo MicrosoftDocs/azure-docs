@@ -67,11 +67,15 @@ Traffic from your clients first arrives at a Front Door point of presence (PoP).
 
 Requests to your application are received by Front Door's PoP, and the clients' TCP and TLS connections terminate. The PoP performs many functions based on the configuration you specify in your Front Door profile, including:
 - Protecting your solution against many types of [DDoS attacks](front-door-ddos.md).
-- Using your custom domain name.
+- Using your [custom domain name](front-door-custom-domain.md).
 - Terminating the [TLS connection](end-to-end-tls.md), and using either a Front Door-managed TLS certificate or a custom TLS certificate.
 - Scanning the request for known vulnerabilties, by using the [Front Door WAF](web-application-firewall.md).
 - Returning [cached responses](front-door-caching.md), if they're stored at the Front Door PoP and are valid for the request.
+- Returning [HTTP redirect responses](front-door-url-redirect.md).
 - Selecting the best origin to receive the traffic based on the [routing architecture](front-door-routing-architecture.md).
+- Modifying a request by using the [rules engine](front-door-rules-engine.md).
+
+After Front Door finishes processing the inbound request, it either responds directly to the client (for example, when it returns a cached result) or forwards the request to the origin.
 
 ### Front Door to origin
 
@@ -82,6 +86,12 @@ The premium SKU of Front Door supports sending traffic to some origin types by u
 When the Front Door PoP sends requests to your origin by using a public IP address, it initiates a new TCP connection. Because of this behavior, your origin server sees the request originating from Front Door's IP address instead of the client.
 
 Whichever approach you use to send traffic to your origin, it's usually a good practice to configure your origin to expect traffic from your Front Door profile, and to block traffic that doesn't flow through Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
+
+## Response processing
+
+Front Door's PoP also processes the outbound response. Response processing might include the following steps:
+- Saving a response to the PoP's cache to accelerate later requests.
+- Modifying a response header by using the [rules engine](front-door-rules-engine-actions.md#modify-response-header).
 
 ## Next steps
 
