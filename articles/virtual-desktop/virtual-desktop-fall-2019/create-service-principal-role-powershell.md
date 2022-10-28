@@ -27,7 +27,7 @@ In this tutorial, learn how to:
 
 ## Prerequisites
 
-Before you can create service principals and role assignments, you need to do three things:
+Before you can create service principals and role assignments, you need to do the following:
 
 1. Follow the steps to [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
