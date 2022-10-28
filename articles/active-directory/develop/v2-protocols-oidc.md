@@ -71,7 +71,7 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Azure AD tenant (directory members with a work or school account or directory guests with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Azure AD tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
 
 > [!TIP]
-> Note that when using the `common` or `consumers` authority for personal Microsoft accounts, the consuming resource application must be configured to support such type of accounts in accordance with [signInAudience](https://learn.microsoft.com/en-us/azure/active-directory/develop/supported-accounts-validation).
+> Note that when using the `common` or `consumers` authority for personal Microsoft accounts, the consuming resource application must be configured to support such type of accounts in accordance with [signInAudience](/azure/active-directory/develop/supported-accounts-validation).
 
 You can also find your app's OpenID configuration document URI in its app registration in the Azure portal.
 
