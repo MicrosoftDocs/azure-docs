@@ -53,6 +53,9 @@ To see which services support availability zones, see [Azure regions with availa
 > [Azure services and regions with availability zones](az-service-support.md)
 
 > [!div class="nextstepaction"]
+> [Availability zone migration guidance overview](az-migration-overview.md)
+
+> [!div class="nextstepaction"]
 > [Availability of service by category](region-types-service-categories-azure.md)
 
 > [!div class="nextstepaction"]

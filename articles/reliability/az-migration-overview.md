@@ -70,5 +70,15 @@ The table below lists each product that offers migration guidance and/or informa
 
 ## Next steps
 
-- [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
-- [Azure services that support availability zones](az-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure services and regions with availability zones](az-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Availability of service by category](region-types-service-categories-azure.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
+
+> [!div class="nextstepaction"]
+> [Build solutions for high availability using availability zones](https://learn.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
