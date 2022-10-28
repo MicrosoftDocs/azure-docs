@@ -19,15 +19,15 @@ ms.author: kpunjabi
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A websocket server that can receive media streams.
 
-## Setup a websocket server
-Azure Communication Services requires your server application to setup a WebSocket server to stream audio in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. 
-You can optionally leverage Azure services Azure WebApps that allows you to create an application to receive audio streams over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
+## Set up a websocket server
+Azure Communication Services requires your server application to set up a WebSocket server to stream audio in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. 
+You can optionally use Azure services Azure WebApps that allows you to create an application to receive audio streams over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
 ## Establish a call
-In this quickstart we assume that you are already familiar with starting calls, if you need to learn more about starting and establishing calls, you can follow our [quickstart](.../../Callflows-for-customer-interactions.md). For the purposes of this quickstart we will be going through the process of starting media streaming for both incoming calls and outbound calls. 
+In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../callflows-for-customer-interactions.md). For the purposes of this quickstart, we'll be going through the process of starting media streaming for both incoming calls and outbound calls. 
 
 ## Start media streaming - Incoming call 
-You application will start streaming media when it answers an incoming call. This can be done by providing ACS with your websocket information at the time of answering the call. 
+Your application will start receiving media streams once you answer the call and provide ACS with the WebSocket information. 
 
 ``` csharp
 var mediaStreamingOptions = new MediaStreamingOptions(
@@ -43,7 +43,7 @@ var mediaStreamingOptions = new MediaStreamingOptions(
 ```
 
 ## Start media streaming - Outbound call
-Media streaming can also be initiated when your application creates an outbound call. This can be done by providing ACS the websocket information at the time of the call creation. 
+Your application will start receiving media streams once you create the call and provide ACS with the WebSocket information. 
 
 ``` csharp
 var mediaStreamingOptions = new MediaStreamingOptions(
