@@ -5794,6 +5794,11 @@
             "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/tutorials/learn-multivariate-anomaly-detection.md",
             "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/How-to/multivariate-how-to.md",
+            "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+            "redirect_document_id": false
         }  
         
     ]
