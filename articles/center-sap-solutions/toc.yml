@@ -41,6 +41,9 @@ items:
     - name: Monitor SAP system in Azure portal
       href: monitor-portal.md
 
+- name: SAP deployment automation framework on Azure
+  href: ./automation/toc.yml
+
 - name: Azure Monitor for SAP solutions
   href: ./monitor/toc.yml
 
