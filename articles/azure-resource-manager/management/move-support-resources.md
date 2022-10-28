@@ -1498,7 +1498,7 @@ Jump to a resource provider namespace:
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | Yes | Yes | No |
+> | virtualnetworkgateways | Yes | Yes - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
 > | virtualnetworks | Yes | Yes | No |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | Yes | Yes | No |
