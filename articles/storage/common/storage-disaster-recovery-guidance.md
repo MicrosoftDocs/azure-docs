@@ -162,7 +162,7 @@ Keep in mind that any data stored in a temporary disk is lost when the VM is shu
 
 The following features and services are not supported for account failover:
 
-- Storage accounts that have [change feed](../blobs/storage-blob-change-feed.md) enabled are not supported for failover. Other features such as [operational backup of Azure Blob Storage, enable or require the change feed feature](../../backup/blob-backup-support-matrix.md#limitations). Storage accounts that have such features configured do not support failover and those features must be disabled before initiating a failover.
+- Storage accounts that have [change feed](../blobs/storage-blob-change-feed.md) enabled are not supported for failover. For example, [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations) requires change feed. For this reason, storage accounts that have operational backup configured do not support failover. You must disable operational backup and any other features that require the change feed before initiating a failover.
 - Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
 - Storage accounts that have hierarchical namespace enabled (such as for Data Lake Storage Gen2) are not supported at this time.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
