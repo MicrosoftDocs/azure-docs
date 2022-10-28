@@ -3,6 +3,8 @@ title: Connect your non-Azure machines to Microsoft Defender for Cloud
 description: Learn how to connect your non-Azure machines to Microsoft Defender for Cloud
 ms.topic: quickstart
 ms.date: 02/27/2022
+author: bmansheim
+ms.author: benmansheim
 zone_pivot_groups: non-azure-machines
 ms.custom: mode-other
 ---

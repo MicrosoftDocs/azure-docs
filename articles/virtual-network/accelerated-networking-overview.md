@@ -3,7 +3,7 @@ title: Accelerated Networking overview
 description: Accelerated Networking to improves networking performance of Azure VMs.
 services: virtual-network
 documentationcenter: ''
-author: steveesp
+author: asudbring
 manager: gedegrac
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/15/2022
-ms.author: steveesp
+ms.author: allensu
 ---
 
 # What is Accelerated Networking?

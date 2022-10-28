@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 07/14/2022
+ms.date: 10/27/2022
 ms.topic: overview
 ms.custom: references_regions 
 ---
@@ -31,15 +31,15 @@ Azure Arc resource bridge (preview) hosts other components such as [custom locat
 
 Azure Arc resource bridge (preview) can host other Azure services or solutions running on-premises. For this preview, there are two objects hosted on the Arc resource bridge (preview):
 
-* Cluster extension: The Azure service deployed to run on-premises. For the preview release, it supports two services:
+* Cluster extension: The Azure service deployed to run on-premises. For the preview release, it supports three services:
 
   * Azure Arc-enabled VMware
-
   * Azure Arc-enabled Azure Stack HCI
+  * Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 
 * Custom locations: A deployment target where you can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the custom locations resource maps to an instance of vCenter, and for Arc-enabled Azure Stack HCI, it maps to an HCI cluster instance.
 
-Custom locations and cluster extension are both Azure resources, which are linked to the Azure Arc resource bridge (preview) resource in Azure Resource Manager. When you create an on-premises VM from Azure, you can select the custom location, and that routes that *create action* to the mapped vCenter or Azure Stack HCI cluster.
+Custom locations and cluster extension are both Azure resources, which are linked to the Azure Arc resource bridge (preview) resource in Azure Resource Manager. When you create an on-premises VM from Azure, you can select the custom location, and that routes that *create action* to the mapped vCenter, Azure Stack HCI cluster, or SCVMM.
 
 Some resources are unique to the infrastructure. For example, vCenter has a resource pool, network, and template resources. During VM creation, these resources need to be specified. With Azure Stack HCI, you just need to select the custom location, network and template to create a VM.
 
@@ -63,6 +63,15 @@ By registering resource pools, networks, and VM templates, you can represent a s
 ### Azure Stack HCI
 
 You can provision and manage on-premises Windows and Linux virtual machines (VMs) running on Azure Stack HCI clusters.
+
+### System Center Virtual Machine Manager (SCVMM) 
+
+You can connect an SCVMM management server to Azure by deploying Azure Arc resource bridge (preview) in the VMM environment. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and perform various operations on them:
+
+* Start, stop, and restart a virtual machine
+* Control access and add Azure tags
+* Add, remove, and update network interfaces
+* Add, remove, and update disks and update VM size (CPU cores and memory)
 
 ## Prerequisites
 
