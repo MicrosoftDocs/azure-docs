@@ -85,25 +85,25 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 1. The resource group should contain the following resources:
 
-    [ ![View resource records](./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png)](./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png#lightbox)
+    [ ![DNS resolver resource group](./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png)](./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png#lightbox)
 
 1. Select the DNS private resolver service to verify the provisioning and current state.
 
-   [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-page.png)](./media/dns-resolver-getstarted-template/resolver-page_new.png#lightbox)
+   [ ![DNS resolver page](./media/dns-resolver-getstarted-template/resolver-page.png)](./media/dns-resolver-getstarted-template/resolver-page.png#lightbox)
 
 1. Select the Inbound Endpoints and Outbound Endpoints to verify that the endpoints are created and the outbound endpoint is associated with the forwarding ruleset.
 
-    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png)](./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png#lightbox)
+    [ ![DNS resolver inbound endpoint](./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png)](./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png#lightbox)
 
-    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png)](./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png#lightbox)
+    [ ![DNS resolver outbound endpoint](./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png)](./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png#lightbox)
 
 1. Select the **Associated ruleset** from the outbound endpoint page to verify the forwarding ruleset and rules creation.
 
-    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png)](./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png#lightbox)
+    [ ![DNS resolver forwarding rule](./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png)](./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png#lightbox)
 
 1. Verify the resolver Virtual network is linked with forwarding ruleset.
 
-    [ ![View resource records](./media/dns-resolver-getstarted-template/resolver-vnet-link.png)](./media/dns-resolver-getstarted-template/resolver-vnet-link.png#lightbox)
+    [ ![DNS resolver VNet link](./media/dns-resolver-getstarted-template/resolver-vnet-link.png)](./media/dns-resolver-getstarted-template/resolver-vnet-link.png#lightbox)
 
 ## Next steps
 
