@@ -52,7 +52,11 @@ All user interactions with Chaos Studio happen through Azure Resource Manager. I
 * Service-direct AKS Chaos Mesh faults - Service-direct faults for Azure Kubernetes Service that use Chaos Mesh require access that the AKS cluster have a publicly-exposed Kubernetes API server. [You can learn how to limit AKS network access to a set of IP ranges here.](../aks/api-server-authorized-ip-ranges.md)
 * Agent-based faults - Agent-based faults require agent access to the Chaos Studio agent service. A virtual machine or virtual machine scale set must have outbound access to the agent service endpoint for the agent to connect successfully. The agent service endpoint is `https://acs-prod-<region>.chaosagent.trafficmanager.net`, replacing `<region>` with the region where your virtual machine is deployed, for example, `https://acs-prod-eastus.chaosagent.trafficmanager.net` for a virtual machine in East US.
 
-Azure Chaos Studio doesn't support Private Link.
+Azure Chaos Studio doesn't support Private Link for agent-based scenarios.
+
+## Service tags 
+A service tag is a group of IP address prefixes that can be assigned to in-bound and out-bound NSG rules. It handles updates to the group of IP address prefixes  without any intervention. This benefits you because you can use service tags to explicitly allow in-bound traffic from Chaos Studio, without needing to know the IP addresses of the platform. Currently service tags can be enabled via PowerShell.
+* Limitation of service tags is that they can only be used with resources that have a public IP address. If a resource only has a private IP address, then service tags will not be able to allow traffic to route to it. 
 
 ## Data encryption
 
