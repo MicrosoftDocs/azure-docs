@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 10/28/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -122,7 +122,7 @@ $accountName = "<account-name>"
 $kvUri = "<key-vault-uri>"
 $keyName = "<keyName>"
 $location = "<location>"
-$multiTenantAppId = "<application-id>"
+$multiTenantAppId = "<application-id>" # appId value from multi-tenant app
 
 $userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName $rgName
 
@@ -151,7 +151,7 @@ Remember to replace the placeholder values in brackets with your own values and 
 accountName="<storage-account>"
 kvUri="<key-vault-uri>"
 keyName="<key-name>"
-multiTenantAppId="<multi-tenant-app-id>"
+multiTenantAppId="<multi-tenant-app-id>" # appId value from multi-tenant app
 
 # Get the resource ID for the user-assigned managed identity.
 identityResourceId=$(az identity show --name $managedIdentity \
