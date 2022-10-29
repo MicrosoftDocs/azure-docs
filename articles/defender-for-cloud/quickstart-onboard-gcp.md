@@ -3,6 +3,8 @@ title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
 ms.date: 09/20/2022
+author: bmansheim
+ms.author: benmansheim
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -100,12 +102,6 @@ To locate the unique numeric ID in the GCP portal, navigate to **IAM & Admin** >
 
 1. (Optional) If you changed any of the names of any of the resources, update the names in the appropriate fields.
 
-1. (**Servers/SQL only**) Select **Azure-Arc for servers onboarding**
-
-    :::image type="content" source="media/quickstart-onboard-gcp/unique-numeric-id.png" alt-text="Screenshot showing the Azure-Arc for servers onboarding section of the screen." lightbox="media/quickstart-onboard-gcp/unique-numeric-id.png":::
-
-    Enter the service account unique ID, which is generated automatically after running the GCP Cloud Shell. 
-
 1. Select the **Next: Review and generate >**.
 
 1. Ensure the information presented is correct.
@@ -139,7 +135,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
-- Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
+- Ensure you've fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
 
 - Additional extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint

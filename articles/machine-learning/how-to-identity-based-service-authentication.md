@@ -45,7 +45,7 @@ You can add a user-assigned managed identity when creating an Azure Machine Lear
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
 1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
 
-You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/) to create a workspace with user-assigned managed identity.
+You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet) to create a workspace with user-assigned managed identity.
 
 > [!TIP]
 > For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
@@ -149,7 +149,7 @@ There are two scenarios in which you can apply identity-based data access in Azu
 - Accessing storage services
 - Training machine learning models
 
-The identity-based access allows you to use [role-based access controls (RBAC)](/azure/storage/blobs/assign-azure-role-data-access) to restrict which identities, such as users or compute resources, have access to the data. 
+The identity-based access allows you to use [role-based access controls (RBAC)](../storage/blobs/assign-azure-role-data-access.md) to restrict which identities, such as users or compute resources, have access to the data. 
 
 ### Accessing storage services
 
@@ -183,7 +183,7 @@ If you're training a model on a remote compute target and want to access the dat
 
 Certain machine learning scenarios involve working with private data. In such cases, data scientists may not have direct access to data as Azure AD users. In this scenario, the managed identity of a compute can be used for data access authentication. In this scenario, the data can only be accessed from a compute instance or a machine learning compute cluster executing a training job.
 
-With this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information on configuring the managed identity for the compute cluster, see the [compute cluster](#compute-cluster) section. For information on using configuring Azure RBAC for the storage, see [role-based access controls](/storage/blobs/assign-azure-role-data-access).
+With this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information on configuring the managed identity for the compute cluster, see the [compute cluster](#compute-cluster) section. For information on using configuring Azure RBAC for the storage, see [role-based access controls](../storage/blobs/assign-azure-role-data-access.md).
 
 ### Work with virtual networks
 

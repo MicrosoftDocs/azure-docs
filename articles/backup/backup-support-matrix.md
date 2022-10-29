@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 10/21/2022
 ms.custom: references_regions 
 author: v-amallick
 ms.service: backup
@@ -162,8 +162,8 @@ The resource health check functions in following conditions:
 
 | Resource health check    | Details    |
 | --- | --- |
-| **Supported Resources** | Recovery Services vault |
-| **Supported Regions** | East US, East US 2, Central US, South Central US, North Central US, West Central US, West US, West US 2, West US 3, Canada East, Canada Central, North Europe, West Europe, UK West, UK South, France Central, France South, Sweden Central, Sweden South, East Asia, South East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia Central, Australia Central 2, Australia South East, South Africa North, South Africa West, UAE North, UAE Central, Brazil South East, Brazil South, Switzerland North, Switzerland West, Norway East, Norway West, Germany North, Germany West Central, West India, Central India, South India, Jio India West, Jio India Central. |
+| **Supported Resources** | Recovery Services vault, Backup vault |
+| **Supported Regions** | - Recovery Services vault: Supported in all Azure public regions, US Sovereign cloud, and China Sovereign cloud. <br><br> - Backup vault: Supported in all Azure public regions, except Sovereign clouds. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
 ## Zone-redundant storage support

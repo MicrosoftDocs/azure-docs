@@ -74,7 +74,7 @@ Device identities can also be exported and imported from an IoT Hub via the Serv
 
 The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as Table storage, Blob storage, or Azure Cosmos DB to store any additional device data.
 
-*Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
+*Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](../iot-dps/index.yml).
 
 ## Device heartbeat
 
@@ -170,4 +170,4 @@ To try out some of the concepts described in this article, see the following IoT
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)

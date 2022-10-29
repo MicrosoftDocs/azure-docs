@@ -3,8 +3,8 @@ title: How to view AutoML model training code
 titleSuffix: Azure Machine Learning AutoML
 description: How to view model training code for an automated ML trained model and explanation of each stage.
 services: machine-learning
-author: cesardl
-ms.author: cesardl
+author: shouryaj
+ms.author: shoja
 ms.service: machine-learning
 ms.subservice: automl
 ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
@@ -365,7 +365,7 @@ If you make changes to `script.py` that require additional dependencies, or you 
 
 ### Submit the experiment
 
-Since the generated code isn’t driven by automated ML anymore, instead of creating and submitting an AutoML Job, you need to create a [`Command Job`](/how-to-train-sdk) and provide the generated code (script.py) to it. 
+Since the generated code isn’t driven by automated ML anymore, instead of creating and submitting an AutoML Job, you need to create a `Command Job` and provide the generated code (script.py) to it. 
 
 The following example contains the parameters and regular dependencies needed to run a Command Job, such as compute, environment, etc.
 ```python
@@ -392,5 +392,5 @@ print(returned_job.studio_url) # link to naviagate to submitted run in AzureML S
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](/azure/machine-learning/v1/how-to-deploy-and-where).
+* Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).
 * See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.

@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022
-ms.author: sgilley
-author: sdgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
-ms.date: 09/21/2022
+ms.date: 10/19/2022
 ---
 
 # Create an Azure Machine Learning compute cluster
@@ -77,6 +77,10 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 [!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
+
+The fastest way to create a compute cluster is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
+
+Or use the following examples to create a compute cluster with more options:
     
 # [Python SDK](#tab/python)
 

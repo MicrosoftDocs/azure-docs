@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/13/2022
+ms.date: 10/25/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,6 +20,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## October 2022
+
+* [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview) 
+
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../availability-zones/az-overview.md#availability-zones) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). 
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
 

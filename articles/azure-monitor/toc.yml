@@ -26,7 +26,7 @@ items:
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
   - name: Forward syslog data to workspace
-    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -45,8 +45,6 @@ items:
       href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
       href: app/tutorial-performance.md
-    - name: Alert on application health
-      href: app/tutorial-alert.md
     - name: Understand application users
       href: app/tutorial-users.md
     - name: Dashboard with application data
@@ -228,6 +226,9 @@ items:
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Remote-write
+        displayName: Prometheus
+        href: essentials/prometheus-remote-write-managed-identity.md
       - name: Configure Grafana
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
@@ -245,7 +246,7 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration.md
-        - name: Create and validate custom scrape config
+        - name: Create, validate and troubleshoot custom scrape config
           displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
@@ -370,6 +371,8 @@ items:
         href: logs/query-optimization.md
       - name: Functions
         href: logs/functions.md
+      - name: Detect and analyze anomalies
+        href: logs/kql-machine-learning-azure-monitor.md
       - name: Parse text data
         href: logs/parse-text.md
       - name: Computer groups
@@ -735,6 +738,8 @@ items:
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
         href: alerts/alerts-non-common-schema-definitions.md
+      - name: Customize alert notifications using Logic Apps
+        href: alerts/alerts-logic-apps.md  
       - name: Integrate the common alert schema with Logic Apps
         href: alerts/alerts-common-schema-integrations.md
       - name: Implement a Logic App action
@@ -1545,8 +1550,6 @@ items:
       items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
     - name: Dashboards
       items:
       - name: Dashboard using log data

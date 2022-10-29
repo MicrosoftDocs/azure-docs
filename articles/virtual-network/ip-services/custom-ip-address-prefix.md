@@ -48,13 +48,11 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * A custom IP prefix must be associated with a single Azure region.
 
-* The minimum size of an IP range is /24.
-
-* IPv6 is currently not supported for custom IP prefixes.
+* An IPv4 range can be equal or between /21 to /24.  An IPv6 range can be equal or between /46 to /48.
 
 * Custom IP prefixes do not currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
 
-* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
+* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IPv4 prefix (or a regional custom IPv6 prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
 

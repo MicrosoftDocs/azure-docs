@@ -29,6 +29,8 @@ items:
     href: data-flow-create.md
   - name: Training modules
     href: quickstart-learn-modules.md
+  - name: Azure Data Factory Studio Learning center
+    href: https://ms-adf.azure.com/learn
 - name: Tutorials
   items:
   - name: List of tutorials
@@ -288,14 +290,14 @@ items:
       - name: Supported functions
         href: wrangling-functions.md
         displayName: power
+  - name: Change Data Capture
+    href: concepts-change-data-capture.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
-  - name: Change Data Capture
-    href: concepts-change-data-capture.md
 - name: SAP knowledge center
   items:
   - name: Overview
@@ -1180,7 +1182,7 @@ items:
       - name: Azure files
         href: connector-troubleshoot-azure-files.md
         displayName: troubleshooting
-      - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+      - name: Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server
         href: connector-troubleshoot-synapse-sql.md
         displayName: troubleshooting
       - name: Azure Table Storage

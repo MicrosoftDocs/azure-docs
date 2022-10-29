@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 10/20/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -43,7 +43,7 @@ The Azure AD Kerberos functionality for hybrid identities is only available on t
 
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
-This feature doesn't currently support user accounts that you create and manage solely in Azure AD. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
+This feature doesn't currently support user accounts that you create and manage solely in Azure AD. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
 You must disable multi-factor authentication (MFA) on the Azure AD app representing the storage account.
 
@@ -107,7 +107,7 @@ Azure AD Kerberos doesn't support using MFA to access Azure file shares configur
 
 ## Assign share-level permissions
 
-When you enable identity-based access, you can set for each share which users and groups have access to that particular share. Once a user is allowed into a share, NTFS permissions on individual files and folders take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
+When you enable identity-based access, you can set for each share which users and groups have access to that particular share. Once a user is allowed into a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
 
 To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
 
