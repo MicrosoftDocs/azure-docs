@@ -15,7 +15,7 @@ ms.author: allensu
 # NAT gateway and availability zones
 NAT gateway is a zonal resource, which means it can be deployed and operate out of individual availability zones. With zone isolation scenarios, you can align your zonal NAT gateway resources with zonally designated IP based resources, such as virtual machines, to provide zone resiliency against outages. Review this document to understand key concepts and fundamental design guidance. 
 
-:::image type="content" source="./media/nat-availability-zones/zonal-nat-gateway.png" alt-text="Zonal deployment of NAT gateway.":::
+:::image type="content" source="./media/nat-availability-zones/zonal-nat-gateway.png" alt-text="Diagram of zonal deployment of NAT gateway.":::
 
 *Figure 1: Zonal deployment of NAT gateway.*
 
@@ -44,7 +44,7 @@ Now that you understand the zone-related properties for NAT gateway, see the fol
 
 A single zonal NAT gateway resource can be configured to either a subnet that contains virtual machines that span across multiple availability zones or to multiple subnets with different zonal virtual machines. When this type of deployment is configured, NAT gateway will provide outbound connectivity to the internet for all subnet resources from the specific zone it's located. If the zone that NAT gateway is deployed in goes down, then outbound connectivity across all virtual machine instances associated with the NAT gateway will also go down. This set up doesn't provide the best method of zone-resiliency.
 
-:::image type="content" source="./media/nat-availability-zones/single-nat-gw-zone-spanning-subnet.png" alt-text="Single zonal NAT gateway resource.":::
+:::image type="content" source="./media/nat-availability-zones/single-nat-gw-zone-spanning-subnet.png" alt-text="Diagram of single zonal NAT gateway resource.":::
 
 *Figure 2: Single zonal NAT gateway resource for multi-zone spanning resources doesn't provide an effective method of zone-resiliency against outages.*
 
@@ -52,7 +52,7 @@ A single zonal NAT gateway resource can be configured to either a subnet that co
 
 A zonal promise for zone isolation scenarios exists when a virtual machine instance using a NAT gateway resource is in the same zone as the NAT gateway resource and its public IP addresses. The pattern you want to use for zone isolation is creating a "zonal stack" per availability zone. This "zonal stack" consists of virtual machine instances, a NAT gateway resource with public IP addresses or prefix on a subnet all in the same zone.
 
-:::image type="content" source="./media/nat-availability-zones/multiple-zonal-nat-gateways.png" alt-text="Zonal isolation by creating zonal stacks.":::
+:::image type="content" source="./media/nat-availability-zones/multiple-zonal-nat-gateways.png" alt-text="Diagram of zonal isolation by creating zonal stacks.":::
 
 *Figure 3: Zonal isolation by creating zonal stacks with the same zone NAT gateway, public IPs, and virtual machines provides the best method of ensuring zone resiliency against outages.*
 
