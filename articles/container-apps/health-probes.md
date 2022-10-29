@@ -164,7 +164,7 @@ If ingress is enabled, the following default probes are automatically added to t
 | -- | -- |
 | Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 1 second<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds` |
 | Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds / 5` |
-| Liveness | Protocol: TCP<br>Port: ingress target port<br>Failure threshold: `timeoutSeconds / 5` |
+| Liveness | Protocol: TCP<br>Port: ingress target port |
 
 If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
 
