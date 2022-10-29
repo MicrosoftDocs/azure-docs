@@ -113,7 +113,7 @@ When indexing a video, default streaming settings are applied. Below are the str
 
 Insights are generated but no streaming operation is performed and the video isn't available on the Azure Video Indexer website.  When No streaming is selected, you aren't billed for encoding. 
 
-## Customizing content models - people, animated characters, and brand categories 
+### Customizing content models - People/Animated characters and Brand categories 
 
 Azure Video Indexer allows you to customize some of its models to be adapted to your specific use case. These models include animated characters, brands, language, and person. If you have customized models, this section enables you to configure if one of the created models should be used for the indexing. 
 
