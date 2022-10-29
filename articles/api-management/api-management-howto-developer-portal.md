@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/10/2022
+ms.date: 10/28/2022
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -23,14 +23,14 @@ As introduced in this article, you can customize and extend the developer portal
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## Migration from the legacy portal
+## Migrate from the legacy portal
 
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
 
 Migration to the new developer portal is described in the [dedicated documentation article](developer-portal-deprecated-migration.md).
 
-## Customization and styling of the managed portal
+## Customize and style the managed portal
 
 Your API Management service includes a built-in, always up-to-date, **managed** developer portal. You can access it from the Azure portal interface.
 
@@ -39,6 +39,12 @@ Your API Management service includes a built-in, always up-to-date, **managed** 
 * Use the visual editor to modify pages, media, layouts, menus, styles, or website settings. 
 
 * Take advantage of built-in widgets to add text, images, buttons, and other objects that the portal supports out-of-the-box. 
+
+* Control how the portal content appears to different [users and groups](api-management-howto-create-groups.md) you've configured. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access specific APIs. The developer portal has built-in access controls for these needs.
+
+* When you add or edit a page, select the **Access** tab to choose who can access the page
+* When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to choose who can see the element on the page
+
 
 > [!NOTE]
 > The managed developer portal receives and applies updates automatically. Changes that you've saved but not published to the developer portal remain in that state during an update.

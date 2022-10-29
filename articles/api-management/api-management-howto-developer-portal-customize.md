@@ -80,7 +80,7 @@ If you're accessing the portal for the first time, the default content is automa
 
 You can customize the content of the portal with the visual editor. 
 * The menu sections on the left let you create or modify pages, media, layouts, menus, styles, or website settings. 
-* The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to authenticated or anonymous users, or save or undo actions.
+* The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to users in different groups, or save or undo actions.
 * Add rows to a page by clicking on a blue icon with a plus sign. 
 * Widgets (for example, text, images, or APIs list) can be added by pressing a grey icon with a plus sign.
 * Rearrange items in a page with the drag-and-drop interaction. 
@@ -167,6 +167,14 @@ Although you don't need to adjust any styles, you may consider adjusting particu
 In the following video, we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
+
+### Visibility and access controls
+
+By default, the portal's content is the same for all visitors. However, you can control how the portal content appears to different [users and groups](api-management-howto-create-groups.md) you've configured. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or you might want to make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
+
+* When you add or edit a page, select the **Access** tab to choose who can access the page
+* When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to choose who can see the element on the page
+
 
 ## <a name="publish"></a> Publish the portal
 
