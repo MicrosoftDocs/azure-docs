@@ -97,3 +97,11 @@ sections:
           What data replication mechanism is used by Azure Synapse Link for SQL?
         answer: |
           A new change feed processor has been integrated into the Azure SQL Database and SQL Server 2022 engine to enable this functionality.
+      - question: |
+          What is the Azure SQL DB and Landing Zone impact when a Synapse workspace is removed/deleted that contains Azure Synapse Links?
+        answer: |
+        Azure SQL DB retrieves Shared Access Signature (SAS) tokens from Synapse Gateway every 8 hours. This token is used to publish initial and incremental
+        changed to the landing zone. In between the 8 hours prior to token retrieval, Azure SQL DB will continue to write to the Landing Zone. When Synapse workspace
+        is removed, a) Azure SQL DB will be invoked by ADF/Synapse process to stop data replication from landing zone into Synapse  b) For SQL Server 2022, since landing zone 
+        storage account is user managed, the user will get I/O operation error. Error # 15856, 22771, 22782 or 22777
+
