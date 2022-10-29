@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 10/28/2022
 ms.author: cshoe
 ---
 
@@ -158,7 +158,15 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 ## Default configuration
 
-Container Apps offers default probe settings if no probes are defined. If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
+If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+
+| Probe type | Default values |
+| -- | -- |
+| Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 1 second<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds` |
+| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds / 5` |
+| Liveness | Protocol: TCP<br>Port: ingress target port<br>Failure threshold: `timeoutSeconds / 5` |
+
+If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
 
 The following example demonstrates how to configure the liveness and readiness probes in order to extend the startup times.
 

@@ -32,7 +32,10 @@ As a container app is updated with a [revision scope-change](revisions.md#revisi
 
 ### Zero downtime deployment
 
-In single revision mode, Container Apps automatically ensures your app does not experience downtime when creating new a revision. The existing active revision is not deactivated until the new revision is ready. The criteria for when a revision becomes ready is defined by its readiness probe. If ingress is enabled, the existing revision will continue to receive 100% of the traffic until the new revision is ready.
+In single revision mode, Container Apps automatically ensures your app does not experience downtime when creating new a revision. The existing active revision is not deactivated until the new revision is ready. If ingress is enabled, the existing revision will continue to receive 100% of the traffic until the new revision is ready.
+
+> [!NOTE]
+> A new revision is considered ready when one of its replicas starts and becomes ready. A replica is ready when all of its containers start and pass their [startup and readiness probes](./health-probes.md).
 
 In multiple revision mode, you control when revisions are activated or deactivated and which revisions are receiving ingress traffic.
 
