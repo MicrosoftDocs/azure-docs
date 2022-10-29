@@ -17,10 +17,10 @@ This step is needed before a policy can be created in Microsoft Purview for that
 
    Follow this [guide to configure Azure RBAC role permissions](../../role-based-access-control/check-access.md). The following screenshot shows how to access the Access Control section in Azure portal experience for the data resource to add a role assignment:
 
-   ![Screenshot shows how to access Access Control in Azure Portal to add a role assignment](../media/how-to-policies-data-owner-authoring-generic/assign-IAM-permissions.png)
+   ![Screenshot shows how to access Access Control in Azure Portal to add a role assignment.](../media/how-to-policies-data-owner-authoring-generic/assign-IAM-permissions.png)
 
 2) In addition, the same user needs to have Microsoft Purview Data source administrator (DSA) role for the collection or a parent collection (if inheritance is enabled). See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users). The following screenshot shows how to assign Data Source Admin at root collection level:
-![Screenshot shows how to assign Data Source Admin at root collection level](../media/how-to-policies-data-owner-authoring-generic/assign-purview-permissions.png)
+![Screenshot shows how to assign Data Source Admin at root collection level.](../media/how-to-policies-data-owner-authoring-generic/assign-purview-permissions.png)
 
 #### Configure Microsoft Purview permissions needed to create or update access policies
 The following permissions are needed in Microsoft Purview at the **root collection level**:
