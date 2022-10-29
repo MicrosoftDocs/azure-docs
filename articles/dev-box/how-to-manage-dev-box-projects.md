@@ -66,7 +66,7 @@ The following steps show you how to create and configure a project in dev box.
 
 1. Verify that you see the **Project** page.
 ## Delete a dev box project
-You can delete a dev box project when you're no longer using it. Deleting a project is permanent and cannot be undone.
+You can delete a dev box project when you're no longer using it. Deleting a project is permanent and cannot be undone. You cannot delete a project that has dev box pools associated with it.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
