@@ -389,7 +389,7 @@ $virtualNetwork |  Set-AzVirtualNetwork
 - [Azure Functions](https://azure.microsoft.com/services/functions/)
 
 > [!NOTE]
-> App services deployed under App Service Plan do not support NSG Flow Logs. Please refer [this documentation](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works) for additional details.
+> App services deployed under the App Service Plan do not support NSG Flow Logs. [Learn more](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
 
 ## Best practices
 
