@@ -99,8 +99,6 @@ Technologies like [Intel Software Guard Extensions](https://software.intel.com/s
 
 Insider threat is characterized as potential for providing back-door connections and cloud service provider (CSP) privileged administrator access to your systems and data. For more information on how Microsoft restricts insider access to your data, see [Restrictions on insider access](./documentation-government-plan-security.md#restrictions-on-insider-access).
 
-All Azure and Azure Government employees in the United States are subject to Microsoft background checks. For more information, see [Screening](./documentation-government-plan-security.md#screening). Azure Government provides you with an extra layer of protection through contractual commitments regarding storage of your data in the United States and limiting potential access to systems processing your data to screened US persons that have completed fingerprint background checks and criminal records checks to address CJIS requirements.
-
 ## Monitoring your Azure resources
 
 Azure provides essential services that you can use to gain in-depth insight into your provisioned Azure resources and get alerted about suspicious activity, including outside attacks aimed at your applications and data. For more information about these services, see [Customer monitoring of Azure resources](./documentation-government-plan-security.md#customer-monitoring-of-azure-resources).
