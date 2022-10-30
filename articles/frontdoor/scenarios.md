@@ -46,6 +46,8 @@ By using the Front Door cache, you reduce the load on your application servers. 
 
 Front Door can help you to reduce the cost of running your Azure solution by using caching. Cached content is returned from global Front Door edge nodes, reducing global bandwidth charges, and reducing the load on - and resources required by - your application server.
 
+You can use a single Front Door profile for many different applications. When you configure multiple applications in Front Door, you share the cost across each application, and you can reduce the configuration you need to perform.
+
 ### Operational excellence
 
 Front Door can help you to modernize your legacy applications with [HTTP/2 support](front-door-http2.md). The Front Door [rules engine](front-door-rules-engine.md) enables you to change the internal architecture of your solution without affecting your clients.

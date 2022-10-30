@@ -40,14 +40,14 @@ Data flows through the scenario as follows:
 
 ## Scenario details
 
-Static content delivery is useful in a number of situations, including:
+Static content delivery is useful in many situations, including the following:
 - Delivering images, CSS files, and JavaScript files for a web application.
 - Serving files and documents, such as PDF files or JSON files.
 - Delivering non-streaming video.
 
 By its nature, static content doesn't change frequently. Static files might also be large in size. These characteristics make it a good candidate to be cached, which improves performance and reduces the cost to serve requests.
 
-In a complex scenario, a single Front Door profile might serve static content as well as dynamic content. You can use separate origin groups for each type of origin, and use Front Door's routing capabilities to route incoming requests to the correct origin.
+In a complex scenario, a single Front Door profile might serve static content and dynamic content. You can use separate origin groups for each type of origin, and use Front Door's routing capabilities to route incoming requests to the correct origin.
 
 ## Considerations
 
@@ -77,7 +77,7 @@ You can use the Front Door WAF to perform [rate limiting](../web-application-fir
 
 ### Resiliency
 
-Front Door has provides a 99.99% availablity service level agreement (SLA). As a globally distributed service, Front Door is resilient to failures of single Azure regions and PoPs.
+Front Door has provides a 99.99% availability service level agreement (SLA). As a globally distributed service, Front Door is resilient to failures of single Azure regions and PoPs.
 
 By using the Front Door cache, you reduce the load on your storage account. Additionally, if your storage account is unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
 
@@ -85,9 +85,9 @@ You can further improve the resiliency of the overall solution by considering th
 
 ### Cost optimization
 
-Caching can help to reduce the cost of delivering static content. Front Door's PoPs store copies of responses, and can deliver these for any subsequent requests. Caching reduces the request load on the origin. In high-scale static content-based solutions, especially those delivering large files, caching can reduce the traffic costs considerably.
+Caching can help to reduce the cost of delivering static content. Front Door's PoPs store copies of responses, and can deliver these cached responses for any subsequent requests. Caching reduces the request load on the origin. In high-scale static content-based solutions, especially those delivering large files, caching can reduce the traffic costs considerably.
 
-To use Private Link in this solution, you must deploy the premium tier of Front Door. You can use the standard tier if you don't need to block traffic going directly to your storage account. For more infromation, see [Origin security](#origin-security).
+To use Private Link in this solution, you must deploy the premium tier of Front Door. You can use the standard tier if you don't need to block traffic going directly to your storage account. For more information, see [Origin security](#origin-security).
 
 ## Deploy this scenario
 
