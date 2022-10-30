@@ -20,8 +20,6 @@ Azure Front Door accelerates the delivery of static content from Azure Storage b
 
 :::image type="content" source="./media/scenario-storage-blobs/architecture-diagram.png" alt-text="Diagram of Azure Front Door with a blob storage origin." border="false":::
 
-*Download a [Visio file](TODO) of this architecture.*
-
 In this reference architecture, you deploy a storage account and Front Door profile with a single origin.
 
 ## Dataflow
@@ -44,7 +42,7 @@ Data flows through the scenario as follows:
 
 Static content delivery is useful in a number of situations, including:
 - Delivering images, CSS files, and JavaScript files for a web application.
-- Serving files, such as PDF files or JSON files.
+- Serving files and documents, such as PDF files or JSON files.
 - Delivering non-streaming video.
 
 By its nature, static content doesn't change frequently. Static files might also be large in size. These characteristics make it a good candidate to be cached, which improves performance and reduces the cost to serve requests.
@@ -55,35 +53,46 @@ In a complex scenario, a single Front Door profile might serve static content as
 
 ### Scalability and performance
 
-Azure Front Door is particularly well suited to improving the performance of serving static content. As a content delivery network (CDN), Front Door caches the content at its PoPs. When a cached copy of a response is available at a PoP, Front Door can quickly respond with the cached response. If the PoP doesn't have a valid cached response, Front Door's traffic acceleration capabilities reduce the time to serve the content from the origin.
+As a content delivery network (CDN), Front Door caches the content at its globally distributed network of PoPs. When a cached copy of a response is available at a PoP, Front Door can quickly respond with the cached response. Returning content from the cache improves the performance of the solution, and reduces the load on the origin. If the PoP doesn't have a valid cached response, Front Door's traffic acceleration capabilities reduce the time to serve the content from the origin.
 
 ### Security
 
-- Custom domains
-- Origin configuration
-   - If security is important, Private Link is a good idea
-  - You can use public IP address, but storage account firewall can't easily restrict traffic to only that which flows through your Front Door profile
-- SAS tokens??
-- For serving static content, managed WAF rules unlikely to be as important as for dynamic applications. However, you might want to use WAF for rate limiting or geofiltering.
+#### Authentication
+
+Front Door is designed to be internet-facing, and this scenario is optimized for publicly available blobs. If you need to authenticate access to blobs, consider using [shared access signatures](../storage/common/storage-sas-overview.md), and ensure that you enable the [*ignore query strings* query string behavior](front-door-caching.md#query-string-behavior) to avoid Front Door from serving requests to unauthenticated clients. However, this approach might not make effective use of the Front Door cache, because each request with a different shared access signature must be sent to the origin separately.
+
+#### Origin security
+
+Front Door securely connects to the Azure Storage account by using [Private Link](private-link.md). The storage account is configured to deny direct access from the internet, and to only allow requests through the private endpoint connection used by Front Door. This configuration ensures that every request is processed by Front Door, and avoids exposing the contents of your storage account directly to the internet. However, this configuration requires the premium SKU of Azure Front Door. If you use the standard SKU, your storage account must be publicly accessible. You could use a [shared access signature](../storage/common/storage-sas-overview.md) to secure requests to the storage account, and either have the client include the signature on all of their requests, or use the Front Door [rules engine](front-door-rules-engine.md) to attach it from Front Door.
+
+#### Custom domains
+
+Front Door supports custom domains, and can issue and manage TLS certificates for those domains. By using custom domains, you can ensure that your clients receive files from a trusted and familiar domain name, and that TLS encrypts every connection to Front Door.
+
+When Front Door manages your TLS certificates, you avoid outages and security issues due to invalid or outdated TLS certificates.
+
+#### Web application firewall
+
+You can use the Front Door WAF to perform [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) and [geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) if require those capabilities. When serving static content, managed WAF rules are generally not used, because they're designed to protect application servers and dynamic applications.
 
 ### Resiliency
 
-By using the Front Door cache, you reduce the load on your storage account. If your storage account is unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
+Front Door has provides a 99.99% availablity service level agreement (SLA). As a globally distributed service, Front Door is resilient to failures of single Azure regions and PoPs.
 
-You can further improve the resiliency of the overall solution by considering the resiliency of the storage account, such as by using one of the following approaches:
+By using the Front Door cache, you reduce the load on your storage account. Additionally, if your storage account is unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
 
-- Within a single region, use zone-redundant storage to ensure multiple replicas of your data are stored in separate physical locations.
-- TODO GRS
-- Alternatively, you can deploy multiple storage accounts
+You can further improve the resiliency of the overall solution by considering the resiliency of the storage account. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). Alternatively, you can deploy multiple storage accounts, and configure multiple origins in your Front Door origin group, and configure failover between the origins by configuring each origin's priority. For more information, see [Origins and origin groups in Azure Front Door](origin.md).
 
-### Cost optimisation
-- Caching helps
-- Standard vs. premium
+### Cost optimization
+
+Caching can help to reduce the cost of delivering static content. Front Door's PoPs store copies of responses, and can deliver these for any subsequent requests. Caching reduces the request load on the origin. In high-scale static content-based solutions, especially those delivering large files, caching can reduce the traffic costs considerably.
+
+To use Private Link in this solution, you must deploy the premium tier of Front Door. You can use the standard tier if you don't need to block traffic going directly to your storage account. For more infromation, see [Origin security](#origin-security).
 
 ## Deploy this scenario
 
-TODO ARM template, TF
+To deploy this scenario... TODO
 
 ## Next steps
 
-TODO
+Learn how to [create a Front Door profile](create-front-door-portal.md).

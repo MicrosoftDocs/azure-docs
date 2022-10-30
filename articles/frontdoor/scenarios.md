@@ -95,4 +95,4 @@ Front Door's PoP also processes the outbound response. Response processing might
 
 ## Next steps
 
-TODO
+Learn how to [create a Front Door profile](create-front-door-portal.md).
