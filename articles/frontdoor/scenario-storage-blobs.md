@@ -18,7 +18,7 @@ Azure Front Door accelerates the delivery of static content from Azure Storage b
 
 ## Architecture
 
-![Architecture overview of the Azure components of a real-time fraud detection scenario][media/scenario-storage-blobs/architecture-diagram.png]
+:::image type="content" source="./media/scenario-storage-blobs/architecture-diagram.png" alt-text="Diagram of Azure Front Door with a blob storage origin." border="false":::
 
 *Download a [Visio file](TODO) of this architecture.*
 
