@@ -58,7 +58,7 @@ To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication 
     - Cache successful authentications to the website using cookies
     - Select how to authenticate the primary credentials
 
-12. Since the AD FS proxy serverisn't likely to be joined to the domain, you can use LDAP to connect to your domain controller for user import and pre-authentication. In the Advanced Form-Based Website dialog box, click the **Primary Authentication** tab and select **LDAP Bind** for the Pre-authentication Authentication type.
+12. Since the AD FS proxy server isn't likely to be joined to the domain, you can use LDAP to connect to your domain controller for user import and pre-authentication. In the Advanced Form-Based Website dialog box, click the **Primary Authentication** tab and select **LDAP Bind** for the Pre-authentication Authentication type.
 13. When complete, click **OK** to return to the Add Form-Based Website dialog box.
 14. Click **OK** to close the dialog box.
 15. Once the URL and page variables have been detected or entered, the website data displays in the Form-Based panel.
@@ -97,7 +97,7 @@ Make sure users are imported from Active Directory into the Server. To allow use
 
 ## AD FS 2.0 Direct without a proxy
 
-You can secure AD FS when the AD FS proxyisn't used. Install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps:
+You can secure AD FS when the AD FS proxy isn't used. Install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps:
 
 1. Within the Azure Multi-Factor Authentication Server, click the **IIS Authentication** icon in the left menu.
 2. Click the **HTTP** tab.
@@ -115,7 +115,7 @@ You can secure AD FS when the AD FS proxyisn't used. Install the Azure Multi-Fac
 
 Azure Multi-Factor Authentication is now securing AD FS.
 
-Ensure that users have been imported from Active Directory into the Server. See the Trusted IPs section if you would like to allow internal IP addresses so that two-step verificationisn't required when signing in to the website from those locations.
+Ensure that users have been imported from Active Directory into the Server. See the Trusted IPs section if you would like to allow internal IP addresses so that two-step verification isn't required when signing in to the website from those locations.
 
 ## Trusted IPs
 
