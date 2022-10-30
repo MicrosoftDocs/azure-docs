@@ -49,7 +49,7 @@ In the **Federated credential scenario** drop-down box, select **GitHub actions 
 
 Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
 
-For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on).  For more info, read the [examples](#entity-type-examples).
+For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on). Pattern matching is not supported for branches and tags. Specify an environment if your on-push workflow runs against many branches or tags. For more info, read the [examples](#entity-type-examples).
 
 Add a **Name** for the federated credential.
 

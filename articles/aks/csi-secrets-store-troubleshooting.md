@@ -40,7 +40,7 @@ Error message in logs/events:
 Warning  FailedMount  74s    kubelet            MountVolume.SetUp failed for volume "secrets-store-inline" : kubernetes.io/csi: mounter.SetupAt failed: rpc error: code = Unknown desc = failed to mount secrets store objects for pod default/test, err: rpc error: code = Unknown desc = failed to mount objects, error: failed to get keyvault client: failed to get key vault token: nmi response failed with status code: 404, err: <nil>
 ```
 
-Description: The Node Managed Identity (NMI) component in *aad-pod-identity* returned an error for a token request. For more information about the error and to resolve it, check the NMI pod logs and refer to the [Azure AD pod identity troubleshooting guide][aad-troubleshooting]. 
+Description: The Node Managed Identity (NMI) component in *aad-pod-identity* returned an error for a token request. For more information about the error and to resolve it, check the NMI pod logs and refer to the [Azure AD pod-managed identity troubleshooting guide][aad-troubleshooting].
 
 > [!NOTE]
 > Azure Active Directory (Azure AD) is abbreviated as *aad* in the *aad-pod-identity* string.
