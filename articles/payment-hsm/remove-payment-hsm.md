@@ -26,8 +26,6 @@ Navigate to the payshield manager, following the steps in [Access the payShield 
 > [!IMPORTANT]
 > The payment HSM must be in a Secure state before RELEASE button is enabled. To do this, login with both Left and Right Keys and change state to Secure.
 
-:::image type="content" source="./media/payshield-manager-remove-device.png" alt-text="Screenshot of payShield Manager.":::
-
 ## Delete the payment HSM
 
 Once the payment HSM has been released, you can delete it using Azure CLI or Azure PowerShell.

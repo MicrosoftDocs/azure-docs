@@ -28,13 +28,13 @@ Thales doesn't provide PayShield SDK to customers, which supports HA over a clus
 
 ## High availability deployment
 
-:::image type="content" source="./media/deployment-1.png" alt-text="Architecture diagram for high availability deployment":::
+:::image type="content" source="./media/deployment-1.png" alt-text="Architecture diagram for high availability deployment.":::
 
 For High Availability, customer must allocate HSMs between stamp 1 and stamp 2 (in other words, no two HSMs from same stamp)
 
 ## Disaster recovery deployment
 
-:::image type="content" source="./media/deployment-2.png" alt-text="Architecture diagram for disaster recovery deployment":::
+:::image type="content" source="./media/deployment-2.png" alt-text="Architecture diagram for disaster recovery deployment.":::
 
 This scenario caters to regional-level failure. The usual strategy is to completely switch the application stack (and its HSMs), rather than trying to reach an HSM in Region 2 from application in Region 1 due to latency.
 

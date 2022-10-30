@@ -127,11 +127,11 @@ To create a VM on your new subnet:
 
 1. select "Virtual machines" from the "Create a Resource" screen of the Azure portal:
 
-  :::image type="content" source="./media/portal-create-vm-1.png" alt-text="Screenshot of the portal resource picker":::
+  :::image type="content" source="./media/portal-create-vm-1.png" alt-text="Screenshot of the portal resource picker.":::
 1. On the "Basics" tab of the creation screen, select the resource group that contains your payment HSM ("myResourceGroup"):
-  :::image type="content" source="./media/portal-create-vm-2.png" alt-text="Screenshot of the portal main VM creation screen":::
+  :::image type="content" source="./media/portal-create-vm-2.png" alt-text="Screenshot of the portal main VM creation screen.":::
 1. On the "Networking" tab of the creation screen, select the VNet that contains your payment HSM ("myVNet"), and the subnet you created above ("myVMSubnet"):
-  :::image type="content" source="./media/portal-create-vm-3.png" alt-text="Screenshot of the portal networking VM creation screen":::
+  :::image type="content" source="./media/portal-create-vm-3.png" alt-text="Screenshot of the portal networking VM creation screen.":::
 1. At the bottom of the networking tab, select "Review and create".
 1. Review the details of your VM, and select "Create".
 1. Select "Download private key and create resource", and save your VM's private key to a location where you can access it later.
@@ -189,11 +189,7 @@ For example, if you used "10.0.0.0" as the address prefix for your Payment HSM s
 ssh -L 44300:10.0.0.5:443 azureuser@<publicIpAddress-or-FullyQualifiedDomainName>
 ```
 
-Now go to a browser on your local machine and open <https://localhost:44300> to access the payShield manager. You should see:
-
-:::image type="content" source="./media/payshield-manager.png" alt-text="Screenshot of payShield Manager":::
-
-Here you can commission the device, install or generate LMKs, test the API, and so on. Follow payShield documentation, and contact Thales support if any issues related to payShield commission, setup, and API testing.
+Now go to a browser on your local machine and open <https://localhost:44300> to access the payShield manager. Here you can commission the device, install or generate LMKs, test the API, and so on. Follow payShield documentation, and contact Thales support if any issues related to payShield commission, setup, and API testing.
 
 ## Next steps
 
