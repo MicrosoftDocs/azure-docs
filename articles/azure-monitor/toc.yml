@@ -898,22 +898,6 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
-    - name: Tutorials
-      items:
-      - name: Overview
-        href: vm/vminsights-enable-overview.md
-      - name: Azure portal
-        href: vm/vminsights-enable-portal.md
-      - name: Azure PowerShell
-        href: vm/vminsights-enable-powershell.md
-      - name: ARM templates
-        href: vm/vminsights-enable-resource-manager.md
-      - name: Azure Policy
-        href: vm/vminsights-enable-policy.md
-      - name: Hybrid VMs
-        href: vm/vminsights-enable-hybrid.md
-      - name: Dependency Agent
-        href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
     - name: Migrate from service map
