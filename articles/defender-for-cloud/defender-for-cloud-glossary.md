@@ -122,4 +122,5 @@ This glossary provides a brief description of important terms and concepts for t
 |--|--|--|
 |**Zero-Trust**|A new security model that assumes breach and verifies each request as though it originated from an uncontrolled network.|[Zero-Trust Security](/azure/security/fundamentals/zero-trust)|
 
- 
+ ## Next Steps
+[Microsoft Defender for Cloud-overview](overview-page.md)
