@@ -14,28 +14,31 @@ ms.author: jodowns
 
 # Use Azure Front Door with Azure Storage blobs
 
-Static content delivery is useful for many scenarios. Azure Front Door accelerates the delivery of static content from Azure Storage blobs, and enables a secure and scalable architecture.
+Azure Front Door accelerates the delivery of static content from Azure Storage blobs, and enables a secure and scalable architecture. Static content delivery is useful for many different use cases, including website hosting and file delivery.
 
 ## Architecture
 
-<!-- TODO Arch diagram -->
+![Architecture overview of the Azure components of a real-time fraud detection scenario][media/scenario-storage-blobs/architecture-diagram.png]
+
+*Download a [Visio file](TODO) of this architecture.*
 
 In this reference architecture, you deploy a storage account and Front Door profile with a single origin.
 
 ## Dataflow
 
-This scenario covers... Data flows through the scenario as follows:
+Data flows through the scenario as follows:
 
 1. The client establishes a connection to Azure Front Door by using a custom domain name. The client's connection terminates at a nearby Front Door point of presence (PoP).
 1. If the Front Door PoP's cache contains a valid response for this request, Front Door returns the response immediately.
 1. Otherwise, the PoP sends the request to the origin storage account, wherever it is in the world, by using Microsoft's backbone network. The PoP connects to the storage account by using a separate, long-lived, TCP connection. In this scenario, Private Link is used to securely connect to the storage account.
-1. The storage account sends a response to the Front Door PoP. When the PoP receives the response, it stores it in its cache for subsequent requests.
+1. The storage account sends a response to the Front Door PoP.
+1. When the PoP receives the response, it stores it in its cache for subsequent requests.
 1. The PoP returns the response to the client.
 
 ## Components
 
-- [Azure Storage](TODO) stores the static content to be served.
-- [Azure Front Door](TODO) receives inbound connections from clients, securely forwards the request to the storage account, and caches responses.
+- [Azure Storage](https://azure.microsoft.com/products/storage/blobs) stores static content in blobs.
+- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) receives inbound connections from clients, securely forwards the request to the storage account, and caches responses.
 
 ## Scenario details
 
