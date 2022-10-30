@@ -1477,6 +1477,8 @@ items:
         href: autoscale/autoscale-flapping.md
       - name: Common metrics
         href: autoscale/autoscale-common-metrics.md
+      - name: Autoscale with multiple profiles
+        href: autoscale/autoscale-multiprofile.md
       - name: Common patterns
         href: autoscale/autoscale-common-scale-patterns.md
       - name: Scale with custom metrics
