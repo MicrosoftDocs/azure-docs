@@ -124,3 +124,4 @@ This glossary provides a brief description of important terms and concepts for t
 
  ## Next Steps
 [Microsoft Defender for Cloud-overview](overview-page.md)
+
