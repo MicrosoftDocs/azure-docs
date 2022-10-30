@@ -253,6 +253,31 @@ If you want to cancel your Enterprise IoT plan and stop the integration with Def
 > You can also remove your sensor manually from the CLI. For more information, see [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md#remove-an-enterprise-iot-network-sensor-optional).
 
 
+## Move existing sensors to a different subscription (Public preview)
+
+<!--this actually belongs in sensor how-to-->
+If you've registered an Enterprise IoT network sensor, you may need to apply it to a different subscription than the one you’re currently using.
+
+To do this:
+
+1. Onboard a new plan to the new subscription
+1. Register the sensors under the new subscription
+1. Remove the sensors from the previous subscription
+
+Billing changes will take effect one hour after cancellation of the previous subscription, and will be reflected on the next month's bill. Devices will be synchronized from the sensor to the new subscription automatically.
+
+**To switch to a new subscription**:
+
+1. In Defender for Endpoint, [onboard a new Enterprise IoT plan](#onboard-a-defender-for-iot-plan) to the new subscription you want to use.
+
+1. In the Azure portal, register your Enterprise IoT sensor under the new subscription and run the activation command. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
+
+1. Delete the legacy sensor from the previous subscription.  In Defender for IoT, go to the **Sites and sensors** page and locate the legacy sensor on the previous subscription.
+
+1. In the row for your sensor, from the options (**...**) menu on the right, select **Delete** to delete the sensor from the previous subscription.
+
+1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
+
 ## Next steps
 
 For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal) and [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md).

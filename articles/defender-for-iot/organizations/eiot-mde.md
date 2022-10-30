@@ -23,6 +23,8 @@ Make sure that you have:
 
 - IoT devices in your network, visible in the Microsoft 365 Defender **Device inventory**
 
+- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
+
 - The following user roles:
 
     |Identity management  |Roles required  |
@@ -95,25 +97,6 @@ For more information, see [Device inventory](/microsoft-365/security/defender-en
 -->
 
 
-## Cancel your Defender for IoT plan
-<!--move this to the how-to-->
-You may need to cancel a Defender for IoT plan if you no longer need the service, or if you want to remove the changes created by this tutorial.
-
-You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription, or if you've [registered an Enterprise IoT network sensor](eiot-sensor.md) and need to update the number of [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device). <!--right? b/c no need to add more committed devices if they're all managed by mde. no b/c it's only endpoints that get removed, not IT / IoT devices. plans and committed devices - this should go into a separate page. need to speak to krumer -->
-
-To cancel your Defender for IoT plan in the [https://security.microsoft.com](https://security.microsoft.com/) portal, go to **Settings** \> **Device discovery** \> **Enterprise IoT**, and select **Cancel plan**. For example:
-
-:::image type="content" source="media/enterprise-iot/defender-for-endpoint-cancel-plan.png" alt-text="Screenshot of the Cancel plan option on the Microsoft 365 Defender page.":::
-
-After you cancel your plan, the integration stops and you'll no longer get added security value in Microsoft 365 Defender, or detect new Enterprise IoT devices in Defender for IoT.
-
-> [!IMPORTANT]
-> You can also cancel a plan from Defender for IoT in the Azure portal. Canceling a plan from the Azure portal removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT services. Do this with care.
->
-> If you've registered an Enterprise IoT network sensor (Public preview), data collected by the sensor, such as extra devices, remains in your Microsoft 365 Defender instance. Make sure to manually delete data from Microsoft 365 Defender as needed. <!-- what data? is this only if we've included a sensor? what if you're switching subscriptions or changing payment? should you delete data? how can you do this? maybe let's move this to the sensor page?-->
-
-<!--If you have an EIoT sensor, device data is also collected by MDE. If you remove a plan, remember to remove it from MDE too. And then remove the sensor. Need to find s
-If you are a Microsoft Defender for IoT customer and also have a subscription to Microsoft Defender for Endpoint, the data collected by Microsoft Defender for IoT will automatically populate in your Microsoft Defender for Endpoint instance as well. Customers who want to delete their data from Defender for IoT must also delete their data from Defender for Endpoint.-->
 
 ## Next steps
 
