@@ -7,7 +7,7 @@ metadata:
   ms.service: frontdoor
   ms.topic: faq
   ms.workload: infrastructure-services
-  ms.date: 10/25/2022
+  ms.date: 10/31/2022
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -131,6 +131,21 @@ sections:
           Can Azure Front Door load balance or route traffic within a virtual network?
         answer:  |
           Azure Front Door Standard, Premium and (classic) tier requires a public IP or publicly resolvable DNS name to route traffic to backend resources. Azure resources such as Application Gateways or Azure Load Balancers can enable routing to resources within a virtual network. If you're using a Front Door Premium tier, you can enable Private Link to connect to origins behind an internal load balancer over a private endpoint. For more information, see [Secure origins with Private Link](private-link.md).
+
+      - question: |
+          How many origins and origin groups should I create?
+        answer:  |
+          An origin group represents a set of origins that are functionally able to serve the same kinds of requests. You should use a separate origin group for each distinct application or workload.
+
+          Within an origin group, create an origin for each distinct server or service instance that can serve requests. If your origin is itself a load balancer, such as Azure Application Gateway, or if it's hosted on a a platform as a service (PaaS) offering that includes a load balancer, then the origin group might only contain a single origin. Internally, your origin handles failover and load distribution between origins, but this is invisible to Front Door.
+          
+          For example, suppose you host an application on Azure App Service. The way that you configure Front Door depends on how many application instances you deploy:
+          
+          - Single-region deployment: Create a single origin group. Within that origin group, create a single origin to represent the App Service app. Your App Service app might be configured to scale out across worker instances, but from Front Door's perspective there's a single origin.
+          - Multi-region active/passive deployment: Create a single origin group. Within that origin group, create an origin for each of the App Service apps. Configure each origin's priority to ensure that the primary application has a higher priority than the secondary application.
+          - Multi-region active/active deployment: Create a single origin group. Within that origin group, creae an origin for each of the App Service apps. Configure each origin's priority to be the same. Configure each origin's weight to set the proportion of requests that should go to that origin.
+
+          For more information, see [Origins and origin groups in Azure Front Door](origin.md).
 
       - question: |
           What are the various timeouts and limits for Azure Front Door?
