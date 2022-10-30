@@ -350,4 +350,27 @@ Once all the above code is included in your Python file, you can run it from you
 python personalizer_quickstart.py
 ```
 
+## Generate sample events for analysis
+
+You can easily generate enough events from this quickstart demo scenario, which can be used to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace this code from above: 
+
+```python
+continue_loop = True
+while continue_loop:
+    run_personalizer_cycle()
+    
+    br = input("Press Q to exit, or any other key to run another loop: ")
+    if(br.lower()=='q'):
+        continue_loop = False
+```
+
+with the following:
+
+```python
+for i in range(0,1000):
+    run_personalizer_cycle()
+```
+
+then run the program.
+
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/quickstart/quickstart-program-feedback-cycle-example.png)
