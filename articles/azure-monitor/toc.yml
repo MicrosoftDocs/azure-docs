@@ -30,12 +30,30 @@ items:
     href: essentials/tutorial-metrics.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Enable monitoring on a virtual machine
-    href: vm/tutorial-monitor-vm-enable.md
-  - name: Alert on machine down
-    href: vm/tutorial-monitor-vm-alert.md
-  - name: Collect guest logs and metrics from a virtual machine
-    href: vm/tutorial-monitor-vm-guest.md
+  - name: Virtual machines
+    items:
+    - name: Enable monitoring
+      href: vm/tutorial-monitor-vm-enable.md
+    - name: Alert on machine down
+      href: vm/tutorial-monitor-vm-alert.md
+    - name: Collect guest logs and metrics
+      href: vm/tutorial-monitor-vm-guest.md
+  - name: Application Insights
+    items:
+    - name: Application Insights SDK for ASP.NET Core applications
+      href: app/tutorial-asp-net-core.md
+    - name: Custom metrics with .NET and .NET Core
+      href: app/tutorial-asp-net-custom-metrics.md
+    - name: Find application run-time exceptions
+      href: app/tutorial-runtime-exceptions.md
+    - name: Find application performance issues
+      href: app/tutorial-performance.md
+    - name: Understand application users
+      href: app/tutorial-users.md
+    - name: Dashboard with application data
+      href: app/tutorial-app-dashboards.md
+    - name: Monitor mobile or UWP application
+      href: app/mobile-center-quickstart.md
 - name: Samples
   items:
   - name: Resource Manager templates
