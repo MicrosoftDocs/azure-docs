@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 10/26/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -85,6 +85,10 @@ For example, if you have the following rules:
 | Wildcard | . | 10.100.0.2:53 | Enabled  |
 
 A query for `secure.store.azure.contoso.com` will match the **AzurePrivate** rule for `azure.contoso.com` and also the **Contoso** rule for `contoso.com`, but the **AzurePrivate** rule takes precedence because the prefix `azure.contoso` is longer than `contoso`. 
+
+> [!IMPORTANT]
+> - You can't enter the Azure DNS IP address of 168.63.129.16 as the destination IP address for a rule. Attempting to add this IP address will output the error: **Exception while making add request for rule**. 
+> - Do not use the private resolver's inbound endpoint IP address as a forwarding destination for zones that are not linked to the virtual network where the private resolver is provisioned.
 
 ## Next steps
 

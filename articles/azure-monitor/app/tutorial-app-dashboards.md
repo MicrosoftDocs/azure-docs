@@ -28,7 +28,7 @@ To complete this tutorial:
 - Enable the [Application Insights SDK](../app/asp-net.md).
 
 > [!NOTE]
-> Required permissions for working with dashboards are discussed in the article on [understanding access control for dashboards](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards).
+> Required permissions for working with dashboards are discussed in the article on [understanding access control for dashboards](../../azure-portal/azure-portal-dashboard-share-access.md).
 
 ## Sign in to Azure
 

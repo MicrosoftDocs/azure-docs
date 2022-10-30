@@ -161,12 +161,12 @@ To learn more, see [Understanding Azure Virtual Desktop network connectivity](ne
 
 Your users will need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to virtual desktops and remote apps. The following clients support Azure Virtual Desktop:
 
-- [Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-- [Web client](./user-documentation/connect-web.md)
-- [macOS client](./user-documentation/connect-macos.md)
-- [iOS client](./user-documentation/connect-ios.md)
-- [Android client](./user-documentation/connect-android.md)
-- [Microsoft Store client](./user-documentation/connect-microsoft-store.md)
+- [Windows Desktop client](./users/connect-windows.md)
+- [Web client](./users/connect-web.md)
+- [macOS client](./users/connect-macos.md)
+- [iOS and iPadOS client](./users/connect-ios-ipados.md)
+- [Android and Chrome OS client](./users/connect-android-chrome-os.md)
+- [Microsoft Store client](./users/connect-microsoft-store.md)
 
 > [!IMPORTANT]
 > Azure Virtual Desktop doesn't support connections from the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
