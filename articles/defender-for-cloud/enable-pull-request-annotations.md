@@ -77,7 +77,7 @@ Any issues that are discovered by the scanner will be viewable in the Files chan
 
 1. Navigate through the page and locate an affected file with an annotation.
 
-1. Follow the remediation steps in the annotation. If you choose not remediate the annotation, select **Dismiss alert**.
+1. Follow the remediation steps in the annotation. If you choose not to remediate the annotation, select **Dismiss alert**.
 
 1. Select a reason to dismiss:
 
@@ -119,7 +119,7 @@ Before you can enable pull request annotations, your main branch must have enabl
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/validation-policy.png" alt-text="Screenshot that shows the build validation.":::
 
-Once you have completed these steps you can select the build pipeline you created previously and customize it's settings to suit your needs.  
+Once you have completed these steps you can select the build pipeline you created previously and customize its settings to suit your needs.  
 
 ### Enable pull request annotations
 
@@ -133,7 +133,7 @@ Once you have completed these steps you can select the build pipeline you create
 
 1. Select **Configure**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select configure, on the screen.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select configure on the screen.":::
 
 1. Toggle Pull request annotations to **On**.
 
