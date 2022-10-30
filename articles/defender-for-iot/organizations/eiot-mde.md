@@ -1,7 +1,7 @@
 ---
 title: Secure Enterprise IoT devices from Microsoft 365 with Microsoft Defender for Endpoint and Microsoft Defender for IoT
 description: Learn how to start integrating between Microsoft Defender for IoT and Microsoft Defender for Endpoint.
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 10/19/2022
 ---
 
@@ -9,20 +9,26 @@ ms.date: 10/19/2022
 
 This article describes how Microsoft Defender for Endpoint customers can add an Enterprise IoT plan in Microsoft 365 Defender, providing extra security value for IoT devices.
 
-Adding an Enterprise IoT plan to Microsoft 365 Defender integrates Defender for Endpoint with Microsoft Defender for IoT, and provides extra security value like alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your network, like printers, cameras, and smart TVs.
+Adding an Enterprise IoT plan to Microsoft 365 Defender integrates Defender for Endpoint with Microsoft Defender for IoT. This integration adds alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your enterprise network.
+
+For example, IoT devices include printers, cameras, VOIP phones, smart TVs, and more. Adding an Enterprise IoT plan means that you can use a recommendations to open a single IT ticket to patch vulnerable applications across both servers and printers.
 
 ## Prerequisites
 
 Before starting this quickstart, read through [Secure IoT devices in the enterprise](concept-eiot.md) to understand more about the integration between Defender for Endpoint and Defender for IoT.
 
-p2 license
-iot devices in your network
+Make sure that you have:
 
-To add an Enterprise IoT plan in Microsoft 365 Defender, you must have the following roles:
+- A Microsoft Defender for Endpoint P2 license
 
-- **In Azure Active Directory**, [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant
+- IoT devices in your network, visible in the Microsoft 365 Defender **Device inventory**
 
-- **In Azure RBAC**, [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration
+- The following user roles:
+
+    |Identity management  |Roles required  |
+    |---------|---------|
+    |**In Azure Active Directory**     |   [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant      |
+    |**In Azure RBAC**     | [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration        |
 
 ## Onboard a Defender for IoT plan
 
@@ -38,20 +44,20 @@ To add an Enterprise IoT plan in Microsoft 365 Defender, you must have the follo
 
 For example:
 
-:::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint.":::
+:::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
 <!--remove this procedure, jump straight to security value-->
 <!--1. conceptual. be careful with the sensor - also include the agnostic story. 2. onboarding / offboarding in mde, finding security value, 3. how to register and network sensor and shared inventory.-->
 
 ## View added security value in Microsoft 365 Defender
 
-This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft 365 Defender.
+This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft 365 Defender. These alerts, recommendations, and vulnerabilities are added with the Defender for IoT integration.
 
 1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Assets** \> **Devices** to open the **Device inventory** page.
 
 1. Select the **IoT devices** tab and select a specific device **IP** to drill down for more details. For example:
 
-    :::image type="content" source="media/enterprise-iot/select-a-device.png" alt-text="Screenshot of the IoT devices tab in Microsoft 365 Defender.":::
+    :::image type="content" source="media/enterprise-iot/select-a-device.png" alt-text="Screenshot of the IoT devices tab in Microsoft 365 Defender." lightbox="media/enterprise-iot/select-a-device.png":::
 
 1. On the device details page, explore the following tabs to view data added by the Enterprise IoT plan for your device:
 
@@ -88,8 +94,9 @@ For more information, see [Device inventory](/microsoft-365/security/defender-en
 >
 -->
 
-## Cancel your Defender for IoT plan
 
+## Cancel your Defender for IoT plan
+<!--move this to the how-to-->
 You may need to cancel a Defender for IoT plan if you no longer need the service, or if you want to remove the changes created by this tutorial.
 
 You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription, or if you've [registered an Enterprise IoT network sensor](eiot-sensor.md) and need to update the number of [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device). <!--right? b/c no need to add more committed devices if they're all managed by mde. no b/c it's only endpoints that get removed, not IT / IoT devices. plans and committed devices - this should go into a separate page. need to speak to krumer -->

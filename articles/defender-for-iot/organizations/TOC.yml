@@ -14,9 +14,9 @@
 - name: Quickstarts
   expanded: false
   items:
-  - name: Get started with Defender for IoT
+  - name: Get started with OT security monitoring
     href: getting-started.md
-  - name: Enable Enterprise IoT security in Defender for Endpoint
+  - name: Get started with Enterprise IoT security monitoring
     href: eiot-mde.md
 - name: Tutorials
   expanded: false
