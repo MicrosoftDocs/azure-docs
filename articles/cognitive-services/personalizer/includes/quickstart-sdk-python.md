@@ -352,7 +352,7 @@ python personalizer_quickstart.py
 
 ## Generate sample events for analysis
 
-You can easily generate enough events from this quickstart demo scenario, which can be used to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace this code from above: 
+You can easily generate 5,000 events from this quickstart demo scenario, which is sufficient to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace this code from above: 
 
 ```python
 continue_loop = True
