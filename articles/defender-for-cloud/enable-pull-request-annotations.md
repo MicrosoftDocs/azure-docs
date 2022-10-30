@@ -1,12 +1,12 @@
 ---
-title: Tutorial Enable pull request annotations in GitHub or in Azure DevOps
+title: Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 10/20/2022
+ms.date: 10/30/2022
 ---
 
-# Tutorial: Enable pull request annotations in GitHub and Azure DevOps
+# Enable pull request annotations in GitHub and Azure DevOps
 
 Defender for DevOps exposes security findings as annotations in Pull Requests (PR). Security operators can enable PR annotations in Microsoft Defender for Cloud. Any exposed issues can then be remedied by developers. This process can prevent and fix potential security vulnerabilities and misconfigurations before they enter the production stage. Defender for DevOps annotates the vulnerabilities within the differences in the file rather than all the vulnerabilities detected across the entire file. Developers are able to see annotations in their source code management systems and Security operators can see any unresolved findings in Microsoft Defender for Cloud.  
 
@@ -15,15 +15,7 @@ With Microsoft Defender for Cloud, you can configure PR annotations in Azure Dev
 > [!NOTE]
 > GitHub Advanced Security for Azure DevOps (GHAzDO) is providing a free trial of PR annotations during the Defender for DevOps preview. 
 
-In this tutorial you'll learn how to:
-
-> [!div class="checklist"]
-> * [Enable pull request annotations in GitHub](#enable-pull-request-annotations-in-github).
-> * [Enable pull request annotations in Azure DevOps](#enable-pull-request-annotations-in-azure-devops).
-
 ## Prerequisites
-
-Before you can follow the steps in this tutorial, you must:
 
 **For GitHub**:
 
@@ -37,7 +29,7 @@ Before you can follow the steps in this tutorial, you must:
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
 - [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
-- [Setup secret scanning in Azure DevOps](detect-credential-leaks.md#setup-secret-scanning-in-azure-devops).
+- [Setup secret scanning in Azure DevOps](detect-exposed-secrets.md#setup-secret-scanning-in-azure-devops).
 
 ## Enable pull request annotations in GitHub
 
@@ -191,13 +183,11 @@ Defender for DevOps will re-activate an annotation if the security issue is not 
 
 ## Learn more
 
-In this tutorial, you learned how to enable pull request annotations in GitHub and Azure DevOps.
-
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [Discover misconfigurations in Infrastructure as Code](iac-vulnerabilities.md).
 
-Learn how to [detect exposed secrets in code](detect-credential-leaks.md).
+Learn how to [detect exposed secrets in code](detect-exposed-secrets.md).
 
 ## Next steps
 
