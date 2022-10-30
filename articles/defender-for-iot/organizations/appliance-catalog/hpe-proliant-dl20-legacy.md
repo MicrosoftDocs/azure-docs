@@ -1,23 +1,23 @@
 ---
-title: HPE ProLiant DL20 Plus for OT monitoring in enterprise deployments- Microsoft Defender for IoT
-description: Learn about the HPE ProLiant DL20 Plus appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
-ms.date: 04/24/2022
+title: HPE ProLiant DL20 for OT monitoring in enterprise deployments- Microsoft Defender for IoT
+description: Learn about the HPE ProLiant DL20 appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
+ms.date: 10/30/2022
 ms.topic: reference
 ---
 
 
-# HPE ProLiant DL20 Gen10 Plus
+# HPE ProLiant DL20 Gen10
 
-This article describes the **HPE ProLiant DL20 Gen10 Plus** appliance for OT sensors in an enterprise deployment.
+This article describes the **HPE ProLiant DL20 Gen10** appliance for OT sensors in an enterprise deployment.
 
-The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises management console.
+Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | E1800 |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported, Available preconfigured |
+|**Status** | Supported, not available as a preconfigured appliance |
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
 
@@ -35,22 +35,22 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |Dimensions   |Four 3.5" chassis: 4.29 x 43.46 x 38.22 cm  /  1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-**DL20 Gen10 Plus BOM**:
+**DL20 Gen10 BOM**
 
-|Quantity|PN|Description|
-|----|---|----|
-|1|	P44111-B21|	HPE DL20 Gen10+ 4SFF CTO Server|
-|1|	P45252-B21|	Intel Xeon E-2334 FIO CPU for HPE|
-|1|	869081-B21|	HPE Smart Array P408i-a SR G10 LH Controller|
-|1|	782961-B21|	HPE 12W Smart Storage Battery|
-|1|	P45948-B21|	HPE DL20 Gen10+ RPS FIO Enable Kit|
-|2|	865408-B21|	HPE 500W FS Plat Hot Plug LH Power Supply Kit|
-|1|	775612-B21|	HPE 1U Short Friction Rail Kit|
-|1|	512485-B21|	HPE iLO Adv 1 Server License 1 year support|
-|1|	P46114-B21|	HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
-|1|	P21106-B21|	INT I350 1GbE 4p BASE-T Adapter|
-|3|	P28610-B21|	HPE 1TB SATA 7.2K SFF BC HDD|
-|2|	P43019-B21|	HPE 16GB 1Rx8 PC4-3200AA-E Standard Kit|
+| Quantity | PN| Description: high end |
+|--|--|--|
+|1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server |
+|1| P17104-L21 | HPE DL20 Gen10 E-2234 FIO Kit |
+|2| 879507-B21 | HPE 16-GB 2Rx8 PC4-2666V-E STND Kit |
+|3| 655710-B21 | HPE 1-TB SATA 7.2 K SFF SC DS HDD |
+|1| P06667-B21 | HPE DL20 Gen10 x8x16 FLOM Riser Kit |
+|1| 665240-B21 | HPE Ethernet 1-Gb 4-port 366FLR Adapter |
+|1| 782961-B21 | HPE 12-W Smart Storage Battery |
+|1| 869081-B21 | HPE Smart Array P408i-a SR G10 LH Controller |
+|2| 865408-B21 | HPE 500-W FS Plat Hot Plug LH Power Supply Kit |
+|1| 512485-B21 | HPE iLO Adv 1-Server License 1 Year Support |
+|1| P06722-B21 | HPE DL20 Gen10 RPS Enablement FIO Kit |
+|1| 775612-B21 | HPE 1U Short Friction Rail Kit |
 
 ## Port expansion
 
@@ -66,9 +66,9 @@ Optional modules for port expansion include:
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
-## HPE ProLiant DL20 Gen10 Plus installation
+## HPE ProLiant DL20 Gen10 installation
 
-This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus appliance.
+This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 appliance.
 
 Installation includes:
 
@@ -131,9 +131,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 > For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
 >
 
-### Install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus
+### Install Defender for IoT software on the HPE ProLiant DL20 Gen10
 
-This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus.
+This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
