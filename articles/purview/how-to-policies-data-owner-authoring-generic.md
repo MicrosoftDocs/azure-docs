@@ -68,7 +68,7 @@ Ensure you have the *Policy Author* permission as described [here](how-to-enable
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-asset.png" alt-text="Screenshot showing data owner can select the asset when creating or editing a policy statement.":::
 
-1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Note: M365 groups are not supported. Then select the **OK** button. This will take you back to the policy editor
+1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Note that M365 groups are not supported. Then select the **OK** button. This will take you back to the policy editor.
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-subject.png" alt-text="Screenshot showing data owner can select the subject when creating or editing a policy statement.":::
 
