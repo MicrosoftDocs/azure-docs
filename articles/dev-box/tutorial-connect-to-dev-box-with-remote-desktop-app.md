@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Use the Remote Desktop client to connect to a dev box'
+titleSuffix: Microsoft Dev Box Preview
 description: In this tutorial, you learn how to download a Remote Desktop client and connect to a dev box. 
-titleSuffix: Microsoft dev box
 services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 07/28/2022
+ms.date: 10/12/2022
 ms.topic: tutorial
 ---
 
@@ -85,7 +85,7 @@ To use a non-Windows Remote Desktop client to connect to your dev box, follow th
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of the non-Windows Remote Desktop client workspace with dev box.":::
 
 ## Next steps
-To learn about managing Microsoft Dev Box, see:
+To learn about managing Microsoft Dev Box Preview, see:
 
 - [Provide access to project admins](./how-to-project-admin.md)
 - [Provide access to dev box users](./how-to-dev-box-user.md)

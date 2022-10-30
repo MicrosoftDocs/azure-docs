@@ -9,6 +9,8 @@ ms.author: eur
 
 | Voice | Styles |Roles |
 | ----- | ----- | ----- |
+|en-GB-RyanNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
+|en-GB-SoniaNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
 |en-US-AriaNeural|`chat`, `customerservice`, `narration-professional`, `newscast-casual`, `newscast-formal`, `cheerful`, `empathetic`, `angry`, `sad`, `excited`, `friendly`, `terrified`, `shouting`, `unfriendly`, `whispering`, `hopeful`|Not supported|
 |en-US-DavisNeural<sup>1,2</sup>|`chat`, `angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-GuyNeural|`newscast`, `angry`, `cheerful`, `sad`, `excited`, `friendly`, `terrified`, `shouting`, `unfriendly`, `whispering`, `hopeful`|Not supported|
@@ -18,7 +20,10 @@ ms.author: eur
 |en-US-NancyNeural<sup>1,2</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-TonyNeural<sup>1,2</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
-|fr-FR-DeniseNeural|`cheerful`, `sad`|Not supported|
+|es-MX-JorgeNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
+|fr-FR-DeniseNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
+|fr-FR-HenriNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
+|it-IT-IsabellaNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
 |ja-JP-NanamiNeural|`chat`, `customerservice`, `cheerful`|Not supported|
 |pt-BR-FranciscaNeural|`calm`|Not supported|
 |zh-CN-XiaohanNeural<sup>6</sup>|`calm`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `sad`, `gentle`, `affectionate`, `embarrassed`|Not supported|
@@ -31,7 +36,7 @@ ms.author: eur
 |zh-CN-XiaoyiNeural<sup>1,6</sup>|`angry`, `disgruntled`, `affectionate`, `cheerful`, `fearful`, `sad`, `embarrassed`, `serious`, `gentle`|Not supported|
 |zh-CN-XiaozhenNeural<sup>1,6</sup>|`angry`, `disgruntled`, `cheerful`, `fearful`, `sad`, `serious`|Not supported|
 |zh-CN-YunfengNeural<sup>1,6</sup>|`angry`, `disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Not supported|
-|zh-CN-YunhaoNeural<sup>1,3,6</sup>|`Advertisement_upbeat`|Not supported|
+|zh-CN-YunhaoNeural<sup>1,3,6</sup>|`advertisement-upbeat`|Not supported|
 |zh-CN-YunjianNeural<sup>1,4,5,6</sup>|`Narration-relaxed`, `Sports_commentary`, `Sports_commentary_excited`|Not supported|
 |zh-CN-YunxiaNeural<sup>1,6</sup>|`calm`, `fearful`, `cheerful`, `angry`, `sad`|Not supported|
 |zh-CN-YunxiNeural<sup>6</sup>|`narration-relaxed`, `embarrassed`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `sad`, `depressed`, `chat`, `assistant`, `newscast`|`Narrator`, `YoungAdultMale`, `Boy`|

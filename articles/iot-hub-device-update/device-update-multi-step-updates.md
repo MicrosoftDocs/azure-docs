@@ -1,8 +1,8 @@
 ---
 title: Using multiple steps for Updates with Device Update for Azure IoT Hub| Microsoft Docs
 description: Using multiple steps for Updates with Device Update for Azure IoT Hub
-author: ValOlson
-ms.author: valls
+author: eross-msft
+ms.author: lizross
 ms.date: 11/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update

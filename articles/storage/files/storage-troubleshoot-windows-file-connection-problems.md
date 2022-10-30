@@ -4,7 +4,7 @@ description: Troubleshoot problems with SMB Azure file shares in Windows. See co
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/28/2022
+ms.date: 10/12/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -57,10 +57,10 @@ If end users are accessing the Azure file share using Active Directory (AD) or A
 
 Validate that permissions are configured correctly:
 
-- **Active Directory (AD)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
+- **Active Directory Domain Services (AD DS)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
 
-    Share-level permission assignments are supported for groups and users that have been synced from Active Directory Domain Services (AD DS) to Azure Active Directory (Azure AD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
-- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign access permissions to an identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-access-permissions-to-an-identity).
+    Share-level permission assignments are supported for groups and users that have been synced from AD DS to Azure Active Directory (Azure AD) using Azure AD Connect sync or Azure AD Connect cloud sync. Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
+- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign share-level permissions to an identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-share-level-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -156,15 +156,28 @@ To view open handles for a file share, directory or file, use the [Get-AzStorage
 
 To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
 
-> [!Note]  
-> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+> [!Note]
+> The `Get-AzStorageFileHandle` and `Close-AzStorageFileHandle` cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+
+<a id="networkerror59"></a>
+## ERROR_UNEXP_NET_ERR (59) when doing any operations on a handle
+
+### Cause
+
+If you cache/hold a large number of open handles for a long time, you might see this server-side failure due to throttling reasons. When a large number of handles are cached by the client, many of those handles can go into a reconnect phase at the same time, building up a queue on the server which needs to be throttled. The retry logic and the throttling on the backend for reconnect takes longer than the client's timeout. This situation manifests itself as a client not being able to use an existing handle for any operation, with all operations failing with ERROR_UNEXP_NET_ERR (59).
+
+There are also edge cases in which the client handle becomes disconnected from the server (for example, a network outage lasting several minutes) that could cause this error.
+
+### Solution
+
+Don’t keep a large number of handles cached. Close handles and then retry. See preceding troubleshooting entry for PowerShell cmdlets to view/close open handles.
 
 <a id="noaaccessfailureportal"></a>
-## Error "No access" when you try to access or delete an Azure File Share  
+## Error "No access" when you try to access or delete an Azure File Share
 When you try to access or delete an Azure file share in the portal, you might receive the following error:
 
 No access  
-Error code: 403 
+Error code: 403
 
 ### Cause 1: Virtual network or firewall rules are enabled on the storage account
 

@@ -72,6 +72,8 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics
       href: configure-alerts-for-azure-vmware-solution.md
+    - name: Configure customer-managed key encryption at rest
+      href: configure-customer-managed-keys.md
     - name: Manage and protect VMs on Azure NetApp Files
       items: 
       - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
@@ -110,13 +112,13 @@
     items:
     - name: Configure external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
-    - name: Configure external identity source for NSX-T
+    - name: Configure external identity source for NSX-T Data Center
       href: configure-external-identity-source-nsx-t.md
   - name: Configure Internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
       href: enable-managed-snat-for-workloads.md
-    - name: Enable Public IP to the NSX Edge for Azure VMware Solution
+    - name: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
@@ -130,14 +132,14 @@
       href: configure-dns-azure-vmware-solution.md
     - name: Configure HCX network extension
       href: configure-hcx-network-extension.md
-    - name: Configure NSX network components
+    - name: HCX Mobility Optimized Networking (MON) guidance 
+      href: vmware-hcx-mon-guidance.md
+    - name: Configure NSX-T Data Center network components
       href: configure-nsx-network-components-azure-portal.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-    - name: HCX Mobility Optimized Networking (MON) guidance 
-      href: vmware-hcx-mon-guidance.md
   - name: Configure storage policies
     href: configure-storage-policy.md
   - name: Configure VMware syslogs
@@ -164,7 +166,7 @@
       href: azure-vmware-solution-horizon.md
     - name: Deploy Citrix on Azure VMware Solution
       href: azure-vmware-solution-citrix.md
-  - name: Deploy vSAN stretched clusters
+  - name: Deploy vSAN stretched clusters (Preview)
     href: deploy-vsan-stretched-clusters.md
   - name: Move resources
     items:
@@ -220,11 +222,11 @@
     items:
       - name: Introduction to Azure VMware Solution
         href: /training/modules/intro-azure-vmware-solution/
-      - name: Run VMware workloads on Azure VMware Solution
+      - name: Run VMware vSphere workloads on Azure VMware Solution
         href: /training/paths/run-vmware-workloads-azure-vmware-solution/
-      - name: Prepare to migrate VMware workloads to Azure by deploying Azure VMware Solution
+      - name: Prepare to migrate VMware vSphere workloads to Azure by deploying Azure VMware Solution
         href: /training/modules/deploy-azure-vmware-solution/
-      - name: Migrate VMware workloads on-premises to Azure VMware Solution
+      - name: Migrate VMware vSphere workloads from on-premises to Azure VMware Solution
         href: /training/modules/migrate-vmware-workloads-on-premises-azure-vmware-solution/
       - name: Deploy disaster recovery using VMware Site Recovery Manager and Azure VMware Solution
         href: /training/modules/deploy-disaster-recovery-vmware-srm-azure-vmware-solution/

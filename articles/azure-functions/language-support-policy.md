@@ -33,7 +33,6 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
 |Node 12|30 Apr 2022|13 December 2022|
-|PowerShell Core 6| 4 September 2020|30 September 2022|
 |Python 3.6 |23 December 2021|30 September 2022|
 
 ## Language version support timeline

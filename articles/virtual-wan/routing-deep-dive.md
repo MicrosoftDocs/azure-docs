@@ -116,10 +116,10 @@ For more information about Virtual WAN see:
 
 * The Virtual WAN [FAQ](virtual-wan-faq.md)
 
-[virtual-wan-overview]: /azure/virtual-wan/virtual-wan-about
-[virtual-wan-secured-hub]: /azure/firewall-manager/secured-virtual-hub
-[virtual-wan-hrp]: /azure/virtual-wan/about-virtual-hub-routing-preference
-[virtual-wan-nva]: /azure/virtual-wan/about-nva-hub
-[virtual-wan-bgp]: /azure/virtual-wan/scenario-bgp-peering-hub
-[er]: /azure/expressroute/expressroute-introduction
-[er-gr]: /azure/expressroute/expressroute-global-reach
+[virtual-wan-overview]: ./virtual-wan-about.md
+[virtual-wan-secured-hub]: ../firewall-manager/secured-virtual-hub.md
+[virtual-wan-hrp]: ./about-virtual-hub-routing-preference.md
+[virtual-wan-nva]: ./about-nva-hub.md
+[virtual-wan-bgp]: ./scenario-bgp-peering-hub.md
+[er]: ../expressroute/expressroute-introduction.md
+[er-gr]: ../expressroute/expressroute-global-reach.md

@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Cosmos DB. For additional Azure Policy built-ins for other services, see

@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: bozhong68
 ms.author: bozhlin
 ms.reviewer: ssalgado
-ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022
+ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ms.date: 08/31/2022
 #Customer intent: As part of ML Professionals focusing on ML infratrasture setup using self-managed compute, I want to understand what Kubernetes compute target is and why do I need it.
 ---
@@ -37,7 +37,7 @@ AzureML Kubernetes compute supports two kinds of Kubernetes cluster:
 
 With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kubernetes cluster is seamlessly supported in AzureML to run training or inference workload. It's easy to enable and use an existing Kubernetes cluster for AzureML workload with the following simple steps:
 
-1. Prepare an [Azure Kubernetes Service cluster](/azure/aks/learn/quick-kubernetes-deploy-cli) or [Arc Kubernetes cluster](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+1. Prepare an [Azure Kubernetes Service cluster](../aks/learn/quick-kubernetes-deploy-cli.md) or [Arc Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Deploy the AzureML extension](how-to-deploy-kubernetes-extension.md).
 1. [Attach Kubernetes cluster to your Azure ML workspace](how-to-attach-kubernetes-to-workspace.md).
 1. Use the Kubernetes compute target from CLI v2, SDK v2, and the Studio UI.
@@ -48,7 +48,7 @@ With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kub
 - Create and manage instance types for different ML workload scenarios and gain efficient compute resource utilization.
 - Trouble shooting workload issues related to Kubernetes cluster.
 
-**Data-science team**. Once the IT-operations team finishes compute setup and compute target(s) creation, the data-science team can discover a list of available compute targets and instance types in AzureML workspace. These compute resources can be used for training or inference workload. Data science specifies compute target name and instance type name using their preferred tools or APIs such as AzureML CLI v2, Python SDK v2 (preview), or Studio UI.
+**Data-science team**. Once the IT-operations team finishes compute setup and compute target(s) creation, the data-science team can discover a list of available compute targets and instance types in AzureML workspace. These compute resources can be used for training or inference workload. Data science specifies compute target name and instance type name using their preferred tools or APIs such as AzureML CLI v2, Python SDK v2, or Studio UI.
 
 ## Kubernetes usage scenarios
 
@@ -106,5 +106,5 @@ For any AzureML example, you only need to update the compute target name to your
 * Explore training job samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/jobs](https://github.com/Azure/azureml-examples/tree/main/cli/jobs)
 * Explore model deployment with online endpoint samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes)
 * Explore batch endpoint samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch)
-* Explore training job samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs)
-* Explore model deployment with online endpoint samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/kubernetes)
+* Explore training job samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs)
+* Explore model deployment with online endpoint samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/kubernetes)

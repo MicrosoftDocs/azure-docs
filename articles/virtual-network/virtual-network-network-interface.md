@@ -33,7 +33,7 @@ If you need to add, change, or remove IP addresses for a network interface, see 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure Virtual Network. For information about creating an Azure Virtual Network, see [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal).
+- An existing Azure Virtual Network. For information about creating an Azure Virtual Network, see [Quickstart: Create a virtual network using the Azure portal](./quick-create-portal.md).
     
     - The example virtual network used in this article is named **myVNet**. Replace the example value with the name of your virtual network. 
     
@@ -246,7 +246,7 @@ Use [az network nic list](/cli/azure/network/nic#az-network-nic-list) to view ne
 az network nic list 
 ```
 
-Use [az network nic show](/azure/network/nic#az-network-nic-show) to view the settings for a network interface.
+Use [az network nic show](/cli/azure/network/nic#az-network-nic-show) to view the settings for a network interface.
 
 ```azurecli
 az network nic show --name myNIC --resource-group myResourceGroup
@@ -758,4 +758,3 @@ To perform tasks on network interfaces, your account must be assigned to the [ne
 - Create a single NIC VM with multiple IPv4 addresses using the [Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md) or [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)
 
 - Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer) using the [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), or [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

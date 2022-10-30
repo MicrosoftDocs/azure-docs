@@ -82,12 +82,12 @@ To authorize passwordless access with Azure AD, you'll need to use an Azure cred
 |--|--|
 |Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)|
 |Developer environment|[Service principal](../common/identity-library-acquire-token.md)|
-|Azure-hosted apps|[Azure-hosted apps setup](/azure/storage/blobs/authorize-managed-identity)|
-|On-premises|[On-premises app setup](/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet)|
+|Azure-hosted apps|[Azure-hosted apps setup](./authorize-managed-identity.md)|
+|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ### Set up storage account roles
 
-Your storage resource needs to have one or more of the following [Azure RBAC](/azure/role-based-access-control/built-in-roles) roles assigned to the identity resource you plan to connect with. [Setup the Azure Storage roles](assign-azure-role-data-access.md?tabs=portal) for each identity you created in the previous step: Azure cloud, local development, on-premises. 
+Your storage resource needs to have one or more of the following [Azure RBAC](../../role-based-access-control/built-in-roles.md) roles assigned to the identity resource you plan to connect with. [Setup the Azure Storage roles](assign-azure-role-data-access.md?tabs=portal) for each identity you created in the previous step: Azure cloud, local development, on-premises. 
 
 After you complete the setup, each identity needs at least one of the appropriate roles: 
     

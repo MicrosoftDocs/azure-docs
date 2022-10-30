@@ -275,7 +275,7 @@ Learn more about how to add more data to your map:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-[mapConfiguration]: /rest/api/maps/v20220901preview/mapconfiguration
+[mapConfiguration]: /rest/api/maps/v20220901preview/map-configuration
 [tutorial]: tutorial-creator-indoor-maps.md
 [geos]: geographic-scope.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor/

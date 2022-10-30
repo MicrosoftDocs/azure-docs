@@ -203,7 +203,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Perform following steps on configuration page:
 
-	![Screenshot shows the Microsoft Azure Active Directory single sign-on for Jira configuration page.](./media/jiramicrosoft-tutorial/addon54.png)
+	![Screenshot shows the Microsoft Azure Active Directory single sign-on for Jira configuration page.](./media/jiramicrosoft-tutorial/jira-configure-addon.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
@@ -235,7 +235,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
 	> `https://<domain:port>/login.jsp?force_azure_login=false`
 
-	k. Click **Save** button to save the settings.
+	k. **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup.
+
+	* For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](../app-proxy/what-is-application-proxy.md).
+
+	l. Click **Save** button to save the settings.
 
 	> [!NOTE]
 	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](./ms-confluence-jira-plugin-adminguide.md). There is also an [FAQ](./ms-confluence-jira-plugin-adminguide.md) for your assistance.

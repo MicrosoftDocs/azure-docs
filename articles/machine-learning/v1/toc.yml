@@ -153,6 +153,13 @@
       - name: Configure secure web services (v1)
         displayName: ssl, tls
         href: how-to-secure-web-service.md
+    - name: Data protection
+      items: 
+      - name: Failover & disaster recovery
+        displayName: high availability
+        href: ../how-to-high-availability-machine-learning.md
+      - name: Regenerate storage access keys
+        href: ../how-to-change-storage-access-key.md
 - name: How-to guides (v1)
   items:
   - name: Install and set up the CLI (v1)
@@ -236,6 +243,8 @@
         href: how-to-train-keras.md
       - name: PyTorch
         href: how-to-train-pytorch.md
+      - name: Train with custom Docker image
+        href: ../how-to-train-with-custom-image.md
       - name: Migrate from Estimators to ScriptRunConfig
         href: how-to-migrate-from-estimators-to-scriptrunconfig.md
       - name: Use Key Vault when training
@@ -271,9 +280,14 @@
       - name: Featurization in automated ML (Python)
         displayName: automl, feature engineering, feature importance, BERT
         href: ../how-to-configure-auto-features.md
+      - name: Generate AutoML training code
+        href: ../how-to-generate-automl-training-code.md
       - name: Local inference using ONNX
         displayName: SDK, automl
         href: how-to-inference-onnx-automl-image-models-v1.md
+      - name: Use automated ML with Databricks
+        displayName: automl
+        href: ../how-to-configure-databricks-automl-environment.md
       - name: Troubleshoot automated ML
         href: ../how-to-troubleshoot-auto-ml.md
     - name: Track experiments with MLflow
@@ -284,6 +298,9 @@
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
       href: ../how-to-monitor-tensorboard.md
+    - name: Log metrics with designer
+      displayName: designer, logging
+      href: ../how-to-track-designer-experiments.md
     - name: Interpret ML models
       displayName: SDK, interpret, explain, explainability, interpretability
       href: ../how-to-machine-learning-interpretability-aml.md
@@ -426,3 +443,6 @@
       href: ../migrate-rebuild-integrate-with-client-app.md
     - name: Rebuild Execute R Script components
       href: ../migrate-execute-r-script.md
+  - name: What happened to Workbench
+    displayName: desktop, ui, Workbench, upgrade, update, transfer
+    href: ../overview-what-happened-to-workbench.md

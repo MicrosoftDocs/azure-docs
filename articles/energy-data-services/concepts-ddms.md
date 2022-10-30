@@ -89,6 +89,6 @@ A DDMS meets the following requirements, further classified into capability, arc
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-Advance to the seismic ddms sdutil tutorial to learn how to use sdutil to load seismic data into seismic store.
+Advance to the seismic DDMS sdutil tutorial to learn how to use sdutil to load seismic data into seismic store.
 > [!div class="nextstepaction"]
 > [Tutorial: Seismic store sdutil](tutorial-seismic-ddms-sdutil.md)

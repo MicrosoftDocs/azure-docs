@@ -1,7 +1,7 @@
 ---
 title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
-author: dkamstra
+author: jacegummersall
 ms.topic: conceptual
 ms.date: 09/07/2022
 ms.author: jagummersall
@@ -49,8 +49,8 @@ An action group is a **global** service, so there's no dependency on a specific 
 
       | Option | Behavior |
       | ------ | -------- |
-      | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS and email actions performed as the result of [service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) are resilient to Azure live-site-incidents. |
-      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](/azure/availability-zones/az-region#highly-available-services). Processing of actions is performed within the region.</br></br>Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). |
+      | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS and email actions performed as the result of [service health alerts](../../service-health/alerts-activity-log-service-notifications-portal.md) are resilient to Azure live-site-incidents. |
+      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Processing of actions is performed within the region.</br></br>Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). |
    
    The action group is saved in the subscription, region and resource group that you select.
 
@@ -197,7 +197,7 @@ You might have a limited number of Azure app actions per action group.
 
 ### Email
 
-Ensure that your email filtering is configured appropriately. Emails are sent from the following email addresses:
+Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:
  
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com

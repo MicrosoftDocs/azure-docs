@@ -89,7 +89,7 @@ You can use the following strategies to avoid host ID collisions:
 
 ### Override the host ID
 
-You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostId` setting. For more information, see [AzureFunctionsWebHost__hostId](functions-app-settings.md#azurefunctionswebhost__hostid). 
+You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostid` setting. For more information, see [AzureFunctionsWebHost__hostid](functions-app-settings.md#azurefunctionswebhost__hostid). 
 
 When the collision occurs between slots, you may need to mark this setting as a slot setting. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 

@@ -45,7 +45,7 @@ The configuration of a load test consists of:
 - [Environment variables](./how-to-parameterize-load-tests.md).
 - [Secret parameters](./how-to-parameterize-load-tests.md).
 - The number of [test engines](#test-engine) to run the test script on.
-- The [pass/fail criteria](./how-to-define-test-criteria.md) for the test.
+- The [fail criteria](./how-to-define-test-criteria.md) for the test.
 - The list of [app components and resource metrics to monitor](./how-to-monitor-server-side-metrics.md) during the test execution.
 
 When you run a test, a [test run](#test-run) instance is created.
@@ -76,7 +76,7 @@ When you create or update a load test, you can configure the list of app compone
 
 During a load test, Azure Load Testing collects metrics about the test execution. There are two types of metrics:
 
-- *Client-side metrics* give you details reported by the test engine. These metrics include the number of virtual users, the request response time, the number of failed requests, or the number of requests per second. You can [define pass/fail criteria](./how-to-define-test-criteria.md) based on client-side metrics to specify when a test passes or fails.
+- *Client-side metrics* give you telemetry reported by the test engine. These metrics include the number of virtual users, the request response time, the number of failed requests, or the number of requests per second. You can [define test fail criteria](./how-to-define-test-criteria.md) based on these client-side metrics.
 
 - *Server-side metrics* are available for Azure-hosted applications and provide information about your Azure [application components](#app-component). Azure Load Testing integrates with Azure Monitor, including Application Insights and Container insights, to capture details from the Azure services. Depending on the type of service, different metrics are available. For example, metrics can be for the number of database reads, the type of HTTP responses, or container resource consumption.
 

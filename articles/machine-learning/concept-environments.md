@@ -6,8 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: larryfr
-author: Blackmist
+author: ositanachi  
+ms.author: osiotugo 
+ms.reviewer: larryfr
 ms.date: 09/23/2021
 ---
 
@@ -41,7 +42,7 @@ You use system-managed environments when you want [conda](https://conda.io/docs/
 
 You can create environments from clients like the AzureML Python SDK, Azure Machine Learning CLI, Environments page in Azure Machine Learning studio, and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows you to customize the base image, Dockerfile, and Python layer if needed.
 
-For specific code samples, see the "Create an environment" section of [How to use environments](how-to-use-environments.md#create-an-environment). 
+For specific code samples, see the "Create an environment" section of [How to use environments](how-to-manage-environments-v2.md#create-an-environment). 
 
 Environments are also easily managed through your workspace, which allows you to:
 
@@ -53,7 +54,7 @@ Environments are also easily managed through your workspace, which allows you to
 
 "Anonymous" environments are automatically registered in your workspace when you submit an experiment. They will not be listed but may be retrieved by version.
 
-For code samples, see the "Manage environments" section of [How to use environments](how-to-use-environments.md#manage-environments).
+For code samples, see the "Manage environments" section of [How to use environments](how-to-manage-environments-v2.md#manage-environments).
 
 ## Environment building, caching, and reuse
 

@@ -1,17 +1,17 @@
 ---
-title: Integrate the Azure Cosmos DB MongoDB API with Service Connector
-description: Integrate the Azure Cosmos DB MongoDB API into your application with Service Connector
+title: Integrate Azure Cosmos DB for MongoDB with Service Connector
+description: Integrate Azure Cosmos DB for MongoDB into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 09/19/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
-# Integrate the Azure Cosmos DB API for MongoDB with Service Connector
+# Integrate Azure Cosmos DB for MongoDB with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB Mongo API using Service Connector. You might still be able to connect to the Azure Cosmos DB API for MongoDB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB for MongoDB using Service Connector. You might still be able to connect to the Azure Cosmos DB for MongoDB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute services
 
@@ -21,7 +21,7 @@ This page shows the supported authentication types and client types for the Azur
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Container Apps, and Azure Spring Apps:
 
 ### [Azure App Service](#tab/app-service)
 
@@ -57,7 +57,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect compute services to Cosmos DB. For each example below, replace the placeholder texts `<mongo-db-admin-user>`, `<password>`, `<Azure-Cosmos-DB-API-for-MongoDB-account>`, `<subscription-ID>`, `<resource-group-name>`, `<client-secret>`, and `<tenant-id>` with your own information.
+Use the connection details below to connect compute services to Azure Cosmos DB. For each example below, replace the placeholder texts `<mongo-db-admin-user>`, `<password>`, `<Azure-Cosmos-DB-API-for-MongoDB-account>`, `<subscription-ID>`, `<resource-group-name>`, `<client-secret>`, and `<tenant-id>` with your own information.
 
 ### Azure App Service and Azure Container Apps
 

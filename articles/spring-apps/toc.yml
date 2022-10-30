@@ -96,6 +96,8 @@ items:
     href: concept-metrics.md
   - name: Spring Boot Actuator
     href: concept-manage-monitor-app-spring-boot-actuator.md
+  - name: Customize Azure Spring Apps egress with a user-defined route
+    href: concept-outbound-type.md
 - name: Security
   items:
   - name: Security controls
@@ -146,6 +148,8 @@ items:
       href: how-to-enterprise-deploy-non-java-apps.md
     - name: Deploy with a custom container
       href: how-to-deploy-with-custom-container-image.md
+    - name: Deploy static files in Azure Spring Enterprise tier
+      href: how-to-enterprise-deploy-static-file.md
   - name: Manage
     items:
     - name: Start or stop a service
@@ -226,6 +230,8 @@ items:
       href: how-to-access-app-from-internet-virtual-network.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
+    - name: Control egress traffic for an Azure Spring Apps instance
+      href: how-to-create-user-defined-route-instance.md
     - name: Customize the ingress configuration in Azure Spring Apps
       href: how-to-configure-ingress.md
     - name: Customer responsibilities running Azure Spring Apps in VNET
@@ -283,11 +289,11 @@ items:
     - name: Migrate Standard and Basic to Enterprise
       href: how-to-migrate-standard-tier-to-enterprise-tier.md
     - name: Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Spring Boot
-      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Tomcat
-      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Architecture
   items:
   - name: Reference architecture
