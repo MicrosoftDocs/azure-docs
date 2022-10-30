@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # LDAP authentication and Azure Multi-Factor Authentication Server
 
-By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory. However, it can be configured to bind to different LDAP directories, such as an ADAM directory, or specific Active Directory domain controller. When connected to a directory via LDAP, the Azure Multi-Factor Authentication Server can act as an LDAP proxy to perform authentications. It also allows for the use of LDAP bind as a RADIUS target, for pre-authentication of users with IIS Authentication, or for primary authentication in the Azure MFA user portal.
+By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory. However, it can be configured to bind to different LDAP directories, such as an ADAM directory, or specific Active Directory domain controller. When connected to a directory via LDAP, the Azure Multi-Factor Authentication Server can act as an LDAP proxy to perform authentications. Azure Multi-Factor Authentication Server can also use LDAP bind as a RADIUS target to pre-authenticate IIS users, or for primary authentication in the Azure MFA user portal.
 
 To use Azure Multi-Factor Authentication as an LDAP proxy, insert the Azure Multi-Factor Authentication Server between the LDAP client (for example, VPN appliance, application) and the LDAP directory server. The Azure Multi-Factor Authentication Server must be configured to communicate with both the client servers and the LDAP directory. In this configuration, the Azure Multi-Factor Authentication Server accepts LDAP requests from client servers and applications and forwards them to the target LDAP directory server to validate the primary credentials. If the LDAP directory validates the primary credentials, Azure Multi-Factor Authentication performs a second identity verification and sends a response back to the LDAP client. The entire authentication succeeds only if both the LDAP server authentication and the second-step verification succeed.
 
@@ -42,7 +42,7 @@ To configure LDAP authentication, install the Azure Multi-Factor Authentication 
 6. In the Add LDAP Client dialog box, enter the IP address of the appliance, server, or application that authenticates to the Server and an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
 7. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or are exempt from two-step verification, leave the box unchecked. See the MFA Server help file for additional information on this feature.
 
-Repeat these steps to add additional LDAP clients.
+Repeat these steps to add more LDAP clients.
 
 ### Configure the LDAP directory connection
 
@@ -68,7 +68,7 @@ When the Azure Multi-Factor Authentication is configured to receive LDAP authent
 12. Click the **Company Settings** icon and select the **Username Resolution** tab.
 13. If you're connecting to Active Directory from a domain-joined server, leave the **Use Windows security identifiers (SIDs) for matching usernames** radio button selected. Otherwise, select the **Use LDAP unique identifier attribute for matching usernames** radio button.
 
-When the **Use LDAP unique identifier attribute for matching usernames** radio button is selected, the Azure Multi-Factor Authentication Server attempts to resolve each username to a unique identifier in the LDAP directory. An LDAP search is performed on the Username attributes defined in the Directory Integration -> Attributes tab. When a user authenticates, the username is resolved to the unique identifier in the LDAP directory. The unique identifier is used for matching the user in the Azure Multi-Factor Authentication data file. This allows for case-insensitive comparisons, and long and short username formats.
+When the **Use LDAP unique identifier attribute for matching usernames** radio button is selected, the Azure Multi-Factor Authentication Server attempts to resolve each username to a unique identifier in the LDAP directory. An LDAP search is performed on the Username attributes defined in the Directory Integration > Attributes tab. When a user authenticates, the username is resolved to the unique identifier in the LDAP directory. The unique identifier is used for matching the user in the Azure Multi-Factor Authentication data file. This allows for case-insensitive comparisons, and long and short username formats.
 
 After you complete these steps, the MFA Server listens on the configured ports for LDAP access requests from the configured clients, and acts as a proxy for those requests to the LDAP directory for authentication.
 
