@@ -1,6 +1,6 @@
 ---
 title: Use Azure MFA Server with AD FS 2.0 - Azure Active Directory
-description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS 2.0.
+description: Describes how to get started with Azure MFA and AD FS 2.0.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -88,10 +88,10 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 
 1. Next, click the **Company Settings** icon and select the **Username Resolution** tab.
 2. Select the **Use LDAP unique identifier attribute for matching usernames** radio button.
-3. If users enter their username in "domain\username" format, the Server needs to be able to strip the domain off the username when it creates the LDAP query. That can be done through a registry setting.
+3. If users enter their username in "domain\username" format, the Server needs to be able to strip the domain off the username when it creates the LDAP query, which can be done through a registry setting.
 4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If on a 32-bit server, take the "Wow6432Node" out of the path. Create a DWORD registry key called "UsernameCxz_stripPrefixDomain" and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
 
-Ensure that users have been imported from Active Directory into the Server. See the [Trusted IPs section](#trusted-ips) if you would like to allow internal IP addresses so that two-step verification is not required when signing in to the website from those locations.
+Make sure users are imported from Active Directory into the Server. To allow users to skip two-step verification from internal IP addresses, see the [Trusted IPs](#trusted-ips).
 
 ![Registry editor to configure company settings](./media/howto-mfaserver-adfs-2/reg.png)
 
