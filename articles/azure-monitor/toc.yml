@@ -30,6 +30,10 @@ items:
     href: essentials/tutorial-metrics.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
+  - name: Sent data to logs using REST API and the Azure portal
+    href: logs/tutorial-logs-ingestion-portal.md
+  - name: Sent data to logs using REST API and ARM templates
+    href: logs/tutorial-logs-ingestion-api.md
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -54,6 +58,16 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile or UWP application
       href: app/mobile-center-quickstart.md
+  - name: Change Analysis
+    items:
+      - name: Track web outages
+        href: change/tutorial-outages.md
+  - name: Workplace transformations
+    items:
+    - name: Workspace transformations in the Azure portal
+      href: logs/tutorial-workspace-transformations-portal.md
+    - name: Workspace transformations using ARM templates
+      href: logs/tutorial-workspace-transformations-api.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -334,10 +348,6 @@ items:
     - name: Structure
       displayName: Transformations
       href: essentials/data-collection-transformations-structure.md
-    - name: Tutorial (portal)
-      href: logs/tutorial-workspace-transformations-portal.md
-    - name: Tutorial (API)
-      href: logs/tutorial-workspace-transformations-api.md
   - name: Data collection endpoints
     href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
@@ -418,10 +428,6 @@ items:
       - name: Overview
         displayName: data ingestion
         href: logs/logs-ingestion-api-overview.md
-      - name: Tutorial (portal)
-        href: logs/tutorial-logs-ingestion-portal.md
-      - name: Tutorial (API)
-        href: logs/tutorial-logs-ingestion-api.md
       - name: Migrate from Data Collector API
         href: logs/custom-logs-migrate.md
       - name: Data collector API
@@ -1090,11 +1096,11 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
-  - name: Activity logs
+  - name: Activity log insights
     href: essentials/activity-log-insights.md
-  - name: Log Analytics workspace
+  - name: Log Analytics workspace insights
     href: logs/log-analytics-workspace-insights-overview.md
-  - name: Resource groups
+  - name: Resource group insights
     href: insights/resource-group-insights.md
   - name: Troubleshoot insights
     href: insights/troubleshoot-workbooks.md 
@@ -1324,10 +1330,6 @@ items:
       href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
-    - name: Tutorials
-      items:
-      - name: Track web outages
-        href: change/tutorial-outages.md
 - name: Respond
   items:
   - name: Alerts
