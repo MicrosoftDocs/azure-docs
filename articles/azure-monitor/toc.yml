@@ -1399,10 +1399,8 @@ items:
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
         href: alerts/alerts-non-common-schema-definitions.md
-      - name: Integrate the common alert schema with Logic Apps
-        href: alerts/alerts-common-schema-integrations.md
-      - name: Implement a Logic App action
-        href: alerts/action-groups-logic-app.md
+      - name: Customize alert notifications using Logic apps
+        href: alerts/alerts-logic-apps.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
