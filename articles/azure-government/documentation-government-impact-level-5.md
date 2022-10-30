@@ -7,7 +7,7 @@ ms.custom: references_regions, ignite-2022
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 10/21/2022
+ms.date: 10/30/2022
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -171,17 +171,21 @@ Virtual machine scale sets aren't currently supported on Azure Dedicated Host. B
 > [!IMPORTANT]
 > As new hardware generations become available, some VM types might require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. For more information, see **[Virtual machine isolation in Azure](../virtual-machines/isolation.md).**
 
-#### Disk encryption options
+#### Disk encryption for virtual machines
 
-There are several types of encryption available for your managed disks supporting virtual machines and virtual machine scale sets:
+You can encrypt the storage that supports these virtual machines in one of two ways to support necessary encryption standards.
 
-- Azure Disk Encryption
-- Server-side encryption of Azure Disk Storage
-- Encryption at host
-- Confidential disk encryption
+- Use Azure Disk Encryption to encrypt the drives by using dm-crypt (Linux) or BitLocker (Windows):
+  - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
+  - [Enable Azure Disk Encryption for Windows](../virtual-machines/windows/disk-encryption-overview.md)
+- Use Azure Storage service encryption for storage accounts with your own key to encrypt the storage account that holds the disks:
+  - [Storage service encryption with customer-managed keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
-All these options enable you to have sole control over encryption keys. For more information, see [Overview of managed disk encryption options](../virtual-machines/disk-encryption-overview.md).
+#### Disk encryption for virtual machine scale sets
 
+You can encrypt disks that support virtual machine scale sets by using Azure Disk Encryption:
+
+- [Encrypt disks in virtual machine scale sets](../virtual-machine-scale-sets/disk-encryption-key-vault.md)
 
 ## Containers
 
