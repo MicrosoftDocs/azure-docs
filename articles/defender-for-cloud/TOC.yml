@@ -366,8 +366,26 @@
       - name: Overview
         displayName: database
         href: defender-for-sql-introduction.md
-      - name: Scan your Azure SQL databases for vulnerabilities
-        href: defender-for-sql-azure-vulnerability-assessment.md
+      - name: Protect against vulnerabilities in your Azure SQL databases
+        items:
+        - name: Overview
+          href: defender-for-sql-azure-vulnerability-assessment-overview.md
+        - name: Vulnerability assessment without storage account (Express)
+          items:
+          - name: Enable vulnerability assessment express configuration
+            href: defender-for-sql-azure-vulnerability-assessment-express-enable.md
+          - name: Manage vulnerability assessment in the express configuration
+            href: defender-for-sql-azure-vulnerability-assessment-express-manage.md
+          - name: Find and remediate vulnerabilities in the express configuration
+            href: defender-for-sql-azure-vulnerability-assessment-express-find.md
+        - name: Vulnerability assessment with storage account (Classic)
+          items:
+          - name: Enable vulnerability assessment classic configuration
+            href: defender-for-sql-azure-vulnerability-assessment-classic-enable.md
+          - name: Manage vulnerability assessment in the classic configuration
+            href: defender-for-sql-azure-vulnerability-assessment-classic-manage.md
+          - name: Find and remediate vulnerabilities in the classic configuration
+            href: defender-for-sql-azure-vulnerability-assessment-classic-find.md
       - name: Scan your SQL servers for vulnerabilities
         href: defender-for-sql-on-machines-vulnerability-assessment.md
         displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
