@@ -1146,6 +1146,8 @@
         "articles/open-datasets/**/*.yml": "Azure Open Datasets",
         "articles/openshift/**/*.md": "Azure Red Hat OpenShift",
         "articles/openshift/**/*.yml": "Azure Red Hat OpenShift",
+        "articles/partner-solutions/**/*.md": "Azure Native ISV Services",
+        "articles/partner-solutions/**/*.yml": "Azure Native ISV Services",
         "articles/purview/**/*.md": "Microsoft Purview",
         "articles/purview/**/*.yml": "Microsoft Purview",
         "articles/quotas/**/*.md": "Azure Quotas",

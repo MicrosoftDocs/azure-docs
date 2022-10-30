@@ -2,6 +2,8 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
+author: bmansheim
+ms.author: benmansheim
 ms.custom: ignite-2022
 ms.date: 09/11/2022
 ---

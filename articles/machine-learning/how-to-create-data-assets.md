@@ -1,17 +1,16 @@
 ---
 title: Create Data Assets
 titleSuffix: Azure Machine Learning
-description: Learn how to create Azure Machine Learning data assets.
+description: Learn how to create Azure Machine Learning data assets
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: contperf-fy21q1, data4ml, sdkv1, ignite-2022
+ms.custom: data4ml, ignite-2022
 ms.author: xunwan
 author: xunwan
 ms.reviewer: nibaccam
 ms.date: 09/22/2022
-#Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 ---
 
 # Create data assets
@@ -21,7 +20,10 @@ ms.date: 09/22/2022
 > * [v1](./v1/how-to-create-register-datasets.md)
 > * [v2 (current version)](how-to-create-data-assets.md)
 
-In this article, you learn how to create a data asset in Azure Machine Learning. By creating a data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from datastores, Azure Storage, public URLs, and local files.
+In this article, you learn how to create a data asset in Azure Machine Learning. By creating a data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from AzureML datastores, Azure Storage, public URLs, and local files.
+
+> [!IMPORTANT]
+> If you didn't creat/register the data source as a data asset, you can still [consume the data via specifying the data path in a job](how-to-read-write-data-v2.md#read-data-in-a-job) without benefits below.
 
 The benefits of creating data assets are:
 
@@ -30,6 +32,7 @@ The benefits of creating data assets are:
 * You can **seamlessly access data** during model training (on any supported compute type) without worrying about connection strings or data paths.
 
 * You can **version** the data.
+
 
 
 ## Prerequisites
@@ -50,13 +53,26 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 |Location  | Examples  |
 |---------|---------|
 |A path on your local computer     | `./home/username/data/my_data`         |
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
 |A path on a datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|A path on Azure Storage     |`wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`<br> `https://<account_name>.blob.core.windows.net/<container_name>/path`  |
 
 
 > [!NOTE]
 > When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
+
+
+## Data asset types
+ - [**URIs**](#Create a `uri_folder` data asset) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`.
+
+ - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+
+ The ideal scenarios to use `mltable` are:
+ - The schema of your data is complex and/or changes frequently.
+ - You only need a subset of data (for example: a sample of rows or files, specific columns, etc).
+ - AutoML jobs requiring tabular data.
+ 
+If your scenario does not fit the above then it is likely that URIs are a more suitable type.
 
 ## Create a `uri_folder` data asset
 
@@ -201,12 +217,24 @@ To create a File data asset in the Azure Machine Learning studio, use the follow
 ## Create a `mltable` data asset
 
 `mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (an overview can be found in [MLTable](concept-data.md#mltable)). 
+`mltable` supports tabular data coming from following sources:
+- Delimited files (CSV, TSV, TXT)
+- Parquet files
+- JSON Lines
+- Delta Lake 
+
+Please find more details about what are the abilities we provide via `mltable` in [reference-yaml-mltable](reference-yaml-mltable.md).
 
 In this section, we show you how to create a data asset when the type is an `mltable`.
 
 ### The MLTable file
 
-The MLTable file is a file that provides the specification of the data's schema so that the `mltable` *engine* can materialize the data into an in-memory object (Pandas/Dask/Spark). An *example* MLTable file is provided below:
+The MLTable file is a file that provides the specification of the data's schema so that the `mltable` *engine* can materialize the data into an in-memory object (Pandas/Dask/Spark).
+
+> [!NOTE]
+> This file needs to be named exactly as `MLTable`.
+
+An *example* MLTable file is provided below:
 
 ```yml
 type: mltable
@@ -271,7 +299,7 @@ path: <path>
 ```
 
 > [!NOTE]
->  The path points to the **folder** containing the MLTable artifact.
+> The path points to the **folder** containing the MLTable artifact.
 
 Next, create the data asset using the CLI:
 
@@ -328,6 +356,7 @@ To create a Table data asset in the Azure Machine Learning studio, use the follo
 
 1. Follow the steps, once you reach the Review step, click Create on the last page
 ---
+
 
 
 ## Next steps

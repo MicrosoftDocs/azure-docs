@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 10/25/2022
 ms.author: anfdocs
 ---
 # Use availability zones for high availability in Azure NetApp Files
@@ -24,7 +24,7 @@ Azure [availability zones](../availability-zones/az-overview.md#availability-z
 
 Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones let you design and operate applications and databases that automatically transition between zones without interruption. You can design resilient solutions by using Azure services that use availability zones.  
 
-The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/architecture/framework/resiliency/app-design#use-availability-zones-within-a-region). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation.
+The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation.
 
 :::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="../media/azure-netapp-files/availability-zone-diagram.png":::
 
@@ -35,7 +35,7 @@ All Virtual Machines within the region in (peered) VNets can access all Azure Ne
 Azure NetApp Files deployments will occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 
 >[!IMPORTANT]
->Azure NetApp Files availability zone volume placement provides zonal placement. It doesn't provide proximity placement towards compute. As such, it doesn’t provide lowest latency guarantee. VM-to-storage latencies are within the availability zone latency envelopes. 
+>Azure NetApp Files availability zone volume placement provides zonal placement. It ***does not*** provide proximity placement towards compute. As such, it ***does not*** provide lowest latency guarantee. VM-to-storage latencies are within the availability zone latency envelopes. 
 
 You can co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones. Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
 

@@ -3,7 +3,8 @@ title: Azure VMware Solution networking and connectivity
 description: Azure VMware Solution networking and connectivity description.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 10/07/2022
+ms.custom: engagement-fy23
+ms.date: 10/25/2022
 author: suzizuber
 ms.author: v-szuber
 ---
@@ -16,7 +17,7 @@ When deploying a private cloud, private networks for management, provisioning, a
 
 [!INCLUDE [expressroute-global-reach](expressroute-global-reach.md)]
 
-Virtual machines deployed on the private cloud are accessible to the internet through the [Azure Virtual WAN public IP](../enable-public-internet-access.md) functionality. For new private clouds, internet access is disabled by default. 
+Virtual machines deployed on the private cloud are accessible to the internet through the [Azure Virtual WAN public IP](../enable-public-ip-nsx-edge.md) functionality. For new private clouds, internet access is disabled by default. 
 
 
 

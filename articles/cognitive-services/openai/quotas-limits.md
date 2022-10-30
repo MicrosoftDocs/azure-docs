@@ -23,16 +23,16 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region | 2 | 
-| Requests per second per deployment | 1 |
+| Requests per second per deployment | 5 |
 | Max fine-tuned model deployments | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 | 
 | Max Files per resource | 50 |
-| Total size of all files per resource | 1 GB| 
+| Total size of all files per resource | 1 GB | 
 | Max training job time (job will fail if exceeded) | 120 hours |
-| Max training job size (tokens in training file * # of epochs) | **Ada**: 4-M tokens <br> **Babbage**: 4-M tokens <br> **Curie**: 4-M tokens <br> **Cushman**: 4-M tokens <br> **Davinci**: 500 K |
+| Max training job size (tokens in training file * # of epochs) | **Ada**: 40-M tokens <br> **Babbage**: 40-M tokens <br> **Curie**: 40-M tokens <br> **Cushman**: 40-M tokens <br> **Davinci**: 10-M |
 
 
 ### General best practices to mitigate throttling during autoscaling

@@ -5,9 +5,9 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: petrodeg
-ms.author:  petrodeg
-ms.reviewer: larryfr
+author: shohei1029
+ms.author:  shnagata
+ms.reviewer: mopeakande
 ms.date: 04/12/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022

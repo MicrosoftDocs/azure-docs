@@ -17,7 +17,7 @@ The following sections describe how to configure Azure Monitor managed service f
 > [!IMPORTANT]
 > This section describes the manual process for adding an Azure Monitor managed service for Prometheus data source to Azure Managed Grafana. You can achieve the same functionality by linking the Azure Monitor workspace and Grafana workspace as described in [Link a Grafana workspace](azure-monitor-workspace-overview.md#link-a-grafana-workspace).
 
-### Configure system identify
+### Configure system identity
 Your Grafana workspace requires the following:
 
 - System managed identity enabled

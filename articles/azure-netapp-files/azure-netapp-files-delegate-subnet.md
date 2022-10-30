@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 10/25/2022
 ms.author: anfdocs
 ---
 # Delegate a subnet to Azure NetApp Files 
@@ -49,3 +49,4 @@ You can also create and delegate a subnet when you [create a volume for Azure Ne
 
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
+* [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)
