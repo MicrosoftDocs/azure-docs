@@ -5486,7 +5486,7 @@
         }
         ,
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-logic-app.md-",
+            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-logic-app.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
             "redirect_document_id": false
         }
