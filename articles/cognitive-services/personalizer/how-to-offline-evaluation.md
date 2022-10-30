@@ -47,9 +47,9 @@ Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 
 Evaluations can take a long time to run, depending on the amount of data to process, number of learning policies to compare, and whether an optimization was requested.
 
-Once completed, you can select the evaluation from the list of evaluations, then select **Compare the score of your application with other potential learning settings**. Select this feature when you want to see how your current learning policy performs compared to a new policy.
+1. Once completed, you can select the evaluation from the list of evaluations, then select **Compare the score of your application with other potential learning settings**. Select this feature when you want to see how your current learning policy performs compared to a new policy.
 
-Next, Review the performance of the [learning policies](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
+1. Next, Review the performance of the [learning policies](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
 
     > [!div class="mx-imgBorder"]
     > [![Review evaluation results](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
