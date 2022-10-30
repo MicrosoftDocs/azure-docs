@@ -140,4 +140,4 @@ For more information about workflows, see these articles:
 - [Workflows in Microsoft Purview](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
-
+- [self-service access policies](concept-self-service-data-access-policy.md)

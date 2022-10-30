@@ -34,7 +34,7 @@ A **workflow admin** will need to map a self-service data access workflow to a c
 
 * **Self-service data access workflow** is the workflow that is initiated when a data consumer requests access to data.
 
-* **Approver** is either security group or Azure Active Directory (Azure AD) users that can approve self-service access requests.
+* **Approver** is either security group or Azure Active Directory (Azure AD) users or Azure AD Groups that can approve self-service access requests.
 
 ## How to use Microsoft Purview self-service data access policy
 
@@ -62,3 +62,4 @@ If you would like to preview these features in your environment, follow the link
 -  [create self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md)
 -  [working with policies at file level](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
 -  [working with policies at folder level](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
+-  [self-service policies for Azure SQL Database tables and views](./how-to-policies-self-service-azure-sql-db.md)
