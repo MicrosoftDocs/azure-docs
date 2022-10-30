@@ -9,6 +9,10 @@ ms.topic: how-to
 
 Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done in Microsoft 365 Defender.
 
+For each monthly or annual price plan, you'll be asked to define the number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise.
+
+For information about OT networks, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
+
 ## Prerequisites
 
 Before performing the procedures in this article, make sure that you have:
@@ -24,13 +28,13 @@ Before performing the procedures in this article, make sure that you have:
     |**In Azure Active Directory**     |   [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant      |
     |**In Azure RBAC**     | [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration        |
 
-## Calculate the number of devices you need to monitor
+## Calculate committed devices for Enterprise IoT monitoring
 
-If you're adding an Enterprise IoT plan with a monthly or annual commitment, you'll be asked to enter the number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise.
+If you're adding an Enterprise IoT plan with a monthly or annual commitment, you'll be asked to enter the number of committed devices.
 
-We recommend that you make an initial estimate of your committed devices when onboarding your Defender for IoT plan. You can skip this procedure if you're adding a trial plan.
+We recommend that you make an initial estimate of your committed devices when onboarding your plan. You can skip this procedure if you're adding a trial plan.
 
-**To calculate committed devices for an Enterprise IoT plan**:
+**To calculate committed devices:**:
 
 1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Devices**. <!--need to validate this-->
 
@@ -50,13 +54,20 @@ We recommend that you make an initial estimate of your committed devices when on
     - **Inactive devices**: Devices that have no network activity detected for more than 30 days
     - **Endpoints managed by Defender for Endpoint** <!--wouldn't this be all of them? since we're only looking in D4E? do we need to clarify this better?-->
 
-    For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
-
 1. Round up your total to a multiple of 100.
 
-For example: In the Defender for Endpoint **Device inventory**, you have 473 network devices and 1206 IoT devices. Added together the total is 1679 devices, and rounded up to a multiple of 100 is 1700. Use 1700 as the estimated number of committed devices.
+For example:
 
-## Onboard a Defender for IoT plan
+- In the Microsoft 365 Defender **Device inventory**, you have *473* network devices and *1206* IoT devices.
+- Added together, the total is *1679* devices, and rounded up to a multiple of 100 is **1700**.
+
+Use **1700** as the estimated number of committed devices.
+
+## Onboard an Enterprise IoT plan
+
+This procedure describes how to add an Enterprise IoT plan to your Azure subscription from Microsoft 365 Defender.
+
+**To add an Enterprise IoT plan**:
 
 1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 
@@ -105,8 +116,10 @@ You'd also need to cancel your plan and onboard again if you need to work with a
 
 After you cancel your plan, the integration stops and you'll no longer get added security value in Microsoft 365 Defender, or detect new Enterprise IoT devices in Defender for IoT.
 
+The cancellation takes effect one hour after confirming the change.  This change will appear on your next monthly statement, and you will be charged based on the length of time the plan was in effect.
+
 > [!IMPORTANT]
-> You can also cancel a plan from Defender for IoT in the Azure portal. However, canceling a plan from the Azure portal removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT plans. Do this with care.
+> You can also [cancel a plan](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) from Defender for IoT in the Azure portal. However, canceling a plan from the Azure portal removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT plans. Do this with care.
 >
 > If you've [registered an Enterprise IoT network sensor](eiot-sensor.md) (Public preview), device data collected by the sensor remains in your Microsoft 365 Defender instance. If you're canceling the Enterprise IoT plan because you no longer need the service, make sure to manually delete data from Microsoft 365 Defender as needed.
 
@@ -120,9 +133,11 @@ If you are a Microsoft Defender for IoT customer and also have a subscription to
 
 ## Next steps
 
-- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+For more information, see:
 
-- [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
+- [Defender for IoT subscription billing](billing.md)
+
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 
 - [Create an additional Azure subscription](../../cost-management-billing/manage/create-subscription.md)
 
