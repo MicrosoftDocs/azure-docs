@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud glossary for device builder
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 10/27/2022
+ms.date: 10/30/2022
 ms.topic: article
 ---
 
