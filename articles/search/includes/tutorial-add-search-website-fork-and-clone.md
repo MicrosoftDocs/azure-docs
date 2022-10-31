@@ -1,6 +1,9 @@
 ---
 ms.topic: include
 ms.date: 10/26/2022
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ---
 
 1. At a Bash terminal, download your forked sample application to your local computer. 

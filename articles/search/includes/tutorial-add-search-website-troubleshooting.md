@@ -1,6 +1,9 @@
 ---
 ms.topic: include
 ms.date: 10/26/2022
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ---
 
 If the web app didn't deploy or work, use the following list to determine and fix the issue:

@@ -1,6 +1,9 @@
 ---
 ms.topic: include
 ms.date: 10/26/2022
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ---
 
 Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app and the Function app.  
