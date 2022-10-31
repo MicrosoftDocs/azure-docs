@@ -21,8 +21,6 @@ If you have any questions, contact us at <a href="mailto:ask-grid-and-ms-sap@mic
 
 ## High-level steps
 
-The common steps to subscribe to events published by any partner, including SAP, are described in [subscribe to partner events](subscribe-to-partner-events.md). For your quick reference, the steps are provided again here with the addition of a step to make sure that your SAP system has the required components. This article deals with steps 1 and 3.
-
 1. [Register the Event Grid resource provider](#register-the-event-grid-resource-provider) with your Azure subscription.
 1. [Authorize partner](#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 1. [Enable SAP S/4HANA events to flow to a partner topic](#enable-events-to-flow-to-your-partner-topic).
