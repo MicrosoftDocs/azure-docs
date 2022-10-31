@@ -20,7 +20,7 @@ In this how-to guide, you'll learn to configure the SAP NetWeaver provider for u
 User can select between the two connection types when configuring SAP Netweaver provider to collect information from SAP system. Metrics are collected by using 
 
 - **SAP Control** - The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAP Control**, which is a SOAP web service interface that exposes these capabilities. The **SAP Control** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
-- **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. It is available only as part of Azure Monitor for SAP solution and not available in the classic version. 
+- **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. It's available only as part of Azure Monitor for SAP solution and not available in the classic version. 
 
 You can collect below metric using SAP NetWeaver Provider 
 
@@ -88,14 +88,14 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
 For AS ABAP applications only, you can set up the NetWeaver RFC metrics. This step is **mandatory** when connection type selected is **SOAP+RFC**. Below steps need to be performed as a pre-requisite to enable RFC 
 
 1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses least privilege access.Download and unzips [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip).
-    1. Log in to your SAP system.
-    1. Use the transaction code **PFCG** &gt; click on **Role Upload** in the menu.
+    1. Sign in to your SAP system.
+    1. Use the transaction code **PFCG** &gt; select on **Role Upload** in the menu.
     1. Upload the **Z_AMS_NETWEAVER_MONITORING.SAP** file from the ZIP file.
     1. Select **Execute** to generate the role. (ensure the profile is also generated as part of the role upload)
     
 2. **Create and authorize a new RFC user**.
     1. Create an RFC user.
-    1. Assign the role **Z_AMS_NETWEAVER_MONITORING** to the user. It is the role that you uploaded in the previous section.
+    1. Assign the role **Z_AMS_NETWEAVER_MONITORING** to the user. It's the role that you uploaded in the previous section.
 
 3. **Enable SICF Services** to access the RFC via the SAP Internet Communication Framework (ICF)
     1. Go to transaction code **SICF**.
@@ -104,7 +104,7 @@ For AS ABAP applications only, you can set up the NetWeaver RFC metrics. This st
   
 It's also recommended to check that you enabled the ICF ports.  
 
-4. **SMON** - Enable **SMON** to monitor the system performance.Make sure the version of **ST-PI** is **SAPK-74005INSTPI**. You will see empty visualization as part of the workbook when it is not configured. 
+4. **SMON** - Enable **SMON** to monitor the system performance.Make sure the version of **ST-PI** is **SAPK-74005INSTPI**. You'll see empty visualization as part of the workbook when it isn't configured. 
 
     1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
@@ -139,7 +139,7 @@ List of common commands and troubleshooting solution for errors.
 
 ### Ensuring Internet communication Framework port is open
 
-1. Log in to the SAP system
+1. Sign in to the SAP system
 2. Go to transaction code **SICF**.
 3. Navigate to the service path `/default_host/sap/bc/soap/`.
 3. Right-click the ping service and choose **Test Service**. SAP starts your default browser.
@@ -159,13 +159,13 @@ List of common commands and troubleshooting solution for errors.
 
 After you restart the SAP service, check that your updated rules are applied to each instance. 
 
-1. When Log in to the SAP system as `sidadm`. Run the following command. Replace `<instance number>` with your system's instance number.
+1. When Sign in to the SAP system as `sidadm`. Run the following command. Replace `<instance number>` with your system's instance number.
 
     ```Command to list unprotectedmethods 
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods
     ```
 
-1. When signin as non SIDADM user. Run the following command, replace `<instance number>` with your system's instance number, `<admin user>` with your administrator username, and `<admin password>` with the password.
+1. When sign in as non SIDADM user. Run the following command, replace `<instance number>` with your system's instance number, `<admin user>` with your administrator username, and `<admin password>` with the password.
 
     ```Command to list unprotectedmethods
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods -user "<admin user>" "<admin password>"
@@ -197,7 +197,7 @@ To validate the rules, run a test query against the web methods. Replace the `<h
 
 ### Determine all hostname associated with an SAP system 
     
-To determine all SAP hostnames associated with the SID, login to the SAP system using the `sidadm` user. Then, run the following command:
+To determine all SAP hostnames associated with the SID, Sign in to the SAP system using the `sidadm` user. Then, run the following command:
 
    ```Command to find list of instances associated to given instance
     /usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList
