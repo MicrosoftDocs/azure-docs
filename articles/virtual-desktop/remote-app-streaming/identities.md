@@ -22,7 +22,7 @@ The identities you create need to follow these guidelines:
 - You should keep users from different organizations in separate Azure AD tenants to prevent security breaches. We recommend creating one Active Directory Domain and Azure Active Directory tenant per customer organization. That tenant should have its own associated Azure AD DS or AD DS subscription dedicated to that customer.
 
 >[!NOTE]
-> You can enable [single sign-on (SSO) for AVD with Azure Active Directory (AD)-joined VMs](https://learn.microsoft.com/azure/virtual-desktop/configure-single-sign-on). AVD doesn't support SSO with VMs joined to Azure AD Domain Services.
+> You can only enable [single sign-on (SSO)](https://learn.microsoft.com/azure/virtual-desktop/configure-single-sign-on) and [Intune management](https://learn.microsoft.com/azure/virtual-desktop/management) on Azure AD-joined and Hybrid Azure AD-joined VMs. Azure Virtual Desktop doesn't support SSO and Intune with VMs joined to Azure AD Domain Services.
 
 The following two sections will tell you how to create identities with AD DS and Azure AD DS. To follow [the security guidelines for cross-organizational apps](security.md), you'll need to repeat the process for each customer.
 
