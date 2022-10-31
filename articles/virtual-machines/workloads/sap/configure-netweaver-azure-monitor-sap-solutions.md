@@ -128,11 +128,11 @@ Ensure all the pre-requisites are successfully completed. To add the NetWeaver p
     5. For **Instance number**, specify the instance number of SAP NetWeaver (00-99)
     6. For **Connection type** - select either [SOAP](#prerequisite-unprotect-methods-for-metrics) + [RFC](#prerequisite-to-enable-rfc-metrics) or [SOAP](#prerequisite-unprotect-methods-for-metrics) based on the metric collected ( refer above section for details ) 
     7. For **SAP client ID**, provide the SAP client identifier.
-    8. For **SAP ICM HTTP Port**, enter the port that the ICM is using, e.g., 80<NN> where <NN> is the instance number.
+    8. For **SAP ICM HTTP Port**, enter the port that the ICM is using, e.g., 80(NN) where (NN) is the instance number.
     9. For **SAP username**, enter the name of the user that you created to connect to the SAP system.
     10. For **SAP password**, enter the password for the user.    
     11. For **Host file entries**, provide the DNS mappings for all SAP VMs associated with the SID
-        Enter **all SAP application servers and ASCS** host file entries in **Host file entries**. Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname. For example: **192.X.X.X sapservername.contoso.com sapservername,192.X.X.X sapservername2.contoso.com sapservername2**. Make sure that host file entries are provided for all hostnames that the [command returns](#determine-all-hostname-associated-with-a-SAP-system)
+        Enter **all SAP application servers and ASCS** host file entries in **Host file entries**. Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname. For example: **192.X.X.X sapservername.contoso.com sapservername,192.X.X.X sapservername2.contoso.com sapservername2**. Make sure that host file entries are provided for all hostnames that the [command returns](#determine-all-hostname-associated-with-a-sap-system)
 
 ## Troubleshooting for SAP Netweaver Provider 
 
@@ -200,7 +200,9 @@ To validate the rules, run a test query against the web methods. Replace the `<h
     
 To determine all SAP hostnames associated with the SID, log in to the SAP system using the `sidadm` user. Then, run the following command:
 
-    `/usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList`
+   ```Command to find list of instances associated to given instance
+    /usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList
+   ```
     
 ### Common errors and possible solutions 
 
@@ -221,7 +223,7 @@ Recommended Action: 'Please check the mandatory parameters username, password or
 #### WSDL11 is inactive in SICF
 The provider settings validation operation has failed with code 'NetWeaverRfcSOAPWSDLInactive'. 
     
-Possible Causes: The operation failed with error: 'WSDL11 is inactive in the SAP System: <SID>.  
+Possible Causes: The operation failed with error: 'WSDL11 is inactive in the SAP System: (SID).  
 Error occurred while validating RFC SOAP client API calls for SAP system. 
     
 Recommended Action: 'Please check the WSDL11 service node is active, refer to SICF Transaction in SAP System to activate the service'.(Code: ProviderInstanceValidationOperationFailed) 
@@ -237,7 +239,7 @@ Recommended Action: Ensure that the roles file is uploaded correctly in SAP Syst
 #### Incorrect Input provided 
 The provider settings validation operation has failed with code 'SOAPApiConnectionError'. 
     
-Possible Causes: The operation failed with error: 'Unable to reach the hostname: <hostanme> with the input provided.  
+Possible Causes: The operation failed with error: 'Unable to reach the hostname: (hostname) with the input provided.  
     
 Recommended Action: 'Please check the input hostname, instance number, and host file entries. '. (Code: ProviderInstanceValidationOperationFailed) 
     
