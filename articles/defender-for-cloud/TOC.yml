@@ -363,34 +363,21 @@
       href: quickstart-enable-database-protections.md
     - name: Defender for Azure SQL Databases
       items: 
-      - name: Overview
+      - name: Get started
         displayName: database
         href: defender-for-sql-introduction.md
-      - name: Protect against vulnerabilities in your Azure SQL databases
-        items:
-        - name: Overview
-          href: defender-for-sql-azure-vulnerability-assessment-overview.md
-        - name: Vulnerability assessment without storage account (Express)
-          items:
-          - name: Enable vulnerability assessment express configuration
-            href: defender-for-sql-azure-vulnerability-assessment-express-enable.md
-          - name: Manage vulnerability assessment in the express configuration
-            href: defender-for-sql-azure-vulnerability-assessment-express-manage.md
-          - name: Find and remediate vulnerabilities in the express configuration
-            href: defender-for-sql-azure-vulnerability-assessment-express-find.md
-        - name: Vulnerability assessment with storage account (Classic)
-          items:
-          - name: Enable vulnerability assessment classic configuration
-            href: defender-for-sql-azure-vulnerability-assessment-classic-enable.md
-          - name: Manage vulnerability assessment in the classic configuration
-            href: defender-for-sql-azure-vulnerability-assessment-classic-manage.md
-          - name: Find and remediate vulnerabilities in the classic configuration
-            href: defender-for-sql-azure-vulnerability-assessment-classic-find.md
-      - name: Scan your SQL servers for vulnerabilities
-        href: defender-for-sql-on-machines-vulnerability-assessment.md
-        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
+      - name: Enable vulnerability assessment
+        href: defender-for-sql-azure-vulnerability-assessment-enable.md
+      - name: Manage vulnerability assessment configuration
+        href: defender-for-sql-azure-vulnerability-assessment-manage.md
+      - name: Find and remediate vulnerabilities
+        href: defender-for-sql-azure-vulnerability-assessment-find.md
       - name: Customize SQL information protection policy
         displayName: sql, database, data discovery
+        href: sql-information-protection-policy.md
+      - name: Investigate threats
+        href: ../azure-sql/database/threat-detection-overview.md?toc=/azure/defender-for-cloud/toc.json
+      - name: Review sensitive data
         href: sql-information-protection-policy.md
     - name: Defender for SQL servers on machines
       items:
