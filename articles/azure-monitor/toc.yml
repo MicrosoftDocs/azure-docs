@@ -32,7 +32,7 @@ items:
     href: essentials/tutorial-resource-logs.md
   - name: Send data to Azure Monitor Logs using REST API
     href: logs/tutorial-logs-ingestion-portal.md
-  - name: Send data to Azure Monitor Logs and ARM templates
+  - name: Send data to Azure Monitor Logs with ARM templates
     href: logs/tutorial-logs-ingestion-api.md
   - name: Detect and analyze anomalies in Azure Monitor Logs
     href: logs/kql-machine-learning-azure-monitor.md
