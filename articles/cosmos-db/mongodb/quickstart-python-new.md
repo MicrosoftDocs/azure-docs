@@ -114,9 +114,28 @@ pip install -r requirements.txt
 
 Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
 
-* Azure Cosmos DB for MongoDB account
-* Databases 
-* Collections 
-* Documents
+* [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html) - The first step when working with PyMongo is to create a MongoClient to connect to a **mongod** instance. This class provides a client-side logical representation for the API for MongoDB layer on Azure Cosmos DB. The client object is used to configure and execute requests against the service.
+
+* [Database](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - A MongoDB instance can support one or more independent databases.
+
+* [Collection](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - A database can contain one or more collections. A collection is a group of documents stored in MongoDB, and can be thought of as roughly the equivalent of a table in a relational database.
+
+* [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection do not need to have the same set of fields or structure, and common fields in a collection's documents may hold different types of data.
 
 To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
+
+## Code examples
+
+* [Authenticate the client](#authenticate-the-client)
+* [Get database instance](#get-database-instance)
+* [Get collection instance](#get-collection-instance)
+* [Chained instances](#chained-instances)
+* [Create an index](#create-an-index)
+* [Create a doc](#create-a-doc)
+* [Get an doc](#get-a-doc)
+* [Query docs](#query-docs)
+
+The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+
+For this procedure, the database won't use sharding.
+
