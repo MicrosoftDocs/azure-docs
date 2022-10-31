@@ -13,7 +13,7 @@ ms.custom: mode-ui
 # Work with Azure Cognitive Search using the Visual Studio Code extension (preview - retired)
 
 > [!IMPORTANT] 
-> The Visual Studio Code Extension for Azure Cognitive Search was introduced as a **public preview feature** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), but is now discontinued.
+> The Visual Studio Code Extension for Azure Cognitive Search was introduced as a **public preview feature** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's now discontinued.
 
 If you have an existing installation of Visual Studio Code Extension for Azure Cognitive Search, you can continue to use it, but it will no longer be updated, and it isn't guaranteed to work with future versions of Azure Cognitive Search.
 
@@ -23,7 +23,7 @@ This article is for current users of the extension.
 
 + [Visual Studio Code](https://code.visualstudio.com/download)
 
-+ Although the extension is no longer available in Azure Marketplace, the code is open sourced at [https://github.com/microsoft/vscode-azurecognitivesearch](https://github.com/microsoft/vscode-azurecognitivesearch). You can clone and modify the tool for your own use.
++ Although the extension is no longer available in the Visual Studio Code Marketplace, the code is open sourced at [https://github.com/microsoft/vscode-azurecognitivesearch](https://github.com/microsoft/vscode-azurecognitivesearch). You can clone and modify the tool for your own use.
 
 + [Azure Cognitive Search service](search-create-service-portal.md)
 
