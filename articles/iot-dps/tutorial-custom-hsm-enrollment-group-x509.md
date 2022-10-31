@@ -1121,8 +1121,8 @@ In the following steps, use your Windows command prompt.
     |   Environment Variable        |  Value  |
     | :---------------------------- | :--------- |
     | PROVISIONING_REGISTRATION_ID  | `device-02` |
-    | CERTIFICATE_FILE              | *<your-certificate-folder>\certs\device-02-full-chain.cert.pem* |
-    | KEY_FILE                      | *<your-certificate-folder>\private\device-02.key.pem* |
+    | CERTIFICATE_FILE              | *\<your-certificate-folder\>\certs\device-02-full-chain.cert.pem* |
+    | KEY_FILE                      | *\<your-certificate-folder\>\private\device-02.key.pem* |
 
 ::: zone-end
 
@@ -1217,8 +1217,8 @@ In the following steps, use your Windows command prompt.
     |   Environment Variable        |  Value  |
     | :---------------------------- | :--------- |
     | DPS_X509_REGISTRATION_ID      | `device-02` |
-    | X509_CERT_FILE                | *<your-certificate-folder>\certs\device-02-full-chain.cert.pem* |
-    | X509_KEY_FILE                 | *<your-certificate-folder>\private\device-02.key.pem* |
+    | X509_CERT_FILE                | *\<your-certificate-folder\>\certs\device-02-full-chain.cert.pem* |
+    | X509_KEY_FILE                 | *\<your-certificate-folder\>\private\device-02.key.pem* |
 
 ::: zone-end
 
