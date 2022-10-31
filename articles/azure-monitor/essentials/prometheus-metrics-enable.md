@@ -15,7 +15,7 @@ This article describes how to configure your Azure Kubernetes Service (AKS) clus
 
 ## Prerequisites
 
-- You must either have an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) or [create a new one](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
+- You must either have an [Azure Monitor workspace](azure-monitor-workspace-overview.md) or [create a new one](azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
 - The cluster must use [managed identity authentication](container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
@@ -331,5 +331,5 @@ When you allow a default Azure Monitor workspace to be created when you install 
 
 ## Next steps
 
-- [Customize Prometheus metric scraping for the cluster](../essentials/prometheus-metrics-scrape-configuration.md).
-
+- [See the default configuration for Prometheus metrics](prometheus-metrics-scrape-default.md).
+- [Customize Prometheus metric scraping for the cluster](prometheus-metrics-scrape-configuration.md).
