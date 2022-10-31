@@ -86,7 +86,7 @@ This glossary provides a brief description of important terms and concepts for t
 |**MDE**| Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats.|[Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)|
 |**MFA**|multi factor authentication, a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan.|[How it works: Azure Multi Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks)|
 |**MITRE ATT&CK**| a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.|[MITRE ATT&CK](https://attack.mitre.org/)|
-|**MMA**| Microsoft Monitoring Agent, aka Log Analytics Agent|[Log Analytics Agent Overview](/azure/azure-monitor/agents/log-analytics-agent)|
+|**MMA**| Microsoft Monitoring Agent, also known as Log Analytics Agent|[Log Analytics Agent Overview](/azure/azure-monitor/agents/log-analytics-agent)|
 
 ## N
 | Term | Description | Learn more |
