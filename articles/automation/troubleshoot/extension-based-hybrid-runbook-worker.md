@@ -92,11 +92,74 @@ Follow the steps listed below:
 3. [Re-install]() the Hybrid Worker extension on the VM. 
 
 
+### Scenario: Installation process of Hybrid Worker extension on Windows VM gets stuck
+
+### Issue
+You have installed Hybrid Worker extension on a Windows VM from the Portal, but don't get a notification that the process has completed successfully.
+
+### Cause
+Sometimes the installation process might get stuck.
+
+### Resolution
+Follow the steps mentioned below to install Hybrid Worker extension again: 
+
+1. Open PowerShell console 
+1. Remove registry entry, if present: *HKLM:/Software/Microsoft/Azure/HybridWorker*
+1. Remove the registry entry, if present: *HKLM:/Software/Microsoft/HybridRunbookWorkerV2* 
+1. Go to Hybrid Worker extension installation folder
+   Cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>" 
+1. Install Hybrid Worker extension: `.\bin\install.ps1` 
+1. Enable Hybrid Worker extension: `.\bin\enable.ps1`
+
+### Scenario: Uninstallation process of Hybrid Worker extension on Windows VM gets stuck
+
+#### Issue
+You have installed a Hybrid Worker extension on a Windows VM from the portal, but don't get a notification that the process has completed successfully. 
+
+#### Cause
+Sometimes the uninstallation process might get stuck.
+
+#### Resolution
+1. Open PowerShell console 
+1. Go to Hybrid Worker extension installation folder 
+   Cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>" 
+1. Disable Hybrid Worker extension: `.\bin\disable.cmd`
+1. Uninstall Hybrid Worker extension: `.\bin\uninstall.ps1`
+1. Remove registry entry, if present: *HKLM:/Software/Microsoft/Azure/HybridWorker* 
+1. Remove the registry entry, if present: *HKLM:/Software/Microsoft/HybridRunbookWorkerV2*
 
 
+### Scenario: Installation process of Hybrid Worker extension on Linux VM gets stuck
 
+#### Issue
+You have installed a Hybrid Worker extension on a Linux VM from the portal, but don't get a notification that the process has completed successfully.
 
+#### Cause
+Sometimes the uninstallation process might get stuck.
 
+#### Resolution
+1. Go to folder: `rm -r /home/hweautomation/state`
+1. Go to Hybrid Worker extension installation folder */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>/*
+1. Go to above folder and run command `rm mrseq`
+1. Install Hybrid Worker Extension: *"installCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -i"*
+1. Enable Hybrid Worker extension: *"enableCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -e"*
+
+### Scenario: Uninstallation process of Hybrid Worker extension on Linux VM gets stuck
+
+#### Issue
+You have uninstalled Hybrid Worker extension on a Linux VM from the portal, but don't get a notification that the process has completed successfully.
+
+#### Cause
+Sometimes the uninstallation process might get stuck. 
+
+#### Resolution
+Follow the steps mentioned below to completely uninstall Hybrid Worker extension: 
+
+1. Go to Hybrid Worker Extension installation folder:  
+  */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>/*
+1. Disable the extension: `"disableCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -d" `
+1. Uninstall the extension: `"uninstallCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -u"`
+ 
 ### Scenario: Runbook execution fails
 
 #### Issue
