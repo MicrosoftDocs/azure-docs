@@ -21,7 +21,7 @@ THIM defines the Azure security baseline for Azure Confidential computing (ACC) 
 
 ## Frequently asked questions
 
-**The "next update" date of the Azure-internal caching service API ,used by Microsoft Azure Attestation, seems to be out of date. Is it still in operation and can it be used?**
+**The "next update" date of the Azure-internal caching service API, used by Microsoft Azure Attestation, seems to be out of date. Is it still in operation and can it be used?**
 
 The "tcbinfo" field contains the TCB information. The THIM service by default provides an older tcbinfo -- updating to the latest tcbinfo from Intel would cause attestation failures for those customers who have not migrated to the latest Intel SDK, and could results in outages.
 
