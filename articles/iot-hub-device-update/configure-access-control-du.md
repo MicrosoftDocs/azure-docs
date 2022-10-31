@@ -68,6 +68,7 @@ Replace the following placeholders with your own information:
 ```azurecli-interactive
 az role assignment create --role '<role>' --assignee <user_group> --scope <account_id>
 ```
+---
 
 ## Configure access for Azure Device Update service principal in linked IoT hub
 
@@ -110,7 +111,7 @@ Replace *\<resource_id>* with the resource ID of your IoT hub. You can retrieve 
 ```azurecli
 az role assignment create --role "IoT Hub Data Contributor" --assignee https://api.adu.microsoft.com/ --scope <resource_id>
 ```
-
+---
 
 ## Next steps
 
