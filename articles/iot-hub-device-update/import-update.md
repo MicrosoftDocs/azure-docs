@@ -3,7 +3,7 @@ title: Add an update to Device Update for IoT Hub | Microsoft Docs
 description: How-To guide to add an update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 10/28/2022
+ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -35,9 +35,9 @@ An Azure CLI environment:
 
 * Or, if you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
 
-  * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
-  * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
-  * When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
+  1. Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
+  2. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
+  3. When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
 
 >[!TIP]
 >The Azure CLI commands in this article use the backslash `\` character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you're running these commands in PowerShell, replace each backslash with a backtick `\``, or remove them entirely.
