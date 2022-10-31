@@ -103,7 +103,7 @@ Yes.
 
 ### Does Microsoft Defender for Containers support AKS without scale set (default)?
 
-No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale sets for the nodes is supported.
+No. Only Azure Kubernetes Service (AKS) clusters that use Virtual Machine Scale Sets for the nodes is supported.
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 

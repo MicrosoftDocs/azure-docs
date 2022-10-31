@@ -1236,9 +1236,9 @@ With the vTPM enabled, the **Guest Attestation extension** can remotely validate
 
 - **Secure Boot should be enabled on supported Windows virtual machines**
 - **Guest Attestation extension should be installed on supported Windows virtual machines**
-- **Guest Attestation extension should be installed on supported Windows virtual machine scale sets**
+- **Guest Attestation extension should be installed on supported Windows Virtual Machine Scale Sets**
 - **Guest Attestation extension should be installed on supported Linux virtual machines**
-- **Guest Attestation extension should be installed on supported Linux virtual machine scale sets**
+- **Guest Attestation extension should be installed on supported Linux Virtual Machine Scale Sets**
 
 Learn more in [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
@@ -3085,7 +3085,7 @@ Updates in November include:
 - [Support for custom policies (preview)](#support-for-custom-policies-preview)
 - [Extending Azure Security Center coverage with platform for community and partners](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
 - [Advanced integrations with export of recommendations and alerts (preview)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
-- [Onboard on-prem servers to Security Center from Windows Admin Center (preview)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+- [Onboard on-premises servers to Security Center from Windows Admin Center (preview)](#onboard-on-premises-servers-to-security-center-from-windows-admin-center-preview)
 
 ### Threat Protection for Azure Key Vault in North America Regions (preview)
 
@@ -3180,7 +3180,7 @@ In order to enable enterprise level scenarios on top of Security Center, it's no
 - With export to Log Analytics workspace, you can create custom dashboards with Power BI.
 - With export to Event Hubs, you'll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution, or Azure Data Explorer.
 
-### Onboard on-prem servers to Security Center from Windows Admin Center (preview)
+### Onboard on-premises servers to Security Center from Windows Admin Center (preview)
 
 Windows Admin Center is a management portal for Windows Servers who are not deployed in Azure offering them several Azure management capabilities such as backup and system updates. We have recently added an ability to onboard these non-Azure servers to be protected by ASC directly from the Windows Admin Center experience.
 

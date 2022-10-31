@@ -27,7 +27,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 
 You can learn more by watching these videos from the Defender for Cloud in the Field video series:
 
-- [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md)
+- [Microsoft Defender for Containers in a multicloud environment](episode-nine.md)
 - [Protect Containers in GCP with Defender for Containers](episode-ten.md)
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
