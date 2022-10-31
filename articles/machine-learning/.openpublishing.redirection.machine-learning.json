@@ -1476,11 +1476,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-export-delete-data.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-export-delete-data",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/service/how-to-enable-virtual-network.md",
         "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
         "redirect_document_id": true
