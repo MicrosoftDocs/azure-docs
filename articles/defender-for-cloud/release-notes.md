@@ -236,7 +236,7 @@ The new release contains the following capabilities:
     > [!TIP]
     > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
 
-    |Recommendation| Assessment key|
+    | Recommendation | Assessment key |
     |--|--|
     |Accounts with owner permissions on Azure resources should be MFA enabled|6240402e-f77c-46fa-9060-a7ce53997754|
     |Accounts with write permissions on Azure resources should be MFA enabled|c0cb17b2-0607-48a7-b0e0-903ed22de39b|
