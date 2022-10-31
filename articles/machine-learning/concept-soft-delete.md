@@ -71,6 +71,10 @@ The service attempts recreation or reattachment of selected hard-deleted resourc
 
 In general, when a workspace is in soft-deleted state, there are only two operations possible: 'permanently delete' and 'recover'. All the other operations will fail. Therefore, even though the object exists, no compute operations can be performed and hence no usage will occur. When a workspace is soft-deleted, cost-incurring resources such as compute clusters are hard deleted.
 
+## General Data Protection Regulation (GDPR) implications
+
+From a GDPR and privacy perspective, a request to delete personal data should be interpreted as a request for *permanent* deletion and not soft delete. For more information, see the [Export or delete workspace data](how-to-export-delete-data.md) article.
+
 ## Enroll soft-delete on an Azure subscription
 
 Soft delete is enabled on any workspace in Azure subscriptions that are enrolled for the soft-delete preview capability. During preview, workspaces with customer-managed keys aren't supported for soft-delete.
