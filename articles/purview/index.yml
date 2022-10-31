@@ -180,10 +180,12 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-        - text: Data owner policies
-          url: concept-policies-data-owner.md
+        - text: DevOps policies
+          url: concept-policies-devops.md
         - text: Self-service data access policy
           url: concept-self-service-data-access-policy.md
+        - text: Data owner policies
+          url: concept-policies-data-owner.md
     - linkListType: how-to-guide
       links:
         - text: Registering data sources for Data Use Management

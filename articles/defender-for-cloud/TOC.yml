@@ -77,8 +77,6 @@
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
-  - name: Enable pull request annotations in GitHub or in Azure DevOps
-    href: tutorial-enable-pull-request-annotations.md
 
 - name: Samples
   items:
@@ -445,7 +443,10 @@
       href: iac-vulnerabilities.md
     - name: Detect exposed secrets in code
       displayName: DevOps, CredScan, Credentials, leaks, 
-      href: detect-credential-leaks.md
+      href: detect-exposed-secrets.md
+    - name: Enable pull request annotations in GitHub or in Azure DevOps
+      displayName: PR annotations, annotations, DevOps, GitHub, pull request
+      href: enable-pull-request-annotations.md
 
 - name: Reference
   items:
