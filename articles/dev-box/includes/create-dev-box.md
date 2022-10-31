@@ -6,12 +6,10 @@ ms.topic: include
 ms.service: dev-box
 ---
 
-## Create a dev box
-
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 2. Select **+ Add dev box**.
-   :::image type="content" source="../media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal showing the Add dev box button.":::
+   :::image type="content" source="../media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of developer portal showing Add dev box.":::
 
 3. In **Add a dev box**, enter the following values:
 

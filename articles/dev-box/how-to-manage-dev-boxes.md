@@ -48,7 +48,7 @@ You can delete dev boxes once you finish your tasks. Say you finished fixing you
 ## Connect to a dev box
 Once you create your dev box, you can connect to it through the remote desktop app, or through the browser. 
 
-:::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.jpeg" alt-text="Screenshot of the developer portal showing the Add dev box button.":::
+:::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.jpeg" alt-text="Screenshot of dev box showing open an RDP client.":::
 
 For most cases, use the remote desktop app when accessing a dev box. The remote desktop provides the highest performance and best user-experience for heavy workloads. 
 
