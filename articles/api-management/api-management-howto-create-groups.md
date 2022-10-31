@@ -21,7 +21,7 @@ In API Management, groups are used to manage the visibility of products to devel
 
 API Management has the following immutable system groups:
 
-* **Administrators** - Azure subscription administrators are members of this group.Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers. You can't add users to this group.
+* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers. You can't add users to this group.
 
     > [!NOTE]
     > You can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
