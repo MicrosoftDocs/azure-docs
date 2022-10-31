@@ -50,7 +50,7 @@ This article assumes that you use a machine running Windows as your development 
     * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
     * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup will open. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
 
-    You may have to  restart Visual Studio.
+    You may have to restart Visual Studio.
 
    > [!TIP]
    > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
@@ -115,28 +115,26 @@ This article assumes that you use a machine running Windows as your development 
 
 ## Create an Azure IoT Edge project
 
-The IoT Edge project template in Visual Studio creates a solution to deploy to IoT Edge devices. First you'll create an Azure IoT Edge solution, and then you'll generate the first module in that solution. Each IoT Edge solution can contain more than one module.
+The IoT Edge project template in Visual Studio creates a solution to deploy to IoT Edge devices. First, you'll create an Azure IoT Edge solution. Then, you'll create a module in that solution. Each IoT Edge solution can contain more than one module.
 
-In our solution, we're going to build three projects. The main module that contains EdgeAgent and EdgeHub, in addition to the temperature sensor module, then you'll add two more IoT Edge modules.
+In our solution, we're going to build three projects. The main module that contains *EdgeAgent* and *EdgeHub*, in addition to the temperature sensor module. Next, you'll add two more IoT Edge modules.
 
 > [!TIP]
 > The IoT Edge project structure created by Visual Studio is not the same as the one in Visual Studio Code.
 
 1. In Visual Studio, create a new project.
 
-1. In the **Create a new project** window, search for **Azure IoT Edge**. Select the project that matches the platform and architecture for your IoT Edge device, and click **Next**.
+1. In **Create a new project**, search for **Azure IoT Edge**. Select the project that matches the platform and architecture for your IoT Edge device, and select **Next**.
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="Create New Project":::
 
-1. In the **Configure your new project** window, enter a name for your project and specify the location, then select **Create**.
+1. In **Configure your new project**, enter a name for your project, specify the location, and select **Create**.
 
-1. In the **Add Module** window, select the type of module you want to develop. You can also select **Existing module** to add an existing IoT Edge module to your deployment. Specify your module name and module image repository.
+1. In **Add Module**, select the type of module you want to develop. If you have an existing module you want to add to your deployment, select **Existing module**. 
+1. Enter a name for your module. Choose a name that's unique within your container registry.
+1. Provide the name of the module's image repository. Visual Studio autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** ff you use a local Docker registry for testing. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
-   Visual Studio autopopulates the repository URL with **localhost:5000/<module name\>**. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then replace **localhost:5000** with the login server from your registry's settings. 
-   
-   The login server looks like **_\<registry name\>_.azurecr.io**.The final result should look like **\<*registry name*\>.azurecr.io/_\<module name\>_**, for example **my-registry-name.azurecr.io/my-module-name**.
-
-   Select **Add** to add your module to the project.
+1. Select **Add** to add your module to the project.
 
    ![Add Application and Module](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
 
