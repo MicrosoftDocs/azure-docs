@@ -18,7 +18,7 @@ This article is a reference for implementing Azure monitoring.
 The major sections in this reference article:
 
 * [**Metrics**](monitor-iot-hub-reference.md#metrics): lists of IoT Hub platform metrics by topic
-* [**Metric dimensions**](monitor-iot-hub-reference.md#metric-dimensions): dimensions for routing and event grid metrics
+* [**Metric dimensions**](monitor-iot-hub-reference.md#metric-dimensions): dimensions for routing and Event Grid metrics
 * [**Resource logs**](monitor-iot-hub-reference.md#resource-logs): logs by category types and schemas collected for Azure IoT Hub
 * [**Azure Monitor Logs tables**](monitor-iot-hub-reference.md#azure-monitor-logs-tables): discusses Azure Monitor Logs Kusto tables
 
@@ -47,7 +47,7 @@ Select a topic to jump to its information on this page.
 - [Device metrics](#device-metrics)
 - [Device telemetry metrics](#device-telemetry-metrics)
 - [Device to cloud twin operations metrics](#device-to-cloud-twin-operations-metrics)
-- [Event grid metrics](#event-grid-metrics)
+- [Event Grid metrics](#event-grid-metrics)
 - [Jobs metrics](#jobs-metrics)
 - [Routing metrics](#routing-metrics)
 - [Twin query metrics](#twin-query-metrics)
@@ -155,7 +155,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
-### Event grid metrics
+### Event Grid metrics
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
@@ -192,12 +192,12 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 | Routing Delivery Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |The routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Routing: blobs delivered to storage|d2c.endpoints.egress.storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
 |Routing: data delivered to storage|d2c.endpoints.egress.storage.bytes|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|None|
-|Routing: message latency for Event Hub|d2c.endpoints.latency.eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hub. Messages routes to built-in endpoint (events) aren't included.|None|
+|Routing: message latency for Event Hubs|d2c.endpoints.latency.eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hubs. Messages routes to built-in endpoint (events) aren't included.|None|
 |Routing: message latency for Service Bus Queue|d2c.endpoints.latency.serviceBusQueues|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus queue endpoint.|None|
 |Routing: message latency for Service Bus Topic|d2c.endpoints.latency.serviceBusTopics|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus topic endpoint.|None|
 |Routing: message latency for messages/events|d2c.endpoints.latency.builtIn.events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into the built-in endpoint (messages/events) and fallback route.|None|
 |Routing: message latency for storage|d2c.endpoints.latency.storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a storage endpoint.|None|
-|Routing: messages delivered to Event Hub|d2c.endpoints.egress.eventHubs|Count|Total|The number of times IoT Hub routing successfully delivered messages to custom endpoints of type Event Hub. Messages routes to built-in endpoint (events) aren't included.|None|
+|Routing: messages delivered to Event Hubs|d2c.endpoints.egress.eventHubs|Count|Total|The number of times IoT Hub routing successfully delivered messages to custom endpoints of type Event Hubs. Messages routes to built-in endpoint (events) aren't included.|None|
 |Routing: messages delivered to Service Bus Queue|d2c.endpoints.egress.serviceBusQueues|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus queue endpoints.|None|
 |Routing: messages delivered to Service Bus Topic|d2c.endpoints.egress.serviceBusTopics|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|None|
 |Routing: messages delivered to fallback|d2c.telemetry.egress.fallback|Count|Total|The number of times IoT Hub routing delivered messages to the endpoint associated with the fallback route.|None|
@@ -222,7 +222,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 ## Metric dimensions
 
-Azure IoT Hub has the following dimensions associated with some of its routing and event grid metrics.
+Azure IoT Hub has the following dimensions associated with some of its routing and Event Grid metrics.
 
 |Dimension Name | Description|
 |---|---|
@@ -578,7 +578,7 @@ Here, `durationMs` isn't calculated as IoT Hub's clock might not be in sync with
 
 #### IoT Hub ingress logs
 
-IoT Hub records this log when message containing valid trace properties writes to internal or built-in Event Hub.
+IoT Hub records this log when message containing valid trace properties writes to internal or built-in Event Hubs.
 
 ```json
 {

@@ -42,7 +42,7 @@ All these operations can use optimistic concurrency, as specified in [RFC7232](h
 
 An IoT Hub identity registry:
 
-* Does not contain any application metadata.
+* Doesn't contain any application metadata.
 
 > [!IMPORTANT]
 > Only use the identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](iot-hub-devguide-quotas-throttling.md) for the identity registry.
@@ -56,9 +56,9 @@ You can disable devices by updating the **status** property of an identity in th
 
 * During a provisioning orchestration process. For more information, see [Device Provisioning](iot-hub-devguide-identity-registry.md#device-provisioning).
 
-* If, for any reason, you think a device is compromised or has become unauthorized.
+* If you think a device is compromised or has become unauthorized for any reason.
 
-This feature is not available for modules.
+This feature isn't available for modules.
 
 ## Import and export device identities
 
@@ -78,7 +78,7 @@ The device data that a given IoT solution stores depends on the specific require
 
 ## Device and module lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events will be sent for both device identities and module identities; however, the message contents will differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and set the data source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events will be sent for both device identities and module identities; however, the message contents will differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
 
 ## Device identity properties
 
@@ -92,11 +92,11 @@ Device identities are represented as JSON documents with the following propertie
 | authentication |optional |A composite object containing authentication information and security materials. For more information, see [Authentication Mechanism](/rest/api/iothub/service/devices/get-identity#authenticationmechanism) in the REST API documentation. |
 | capabilities | optional | The set of capabilities of the device. For example, whether the device is an edge device or not. For more information, see [Device Capabilities](/rest/api/iothub/service/devices/get-identity#devicecapabilities) in the REST API documentation. |
 | deviceScope | optional | The scope of the device. In edge devices, auto generated and immutable. Deprecated in non-edge devices. However, in child (leaf) devices, set this property to the same value as the **parentScopes** property (the **deviceScope** of the parent device) for backward compatibility with previous versions of the API. For more information, see [IoT Edge as a gateway: Parent and child relationships](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships).|
-| parentScopes | optional | The scope of a child device's direct parent (the value of the **deviceScope** property of the parent device). In edge devices, the value is empty if the device has no parent. In non-edge devices, the property is not present if the device has no parent. For more information, see [IoT Edge as a gateway: Parent and child relationships](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships). |
-| status |required |An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
+| parentScopes | optional | The scope of a child device's direct parent (the value of the **deviceScope** property of the parent device). In edge devices, the value is empty if the device has no parent. In non-edge devices, the property isn't present if the device has no parent. For more information, see [IoT Edge as a gateway: Parent and child relationships](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships). |
+| status |required |An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device can't access any device-facing endpoint. |
 | statusReason |optional |A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime |read-only |A temporal indicator, showing the date and time of the last status update. |
-| connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
+| connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it's based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
 | lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. This property is eventually consistent, but could be delayed up to 5 to 10 minutes. For this reason, it shouldn't be used in production scenarios. |
 
@@ -114,12 +114,12 @@ Module identities are represented as JSON documents with the following propertie
 | --- | --- | --- |
 | deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | moduleId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
-| generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
+| generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they've been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | authentication |optional |A composite object containing authentication information and security materials. For more information, see [Authentication Mechanism](/rest/api/iothub/service/modules/get-identity#authenticationmechanism) in the REST API documentation. |
-| managedBy | optional | Identifies who manages this module. For instance, this value is "Iot Edge" if the edge runtime owns this module. |
+| managedBy | optional | Identifies who manages this module. For instance, this value is "IoT Edge" if the edge runtime owns this module. |
 | cloudToDeviceMessageCount | read-only | The number of cloud-to-module messages currently queued to be sent to the module. |
-| connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
+| connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it's based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
 | lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
 
@@ -128,7 +128,7 @@ Module identities are represented as JSON documents with the following propertie
 
 ## Additional reference material
 
-Other reference topics in the IoT Hub developer guide include:
+Other reference articles in the IoT Hub developer guide include:
 
 * [IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various endpoints that each IoT hub exposes for run-time and management operations.
 
@@ -142,7 +142,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 ## Next steps
 
-Now that you have learned how to use the IoT Hub identity registry, you may be interested in the following IoT Hub developer guide topics:
+Now that you've learned how to use the IoT Hub identity registry, you may be interested in the following IoT Hub developer guide articles:
 
 * [Control access to IoT Hub](iot-hub-devguide-security.md)
 
