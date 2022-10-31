@@ -41,7 +41,7 @@ To create a new DevOps policy, ensure first that you have the Microsoft Purview 
 1.  Select the **Data source type** and then one of the listed data sources under **Data source name**. Then click on **Select**. This will take you back to the New Policy experience
 ![Screenshot shows to select a data source for policy.](./media/how-to-policies-devops-authoring-generic/select-a-data-source.png)
 
-1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
+1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Note that Microsoft 365 groups are not supported. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
 ![Screenshot shows to select role and subject for policy.](./media/how-to-policies-devops-authoring-generic/select-role-and-subjects.png)
 
 1. Select **Save** to save the policy. A policy has been created and automatically published. Enforcement will start at the data source within 5 minutes.

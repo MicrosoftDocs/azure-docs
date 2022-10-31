@@ -80,7 +80,7 @@ An IoT hub. It's required that you use an S1 (Standard) tier or above.
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot device-update account create](/cli/azure/iot/device-update/account#az-iot-device-update-account-create) command to create a new Device Update account.
+Use the [az iot du account create](/cli/azure/iot/device-update/account#az-iot-device-update-account-create) command to create a new Device Update account.
 
 Replace the following placeholders with your own information:
 
@@ -92,10 +92,10 @@ Replace the following placeholders with your own information:
    > Your Device Update account doesn't need to be in the same region as your IoT hubs, but for better performance it is recommended that you keep them geographically close.
 
 ```azurecli-interactive
-az iot device-update account create --resource-group <resource_group> --account <account_name> --location <region>
+az iot du account create --resource-group <resource_group> --account <account_name> --location <region>
 ```
 
-Use the [az iot device-update instance create](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-create) command to create a Device Update instance.
+Use the [az iot du instance create](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-create) command to create a Device Update instance.
 
 An *instance* of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. When you link an IoT hub to a Device Update instance, a new shared access policy is automatically created give Device Update permissions to work with IoT Hub (registry write and service connect). This policy ensures that access is only limited to Device Update.
 
@@ -106,15 +106,15 @@ Replace the following placeholders with your own information:
 * *\<iothub_id>*: The resource ID for the IoT hub that will be linked to this instance. You can retrieve your IoT hub resource ID by using the [az iot hub show](/cli/azure/iot/hub#az-iot-hub-show) command and querying for the ID value: `az iot hub show -n <iothub_name> --query id`.
 
 ```azurecli-interactive
-az iot device-update instance create --account <account_name> --instance <instance_name> --iothub-ids <iothub_id>
+az iot du instance create --account <account_name> --instance <instance_name> --iothub-ids <iothub_id>
 ```
 
 >[!TIP]
 >As part of the instance creation process, you can also configure diagnostics logging. For more information, see [Remotely collect diagnostic logs from devices](device-update-log-collection.md).
 
-Once you have created the resource, [configure the access control for users and Azure Device Update service principal](configure-access-control-device-update.md).
-
 ---
+
+Once you have created the resource, [configure the access control for users and Azure Device Update service principal](configure-access-control-device-update.md).
 
 ## Next steps
 
