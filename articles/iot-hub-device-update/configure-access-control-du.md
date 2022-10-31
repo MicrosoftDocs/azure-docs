@@ -89,7 +89,7 @@ Device Update for IoT Hub communicates with IoT Hub to manage deployments and up
 
 4. For **Assign access to**, select **User, group, or service principal**. Select **Select Members** and search for '**Azure Device Update**'
 
-   :::image type="content" source="media/create-device-update-account/assign-role-to-du-service-principal.png" alt-text="Screenshot of access Control member selection within IoT Hub." lightbox="media/create-device-update-account/assign-role-to-du-service-principal.png":::
+   :::image type="content" source="media/create-device-update-account/assign-role-to-du-service-principal.png" alt-text="Screenshot of access Control member selection for IoT Hub." lightbox="media/create-device-update-account/assign-role-to-du-service-principal.png":::
 
 6. Select **Next** > **Review + Assign**
 
