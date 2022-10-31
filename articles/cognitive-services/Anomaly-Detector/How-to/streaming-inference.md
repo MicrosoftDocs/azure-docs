@@ -182,7 +182,7 @@ The response contains the result status, variable information, inference paramet
 > [!NOTE]
 > A common pitfall is taking all data points with `isAnomaly`=`true` as anomalies. That may end up with too many false positives.
 > You should use both `isAnomaly` and `severity` (or `score`) to sift out anomalies that are not severe and (optionally) use grouping to check the duration of the anomalies to suppress random noise.
-> Please refer to the [FAQ](../../concepts/best-practices-multivariate.md#faq) in the best practices document for the difference between `severity` and `score`.
+> Please refer to the [FAQ](../concepts/best-practices-multivariate.md#faq) in the best practices document for the difference between `severity` and `score`.
 
 ## Next steps
 
