@@ -55,3 +55,19 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 [!INCLUDE [Portal - create resource](<./includes/portal-create-resource.md>)]
 
 ---
+
+### Get MongoDB connection string
+
+#### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+
+#### [PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+
+#### [Portal](#tab/azure-portal)
+
+[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-resource.md>)]
+
+---
