@@ -194,7 +194,7 @@ Azure VMware Solution supports the installation of JetStream using either static
    | **Datastore**  | Name of the datastore where you'll deploy the JetStream MSA.  |
    | **VMName** | Name of JetStream MSA VM, for example, **jetstreamServer**. |
    | **Cluster** | Name of the Azure VMware Solution private cluster where the JetStream MSA is deployed, for example, **Cluster-1**. |
-   | **Netmask** | Netmask of the MSA to be deployed, for example, **22** or **24**. |
+   | **Netmask** | Netmask of the MSA to be deployed, for example, **255.255.255.0**. |
    | **MSIp** | IP address of the JetStream MSA VM.   |
    | **Dns** | DNS IP that the JetStream MSA VM should use.   |
    | **Gateway** | IP address of the network gateway for the JetStream MSA VM.  |

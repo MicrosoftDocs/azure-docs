@@ -3,7 +3,8 @@ title: Azure VMware Solution networking and connectivity
 description: Azure VMware Solution networking and connectivity description.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 10/07/2022
+ms.custom: engagement-fy23
+ms.date: 10/25/2022
 author: suzizuber
 ms.author: v-szuber
 ---

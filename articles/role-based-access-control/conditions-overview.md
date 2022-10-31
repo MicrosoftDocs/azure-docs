@@ -20,7 +20,7 @@ Attribute-based access control (ABAC) is an authorization system that defines ac
 
 ## What are role assignment conditions?
 
-[Azure role-based access control (Azure RBAC)](overview.md) is an authorization system that helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. In most cases, Azure RBAC will provide the access management you need by using role definitions and role assignments. However, in some cases you might want to provide more fined-grained access management or simplify the management of hundreds of role assignments.
+[Azure role-based access control (Azure RBAC)](overview.md) is an authorization system that helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. In most cases, Azure RBAC will provide the access management you need by using role definitions and role assignments. However, in some cases you might want to provide more fine-grained access management or simplify the management of hundreds of role assignments.
 
 Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. A *role assignment condition* is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. A condition filters down permissions granted as a part of the role definition and role assignment. For example, you can add a condition that requires an object to have a specific tag to read the object. You cannot explicitly deny access to specific resources using conditions.
 

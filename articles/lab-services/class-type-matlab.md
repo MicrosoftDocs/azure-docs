@@ -22,9 +22,9 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 ## License server
 
-Before creating the lab plan, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software. These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys. You'll also need to save the license file and file installation key for later. For detailed instructions on how to download a license file, see the first step in [Install Network License Manager with Internet Connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html).
+Before creating the lab plan, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software. These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys. You'll also need to save the license file and file installation key for later. For detailed instructions on how to download a license file, see the first step in [Install License Manager on License Server](https://www.mathworks.com/help/install/ug/install-license-manager-on-license-server.html).
 
-For detailed instructions on how to install a licensing server, see [Install Network License Manager with Internet Connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html). To enable borrowing, see [Borrow License](https://www.mathworks.com/help/install/license/borrow-licenses.html).
+For detailed instructions on how to install a licensing server, see [Install License Manager on License Server](https://www.mathworks.com/help/install/ug/install-license-manager-on-license-server.html). To enable borrowing, see [Borrow License](https://www.mathworks.com/help/install/license/borrow-licenses.html).
 
 Assuming the license server is located in an on-premises network or a private network within Azure, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./tutorial-setup-lab-plan.md).
 
