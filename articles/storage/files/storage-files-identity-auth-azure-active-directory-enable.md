@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 10/31/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -51,7 +51,7 @@ Azure AD Kerberos authentication only supports using AES-256 encryption.
 
 ## Regional availability
 
-Azure Files authentication with Azure AD Kerberos public preview is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/) except China (Mooncake).
+Azure Files authentication with Azure AD Kerberos is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/) except Government (Fairfax) and China (Mooncake).
 
 ## Enable Azure AD Kerberos authentication for hybrid user accounts (preview)
 
