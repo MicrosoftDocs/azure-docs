@@ -39,11 +39,11 @@ When you create a workspace, Azure creates several resources within the resource
 
 These resources can be deleted by selecting them from the list and choosing **Delete** 
 
-:::image type="content" source="media/how-to-export-delete-data/delete-resource-group-resources.png" alt-text="Screenshot of portal, with delete icon highlighted":::
+:::image type="content" source="media/how-to-export-delete-data/delete-resource-group-resources.png" alt-text="Screenshot of portal, with delete icon highlighted.":::
 
 Job history documents, which may contain personal user information, are stored in the storage account in blob storage, in subfolders of `/azureml`. You can download and delete the data from the portal.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot of azureml directory in storage account, within the portal":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot of azureml directory in storage account, within the portal.":::
 
 ## Export and delete machine learning resources using Azure Machine Learning studio
 
@@ -55,4 +55,8 @@ You can download training artifacts from experimental jobs using the Studio. Cho
 
 You can download a registered model by navigating to the **Model** and choosing **Download**. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot of studio model page with download option highlighted":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot of studio model page with download option highlighted.":::
+
+## Next steps
+
+Learn more about [Managing a workspace](how-to-manage-workspace.md).
