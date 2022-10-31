@@ -17,28 +17,28 @@ ms.author: sujaj
 
 In this how-to guide, you'll learn to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions*. You can use SAP NetWeaver with both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
 
-When configuring SAP Netweaver provider users can select between the below two connection types to collect information from SAP system. These collect the metrics by leveraging 
+When configuring SAP Netweaver provider users can select between the two connection types below to collect information from SAP system. These collect the metrics by using 
 
 - **SAPControl** - The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAPControl**, which is a SOAP web service interface that exposes these capabilities. The **SAPControl** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
-- **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system leveraging Standard SAP RFC. This is available only as part of Azure Monitor for SAP solution and not available in the classic version. 
+- **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. This is available only as part of Azure Monitor for SAP solution and not available in the classic version. 
 
 You can collect below metric using SAP NetWeaver Provider 
 
-- SAP system and application server availability (e.g Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAPControl)
+- SAP system and application server availability (for example Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAPControl)
 - Work process usage statistics and trends (SAPControl)
 - Enqueue Lock statistics and trends (SAPControl)
 - Queue usage statistics and trends (SAPControl)
-- SMON Metrics (**Tcode - /SDF/SMON**) (RFC)
-- SWNC Workload, Memory, Transaction, User, RFC Usage (**Tcode - St03n**) (RFC)
-- Short Dumps (**Tcode - ST22**) (RFC)
-- Object Lock (**Tcode - SM12**) (RFC)
-- Failed Updates (**Tcode - SM13**) (RFC)
-- System Logs Analysis (**Tcode - SM21**) (RFC)
-- Batch Jobs Statistics (**Tcode - SM37**) (RFC)
-- Outbound Queues (**Tcode - SMQ1**) (RFC)
-- Inbound Queues (**Tcode - SMQ2**) (RFC)
-- Transactional RFC (**Tcode - SM59**) (RFC)
-- STMS Change Transport System Metrics (**Tcode - STMS**) (RFC)
+- SMON Metrics (**transaction code - /SDF/SMON**) (RFC)
+- SWNC Workload, Memory, Transaction, User, RFC Usage (**transaction code - St03n**) (RFC)
+- Short Dumps (**transaction code - ST22**) (RFC)
+- Object Lock (**transaction code - SM12**) (RFC)
+- Failed Updates (**transaction code - SM13**) (RFC)
+- System Logs Analysis (**transaction code - SM21**) (RFC)
+- Batch Jobs Statistics (**transaction code - SM37**) (RFC)
+- Outbound Queues (**transaction code - SMQ1**) (RFC)
+- Inbound Queues (**transaction code - SMQ2**) (RFC)
+- Transactional RFC (**transaction code - SM59**) (RFC)
+- STMS Change Transport System Metrics (**transaction code - STMS**) (RFC)
 
 
 ## Prerequisites
@@ -63,7 +63,7 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
 1. Open an SAP GUI connection to the SAP server.
 1. Sign in with an administrative account.
 1. Execute transaction **RZ10**.
-1. Select the appropriate profile (recommended Instance Profile - no restart needed , *DEFAULT.PFL* requires restart of SAP system ).
+1. Select the appropriate profile (recommended Instance Profile - no restart needed, *DEFAULT.PFL* requires restart of SAP system).
 1. Select **Extended Maintenance**  &gt;  **Change**.
 1. Select the profile parameter `service/protectedwebmethods`.
 1. Change the value to:    
@@ -86,13 +86,13 @@ You must restart the **SAPStartSRV** service on each instance of your SAP system
 
 ### Prerequisite to enable RFC metrics  
 
-For AS ABAP applications only, you can set up the NetWeaver RFC metrics. This step is **mandatory** when connection type selected is **SOAP+RFC**. Below steps needs to be performed as a pre-requisite to enable RFC 
+For AS ABAP applications only, you can set up the NetWeaver RFC metrics. This step is **mandatory** when connection type selected is **SOAP+RFC**. Below steps need to be performed as a pre-requisite to enable RFC 
 
 1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses least privilege access.Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip).
     1. Log in to your SAP system.
     1. Use the transaction code **PFCG** &gt; click on **Role Upload** in the menu.
     1. Upload the **Z_AMS_NETWEAVER_MONITORING.SAP** file from the ZIP file.
-    1. Select **Execute** to generate the role. ( ensure the profile is also generated as part of the role upload )
+    1. Select **Execute** to generate the role. (ensure the profile is also generated as part of the role upload)
     
 2. **Create and authorize a new RFC user**.
     1. Create an RFC user.
@@ -109,7 +109,7 @@ It's also recommended to check that you enabled the ICF ports.
 
     1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
-    3. recommended to schedule **SDF/SMON** as a background job in your target SAP client each minute. 
+    3. recommended scheduling **SDF/SMON** as a background job in your target SAP client each minute. 
 
 ### Adding NetWeaver provider
 
@@ -126,23 +126,23 @@ Ensure all the pre-requisites are successfully completed. To add the NetWeaver p
     3. For **System ID (SID)**, enter the three-character SAP system identifier.
     4. For **Application Server**, enter the IP address or the fully qualified domain name (FQDN) of the SAP NetWeaver system to monitor. For example, `sapservername.contoso.com` where `sapservername` is the hostname and  `contoso.com` is the domain. If you're using a hostname, make sure there's connectivity from the virtual network that you used to create the Azure Monitor for SAP solutions resource.
     5. For **Instance number**, specify the instance number of SAP NetWeaver (00-99)
-    6. For **Connection type** - select either [SOAP](#prerequisite-unprotect-methods-for-metrics) + [RFC](#prerequisite-to-enable-rfc-metrics) or [SOAP](#prerequisite-unprotect-methods-for-metrics) based on the metric collected ( refer above section for details ) 
+    6. For **Connection type** - select either [SOAP](#prerequisite-unprotect-methods-for-metrics) + [RFC](#prerequisite-to-enable-rfc-metrics) or [SOAP](#prerequisite-unprotect-methods-for-metrics) based on the metric collected (refer above section for details) 
     7. For **SAP client ID**, provide the SAP client identifier.
-    8. For **SAP ICM HTTP Port**, enter the port that the ICM is using, e.g., 80(NN) where (NN) is the instance number.
+    8. For **SAP ICM HTTP Port**, enter the port that the ICM is using, for example , 80(NN) where (NN) is the instance number.
     9. For **SAP username**, enter the name of the user that you created to connect to the SAP system.
     10. For **SAP password**, enter the password for the user.    
     11. For **Host file entries**, provide the DNS mappings for all SAP VMs associated with the SID
-        Enter **all SAP application servers and ASCS** host file entries in **Host file entries**. Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname. For example: **192.X.X.X sapservername.contoso.com sapservername,192.X.X.X sapservername2.contoso.com sapservername2**. Make sure that host file entries are provided for all hostnames that the [command returns](#determine-all-hostname-associated-with-a-sap-system)
+        Enter **all SAP application servers and ASCS** host file entries in **Host file entries**. Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname. For example: **192.X.X.X sapservername.contoso.com sapservername,192.X.X.X sapservername2.contoso.com sapservername2**. Make sure that host file entries are provided for all hostnames that the [command returns](#determine-all-hostname-associated-with-an-sap-system)
 
 ## Troubleshooting for SAP Netweaver Provider 
 
 List of common commands and troubleshooting solution for errors. 
 
-### Ensuring Internet communciation Framework port is open
+### Ensuring Internet communication Framework port is open
 
 1. Log in to the SAP system
 2. Go to transaction code **SICF**.
-3. Naviagte to the service path `/default_host/sap/bc/soap/`.
+3. Navigate to the service path `/default_host/sap/bc/soap/`.
 3. Right-click the ping service and choose **Test Service**. SAP starts your default browser.
 4. If the port can't be reached, or the test fails, open the port in the SAP VM.
     
@@ -160,13 +160,13 @@ List of common commands and troubleshooting solution for errors.
 
 After you restart the SAP service, check that your updated rules are applied to each instance. 
 
-1. When Log in to the SAP system as `sidadm`. Run the following command. Replace `<instance number>` with your system's instance number.
+1. When Login to the SAP system as `sidadm`. Run the following command. Replace `<instance number>` with your system's instance number.
 
     ```Command to list unprotectedmethods 
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods
     ```
 
-1. When Log in as non SIDADM user. Run the following command, replace `<instance number>` with your system's instance number, `<admin user>` with your administrator username, and `<admin password>` with the password.
+1. When Login as non SIDADM user. Run the following command, replace `<instance number>` with your system's instance number, `<admin user>` with your administrator username, and `<admin password>` with the password.
 
     ```Command to list unprotectedmethods
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods -user "<admin user>" "<admin password>"
@@ -196,9 +196,9 @@ To validate the rules, run a test query against the web methods. Replace the `<h
   $sapcntrl.$Function($FunctionObject)
  ```
 
-### Determine all hostname associated with a SAP system 
+### Determine all hostname associated with an SAP system 
     
-To determine all SAP hostnames associated with the SID, log in to the SAP system using the `sidadm` user. Then, run the following command:
+To determine all SAP hostnames associated with the SID, login to the SAP system using the `sidadm` user. Then, run the following command:
 
    ```Command to find list of instances associated to given instance
     /usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList
@@ -211,14 +211,16 @@ The provider settings validation operation has failed with code ‘SOAPWebMethod
     
 Possible Causes: The operation failed with error: ‘Error occurred while validating SOAP client API calls for SAP system saptstgtmci.redmond.corp.microsoft.com [‘ABAPGetWPTable – [[“HTTP 401 Unauthorized”, [“SAPSYSTEM1_10”, “SAPSYSTEM2_10”, “SAPSYSTEM3_10”]]]’, ‘GetQueueStatistic – [[“HTTP 401 Unauthorized”, [“SAPSYSTEM1_10”, “SAPSYSTEM2_10”, “SAPSYSTEM3_10”]]]’].’. 
     
-Recommended Action: ‘Ensure that the SOAP web service methods are unprotected correctly. Refer to public documentation for more details.'. (Code: ProviderInstanceValidationOperationFailed) 
+Recommended Action: ‘Ensure that the SOAP web service methods are unprotected correctly. Refer to public documentation for more details.'.
+(Code: ProviderInstanceValidationOperationFailed) 
     
 #### Incorrect username and password 
 The provider settings validation operation has failed with code 'NetWeaverAuthenticationFailed'.
     
-Possible Causes: The operation failed with error: 'Authentication failed, incorrect SAP NetWeaver username, password or client Id.'.
+Possible Causes: The operation failed with error: 'Authentication failed, incorrect SAP NetWeaver username, password or client id.'.
     
-Recommended Action: 'Please check the mandatory parameters username, password or client Id are provided correctly.'. (Code: ProviderInstanceValidationOperationFailed) 
+Recommended Action: 'Please check the mandatory parameters username, password or client id are provided correctly.'. 
+(Code: ProviderInstanceValidationOperationFailed) 
 
 #### WSDL11 is inactive in SICF
 The provider settings validation operation has failed with code 'NetWeaverRfcSOAPWSDLInactive'. 
@@ -226,22 +228,25 @@ The provider settings validation operation has failed with code 'NetWeaverRfcSOA
 Possible Causes: The operation failed with error: 'WSDL11 is inactive in the SAP System: (SID).  
 Error occurred while validating RFC SOAP client API calls for SAP system. 
     
-Recommended Action: 'Please check the WSDL11 service node is active, refer to SICF Transaction in SAP System to activate the service'.(Code: ProviderInstanceValidationOperationFailed) 
+Recommended Action: 'Please check the WSDL11 service node is active, refer to SICF Transaction in SAP System to activate the service'.
+(Code: ProviderInstanceValidationOperationFailed) 
     
 #### Roles incorrectly uploaded and profile not activated
     
 The provider settings validation operation has failed with code ‘NetWeaverRFCAuthorizationFailed’. 
     
-Possible Causes: Authentication failed, roles file is not uploaded in the SAP System. 
+Possible Causes: Authentication failed, roles file isn't uploaded in the SAP System. 
     
-Recommended Action: Ensure that the roles file is uploaded correctly in SAP System. Refer to public documentation for more details.(Code: ProviderInstanceValidationOperationFaile) 
+Recommended Action: Ensure that the roles file is uploaded correctly in SAP System. Refer to public documentation for more details.
+(Code: ProviderInstanceValidationOperationFaile) 
  
 #### Incorrect input provided 
 The provider settings validation operation has failed with code 'SOAPApiConnectionError'. 
     
 Possible Causes: The operation failed with error: 'Unable to reach the hostname: (hostname) with the input provided.  
     
-Recommended Action: 'Please check the input hostname, instance number, and host file entries. '. (Code: ProviderInstanceValidationOperationFailed) 
+Recommended Action: 'Please check the input hostname, instance number, and host file entries. '.
+(Code: ProviderInstanceValidationOperationFailed) 
     
 
 
@@ -272,7 +277,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 
 After updating the parameter, restart the **SAPStartSRV** service on each of the instances in the SAP system. Restarting the services doesn't restart the SAP system. Only the **SAPStartSRV** service (in Windows) or daemon process (in Unix/Linux) is restarted.
 
-You must restart **SAPStartSRV** on each instance of the SAP system for the SAPControl web methods to be unprotected. These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these methods leads to empty or missing visualizations on the NetWeaver metric workbook.
+You must restart **SAPStartSRV** on each instance of the SAP system for the SAPControl web methods to be unprotected. These read-only SOAP APIs are required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these methods lead to empty or missing visualizations on the NetWeaver metric workbook.
 
 On Windows, open the SAP Microsoft Management Console (MMC) / SAP Management Console (MC).  Right-click on each instance and select **All Tasks** &gt; **Restart Service**.
   
@@ -303,7 +308,8 @@ $sapcntrl.$Function($FunctionObject)
 
 Repeat the previous steps for each instance profile.
    
-You can use an access control list (ACL) to filter the access to a server port. For more information, see [SAP note 1495075](https://launchpad.support.sap.com/#/notes/1495075).
+You can use an access control list (ACL) to filter the access to a server port. Refer to public documentation for more details
+, see [SAP note 1495075](https://launchpad.support.sap.com/#/notes/1495075).
 
 ### Install NetWeaver provider
 
@@ -342,7 +348,7 @@ For example, if the hostname of the SAP system has an FQDN of `myhost.mycompany.
 - The hostname is `myhost`
 - The subdomain is `mycompany.contoso.com`
 
-When the NetWeaver provider invokes the **GetSystemInstanceList** API on the SAP system, SAP returns the hostnames of all instances in the system. The collect VM uses this list to make more API calls to fetch metrics for each instances features. For example, ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, and more. If you specify the subdomain, the collect VM uses the subdomain to build the FQDN of each instance in the system.
+When the NetWeaver provider invokes the **GetSystemInstanceList** API on the SAP system, SAP returns the hostnames of all instances in the system. The collect VM uses this list to make more API calls to fetch metrics for each instances feature. For example, ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, and more. If you specify the subdomain, the collect VM uses the subdomain to build the FQDN of each instance in the system.
 
 Don't specify an IP address for the hostname if your SAP system is part of network domain.
 
