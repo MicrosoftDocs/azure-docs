@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure app service performance in .NET Core | Microsoft Docs
-description: Application performance monitoring for Azure app services using ASP.NET Core. Chart load and response time, dependency information, and set alerts on performance.
+title: Monitor Azure App Service performance in .NET Core | Microsoft Docs
+description: Application performance monitoring for Azure App Service using ASP.NET Core. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: csharp

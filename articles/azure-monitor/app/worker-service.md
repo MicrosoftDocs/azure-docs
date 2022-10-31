@@ -372,7 +372,7 @@ For the most up-to-date list, see the [configurable settings in `ApplicationInsi
 
 ### Sampling
 
-The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Sampling can be disabled by using the `EnableAdaptiveSampling` option in [ApplicationInsightsServiceOptions](#using-applicationinsightsserviceoptions).
+The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Sampling can be disabled by using the `EnableAdaptiveSampling` option in [ApplicationInsightsServiceOptions](#use-applicationinsightsserviceoptions).
 
 To configure other sampling settings, you can use the following example:
 
