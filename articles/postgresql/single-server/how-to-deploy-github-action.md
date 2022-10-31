@@ -155,9 +155,7 @@ You will use the connection string as a GitHub secret.
         - uses: actions/checkout@v1
         - uses: azure/login@v1
         with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+            client-id: ${{ secrets.AZURE_CREDENTIALS }}
 
     - uses: azure/postgresql@v1
       with:
@@ -190,7 +188,9 @@ You will use the connection string as a GitHub secret.
         - uses: actions/checkout@v1
         - uses: azure/login@v1
         with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
     - uses: azure/postgresql@v1
       with:
