@@ -24,14 +24,14 @@ You can upgrade your C# project to one of the following versions of .NET, all of
 
 <sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md).
 
-This article walks you through the process of safely migratging your function app to run on version 4.x of the Functions runtime.
+This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime.
 
 ## Prepare for migration
 
 Before you upgrade your app to version 4.x of the Functions runtime, you should do the following tasks:
 
 * Review the list of [behavior changes after version 1.x](#behavior-changes-after-version-1x). Migrating from version 1.x to version 4.x also can affect bindings.
-* Review [Update your C# project files](#update-your-c-project-files) and decide which version of .NET you want to migrate to. Complete the steps to migrate your local project to your choosen version of .NET. 
+* Review [Update your C# project files](#update-your-c-project-files) and decide which version of .NET you want to migrate to. Complete the steps to migrate your local project to your chosen version of .NET. 
 * After migrating your local project, fully test the app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
 * Upgrade your function app in Azure to the new version. If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#upgrade-using-slots).  
 * Republished your migrated project to the upgraded function app. When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#upgrade-without-slots).
@@ -123,144 +123,15 @@ After you make these changes, your updated project should look like the followin
 
 # [.NET 6 (isolated)](#tab/net6-isolated)
 
-The following changes are required in the .csproj XML project file: 
-
-1. Change the value of `PropertyGroup`.`TargetFramework` to `net6.0`.
-
-1. Change the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
-
-1. Add the following `OutputType` element to the `PropertyGroup`:
-
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="5-5":::
-
-1. Replace the existing `ItemGroup`.`PackageReference` list with the following `ItemGroup`:
-
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
-
-1. Add the following new `ItemGroup`:
-
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="26-28":::
-
-After you make these changes, your updated project should look like the following example:
-
-```xml
-
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <RootNamespace>My.Namespace</RootNamespace>
-    <OutputType>Exe</OutputType>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.6.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.3.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
-  </ItemGroup>
-</Project>
-```
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated](../../includes/functions-dotnet-migrate-project-v4-isolated.md)]
 
 # [.NET 6 (in-process)](#tab/net6-in-proc)
 
-The following changes are required in the .csproj XML project file: 
-
-1. Change the value of `PropertyGroup`.`TargetFramework` to `net6.0`.
-
-1. Change the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
-
-1. Replace the existing `ItemGroup`.`PackageReference` list with the following `ItemGroup`:
-
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp/Company.FunctionApp.csproj" range="7-9":::
-
-After you make these changes, your updated project should look like the following example:
-
-```xml
-
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <RootNamespace>My.Namespace</RootNamespace>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
-</Project>
-```
+[!INCLUDE [functions-dotnet-migrate-project-v4-inproc](../../includes/functions-dotnet-migrate-project-v4-inproc.md)]
 
 # [.NET 7](#tab/net7)
 
-The following changes are required in the .csproj XML project file: 
-
-1. Change the value of `PropertyGroup`.`TargetFramework` to `net7.0`.
-
-1. Change the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
-
-1. Add the following `OutputType` element to the `PropertyGroup`:
-
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="5-5":::
-
-1. Replace the existing `ItemGroup`.`PackageReference` list with the following `ItemGroup`:
-
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
-
-1. Add the following new `ItemGroup`:
-
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="26-28":::
-
-After you make these changes, your updated project should look like the following example:
-
-```xml
-
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <RootNamespace>My.Namespace</RootNamespace>
-    <OutputType>Exe</OutputType>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.8.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
-  </ItemGroup>
-</Project>
-```
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-2](../../includes/functions-dotnet-migrate-project-v4-isolated-2.md)]
 
 ---
 
@@ -339,7 +210,7 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 
 C# functions that run in an isolated worker process uses libraries in a different namespace than those libraries used in version 1.x. In-process functions use libraries in the same namespace. 
 
-Version 1.x and in-process libraries are generally in the namespace `Microsoft.Azure.WebJobs.*`. Isolated worker process function app use libraries in the namespace `Microsoft.Azure.Functions.Worker.*`. You can see the impact of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) that follow.
+Version 1.x and in-process libraries are generally in the namespace `Microsoft.Azure.WebJobs.*`. Isolated worker process function apps use libraries in the namespace `Microsoft.Azure.Functions.Worker.*`. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) that follow.
 
 ### Class name changes
 
