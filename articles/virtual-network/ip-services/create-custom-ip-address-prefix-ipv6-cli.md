@@ -45,7 +45,7 @@ The steps in this article detail the process to:
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-cli.md#pre-provisioning-steps) for details.  Note all these steps should be completed for the IPv6 global (parent) range.
+To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-cli.md#pre-provisioning-steps) for details.  Note that all these steps should be completed for the IPv6 global (parent) range.
 
 ## Provisioning for IPv6
 
