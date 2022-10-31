@@ -150,13 +150,13 @@ The configuration pane shows the following GitHub repository settings:
 | **Setting** | **Description**  | **Value**  |
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository. | GitHub |
-| **Use GitHub Enterprise Server** | Checkbox to select GitHub Enterprise Server| unselected (default) |
+| **Use GitHub Enterprise Server** | Checkbox to select GitHub Enterprise Server.| unselected (default) |
 | **GitHub Enterprise Server URL** | The GitHub Enterprise root URL (must be HTTPS for local GitHub Enterprise server). For example: `https://github.mydomain.com`. Required only if **Use GitHub Enterprise Server** is selected | `<your GitHub Enterprise Server URL>` |                                                         
 | **GitHub repository owner** | GitHub organization or account that owns the repository. This name can be found from https:\//github.com/{owner}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub organization or account. If you select **Use GitHub Enterprise Server**, a dialog box will pop out to let you enter your access token. | `<your GitHub repository owner name>` |
 | **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. Specify your GitHub code repository name when you select **Select repository**. | `<your repository name>` |
 |**Git repository link**| Your GitHub code repository link. Specify your GitHub code repository link when you select **Use repository link**. |`<your repository link>`|
 | **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, it's main. Change this setting in case you want to publish resources from another branch. You can also create a new collaboration branch here. | `<your collaboration branch>` |
-| **Publish branch**  |The branch in your repository where publishing related ARM templates are stored and updated. | `<your publish branch>`|
+| **Publish branch**  |The branch in your repository where publishing related ARM templates are stored and updated.| `<your publish branch name>`|
 | **Root folder** | Your root folder in your GitHub collaboration branch. |`<your root folder name>` |
 | **Import existing resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Import resource into this branch** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported.  |  |
