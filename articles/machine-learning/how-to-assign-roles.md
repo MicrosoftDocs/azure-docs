@@ -30,14 +30,17 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 
 ## Default roles
 
-Azure Machine Learning workspaces have a four built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the built-in roles described below.
+Azure Machine Learning workspaces have a five built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the built-in roles described below.
 
 | Role | Access level |
 | --- | --- |
 | **AzureML Data Scientist** | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. |
+| **AzureML Compute Operator** | Can create, manage and access compute resources within a workspace.|
 | **Reader** | Read-only actions in the workspace. Readers can list and view assets, including [datastore](how-to-access-data.md) credentials, in a workspace. Readers can't create or update these assets. |
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
+
+You can combine the roles to grant different levels of access. For example, you can grant a workspace user both **AzureML Data Scientist** and **Azure ML Compute Operator** roles to permit the user to perform experiments while creating computes in a self-service manner.
 
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md#how-azure-rbac-works).
@@ -61,10 +64,9 @@ You can use Azure AD security groups to manage access to workspaces. This approa
 
 To use Azure AD security groups:
  1. [Create a security group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
- 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner is not required to be group member, or have direct RBAC role on the workspace.
+ 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner isn't required to be group member, or have direct RBAC role on the workspace.
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
  4. [Add group members](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md). The members consequently gain access to the workspace.
-
 
 ## Create custom role
 
@@ -153,11 +155,11 @@ You need to have permissions on the entire scope of your new role definition. Fo
 
 ## Use Azure Resource Manager templates for repeatability
 
-If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
+If you anticipate that you'll need to recreate complex role assignments, an Azure Resource Manager template can be a significant help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
 
 ## Common scenarios
 
-The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. For example, if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically:
+The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. For example, if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically. Note that for certain activities the permissions differ between V1 and V2 APIs.
 
 > [!IMPORTANT]
 > All paths in this table that start with `/` are **relative paths** to `Microsoft.MachineLearningServices/` :
@@ -168,8 +170,10 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role </br>allowing `/locations/updateQuotas/action`</br> at subscription scope | Not Authorized | Not Authorized |
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
-| Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publishing pipelines and endpoints | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Submitting any type of run (V1) | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Submitting any type of run (V2) | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/jobs/*", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/codes/*/write", "/workspaces/environments/build/action", "/workspaces/environments/readSecrets/action"` |
+| Publishing pipelines and endpoints (V1) | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Publishing pipelines and endpoints (V2) | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/components/*"` |
 | Attach an AKS resource <sub>2</sub> | Not required | Owner or contributor on the resource group that contains AKS | 
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
@@ -181,6 +185,20 @@ The following table is a summary of Azure Machine Learning activities and the pe
 1: If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
 2: When attaching an AKS cluster, you also need to the [Azure Kubernetes Service Cluster Admin Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
+
+### Differences between actions for V1 and V2 APIs
+
+There are certain differences between actions for V1 APIs and V2 APIs.
+
+| Asset | Action path for V1 API | Action path for V2 API
+| ----- | ----- | ----- |
+| Dataset | Microsoft.MachineLearningServices/workspaces/datasets | Microsoft.MachineLearningServices/workspaces/datasets/versions |
+| Experiment runs and jobs | Microsoft.MachineLearningServices/workspaces/experiments | Microsoft.MachineLearningServices/workspaces/jobs |
+| Models | Microsoft.MachineLearningServices/workspaces/models | Microsoft.MachineLearningServices/workspaces/models/verstions |
+| Snapshots and code | Microsoft.MachineLearningServices/workspaces/snapshots | Microsoft.MachineLearningServices/workspaces/codes/versions |
+| Modules and components | Microsoft.MachineLearningServices/workspaces/modules | Microsoft.MachineLearningServices/workspaces/components |
+
+You can make custom roles compatible with both V1 and V2 APIs by including both actions, or using wildcards that include both actions, for example Microsoft.MachineLearningServices/workspaces/datasets/*/read.
 
 ### Create a workspace using a customer-managed key
 
@@ -198,14 +216,11 @@ To perform MLflow operations with your Azure Machine Learning workspace, use the
 
 | MLflow operation | Scope |
 | --- | --- |
-| List all experiments in the workspace tracking store, get an experiment by id, get an experiment by name | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
-| Create an experiment with a name , set a tag on an experiment, restore an experiment marked for deletion| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 
-| Delete an experiment | `Microsoft.MachineLearningServices/workspaces/experiments/delete` |
-| Get a run and related data and metadata, get a list of all values for the specified metric for a given run, list artifacts for a run | `Microsoft.MachineLearningServices/workspaces/experiments/runs/read` |
-| Create a new run within an experiment, delete runs, restore deleted runs, log metrics under the current run, set tags on a run, delete tags on a run, log params (key-value pair) used for a run, log a batch of metrics, params, and tags for a run, update run status | `Microsoft.MachineLearningServices/workspaces/experiments/runs/write` |
-| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model's version, search model versions, get URI where a model version's artifacts are stored, search for runs by experiment ids | `Microsoft.MachineLearningServices/workspaces/models/read` |
-| Create a new registered model, update a registered model's name/description, rename existing registered model, create new version of the model, update a model version's description, transition a registered model to one of the stages | `Microsoft.MachineLearningServices/workspaces/models/write` |
-| Delete a registered model along with all its version, delete specific versions of a registered model | `Microsoft.MachineLearningServices/workspaces/models/delete` |
+| (V1) List, read, create, update or delete experiments | `Microsoft.MachineLearningServices/workspaces/experiments/*` |
+| (V2) List, read, create, update or delete jobs | `Microsoft.MachineLearningServices/workspaces/jobs/*` |
+| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model's version, search model versions, get URI where a model version's artifacts are stored, search for runs by experiment ids | `Microsoft.MachineLearningServices/workspaces/models/*/read` |
+| Create a new registered model, update a registered model's name/description, rename existing registered model, create new version of the model, update a model version's description, transition a registered model to one of the stages | `Microsoft.MachineLearningServices/workspaces/models/*/write` |
+| Delete a registered model along with all its version, delete specific versions of a registered model | `Microsoft.MachineLearningServices/workspaces/models/*/delete` |
 
 <a id="customroles"></a>
 
@@ -269,10 +284,8 @@ A more restricted role definition without wildcards in the allowed actions. It c
         "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
         "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
         "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
         "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
         "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
         "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
         "Microsoft.MachineLearningServices/workspaces/experiments/write",
         "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
@@ -280,12 +293,11 @@ A more restricted role definition without wildcards in the allowed actions. It c
         "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
         "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
         "Microsoft.MachineLearningServices/workspaces/environments/write",
-        "Microsoft.MachineLearningServices/workspaces/models/write",
+        "Microsoft.MachineLearningServices/workspaces/models/*/write",
         "Microsoft.MachineLearningServices/workspaces/modules/write",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
-        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
-        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
+        "Microsoft.MachineLearningServices/workspaces/components/*/write",
+        "Microsoft.MachineLearningServices/workspaces/datasets/*/write", 
+        "Microsoft.MachineLearningServices/workspaces/datasets/*/delete",
         "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
         "Microsoft.MachineLearningServices/workspaces/environments/build/action"
     ],
@@ -327,14 +339,9 @@ Allows a data scientist to perform all MLflow AzureML supported operations **exc
     "IsCustom": true,
     "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
     "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/experiments/read",
-        "Microsoft.MachineLearningServices/workspaces/experiments/write",
-        "Microsoft.MachineLearningServices/workspaces/experiments/delete",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-        "Microsoft.MachineLearningServices/workspaces/models/read",
-        "Microsoft.MachineLearningServices/workspaces/models/write",
-        "Microsoft.MachineLearningServices/workspaces/models/delete"
+        "Microsoft.MachineLearningServices/workspaces/experiments/*",
+        "Microsoft.MachineLearningServices/workspaces/jobs/*",
+        "Microsoft.MachineLearningServices/workspaces/models/*"
     ],
     "NotActions": [
         "Microsoft.MachineLearningServices/workspaces/delete",
@@ -372,15 +379,19 @@ Allows you to assign a role to a service principal and use that to automate your
         "Microsoft.MachineLearningServices/workspaces/environments/read",    
         "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
         "Microsoft.MachineLearningServices/workspaces/modules/read",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+        "Microsoft.MachineLearningServices/workspaces/components/read",       
+        "Microsoft.MachineLearningServices/workspaces/datasets/*/read",
         "Microsoft.MachineLearningServices/workspaces/datastores/read",
         "Microsoft.MachineLearningServices/workspaces/environments/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",       
         "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+        "Microsoft.MachineLearningServices/workspaces/experiments/jobs/read",       
+        "Microsoft.MachineLearningServices/workspaces/experiments/jobs/write",
         "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
         "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/codes/*/write",       
         "Microsoft.MachineLearningServices/workspaces/environments/build/action",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
     ],
     "NotActions": [
         "Microsoft.MachineLearningServices/workspaces/computes/write",
@@ -470,6 +481,7 @@ Allows you to review and reject the labeled dataset and view labeling insights. 
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/update/action",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
     ],
@@ -499,7 +511,9 @@ A vendor account manager can help manage all the vendor roles and perform any la
         "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/write", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/update/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/approve_unapprove/action",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
@@ -526,6 +540,7 @@ A customer quality assurance role can view project dashboards, preview datasets,
         "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/approve_unapprove/action",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/export/action",
@@ -551,7 +566,9 @@ A vendor quality assurance role can perform a customer quality assurance role, b
         "Microsoft.MachineLearningServices/workspaces/read", 
         "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/update/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/approve_unapprove/action",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
@@ -567,7 +584,7 @@ A vendor quality assurance role can perform a customer quality assurance role, b
 
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
 
-- When you create a resource in Azure, such as a workspace, you are not directly the owner of the resource. Your role is inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and have the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
+- When you create a resource in Azure, such as a workspace, you're not directly the owner of the resource. Your role is inherited from the highest scope role that you're authorized against in that subscription. As an example if you're a Network Administrator, and have the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
 
 - To perform quota operations in a workspace, you need subscription level permissions. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope.
 

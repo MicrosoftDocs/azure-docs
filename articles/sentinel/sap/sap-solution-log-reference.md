@@ -291,7 +291,7 @@ SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dyna
 See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) for more information.
 
 ### SAPAuditLogConfigRecommend
-The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. See detailed explanation in the [Configuring the SAP audit log monitoring analytics rules](deployment-solution-configuration.md#configuring-the-sap-audit-log-monitoring-analytics-rules) guide.
+The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. Learn how to [configure the rules](configure-audit-log-rules.md).
 
 ### SAPUsersGetVIP
 

@@ -1,16 +1,13 @@
 ---
-title: Threat intelligence integration in Microsoft Sentinel | Microsoft Docs
+title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
-author: yelevin
-ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+author: austinmccollum
+ms.topic: conceptual
+ms.date: 9/26/2022
+ms.author: austinmc
 ---
 
 # Threat intelligence integration in Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Sentinel gives you a few different ways to [use threat intelligence feeds](work-with-threat-indicators.md) to enhance your security analysts' ability to detect and prioritize known threats. 
 
@@ -19,7 +16,7 @@ You can use one of many available integrated [threat intelligence platform (TIP)
 You can also connect to threat intelligence sources from playbooks, in order to enrich incidents with TI information that can help direct investigation and response actions.
 
 > [!TIP]
-> If you have multiple workspaces in the same tenant, such as for [Managed Service Providers (MSSPs)](mssp-protect-intellectual-property.md), it may be more cost effective to connect threat indicators only to the centralized workspace.
+> If you have multiple workspaces in the same tenant, such as for [Managed Security Service Providers (MSSPs)](mssp-protect-intellectual-property.md), it may be more cost effective to connect threat indicators only to the centralized workspace.
 >
 > When you have the same set of threat indicators imported into each separate workspace, you can run cross-workspace queries to aggregate threat indicators across your workspaces. Correlate them within your MSSP incident detection, investigation, and hunting experience.
 >

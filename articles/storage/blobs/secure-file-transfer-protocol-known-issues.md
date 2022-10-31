@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 09/13/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -16,11 +16,10 @@ ms.reviewer: ylunagaria
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
+> SFTP support is currently in PREVIEW. 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 >
-> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
 > [!IMPORTANT]
 > Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article also apply to your account.
@@ -37,12 +36,23 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 
 The unsupported client list above is not exhaustive and may change over time.
 
+## Client settings
+
+To transfer files to or from Azure storage via client applications, see the following recommended client settings.
+
+- WinSCP
+
+  - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename** option.
+  
+  > [!CAUTION]
+  > Leaving this option enabled can cause failures or degraded performance during large file uploads.
+
 ## Unsupported operations
 
 | Category | Unsupported operations |
 |---|---|
 | ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving permissions |
-| Resume operations |<li>`reget`, `get -a`- resume download<li>`reput`. `put -a` - resume upload |
+| Resuming Uploads | `reput`. `put -a` |
 | Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
 | Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
 | Capacity Information | `df` - usage info for filesystem |

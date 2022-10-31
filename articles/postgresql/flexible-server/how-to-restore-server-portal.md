@@ -1,6 +1,6 @@
 ---
 title: Restore - Azure portal - Azure Database for PostgreSQL - Flexible Server
-description: This article describes how to perform restore operations in Azure Database for PostgreSQL through the Azure portal.
+description: This article describes how to perform restore operations in Azure Database for PostgreSQL Flexible Server through the Azure portal.
 ms.author: srranga
 author: sr-msft
 ms.service: postgresql
@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Point-in-time restore of a Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups. You can perform either to a latest restore point or a custom restore point within your retention period.
 
@@ -50,7 +50,7 @@ Follow these steps to restore your flexible server using an existing backup.
 2.  From the overview page, click **Restore**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restore overview":::
     
-3.  Restore page will be shown with an option to choose between the latest restore point and Custom restore point.
+3.  Restore page will be shown with an option to choose between the latest restore point, custom restore point and fast restore point.
 
 4.  Choose **Custom restore point**.
 
@@ -62,9 +62,31 @@ Follow these steps to restore your flexible server using an existing backup.
 
 7.  A notification will be shown that the restore operation has been initiated.
 
-## Performing Geo-Restore (Preview)
+ ## Restoring using fast restore
 
-If your source server is configured with geo-redundant backup, you can restore the servers in a paired region. Please note that, for the first time restore, please wait at least 1 hour after the source server is created.
+Follow these steps to restore your flexible server using a fast restore option.
+
+1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
+
+2.  Click **Overview** from the left panel and click **Restore**
+   
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restore overview":::
+    
+3.  Restore page will be shown with an option to choose between the latest restore point, custom restore point and fast restore point.
+
+4.  Choose **Fast restore point (Restore using full backup only)**.
+
+5.  Select full backup of your choice from the Fast Restore Point drop-down. Provide a **new server name** and you can optionally choose the **Availability zone** to restore to.
+   
+:::image type="content" source="./media/how-to-restore-server-portal/fast-restore.png" alt-text="Fast restore time":::
+ 
+6.  Click **OK**.
+
+7.  A notification will be shown that the restore operation has been initiated.
+
+## Performing Geo-Restore
+
+If your source server is configured with geo-redundant backup, you can restore the servers in a paired region. Note that, for the first time restore, please wait at least 1 hour after the source server is created.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to geo-restore the backup from.
 

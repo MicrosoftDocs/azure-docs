@@ -41,7 +41,7 @@ System health checks include the following:
 |- Longest Key     | Displays the longest keys that might cause extensive memory usage.        |
 |**System**     |         |
 |- Core Log     | Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.        |
-|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cash layer (SQL) |
+|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cache layer (SQL) |
 |- Network Statistics     | Displays your network statistics.        |
 |- TOP     |    Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.     |
 |- Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there are for the extra backup files        |

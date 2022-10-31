@@ -3,8 +3,8 @@ title: 'Quickstart: Direct web traffic using Bicep'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use Bicep to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: schaffererin
-ms.author: v-eschaffer
+author: KumudD
+ms.author: kumud
 ms.date: 04/14/2022
 ms.topic: quickstart
 ms.service: application-gateway

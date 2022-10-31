@@ -107,9 +107,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Virtual Desktop
-            url: /learn/modules/m365-wvd-intro/
+            url: /training/modules/m365-wvd-intro/
           - text: More Azure Virtual Desktop learning paths
-            url: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+            url: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
       - linkListType: reference
         links:
           - text: User experience estimator

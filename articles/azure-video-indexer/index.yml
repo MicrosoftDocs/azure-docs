@@ -26,8 +26,6 @@ landingContent:
         links:
           - text: "What is Azure Video Indexer?"
             url: video-indexer-overview.md
-          - text: "Compare Media Services v3 presets and Azure Video Indexer"
-            url: compare-video-indexer-with-media-services-presets.md
           - text: Frequently asked questions
             url: faq.yml
           - text: User voice

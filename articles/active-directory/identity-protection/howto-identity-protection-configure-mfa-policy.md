@@ -15,20 +15,20 @@ ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Configure the Azure AD Multifactor Authentication registration policy
+# How To: Configure the Azure AD multifactor authentication registration policy
 
-Azure Active Directory (Azure AD) Identity Protection helps you manage the roll-out of Azure AD Multifactor Authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you're signing in to.
+Azure Active Directory (Azure AD) Identity Protection helps you manage the roll-out of Azure AD multifactor authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you're signing in to.
 
-## What is the Azure AD Multifactor Authentication registration policy?
+## What is the Azure AD multifactor authentication registration policy?
 
-Azure AD Multifactor Authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure AD Multifactor Authentication.
+Azure AD multifactor authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure AD multifactor authentication.
 
-We recommend that you require Azure AD Multifactor Authentication for user sign-ins because it:
+We recommend that you require Azure AD multifactor authentication for user sign-ins because it:
 
 - Delivers strong authentication through a range of verification options.
 - Plays a key role in preparing your organization to self-remediate from risk detections in Identity Protection.
 
-For more information on Azure AD Multifactor Authentication, see [What is Azure AD Multifactor Authentication?](../authentication/howto-mfa-getstarted.md)
+For more information on Azure AD multifactor authentication, see [What is Azure AD multifactor authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## Policy configuration
 
@@ -54,4 +54,4 @@ For an overview of the related user experience, see:
 
 - [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
 
-- [Enable Azure AD Multifactor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Enable Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md)

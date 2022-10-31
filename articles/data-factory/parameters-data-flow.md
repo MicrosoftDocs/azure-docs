@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 08/18/2022
 ---
 
 # Parameterizing mapping data flows

@@ -127,6 +127,10 @@
     href: setup-guide.md
   - name: Create & configure lab plans (admin)
     items:
+    - name: Request core limit increase
+      href: how-to-request-capacity-increase.md
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Add a lab creator
@@ -164,9 +168,9 @@
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
     - name: Configure regions for labs
-      href: create-and-configure-labs-admin.md
+      href: create-and-configure-labs-admin.md     
     - name: Restrict VM sizes allowed for labs
-      href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md 
+      href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs

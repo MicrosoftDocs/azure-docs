@@ -1,7 +1,7 @@
 ---
-title: Install Read OCR Docker containers from Computer Vision
+title: Computer Vision 3.2 GA Read OCR container
 titleSuffix: Azure Cognitive Services
-description: Use the Read OCR Docker containers from Computer Vision to extract text from images and documents, on-premises.
+description: Use the Read 3.2 OCR containers from Computer Vision to extract text from images and documents, on-premises.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 
-# Install Read OCR Docker containers
+# Install Computer Vision 3.2 GA Read OCR container
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 

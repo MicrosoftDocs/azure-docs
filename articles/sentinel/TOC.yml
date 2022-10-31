@@ -15,6 +15,8 @@
   items:
   - name: Forward syslog data to workspace
     href: forward-syslog-monitor-agent.md
+  - name: Configure data retention policy
+    href: configure-data-retention.md
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
@@ -28,7 +30,11 @@
   - name: Build and monitor Zero Trust
     href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Defender for IoT
-    href: iot-solution.md
+    items: 
+    - name: Connect Defender for IoT data with Microsoft Sentinel
+      href: iot-solution.md
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: iot-advanced-threat-monitoring.md
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
@@ -211,10 +217,12 @@
     items:
     - name: Discover and deploy out-of-the-box content
       href: sentinel-solutions-deploy.md
-    - name: Deploy custom content from your repository
-      href: ci-cd.md
     - name: Delete out-of-the-box content
       href: sentinel-solutions-delete.md
+    - name: Deploy custom content from your repository
+      href: ci-cd.md
+    - name: Customize repository deployments
+      href: ci-cd-custom-deploy.md
   - name: Collect data
     items:
     - name: Find data connector
@@ -257,9 +265,7 @@
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
     - name: Deploy a log forwarder
-      href: connect-log-forwarder.md
-    - name: Troubleshoot CEF/Syslog data collection
-      href: troubleshooting-cef-syslog.md
+      href: connect-log-forwarder.md    
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -290,6 +296,10 @@
       href: work-with-threat-indicators.md
     - name: Add entity to threat indicators
       href: add-entity-to-threat-intelligence.md
+    - name: Use threat indicators in analytics rules
+      href: use-threat-indicators-in-analytics-rules.md
+    - name: Use matching analytics to detect threats
+      href: use-matching-analytics-to-detect-threats.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -349,9 +359,7 @@
     - name: Hunt with Jupyter notebooks
       items:
       - name: Launch Jupyter notebook
-        href: notebooks-hunt.md
-      - name: Troubleshoot Jupyter notebook
-        href: notebooks-troubleshoot.md
+        href: notebooks-hunt.md      
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
       - name: Configure big data analytics settings
@@ -386,6 +394,8 @@
     items:
     - name: Create automation rules
       href: create-manage-use-automation-rules.md
+    - name: Add advanced conditions to automation rules
+      href: add-advanced-conditions-to-automation-rules.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
@@ -438,12 +448,20 @@
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
-    - name: Troubleshooting
-      items:
-      - name: Troubleshooting SAP solution deployment
-        href: sap/sap-deploy-troubleshoot.md
-      - name: Configure Transport Management System
-        href: sap/configure-transport.md
+      - name: Configure SAP audit log monitoring rules
+        href: sap/configure-audit-log-rules.md 
+- name: Troubleshoot
+  items:
+  - name: Troubleshoot CEF/Syslog data collection
+    href: troubleshooting-cef-syslog.md
+  - name: Troubleshoot AWS S3 connector issues
+    href: aws-s3-troubleshoot.md
+  - name: Troubleshoot Jupyter notebooks
+    href: notebooks-troubleshoot.md
+  - name: Troubleshoot SAP solution deployment
+    href: sap/sap-deploy-troubleshoot.md
+  - name: Configure SAP Transport Management System
+    href: sap/configure-transport.md  
 - name: Reference
   items:
   - name: SAP solution
@@ -567,8 +585,8 @@
     - name: Microsoft Sentinel skill-up training  
       href: skill-up-resources.md
     - name: Learn modules for Microsoft Sentinel
-      href: /learn/browse/?expanded=azure&products=azure-sentinel
+      href: /training/browse/?expanded=azure&products=azure-sentinel
     - name: Learn modules for Kusto Query Language (KQL)
-      href: /learn/browse/?expanded=azure&terms=kusto%20query%20language
+      href: /training/browse/?expanded=azure&terms=kusto%20query%20language
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md

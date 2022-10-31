@@ -16,6 +16,9 @@ keywords: on-premises, Docker, container
 
 # Install and run Docker containers for LUIS
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Containers enable you to use LUIS in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a LUIS container.

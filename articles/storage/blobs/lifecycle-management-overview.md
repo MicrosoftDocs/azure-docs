@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 08/24/2022
+ms.date: 09/29/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -385,7 +385,7 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 ### I created a new policy. Why do the actions not run immediately?
 
-The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.
+The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for some actions to run for the first time.
 
 ### If I update an existing policy, how long does it take for the actions to run?
 
@@ -393,13 +393,13 @@ The updated policy takes up to 24 hours to go into effect. Once the policy is in
 
 ### I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 
-If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing it's tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There's three ways to prevent this from happening:
+If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing its tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There's three ways to prevent this from happening:
 
 - Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. This condition applies only to the last modified time. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
 
 - Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. 
 
-- If the blob needs to stay in the hot or cool tier permanently, copy the blob to another location where the lifecycle manage policy is not in effect.
+- If the blob needs to stay in the hot or cool tier permanently, copy the blob to another location where the lifecycle manage policy isn't in effect.
 
 ### The blob prefix match string didn't apply the policy to the expected blobs
 

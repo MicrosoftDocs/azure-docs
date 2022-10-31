@@ -7,6 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/15/2022
 ---
@@ -33,11 +34,11 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 A Debug Session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The following list notes the exceptions:
 
-+ The MongoDB API (preview) of Cosmos DB is currently not supported.
++ Azure Cosmos DB for MongoDB is currently not supported.
 
-+ For the SQL API of Cosmos DB, if a row fails during index and there's no corresponding metadata, the debug session might not pick the correct row.
++ For the Azure Cosmos DB for NoSQL, if a row fails during index and there's no corresponding metadata, the debug session might not pick the correct row.
 
-+ For the SQL API of Cosmos DB, if a partitioned collection was previously non-partitioned, a Debug Session won't find the document.
++ For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, a Debug Session won't find the document.
 
 ## Create a debug session
 
@@ -68,6 +69,8 @@ A Debug Session works with all generally available [indexer data sources](search
    :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
 The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata created will be visible and available in the session.
+
+A debug session can be canceled while it's executing using the **Cancel** button.
 
 ## Start with errors and warnings
 

@@ -98,9 +98,11 @@ You have a choice of operating systems that you can use for session hosts to pro
 |<ul><li>Windows Server 2022</li><li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
 
 > [!IMPORTANT]
-> Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table. In addition, Windows 7 doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
+> - Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table. In addition, Windows 7 doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 > 
-> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
+> - Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
+> 
+> - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported.
 
 You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or your own custom images stored in an Azure Compute Gallery, as a managed image, or storage blob. To learn more about how to create custom images, see:
 
@@ -120,8 +122,8 @@ There are different automation and deployment options available depending on whi
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 11 Enterprise multi-session|Yes|Yes|Yes|Yes|
 |Windows 11 Enterprise|Yes|Yes|No|No|
-|Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise, version 1909 and later|Yes|Yes|No|No|
+|Windows 10 Enterprise multi-session, version 20H2 and later|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 20H2 and later|Yes|Yes|No|No|
 |Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2022|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|Yes|Yes|

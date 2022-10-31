@@ -149,7 +149,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
-   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Screenshot that shows the data factory selection in the New pane.":::
 
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 

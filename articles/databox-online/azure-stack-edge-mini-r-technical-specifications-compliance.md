@@ -67,7 +67,7 @@ The following routers and switches are compatible with the 10 Gbps SPF+ network 
 
 |Router/Switch     |Notes                         |
 |------------------|------------------------------|
-|[VoyagerESR 2.0](https://klastelecom.com/products/voyageresr2-0/)    |Cisco ESS3300 Switch component   |
+|[VoyagerESR 2.0](https://www.klasgroup.com/products-gov/voyager-tdc/)    |Cisco ESS3300 Switch component   |
 |[VoyagerSW26G](https://klastelecom.com/products/voyagersw26g/)       |                                 |
 |[VoyagerVM 3.0](https://klastelecom.com/products/voyager-vm-3-0/)    |                                 |
 |[TDC Switch](https://klastelecom.com/voyager-tdc/)                   |                                 |

@@ -285,7 +285,7 @@ For security logging and monitoring, we recommend the following:
 
 * Mitigate distributed denial of service (DDOS) and Key Vault resource exhaustion risks. Every request that triggers a VC issuance request generates Key Vault signing operations that accrue towards service limits. We recommend protecting traffic by incorporating authentication or captcha before generating issuance requests.
 
-For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
+For guidance on managing your Azure environment, we recommend you review the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
 
 ## Additional considerations
 

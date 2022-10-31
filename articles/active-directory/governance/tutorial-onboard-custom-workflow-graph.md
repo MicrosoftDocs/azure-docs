@@ -27,7 +27,7 @@ Two accounts are required for the tutorial, one account for the new hire and ano
 -	department must be set to sales
 -	manager attribute must be set, and the manager account should have a mailbox to receive an email.
 
-For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md). The [TAP policy](/azure/active-directory/authentication/howto-authentication-temporary-access-pass#enable-the-temporary-access-pass-policy) must also be enabled to run this tutorial.
+For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md). The [TAP policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy) must also be enabled to run this tutorial.
 
 Detailed breakdown of the relevant attributes:
 

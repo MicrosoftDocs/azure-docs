@@ -48,4 +48,8 @@ items:
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md
   - name: Spacecraft object
-    href: spacecraft-object.md  
+    href: spacecraft-object.md
+  - name: Organize spaceborne geospatial data with STAC
+    href: organize-stac-data.md
+  - name: SAR reference architecture
+    href: sar-reference-architecture.md  

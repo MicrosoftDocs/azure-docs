@@ -149,4 +149,4 @@ In this article, you learned how to run a hunting investigation using bookmarks 
 
 - [Proactively hunt for threats](hunting.md)
 - [Use notebooks to run automated hunting campaigns](notebooks.md)
-- [Threat hunting with Microsoft Sentinel (Learn module)](/learn/modules/hunt-threats-sentinel/)
+- [Threat hunting with Microsoft Sentinel (Learn module)](/training/modules/hunt-threats-sentinel/)

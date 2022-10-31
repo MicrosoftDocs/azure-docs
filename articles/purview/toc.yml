@@ -18,6 +18,8 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
+    - name: Create an account - Bicep
+      href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
@@ -60,22 +62,22 @@ items:
     items:
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default account 
+      - name: Accounts - Default account
         href: concept-default-purview-account.md
       - name: Asset lifecycle best practices
         href: concept-best-practices-asset-lifecycle.md
-      - name: Automation best practices 
+      - name: Automation best practices
         href: concept-best-practices-automation.md
       - name: Backup, recovery and migration best practices
         href: concept-best-practices-migration.md
-      - name: Classification best practices 
-        href: concept-best-practices-classification.md 
+      - name: Classification best practices
+        href: concept-best-practices-classification.md
       - name: Collections architecture best practices
         href: concept-best-practices-collections.md
       - name: Deployment best practices
         href: deployment-best-practices.md
       - name: Glossary best practices
-        href: concept-best-practices-glossary.md        
+        href: concept-best-practices-glossary.md
       - name: Labeling best practices
         href: concept-best-practices-sensitivity-labels.md
       - name: Lineage best practices
@@ -84,16 +86,16 @@ items:
         href: concept-best-practices-network.md
       - name: Pricing guidelines
         items:
-        - name: Pricing guidelines overview 
+        - name: Pricing guidelines overview
           href: concept-guidelines-pricing.md
         - name: Data map pricing
           href: concept-guidelines-pricing-data-map.md
         - name: Data Estate Insights pricing
           href: concept-guidelines-pricing-data-estate-insights.md
-      - name: Scanning best practices 
+      - name: Scanning best practices
         href: concept-best-practices-scanning.md
       - name: Security best practices
-        href: concept-best-practices-security.md  
+        href: concept-best-practices-security.md
   - name: Permissions and access
     href: catalog-permissions.md
   - name: Data map
@@ -111,7 +113,7 @@ items:
   - name: Data catalog
     items:
     - name: Business glossary
-      href: concept-business-glossary.md 
+      href: concept-business-glossary.md
     - name: Asset normalization
       href: concept-asset-normalization.md
     - name: Workflows
@@ -139,7 +141,7 @@ items:
   - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
-    items: 
+    items:
     - name: Supported sources
       href: microsoft-purview-connector-overview.md
     - name: Manage data sources
@@ -154,7 +156,7 @@ items:
     - name: Request access to data asset
       href: how-to-request-access.md
   - name: Sources
-    items: 
+    items:
     - name: Azure Multiple Source
       href: register-scan-azure-multiple-sources.md
     - name: Azure Synapse Analytics workspaces
@@ -173,7 +175,7 @@ items:
       displayName: Register and scan an Azure database for MySQL
     - name: Azure Database for PostgreSQL
       href: register-scan-azure-postgresql.md
-      displayName: Register and scan an Azure database for PostgreSQL        
+      displayName: Register and scan an Azure database for PostgreSQL
     - name: Azure Data Explorer
       href: register-scan-azure-data-explorer.md
       displayName: Register and scan Azure Data Explorer Kusto
@@ -182,7 +184,7 @@ items:
       displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
     - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
-      displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
+      displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
     - name: Azure SQL Database
       href: register-scan-azure-sql-database.md
       displayName: Register and scan Azure SQL DB
@@ -229,13 +231,13 @@ items:
       href: register-scan-sap-bw.md
     - name: SAP ECC
       href: register-scan-sapecc-source.md
-    - name: SAP HANA 
+    - name: SAP HANA
       href: register-scan-sap-hana.md
-    - name: SAP S/4HANA 
+    - name: SAP S/4HANA
       href: register-scan-saps4hana-source.md
     - name: Snowflake
       href: register-scan-snowflake.md
-    - name: Teradata 
+    - name: Teradata
       href: register-scan-teradata-source.md
     - name: Amazon RDS
       href: register-scan-amazon-rds.md
@@ -265,7 +267,7 @@ items:
       href: how-to-certify-assets.md
     - name: Managed attributes
       href: how-to-managed-attributes.md
-  - name: Lineage 
+  - name: Lineage
     items:
     - name: Lineage user guide
       href: catalog-lineage-user-guide.md
@@ -286,9 +288,9 @@ items:
     - name: Create & manage terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md   
+      href: how-to-manage-term-templates.md
   - name: Classify
-    items: 
+    items:
     - name: Create custom classifications
       href: create-a-custom-classification-and-classification-rule.md
     - name: Apply classifications
@@ -334,11 +336,11 @@ items:
       - name: Isolate network for account and portal
         href: catalog-private-link-account-portal.md
       - name: Managed virtual network
-        href: catalog-managed-vnet.md        
+        href: catalog-managed-vnet.md
       - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
-        href: catalog-private-link-troubleshoot.md                     
+        href: catalog-private-link-troubleshoot.md
       - name: Private endpoint and Managed VNets FAQ
         href: catalog-private-link-faqs.md
     - name: Deployment exceptions
@@ -373,6 +375,10 @@ items:
       href: how-to-workflow-manage-requests-approvals.md
     - name: Manage workflow runs
       href: how-to-workflow-manage-runs.md
+    - name: Workflow connectors
+      href: how-to-use-workflow-connectors.md      
+    - name: Workflow HTTP connector
+      href: how-to-use-workflow-http-connector.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery

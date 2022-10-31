@@ -1,0 +1,49 @@
+---
+title: Compute instance image release notes
+titleSuffix: Azure Machine Learning
+description: Release notes for the Azure Machine Learning compute instance images
+author: deeikele
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.author: deeikele
+ms.date: 9/30/2022
+ms.topic: reference
+---
+
+# Azure Machine Learning compute instance image release notes
+
+In this article, learn about Azure Machine Learning compute instance image releases. Azure Machine Learning maintains host operating system images for [Azure ML compute instance](/azure/machine-learning/concept-compute-instance) and [Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/release-notes). Due to the rapidly evolving needs and package updates, we target to release new images every month.
+
+Azure Machine Learning checks and validates any machine learning packages that may require an upgrade. Updates incorporate the latest OS-related patches from Canonical as the original Linux OS publisher. In addition to patches applied by the original publisher, Azure Machine Learning updates system packages when updates are available. For details on the patching process, see [Vulnerability Management](/azure/machine-learning/concept-vulnerability-management).
+
+Main updates provided with each image version are described in the below sections.
+
+## September 22, 2022 
+Version `22.09.22`
+
+Main changes:
+
+- `.Net Framework` to version `3.1.423`
+- `Azure Cli` to version `2.40.0`
+- `Conda` to version `4.14.0`
+- `Azure Machine Learning SDK` to version `1.45.0`
+ 
+Main environment specific updates:
+
+`azureml_py38`:
+- `azureml-core` to version `1.45.0`
+- `tensorflow-gpu` to version `2.2.1`
+
+## August 19, 2022 
+Version `22.08.19`
+
+Main changes:
+- Base OS level image updates.
+
+## July 22, 2022 
+Version `22.07.22`
+
+Main changes:
+* `Azcopy` to version `10.16.0`
+* `Blob Fuse` to version `1.4.4`

@@ -1,12 +1,13 @@
 ---
-title: Configure the Microsoft Dev Box service
-description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You will create a dev center, add a network connection, and then create a dev box definition, and a project.'
+title: Configure the Microsoft Dev Box Preview service
+titleSuffix: Microsoft Dev Box Preview
+description: 'This quickstart shows you how to configure the Microsoft Dev Box Preview service to provide dev boxes for your users. You will create a dev center, add a network connection, and then create a dev box definition, and a project.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/22/2022
+ms.date: 10/12/2022
 ms.custom: references_regions
 ---
 <!-- 
@@ -14,7 +15,7 @@ ms.custom: references_regions
 	As an enterprise admin I want to understand how to create and configure dev box components so that I can provide dev box projects my users.
  -->
 
-# Quickstart: Configure the Microsoft Dev Box service
+# Quickstart: Configure the Microsoft Dev Box Preview service
 
 This quickstart describes how to configure the Microsoft Dev Box service by using the Azure portal to enable development teams to self-serve dev boxes.
 
@@ -58,7 +59,7 @@ The following steps show you how to create and configure a dev center.
  
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-basics.png" alt-text="Screenshot showing the Create dev center Basics tab."::: 
        
-   The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://aka.ms/devbox_acom).
+   The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box Preview](https://aka.ms/devbox_acom).
 
 1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 

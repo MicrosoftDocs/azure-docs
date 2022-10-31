@@ -2,12 +2,13 @@
 title: Supported FHIR features in Azure - Azure API for FHIR 
 description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
 services: healthcare-apis
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 06/03/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Features
@@ -45,7 +46,7 @@ Below is a summary of the supported RESTful capabilities. For more information o
 | intermediaries                 | No        | No        |
 
 > [!Note] 
-> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 1000 results, an error will be thrown.
+> In the Azure API for FHIR and the open-source FHIR server backed by Azure Cosmos DB, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Azure Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 1000 results, an error will be thrown.
 
 ## Extended Operations
 
@@ -66,7 +67,7 @@ The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.He
 
 Currently the FHIR Server open-source code includes an implementation for [Azure Cosmos DB](../../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) database. It supports different [consistency levels](../../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
+Azure Cosmos DB is a globally distributed multi-model (NoSQL, MongoDB, and others) database. It supports different [consistency levels](../../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
 
 ## Role-based access control
 

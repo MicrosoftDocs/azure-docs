@@ -68,7 +68,7 @@ Now, you need to sign the *Verification Code* with the private key associated wi
 Microsoft provides tools and samples that can help you create a signed verification certificate: 
 
 - The **Azure IoT Hub C SDK** provides PowerShell (Windows) and Bash (Linux) scripts to help you create CA and leaf certificates for development and to perform proof-of-possession using a verification code. You can download the [files](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevant to your system to a working folder and follow the instructions in the [Managing CA certificates readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to perform proof-of-possession on a CA certificate. 
-- The **Azure IoT Hub C# SDK** contains the [Group Certificate Verification Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/service/GroupCertificateVerificationSample), which you can use to do proof-of-possession.
+- The **Azure IoT Hub C# SDK** contains the [Group Certificate Verification Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples/How%20To/GroupCertificateVerificationSample), which you can use to do proof-of-possession.
  
 > [!IMPORTANT]
 > In addition to performing proof-of-possession, the PowerShell and Bash scripts cited previously also allow you to create root certificates, intermediate certificates, and leaf certificates that can be used to authenticate and provision devices. These certificates should be used for development only. They should never be used in a production environment. 

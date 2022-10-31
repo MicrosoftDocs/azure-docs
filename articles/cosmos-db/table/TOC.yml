@@ -1,30 +1,32 @@
-- name: Table API documentation
+- name: Table documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Table API in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for Table?
       href: introduction.md
     - name: FAQ
       href: table-api-faq.yml
 - name: Quickstarts
   items:
     - name: .NET
-      href: create-table-dotnet.md
+      href: quickstart-dotnet.md
     - name: Java
-      href: create-table-java.md
+      href: quickstart-java.md
     - name: Node.js
-      href: create-table-nodejs.md
+      href: quickstart-nodejs.md
     - name: Python
-      href: how-to-use-python.md
+      href: quickstart-python.md
 - name: Tutorials
   items:
     - name: 1 - Migrate data
       displayName: import
-      href: table-import.md
+      href: import.md
     - name: 2 - Query data
-      href: tutorial-query-table.md
+      href: tutorial-query.md
     - name: 3 - Distribute data globally
-      href: tutorial-global-distribution-table.md
+      href: tutorial-global-distribution.md
+    - name: Create Jupyter notebooks
+      href: ../nosql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: .NET
@@ -34,7 +36,7 @@
     - name: Node.js
       href: how-to-use-nodejs.md
     - name: Python
-      href: how-to-use-python.md
+      href: quickstart-python.md
     - name: Go
       href: how-to-use-go.md
     - name: PHP
@@ -48,66 +50,54 @@
       maintainContext: true
     - name: Azure CLI
       items:
-        - name: Table API
-          items:
-            - name: Overview
-              href: cli-samples.md
-            - name: Create account and table
-              href: ../scripts/cli/table/create.md
-            - name: Create serverless
-              href: ../scripts/cli/table/serverless.md
-            - name: Create with autoscale
-              href: ../scripts/cli/table/autoscale.md
-            - name: Perform throughput operations
-              href: ../scripts/cli/table/throughput.md
-            - name: Lock resources from deletion
-              href: ../scripts/cli/table/lock.md
-        - name: Common
-          items:
-            - name: Overview
-              href: ../common-cli-samples.md
-            - name: Add or fail over regions
-              href: ../scripts/cli/common/regions.md
-            - name: Perform account key operations
-              href: ../scripts/cli/common/keys.md
-            - name: Secure with IP firewall
-              href: ../scripts/cli/common/ipfirewall.md
-            - name: Secure new account with service endpoints
-              href: ../scripts/cli/common/service-endpoints.md
-            - name: Secure existing account with service endpoints
-              href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
-            - name: Find existing free-tier accounts
-              href: ../scripts/cli/common/free-tier.md
+        - name: Overview
+          href: cli-samples.md
+        - name: Create account and table
+          href: ../scripts/cli/table/create.md
+        - name: Create serverless
+          href: ../scripts/cli/table/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/table/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/table/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/table/lock.md
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Find existing free-tier accounts
+          href: ../scripts/cli/common/free-tier.md
     - name: Azure PowerShell
       items:
-        - name: Table API
-          items:
-            - name: Overview
-              href: powershell-samples.md
-            - name: Create account and table
-              href: ../scripts/powershell/table/create.md
-            - name: Create with autoscale
-              href: ../scripts/powershell/table/autoscale.md
-            - name: Perform throughput operations
-              href: ../scripts/powershell/table/throughput.md
-            - name: Lock resources from deletion
-              href: ../scripts/powershell/table/lock.md
-            - name: List and get tables
-              href: ../scripts/powershell/table/list-get.md
-        - name: Common
-          items:
-            - name: Overview
-              href: ../common-powershell-samples.md
-            - name: Account keys or connection strings
-              href: ../scripts/powershell/common/keys-connection-strings.md
-            - name: Change failover priority or trigger failover
-              href: ../scripts/powershell/common/failover-priority-update.md
-            - name: Create an account with IP Firewall
-              href: ../scripts/powershell/common/firewall-create.md
-            - name: Update account
-              href: ../scripts/powershell/common/account-update.md
-            - name: Update an account's regions
-              href: ../scripts/powershell/common/update-region.md
+        - name: Overview
+          href: powershell-samples.md
+        - name: Create account and table
+          href: ../scripts/powershell/table/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/table/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/table/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/table/lock.md
+        - name: List and get tables
+          href: ../scripts/powershell/table/list-get.md
+        - name: Account keys or connection strings
+          href: ../scripts/powershell/common/keys-connection-strings.md
+        - name: Change failover priority or trigger failover
+          href: ../scripts/powershell/common/failover-priority-update.md
+        - name: Create an account with IP Firewall
+          href: ../scripts/powershell/common/firewall-create.md
+        - name: Update account
+          href: ../scripts/powershell/common/account-update.md
+        - name: Update an account's regions
+          href: ../scripts/powershell/common/update-region.md
     - name: Templates
       items:
         - name: JSON syntax templates
@@ -174,6 +164,12 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -232,7 +228,7 @@
           displayName: free tier
           href: ../optimize-dev-test.md
         - name: Optimize cost with reserved capacity
-          href: ../cosmos-db-reserved-capacity.md
+          href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
     - name: Enterprise readiness
@@ -245,6 +241,12 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
+    - name: Jupyter notebooks
+      items:
+        - name: Overview
+          href: ../notebooks-overview.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Develop applications
@@ -263,9 +265,9 @@
                   href: how-to-dotnet-create-item.md
                 - name: Read an item
                   href: how-to-dotnet-read-item.md
-        - name: Build apps with Table API
-          href: table-support.md
-        - name: Create a table - Table API
+        - name: Build apps with API for Table
+          href: support.md
+        - name: Create a table - API for Table
           href: how-to-create-container.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
@@ -296,7 +298,7 @@
           href: ../data-explorer.md
     - name: Manage Azure Cosmos DB resources
       items:
-        - name: Manage an Azure Cosmos account
+        - name: Manage an Azure Cosmos DB account
           href: ../how-to-manage-database-account.md
         - name: Manage using PowerShell
           href: powershell-samples.md
@@ -314,14 +316,12 @@
           href: ../resource-locks.md
         - name: Request quota increase
           href: ../sql/create-support-request-quota-increase.md
-    - name: Back up and restore
+    - name: Manage back up and restore
       items:
         - name: Manage continuous backup
           items:
             - name: Permissions and roles - Continuous backup
               href: ../continuous-backup-restore-permissions.md
-            - name: Create account - Continuous backup
-              href: ../provision-account-continuous-backup.md
             - name: Get the latest restorable timestamp
               href: ../get-latest-restore-timestamp.md
             - name: Restore an account - Continuous backup
@@ -352,7 +352,9 @@
         - name: Restrict user access to data operations only
           href: ../how-to-restrict-user-data.md
         - name: Configure customer-managed keys
-          href: ../how-to-setup-cmk.md
+          href: ../how-to-setup-customer-managed-keys.md
+        - name: Configure cross-tenant customer-managed keys
+          href: ../how-to-setup-cross-tenant-customer-managed-keys.md
         - name: Use a managed identity
           href: ../how-to-setup-managed-identity.md
     - name: Enterprise readiness
@@ -364,11 +366,11 @@
     - name: Monitor
       items:
         - name: Monitor Azure Cosmos DB
-          href: ../monitor-cosmos-db.md
+          href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
             - name: Azure Monitor for Azure Cosmos DB
-              href: ../cosmosdb-insights-overview.md
+              href: ../insights-overview.md
             - name: Scenarios to monitor
               href: ../use-metrics.md
             - name: Monitor server-side latency
@@ -382,11 +384,11 @@
         - name: Use Azure monitor logs
           items:
             - name: Monitor with diagnostic logs
-              href: ../cosmosdb-monitor-resource-logs.md
+              href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
-              href: ../cosmosdb-monitor-logs-basic-queries.md
+              href: ../monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-              href: ../cosmos-db-advanced-queries.md
+              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
         - name: Configure alerts
@@ -396,7 +398,7 @@
             - name: Create alert on logical partition key size
               href: ../how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
-          href: ../monitor-cosmos-db-reference.md
+          href: ../monitor-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
 - name: Reference
@@ -417,14 +419,14 @@
       href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-cosmos-db
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
     - name: FAQ
       href: ../faq.yml
     - name: Whitepapers
       href: ../whitepapers.md
     - name: Partners
-      href: ../partners-migration-cosmosdb.md
+      href: ../partners-migration.md
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos

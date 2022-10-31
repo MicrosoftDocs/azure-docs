@@ -100,6 +100,11 @@ appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
 
+> [!NOTE]
+> In the "Deploy a new AKS cluster" step above we created AKS with Azure CNI, in case you have an existing AKS cluster using [Kubenet mode](../aks/configure-kubenet.md) you need to update the route table to help the packets destined for a POD IP reach the node which is hosting the pod.
+> A simple way to achieve this is by associating the same route table created by AKS to the Application Gateway's subnet. 
+
+
 ## Deploy a sample application using AGIC 
 
 You'll now deploy a sample application to the AKS cluster you created that will use the AGIC add-on for Ingress and connect the application gateway to the AKS cluster. First, you'll get credentials to the AKS cluster you deployed by running the `az aks get-credentials` command. 

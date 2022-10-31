@@ -24,6 +24,8 @@ A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching 
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+
 ## Review RedHat VM usage before you buy
 
 Get the product name from your usage data and buy the RedHat plan with the same type and size.
@@ -52,7 +54,7 @@ For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority
 - 1 deployed VM with 3 or 4 vCPUs,
 - or 0.77 or about 77% of a VM with 5 or more vCPUs.
 
-The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers a only portion of the software cost, which is about 77%.
+The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers only a portion of the software cost, which is about 77%.
 
 The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
 

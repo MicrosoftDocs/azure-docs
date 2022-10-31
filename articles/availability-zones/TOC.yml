@@ -18,6 +18,8 @@
     items:
     - name: API Management
       href: migrate-api-mgt.md
+    - name: App Configuration
+      href: migrate-app-configuration.md
     - name: App Service Environment
       href: migrate-app-service-environment.md
     - name: App Service
@@ -42,6 +44,8 @@
       href: migrate-storage.md
     - name: Virtual Machines and virtual machine scale sets
       href: migrate-vm.md
+    - name: Workload - Azure Kubernetes and MySQL
+      href: migrate-workload-aks-mysql.md
   - name: Terminology
     href: glossary.md
 - name: High Availability

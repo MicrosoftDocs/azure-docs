@@ -29,6 +29,11 @@
             "source_path_from_root": "/articles/virtual-desktop/shortpath-public.md",
             "redirect_url": "/azure/virtual-desktop/rdp-shortpath",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-desktop/azure-stack-hci-faq.yml",
+            "redirect_url": "/azure/virtual-desktop/azure-stack-hci",
+            "redirect_document_id": false
         }
     ]
 }

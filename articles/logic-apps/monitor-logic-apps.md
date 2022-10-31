@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 08/01/2022
 ---
 
 # Monitor run status, review trigger history, and set up alerts for Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
 > This article applies only to Consumption logic apps. For information about reviewing run status and monitoring for Standard logic apps, 

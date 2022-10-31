@@ -5,7 +5,7 @@ author: dtzar
 ms.author: davete
 ms.service: container-registry
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 10/11/2022
 ---
 
 # Build, sign, and verify container images using Notary and Azure Key Vault (Preview)

@@ -125,18 +125,18 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
     mkdir c:\dev\iotedgesolution
     ```
 
-1. Use the **iotedgedev init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
+1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
 
     # [C](#tab/c)
     
     ```bash
-    iotedgedev init --template c
+    iotedgedev solution init --template c
     ```
     
     # [C\#](#tab/csharp)
     
     ```bash
-    iotedgedev init --template csharp
+    iotedgedev solution init --template csharp
     ```
     
     The solution includes a default C# module named *filtermodule*.
@@ -144,30 +144,30 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
     # [Azure Functions](#tab/azfunctions)
     
     ```bash
-    iotedgedev init --template csharpfunction
+    iotedgedev solution init --template csharpfunction
     ```
     
     # [Java](#tab/java)
     
     ```bash
-    iotedgedev init --template java
+    iotedgedev solution init --template java
     ```
 
     # [Node.js](#tab/node)
 
     ```bash
-    iotedgedev init --template nodejs
+    iotedgedev solution init --template nodejs
     ```
 
     # [Python](#tab/python)
 
     ```bash
-    iotedgedev init --template python
+    iotedgedev solution init --template python
     ```
 
     ---
 
-The *iotedgedev init* script prompts you to complete several steps including:
+The *iotedgedev solution init* script prompts you to complete several steps including:
 
 * Authenticate to Azure
 * Choose an Azure subscription

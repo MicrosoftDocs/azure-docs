@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-azurepowershell,
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Linux virtual machine (VM) in Azure. This quickstart uses the Ubuntu 18.04 LTS marketplace image from Canonical. To see your VM in action, you'll also SSH to the VM and install the NGINX web server.
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Linux virtual machine (VM) in Azure. This quickstart uses the latest Debian marketplace image. To see your VM in action, you'll also SSH to the VM and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -38,7 +38,7 @@ New-AzResourceGroup -Name 'myResourceGroup' -Location 'EastUS'
 
 We will be automatically generating an SSH key pair to use for connecting to the VM. The public key that is created using `-GenerateSshKey` will be stored in Azure as a resource, using the name you provide as `SshKeyName`. The SSH key resource can be reused for creating additional VMs. Both the public and private keys will also be downloaded for you. When you create your SSH key pair using the Cloud Shell, the keys are stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the file share in it, until after you have retrieved your keys or you will lose access to the VM.
 
-You will be prompted for a user name that will be used when you connect to the VM. You will also be asked for a password, which you can leave blank. Password login for the VM is disabled when using an SSH key.
+You will be prompted for a user name that will be used when you connect to the VM. You will also be asked for a password, which you can leave blank. Password log in for the VM is disabled when using an SSH key.
 
 In this example, you create a VM named *myVM*, in *East US*, using the *Standard_B2s* VM size.
 

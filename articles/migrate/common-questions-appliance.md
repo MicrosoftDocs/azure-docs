@@ -5,6 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 11/01/2021
 ---
 
@@ -72,7 +73,7 @@ Data that's collected by the Azure Migrate appliance is stored in the Azure loca
 
 Here's more information about how data is stored:
 
-- The collected data is securely stored in Cosmos DB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
+- The collected data is securely stored in Azure Cosmos DB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
 - If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
 
 ## How much data is uploaded during continuous profiling?
@@ -84,7 +85,7 @@ The volume of data that's sent to Azure Migrate depends on multiple parameters. 
 Yes, for both:
 
 - Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
-- Metadata is stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
+- Metadata is stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
 ## How does the appliance connect to vCenter Server?

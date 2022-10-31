@@ -104,38 +104,51 @@ You can test your application by signing in a user to the application then using
 When these conditions are met, the app can extract the claims challenge from the API response header as follows: 
 
 ```javascript
-const authenticateHeader = response.headers.get('www-authenticate');
-const claimsChallenge = authenticateHeader
-        .split(' ')
-        .find((entry) => entry.includes('claims='))
-        .split('claims="')[1]
-        .split('",')[0];
+try {
+  const response = await fetch(apiEndpoint, options);
+
+  if (response.status === 401 && response.headers.get('www-authenticate')) {
+    const authenticateHeader = response.headers.get('www-authenticate');
+    const claimsChallenge = parseChallenges(authenticateHeader).claims;
+    
+    // use the claims challenge to acquire a new access token...
+  }
+} catch(error) {
+  // ...
+}
+
+// helper function to parse the www-authenticate header
+function parseChallenges(header) {
+    const schemeSeparator = header.indexOf(' ');
+    const challenges = header.substring(schemeSeparator + 1).split(',');
+    const challengeMap = {};
+
+    challenges.forEach((challenge) => {
+        const [key, value] = challenge.split('=');
+        challengeMap[key.trim()] = window.decodeURI(value.replace(/['"]+/g, ''));
+    });
+
+    return challengeMap;
+}
 ```
 
 Your app would then use the claims challenge to acquire a new access token for the resource.
 
 ```javascript
+const tokenRequest = {
+    claims: window.atob(claimsChallenge), // decode the base64 string
+    scopes: ['User.Read'],
+    account: msalInstance.getActiveAccount()
+};
+
 let tokenResponse;
 
 try {
-
-    tokenResponse = await msalInstance.acquireTokenSilent({
-                    claims: window.atob(claimsChallenge), // decode the base64 string
-                    scopes: scopes,  // e.g ['User.Read', 'Contacts.Read']
-                    account: account, // current active account
-                });
-
+    tokenResponse = await msalInstance.acquireTokenSilent(tokenRequest);
 } catch (error) {
-
      if (error instanceof InteractionRequiredAuthError) {
-
-        tokenResponse = await msalInstance.acquireTokenPopup({
-                        claims: window.atob(claimsChallenge), // decode the base64 string
-                        scopes: scopes, // e.g ['User.Read', 'Contacts.Read']
-                        account: account, // current active account
-                    });
+        tokenResponse = await msalInstance.acquireTokenPopup(tokenRequest);
     }
-
 }
 ```
 
@@ -146,8 +159,7 @@ const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', 
         clientCapabilities: ["CP1"]
-        // the remaining settings
-        // ... 
+        // remaining settings...
     }
 }
 
@@ -159,9 +171,14 @@ const msalInstance = new PublicClientApplication(msalConfig);
 
 You can test your application by signing in a user and then using the Azure portal to revoke the user's session. The next time the app calls the CAE-enabled API, the user will be asked to reauthenticate.
 
+## Code samples
+
+- [Enable your Angular single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your React single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+
 ## Next steps
 
 - [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) conceptual overview
 - [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
-- [React single-page application using MSAL React to sign-in users against Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
-- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+

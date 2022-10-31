@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/13/2022
+ms.date: 09/20/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -17,6 +17,11 @@ ms.subservice: common
 Encryption scopes enable you to manage encryption with a key that is scoped to a container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
 For more information about working with encryption scopes, see [Create and manage encryption scopes](encryption-scope-manage.md).
+
+> [!IMPORTANT]
+> Encryption scopes are in preview for storage accounts with a hierarchical namespace enabled. The preview supports REST, HDFS, NFSv3 and SFTP protocols.
+> The preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How encryption scopes work
 

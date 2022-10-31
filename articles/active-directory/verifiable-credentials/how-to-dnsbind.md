@@ -152,6 +152,13 @@ If the trust system is ION, once the domain changes are published to ION, the do
 
 Congratulations, you now have bootstrapped the web of trust with your DID!
 
+## How can I verify that the verification is working?
+
+The portal verifies that the `did-configuration.json` is reachable and correct when you click the **Refresh verification status** button. You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did-configuration.json` file cannot be requested anonymously in a browser or via tools such as `curl`, without warnings or errors, the portal will not be able to complete the **Refresh verification status** step either.
+
+>[!NOTE]
+> If you are experiencing problems refreshing your verification status, you can troubleshoot it via running `curl -Iv https://yourdomain.com/.well-known/did-configuration.json` on an machine with Ubuntu OS. Windows Subsystem for Linux with Ubuntu will work too. If curl fails, refreshing the verification status will not work.
+
 ## Linked Domain domain made easy for developers
 
 The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can't control what the domain name will be, other than it will contain your storage account name as part of it's hostname.

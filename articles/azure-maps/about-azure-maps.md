@@ -32,7 +32,7 @@ The following video explains Azure Maps in depth:
 
 </br>
 
-> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
 ## Map controls
 

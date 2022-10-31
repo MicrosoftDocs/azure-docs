@@ -2,6 +2,7 @@
 title: How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
+ms.custom: ignite-2022
 zone_pivot_groups: k8s-host
 ms.date: 07/25/2022
 ---
@@ -106,4 +107,7 @@ You can check out the following blogs:
 
 ## Next steps
 
-[Use Defender for Containers to scan your ACR images for vulnerabilities](defender-for-container-registries-usage.md).
+Now that you enabled Defender for Containers, you can:
+
+- [Scan your ACR images for vulnerabilities](defender-for-containers-va-acr.md)
+- [Scan your Amazon AWS ECR images for vulnerabilities](defender-for-containers-va-ecr.md)

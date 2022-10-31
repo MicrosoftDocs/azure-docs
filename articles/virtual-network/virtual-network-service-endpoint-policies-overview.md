@@ -136,6 +136,7 @@ Following limits are enforced on service endpoint policies:
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpointPoliciesPerSubnet|100 |
+ |ServiceEndpointPoliciesPerVirtualNetwork|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
 ## Next Steps

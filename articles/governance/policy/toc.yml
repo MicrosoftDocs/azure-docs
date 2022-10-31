@@ -62,7 +62,7 @@
     href: ./tutorials/policy-devops-pipelines.md
   - name: "Learn: Control and audit your resources by using Azure Policy"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+    href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 - name: Samples
   items:
   - name: Index
@@ -124,6 +124,8 @@
         href: ./samples/iso-27001.md
       - name: PCI DSS 3.2.1
         href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 3.2.1 v2018 Audit
+        href: ./samples/PCIv3_2_1_2018_audit.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
       - name: New Zealand ISM Restricted v3.5
@@ -193,6 +195,12 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: Policy applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
+  - name: Policy attestation
+    displayName: manual policy, compliance, attestation
+    href: ./concepts/attestation-structure.md
   - name: React to policy state change events
     displayName: event grid, subject, topic, subscription
     href: ./concepts/event-overview.md

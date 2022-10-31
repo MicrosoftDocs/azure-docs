@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 06/13/2022
+ms.date: 09/15/2022
 ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
@@ -182,7 +182,7 @@ To resolve this issue, try the following steps.
    name: kube-aad-proxy-certificate
    ```
 
-   If the certificate is missing, please contact support.
+   If the certificate is missing, [delete the deployment](quickstart-connect-cluster.md#clean-up-resources) and re-onboard with a different name for the cluster. If the problem continues, please contact support.
 
 ### Helm validation error
 

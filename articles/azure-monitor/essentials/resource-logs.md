@@ -4,10 +4,10 @@ description: Learn how to stream Azure resource logs to a Log Analytics workspac
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 05/09/2022
 ms.author: bwren
 ms.reviewer: lualderm
-
 ---
 
 # Azure resource logs
@@ -195,7 +195,7 @@ Within the PT1H.json file, each event is stored in the following format. It uses
 > [!NOTE]
 > Logs are written to the blob relevant to the time that the log was generated, not the time that it was received. So, at the turn of the hour, both the previous hour and current hour blobs could be receiving new writes.
 
-``` JSON
+```json
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
 ```
 

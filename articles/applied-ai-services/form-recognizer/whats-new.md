@@ -7,22 +7,119 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD051 -->
+
 # What's new in Azure Form Recognizer
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## October 2022
+
+With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
+
+Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
+
+## September 2022
+
+### Region expansion for training custom neural models 
+
+Training custom neural models is now supported in six additional regions.
+* Australia East
+* Central US
+* East Asia
+* France Central
+* UK South
+* West US2
+
+For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
+
+#### Form Recognizer SDK version 4.0.0 GA release
+
+* **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
+
+* For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
+
+* Update your applications using your programming language's **migration guide** (see below).
+
+>[!NOTE]
+> Starting with version 4.0.0, a new set of clients has been introduced to leverage the newest features of the Form Recognizer service.
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+* **Version 4.0.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+
+### [**Java**](#tab/java)
+
+* **Version 4.0.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (Maven)**](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+
+### [**JavaScript**](#tab/javascript)
+
+* **Version 4.0.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/README.md)
+
+[**Samples**](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md)
+
+### [Python](#tab/python)
+
+> [!NOTE]
+> Python 3.7 or later is required to use this package.
+
+* **Version 3.2.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md)
+
+---
+
 ## August 2022
 
 #### Form Recognizer SDK beta August 2022 preview release
-
->[!NOTE]
-> The 4.0.0-beta.5 (C#), 4.0.0-beta.6 (Java), 4.0.0-beta.6 (JavaScript) and 3.2.0b6 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
 
 This release includes the following updates:
 
@@ -57,6 +154,9 @@ This release includes the following updates:
  [**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
 
 ### [Python](#tab/python)
+
+> [!IMPORTANT]
+> Python 3.6 is no longer supported in this release. Use Python 3.7 or later.
 
 **Version 3.2.0b6 (2022-08-09)**
 
@@ -108,7 +208,6 @@ This release includes the following updates:
 
   * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
-
 ## June 2022
 
 ### [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June Update
@@ -133,9 +232,6 @@ The **2022-06-30-preview** release presents extensive updates across the feature
 * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
 
 #### Form Recognizer SDK beta June 2022 preview release
-
->[!NOTE]
-> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java), and 3.2.0b5 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
 
 This new release includes the following updates:
 
@@ -195,7 +291,7 @@ This new release includes the following updates:
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
 * [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
-Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-v3-sdk-rest-api.md), or [.NET](quickstarts/get-started-v3-sdk-rest-api.md) SDK for the v3.0 preview API.
+Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 #### Form Recognizer model data extraction
 
@@ -212,9 +308,6 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
   | Custom neural    |✓  |  ✓ | ✓  | ✓  |   |
 
 #### Form Recognizer SDK beta preview release
-
->[!NOTE]
-> The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java), and 3.2.0b4 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
 
 This new release includes the following updates:
 
@@ -356,7 +449,7 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Form Recognizer Studio to test the different prebuilt models or label and train a custom model
 
-Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-v3-sdk-rest-api.md), or [.NET](quickstarts/get-started-v3-sdk-rest-api.md) SDK for the v3.0 preview API.
+Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 #### Form Recognizer model data extraction
 
@@ -424,7 +517,7 @@ The patch addresses invoices that don't have subline item fields detected such a
 > [!NOTE]
 > There are no updates to JavaScript SDK v3.1.0.
 
-| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer) |
+| [Reference documentation](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer) |
 
 ### [**Python**](#tab/python)
 
@@ -519,7 +612,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 ### [**JavaScript**](#tab/javascript)
 
-| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
+| [Reference documentation](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
 
 #### **Non-breaking changes**
 
@@ -649,9 +742,9 @@ npm package version 3.1.0-beta.3
 
 * **New methods to analyze data from identity documents**:
 
-    **[azure-ai-form-recognizer-formrecognizerclient-beginrecognizeidentitydocumentsfromurl](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#beginRecognizeIdDocumentsFromUrl_string__BeginRecognizeIdDocumentsOptions_)**
+    **azure-ai-form-recognizer-formrecognizerclient-beginrecognizeidentitydocumentsfromurl**
 
-    **[beginRecognizeIdDocuments](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#@azure-ai-form-recognizer-formrecognizerclient-beginrecognizeidentitydocuments)**
+    **beginRecognizeIdDocuments**
 
     For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
@@ -664,7 +757,7 @@ npm package version 3.1.0-beta.3
 
 * Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true to the URL)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-* Split **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
+* Split **FormField** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
 
 * Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
 
@@ -891,7 +984,7 @@ For more information about the Form Recognizer Sample Labeling tool, review the 
 
 ### TLS 1.2 enforcement
 
-TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/cognitive-services-security.md).
+TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/security-features.md).
 
 ## January 2020
 

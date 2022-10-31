@@ -1,7 +1,7 @@
 ---
-title: Example Azure role assignment conditions (preview) - Azure RBAC
+title: Example Azure role assignment conditions for Blob Storage (preview)
 titleSuffix: Azure Storage
-description: Example Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
+description: Example Azure role assignment conditions for Blob Storage (preview).
 services: storage
 author: jimmart-dev
 
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 09/01/2022
+ms.date: 09/28/2022
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
-# Example Azure role assignment conditions (preview)
+# Example Azure role assignment conditions for Blob Storage (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article list some examples of role assignment conditions.
+This article list some examples of role assignment conditions for controlling access to Azure Blob Storage.
 
 ## Prerequisites
 
@@ -1314,6 +1314,6 @@ Here are the settings to add this condition using the Azure portal.
 ## Next steps
 
 - [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](storage-auth-abac-portal.md)
-- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
 - [Troubleshoot Azure role assignment conditions (preview)](../../role-based-access-control/conditions-troubleshoot.md)

@@ -28,7 +28,7 @@ You can use Entra Verified ID with LexisNexis Risk Solutions to enable faster on
 
 ## Scenario description
 
-Verifiable Credentials can be used to onboard employees, students, citizens, or others to access services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a verifiable credential to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a VC to prove their identity and gain access. Learn more about [account onboarding](https://docs.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding). 
+Verifiable Credentials can be used to onboard employees, students, citizens, or others to access services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a verifiable credential to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a VC to prove their identity and gain access. Learn more about [account onboarding](https://learn.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding). 
 
 
 :::image type="content" source="media/verified-id-partner-au10tix/vc-solution-architecture-diagram.png" alt-text="Diagram of the verifiable credential solution.":::

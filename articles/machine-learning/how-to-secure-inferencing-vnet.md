@@ -47,7 +47,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 
 + If using Azure Kubernetes Service (AKS), you must have an existing AKS cluster secured as described in the [Secure Azure Kubernetes Service inference environment](how-to-secure-kubernetes-inferencing-environment.md) article.
 

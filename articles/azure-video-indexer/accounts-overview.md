@@ -8,6 +8,8 @@ ms.author: juliako
 
 # Azure Video Indexer account types
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 This article gives an overview of Azure Video Indexer accounts types and provides links to other articles for more details.
 
 ## A trial account

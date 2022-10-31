@@ -87,8 +87,9 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
     > [!NOTE]
     > If you set the JAVA_OPTS environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the JAVA_OPTS variable in App Service configurations settings. 
 
-
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

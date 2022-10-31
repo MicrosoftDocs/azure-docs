@@ -64,9 +64,9 @@ landingContent:
       - linkListType: learn
         links:
           - text:  Create a Linux virtual machine in Azure
-            url: /learn/modules/create-linux-virtual-machine-in-azure/
+            url: /training/modules/create-linux-virtual-machine-in-azure/
           - text:  Create a Windows virtual machine in Azure
-            url: /learn/modules/create-windows-virtual-machine-in-azure/         
+            url: /training/modules/create-windows-virtual-machine-in-azure/         
 
   # Card
   - title: Troubleshooting

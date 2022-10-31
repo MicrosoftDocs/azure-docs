@@ -111,7 +111,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
+<!-- See https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
 Azure Application Gateway supports dimensions for some of the metrics in Azure Monitor. Each metric includes a description that explains the available dimensions specifically for that metric.
 
@@ -153,7 +153,7 @@ Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-mon
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Application Gateway and available for query by Log Analytics. 
 
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->

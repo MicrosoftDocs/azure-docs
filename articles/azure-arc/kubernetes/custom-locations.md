@@ -1,7 +1,7 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
 ms.service: azure-arc
-ms.date: 07/27/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc-enabled Kubernetes clusters"
@@ -9,7 +9,7 @@ description: "Use custom locations to deploy Azure PaaS services on Azure Arc-en
 
 # Create and manage custom locations on Azure Arc-enabled Kubernetes
 
- The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
+ The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL server, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
 
 A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure role-based access control (Azure RBAC) can be used to grant granular permissions to application developers or database admins, enabling them to deploy resources such as databases or application instances on top of Arc-enabled Kubernetes clusters in a multi-tenant manner.
 
@@ -138,7 +138,7 @@ This is because a service principal doesn't have permissions to get information 
      | Parameter name | Description |
      |----------------|------------|
      | `--name, --n` | Name of the custom location |
-     | `--resource-group, --g` | Resource group of the custom location  | 
+     | `--resource-group, --g` | Resource group of the custom location  |
      | `--namespace` | Namespace in the cluster bound to the custom location being created |
      | `--host-resource-id` | Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster (connected cluster) |
      | `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs  |
@@ -171,7 +171,7 @@ Required parameters:
 To list all custom locations in a resource group, use the following command:
 
 ```azurecli
-az customlocation show -g <resourceGroupName> 
+az customlocation list -g <resourceGroupName> 
 ```
 
 Required parameters:
@@ -193,7 +193,7 @@ Required parameters:
 | Parameter name | Description |
 |----------------|------------|
 | `--name, --n` | Name of the custom location |
-| `--resource-group, --g` | Resource group of the custom location  | 
+| `--resource-group, --g` | Resource group of the custom location  |
 | `--namespace` | Namespace in the cluster bound to the custom location being created |
 | `--host-resource-id` | Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster (connected cluster) |
 
@@ -206,7 +206,7 @@ Optional parameters:
 
 ## Patch a custom location
 
-Use the `patch` command to replace existing tags, cluster extension IDs with new tags, and cluster extension IDs. `--cluster-extension-ids`, `assign-identity`, `--tags` can be patched. 
+Use the `patch` command to replace existing tags, cluster extension IDs with new tags, and cluster extension IDs. `--cluster-extension-ids`, `assign-identity`, `--tags` can be patched.
 
 ```azurecli
 az customlocation patch -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
@@ -217,7 +217,7 @@ Required parameters:
 | Parameter name | Description |
 |----------------|------------|
 | `--name, --n` | Name of the custom location |
-| `--resource-group, --g` | Resource group of the custom location  | 
+| `--resource-group, --g` | Resource group of the custom location  |
 
 Optional parameters:
 
@@ -233,6 +233,12 @@ To delete a custom location, use the following command:
 ```azurecli
 az customlocation delete -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
 ```
+
+## Troubleshooting
+
+If custom location creation fails with the error 'Unknown proxy error occurred', it may be due to network policies configured to disallow pod-to-pod internal communication.
+
+To resolve this issue, modify your network policy to allow pod-to-pod internal communication within the `azure-arc` namespace. Be sure to also add the `azure-arc` namespace as part of the no-proxy exclusion list for your configured policy.
 
 ## Next steps
 

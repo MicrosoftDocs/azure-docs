@@ -25,11 +25,94 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## October 2022
+
+### Out of the box anomaly detection on the SAP audit log (Preview)
+
+The SAP audit log records audit and security events on SAP systems, like failed sign-in attempts or other over 200 security related actions. Customers monitor the SAP audit log and generate alerts and incidents out of the box using Microsoft Sentinel built-in analytics rules.
+
+The Microsoft Sentinel for SAP solution now includes the [**SAP - Dynamic Anomaly Detection analytics** rule](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog), adding an out of the box capability to identify suspicious anomalies across the SAP audit log events. 
+
+Now, together with the existing ability to identify threats deterministically based on predefined patterns and thresholds, customers can easily identify suspicious anomalies in the SAP security log, out of the box, with no coding required.
+
+You can fine-tune the new capability by editing the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
+
+Learn more:
+- [Learn about the new feature (blog)](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog)
+- [Use the new rule for anomaly detection](sap/configure-audit-log-rules.md#anomaly-detection)
+
 ## September 2022
 
+- [Create automation rule conditions based on custom details (Preview)](#create-automation-rule-conditions-based-on-custom-details-preview)
+- [Add advanced "Or" conditions to automation rules (Preview)](#add-advanced-or-conditions-to-automation-rules-preview)
+- [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table)
+- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
 - [Create and delete incidents manually (Preview)](#create-and-delete-incidents-manually-preview)
 - [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
-- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
+
+### Create automation rule conditions based on custom details (Preview)
+
+You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Through custom details you can get to the actual relevant content in your alerts without having to dig through query results.
+
+Learn how to [add a condition based on a custom detail](create-manage-use-automation-rules.md#conditions-based-on-custom-details-preview).
+
+### Add advanced "Or" conditions to automation rules (Preview)
+
+You can now add OR conditions to automation rules. Also known as condition groups, these allow you to combine several rules with identical actions into a single rule, greatly increasing your SOC's efficiency.
+
+For more information, see [Add advanced conditions to Microsoft Sentinel automation rules](add-advanced-conditions-to-automation-rules.md).
+
+### Heads up: Name fields being removed from UEBA UserPeerAnalytics table
+
+As of **September 30, 2022**, the UEBA engine will no longer perform automatic lookups of user IDs and resolve them into names. This change will result in the removal of four name fields from the *UserPeerAnalytics* table: 
+
+- UserName
+- UserPrincipalName
+- PeerUserName
+- PeerUserPrincipalName 
+
+The corresponding ID fields remain part of the table, and any built-in queries and other operations will execute the appropriate name lookups in other ways (using the IdentityInfo table), so you shouldn’t be affected by this change in nearly all circumstances. 
+
+The only exception to this is if you’ve built custom queries or rules directly referencing any of these name fields. In this scenario, you can incorporate the following lookup queries into your own, so you can access the values that would have been in these name fields. 
+
+The following query resolves **user** and **peer identifier fields**: 
+
+```kusto
+UserPeerAnalytics 
+| where TimeGenerated > ago(24h) 
+// join to resolve user identifier fields 
+| join kind=inner ( 
+    IdentityInfo  
+    | where TimeGenerated > ago(14d) 
+    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
+    | extend UserPrincipalNameIdentityInfo = AccountUPN 
+    | extend UserNameIdentityInfo = AccountDisplayName 
+    | project AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo, UserNameIdentityInfo 
+) on $left.AADTenantId == $right.AccountTenantId, $left.UserId == $right.AccountObjectId 
+// join to resolve peer identifier fields 
+| join kind=inner ( 
+    IdentityInfo  
+    | where TimeGenerated > ago(14d) 
+    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
+    | extend PeerUserPrincipalNameIdentityInfo = AccountUPN 
+    | extend PeerUserNameIdentityInfo = AccountDisplayName 
+    | project AccountTenantId, AccountObjectId, PeerUserPrincipalNameIdentityInfo, PeerUserNameIdentityInfo 
+) on $left.AADTenantId == $right.AccountTenantId, $left.PeerUserId == $right.AccountObjectId 
+```
+If your original query referenced the user or peer names (not just their IDs), substitute this query in its entirety for the table name (“UserPeerAnalytics”) in your original query. 
+
+### Windows DNS Events via AMA connector (Preview)
+
+You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
+
+The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
+
+Here are some benefits of using AMA for DNS log collection:
+
+- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
+- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
+- AMA supports transformation from the incoming stream into other data tables.
+- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
 
 ### Create and delete incidents manually (Preview)
 
@@ -54,20 +137,6 @@ Microsoft Sentinel allows you to flag the entity as malicious, right from within
 
 Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
 
-### Windows DNS Events via AMA connector (Preview)
-
-You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
-
-The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
-
-Here are some benefits of using AMA for DNS log collection:
-
-- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
-- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
-- AMA supports transformation from the incoming stream into other data tables.
-- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
-
-
 ## August 2022
 
 - [Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#heads-up-microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
@@ -77,7 +146,7 @@ Here are some benefits of using AMA for DNS log collection:
 
 ### Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
-[Microsoft 365 Defender](/microsoft-365/security/defender/) now includes the integration of [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents.
+[Microsoft 365 Defender](/microsoft-365/security/defender/) is gradually rolling out the integration of [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents.
 
 Microsoft Sentinel customers with the [Microsoft 365 Defender connector](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
 

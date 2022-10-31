@@ -189,7 +189,6 @@ After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.r
 run.properties['azureml.git.commit']
 ```
 
-
 ## Next steps
 
 * [Use compute targets for model training](v1/how-to-set-up-training-targets.md)

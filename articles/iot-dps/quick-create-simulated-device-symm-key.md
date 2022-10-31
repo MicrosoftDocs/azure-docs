@@ -132,10 +132,10 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
+2. Clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
     ```cmd
-    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
     ```
 
 ::: zone-end
@@ -365,20 +365,19 @@ To update and run the provisioning sample with your device information:
 
     :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
-3. Open a command prompt and go to the *SymmetricKeySample* in the cloned samples repository:
+3. Open a command prompt and go to the *SymmetricKeySample* in the cloned sdk repository:
 
     ```cmd
-    cd azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample
+    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample\'
     ```
 
 4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
 
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
-    | `--s` or `--IdScope`              | True     | The ID Scope of the DPS instance |
-    | `--i` or `--Id`                   | True     | The registration ID when using individual enrollment, or the desired device ID when using group enrollment. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The device ID must comply with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties). |
-    | `--p` or `--PrimaryKey`           | True     | The primary key of the individual or group enrollment. |
-    | `--e` or `--EnrollmentType`       | False    | The type of enrollment: `Individual` or `Group`. Defaults to `Individual` |
+    | `--i` or `--IdScope`              | True     | The ID Scope of the DPS instance |
+    | `--r` or `--RegistrationId`       | True     | The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
+    | `--p` or `--PrimaryKey`           | True     | The primary key of the individual enrollment or the derived device key of the group enrollment. See the [ComputeDerivedSymmetricKeySample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/device/samples/Getting%20Started/ComputeDerivedSymmetricKeySample) for how to generate the derived key. |
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 
@@ -391,13 +390,13 @@ To update and run the provisioning sample with your device information:
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```cmd
-    dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
+    dotnet run --i <id-scope> --r <registration-id> --p <primarykey>
     ```
 
 7. You should now see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
 
      ```output
-    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+    D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --i 0ne00000A0A --r symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
 
     Initializing the device provisioning client...
     Initialized for registration Id symm-key-csharp-device-01.
@@ -766,7 +765,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-Provision an X.509 certificate device:
+Provision multiple symmetric key devices using an enrollment group:
 
 > [!div class="nextstepaction"]
-> [Quickstart - Provision an X.509 device using the Azure IoT C SDK](quick-create-simulated-device-x509.md)
+> [Tutorial: Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md)

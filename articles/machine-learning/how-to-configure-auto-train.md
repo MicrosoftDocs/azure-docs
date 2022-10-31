@@ -1,7 +1,7 @@
 ---
 title: Set up AutoML with Python (v2)
 titleSuffix: Azure Machine Learning
-description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 (preview) using Azure Machine Learning automated ML.
+description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 using Azure Machine Learning automated ML.
 ms.author: shoja
 author: shouryaj
 ms.reviewer: ssalgadodev
@@ -10,30 +10,28 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 04/20/2022
 ms.topic: how-to
-ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
-# Set up AutoML training with the Azure ML Python SDK v2 (preview)
+# Set up AutoML training with the Azure ML Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)] 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
 > * [v1](./v1/how-to-configure-auto-train-v1.md)
 > * [v2 (current version)](how-to-configure-auto-train.md)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-In this guide, learn how to set up an automated machine learning, AutoML, training job with the [Azure Machine Learning Python SDK v2 (preview)](/python/api/overview/azure/ml/intro). Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
+In this guide, learn how to set up an automated machine learning, AutoML, training job with the [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/intro). Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
 
 If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
-If you prefer to submit training jobs with the Azure Machine learning CLI v2 extension, see [Train models with the CLI (v2)](how-to-train-cli.md).
+If you prefer to submit training jobs with the Azure Machine learning CLI v2 extension, see [Train models](how-to-train-model.md).
 
 ## Prerequisites
 
 For this article you need: 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* The Azure Machine Learning Python SDK v2 (preview) installed.
+* The Azure Machine Learning Python SDK v2 installed.
     To install the SDK you can either, 
     * Create a compute instance, which already has installed the latest AzureML Python SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
@@ -49,11 +47,11 @@ For this article you need:
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
-## Setup your workspace 
+## Set up your workspace 
 
-To connect to a workspace, you need to provide a subscription, resource group and workspace name. These details are used in the MLClient from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. 
+To connect to a workspace, you need to provide a subscription, resource group and workspace name. These details are used in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. 
 
-In the following example, the default Azure authentication is used along with the default workspace configuration or from any `config.json` file you might have copied into the folders structure. If no `config.json` is found, then you need to manually introduce the subscription_id, resource_group and workspace when creating MLClient.
+In the following example, the default Azure authentication is used along with the default workspace configuration or from any `config.json` file you might have copied into the folders structure. If no `config.json` is found, then you need to manually introduce the subscription_id, resource_group and workspace when creating `MLClient`.
 
 ```Python
 from azure.identity import DefaultAzureCredential
@@ -99,7 +97,7 @@ transformations:
 Therefore, the MLTable folder would have the MLTable definition file plus the data file (the bank_marketing_train_data.csv file in this case).
 
 The following shows two ways of creating an MLTable.
-- A. Providing your training data and MLTable definition file from your local folder and it'll be automatically uploaded into the cloud (default Workspace Datastore)
+- A. Providing your training data and MLTable definition file from your local folder and it will be automatically uploaded into the cloud (default Workspace Datastore)
 - B. Providing a MLTable already registered and uploaded into the cloud.
 
 ```Python
@@ -119,7 +117,7 @@ my_training_data_input  = Input(type=AssetTypes.MLTABLE, path="azureml://datasto
 
 You can specify separate **training data and validation data sets**, however training data must be provided to the `training_data` parameter in the factory function of your automated ML job.
 
-If you do not explicitly specify a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques to determine how validation is performed. This determination depends on the number of rows in the dataset assigned to your `training_data` parameter. 
+If you don't explicitly specify a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques to determine how validation is performed. This determination depends on the number of rows in the dataset assigned to your `training_data` parameter. 
 
 |Training&nbsp;data&nbsp;size| Validation technique |
 |---|-----|
@@ -132,7 +130,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 
 Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on Azure ML remote compute (cluster or compute instance).
 
-[Learn more about creating compute with the Python SDKv2 (or CLIv2).](./how-to-train-sdk.md#2-create-compute).
+[Learn more about creating compute with the Python SDKv2 (or CLIv2).](./how-to-train-model.md).
  
 <a name='configure-experiment'></a>
 
@@ -173,16 +171,16 @@ classification_job.set_training(
 
 ### Select your machine learning task type (ML problem)
 
-Before you can submit your automated ML job, you need to determine the kind of machine learning problem you are solving. This problem determines which function your automated ML job uses and what model algorithms it applies.
+Before you can submit your automated ML job, you need to determine the kind of machine learning problem you're solving. This problem determines which function your automated ML job uses and what model algorithms it applies.
 
 Automated ML supports tabular data based tasks (classification, regression, forecasting), computer vision tasks (such as Image Classification and Object Detection), and natural language processing tasks (such as Text classification and Entity Recognition tasks). Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
 
 
 ### Supported algorithms
 
-Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
+Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there's no need for you to specify the algorithm. 
 
-The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
+The task method determines the list of algorithms/models, to apply. Use the `allowed_training_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
 
@@ -215,7 +213,7 @@ With additional algorithms below.
 * [NLP Text Classification Multi-label Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 * [NLP Text Named Entity Recognition (NER) Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 
-Follow [this link](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs) for example notebooks of each task type.
+Follow [this link](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs) for example notebooks of each task type.
 
 ### Primary metric
 
@@ -229,7 +227,7 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 These metrics apply for all classification scenarios, including tabular data, images/computer-vision and NLP-Text.
 
-Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets that are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated ML completes, you can choose the winning model based on the metric best suited to your business needs.
+Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets that are small, have large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated ML completes, you can choose the winning model based on the metric best suited to your business needs.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
@@ -241,7 +239,7 @@ Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_mac
 
 #### Metrics for classification multi-label scenarios 
 
-- For Text classification multi-label currently 'Accuracy' is the only primary metric supported.
+- For Text classification, multi-label currently 'Accuracy' is the only primary metric supported.
 
 - For Image classification multi-label, the primary metrics supported are defined in the ClassificationMultilabelPrimaryMetrics Enum
 
@@ -253,14 +251,14 @@ Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_mac
 
 `r2_score`, `normalized_mean_absolute_error` and `normalized_root_mean_squared_error` are all trying to minimize prediction errors. `r2_score` and `normalized_root_mean_squared_error` are both minimizing average squared errors while `normalized_mean_absolute_error` is minizing the average absolute value of errors. Absolute value treats errors at all magnitudes alike and squared errors will have a much larger penalty for errors with larger absolute values. Depending on whether larger errors should be punished more or not, one can choose to optimize squared error or absolute error.
 
-The main difference between `r2_score` and `normalized_root_mean_squared_error` is the way they are normalized and their meanings. `normalized_root_mean_squared_error` is root mean squared error normalized by range and can be interpreted as the average error magnitude for prediction. `r2_score` is mean squared error normalized by an estimate of variance of data. It is the proportion of variation that can be captured by the model. 
+The main difference between `r2_score` and `normalized_root_mean_squared_error` is the way they're normalized and their meanings. `normalized_root_mean_squared_error` is root mean squared error normalized by range and can be interpreted as the average error magnitude for prediction. `r2_score` is mean squared error normalized by an estimate of variance of data. It's the proportion of variation that can be captured by the model. 
 
 > [!Note]
 > `r2_score` and `normalized_root_mean_squared_error` also behave similarly as primary metrics. If a fixed validation set is applied, these two metrics are optimizing the same target, mean squared error, and will be optimized by the same model. When only a training set is available and cross-validation is applied, they would be slightly different as the normalizer for `normalized_root_mean_squared_error` is fixed as the range of training set, but the normalizer for `r2_score` would vary for every fold as it's the variance for each fold.
 
 If the rank, instead of the exact value is of interest, `spearman_correlation` can be a better choice as it measures the rank correlation between real values and predictions.
 
-However, currently no primary metrics for regression addresses relative difference. All of `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` treat a $20k prediction error the same for a worker with a $30k salary as a worker making $20M, if these two data points belongs to the same dataset for regression, or the same time series specified by the time series identifier. While in reality, predicting only $20k off from a $20M salary is very close (a small 0.1% relative difference), whereas $20k off from $30k is not close (a large 67% relative difference). To address the issue of relative difference, one can train a model with available primary metrics, and then select the model with best `mean_absolute_percentage_error` or `root_mean_squared_log_error`.
+However, currently no primary metrics for regression addresses relative difference. All of `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` treat a $20k prediction error the same for a worker with a $30k salary as a worker making $20M, if these two data points belongs to the same dataset for regression, or the same time series specified by the time series identifier. While in reality, predicting only $20k off from a $20M salary is very close (a small 0.1% relative difference), whereas $20k off from $30k isn't close (a large 67% relative difference). To address the issue of relative difference, one can train a model with available primary metrics, and then select the model with best `mean_absolute_percentage_error` or `root_mean_squared_log_error`.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
@@ -331,18 +329,21 @@ There are a few options you can define in the `set_limits()` function to end you
 
 |Criteria| description
 |----|----
-No&nbsp;criteria | If you do not define any exit parameters the experiment continues until no further progress is made on your primary metric.
-`timeout`| Defines how long, in minutes, your experiment should continue to run.If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size is not greater than 10,000,000 (rows times column) or an error results. <br><br> This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. 
+No&nbsp;criteria | If you don't define any exit parameters the experiment continues until no further progress is made on your primary metric.
+`timeout`| Defines how long, in minutes, your experiment should continue to run. If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size isn't greater than 10,000,000 (rows times column) or an error results. <br><br> This timeout includes setup, featurization and training runs but doesn't include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. 
 `trial_timeout_minutes` | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used
 `enable_early_termination`|Whether to end the job if the score is not improving in the short term
 `max_trials`| The maximum number of trials/runs each with a different combination of algorithm and hyperparameters to try during an AutoML job. If not specified, the default is 1000 trials. If using `enable_early_termination` the number of trials used can be smaller.
 `max_concurrent_trials`| Represents the maximum number of trials (children jobs) that would be executed in parallel. It's a good practice to match this number with the number of nodes your cluster
 
 ## Run experiment
-> [!WARNING]
+> [!NOTE]
 > If you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score and generated models. The algorithms automated ML employs have inherent randomness that can cause slight variation in the models output by the experiment and the recommended model's final metrics score, like accuracy. You'll likely also see results with the same model name, but different hyperparameters used. 
 
-Submit the experiment to run and generate a model. With the MLClient created in the prerequisites,you can run the following command in the workspace.
+> [!WARNING]
+> If you have set rules in firewall and/or Network Security Group over your workspace, verify that required permissions are given to inbound and outbound network traffic as defined in [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+
+Submit the experiment to run and generate a model. With the `MLClient` created in the prerequisites, you can run the following command in the workspace.
 
 ```python
 
@@ -391,7 +392,7 @@ After you test a model and confirm you want to use it in production, you can reg
 
 To leverage AutoML in your MLOps workflows, you can add AutoML Job steps to your [AzureML Pipelines](./how-to-create-component-pipeline-python.md). This allows you to automate your entire workflow by hooking up your data prep scripts to AutoML and then registering and validating the resulting best model.
 
-Below is a [sample pipeline](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline) with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
+Below is a [sample pipeline](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline) with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
 
 ``` python
 # Define pipeline
@@ -431,11 +432,11 @@ pipeline_classification = automl_classification(
 )
 
 # ...
-# Note that the above is only a snippet from the bankmarketing example you can find in our examples repo -> https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline
+# Note that the above is only a snippet from the bankmarketing example you can find in our examples repo -> https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline
 
 ```
 
-For more examples on how to do include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/).
+For more examples on how to do include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/).
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/26/2020
+ms.date: 09/13/2022
 ms.author: greglin
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
@@ -35,6 +35,10 @@ This type of routing is known as application layer (OSI layer 7) load balancing.
 
 To learn about Application Gateway features, see [Azure Application Gateway features](features.md).
 
+## Infrastructure
+
+To learn about Application Gateway infrastructure, see [Azure Application Gateway infrastructure configuration](configuration-infrastructure.md).
+
 ## Pricing and SLA
 
 For Application Gateway pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
@@ -52,4 +56,6 @@ Depending on your requirements and environment, you can create a test Applicatio
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI](quick-create-cli.md)
-- [Learn module: Introduction to Azure Application Gateway](/learn/modules/intro-to-azure-application-gateway)
+- [Learn module: Introduction to Azure Application Gateway](/training/modules/intro-to-azure-application-gateway)
+- [How an application gateway works](how-application-gateway-works.md)
+- [Frequently asked questions about Azure Application Gateway](application-gateway-faq.yml)

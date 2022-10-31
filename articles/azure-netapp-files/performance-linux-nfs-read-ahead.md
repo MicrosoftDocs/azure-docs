@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 09/29/2022
 ms.author: anfdocs
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
@@ -100,7 +100,7 @@ To persistently set read-ahead for NFS mounts, `udev` rules can be written as fo
 
 1. Create and test `/etc/udev/rules.d/99-nfs.rules`:
 
-    `SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="/bin/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"`
+    `SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="<absolute_path>/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"`
 
 2. Apply the `udev` rule:   
 

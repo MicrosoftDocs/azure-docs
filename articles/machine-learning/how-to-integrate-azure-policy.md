@@ -98,7 +98,7 @@ To configure this policy, set the effect parameter to __DeployIfNotExists__. Set
 
 ### Workspace should use user-assigned managed identity
 
-Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md).
+Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md).
 
 To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
 

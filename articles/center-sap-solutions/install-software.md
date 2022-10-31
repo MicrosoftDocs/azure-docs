@@ -21,11 +21,11 @@ In this how-to guide, you'll learn how to upload and install all the required co
 
 - An Azure subscription.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which the VIS exists.
-- Grant the ACSS application **Azure SAP Workloads Management**, **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
+- A **User-assigned managed identity** with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
-- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (STONITH device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
+- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
     
     To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal. 
 
@@ -64,7 +64,7 @@ The following components are necessary for the SAP installation:
 
 ## Option 1: Upload software components with script
 
-You can use the following method to upload the SAP components to your Azure account using scripts. Then, you can [run the software installation wizard](#install-software) to install the SAP software.
+You can use the following method to upload the SAP components to your Azure account using scripts. Then, you can [run the software installation wizard](#install-software) to install the SAP software. We recommend using this method.
 
 You also can [upload the components manually](#option-2-upload-software-components-manually) instead.
 
@@ -84,10 +84,12 @@ Before you can download the software, set up an Azure Storage account for storin
 
     1. Select **Create**.
     
- 1. Grant the ACSS application *Azure SAP Workloads Management* **Storage Blob Data Reader** and **Reader and Data Access** role access on this storage account.
+ 1. Grant the **User-assigned managed identity**, which was used during infrastructure deployment, **Storage Blob Data Reader** and **Reader and Data Access** role access on this storage account.
 
-### Download supporting software 
-After setting up your Azure Storage account, you need an Ubuntu VM to run scripts that download the software components.
+
+### Download SAP media
+
+You can download the SAP installation media required to install the SAP software, using a script as described in this section.
 
 1. Create an Ubuntu 20.04 VM in Azure
 
@@ -108,62 +110,6 @@ After setting up your Azure Storage account, you need an Ubuntu VM to run script
     az login
     ```
 
-1. Download the following shell script for the deployer VM packages.
-
-    ```azurecli
-    wget "https://raw.githubusercontent.com/Azure/Azure-Center-for-SAP-solutions-preview/main/DownloadDeployerVMPackages.sh" -O "DownloadDeployerVMPackages.sh"
-    ```
-
-1. Update the shell script's file permissions.
-
-    ```azurecli
-    chmod +x DownloadDeployerVMPackages.sh
-    ```
-
-1. Run the shell script.
-
-    ```azurecli
-    ./DownloadDeployerVMPackages.sh
-    ```
-
-1. When asked if you have a storage account, enter `Y`.
-
-1. When asked for the base path to the software storage account, enter the container path. To find the container path:
-    
-    1. Find the storage account that you created in the Azure portal.
-
-    1. Find the container named `sapbits`.
-
-    1. On the container's sidebar menu, select **Properties** under **Settings**.
-
-    1. Copy down the **URL** value. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`.
-
-1. In the Azure CLI, when asked for the access key, enter your storage account's key. To find the storage account's key:
-
-    1. Find the storage account in the Azure portal.
-
-    1. On the storage account's sidebar menu, select **Access keys** under **Security + networking**.
-
-    1. For **key1**, select **Show key and connection string**.
-
-    1. Copy the **Key** value.
-
-1. Once the script completes successfully, in the Azure portal, find the container named `sapbits` in the storage account that you created.
-
-1. Make sure the deployer VM packages are now visible in `sapbits`.
-
-    1. Find the storage account that you created in the Azure portal.
-
-    1. Find the container named `sapbits`.
-
-    1. On the **Overview** page for `sapbits`, look for a folder named **deployervmpackages**.
-
-### Download SAP media
-
-You can download the SAP installation media required to install the SAP software, using a script as described in this section.
-
-1. Sign in to the Ubuntu VM that you created in the [previous section](#download-supporting-software).
-
 1. Install Ansible 2.9.27 on the ubuntu VM 
 
     ```bash
@@ -172,18 +118,54 @@ You can download the SAP installation media required to install the SAP software
     
 1. Clone the SAP automation repository from GitHub.
 
-    ```azurecli
+    ```git bash
     git clone https://github.com/Azure/sap-automation.git
+    ```
+
+1. Change the branch to main
+
+    ```git bash
+    git checkout main
+    ```
+    
+1. [Optional] : Verify if the current branch is "main"
+
+
+    ```git bash
+    git status
     ```
 
 1. Run the Ansible script **playbook_bom_download** with your own information.
 
+    - When asked if you have a storage account, enter `Y`.
     - For `<username>`, use your SAP username.
     - For `<password>`, use your SAP password. 
 	- For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
-    - For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the [previous section](#download-supporting-software). 
-    - For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the [previous section](#download-supporting-software). 
+    - For `<storageAccountAccessKey>`, use your storage account's access key. To find the storage account's key:
+
+
+    1. Find the storage account in the Azure portal that you created.
+
+    1. On the storage account's sidebar menu, select **Access keys** under **Security + networking**.
+
+    1. For **key1**, select **Show key and connection string**.
+
+    1. Copy the **Key** value.
+        
+       - For `<containerBasePath>`, use the path to your `sapbits` container. To find the container path:
+
+    1. Find the storage account that you created in the Azure portal.
+
+    1. Find the container named `sapbits`.
+
+    1. On the container's sidebar menu, select **Properties** under **Settings**.
+
+    1. Copy down the **URL** value. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`.
       The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
+    
+    
+    - Ansible command to run
+      
 
 
     ```azurecli
@@ -346,13 +328,9 @@ To install the SAP software on Azure, use the ACSS installation wizard.
 
     1. For **BOM directory location**, select **Browse** and find the path to your BOM file. For example, `https://<your-storage-account>.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0010ms.yaml`.
 
-    1. For **SAP FQDN**, provide a fully qualified domain name (FQDN) for your SAP system. For example, `sap.contoso.com`.
-
     1. For High Availability (HA) systems only, enter the client identifier for the STONITH Fencing Agent service principal for **Fencing client ID**.
 
-    1. For High Availability (HA) systems only, enter the password for the STONITH Fencing Agent service principal for **Fencing client password**.
-
-    1. For **SSH private key**, provide the SSH private key that you created or selected as part of your infrastructure deployment.
+    1. For High Availability (HA) systems only, enter the password for the Fencing Agent service principal for **Fencing client password**.
 
     1. Select **Next**.
 
@@ -410,8 +388,9 @@ If you encounter this problem, follow these steps:
   
 - For `<username>`, use your SAP username.
 - For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
-- For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the [previous section](#download-supporting-software). 
-- For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the [previous section](#download-supporting-software). 
+- For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the Download SAP media section
+- For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the Download SAP media section.
+
   The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
 
 This should resolve the problem and you can proceed with next steps as described in the section.

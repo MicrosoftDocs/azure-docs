@@ -1,20 +1,20 @@
 ---
-title: IotCentralJsonPathContentTemplate mappings in MedTech service Device mappings - Azure Health Data Services
-description: This article describes how IotCentralJsonPathContent mappings with MedTech service Device mappings templates. 
+title: IotCentralJsonPathContentTemplate mappings in MedTech service device mappings - Azure Health Data Services
+description: This article describes how IotCentralJsonPathContent mappings with MedTech service device mappings templates. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 09/16/2022
 ms.author: jasteppe
 ---
 
 # How to use IotCentralJsonPathContentTemplate mappings
 
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service device and FHIR destination mappings. Export mappings for uploading to MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-This article describes how to use IoTCentralJsonPathContentTemplate mappings with the MedTech service Device mappings.
+This article describes how to use IoTCentralJsonPathContentTemplate mappings with the MedTech service device mappings.
 
 ## IotCentralJsonPathContentTemplate
 
@@ -139,9 +139,9 @@ If you're using Azure IoT Central's Data Export feature and custom properties in
 
 ## Next steps
 
-In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
+In this article, you learned how to use IotCentralJsonPathContentTemplate with your MedTech service device mappings. To learn how to use FHIR destination mappings, see
 
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -39,11 +39,11 @@
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
-        href: /graph/tutorial-accessreviews-m365group
+        href: /graph/tutorial-accessreviews-m365group?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to security groups - Microsoft Graph
-        href: /graph/tutorial-accessreviews-securitygroup
+        href: /graph/tutorial-accessreviews-securitygroup?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to privileged roles - Microsoft Graph
-        href: /graph/tutorial-accessreviews-roleassignments
+        href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
     - name: Lifecycle Workflows (Preview)
       items:
       - name: Automate employee onboarding tasks - Azure portal (Preview)
@@ -89,7 +89,7 @@
       href: lifecycle-workflow-extensibility.md
     - name: Versioning (Preview)
       href: lifecycle-workflow-versioning.md 
-    - name: Workflow Audit logs
+    - name: Workflow Audit logs (Preview)
       href: lifecycle-workflow-audits.md
     - name: Workflow History (Preview)
       href: lifecycle-workflow-history.md     
@@ -202,6 +202,10 @@
         href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
         href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Azure AD Privileged Access Groups (Preview)
+      items:
+      - name: Create an access review
+        href: create-access-review-privileged-access-groups.md
   - name: Lifecycle Workflows (Preview)
     items:
       - name: Deployment (Preview)
@@ -233,16 +237,20 @@
 - name: Reference
   expanded: true
   items:
+  - name: Identity Governance - PowerShell
+    href: /powershell/module/microsoft.graph.identity.governance/?view=graph-powershell-beta&preserve-view=true
   - name: Access reviews - Microsoft Graph API
     href: /graph/api/resources/accessreviewsv2-overview
   - name: Entitlement management - Microsoft Graph API
     href: /graph/api/resources/entitlementmanagement-overview
   - name: Lifecycle Workflows - Microsoft Graph API
-    href: /graph/api/resources/identitygovernance-lifecycleworkflows-overview?view=graph-rest-beta
+    href: /graph/api/resources/identitygovernance-lifecycleworkflows-overview
   - name: Lifecycle Workflows - FAQs (Preview)
     href: workflows-faqs.md  
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
     href: lifecycle-workflows-developer-reference.md  
+  - name: Set employeeLeaveDateTime for leaver workflows
+    href: set-employee-leave-date-time.md  
   - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
     href: tutorial-prepare-azure-ad-user-accounts.md 
   - name: Configure a Logic App for Lifecycle Workflow use (Preview)

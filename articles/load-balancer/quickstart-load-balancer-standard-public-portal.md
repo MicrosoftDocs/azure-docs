@@ -40,7 +40,7 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     | Resource Group   | Select **Create new**. </br> In **Name** enter **CreatePubLBQS-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **West US** |
+    | Region           | Select **East US** |
 
 4. Select the **IP Addresses** tab or select **Next: IP Addresses** at the bottom of the page.
 
@@ -102,7 +102,7 @@ During the creation of the load balancer, you'll configure:
     | Resource group         | Select **CreatePubLBQS-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West US**.                                        |
+    | Region         | Select **East US**.                                        |
     | SKU           | Leave the default **Standard**. |
     | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
@@ -198,7 +198,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | Resource group | Select **CreatePubLBQS-rg**. |
     | **Instance details** |    |
     | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select **West US**. |
+    | Region | Select **East US**. |
     | Availability zone | Select **None**. |
     | Idle timeout (minutes) | Enter **15**. |
 
@@ -239,7 +239,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **(US) West US)** |
+    | Region | Select **((US) East US)** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **Zone 1** |
     | Security type | Select **Standard**. |

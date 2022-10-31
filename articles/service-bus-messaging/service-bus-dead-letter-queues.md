@@ -53,6 +53,10 @@ If you enable dead-lettering on filter evaluation exceptions, any errors that oc
 ## Application-level dead-lettering
 In addition to the system-provided dead-lettering features, applications can use the DLQ to explicitly reject unacceptable messages. They can include messages that can't be properly processed because of any sort of system issue, messages that hold malformed payloads, or messages that fail authentication when some message-level security scheme is used.
 
+This can be done by calling [QueueClient.DeadLetterAsync(Guid lockToken, string deadLetterReason, string deadLetterErrorDescription) method](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletterasync#microsoft-servicebus-messaging-queueclient-deadletterasync(system-guid-system-string-system-string)).
+
+It is recommended to include the type of the exception in the DeadLetterReason and the StackTrace of the exception in the DeadLetterDescription as this makes it easier to troubleshoot the cause of the problem resulting in messages being dead-lettered. Be aware that this may result in some messages exceeding [the 256KB quota limit for the Standard Tier of Azure Service Bus](./service-bus-quotas.md), further indicating that the Premium Tier is what should be used for production environments.
+
 ## Dead-lettering in ForwardTo or SendVia scenarios
 Messages will be sent to the transfer dead-letter queue under the following conditions:
 
@@ -68,6 +72,11 @@ You can access the dead-letter queue by using the following syntax:
 <topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
+
+## Sending dead-lettered messages to be reprocessed
+As there can be valuable business data in messages that ended up in the dead-letter queue, it is desirable to have those messages be reprocessed when operators have finished dealing with the circumstances which caused the messages to be dead-lettered in the first place.
+
+Tools like [Azure Service Bus Explorer](./explorer.md) enable manual moving of messages between queues and topics. If there are many messages in the dead-letter queue that need to be moved, [code like this](https://stackoverflow.com/a/68632602/151350) can help move them all at once. Operators will often prefer having a user interface so they can troubleshoot which message types have failed processing, from which source queues, and for what reasons, while still being able to resubmit batches of messages to be reprocessed. Tools like [ServicePulse with NServiceBus](https://docs.particular.net/servicepulse/intro-failed-messages) provide these capabilities.
 
 ## Next steps
 See [Enable dead lettering for a queue or subscription](enable-dead-letter.md) to learn about different ways of configuring the **dead lettering on message expiration** setting.

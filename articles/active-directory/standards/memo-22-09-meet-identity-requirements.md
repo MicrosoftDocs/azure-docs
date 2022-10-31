@@ -39,9 +39,11 @@ The article series features guidance that encompasses existing agency investment
 
    *  MFA must be enforced at the application layer instead of the network layer.
 
-   *  For agency staff, contractors, and partners, phishing-resistant MFA is required. For public users, phishing-resistant MFA must be an option.
-
-* Password policies must not require the use of special characters or regular rotation.
+   *  For agency staff, contractors, and partners, phishing-resistant MFA is required. 
+   
+   *  For public users, phishing-resistant MFA must be an option.
+   
+   *  Password policies must not require the use of special characters or regular rotation.
 
 * When agencies are authorizing users to access resources, they must consider at least one device-level signal alongside identity information about the authenticated user.
 

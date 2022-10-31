@@ -23,9 +23,7 @@ This article shows you how to use the open-source [kured (KUbernetes REboot Daem
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
-
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Understand the AKS node update experience
 
@@ -60,7 +58,7 @@ To deploy the `kured` DaemonSet, install the following official Kured Helm chart
 
 ```console
 # Add the Kured Helm repository
-helm repo add kured https://weaveworks.github.io/kured
+helm repo add kubereboot https://kubereboot.github.io/charts/
 
 # Update your local Helm chart repository cache
 helm repo update
@@ -69,7 +67,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured kured/kured --namespace kured --set nodeSelector."kubernetes\.io/os"=linux
+helm install my-release kubereboot/kured --namespace kured --set nodeSelector."kubernetes.io/os"=linux
 ```
 
 You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured Helm chart][kured-install].
@@ -90,14 +88,14 @@ When one of the replicas in the DaemonSet has detected that a node reboot is req
 
 You can monitor the status of the nodes using the [kubectl get nodes][kubectl-get-nodes] command. The following example output shows a node with a status of *SchedulingDisabled* as the node prepares for the reboot process:
 
-```
+```output
 NAME                       STATUS                     ROLES     AGE       VERSION
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
 Once the update process is complete, you can view the status of the nodes using the [kubectl get nodes][kubectl-get-nodes] command with the `--output wide` parameter. This additional output lets you see a difference in *KERNEL-VERSION* of the underlying nodes, as shown in the following example output. The *aks-nodepool1-28993262-0* was updated in a previous step and shows kernel version *4.15.0-1039-azure*. The node *aks-nodepool1-28993262-1* that hasn't been updated shows kernel version *4.15.0-1037-azure*.
 
-```
+```output
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS   4.15.0-1039-azure   docker://3.0.4
 aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
@@ -115,9 +113,6 @@ For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS]
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md

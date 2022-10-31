@@ -4,7 +4,7 @@ description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) 
 ms.author: nickoman
 ms.service: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 10/11/2022
 ms.custom: devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -71,6 +71,11 @@ Lastly, the Dapr extension is an extension of AKS, therefore you can expect the 
 
 [Learn more about migrating from Dapr OSS to the Dapr extension for AKS][dapr-migration].
 
+### How can I authenticate Dapr components with Azure AD using managed identities?
+
+- Learn how [Dapr components authenticate with Azure AD][dapr-msi].
+- Learn about [using managed identities with AKS][aks-msi].
+
 ### How can I switch to using the Dapr extension if I’ve already installed Dapr via a method, such as Helm?
 
 Recommended guidance is to completely uninstall Dapr from the AKS cluster and reinstall it via the cluster extension.  
@@ -87,8 +92,10 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-quickstart]: ./quickstart-dapr.md
 [dapr-migration]: ./dapr-migration.md
+[aks-msi]: ./use-managed-identity.md
 
 <!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/
 [dapr-blocks]: https://docs.dapr.io/concepts/building-blocks-concept/
 [dapr-secrets-block]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
+[dapr-msi]: https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure

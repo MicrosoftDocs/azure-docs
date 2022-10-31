@@ -1,12 +1,13 @@
 ---
 title: Autoscale for Azure API for FHIR 
 description: This article describes the autoscale feature for Azure API for FHIR.
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/02/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Autoscale for Azure API for FHIR 
@@ -55,7 +56,7 @@ You can adjust the max `RU/s` or `Tmax` value through the portal if it's a valid
 
 ## How to estimate throughput RU/s required?
 
-The data size is one of several factors used in calculating the total throughput RU/s required for manual scale and autoscale. You can find the data size using the Metrics menu option under **Monitoring**. Start a new chart and select "Cosmos DB Collection Size" in the Metric dropdown box and "Max" in the "Aggregation" box. 
+The data size is one of several factors used in calculating the total throughput RU/s required for manual scale and autoscale. You can find the data size using the Metrics menu option under **Monitoring**. Start a new chart and select **Cosmos DB Collection Size** in the Metric dropdown box and **Max** in the "Aggregation" box. 
 
 [ ![Screenshot of metrics_new_chart](media/cosmosdb/metrics-new-chart.png) ](media/cosmosdb/metrics-new-chart.png#lightbox)
 

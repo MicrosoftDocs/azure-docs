@@ -18,7 +18,7 @@ This article shows how to set the scope for an extension resource type when depl
 
 ### Training resources
 
-If you would rather learn about extension resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates).
+If you would rather learn about extension resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-templates).
 
 ## Apply at deployment scope
 

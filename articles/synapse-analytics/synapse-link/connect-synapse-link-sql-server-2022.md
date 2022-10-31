@@ -5,15 +5,15 @@ author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.custom: event-tier1-build-2022
-ms.date: 05/09/2022
+ms.custom: event-tier1-build-2022, engagement-fy23
+ms.date: 09/27/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
 
 # Get started with Azure Synapse Link for SQL Server 2022 (Preview)
 
-This article provides a step-by-step guide for getting started with Azure Synapse Link for SQL Server 2022. For more information, see [Get started with Azure Synapse Link for SQL Server 2022 (Preview)](sql-server-2022-synapse-link.md). 
+This article provides a step-by-step guide for getting started with Azure Synapse Link for SQL Server 2022. For more information, see [Azure Synapse Link for SQL Server 2022](sql-server-2022-synapse-link.md). 
 
 > [!IMPORTANT]
 > Azure Synapse Link for SQL is currently in PREVIEW.
@@ -21,7 +21,8 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace. If you have a workspace created after May 24, 2022, you do not need to create a new workspace.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. The current tutorial is to create Synapse link for SQL in public network. The assumption is that you have checked "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace. If you want to configure Synapse link for SQL Server 2022 with network security, please also refer to [this](connect-synapse-link-sql-server-2022-vnet.md).
+
 
 * Create an Azure Data Lake Storage Gen2 account (different from the account created with the Azure Synapse Analytics workspace) used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
 
@@ -46,7 +47,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-new-empty-sql-script.png" alt-text="Screenshot of creating a new empty SQL script from Synapse Studio.":::
 
-1. Paste the following script and select **Run** to create the master key for your target Synapse SQL database. You also need to create a schema if your expected schema is not available in target Synapse SQL database.
+1. Paste the following script and select **Run** to create the master key for your target Synapse SQL database.
 
    ```sql
    CREATE MASTER KEY
