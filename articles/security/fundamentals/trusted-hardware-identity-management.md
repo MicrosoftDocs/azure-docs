@@ -81,7 +81,7 @@ curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: 
 ##### Definitions
 
 | Key | Description |
-|--|--|
+|--|--|sfsfnjslfself
 | VcekCert | X.509v3 certificate as defined in RFC 5280. |
 | tcbm | Trusted Computing Base |
 | certificateChain | Includes the AMD SEV Key (ASK) and AMD Root Key (ARK) certificates |
