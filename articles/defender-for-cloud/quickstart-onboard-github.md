@@ -89,4 +89,4 @@ Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [configure the MSDO GitHub action](github-action.md).
 
-Learn how to [configure pull request annotations](tutorial-enable-pull-request-annotations.md) in Defender for Cloud.
+Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.
