@@ -14,27 +14,25 @@ ms.author: mbullwin
 
 # Trigger batch inference with trained model
 
+You could choose the batch inference API, or the streaming inference API for detection.
 
-You could choose the batch inference API, or the streaming inference API for detection. 
-
-| Batch inference API | Streaming inference API           | 
-| ------------- | ---------------- | 
-| More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results over a longer time period.| When customers want to get inference immediately and want to detect multivariate anomalies in real time, this API is recommended. Also suitable for customers having difficulties conducting the previous compressing and uploading process for inference. | 
+| Batch inference API | Streaming inference API           |
+| ------------- | ---------------- |
+| More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results over a longer time period.| When customers want to get inference immediately and want to detect multivariate anomalies in real-time, this API is recommended. Also suitable for customers having difficulties conducting the previous compressing and uploading process for inference. |
 
 |API Name| Method | Path  | Description |
 | ------ | ---- | ----------- | ------ | 
-|**Batch Inference**|    POST    |  `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`:detect-batch    |          Trigger an asynchronous inference with `modelId` which works in a batch scenario   |
+|**Batch Inference**|    POST    |  `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`: detect-batch    |          Trigger an asynchronous inference with `modelId`, which works in a batch scenario   |
 |**Get Batch Inference Results**|     GET   |  `{endpoint}`/anomalydetector/v1.1/multivariate/detect-batch/`{resultId}`    |       Get batch inference results with `resultId`      |
-|**Streaming Inference**|   POST     |   `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`:detect-last   |      Trigger a synchronous inference with `modelId` which works in a streaming scenario       |
-
+|**Streaming Inference**|   POST     |   `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`: detect-last   |      Trigger a synchronous inference with `modelId`, which works in a streaming scenario       |
 
 ## Trigger a batch inference
 
 To perform batch inference, provide the blob URL containing the inference data, the start time, and end time. For inference data volume, at least `1 sliding window` length and at most **20000** timestamps.
 
-This inference is asynchronous, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
+This inference is asynchronous, so the results aren't returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
 
-Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same variables but with different timestamps. More variables, fewer variables, or inference with a different set of variables will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message only when you query the results.
+Failures are usually caused by model issues or data issues. You can't perform inference if the model isn't ready or the data link is invalid. Make sure that the training data and inference data are consistent, meaning they should be **exactly** the same variables but with different timestamps. More variables, fewer variables, or inference with a different set of variables won't pass the data verification phase and errors will occur. Data verification is deferred so that you'll get error messages only when you query the results.
 
 ### Request
 
@@ -50,14 +48,13 @@ A sample request:
 ```
 #### Required parameters
 
-* **dataSource**: This is the Blob URL that linked to your folder or CSV file located in the Azure Blob Storage. The schema should be the same with training data, either OneTable or MultiTable, and the variable number and name should be exactly the same as well.
+* **dataSource**: This is the Blob URL that linked to your folder or CSV file located in Azure Blob Storage. The schema should be the same as your training data, either OneTable or MultiTable, and the variable number and name should be exactly the same as well.
 * **startTime**: The start time of data used for inference. If it's earlier than the actual earliest timestamp in the data, the actual earliest timestamp will be used as the starting point.
-* **endTime**: The end time of data used for inference which must be later than or equal to `startTime`. If `endTime` is later than the actual latest timestamp in the data, the actual latest timestamp will be used as the ending point. 
+* **endTime**: The end time of data used for inference, which must be later than or equal to `startTime`. If `endTime` is later than the actual latest timestamp in the data, the actual latest timestamp will be used as the ending point.
 
 #### Optional parameters
 
-* **topContributorCount**: This is a number that you could specify N from **1 to 30**, which will give you the details of top N contributed variables in the anomaly results. For example, if you have 100 variables in the model, but you only care the top 5 contributed variables in detection results, than you should fill this field with 5. The default number is **10**.
-
+* **topContributorCount**: This is a number that you could specify N from **1 to 30**, which will give you the details of top N contributed variables in the anomaly results. For example, if you have 100 variables in the model, but you only care the top five contributed variables in detection results, then you should fill this field with 5. The default number is **10**.
 
 ### Response
 
@@ -65,7 +62,7 @@ A sample response:
 
 ```json
 {
-    "resultId": "f5c8c004-555b-11ed-85c0-36f8cdfb3365",
+    "resultId": "aaaaaaaa-5555-1111-85bb-36f8cdfb3365",
     "summary": {
         "status": "CREATED",
         "errors": [],
@@ -80,7 +77,7 @@ A sample response:
     "results": []
 }
 ```
-* **resultId**: This is the information that you will need to trigger **Get Batch Inference Results API**. 
+* **resultId**: This is the information that you'll need to trigger **Get Batch Inference Results API**. 
 * **status**: This indicates whether you trigger a batch inference task successfully. If you see **CREATED**, then you don't need to trigger this API again, you should use the **Get Batch Inference Results API** to get the detection status and anomaly results.
 
 ## Get batch detection results
@@ -94,7 +91,7 @@ A sample response:
 
 ```json
 {
-    "resultId": "f5c8c004-555b-11ed-85c0-36f8cdfb3365",
+    "resultId": "aaaaaaaa-5555-1111-85bb-36f8cdfb3365",
     "summary": {
         "status": "READY",
         "errors": [],
@@ -257,10 +254,10 @@ The response contains the result status, variable information, inference paramet
 * **setupInfo**: This is the request body submitted for this inference.
 * **results**: This contains the detection results. There are three typical types of detection results.
 
-* Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
+* Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there's insufficient historical data, so inference can't be performed on them. In this case, the error message can be ignored.
 
-* **isAnomaly**: `false` indicates the current timestamp is not an anomaly.`true` indicates an anomaly at the current timestamp.
-    * `severity` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
+* **isAnomaly**: `false` indicates the current timestamp isn't an anomaly.`true` indicates an anomaly at the current timestamp.
+    * `severity` indicates the relative severity of the anomaly and for abnormal data it's always greater than 0.
     * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
 
 * **interpretation**: This field only appears when a timestamp is detected as anomalous, which contains `variables`, `contributionScore`, `correlationChanges`.
@@ -269,13 +266,13 @@ The response contains the result status, variable information, inference paramet
 
 * **correlationChanges**: This field only appears when a timestamp is detected as anomalous, which included in interpretation. It contains `changedVariables` and `changedValues` that interpret which correlations between variables changed. 
 
-* **changedVariables**: This field will show which variables that have significant change in correlation with `variable`. The variables in this list is ranked by the extent of correlation changes.
+* **changedVariables**: This field will show which variables that have significant change in correlation with `variable`. The variables in this list are ranked by the extent of correlation changes.
 
 > [!NOTE]
 > A common pitfall is taking all data points with `isAnomaly`=`true` as anomalies. That may end up with too many false positives.
 > You should use both `isAnomaly` and `severity` (or `score`) to sift out anomalies that are not severe and (optionally) use grouping to check the duration of the anomalies to suppress random noise. 
-> Please refer to the [FAQ](../../concepts/best-practices-multivariate.md#faq) in the best practices document for the difference between `severity` and `score`.
+> Please refer to the [FAQ](../concepts/best-practices-multivariate.md#faq) in the best practices document for the difference between `severity` and `score`.
 
 ## Next steps
 
-* [Best practices of multivariate anomaly detection](../../concepts/best-practices-multivariate.md)
+* [Best practices of multivariate anomaly detection](../concepts/best-practices-multivariate.md)
