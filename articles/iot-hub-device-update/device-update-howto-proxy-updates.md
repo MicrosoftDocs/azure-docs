@@ -184,19 +184,19 @@ For more information about tags and groups, see [Manage device groups](create-up
 
 1. Select the target group by clicking on the group name. You'll be directed to the group details under Group basics.
 
-  :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Group details" lightbox="media/deploy-update/group-basics.png":::
+   :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Group details" lightbox="media/deploy-update/group-basics.png":::
 
 1. To initiate the deployment, go to the Current deployment tab. Select the deploy link next to the desired update from the Available updates section. The best, available update for a given group will be denoted with a "Best" highlight.
 
-  :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
+   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
 
 1. Schedule your deployment to start immediately or in the future, then select Create.
 
- :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Create deployment" lightbox="media/deploy-update/create-deployment.png":::
+   :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Create deployment" lightbox="media/deploy-update/create-deployment.png":::
 
 1. The Status under Deployment details should turn to Active, and the deployed update should be marked with "(deploying)".
 
- :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Deployment active" lightbox="media/deploy-update/deployment-active.png":::
+   :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Deployment active" lightbox="media/deploy-update/deployment-active.png":::
 
 1. View the compliance chart. You should see the update is now in progress.
 

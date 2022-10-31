@@ -24,7 +24,6 @@ In this tutorial, you'll learn how to:
 > * Download and install the Device Update agent and its dependencies.
 > * Add a tag to your device.
 > * Import an update.
-> * Create a device group.
 > * Deploy a package update.
 > * Monitor the update deployment.
 

@@ -22,7 +22,6 @@ In this tutorial, you'll learn how to:
 > * Download an image.
 > * Add a tag to your IoT device.
 > * Import an update.
-> * Create a device group.
 > * Deploy an image update.
 > * Monitor the update deployment.
 
@@ -220,7 +219,7 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
    adu-<image type>-image-<machine>-<version number>.<extension>
    ```
 
-Use that version number in the later "Import the update" section.
+   Use that version number in the later "Import the update" section.
 
 ## Import the update
 

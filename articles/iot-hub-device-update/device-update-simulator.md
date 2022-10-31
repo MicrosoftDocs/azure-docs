@@ -22,7 +22,6 @@ In this tutorial, you'll learn how to:
 > * Download and install an image.
 > * Add a tag to your IoT device.
 > * Import an update.
-> * Create a device group.
 > * Deploy an image update.
 > * Monitor the update deployment.
 
@@ -46,7 +45,7 @@ In this tutorial, you'll learn how to:
 
 After the Device Update agent is running on an IoT device, you must add the device to IoT Hub. From within IoT Hub, a connection string is generated for a particular device.
 
-1. From the Azure portal, start the Device Update for IoT Hub.
+1. From the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 1. Create a new device.
 1. On the left pane, go to **Devices**. Then select **New**.
 1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
@@ -59,7 +58,7 @@ After the Device Update agent is running on an IoT device, you must add the devi
 
 ## Add a tag to your device
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
+1. From the Azure portal, navigate to your IoT hub.
 1. From **Devices** on the left pane, find your IoT device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using the device identity with a Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
