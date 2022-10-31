@@ -254,7 +254,7 @@ Use the following CLI commands to uninstall the Azure Monitor agent on Azure Arc
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
-*Add uninstall content for the ARM template.*
+N/A
 
 ---
 
@@ -284,7 +284,7 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
   Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorLinuxAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
   ```
 
-### Upgrade on Azure Arc-enabled servers
+### Update on Azure Arc-enabled servers
 
 To perform a one-time upgrade of the agent, use the following PowerShell commands.
 
@@ -330,7 +330,7 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
   az vm extension set -name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
   ```
 
-### Upgrade on Azure Arc-enabled servers
+### Update on Azure Arc-enabled servers
 
 To perform a one-time upgrade of the agent, use the following CLI commands.
 
@@ -358,7 +358,7 @@ To perform a one-time upgrade of the agent, use the following CLI commands.
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
-*Add update content for the ARM template.*
+N/A
 
 ---
 
