@@ -87,7 +87,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
 
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="Screenshot of Visual Studio Code showing the Azure Cognitive Search explorer, with the **Copy Query Key** option shown.":::
+    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="Screenshot of Visual Studio Code showing the Azure Cognitive Search explorer, with the Copy Query Key option shown.":::
 
 1. Keep this query key, you'll need to use it in the next section. The query key is able to query your Index. 
 
@@ -98,11 +98,11 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. Select **Azure** from the Activity Bar. 
 1. Right-click on your Static Web Apps resource then select **Open in Portal**.
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Screenshot of Visual Studio Code showing Azure Static Web Apps explorer with the **Open in Portal** option shown.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Screenshot of Visual Studio Code showing Azure Static Web Apps explorer with the Open in Portal option shown.":::
 
 1. Select **Configuration** then select **+ Add**.
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer with the **Configuration** option shown.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer with the Configuration option shown.":::
 
 1. Add each of the following settings:
 
