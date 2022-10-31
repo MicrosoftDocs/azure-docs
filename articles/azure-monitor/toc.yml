@@ -24,16 +24,18 @@ items:
       href: faq.yml
 - name: Tutorials
   items:
-  - name: Monitor an Azure resource
+  - name: Monitor an Azure Resource - Overview
     href: essentials/monitor-azure-resource.md
   - name: Analyze metric data
     href: essentials/tutorial-metrics.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Sent data to logs using REST API and the Azure portal
+  - name: Send data to Azure Monitor Logs using REST API
     href: logs/tutorial-logs-ingestion-portal.md
-  - name: Sent data to logs using REST API and ARM templates
+  - name: Send data to Azure Monitor Logs and ARM templates
     href: logs/tutorial-logs-ingestion-api.md
+  - name: Detect and analyze anomalies in Azure Monitor Logs
+    href: logs/kql-machine-learning-azure-monitor.md
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -452,7 +454,7 @@ items:
           href: logs/personal-data-mgmt.md
         - name: Application data collection, retention, and storage
           href: app/data-retention-privacy.md
-    - name: Log workspaces
+    - name: Log Analytics workspaces
       items:
         - name: Overview
           displayName: Log Analytics workspace
@@ -1263,8 +1265,6 @@ items:
         href: logs/query-optimization.md
       - name: Functions
         href: logs/functions.md
-      - name: Detect and analyze anomalies
-        href: logs/kql-machine-learning-azure-monitor.md
       - name: Parse text data
         href: logs/parse-text.md
       - name: Computer groups
