@@ -46,7 +46,7 @@ The following examples show different ways to start batch deployment jobs using 
 
 ### Running jobs using user's credentials
 
-In this case, we want to execute a batch endpoint using the identity of the user currenly logged in. Follow these steps:
+In this case, we want to execute a batch endpoint using the identity of the user currently logged in. Follow these steps:
 
 > [!NOTE]
 > When working on Azure ML studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
@@ -91,13 +91,13 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [REST](#tab/rest)
 
-When working with REST APIs, we recommend to use either a service principal or a managed identity to interact with the API.
+When working with REST APIs, we recommend to using either a service principal or a managed identity to interact with the API.
 
 ---
 
 ### Running jobs using a service principal
 
-In this case, we want to execute a batch endpoint using a service princpal already created in Azure Active Directory. To complete the authentication, you will have to create a secret to perform the authentication. Follow these steps:
+In this case, we want to execute a batch endpoint using a service principal already created in Azure Active Directory. To complete the authentication, you will have to create a secret to perform the authentication. Follow these steps:
 
 # [Azure ML CLI](#tab/cli)
 
@@ -226,14 +226,18 @@ job = ml_client.batch_endpoints.invoke(
 
 # [REST](#tab/rest)
 
-You can use the REST API of Azure Machine Learning to start a batch endpoints job using a managed identity. The steps vary depending on the underlying service being used. Some examples include (but are not limitted to):
+You can use the REST API of Azure Machine Learning to start a batch endpoints job using a managed identity. The steps vary depending on the underlying service being used. Some examples include (but are not limited to):
 
 * [Managed identity for Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md).
 * [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+You can also use the Azure CLI to get an authentication token for the managed identity and the pass it to the batch endpoints URI.
 
 ---
 
 ## Next steps
 
 * [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)
+* [Invoking batch endpoints from Event Grid events in storage](how-to-use-event-grid-batch.md).
+* [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
