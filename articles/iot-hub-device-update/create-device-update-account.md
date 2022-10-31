@@ -54,12 +54,12 @@ An IoT hub. It's required that you use an S1 (Standard) tier or above.
    * **Resource group**: An existing or new resource group.
    * **Name**: A name for your account.
    * **Location**: The Azure region where your account will be located. For information about which regions support Device Update for IoT Hub, see [Azure Products-by-region page](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
-   * Check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the [Configure access control roles](configure-access-control-du.md) section to provide a combination of roles to users and applications for the right level of access. You need to have Owner or User Access Administrator permissions in your subscription to manage roles.
+   * Check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the [Configure access control roles](configure-access-control-device-update.md) section to provide a combination of roles to users and applications for the right level of access. You need to have Owner or User Access Administrator permissions in your subscription to manage roles.
    * **Instance Name**: A name for your instance.
    * **IoT Hub Name**: Select the IoT Hub you want to link to your Device Update instance
    * Check the box to grant the right access to Azure Device Update service pricipal in the IoT Hub to set up and operate the Device Update Service. You need to have the right permissions to add access. 
    > [!NOTE]
-   > If you are unable to grant access to Azure Device Update service pricipal during resource creation, refer to [configure the access control for users and Azure Device Update service principal](configure-access-control-du.md) . If this access is not set you will not be able to run deployment, device management and diagnostic operations. Learn more about the [Azure Device Update service principal access](device-update-control-access.md#configuring-access-for-azure-device-update-service-principal-in-the-iot-hub).
+   > If you are unable to grant access to Azure Device Update service pricipal during resource creation, refer to [configure the access control for users and Azure Device Update service principal](configure-access-control-device-update.md) . If this access is not set you will not be able to run deployment, device management and diagnostic operations. Learn more about the [Azure Device Update service principal access](device-update-control-access.md#configuring-access-for-azure-device-update-service-principal-in-the-iot-hub).
 
    :::image type="content" source="media/create-device-update-account/account-details.png" alt-text="Screenshot of account details." lightbox="media/create-device-update-account/account-details.png":::
 
@@ -112,12 +112,12 @@ az iot device-update instance create --account <account_name> --instance <instan
 >[!TIP]
 >As part of the instance creation process, you can also configure diagnostics logging. For more information, see [Remotely collect diagnostic logs from devices](device-update-log-collection.md).
 
-Once you have created the resource, [configure the access control for users and Azure Device Update service principal](configure-access-control-du.md).
+Once you have created the resource, [configure the access control for users and Azure Device Update service principal](configure-access-control-device-update.md).
 
 ---
 
 ## Next steps
 
-* [Configure Access Control in Device Update for IoT Hub ](configure-access-control-du.md)
+* [Configure Access Control in Device Update for IoT Hub ](configure-access-control-device-update.md)
 * [Learn about Device update account and instance.](device-update-resources.md)
 * [Learn about Device update access control roles](device-update-control-access.md)
