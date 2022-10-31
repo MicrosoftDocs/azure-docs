@@ -119,7 +119,7 @@ To add and remove a system-assigned managed identity in Azure portal:
 3. Navigate to Identity in your IoT Hub portal
 4. Under System-assigned tab, select On and click Save.
 
-To remove system-assigned managed identity from an Device Update for IoT hub account, select Off and click Save.
+To remove system-assigned managed identity from a Device Update for IoT hub account, select Off and click Save.
 
 
 
