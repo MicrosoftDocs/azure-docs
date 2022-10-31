@@ -75,7 +75,7 @@ To use Azure App Configuration with the Python provider instead of the SDK, go t
 
 ## Configure your App Configuration connection string
 
-1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
+1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 

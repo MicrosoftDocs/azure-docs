@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other
-ms.date: 10/21/2022
+ms.date: 10/31/2022
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
@@ -95,7 +95,7 @@ The Python App Configuration provider is a library running on top of the Azure S
 
 ## Configure your App Configuration connection string
 
-1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
+1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
