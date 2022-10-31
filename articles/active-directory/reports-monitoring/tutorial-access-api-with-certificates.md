@@ -2,23 +2,20 @@
 title: Tutorial for AD Reporting API with certificates | Microsoft Docs
 description: This tutorial explains how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention. 
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
-
-# Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
+
+# Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
+
 ---
 
 # Tutorial: Get data using the Azure Active Directory reporting API with certificates
@@ -29,9 +26,9 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
 ## Prerequisites
 
-1. To access sign-in data, make sure you have an Azure Active Directory tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license. 
+1. To access sign-in data, make sure you have an Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure AD edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license. 
 
-2. Create or switch to a user account in the **global administrator**, **security administrator**, **security reader** or **report reader** role for the tenant. 
+2. Create or switch to a user account in the **Global Administrator**, **Security Administrator**, **Security Reader** or **Report Reader** role for the tenant. 
 
 3. Complete the [prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
 
@@ -60,9 +57,9 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
 ## Get data using the Azure Active Directory reporting API with certificates
 
-1. Navigate to the [Azure portal](https://portal.azure.com), select **Azure Active Directory**, then select **App registrations** and choose your application from the list. 
+1. Go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **App registrations** and choose your application from the list. 
 
-2. Select **Certificates & secrets** under **Manage** section on Application registration blade and select **Upload Certificate**.
+2. Select **Certificates & secrets** under the **Manage** section on Application registration blade and select **Upload Certificate**.
 
 3. Select the certificate file from the previous step and select **Add**. 
 
