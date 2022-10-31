@@ -13,7 +13,7 @@ ms.custom: template-tutorial
 ---
 
 
-# Tutorial: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule   
+# Tutorial: Send events from Azure Event Hubs to Azure Monitor Logs   
 
 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
