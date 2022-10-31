@@ -20,7 +20,7 @@ Azure Synapse Data Explorer provides customers with an interactive query experie
 To learn more, see the following video:
 
 >
-> [!VIDEO https://docs.microsoft.com/shows/data-exposed/azure-synapse-data-explorer-for-log--telemetry-management/player?WT.mc_id=dataexposed-c9-niner]
+> [!VIDEO https://learn.microsoft.com/shows/data-exposed/azure-synapse-data-explorer-for-log--telemetry-management/player?WT.mc_id=dataexposed-c9-niner]
 
 ## What makes Azure Synapse Data Explorer unique?
 

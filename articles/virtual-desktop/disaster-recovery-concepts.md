@@ -55,7 +55,7 @@ Another option is an active-active deployment, where you use both sets of infras
 - Have extra session hosts in both active regions, but deallocate them when they aren't needed, which reduces costs.
 - Only provision new infrastructure during disaster recovery and allow affected users to connect to the newly provisioned session hosts. This method requires regular testing with infrastructure-as-code tools so you can deploy the new infrastructure as quickly as possible during a disaster.
 
-## Recommended diaster recovery methods
+## Recommended disaster recovery methods
 
 The disaster recovery methods we recommend are:
 

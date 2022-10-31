@@ -7,6 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
@@ -119,7 +120,7 @@ The following sections specify the parameters required for all authentication ty
 
       Only the metrics *Name* and *Value* are accepted. For example:
     
-      ``` JSON
+      ```json
       {"count":11, "revenue":1.23}
       ```
 
@@ -127,7 +128,7 @@ The following sections specify the parameters required for all authentication ty
 
       The metrics *Dimensions* and *timestamp* are also accepted. For example:
       
-      ``` JSON
+      ```json
       [
         {"date": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23},
         {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
@@ -138,7 +139,7 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Connection string**: The connection string to access your Azure Cosmos DB. This can be found in the Azure Cosmos DB resource in the Azure portal, in **Keys**. For more information, see [Secure access to data in Azure Cosmos DB](../../cosmos-db/secure-access-to-data.md).
+* **Connection string**: The connection string to access your Azure Cosmos DB instance. This can be found in the Azure Cosmos DB resource in the Azure portal, in **Keys**. For more information, see [Secure access to data in Azure Cosmos DB](../../cosmos-db/secure-access-to-data.md).
 * **Database**: The database to query against. In the Azure portal, under **Containers**, go to **Browse** to find the database.
 * **Collection ID**: The collection ID to query against. In the Azure portal, under **Containers**, go to **Browse** to find the collection ID.
 * **SQL query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
@@ -265,7 +266,7 @@ The following sections specify the parameters required for all authentication ty
 
    Metrics Advisor supports the data schema in the JSON files, as in the following example:
 
-   ``` JSON
+   ```json
    [
      {"date": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23},
      {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
@@ -288,8 +289,9 @@ The following sections specify the parameters required for all authentication ty
     
     Valid messages are as follows:
 
-    ``` JSON
-    Single JSON object 
+    Single JSON object:
+
+    ```json
     {
     "metric_1": 234, 
     "metric_2": 344, 
@@ -297,9 +299,10 @@ The following sections specify the parameters required for all authentication ty
     "dimension_2": "name_2"
     }
     ```
-        
-    ``` JSON
-    JSON array 
+
+    JSON array:
+
+    ```json
     [
         {
             "timestamp": "2020-12-12T12:00:00", "temperature": 12.4,

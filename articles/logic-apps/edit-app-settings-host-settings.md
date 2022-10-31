@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 10/15/2022
 ms.custom: fasttrack-edit
 ---
 
@@ -52,15 +52,41 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the operation options for <*workflowName*>. |
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating an Azure-hosted connection. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
+| `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
-||||
 
 <a name="manage-app-settings"></a>
 
 ## Manage app settings - local.settings.json
 
-To add, update, or delete app settings, select and review the following sections for Visual Studio Code, Azure portal, Azure CLI, or ARM (Bicep) template. For app settings specific to logic apps, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
+To add, update, or delete app settings, select and review the following sections for Azure portal, Visual Studio Code, Azure CLI, or ARM (Bicep) template. For app settings specific to logic apps, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
+
+### [Azure portal](#tab/azure-portal)
+
+To review the app settings for your single-tenant based logic app in the Azure portal, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
+
+1. On your logic app menu, under **Settings**, select **Configuration**.
+
+1. On the **Configuration** page, on the **Application settings** tab, review the app settings for your logic app.
+
+   For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
+
+1. To view all values, select **Show Values**. Or, to view a single value, select that value.
+
+To add a setting, follow these steps:
+
+1. On the **Application settings** tab, under **Application settings**, select **New application setting**.
+
+1. For **Name**, enter the *key* or name for your new setting.
+
+1. For **Value**, enter the value for your new setting.
+
+1. When you're ready to create your new *key-value* pair, select **OK**.
+
+:::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot showing the Azure portal and the configuration pane with the app settings and values for a single-tenant based logic app." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -88,32 +114,6 @@ To add an app setting, follow these steps:
      }
    }
    ```
-
-### [Azure portal](#tab/azure-portal)
-
-To review the app settings for your single-tenant based logic app in the Azure portal, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
-
-1. On your logic app menu, under **Settings**, select **Configuration**.
-
-1. On the **Configuration** page, on the **Application settings** tab, review the app settings for your logic app.
-
-   For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
-
-1. To view all values, select **Show Values**. Or, to view a single value, select that value.
-
-To add a setting, follow these steps:
-
-1. On the **Application settings** tab, under **Application settings**, select **New application setting**.
-
-1. For **Name**, enter the *key* or name for your new setting.
-
-1. For **Value**, enter the value for your new setting.
-
-1. When you're ready to create your new *key-value* pair, select **OK**.
-
-:::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot showing the Azure portal and the configuration pane with the app settings and values for a single-tenant based logic app." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -148,11 +148,27 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Jobs.BackgroundJobs.DispatchingWorkersPulseInterval` | `00:00:01` <br>(1 sec) | Sets the interval for job dispatchers to poll the job queue when the previous poll returns no jobs. Job dispatchers poll the queue immediately when the previous poll returns a job. |
-| `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
-| `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
+| `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
+| `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
 | `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time duration before a job is declared as stuck. If you have an action that requires more than 60 minutes to run, you might need to increase this setting's default value and also the [`functionTimeout` property](../azure-functions/functions-scale.md#timeout) value in the same **host.json** file to the same value. |
-||||
+
+<a name="recurrence-triggers"></a>
+
+### Recurrence-based triggers
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Microsoft.Azure.Workflows.ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `1` KB | Sets the trigger state's maximum allowed size for recurrence-based triggers such as the built-in SFTP trigger. The trigger state persists data across multiple service provider recurrence-based triggers. <br><br>**Important**: Based on your storage size, avoid setting this value too high, which can adversely affect storage and performance. |
+
+<a name="trigger-concurrency"></a>
+
+### Trigger concurrency
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.Trigger.MaximumRunConcurrency` | `100` runs | Sets the maximum number of concurrent runs that a trigger can start. This value appears in the trigger's concurrency definition. |
+| `Runtime.Trigger.MaximumWaitingRuns` | `200` runs | Sets the maximum number of runs that can wait after concurrent runs meet the maximum. This value appears in the trigger's concurrency definition. |
 
 <a name="run-duration-history"></a>
 
@@ -160,10 +176,9 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
+| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <br><br>**Important**: Make sure this value is less than or equal to the `Runtime.FlowRetentionThreshold` value. Otherwise, run histories can get deleted before the associated jobs are complete. |
 | `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90 days) | Sets the amount of time to keep workflow run history after a run starts. |
-| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <p><p>**Important**: Make sure this value is less than or equal to the `Runtime.FlowRetentionThreshold` value. Otherwise, run histories can get deleted before the associated jobs are complete. |
-||||
-   
+
 <a name="run-actions"></a>
 
 ### Run actions
@@ -171,7 +186,6 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the amount of time for a workflow action job to run before timing out and retrying. |
-||||
 
 <a name="inputs-outputs"></a>
 
@@ -179,9 +193,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in an action. |
 | `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a trigger or action. |
-||||
+| `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in an action. |
 
 <a name="pagination"></a>
 
@@ -190,7 +203,6 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumPageCount` | `1000` pages | When pagination is supported and enabled on an operation, sets the maximum number of pages to return or process at runtime. |
-||||
 
 <a name="chunking"></a>
 
@@ -201,17 +213,17 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumContentLengthInBytesForPartialContent` | `1073741824` bytes | When chunking is supported and enabled on an operation, sets the maximum size in bytes for downloaded or uploaded content. |
 | `Runtime.FlowRunRetryableActionJobCallback.MaxChunkSizeInBytes` | `52428800` bytes | When chunking is supported and enabled on an operation, sets the maximum size in bytes for each content chunk. |
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumRequestCountForPartialContent` | `1000` requests | When chunking is supported and enabled on an operation, sets the maximum number of requests that an action execution can make to download content. |
-||||
 
-<a name="trigger-concurrency"></a>
+<a name="store-inline-or-blob"></a>
 
-### Trigger concurrency
+### Store content inline or use blobs
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.Trigger.MaximumRunConcurrency` | `100` runs | Sets the maximum number of concurrent runs that a trigger can start. This value appears in the trigger's concurrency definition. |
-| `Runtime.Trigger.MaximumWaitingRuns` | `200` runs | Sets the maximum number of runs that can wait after concurrent runs meet the maximum. This value appears in the trigger's concurrency definition. |
-||||
+| `Runtime.FlowRunEngine.ForeachMaximumItemsForContentInlining` | `20` items | When a `For each` loop is running, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline with other metadata. |
+| `Runtime.FlowRunRetryableActionJobCallback.MaximumPagesForContentInlining` | `20` pages | Sets the maximum number of pages to store as inline content in table storage before storing in blob storage. |
+| `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When the `SplitOn` setting debatches array items into multiple workflow instances, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
+| `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `8192` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
 
 <a name="for-each-loop"></a>
 
@@ -220,10 +232,9 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.FlowDefaultForeachItemsLimit` | `100000` array items | For a *stateful workflow*, sets the maximum number of array items to process in a `For each` loop. |
-| `Runtime.Backend.Stateless.FlowDefaultForeachItemsLimit` | `100` items | For a *stateless workflow*, sets the maximum number of array items to process in a `For each` loop. |
-| `Runtime.Backend.ForeachDefaultDegreeOfParallelism` | `20` iterations | Sets the default number of concurrent iterations, or degree of parallelism, in a `For each` loop. To run sequentially, set the value to `1`. |
 | `Runtime.Backend.FlowDefaultSplitOnItemsLimit` | `100000` array items | Sets the maximum number of array items to debatch or split into multiple workflow instances based on the `SplitOn` setting. |
-||||
+| `Runtime.Backend.ForeachDefaultDegreeOfParallelism` | `20` iterations | Sets the default number of concurrent iterations, or degree of parallelism, in a `For each` loop. To run sequentially, set the value to `1`. |
+| `Runtime.Backend.Stateless.FlowDefaultForeachItemsLimit` | `100` items | For a *stateless workflow*, sets the maximum number of array items to process in a `For each` loop. |
 
 <a name="until-loop"></a>
 
@@ -232,9 +243,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.MaximumUntilLimitCount` | `5000` iterations | For a *stateful workflow*, sets the maximum number possible for the `Count` property in an `Until` action. |
-| `Runtime.Backend.Stateless.MaximumUntilLimitCount` | `100` iterations | For a *stateless workflow*, sets the maximum number possible for the `Count` property in an `Until` action. |
 | `Runtime.Backend.Stateless.FlowRunTimeout` | `00:05:00` <br>(5 min) | Sets the maximum wait time for an `Until` loop in a stateless workflow. |
-||||
+| `Runtime.Backend.Stateless.MaximumUntilLimitCount` | `100` iterations | For a *stateless workflow*, sets the maximum number possible for the `Count` property in an `Until` action. |
 
 <a name="variables"></a>
 
@@ -243,47 +253,61 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` array items | Sets the maximum number of items in a variable with the Array type. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateful workflow. |
 | `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateless workflow. |
-||||
-
-<a name="recurrence-triggers"></a>
-
-### Recurrence-based triggers
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Microsoft.Azure.Workflows.ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `1` KB | Sets the trigger state's maximum allowed size for recurrence-based triggers such as the built-in SFTP trigger. The trigger state persists data across multiple service provider recurrence-based triggers. <br><br>**Important**: Based on your storage size, avoid setting this value too high, which can adversely affect storage and performance. |
-||||
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateful workflow. |
 
 <a name="http-operations"></a>
 
-### HTTP operations
+### Built-in HTTP operations
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for HTTP triggers and actions. |
-| `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryCount` | `4` retries | Sets the default retry count for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP triggers and actions. |
-||||
+| `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP triggers and actions. |
+| `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for HTTP triggers and actions. |
 
 <a name="http-webhook"></a>
 
-### HTTP Webhook operations
+### Built-in HTTP Webhook operations
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.Backend.HttpWebhookOperation.RequestTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for HTTP webhook triggers and actions. |
-| `Runtime.Backend.HttpWebhookOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryCount` | `4` retries | Sets the default retry count for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 hour) | Sets the default wake-up interval for HTTP webhook trigger and action jobs. |
-||||
+| `Runtime.Backend.HttpWebhookOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP webhook triggers and actions. |
+| `Runtime.Backend.HttpWebhookOperation.RequestTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for HTTP webhook triggers and actions. |
+
+<a name="built-in-storage"></a>
+
+### Built-in Azure Storage operations
+
+<a name="built-in-blob-storage"></a>
+
+#### Blob storage
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.ContentStorage.RequestOptionsDeltaBackoff` | `00:00:02` <br>(2 sec) | Sets the backoff interval between retries sent to blob storage. |
+| `Runtime.ContentStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
+| `Runtime.ContentStorage.RequestOptionsMaximumExecutionTime` | `00:02:00` <br>(2 min) | Sets the operation timeout value, including retries, for blob requests from the Azure Logic Apps runtime. |
+| `Runtime.ContentStorage.RequestOptionsServerTimeout` | `00:00:30` <br>(30 sec) | Sets the timeout value for blob requests from the Azure Logic Apps runtime. |
+
+<a name="built-in-table-queue-storage"></a>
+
+#### Table and queue storage
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.DataStorage.RequestOptionsDeltaBackoff` | `00:00:02` <br>(2 sec) | Sets the backoff interval between retries sent to table and queue storage. |
+| `Runtime.DataStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
+| `Runtime.DataStorage.RequestOptionsMaximumExecutionTime` | `00:00:45` <br>(45 sec) | Sets the operation timeout value, including retries, for table and queue storage requests from the Azure Logic Apps runtime. |
+| `Runtime.DataStorage.RequestOptionsServerTimeout` | `00:00:16` <br>(16 sec) | Sets the timeout value for table and queue storage requests from the Azure Logic Apps runtime. |
 
 <a name="built-in-azure-functions"></a>
 
@@ -297,9 +321,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.FunctionOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for Azure Functions actions. |
-||||
 
-<a name="built-in-service-bus"></a>
+<a name="built-in-azure-service-bus"></a>
 
 ### Built-in Azure Service Bus operations
 
@@ -307,11 +330,10 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 |---------|---------------|-------------|
 | `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Sets the timeout for sending messages with the built-in Service Bus operation. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` message senders | Sets the number of Azure Service Bus message senders per processor core to use in the message sender pool. |
-||||
 
 <a name="managed-api-connector"></a>
 
-### Managed API connector operations
+### Managed connector operations
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
@@ -322,43 +344,6 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.ApiWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 day) | Sets the maximum retry interval for managed API connector webhook triggers and actions. |
 | `Runtime.Backend.ApiConnectionOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for managed API connector triggers and actions. |
 | `Runtime.Backend.ApiWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 day) | Sets the default wake-up interval for managed API connector webhook trigger and action jobs. |
-||||
-
-<a name="blob-storage"></a>
-
-### Blob storage
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Runtime.ContentStorage.RequestOptionsServerTimeout` | `00:00:30` <br>(30 sec) | Sets the timeout value for blob requests from the Azure Logic Apps runtime. |
-| `Runtime.DataStorage.RequestOptionsMaximumExecutionTime` | `00:02:00` <br>(2 min) | Sets the operation timeout value, including retries, for table and queue storage requests from the Azure Logic Apps runtime. |
-| `Runtime.ContentStorage.RequestOptionsDeltaBackoff` | `00:00:02` <br>(2 sec) | Sets the backoff interval between retries sent to blob storage. |
-| `Runtime.ContentStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
-||||
-
-<a name="store-inline-or-blob"></a>
-
-### Store content inline or use blobs
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Runtime.FlowRunEngine.ForeachMaximumItemsForContentInlining` | `20` items | When a `For each` loop is running, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline with other metadata. |
-| `Runtime.FlowRunRetryableActionJobCallback.MaximumPagesForContentInlining` | `20` pages | Sets the maximum number of pages to store as inline content in table storage before storing in blob storage. |
-| `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When the `SplitOn` setting debatches array items into multiple workflow instances, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
-| `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `8192` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
-||||
-
-<a name="table-queue-storage"></a>
-
-### Table and queue storage
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Runtime.DataStorage.RequestOptionsServerTimeout` | `00:00:16` <br>(16 sec) | Sets the timeout value for table and queue storage requests from the Azure Logic Apps runtime. |
-| `Runtime.DataStorage.RequestOptionsMaximumExecutionTime` | `00:00:45` <br>(45 sec) | Sets the operation timeout value, including retries, for table and queue storage requests from the Azure Logic Apps runtime. |
-| `Runtime.DataStorage.RequestOptionsDeltaBackoff` | `00:00:02` <br>(2 sec) | Sets the backoff interval between retries sent to table and queue storage. |
-| `Runtime.DataStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
-||||
 
 <a name="retry-policy"></a>
 
@@ -370,62 +355,12 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.Operation.MaximumRetryCount` | `90` retries | Sets the maximum number of retries in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MaximumRetryInterval` | `01:00:00:01` <br>(1 day and 1 sec) | Sets the maximum interval in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MinimumRetryInterval` | `00:00:05` <br>(5 sec) | Sets the minimum interval in the retry policy definition for a workflow operation. |
-||||
 
 <a name="manage-host-settings"></a>
 
 ## Manage host settings - host.json
 
 You can add, update, or delete host settings, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, such as default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*. For host settings specific to logic apps, review the [reference guide for available runtime and deployment settings - host.json](#reference-host-json).
-
-### Visual Studio Code - host.json
-
-To review the host settings for your logic app in Visual Studio Code, follow these steps:
-
-1. In your logic app project, at the root project level, find and open the **host.json** file.
-
-1. In the `extensions` object, under `workflows` and `settings`, review any host settings that were previously added for your logic app. Otherwise, the `extensions` object won't appear in the file.
-
-   For more information about host settings, review the [reference guide for available host settings - host.json](#reference-host-json).
-
-To add a host setting, follow these steps:
-
-1. In the **host.json** file, under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
-
-   ```json
-   {
-      "version": "2.0",
-      "extensionBundle": {
-         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-         "version": "[1.*, 2.0.0)"
-      },
-      "extensions": {
-         "workflow": {
-            "settings": {
-            }
-         }
-      }
-   }
-   ```
-
-1. In the `settings` object, add a flat list with the host settings that you want to use for all the workflows in your logic app, whether those workflows run locally or in Azure, for example:
-
-   ```json
-   {
-      "version": "2.0",
-      "extensionBundle": {
-         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-         "version": "[1.*, 2.0.0)"
-      },
-      "extensions": {
-         "workflow": {
-            "settings": {
-               "Runtime.Trigger.MaximumWaitingRuns": "100"
-            }
-         }
-      }
-   }
-   ```
 
 ### Azure portal - host.json
 
@@ -508,6 +443,55 @@ To add a setting, follow these steps:
 1. When you're done, remember to select **Save**.
 
 1. Now, restart your logic app. Return to your logic app's **Overview** page, and select **Restart**.
+
+### Visual Studio Code - host.json
+
+To review the host settings for your logic app in Visual Studio Code, follow these steps:
+
+1. In your logic app project, at the root project level, find and open the **host.json** file.
+
+1. In the `extensions` object, under `workflows` and `settings`, review any host settings that were previously added for your logic app. Otherwise, the `extensions` object won't appear in the file.
+
+   For more information about host settings, review the [reference guide for available host settings - host.json](#reference-host-json).
+
+To add a host setting, follow these steps:
+
+1. In the **host.json** file, under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
+
+   ```json
+   {
+      "version": "2.0",
+      "extensionBundle": {
+         "id": "Microsoft.Azure.Functions.ExtensionBundle",
+         "version": "[1.*, 2.0.0)"
+      },
+      "extensions": {
+         "workflow": {
+            "settings": {
+            }
+         }
+      }
+   }
+   ```
+
+1. In the `settings` object, add a flat list with the host settings that you want to use for all the workflows in your logic app, whether those workflows run locally or in Azure, for example:
+
+   ```json
+   {
+      "version": "2.0",
+      "extensionBundle": {
+         "id": "Microsoft.Azure.Functions.ExtensionBundle",
+         "version": "[1.*, 2.0.0)"
+      },
+      "extensions": {
+         "workflow": {
+            "settings": {
+               "Runtime.Trigger.MaximumWaitingRuns": "100"
+            }
+         }
+      }
+   }
+   ```
 
 ---
 

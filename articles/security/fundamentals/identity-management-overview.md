@@ -178,7 +178,7 @@ Microsoft’s identity solutions span on-premises and cloud-based capabilities, 
 Learn more:
 
 * [Hybrid identity white paper](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
-* [Azure Active Directory](/azure/active-directory/)
+* [Azure Active Directory](../../active-directory/index.yml)
 * [Azure AD team blog](https://blogs.technet.microsoft.com/ad/)
 
 ## Azure AD access reviews

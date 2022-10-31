@@ -72,4 +72,4 @@ To raise the limit or quota above the default limit, [open an online customer su
 ## Next steps
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
-- Learn how to [configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

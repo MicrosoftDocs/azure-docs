@@ -38,7 +38,7 @@ This article uses the Data Science virtual machine images available on the Azure
 | Lab settings | Value |
 | ------------ | ------------------ |
 | Virtual machine size | Select **Small** or **Medium** for a basic setup accessing Jupyter Notebooks. Select **Small GPU (Compute)** for compute-intensive and network-intensive applications used in Artificial Intelligence and Deep Learning classes. |
-| Virtual machine image | Choose **[Data Science Virtual Machine – Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)** or **[Data Science Virtual Machine – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)** depending on your OS needs. |
+| Virtual machine image | Choose **[Data Science Virtual Machine – Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)** or **[Data Science Virtual Machine – Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux)** depending on your OS needs. |
 | Template virtual machine settings | Select **Use virtual machine without customization.**.
 
 When you create a lab with the **Small GPU (Compute)** size, you can [install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).  This option installs recent NVIDIA drivers and Compute Unified Device Architecture (CUDA) toolkit, which is required to enable high-performance computing with the GPU.  For more information, see the article [Set up a lab with GPU virtual machines](./how-to-setup-lab-gpu.md).
@@ -109,7 +109,7 @@ physical_device_desc: "device: 0, name: NVIDIA Tesla K80, pci bus id: 0001:00:00
 
 ### Provide notebooks for the class
 
-The next task is to provide students with notebooks that you want them to use. Notebooks can be saved locally on the template VM so each student has their own copy.  If you want to use sample notebooks from Azure Machine Learning, see [how to configure an environment with Jupyter Notebooks](../machine-learning/how-to-configure-environment.md#jupyter).
+The next task is to provide students with notebooks that you want them to use. Notebooks can be saved locally on the template VM so each student has their own copy.  If you want to use sample notebooks from Azure Machine Learning, see [how to configure an environment with Jupyter Notebooks](../machine-learning/how-to-configure-environment.md#jupyter-notebooks).
 
 ### Publish the template machine
 

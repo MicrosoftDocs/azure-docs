@@ -260,7 +260,7 @@ For the serverless SQL pool assessment, evaluate the following points.
 - Identify the number of queries that will be sent to the serverless SQL pool and the result set size of each query.
 
 > [!TIP]
-> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
+> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/training/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
 
 ### Spark pool assessment
 
@@ -296,7 +296,7 @@ For the Spark pool assessment, evaluate the following points.
 - Identify whether cluster customization is required.
 
 > [!TIP]
-> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
+> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/training/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
 
 ## Next steps
 

@@ -1,7 +1,5 @@
 - name: Azure Resiliency
   items:
-  - name: Azure Resiliency feature page
-    href: https://azure.microsoft.com/features/
   - name: Resiliency in Azure
     href: overview.md
   - name: Design resilient applications for Azure
@@ -18,6 +16,8 @@
     items:
     - name: API Management
       href: migrate-api-mgt.md
+    - name: App Configuration
+      href: migrate-app-configuration.md
     - name: App Service Environment
       href: migrate-app-service-environment.md
     - name: App Service
@@ -42,6 +42,8 @@
       href: migrate-storage.md
     - name: Virtual Machines and virtual machine scale sets
       href: migrate-vm.md
+    - name: Workload - Azure Kubernetes and MySQL
+      href: migrate-workload-aks-mysql.md
   - name: Terminology
     href: glossary.md
 - name: High Availability
@@ -141,6 +143,8 @@
     href: /azure/architecture/framework/
 - name: Resources
   items:
+  - name: Azure Resiliency feature page
+    href: https://azure.microsoft.com/en-us/explore/reliability/#overview
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Azure Regions

@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/06/2022
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, engagement-fy23
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
@@ -484,7 +484,7 @@ When you stop the debugging session for a workflow run that uses locally run web
 > [!NOTE]
 > After your workflow starts running, the terminal window might show errors like this example:
 >
-> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
+> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.'`
 >
 > In this case, open the **local.settings.json** file in your project's root folder, and make sure that the property is set to `true`:
 >

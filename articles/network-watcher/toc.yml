@@ -89,6 +89,14 @@
   items:
   - name: Configure Network Watcher
     href: network-watcher-create.md
+  - name: Connection Monitor using Azure Monitor agent
+    items: 
+    - name: Monitor connectivity using AMA
+      href: azure-monitor-agent-with-connection-monitor.md
+    - name: Install Azure connected machine agent
+      href: connection-monitor-connected-machine-agent.md
+    - name: Install Azure Monitor agent
+      href: connection-monitor-install-azure-monitor-agent.md
   - name: Create Connection Monitor
     items:
     - name: Using Azure portal

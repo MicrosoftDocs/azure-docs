@@ -35,7 +35,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Firewall
-            url: /learn/modules/introduction-azure-firewall/
+            url: /training/modules/introduction-azure-firewall/
       - linkListType: whats-new
         links:
           - text: What's new
@@ -70,6 +70,10 @@ landingContent:
             url: tutorial-hybrid-portal-policy.md
           - text: Filter inbound traffic
             url: tutorial-firewall-dnat-policy.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Firewall Basic
+            url: deploy-firewall-basic-portal-policy.md
 
   # Card
   - title: Integrate with Load Balancer

@@ -38,7 +38,7 @@ import urllib
 import time
 
 # Use generate_sas_token implementation available here:
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
+# https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -153,7 +153,7 @@ import uamqp
 import urllib
 import time
 
-# Use the generate_sas_token implementation that's available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
+# Use the generate_sas_token implementation that's available here: https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -233,7 +233,7 @@ import urllib
 import uuid
 
 # Use generate_sas_token implementation available here:
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
+# https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'

@@ -1,6 +1,6 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters file.
+description: Define the SAP system properties for the SAP on Azure Deployment Automation Framework using a parameters file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure SAP system parameters
 
-Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
+Configuration for the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
 
 The automation supports both creating resources (green field deployment) or using existing resources (brownfield deployment).
 
@@ -76,7 +76,7 @@ The table below contains the parameters that define the resource group.
 
 ## SAP Virtual Hostname parameters
 
-In the SAP deployment automation framework, the SAP virtual hostname is defined by specifying the `use_secondary_ips` parameter.
+In the SAP on Azure Deployment Automation Framework, the SAP virtual hostname is defined by specifying the `use_secondary_ips` parameter.
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -262,7 +262,7 @@ The table below defines the parameters used for defining the Key Vault informati
 
 ### Anchor virtual machine parameters
 
-The SAP deployment automation framework supports having an Anchor virtual machine. The anchor virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
+The SAP on Azure Deployment Automation Framework supports having an Anchor virtual machine. The anchor virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
 
 The table below contains the parameters related to the anchor virtual machine.
 
@@ -308,6 +308,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                       | Description                                                                     | Type        |
 > | ---------------------------------------------- | ------------------------------------------------------------------------------- | ----------- |
+> | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster using managed Identities           | Optional    |
 > | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
@@ -400,7 +401,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags.
 
-High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device)
+High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device)
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"

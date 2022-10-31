@@ -7,20 +7,21 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 10/10/2022
 ---
 
 # Authoring and publishing data owner access policies (Preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Access policies allow a data owner to delegate in Microsoft Purview access management to a data source. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source. This tutorial describes how to create, update, and publish access policies in the Microsoft Purview governance portal.
+[Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
+
+This guide describes how to create, update, and publish data owner policies in the Microsoft Purview governance portal.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
-## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+## Microsoft Purview configuration
 
 ### Data source configuration
 
@@ -28,12 +29,14 @@ Before authoring data policies in the Microsoft Purview governance portal, you'l
 
 1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
 1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](microsoft-purview-connector-overview.md) for your resources.
-1. [Enable the Data use management toggle on the data source](how-to-enable-data-use-management.md#enable-data-use-management). Additional permissions for this step are described in the linked document.
+1. Enable the Data use management option on the data source. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
+
+ 
 
 ## Create a new policy
 
 This section describes the steps to create a new policy in Microsoft Purview.
-Ensure you have the *Policy Author* permission as described [here](#permissions-for-policy-authoring-and-publishing).
+Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-or-update-access-policies).
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -65,7 +68,7 @@ Ensure you have the *Policy Author* permission as described [here](#permissions-
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-asset.png" alt-text="Screenshot showing data owner can select the asset when creating or editing a policy statement.":::
 
-1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
+1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Note that Microsoft 365 groups are not supported. Then select the **OK** button. This will take you back to the policy editor.
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-subject.png" alt-text="Screenshot showing data owner can select the subject when creating or editing a policy statement.":::
 
@@ -78,7 +81,7 @@ Now that you have created your policy, you will need to publish it for it to bec
 ## Publish a policy
 A newly created policy is in the **draft** state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
 
-Ensure you have the *Data Source Admin* permission as described [here](#permissions-for-policy-authoring-and-publishing)
+Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-publish-data-owner-policies)
 
 The steps to publish a policy are as follows:
 
@@ -102,7 +105,7 @@ The steps to publish a policy are as follows:
 ## Update or delete a policy
 
 Steps to update or delete a policy in Microsoft Purview are as follows.
-Ensure you have the *Policy Author* permission as described [here](#permissions-for-policy-authoring-and-publishing)
+Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-or-update-access-policies)
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 

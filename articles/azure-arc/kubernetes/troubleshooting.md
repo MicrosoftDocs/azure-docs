@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 06/13/2022
+ms.date: 10/24/2022
 ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
@@ -182,7 +182,7 @@ To resolve this issue, try the following steps.
    name: kube-aad-proxy-certificate
    ```
 
-   If the certificate is missing, please contact support.
+   If the certificate is missing, [delete the deployment](quickstart-connect-cluster.md#clean-up-resources) and re-onboard with a different name for the cluster. If the problem continues, please contact support.
 
 ### Helm validation error
 
@@ -247,7 +247,7 @@ az extension add --name k8s-configuration
 > [!NOTE]
 > Eventually Azure will stop supporting GitOps with Flux v1, so begin using [Flux v2](./tutorial-use-gitops-flux2.md) as soon as possible.
 
-To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
 
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
@@ -304,7 +304,7 @@ metadata:
 
 ### Flux v2 - General
 
-To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these Azure CLI commands with the `--debug` parameter specified:
 
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
@@ -420,6 +420,14 @@ metadata:
 spec:
   podLabels:
     app.kubernetes.io/name: flux-extension
+```
+
+### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Kubelet Identity enabled
+
+When working with Azure Kubernetes clusters, one of the authentication options to use is kubelet identity. In order to let Flux use this, add a parameter --config useKubeletIdentity=true at the time of Flux extension installation.
+
+```console
+az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
 ```
 
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits

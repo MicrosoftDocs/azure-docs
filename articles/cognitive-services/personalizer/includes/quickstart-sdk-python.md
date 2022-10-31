@@ -235,7 +235,7 @@ def get_random_users(k = 5):
     return random.choices(list(user_profiles.keys()), k=k)
 ```
 
-The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance
+The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance.
 
 
 ## Define a reward score based on user behavior
@@ -349,5 +349,28 @@ Once all the above code is included in your Python file, you can run it from you
 ```console
 python personalizer_quickstart.py
 ```
+
+## Generate sample events for analysis (Optional)
+
+You can easily generate 5,000 events from this quickstart demo scenario, which is sufficient to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace this code from above: 
+
+```python
+continue_loop = True
+while continue_loop:
+    run_personalizer_cycle()
+    
+    br = input("Press Q to exit, or any other key to run another loop: ")
+    if(br.lower()=='q'):
+        continue_loop = False
+```
+
+with the following:
+
+```python
+for i in range(0,1000):
+    run_personalizer_cycle()
+```
+
+then run the program.
 
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/quickstart/quickstart-program-feedback-cycle-example.png)

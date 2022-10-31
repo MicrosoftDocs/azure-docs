@@ -23,7 +23,9 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
-        - name: Python
+        - name: Python provider
+          href: quickstart-python-provider.md
+        - name: Python SDK
           href: quickstart-python.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
@@ -135,6 +137,12 @@
       href: concept-soft-delete.md
     - name: Geo-replication 
       href: concept-geo-replication.md
+    - name: Reliability
+      items:
+        - name: Availability zone support
+          href: ../availability-zones/migrate-app-configuration.md
+        - name: Resiliency and disaster recovery
+          href: concept-disaster-recovery.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
@@ -151,10 +159,6 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
-    - name: High availability
-      items:
-        - name: Resiliency and disaster recovery
-          href: concept-disaster-recovery.md
 - name: How-to guides
   items:
     - name: Use labels for per-environment configuration
@@ -191,6 +195,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Java Spring provider
           href: https://go.microsoft.com/fwlink/?linkid=2180917
+        - name: Python provider
+          href: https://pypi.org/project/azure-appconfiguration-provider/
         - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Azure SDK for Java
@@ -205,6 +211,8 @@
           href: /dotnet/api/microsoft.featuremanagement
         - name: .NET built-in feature filters
           href: /dotnet/api/microsoft.featuremanagement.featurefilters
+        - name: Java Spring
+          href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Control plane
       items:
         - name: REST API
@@ -265,7 +273,7 @@
                 href: ./rest-api-postman.md
         - name: Azure CLI
           href: /cli/azure/appconfig
-    - name: Bicep & ARM template
+    - name: Deployment
       href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions

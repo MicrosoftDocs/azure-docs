@@ -15,6 +15,9 @@ ms.author: egeaney
 
 # Language Understanding service encryption of data at rest
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The Language Understanding service automatically encrypts your data when it is persisted to the cloud. The Language Understanding service encryption protects your data and helps you meet your organizational security and compliance commitments.
 
 ## About Cognitive Services encryption

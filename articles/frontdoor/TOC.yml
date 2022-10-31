@@ -37,6 +37,8 @@
         href: create-front-door-bicep.md
       - name: Create a Front Door - ARM template
         href: create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        href: create-front-door-terraform.md
     - name: Classic
       items:
       - name: Create a Front Door - Portal
@@ -51,6 +53,9 @@
       - name: Create a Front Door - ARM Template
         displayName: Resource Manager
         href: quickstart-create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        displayName: Terraform
+        href: quickstart-create-front-door-terraform.md
   - name: CDN
     items: 
     - name: Microsoft (classic)
@@ -208,6 +213,8 @@
         href: web-application-firewall.md
       - name: Geo-filtering
         href: ../web-application-firewall/afds/waf-front-door-geo-filtering.md?toc=/azure/frontdoor/toc.json
+      - name: Secure traffic to origins
+        href: origin-security.md
     - name: Protocol
       items:
       - name: HTTP/2
@@ -251,7 +258,13 @@
         - name: Rules Engine
           href: standard-premium/how-to-configure-rule-set.md
         - name: Purge cache
-          href: standard-premium/how-to-cache-purge.md
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-cache-purge.md
+          - name: Azure PowerShell
+            href: standard-premium/how-to-cache-purge-powershell.md
+          - name: Azure CLI
+            href: standard-premium/how-to-cache-purge-cli.md
         - name: Compression
           href: standard-premium/how-to-compression.md
       - name: Enable Private Link to secure origins
@@ -259,9 +272,17 @@
         - name: Connect to an internal load balancer
           href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
         - name: Connect to a storage account
-          href: standard-premium/how-to-enable-private-link-storage-account.md
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-enable-private-link-storage-account.md
+          - name: Azure CLI
+            href: standard-premium/how-to-enable-private-link-storage-account-cli.md
         - name: Connect to an App service
-          href: standard-premium/how-to-enable-private-link-web-app.md
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-enable-private-link-web-app.md
+          - name: Azure CLI
+            href: standard-premium/how-to-enable-private-link-web-app-cli.md
       - name: Monitor and Reports
         items:
         - name: Configure diagnostic

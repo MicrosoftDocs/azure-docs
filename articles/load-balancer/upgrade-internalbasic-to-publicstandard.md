@@ -11,6 +11,9 @@ ms.author: mbender
 
 # Upgrade an internal basic load balancer - Outbound connections required
 
+>[!Important]
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
+
 A standard [Azure Load Balancer](load-balancer-overview.md) offers increased functionality and high availability through zone redundancy. For more information about Azure Load Balancer SKUs, see [Azure Load Balancer SKUs](./skus.md#skus). A standard internal Azure Load Balancer doesn't provide outbound connectivity. The PowerShell script in this article, migrates the basic load balancer configuration to a standard public load balancer.
 
 There are four stages in the upgrade:
@@ -43,7 +46,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
 
-* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](./update-load-balancer-with-vm-scale-set.md) to complete the migration.
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. For this type of upgrade, see [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md) for instructions and more information.
 
 ## Download the script
 

@@ -6,6 +6,12 @@ items:
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
+- name: Release notes
+  items:
+  - name: 2209 - Current
+    href: azure-private-5g-core-release-notes-2209.md
+  - name: 2208 
+    href: azure-private-5g-core-release-notes-2208.md
 - name: Quickstarts
   items:
   - name: Deploy a private mobile network and site - ARM template
@@ -18,6 +24,8 @@ items:
   items:
   - name: Key components of a private mobile network
     href: key-components-of-a-private-mobile-network.md
+  - name: Private mobile network design requirements
+    href: private-mobile-network-design-requirements.md
   - name: Statement of compliance
     href: statement-of-compliance.md
   - name: Policy control

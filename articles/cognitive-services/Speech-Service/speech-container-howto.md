@@ -25,10 +25,10 @@ With Speech containers, you can build a speech application architecture that's o
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.5.0 | Generally available |
-| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.5.0 | Generally available |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.7.0 | Generally available |
+| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.7.0 | Generally available |
 | Speech language identification | Detects the language spoken in audio files. | 1.5.0 | Preview |
-| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.4.0 | Generally available |
+| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.6.0 | Generally available |
 
 ## Prerequisites
 
@@ -219,9 +219,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ## Run the container in disconnected environments
 
-Starting in container version 3.0.0, select customers can run speech-to-text containers in an environment without internet accessibility. For more information, see [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md).
+You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
-Starting in container version 2.0.0, select customers can run neural-text-to-speech containers in an environment without internet accessibility. For more information, see [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md).
+> [!NOTE]
+> For general container requirements, see [Container requirements and recommendations](#container-requirements-and-recommendations).
 
 # [Speech-to-text](#tab/stt)
 
@@ -276,7 +277,7 @@ Diarization is enabled by default. To get diarization in your response, use `dia
 
 Starting in v2.6.0 of the speech-to-text container, you should use Language service 3.0 API endpoint instead of the preview one. For example:
 
-* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+* `https://eastus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
 
 > [!NOTE]
@@ -284,7 +285,7 @@ Starting in v2.6.0 of the speech-to-text container, you should use Language serv
 
 Starting in v2.2.0 of the speech-to-text container, you can call the [sentiment analysis v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) on the output. To call sentiment analysis, you'll need a Language service API resource endpoint. For example:
 
-* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
+* `https://eastus.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
 If you're accessing a Language service endpoint in the cloud, you'll need a key. If you're running Language service features locally, you might not need to provide this.

@@ -89,7 +89,7 @@ The Azure Monitor service manages your cloud-based data securely by using the fo
 
 ### Azure Backup
 
-[Azure Backup](/azure/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
+[Azure Backup](../../backup/index.yml) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 
