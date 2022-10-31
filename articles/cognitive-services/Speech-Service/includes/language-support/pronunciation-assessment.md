@@ -21,6 +21,6 @@ ms.author: eur
 |Spanish (Spain)|`es-ES`<sup>1</sup> | West Europe    |
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> | Southeast Asia  |
 
-<sup>1</sup> Languages in public preview are only available in specified regions.
+<sup>1</sup> The language is in public preview for pronunciation assessment.
 
-<sup>2</sup> Languages are generally available in all [Speech-to-text regions](../../regions.md#speech-service).
+<sup>2</sup> The language is generally available in all [Speech-to-text regions](../../regions.md#speech-service).
