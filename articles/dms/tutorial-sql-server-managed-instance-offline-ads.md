@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline by using Azure Data Studio"
+title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to Azure SQL Managed Instance offline by using Azure Data Studio and Azure Database Migration Service.
 services: dms
@@ -88,7 +88,7 @@ Before you begin the tutorial:
 
 - If you use a self-hosted integration runtime, make sure that the computer on which the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located.
 
-- Outbound port 445 should be enabled to allow access to the network file share. For more information, see [recommendations for using a self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations).
+- Outbound port 445 should be enabled to allow access to the network file share. For more information, see [recommendations for using a self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-a-self-hosted-integration-runtime-for-database-migrations).
 
 - If you're using Database Migration Service for the first time, make sure that the Microsoft.DataMigration resource provider is registered in your subscription. You can complete the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
