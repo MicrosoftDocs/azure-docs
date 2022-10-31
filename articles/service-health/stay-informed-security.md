@@ -14,13 +14,13 @@ This article shows you where Azure customers receive Azure security notification
 ## View and manage Azure security notifications 
 
 
-#### Security Issues affecting your Azure subscription workloads
+### Security Issues affecting your Azure subscription workloads
 
 You receive security-related notifications affecting your Azure **subscription** workloads in two ways: 
 
 **1. Security Advisory in [Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/)**
 
-Service health notifications are published by Azure and contain information about the resources under your subscription. You can review these security advisories in the Service Health experience in the Azure Portal and get notified about security advisories via your preferred channel by setting up Service Health alerts for this type of notification. You can create [Activity Log alerts](../service-health/alerts-activity-log-service-notifications-portal.md) on Service notifications by using the Azure Portal.
+Service health notifications are published by Azure and contain information about the resources under your subscription. You can review these security advisories in the Service Health experience in the Azure portal and get notified about security advisories via your preferred channel by setting up Service Health alerts for this type of notification. You can create [Activity Log alerts](../service-health/alerts-activity-log-service-notifications-portal.md) on Service notifications by using the Azure portal.
 
 >[!Note]
 >Depending on your requirements, you can configure various alerts to use the same [action group](../azure-monitor/alerts/action-groups.md) or different action groups. Action group types include sending a voice call, SMS, or email. You can also trigger various types of automated actions. For detailed information about notification and action types, see [Action-specific information](../azure-monitor/alerts/action-groups.md#action-specific-information). 
@@ -32,7 +32,7 @@ If a security issue   requires direct action taken by subscription admins/owners
 >[!Note]
 >You should ensure that there is a **contactable email address** as the [subscription administrator or subscription owner](../cost-management-billing/manage/add-change-subscription-administrator.md). This email address is used for security issues that would have impact at the subscription level.
 
-#### Security Issues affecting your Azure tenant workloads
+### Security Issues affecting your Azure tenant workloads
 
 We typically communicate security-related information affecting your Azure **tenant** workloads via **Email Notification**. We send an email notification to Global admin and Technical Contacts
 
