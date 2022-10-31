@@ -1,5 +1,5 @@
 ---
-title: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule
+title: Send events from Azure Event Hubs to Azure Monitor Logs
 description: Ingest logs from Event Hubs into Azure Monitor Logs 
 services: azure-monitor
 author: guywi-ms
