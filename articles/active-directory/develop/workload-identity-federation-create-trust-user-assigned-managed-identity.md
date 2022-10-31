@@ -19,7 +19,7 @@ zone_pivot_groups: identity-wif-mi-methods
 
 # Configure a user-assigned managed identity to trust an external identity provider (preview)
 
-This article describes how to manage a federated identity credential on a user-assigned managed identity in Azure Active Directory (Azure AD).  The federated identity credential creates a trust relationship between a user-assigned managed identity and an external identity provider (IdP).  Configuring a federated identity credential on a system-assigned managed identity is not supported.
+This article describes how to manage a federated identity credential on a user-assigned managed identity in Azure Active Directory (Azure AD).  The federated identity credential creates a trust relationship between a user-assigned managed identity and an external identity provider (IdP).  Configuring a federated identity credential on a system-assigned managed identity isn't supported.
 
 After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload uses the access token to access Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  
 
@@ -50,13 +50,27 @@ In the **Federated credential scenario** dropdown box, select your scenario.
 
 ### GitHub Actions deploying Azure resources
 
-For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on).  For more info, read the [examples](#entity-type-examples).
+To add a federated identity for GitHub actions, follow these steps:
 
-Add a **Name** for the federated credential.
+1. For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on).  For more info, read the [examples](#entity-type-examples).
 
-The **Issuer**, **Audiences**, and **Subject identifier** fields autopopulate based on the values you entered.
+1. Add a **Name** for the federated credential.
 
-Click **Add** to configure the federated credential.
+1. The **Issuer**, **Audiences**, and **Subject identifier** fields autopopulate based on the values you entered.
+
+1. Select **Add** to configure the federated credential.
+
+Use the following values from your Azure AD Managed Identity for your GitHub workflow:
+
+- `AZURE_CLIENT_ID` the managed identity **Client ID**
+
+- `AZURE_SUBSCRIPTION_ID` the **Subscription ID**. 
+
+    The following screenshot demonstrates how to copy the managed identity ID and subscription ID.
+
+    ![Screenshot that demonstrates how to copy the managed identity ID and subscription ID from Azure portal.](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png)
+
+- `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Azure Active Directory tenant ID](../fundamentals/active-directory-how-to-find-tenant.md).
 
 #### Entity type examples
 
@@ -128,7 +142,7 @@ Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and
 - **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which can't be changed later.
 
-Click **Add** to configure the federated credential.
+Select **Add** to configure the federated credential.
 
 ### Other
 
@@ -140,7 +154,7 @@ Specify the following fields (using a software workload running in Google Cloud 
 - **Subject identifier**: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
 - **Issuer**: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. For Google Cloud, the *issuer* is "https://accounts.google.com".
 
-Click **Add** to configure the federated credential.
+Select **Add** to configure the federated credential.
 
 ## List federated identity credentials on a user-assigned managed identity
 
@@ -356,11 +370,11 @@ Federated identity credential and parent user assigned identity can be created o
 
 All of the template parameters are mandatory.
 
-There is a limit of 3-120 characters for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
+There's a limit of 3-120 characters for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
 
-You must add exactly 1 audience to a federated identity credential. The audience is verified during token exchange. Use “api://AzureADTokenExchange” as the default value.
+You must add exactly one audience to a federated identity credential. The audience is verified during token exchange. Use “api://AzureADTokenExchange” as the default value.
 
-List, Get, and Delete operations are not available with template. Refer to Azure CLI for these operations.  By default, all child federated identity credentials are created in parallel, which triggers concurrency detection logic and causes the deployment to fail with a 409-conflict HTTP status code. To create them sequentially, specify a chain of dependencies using the *dependsOn* property.
+List, Get, and Delete operations aren't available with template. Refer to Azure CLI for these operations.  By default, all child federated identity credentials are created in parallel, which triggers concurrency detection logic and causes the deployment to fail with a 409-conflict HTTP status code. To create them sequentially, specify a chain of dependencies using the *dependsOn* property.
 
 Make sure that any kind of automation creates federated identity credentials under the same parent identity sequentially. Federated identity credentials under different managed identities can be created in parallel without any restrictions.
 
