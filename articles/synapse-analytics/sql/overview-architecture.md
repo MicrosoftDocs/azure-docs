@@ -13,7 +13,7 @@ ms.reviewer: wiassaf
 
 # Azure Synapse SQL architecture
 
-This article describes the architecture components of Synapse SQL.
+This article describes the architecture components of Synapse SQL. It also explains how Azure Synapse SQL combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.
 
 ## Synapse SQL architecture components
 
