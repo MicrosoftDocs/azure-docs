@@ -36,9 +36,9 @@ This tutorial shows you how to:
 
 ## Assign a role to your Azure AD user
 
-When developing locally, make sure that the user account that is accessing the key vault has the correct permissions. You'll need the [Key Vault Crypto Officer role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-officer) to create a key and perform actions on keys in a key vault. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../articles/role-based-access-control/scope-overview.md) page.
+When developing locally, make sure that the user account that is accessing the key vault has the correct permissions. You'll need the [Key Vault Crypto Officer role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-officer) to create a key and perform actions on keys in a key vault. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
 
-In this scenario, you'll assign permissions to your user account, scoped to the key vault, to follow the [Principle of Least Privilege](../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
+In this scenario, you'll assign permissions to your user account, scoped to the key vault, to follow the [Principle of Least Privilege](../../../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
 The following example shows how to assign the **Key Vault Crypto Officer** role to your user account, which provides the access you'll need to complete this tutorial.
 
@@ -55,7 +55,7 @@ The following example shows how to assign the **Key Vault Crypto Officer** role 
 
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-    :::image type="content" source="./media/storage-blob-encrypt-keyvault/assign-role-kv.png" lightbox="./media/storage-blob-encrypt-keyvault/assign-role-kv.png" alt-text="A screenshot showing how to assign a role in Azure portal.":::
+    :::image type="content" source="./media/storage-blob-encryption-keyvault/assign-role-kv.png" lightbox="./media/storage-blob-encryption-keyvault/assign-role-kv.png" alt-text="A screenshot showing how to assign a role in Azure portal.":::
 
 5. Use the search box to filter the results to the desired role. For this example, search for *Key Vault Crypto Officer* and select the matching result and then choose **Next**.
 
@@ -178,7 +178,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 In this example, we create a key and add it to the key vault using the Azure Key Vault client library. You can also create and add a key to a key vault using [Azure CLI](/azure/key-vault/keys/quick-create-cli#add-a-key-to-key-vault), [Azure portal](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault), or [PowerShell](/azure/key-vault/keys/quick-create-powershell#add-a-key-to-key-vault).
 
-In the sample below, we create a [KeyClient](/dotnet/api/azure.security.keyvault.keys.keyclient?view=azure-dotnet) object for the specified vault. The `KeyClient` object is then used to create a new RSA key in the specified vault.
+In the sample below, we create a [KeyClient](/dotnet/api/azure.security.keyvault.keys.keyclient) object for the specified vault. The `KeyClient` object is then used to create a new RSA key in the specified vault.
 
 ```csharp
 var keyName = "testRSAKey";
@@ -198,7 +198,7 @@ var key = await keyClient.CreateKeyAsync(keyName, KeyType.Rsa);
 
 ## Create key and key resolver instances
 
-Next, we'll use the key we just added to the vault to create the cryptography client and key resolver instances. [CryptographyClient](/dotnet/api/azure.security.keyvault.keys.cryptography.cryptographyclient?view=azure-dotnet-preview) implements [IKeyEncryptionKey](/dotnet/api/azure.core.cryptography.ikeyencryptionkey?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) and is used to perform cryptographic operations with keys stored in Azure Key Vault. [KeyResolver](/dotnet/api/azure.security.keyvault.keys.cryptography.keyresolver?view=azure-dotnet)  implements [IKeyEncryptionResolver](/dotnet/api/azure.core.cryptography.ikeyencryptionkeyresolver?view=azure-dotnet) and retrieves key encryption keys from the key identifier and resolves the key.
+Next, we'll use the key we just added to the vault to create the cryptography client and key resolver instances. [CryptographyClient](/dotnet/api/azure.security.keyvault.keys.cryptography.cryptographyclient) implements [IKeyEncryptionKey](/dotnet/api/azure.core.cryptography.ikeyencryptionkey) and is used to perform cryptographic operations with keys stored in Azure Key Vault. [KeyResolver](/dotnet/api/azure.security.keyvault.keys.cryptography.keyresolver)  implements [IKeyEncryptionResolver](/dotnet/api/azure.core.cryptography.ikeyencryptionkeyresolver) and retrieves key encryption keys from the key identifier and resolves the key.
 ```csharp
 // Cryptography client and key resolver instances using Azure Key Vault client library
 CryptographyClient cryptoClient = keyClient.GetCryptographyClient(key.Value.Name, key.Value.Properties.Version);
@@ -215,7 +215,7 @@ CryptographyClient cryptoClient = new CryptographyClient(new Uri(keyVaultKeyUri)
 
 Now we need to configure the encryption options to be used for blob upload and download. To use client-side encryption, we first create a `ClientSideEncryptionOptions` object and set it on client creation with `SpecializedBlobClientOptions`. 
 
- The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions?view=azure-dotnet) class provides the client configuration options for connecting to blob storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey?view=azure-dotnet) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver?view=azure-dotnet) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm]() is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
+ The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions) class provides the client configuration options for connecting to blob storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm]() is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
 
 > [!IMPORTANT]
 >Due to a security vulnerability in version 1, it's recommended to construct the `ClientSideEncryptionOptions` object using `ClientSideEncryptionVersion.V2_0` for the version parameter.For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).
