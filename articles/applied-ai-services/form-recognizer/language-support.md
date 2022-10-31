@@ -7,11 +7,17 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
 ---
 
 # Language support for Form Recognizer
+
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-3.0.0"
 
 This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Both groups are mutually exclusive.
 
@@ -29,7 +35,7 @@ The following lists include the currently GA languages in the most recent v3.0 v
 
 To use the v3.0-supported languages, refer to the [v3.0 REST API migration guide](v3-migration-guide.md) to understand the differences from the v2.1 GA API and explore the [v3.0 SDK and REST API quickstarts](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true).
 
-### Handwritten text (V3.0 GA)
+### Handwritten text
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -41,7 +47,7 @@ The following table lists the supported languages for extracting handwritten tex
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
 
-### Print text (v3.0 GA)
+### Print text
 
 The following table lists the supported languages for print text by the most recent GA version.
 
@@ -49,29 +55,29 @@ The following table lists the supported languages for print text by the most rec
 |:-----|:----:|:-----|:----:|
 |Afrikaans|`af`|Khasi  | `kha` |
 |Albanian |`sq`|K'iche'  | `quc` |
-|Angika (Devanagiri) | `anp`| Korean | `ko` |
+|Angika (Devanagari) | `anp`| Korean | `ko` |
 |Arabic | `ar` | Korku | `kfq`|
 |Asturian |`ast`| Koryak | `kpy`|
-|Awadhi-Hindi (Devanagiri) | `awa`| Kosraean | `kos`|
+|Awadhi-Hindi (Devanagari) | `awa`| Kosraean | `kos`|
 |Azerbaijani (Latin) | `az`| Kumyk (Cyrillic) | `kum`|
 |Bagheli | `bfy`| Kurdish (Arabic) | `ku-arab`|
 |Basque  |`eu`| Kurdish (Latin) | `ku-latn`
-|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Kurukh (Devanagiri) | `kru`|
+|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Kurukh (Devanagari) | `kru`|
 |Belarusian (Latin) | `be`, `be-latn`| Kyrgyz (Cyrillic)  | `ky`
-|Bhojpuri-Hindi (Devanagiri) | `bho`| Lakota | `lkt` |
+|Bhojpuri-Hindi (Devanagari) | `bho`| Lakota | `lkt` |
 |Bislama   |`bi`| Latin | `la` |
-|Bodo (Devanagiri) | `brx`| Lithuanian | `lt` |
+|Bodo (Devanagari) | `brx`| Lithuanian | `lt` |
 |Bosnian (Latin) | `bs`| Lower Sorbian | `dsb` |
 |Brajbha | `bra`|Lule Sami | `smj`|
 |Breton    |`br`|Luxembourgish  | `lb` |
-|Bulgarian  | `bg`|Mahasu Pahari (Devanagiri) | `bfz`|
+|Bulgarian  | `bg`|Mahasu Pahari (Devanagari) | `bfz`|
 |Bundeli | `bns`|Malay (Latin) | `ms` |
 |Buryat (Cyrillic) | `bua`|Maltese | `mt`
-|Catalan    |`ca`|Malto (Devanagiri) | `kmj`
+|Catalan    |`ca`|Malto (Devanagari) | `kmj`
 |Cebuano    |`ceb`|Manx  | `gv` |
 |Chamling | `rab`|Maori | `mi`|
 |Chamorro  |`ch`|Marathi | `mr`|
-|Chhattisgarhi (Devanagiri)| `hne`| Mongolian (Cyrillic)  | `mn`|
+|Chhattisgarhi (Devanagari)| `hne`| Mongolian (Cyrillic)  | `mn`|
 |Chinese Simplified | `zh-Hans`|Montenegrin (Cyrillic)  | `cnr-cyrl`|
 |Chinese Traditional | `zh-Hant`|Montenegrin (Latin) | `cnr-latn`|
 |Cornish     |`kw`|Neapolitan   | `nap` |
@@ -81,28 +87,28 @@ The following table lists the supported languages for print text by the most rec
 |Czech | `cs` |Northern Sami (Latin) | `sme`|
 |Danish | `da` |Norwegian | `no` |
 |Dari | `prs`|Occitan | `oc` |
-|Dhimal (Devanagiri) | `dhi`| Ossetic  | `os`|
-|Dogri (Devanagiri) | `doi`|Pashto | `ps`|
+|Dhimal (Devanagari) | `dhi`| Ossetic  | `os`|
+|Dogri (Devanagari) | `doi`|Pashto | `ps`|
 |Dutch | `nl` |Persian | `fa`|
 |English | `en` |Polish | `pl` |
 |Erzya (Cyrillic) | `myv`|Portuguese | `pt` |
 |Estonian  |`et`|Punjabi (Arabic) | `pa`|
 |Faroese | `fo`|Ripuarian | `ksh`|
-|Fijian |`fj`|Romanian | `ro` | 
+|Fijian |`fj`|Romanian | `ro` |
 |Filipino  |`fil`|Romansh  | `rm` |
-|Finnish | `fi` | Russian | `ru` | 
-|French | `fr` |Sadri  (Devanagiri) | `sck` | 
+|Finnish | `fi` | Russian | `ru` |
+|French | `fr` |Sadri  (Devanagari) | `sck` |
 |Friulian  | `fur` | Samoan (Latin) | `sm`
 |Gagauz (Latin) | `gag`|Sanskrit (Devanagari) | `sa`|
-|Galician   | `gl` |Santali(Devanagiri) | `sat` | 
-|German | `de` | Scots  | `sco` | 
-|Gilbertese    | `gil` | Scottish Gaelic  | `gd` | 
-|Gondi (Devanagiri) | `gon`| Serbian (Latin) | `sr`, `sr-latn`|
-|Greenlandic   | `kl` | Sherpa (Devanagiri) | `xsr` |
-|Gurung (Devanagiri) | `gvr`| Sirmauri (Devanagiri) | `srx`|
-|Haitian Creole  | `ht` | Skolt Sami | `sms` | 
-|Halbi (Devanagiri) | `hlb`| Slovak | `sk`|
-|Hani  | `hni` | Slovenian  | `sl` | 
+|Galician   | `gl` |Santali(Devanagiri) | `sat` |
+|German | `de` | Scots  | `sco` |
+|Gilbertese    | `gil` | Scottish Gaelic  | `gd` |
+|Gondi (Devanagari) | `gon`| Serbian (Latin) | `sr`, `sr-latn`|
+|Greenlandic   | `kl` | Sherpa (Devanagari) | `xsr` |
+|Gurung (Devanagari) | `gvr`| Sirmauri (Devanagari) | `srx`|
+|Haitian Creole  | `ht` | Skolt Sami | `sms` |
+|Halbi (Devanagari) | `hlb`| Slovak | `sk`|
+|Hani  | `hni` | Slovenian  | `sl` |
 |Haryanvi | `bgc`|Somali (Arabic) | `so`|
 |Hawaiian | `haw`|Southern Sami | `sma`
 |Hindi | `hi`|Spanish | `es` |
@@ -112,16 +118,16 @@ The following table lists the supported languages for print text by the most rec
 |Icelandic | `is`| Tatar (Latin)  | `tt` |
 |Inari Sami | `smn`|Tetum    | `tet` |
 |Indonesian   | `id` | Thangmi | `thf` |
-|Interlingua  | `ia` |Tongan | `to`| 
-|Inuktitut (Latin) | `iu` | Turkish | `tr` | 
+|Interlingua  | `ia` |Tongan | `to`|
+|Inuktitut (Latin) | `iu` | Turkish | `tr` |
 |Irish    | `ga` |Turkmen (Latin) | `tk`|
 |Italian | `it` |Tuvan | `tyv`|
 |Japanese | `ja` |Upper Sorbian  | `hsb` |
-|Jaunsari (Devanagiri) | `Jns`|Urdu  | `ur`|
+|Jaunsari (Devanagari) | `Jns`|Urdu  | `ur`|
 |Javanese | `jv` |Uyghur (Arabic) | `ug`|
 |Kabuverdianu | `kea` |Uzbek (Arabic) | `uz-arab`|
 |Kachin (Latin) | `kac` |Uzbek (Cyrillic)  | `uz-cyrl`|
-|Kangri (Devanagiri) | `xnr`|Uzbek (Latin)     | `uz` |
+|Kangri (Devanagari) | `xnr`|Uzbek (Latin)     | `uz` |
 |Karachay-Balkar  | `krc`|Volapük   | `vo` |
 |Kara-Kalpak (Cyrillic) | `kaa-cyrl`|Walser    | `wae` |
 |Kara-Kalpak (Latin) | `kaa` |Welsh | `cy` |
@@ -130,7 +136,7 @@ The following table lists the supported languages for print text by the most rec
 |Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
 |Khaling | `klr`|Zulu  | `zu` |
 
-### Preview (v2022-06-30-preview)
+### Print text in preview (API version 2022-06-30-preview)
 
 Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
 
@@ -179,21 +185,21 @@ Use the parameter `api-version=2022-06-30-preview` when using the REST API or th
 |Iban | `iba`|Songhai | `son` |
 |Igbo  |`ig`|South Ndebele | `nr`|
 |Iloko | `ilo`|Southern Altai | `alt`|
-|Ingush |`inh`|Southern Sotho | `st` | 
+|Ingush |`inh`|Southern Sotho | `st` |
 |Jola-Fonyi  |`dyo`|Sundanese  | `su` |
-|Kabardian | `kbd` | Swati | `ss` | 
-|Kalenjin | `kln` |Tabassaran| `tab` | 
+|Kabardian | `kbd` | Swati | `ss` |
+|Kalenjin | `kln` |Tabassaran| `tab` |
 |Kalmyk  | `xal` | Tachelhit| `shi` |
 |Kanuri | `kr`|Tahitian | `ty`|
-|Khakas   | `kjh` |Taita | `dav` | 
-|Kikuyu | `ki` | Tatar (Cyrillic)  | `tt-cyrl` | 
-|Kildin Sami    | `sjd` | Teso | `teo` | 
+|Khakas   | `kjh` |Taita | `dav` |
+|Kikuyu | `ki` | Tatar (Cyrillic)  | `tt-cyrl` |
+|Kildin Sami    | `sjd` | Teso | `teo` |
 |Kinyarwanda| `rw`| Thai | `th`|
 |Komi   | `kv` | Tok Pisin | `tpi` |
 |Kongo| `kg`| Tsonga | `ts`|
-|Kpelle  | `kpe` | Tswana | `tn` | 
+|Kpelle  | `kpe` | Tswana | `tn` |
 |Kuanyama | `kj`| Udmurt | `udm`|
-|Lak  | `lbe` | Uighur (Cyrillic)  | `ug-cyrl` | 
+|Lak  | `lbe` | Uighur (Cyrillic)  | `ug-cyrl` |
 |Latvian | `lv`|Ukrainian | `uk`|
 |Lezghian | `lex`|Vietnamese | `vi`
 |Lingala | `ln`|Vunjo | `vun` |
@@ -202,7 +208,7 @@ Use the parameter `api-version=2022-06-30-preview` when using the REST API or th
 |Luyia | `luy` |Yakut | `sah` |
 |Macedonian | `mk`| Zapotec | `zap` |
 |Machame| `jmc`| Zarma  | `dje` |
-|Madurese   | `mad` | 
+|Madurese   | `mad` |
 |Makhuwa-Meetto  | `mgh` |
 |Makonde | `kde` |
 
@@ -226,6 +232,8 @@ Receipt supports all English receipts with the following locales:
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
 |English (United States)| `en-us`|
+|French | 'fr' |
+| Spanish | `es` |
 
 ## Business card model
 
@@ -277,9 +285,8 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 > [!NOTE]
 > **Language detection**
 >
-> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be 
+> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be
 > extracted for a given language, see previous sections.
-
 
 > [!NOTE]
 > **Detected languages vs extracted languages**
@@ -403,3 +410,134 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 | Yoruba              | `yo`          |
 | Yucatec Maya        | `yua`         |
 | Zulu                | `zu`          |
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+This table lists the written languages supported by each Form Recognizer service.
+
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+
+## Layout and custom model
+
+|Language| Language code |
+|:-----|:----:|
+|Afrikaans|`af`|
+|Albanian |`sq`|
+|Asturian |`ast`|
+|Basque  |`eu`|
+|Bislama   |`bi`|
+|Breton    |`br`|
+|Catalan    |`ca`|
+|Cebuano    |`ceb`|
+|Chamorro  |`ch`|
+|Chinese (Simplified) | `zh-Hans`|
+|Chinese (Traditional) | `zh-Hant`|
+|Cornish     |`kw`|
+|Corsican      |`co`|
+|Crimean Tatar (Latin)  |`crh`|
+|Czech | `cs` |
+|Danish | `da` |
+|Dutch | `nl` |
+|English (printed and handwritten) | `en` |
+|Estonian  |`et`|
+|Fijian |`fj`|
+|Filipino  |`fil`|
+|Finnish | `fi` |
+|French | `fr` |
+|Friulian  | `fur` |
+|Galician   | `gl` |
+|German | `de` |
+|Gilbertese    | `gil` |
+|Greenlandic   | `kl` |
+|Haitian Creole  | `ht` |
+|Hani  | `hni` |
+|Hmong Daw (Latin) | `mww` |
+|Hungarian | `hu` |
+|Indonesian   | `id` |
+|Interlingua  | `ia` |
+|Inuktitut (Latin)  | `iu`  |
+|Irish    | `ga` |
+|Italian | `it` |
+|Japanese | `ja` |
+|Javanese | `jv` |
+|K'iche'  | `quc` |
+|Kabuverdianu | `kea` |
+|Kachin (Latin) | `kac` |
+|Kara-Kalpak | `kaa` |
+|Kashubian | `csb` |
+|Khasi  | `kha` |
+|Korean | `ko` |
+|Kurdish (latin) | `kur` |
+|Luxembourgish  | `lb` |
+|Malay (Latin)  | `ms` |
+|Manx  | `gv` |
+|Neapolitan   | `nap` |
+|Norwegian | `no` |
+|Occitan | `oc` |
+|Polish | `pl` |
+|Portuguese | `pt` |
+|Romansh  | `rm` |
+|Scots  | `sco` |
+|Scottish Gaelic  | `gd` |
+|Slovenian  | `slv` |
+|Spanish | `es` |
+|Swahili (Latin)  | `sw` |
+|Swedish | `sv` |
+|Tatar (Latin)  | `tat` |
+|Tetum    | `tet` |
+|Turkish | `tr` |
+|Upper Sorbian  | `hsb` |
+|Uzbek (Latin)     | `uz` |
+|Volapük   | `vo` |
+|Walser    | `wae` |
+|Western Frisian | `fy` |
+|Yucatec Maya | `yua` |
+|Zhuang | `za` |
+|Zulu  | `zu` |
+
+## Prebuilt receipt and business card
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+Pre-Built Receipt and Business Cards support all English receipts and business cards with the following locales:
+
+|Language| Locale code |
+|:-----|:----:|
+|English (Austrialia)|`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India|`en-in`|
+|English (United States)| `en-us`|
+
+## Prebuilt invoice
+
+Language| Locale code |
+|:-----|:----:|
+|English (United States)|en-us|
+
+## Prebuilt identity documents
+
+This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
+
+::: moniker-end
+
+## Next steps
+
+::: moniker range="form-recog-3.0.0"
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+> [!div class="nextstepaction"]
+> [Try Form Recognizer sample labeling tool](https://aka.ms/fott-2.1-ga)
+::: moniker-end

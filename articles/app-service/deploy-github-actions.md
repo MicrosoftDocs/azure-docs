@@ -160,7 +160,7 @@ To learn how to create a Create an active directory application, service princip
 
 # [Publish profile](#tab/applevel)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -174,7 +174,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 # [Service principal](#tab/userlevel)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
@@ -190,7 +190,7 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
 
-1. Open your GitHub repository and go to **Settings**.
+1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
 

@@ -87,7 +87,7 @@ The following table shows Azure Database Migration Service support for **online*
 | | Amazon RDS MySQL | ✔  | Preview |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
 | | Azure DB for PostgreSQL - Single server <sup>2</sup> | ✔ | GA |
-| | Amazon DS PostgreSQL | ✔ | GA |
+| | Amazon RDS PostgreSQL | ✔ | GA |
 | **Azure DB for PostgreSQL - Flexible server** | PostgreSQL | ✔ | GA |
 | | Azure DB for PostgreSQL - Single server <sup>2</sup> | ✔ | GA |
 | | Amazon RDS PostgreSQL | ✔ | GA |

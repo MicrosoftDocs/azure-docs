@@ -1,27 +1,21 @@
 ---
-title: Connect to Azure Blob Storage using SFTP (preview) | Microsoft Docs
+title: Connect to Azure Blob Storage using SFTP | Microsoft Docs
 description: Learn how to enable SFTP support for Azure Blob Storage so that you can directly connect to your Azure Storage account by using an SFTP client.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)
+# Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)
 
 You can securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP, and then connect to Blob Storage by using an SFTP client. 
 
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
-
-> [!IMPORTANT]
-> SFTP support is currently in PREVIEW. 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
->
-> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
 ## Prerequisites
 
@@ -239,7 +233,7 @@ You can use any SFTP client to securely connect and then transfer files. The fol
 > The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes `contoso4.contosouser` for the SFTP command.
 
 > [!NOTE]
-> You might be prompted to trust a host key. During the public preview, valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
+> You might be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
 After the transfer is complete, you can view and manage the file in the Azure portal. 
 

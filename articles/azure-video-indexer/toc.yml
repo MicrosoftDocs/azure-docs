@@ -11,6 +11,8 @@
     href: accounts-overview.md
   - name: Language support
     href: language-support.md
+  - name: Insights
+    href: insights-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -134,12 +136,14 @@
       items:
       - name: Detected clothing (preview)
         href: detected-clothing.md
-      - name: Featured clothing (preview)
-        href: observed-people-featured-clothing.md
+    - name: Featured clothing (preview)
+      href: observed-people-featured-clothing.md
     - name: Matched person (preview)
       href: matched-person.md
     - name: Audio effects detection (preview)
       href: audio-effects-detection.md
+    - name: View closed captions
+      href: view-closed-captions.md
     - name: Customize content models
       items:
       - name: Animated characters

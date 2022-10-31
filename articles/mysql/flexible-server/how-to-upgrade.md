@@ -44,8 +44,8 @@ This feature will enable customers to perform in-place upgrades of their MySQL 5
 
     >[!Important]
     > Before upgrading visit link for list of [features removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals) in MySQL 8.0.
-    > Verify deprecated [sql_mode](/https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) values and remove/deselect them from your current Flexible Server 5.7 using Server Parameters Blade on your Azure Portal to avoid deployment failure.
-    > [sql_mode](/https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) with values NO_AUTO_CREATE_USER, NO_FIELD_OPTIONS, NO_KEY_OPTIONS and NO_TABLE_OPTIONS are no longer supported in MySQL 8.0.
+    > Verify deprecated [sql_mode](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) values and remove/deselect them from your current Flexible Server 5.7 using Server Parameters Blade on your Azure Portal to avoid deployment failure.
+    > [sql_mode](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) with values NO_AUTO_CREATE_USER, NO_FIELD_OPTIONS, NO_KEY_OPTIONS and NO_TABLE_OPTIONS are no longer supported in MySQL 8.0.
 
     :::image type="content" source="./media/how-to-upgrade/1-how-to-upgrade.png" alt-text="Screenshot showing Azure Database for MySQL Upgrade.":::
 
@@ -84,7 +84,7 @@ Follow these steps to perform major version upgrade for your Azure Database of M
 2. From the Overview page, select the Upgrade button in the toolbar.
 >[!Important]
 > Before upgrading visit link for list of [features removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals) in MySQL 8.0.
->Verify deprecated [sql_mode](/https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) values and remove/deselect them from your current Flexible Server 5.7 using Server Parameters Blade on your Azure Portal to avoid deployment failure.
+>Verify deprecated [sql_mode](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) values and remove/deselect them from your current Flexible Server 5.7 using Server Parameters Blade on your Azure Portal to avoid deployment failure.
 
 3. In the Upgrade section, select Upgrade button to upgrade Azure database for MySQL 5.7 read replica server to 8.0 server.
 

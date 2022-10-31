@@ -125,6 +125,7 @@ The Event Grid output binding is only available for Functions 2.x and higher. Ev
 
 ## Next steps
 
+* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-sdk-for-net/issues)
 * [Event Grid trigger][trigger]
 * [Event Grid output binding][binding]
 * [Run a function when an Event Grid event is dispatched](./functions-bindings-event-grid-trigger.md)

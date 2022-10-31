@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.reviewer: nibaccam
-author: blackmist
-ms.author: larryfr
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 10/21/2021
 ---
 

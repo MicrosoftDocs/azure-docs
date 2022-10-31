@@ -30,7 +30,7 @@ The add-on deploys the following components:
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 - An Azure Key Vault to store certificates.
-- A DNS solution, such as [Azure DNS](/azure/dns/dns-getstarted-portal).
+- A DNS solution, such as [Azure DNS](../dns/dns-getstarted-portal.md).
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -74,7 +74,7 @@ az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertifica
 
 ### Create an Azure DNS zone
 
-If you want the add-on to automatically manage creating hostnames via Azure DNS, you need to [create an Azure DNS zone](/azure/dns/dns-getstarted-cli) if you don't have one already.
+If you want the add-on to automatically manage creating hostnames via Azure DNS, you need to [create an Azure DNS zone](../dns/dns-getstarted-cli.md) if you don't have one already.
 
 ```azurecli-interactive
 # Create a DNS zone
@@ -92,7 +92,7 @@ The following additional add-ons are required:
 * **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the nginx ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
 
 ```azurecli-interactive
 az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --generate-ssh-keys --enable-secret-rotation
@@ -114,7 +114,7 @@ The following additional add-on is required:
 * **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
 
 ```azurecli-interactive
 az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,web_application_routing --generate-ssh-keys --enable-secret-rotation
@@ -264,7 +264,7 @@ spec:
 The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
-az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> ---query "id" --output tsv
+az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
 ```
 
 Create a file named **ingress.yaml** and copy in the following YAML.
@@ -415,7 +415,7 @@ spec:
 The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
-az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> ---query "id" --output tsv
+az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
 ```
 
 Create a file named **ingress.yaml** and copy in the following YAML. 

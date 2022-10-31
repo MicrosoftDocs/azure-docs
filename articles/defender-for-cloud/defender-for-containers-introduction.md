@@ -2,6 +2,8 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
+author: bmansheim
+ms.author: benmansheim
 ms.custom: ignite-2022
 ms.date: 09/11/2022
 ---
@@ -63,18 +65,18 @@ When you push an image to a container registry and while the image is stored in 
 When the scan completes, Defender for Containers provides details for each vulnerability detected, a security classification for each vulnerability detected, and guidance on how to remediate issues and protect vulnerable attack surfaces.
 
 Learn more about:
-- [Vulnerability assessment for Azure Container Registry (ACR)](defender-for-containers-va-acr.md)
-- [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-va-ecr.md)
+- [Vulnerability assessment for Azure Container Registry (ACR)](defender-for-containers-vulnerability-assessment-azure.md)
+- [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-vulnerability-assessment-elastic.md)
 
 ### View vulnerabilities for running images in Azure Container Registry (ACR)
 
-Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) recommendation.
+Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) recommendation.
 
 To provide findings for the recommendation, Defender for Cloud collects the inventory of your running containers that are collected by the Defender agent installed on your AKS clusters. Defender for Cloud correlates that inventory with the vulnerability assessment scan of images that are stored in ACR. The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
-Learn more about [viewing vulnerabilities for running images in (ACR)](defender-for-containers-va-acr.md).
+Learn more about [viewing vulnerabilities for running images in (ACR)](defender-for-containers-vulnerability-assessment-azure.md).
 
 ## Run-time protection for Kubernetes nodes and clusters
 
@@ -101,7 +103,7 @@ Yes.
 
 ### Does Microsoft Defender for Containers support AKS without scale set (default)?
 
-No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale sets for the nodes is supported.
+No. Only Azure Kubernetes Service (AKS) clusters that use Virtual Machine Scale Sets for the nodes is supported.
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 

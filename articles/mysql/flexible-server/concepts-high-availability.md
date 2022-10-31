@@ -115,13 +115,16 @@ Here are some considerations to keep in mind when you use high availability:
 * Zone-redundant high availability can be set only when the flexible server is created.
 * High availability isn't supported in the burstable compute tier.
 * Restarting the primary database server to pick up static parameter changes also restarts the standby replica.
-* Read replicas aren't supported for HA servers.
 * Data-in Replication isn't supported for HA servers.
 * GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
 >[!Note] 
 >If you are enabling same-zone HA post the server create, you need to make sure the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) is set to ON before enabling HA.
 
 ## Frequently asked questions (FAQ)
+
+- **What are the SLAs for same-zone vs zone-redundant HA enabled Flexible server?**
+
+SLA information for Azure Database for MySQL Flexible Server can be found at [SLA for Azure Database for MySQL](https://azure.microsoft.com/support/legal/sla/mysql/v1_2/).
 
 - **How am I billed for high available (HA) servers?**
 Servers enabled with HA have a primary and secondary replica. Secondary replica can be in same zone or zone redundant. You're billed for the provisioned compute and storage for both the primary and secondary replica. For example, if you have a primary with 4 vCores of compute and 512 GB of provisioned storage, your secondary replica will also have 4 vCores and 512 GB of provisioned storage. Your zone redundant HA server will be billed for 8 vCores and 1,024 GB of storage. Depending on your backup storage volume, you may also be billed for backup storage.

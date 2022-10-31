@@ -25,11 +25,11 @@ For a comprehensive overview of reliability in Azure, see [Azure reliability](/a
 
 ## Availability zones
 
-For more information about availability zones, see [Regions and availability zones](/azure/availability-zones/az-overview).
+For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md).
 
 ### Prerequisites
 
-For a list of regions that support availability zones, see [Azure regions with availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
+For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
 
 #### Enabling availability zones with private resolver
 
@@ -49,11 +49,11 @@ In the event of a regional outage, use the same design as that described in [Set
 
 All instances of Azure DNS Private Resolver run as Active-Active within the same region.
 
-The service health is onboarded to [Azure Resource Health](/azure/service-health/resource-health-overview), so you'll be able to check for health notifications when you subscribe to them. For more information, see [Create activity log alerts on service notifications using the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+The service health is onboarded to [Azure Resource Health](../service-health/resource-health-overview.md), so you'll be able to check for health notifications when you subscribe to them. For more information, see [Create activity log alerts on service notifications using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Also see the [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview)
+> [Resiliency in Azure](../availability-zones/overview.md)
