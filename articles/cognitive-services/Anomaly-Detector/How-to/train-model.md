@@ -25,7 +25,7 @@ There are 7 APIs provided in Multivariate Anomaly Detection:
     * You could also use `Sync Inference API` to trigger a detection on one timestamp every time.
 * **Other operations**: `List Model API` and `Delete Model API` are supported in Multivariate Anomaly Detection model for model management.
 
-![Diagram of model training workflow and inference workflow](../../media/how-to/api-workflow.png)
+![Diagram of model training workflow and inference workflow](../media/train-model/api-workflow.png)
 
 |API Name| Method | Path  | Description |
 | ------ | ---- | ----------- | ------ | 
@@ -450,4 +450,4 @@ The response contains four fields, `models`, `currentCount`, `maxCount`, and `ne
 
 ## Next steps
 
-* [Best practices of multivariate anomaly detection](../../concepts/best-practices-multivariate.md)
+* [Best practices of multivariate anomaly detection](../concepts/best-practices-multivariate.md)
