@@ -32,7 +32,7 @@ Get started with the PyMongo package to create databases, collections, and doc w
 ### Prerequisite check
 
 * In a terminal or command window, run `python --version`  to check that you have a recent version of Python.
-* Run ``az --version`` (Azure CLI) or `Get-Module -ListAvailable AzureRM` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+* Run ``az --version`` (Azure CLI) or `Get-Module -ListAvailable Az*` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
 

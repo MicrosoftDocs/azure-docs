@@ -38,7 +38,7 @@ ms.author: diberry
         ResourceGroupName = $RESOURCE_GROUP_NAME
         Name = $ACCOUNT_NAME
         Location = $LOCATION
-        Kind = "MongoDB"
+        ApiKind = "MongoDB"
     }
     New-AzCosmosDBAccount @parameters
     ```
