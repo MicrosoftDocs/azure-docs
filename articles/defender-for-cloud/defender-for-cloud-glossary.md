@@ -72,7 +72,7 @@ This glossary provides a brief description of important terms and concepts for t
 ## K
 | Term | Description | Learn more |
 |--|--|--|
-**KQL**|Kusto Query Language-a tool to explore your data and discover patterns, identify anomalies and outliers, create statistical modeling, and more.| [KQL Overview](/azure/data-explorer/kusto/query/)|
+|**KQL**|Kusto Query Language-a tool to explore your data and discover patterns, identify anomalies and outliers, create statistical modeling, and more.| [KQL Overview](/azure/data-explorer/kusto/query/)|
 
 ## L
 | Term | Description | Learn more |
