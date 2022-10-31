@@ -44,4 +44,4 @@ Learn more about [Enable Microsoft Defender for Azure Cosmos DB](https://learn.m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [New AWS Connector in Microsoft Defender for Cloud](episode-nineteen.md)
