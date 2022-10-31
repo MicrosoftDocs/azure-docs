@@ -24,7 +24,7 @@ Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is cater
 
 To compare and understand the differences between Basic and Standard SKU, see the following table. 
 
-| | Standard Load Balancer | Basic Load Balancer | Gateway Load Balancer
+| | Standard Load Balancer | Basic Load Balancer |
 | --- | --- | --- |
 | **Scenario** |  Equipped for load-balancing network layer traffic when high performance and ultra-low latency is needed. Routes traffic within and across regions, and to availability zones for high resiliency. | Equipped for small-scale applications that don't need high availability or redundancy. Not compatible with availability zones. |
 | **Backend type** | IP based, NIC based | NIC based |
