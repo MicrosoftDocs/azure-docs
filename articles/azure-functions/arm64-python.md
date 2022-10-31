@@ -27,7 +27,7 @@ i386
 
 Additionally, check that you are using zsh.
 
-2. Next, install all needed packages in this environment. You can start by installing homebrew using this command. 
+2. Next, install all needed packages in this environment. You can start by installing [homebrew](https://brew.sh/) to the path `/usr/local/bin/brew`.
 
 Next, install you Python and Core Tools.
 
@@ -45,7 +45,7 @@ if [ $(arch) = "i386" ]; then
 fi
 ```
 
-Type the following to ensure the aliases are applied.
+Run the following to ensure the aliases are applied.
 
 ```cmd
 $ source .zshrc
