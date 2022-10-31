@@ -26,6 +26,8 @@
       href: quickstart-nodejs.md
     - name: Develop app - Python
       href: quickstart-python.md
+    - name: Develop app - Python (new)
+      href: quickstart-python-new.md
     - name: Develop app - Java
       href: quickstart-java.md
     - name: Develop app - .NET
