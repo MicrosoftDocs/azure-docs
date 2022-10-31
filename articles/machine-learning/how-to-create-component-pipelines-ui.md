@@ -12,13 +12,11 @@ ms.topic: how-to
 ms.custom: devplatv2, designer, event-tier1-build-2022, ignite-2022
 ---
 
-# Create and run machine learning pipelines using components with the Azure Machine Learning studio (Preview)
+# Create and run machine learning pipelines using components with the Azure Machine Learning studio
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can create pipelines without using components, but components offer better amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -116,6 +114,6 @@ In the example below take using CLI for example. If you want to learn more about
 
 ## Next steps
 
-- Use [these Jupyter notebooks on GitHub](https://github.com/Azure/azureml-examples/tree/pipeline/builder_function_samples/cli/jobs/pipelines-with-components) to explore machine learning pipelines further
+- Use [these Jupyter notebooks on GitHub](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components) to explore machine learning pipelines further
 - Learn [how to use CLI v2 to create pipeline using components](how-to-create-component-pipelines-cli.md).
 - Learn [how to use SDK v2 to create pipeline using components](how-to-create-component-pipeline-python.md)

@@ -3,7 +3,7 @@ title: Troubleshooting network virtual appliance issues in Azure | Microsoft Doc
 description: Troubleshoot Network Virtual Appliance (NVA) issues in Azure and validate basic Azure Platform requirements for NVA configurations.
 services: virtual-network
 documentationcenter: na
-author: genlin
+author: asudbring
 manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
-ms.author: genli
+ms.author: allensu
 ---
 
 # Network virtual appliance issues in Azure
