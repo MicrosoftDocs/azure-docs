@@ -9,7 +9,7 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2020
+ms.date: 10/31/2022
 ms.author: mbender
 ms.custom: references_regions
 
