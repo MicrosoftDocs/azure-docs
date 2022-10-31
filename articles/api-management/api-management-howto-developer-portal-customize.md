@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 You can find more details on the developer portal in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="API Management developer portal - administrator mode" border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." border="false":::
 
 ## Prerequisites
 
@@ -82,13 +82,13 @@ If you're accessing the portal for the first time, the default content is automa
 You can customize the content of the portal with the visual editor. 
 * The menu sections on the left let you create or modify pages, media, layouts, menus, styles, or website settings. 
 * The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to users in different groups, or save or undo actions.
-* Add rows to a page by clicking on a blue icon with a plus sign. 
+* Add sections to a page by clicking on a blue icon with a plus sign. 
 * Widgets (for example, text, images, or APIs list) can be added by pressing a grey icon with a plus sign.
 * Rearrange items in a page with the drag-and-drop interaction. 
 
 ### Layouts and pages
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/pages-layouts.png" alt-text="Pages and layouts" border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/pages-layouts.png" alt-text="Screenshot of the visual editor in the developer portal." border="false":::
 
 Layouts define how pages are displayed. For example, in the default content, there are two layouts: one applies to the home page, and the other to all remaining pages.
 
@@ -98,7 +98,7 @@ In the preceding image, content belonging to the layout is marked in blue, while
 
 ### Styling guide
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/styling-guide.png" alt-text="Styling guide" border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/styling-guide.png" alt-text="Screenshot of the styling guide in the developer portal." border="false":::
 
 Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
 
@@ -106,13 +106,13 @@ To edit a variant, select it and select the pencil icon that appears on top of i
 
 ### Save button
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/save-button.png" alt-text="Save button" border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/save-button.png" alt-text="Screenshot of the Save button in the developer portal." border="false":::
 
 Whenever you make a change in the portal, you need to save it manually by selecting the **Save** button in the menu at the bottom, or press [Ctrl]+[S]. When you save your changes, the modified content is automatically uploaded to your API Management service.
 
 ## Customize the portal's content
 
-Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page. You can also make certain portal content accessible only to selected users and groups.
+Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page. You can also make certain content elements accessible only to selected users and groups.
 
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
@@ -165,12 +165,17 @@ Although you don't need to adjust any styles, you may consider adjusting particu
 
 ### Visibility and access controls
 
-Some pages and functionality of the developer portal are available only to authenticated users. For example, different menus can be configured for authenticated and anonymous users.
+Some content and functionality of the developer portal are available only to authenticated users. For example, only authenticated uses can see pages for the user profile and user reports.
 
-For more fine-grained access control, you can configure which portal content appears to different [users and groups](api-management-howto-create-groups.md) you've set up. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or, you might want to make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
+For more fine-grained access control, you can configure which portal content appears to different [users and groups](api-management-howto-create-groups.md) that are set up in your API Management instance. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or, you might want to make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
 
 * When you add or edit a page, select the **Access** tab to choose the users and groups that can access the page
+    
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/page-access-control.png" alt-text="Screenshot of the page access control settings in the developer portal.":::
+
 * When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to choose the users and groups that can see the element on the page
+
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/visibility-control.png" alt-text="Screenshot of the visibility control settings in the developer protal.":::
 
 ### Customization example
 
@@ -187,7 +192,7 @@ To make your portal and its latest changes available to visitors, you need to *p
 1. Make sure you saved your changes by selecting the **Save** icon.
 1. In the **Operations** section of the menu, select **Publish website**. This operation may take a few minutes.  
 
-    :::image type="content" source="media/api-management-howto-developer-portal-customize/publish-portal.png" alt-text="Publish portal" border="false":::
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/publish-portal.png" alt-text="Screenshot of the Publish website button in the developer portal." border="false":::
 
 ### Publish from the Azure portal
 
@@ -215,4 +220,5 @@ Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
 - [Migrate to the new developer portal](developer-portal-deprecated-migration.md) from the deprecated legacy portal.
+- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Azure AD](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
 - Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

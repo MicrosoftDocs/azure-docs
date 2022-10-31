@@ -40,11 +40,7 @@ Your API Management service includes a built-in, always up-to-date, **managed** 
 
 * Take advantage of built-in widgets to add text, images, buttons, and other objects that the portal supports out-of-the-box. 
 
-* Control how the portal content appears to different [users and groups](api-management-howto-create-groups.md) you've configured. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access specific APIs. The developer portal has built-in access controls for these needs.
-
-* When you add or edit a page, select the **Access** tab to choose who can access the page
-* When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to choose who can see the element on the page
-
+* Control how the portal content appears to different [users and groups](api-management-howto-create-groups.md) configured in your API Management instance. For example, display certain pages only to groups that are associated with particular products, or to users that can access specific APIs. 
 
 > [!NOTE]
 > The managed developer portal receives and applies updates automatically. Changes that you've saved but not published to the developer portal remain in that state during an update.
