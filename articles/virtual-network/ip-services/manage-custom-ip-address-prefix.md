@@ -168,7 +168,7 @@ Before you decommission a custom IP prefix, ensure it has no public IP prefixes 
 
 To migrate a custom IP prefix, it must first be deprovisioned from one region. A new custom IP prefix with the same CIDR can then be created in another region.
 
-### Any special considerations using IPv6
+### Are there any special considerations when using IPv6
 
 Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  Please see [Create a custom IP address prefix - IPv6](create-custom-ip-address-prefix-ipv6.md) for more details.
 
