@@ -20,7 +20,7 @@ Microsoft deploys payment hardware security modules (HSM) in stamps within a reg
 Thales doesn't provide PayShield SDK to customers, which supports HA over a cluster (a collection of HSMs initialized with same LMK). However, the customers usage scenario of the Thales PayShield devices is like a Stateless Server. Thus, no synchronization is required between HSMs during application runtime. Customers handle the HA using their custom client. One implementation would be to load balance between healthy HSMs connected to the application. Customers are responsible for implementing high availability by provisioning multiple devices, load balancing them, and using any kind of available backup mechanism to back up keys.
 
 > [!IMPORTANT]
-> - Virtual network peering does support cross-region communication between payment HSM instances. A payment HSM instance in one region cannot communicate with a payment HSM instance in another region.  
+> - Virtual network peering does not support cross-region communication between payment HSM instances. A payment HSM instance in one region cannot communicate with a payment HSM instance in another region.  
 > - NSGs are not supported for payment HSM subnet.
 > - Customers can allocate a maximum of two payment HSMs from each stamp in one region under same subscription.
 > - If customer does not have a High Availability setup in their production environment, the customer will not be able to receive S2 support from Microsoft side.
