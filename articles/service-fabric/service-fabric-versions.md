@@ -134,7 +134,7 @@ The following table lists the version names of Service Fabric and their correspo
 
 | Version name | Windows version number | Linux version number |
 | --- | --- | --- |
-| 9.0 CU3 | 9.1.1390.9590| 9.1.1206.1 |
+| 9.1 RTO | 9.1.1390.9590| 9.1.1206.1 |
 | 9.0 CU4 | 9.0.1121.9590 | 9.0.1114.1 |
 | 9.0 CU3 | 9.0.1107.9590 | 9.0.1103.1 |
 | 9.0 CU2.1 | Not applicable | 9.0.1086.1 |
