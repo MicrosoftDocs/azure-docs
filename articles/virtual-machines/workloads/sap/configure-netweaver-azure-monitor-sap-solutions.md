@@ -17,17 +17,17 @@ ms.author: sujaj
 
 In this how-to guide, you'll learn to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions*. You can use SAP NetWeaver with both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
 
-User can select can select between the two connection types when configuring SAP Netweaver provider to collect information from SAP system. Metrics are collected by using 
+User can select between the two connection types when configuring SAP Netweaver provider to collect information from SAP system. Metrics are collected by using 
 
-- **SAPControl** - The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAPControl**, which is a SOAP web service interface that exposes these capabilities. The **SAPControl** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
+- **SAP Control** - The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAP Control**, which is a SOAP web service interface that exposes these capabilities. The **SAP Control** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
 - **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. It is available only as part of Azure Monitor for SAP solution and not available in the classic version. 
 
 You can collect below metric using SAP NetWeaver Provider 
 
-- SAP system and application server availability (for example Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAPControl)
-- Work process usage statistics and trends (SAPControl)
-- Enqueue Lock statistics and trends (SAPControl)
-- Queue usage statistics and trends (SAPControl)
+- SAP system and application server availability (for example Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAP Control)
+- Work process usage statistics and trends (SAP Control)
+- Enqueue Lock statistics and trends (SAP Control)
+- Queue usage statistics and trends (SAP Control)
 - SMON Metrics (**transaction code - /SDF/SMON**) (RFC)
 - SWNC Workload, Memory, Transaction, User, RFC Usage (**transaction code - St03n**) (RFC)
 - Short Dumps (**transaction code - ST22**) (RFC)
@@ -81,7 +81,6 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
     sapcontrol -nr <instance number> -function RestartService
     ```
     
-You must restart the **SAPStartSRV** service on each instance of your SAP system to unprotect the **SAPControl** web methods. The read-only SOAP API is required for the NetWeaver provider to fetch metric data from your SAP system. **If you don't unprotect these methods, the add provider will fail in the system**. You can also do the update of the profile using command line. Refer to commands in the section below to confirm the [unprotect is successful !.](#check-for-unprotected-updated-rules)
 
 
 ### Prerequisite to enable RFC metrics  
@@ -105,7 +104,7 @@ For AS ABAP applications only, you can set up the NetWeaver RFC metrics. This st
   
 It's also recommended to check that you enabled the ICF ports.  
 
-4. **SMON** - Enable **SMON** to monitor the system performance.Make sure the version of **ST-PI** is **SAPK-74005INSTPI**. You will see empty visualization as part of the workbook when smon is not configured. 
+4. **SMON** - Enable **SMON** to monitor the system performance.Make sure the version of **ST-PI** is **SAPK-74005INSTPI**. You will see empty visualization as part of the workbook when it is not configured. 
 
     1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
@@ -166,7 +165,7 @@ After you restart the SAP service, check that your updated rules are applied to 
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods
     ```
 
-1. When Log in as non SIDADM user. Run the following command, replace `<instance number>` with your system's instance number, `<admin user>` with your administrator username, and `<admin password>` with the password.
+1. When signin as non SIDADM user. Run the following command, replace `<instance number>` with your system's instance number, `<admin user>` with your administrator username, and `<admin password>` with the password.
 
     ```Command to list unprotectedmethods
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods -user "<admin user>" "<admin password>"
@@ -211,7 +210,7 @@ The provider settings validation operation has failed with code ‘SOAPWebMethod
     
 Possible Causes: The operation failed with error: ‘Error occurred while validating SOAP client API calls for SAP system saptstgtmci.redmond.corp.microsoft.com [‘ABAPGetWPTable – [[“HTTP 401 Unauthorized”, [“SAPSYSTEM1_10”, “SAPSYSTEM2_10”, “SAPSYSTEM3_10”]]]’, ‘GetQueueStatistic – [[“HTTP 401 Unauthorized”, [“SAPSYSTEM1_10”, “SAPSYSTEM2_10”, “SAPSYSTEM3_10”]]]’].’. 
     
-Recommended Action: ‘Ensure that the SOAP web service methods are unprotected correctly. For more information,see'.
+Recommended Action: ‘Ensure that the SOAP web service methods are unprotected correctly. For more information, see'.
 (Code: ProviderInstanceValidationOperationFailed) 
     
 #### Incorrect username and password 
@@ -237,7 +236,7 @@ The provider settings validation operation has failed with code ‘NetWeaverRFCA
     
 Possible Causes: Authentication failed, roles file isn't uploaded in the SAP System. 
     
-Recommended Action: Ensure that the roles file is uploaded correctly in SAP System. Fore more information,see.
+Recommended Action: Ensure that the roles file is uploaded correctly in SAP System. For more information, see.
 (Code: ProviderInstanceValidationOperationFaile) 
  
 #### Incorrect input provided 
@@ -277,8 +276,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 
 After updating the parameter, restart the **SAPStartSRV** service on each of the instances in the SAP system. Restarting the services doesn't restart the SAP system. Only the **SAPStartSRV** service (in Windows) or daemon process (in Unix/Linux) is restarted.
 
-You must restart **SAPStartSRV** on each instance of the SAP system for the SAPControl web methods to be unprotected. These read-only SOAP APIs are required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these methods leads
-to empty or missing visualizations on the NetWeaver metric workbook.
+You must restart **SAPStartSRV** on each instance of the SAP system for the SAP Control web methods to be unprotected. These read-only SOAP APIs are required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these method results empty or missing visualizations on the NetWeaver metric workbook.
 
 On Windows, open the SAP Microsoft Management Console (MMC) / SAP Management Console (MC).  Right-click on each instance and select **All Tasks** &gt; **Restart Service**.
   
