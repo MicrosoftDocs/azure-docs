@@ -32,7 +32,7 @@ When you send asynchronous requests, you will incur charges based on number of t
 
 ## Submit an asynchronous job using the REST API
 
-To submit an asynchronous job, review the [reference documentation]([/rest/api/language/text-analysis-runtime/submit-job](https://learn.microsoft.com/en-us/rest/api/language/)) for the JSON body you'll send in your request.
+To submit an asynchronous job, review the [reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/submit-job) for the JSON body you'll send in your request.
 1. Add your documents to the `analysisInput` object.  
 1. In the `tasks` object, include the operations you want performed on your data. For example, if you wanted to perform sentiment analysis, you would include the `SentimentAnalysisLROTask` object.
 1. You can optionally:
