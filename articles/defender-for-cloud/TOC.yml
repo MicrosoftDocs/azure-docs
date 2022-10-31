@@ -358,9 +358,6 @@
       - name: Overview
         displayName: database
         href: defender-for-sql-introduction.md
-      - name: Scan your SQL resources for vulnerabilities
-        href: defender-for-sql-on-machines-vulnerability-assessment.md
-        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
       - name: Customize SQL information protection policy
         displayName: sql, database, data discovery
         href: sql-information-protection-policy.md
@@ -369,6 +366,9 @@
       - name: Enable Defender for SQL servers on machines
         href: defender-for-sql-usage.md
         displayName: hybrid, arc, Azure Defender
+      - name: Scan your SQL resources for vulnerabilities
+        href: defender-for-sql-on-machines-vulnerability-assessment.md
+        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
     - name: Defender for open-source relational databases
       items: 
       - name: Overview
