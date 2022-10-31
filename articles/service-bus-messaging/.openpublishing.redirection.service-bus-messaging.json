@@ -2,7 +2,7 @@
   "redirections": [
   {
     "source_path": "enable-partitions-premium.md",
-    "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-starndard",
+    "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-standard",
     "redirect_document_id": false
   },
   {
