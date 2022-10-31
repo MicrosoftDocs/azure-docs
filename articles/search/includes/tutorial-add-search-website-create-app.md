@@ -43,7 +43,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
 
-1. Synchronize your local fork with your remote fork by pulling the new GitHub action file to your local computer:
+1. Pull the new GitHub action file to your local computer by synchronizing your local fork with your remote fork:
 
     ```bash
     git pull origin main
@@ -52,15 +52,13 @@ The Static Web app pulls the information and files for deployment from GitHub us
     * _origin_ refers to your forked repo. 
     * _main_ refers to the default branch.
 
-1. Find and open the workflow file in the `./.github/workflows/` directory to include the path:
+1. In Visual Studio file explorer, find and open the workflow file in the `./.github/workflows/` directory. The file path and name looks _something_ `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
 
-    In Visual Studio file explorer, open up your GitHub deployment action file. The file path and name looks _something_ `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
-
-1. The _part_ of the YAML file relevant to the Static web app is shown below:
+    The _part_ of the YAML file relevant to the Static web app is shown below:
 
     :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml" highlight="28-33":::
 
-1. Edit your action file to contain the following `api_location` property:
+1. Edit your action file to contain the `api_location` property. If your local file doesn't have the property, add it below the `app_location` property.
 
     ```yml
     api_location: "search-website-functions-v4/api"
@@ -71,6 +69,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
     ```bash
     git add *.yml && git commit -m "update action for Static web app" 
     ```
+
 1. Push changes to GitHub.
 
     ```bash
