@@ -25,11 +25,13 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 To set up the plugin, follow these steps:
 
-1. Install the plugin
-2. Create a sample file 
-3. Create the required DCR-related resources
-4. Configure Logstash configuration file 
-5. Send sample data
+1. [Install the plugin](#install-the-plugin)
+2. [Create a sample file](#create-a-sample-file) 
+3. [Create the required DCR-related resources](#create-the-required-dcr-resources)
+4. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
+5. [Restart Logstash and send sample data](#restart-logstash-and-send-sample-data)
+1. [View incoming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
+1. [Monitor output plugin audit logs](#monitor-output-plugin-audit-logs)
 
 ## Overview
 
@@ -59,7 +61,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 ### Prerequisites
 
-- Install Logstash version 7.0 to 7.9
+- Install Logstash version 7.0 to 7.9.
 - [Submit the signup form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR82cGrAJ87tNoz63iRjsdE1UNU5DM1dKUEIxT01PRTVBMVBHR0tHQUhWWS4u) to register to the DCR-based custom logs public preview.
 - Verify that you have a Log Analytics workspace with at least contributor rights.
 - Verify that you have permissions to create DCR objects in the workspace.
@@ -105,12 +107,13 @@ input {
         }
     }
     ```
-1. Make sure that the referenced file path exists before creating the sample file. 
-    1. Start Logstash. 
-        The plugin writes ten records to a sample file named *sampleFile<\epoch\ seconds>.json* in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
-        Here is part of a sample file that the plugin creates:
-        ```
-        [
+1. To make sure that the referenced file path exists before creating the sample file, start Logstash. 
+   
+    The plugin writes ten records to a sample file named `sampleFile<epoch seconds>.json` in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
+    Here is part of a sample file that the plugin creates:
+    
+    ```
+    [
             {
                 "host": "logstashMachine",
                 "sequence": 0,
@@ -123,14 +126,14 @@ input {
                 "sequence": 1
         ...
             
-        ]
-        ```
+        ]    
+    ```
 
-        The plugin automatically adds these properties to every record:  
-        - `ls_timestamp`: The time when the record is received from the input plugin and "
-        - `ls_version`: The Logstash pipeline version.
+    The plugin automatically adds these properties to every record:  
+    - `ls_timestamp`: The time when the record is received from the input plugin
+    - `ls_version`: The Logstash pipeline version.
         
-        You can remove these fields when you [create the DCR](#create-the-required-dcr-resources). 
+    You can remove these fields when you [create the DCR](#create-the-required-dcr-resources). 
 
 #### Create a sample file to ingest logs into the Syslog table 
 
@@ -157,12 +160,12 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
         }
     }
     ```
-1. Make sure that the file path exists before creating the sample file: 
-    1. Start Logstash. 
-        The plugin writes ten records to a sample file named *sampleFile<\epoch\ seconds>.json* in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
-        Here is part of a sample file that the plugin creates:
-        ```
-        [
+1. To make sure that the file path exists before creating the sample file, start Logstash. 
+
+    The plugin writes ten records to a sample file named `sampleFile<epoch seconds>.json` in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
+    Here is part of a sample file that the plugin creates:
+    ```
+    [
         	{
         		"logsource": "logstashMachine",
         		"facility": 20,
@@ -177,13 +180,14 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
         		"ls_timestamp": "2022-04-07T08:26:04.000Z",
         		"ls_version": "1"
         	}
-        ]
-        ```
-        The plugin automatically adds these properties to every record:  
-        - `ls_timestamp`: The time when the record is received from the input plugin and "
-        - `ls_version`: The Logstash pipeline version.
+        ]    
         
-        You can remove these fields when you [create the DCR](#create-the-required-dcr-resources).
+    ```
+    The plugin automatically adds these properties to every record:  
+    - `ls_timestamp`: The time when the record is received from the input plugin and "
+    - `ls_version`: The Logstash pipeline version.
+        
+    You can remove these fields when you [create the DCR](#create-the-required-dcr-resources).
 
 ### Create the required DCR resources
 
@@ -195,39 +199,39 @@ In this section, you create resources to use for your DCR, in one of these scena
 
 #### Create DCR resources for ingestion into a custom table
 
-To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](/azure-monitor/logs/tutorial-logs-ingestion-portal)):  
+To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-portal)):  
 
-1. Review the [prerequisites](/azure-monitor/logs/tutorial-logs-ingestion-portal#prerequisites).
-1. [Configure the application](/azure-monitor/logs/tutorial-logs-ingestion-portal#configure-application).
-1. [Create data collection endpoint](/azure-monitor/logs/tutorial-logs-ingestion-portal#create-data-collection-endpoint).
-1. [Generate sample data](/azure-monitor/logs/tutorial-logs-ingestion-portal#generate-sample-data).
-1. [Add custom log table](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#add-custom-log-table). In this step, provide [the sample file you created in the previous section](#create-a-sample-file).
-1. [Parse and filter sample data](/azure-monitor/logs/tutorial-logs-ingestion-portal#parse-and-filter-sample-data).
-1. [Collect information from DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr). In this step, provide [the sample file you created in the previous section](#create-a-sample-file).
-1. [Assign permissions to DCR](/azure-monitor/logs/tutorial-logs-ingestion-portal#assign-permissions-to-dcr).
-1. [Send sample data](/azure-monitor/logs/tutorial-logs-ingestion-portal#send-sample-data).
+1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-portal#prerequisites).
+1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal#configure-application).
+1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal#create-data-collection-endpoint).
+1. [Generate sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal#generate-sample-data).
+1. [Add custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal#add-custom-log-table). In this step, provide [the sample file you created in the previous section](#create-a-sample-file).
+1. [Parse and filter sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal#parse-and-filter-sample-data).
+1. [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr). In this step, provide [the sample file you created in the previous section](#create-a-sample-file).
+1. [Assign permissions to DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal#assign-permissions-to-dcr).
+1. [Send sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal#send-sample-data).
 
-If you come across any issues, see the [troubleshooting steps](/azure-monitor/logs/tutorial-logs-ingestion-portal#troubleshooting).
+If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-portal#troubleshooting).
 
 #### Create DCR resources for ingestion into a standard table
 
-To ingest the data to a standard table like Syslog or CommonSecurityLog, you use a process based on the [Send data to Azure Monitor Logs using REST API (Resource Manager templates) tutorial](/azure/azure-monitor/logs/tutorial-logs-ingestion-api). While the tutorial explains how to ingest data into a custom table, you can easily adjust the process to ingest data into a standard table. The steps below indicate relevant changes in the steps. 
+To ingest the data to a standard table like Syslog or CommonSecurityLog, you use a process based on the [Send data to Azure Monitor Logs using REST API (Resource Manager templates) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-api). While the tutorial explains how to ingest data into a custom table, you can easily adjust the process to ingest data into a standard table. The steps below indicate relevant changes in the steps. 
  
-1. Review the [prerequisites](/azure-monitor/logs/tutorial-logs-ingestion-api#prerequisites).
-1. [Collect workspace details](/azure-monitor/logs/tutorial-logs-ingestion-api#collect-workspace-details).
-1. [Configure the application](/azure-monitor/logs/tutorial-logs-ingestion-api#configure-application). 
+1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-api#prerequisites).
+1. [Collect workspace details](../azure-monitor/logs/tutorial-logs-ingestion-api#collect-workspace-details).
+1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-api#configure-application). 
     > [!NOTE]
     > Skip the Create new table in Log Analytics workspace step. This step is not relevant when ingesting data into a standard table, because the table is already defined in Log Analytics.
-1. [Create data collection endpoint](/azure/azure-monitor/logs/tutorial-logs-ingestion-api#create-data-collection-endpoint).
-1. [Create the DCR](/azure-monitor/logs/tutorial-logs-ingestion-api#create-data-collection-rule). In this step: 
+1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-api#create-data-collection-endpoint).
+1. [Create the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api#create-data-collection-rule). In this step: 
     - Provide [the sample file you created in the previous section](#create-a-sample-file). 
     - Use the sample file you created to define the `streamDeclarations` property. Each of the fields in the sample file should have a corresponding column with the same name and the appropriate type (see the [example](#example-dcr-that-ingests-data-into-the-syslog-table) below). 
     - Configure the value of the `outputStream` property with the name of the standard table instead of the custom table. Unlike custom tables, standard table names don't have the `_CL` suffix.  
     - The prefix of the table name should be `Microsoft-` instead of `Custom-`. In our example, the `outputStream` property value is `Microsoft-Syslog`.  
-1. [Assign permissions to the DCR](/azure-monitor/logs/tutorial-logs-ingestion-api#assign-permissions-to-dcr)
-1. [Send sample data](/azure-monitor/logs/tutorial-logs-ingestion-api#send-sample-data)
+1. [Assign permissions to the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api#assign-permissions-to-dcr).
+1. [Send sample data](../azure-monitor/logs/tutorial-logs-ingestion-api#send-sample-data).
 
-If you come across any issues, see the [troubleshooting steps](/azure-monitor/logs/tutorial-logs-ingestion-api#troubleshooting).
+If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-api#troubleshooting).
 
 ##### Example: DCR that ingests data into the Syslog table
 
@@ -351,12 +355,12 @@ To configure the Logstash configuration file to ingest the logs into a custom ta
 
 |Field  |How to retrieve for custom logs  |How to retrieve for standard logs  |
 |---------|---------|---------|
-|`client_app_Id` |The `Application (client) ID` value you create in the [Configure the application](/azure-monitor/logs/tutorial-logs-ingestion-portal#configure-application) section, under step 3. |The `Application (client) ID` value you create in the [Configure the application](/azure-monitor/logs/tutorial-logs-ingestion-api#configure-application) section, under step 3.         |
-|`client_app_secret` |The `Application (client) ID` value you create in the [Configure the application](/azure-monitor/logs/tutorial-logs-ingestion-portal#configure-application) section, under step 5. |The `Application (client) ID` value you create in the [Configure the application](/azure-monitor/logs/tutorial-logs-ingestion-api#configure-application) section, under step 5.         |
+|`client_app_Id` |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal#configure-application) section, under step 3. |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-api#configure-application) section, under step 3.         |
+|`client_app_secret` |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal#configure-application) section, under step 5. |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-api#configure-application) section, under step 5.         |
 |`tenant_id`     |Your subscription's tenant ID. You can find the tenant ID under **Home > Azure Active Directory > Overview > Basic Information**.         |Your subscription's tenant ID. You can find the tenant ID under **Home > Azure Active Directory > Overview > Basic Information**.         |
-|`data_collection_endpoint`   |The value of the `logsIngestion` URI in the [Create data collection endpoint](/azure-monitor/logs/tutorial-logs-ingestion-portal#create-data-collection-endpoint) section, step 3.       |The value of the `logsIngestion` URI in the [Create data collection endpoint](/azure/azure-monitor/logs/tutorial-logs-ingestion-api#create-data-collection-endpoint) section, step 3. |
-|`dcr_immutable_id` |The value of the DCR `immutableId` in the [Collect information from DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr) section. |The value of the DCR `immutableId` in the [Collect information from DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr) section. |
-|`dcr_stream_name` |As explained in the [Collect information from DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr) section, go to the JSON view of the DCR, and copy the `dataFlows` > `streams` property. See the `dcr_stream_name` in the [example](#example-output-plugin-configuration-section) below. |The value is `Custom-SyslogStream`. |
+|`data_collection_endpoint`   |The value of the `logsIngestion` URI in the [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal#create-data-collection-endpoint) section, step 3.       |The value of the `logsIngestion` URI in the [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-api#create-data-collection-endpoint) section, step 3. |
+|`dcr_immutable_id` |The value of the DCR `immutableId` in the [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr) section. |The value of the DCR `immutableId` in the [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr) section. |
+|`dcr_stream_name` |As explained in the [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-dcr) section, go to the JSON view of the DCR, and copy the `dataFlows` > `streams` property. See the `dcr_stream_name` in the [example](#example-output-plugin-configuration-section) below. |The value is `Custom-SyslogStream`. |
 
 After you retrieve the required values: 
 
@@ -412,7 +416,7 @@ If you are not seeing any data in this log file, generate and send some events l
 - Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](data-transformation.md#data-transformation-support-for-custom-data-connectors).
 - The columns of the input stream in the `streamDeclarations` property must start with a letter. If you start a column with other characters (for example `@` or `_`), the operation fails.
 - The `TimeGenerated` datetime field is required. You must include this field in the KQL transform.
-- For additional possible issues, review the [troubleshooting section](/azure-monitor/logs/tutorial-logs-ingestion-api#troubleshooting) in the tutorial. 
+- For additional possible issues, review the [troubleshooting section](../azure-monitor/logs/tutorial-logs-ingestion-api#troubleshooting) in the tutorial. 
 
 ## Next steps
 
