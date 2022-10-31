@@ -15,14 +15,14 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Encrypt and decrypt blobs using Azure Key Vault
 
-In this tutorial, you learn how to use client-side encryption to encrypt and decrypt blobs using keys stored with Azure Key Vault.
+In this tutorial, you learn how to use client-side encryption to encrypt and decrypt blobs using a key stored with Azure Key Vault.
 
-Azure Key Vault is a cloud solution for managing secrets, keys, and certificates. You can read more about Azure Key Vault on the [overview page](../../key-vault/general/overview.md).
-
-In this tutorial, you learn how to:
+This tutorial shows you how to:
 
 > [!div class="checklist"]
-> * Add a key in Azure Key Vault
+> * Configure permissions for an Azure Key Vault resource
+> * Create a console application to interact with resources using .NET client libraries
+> * Add a key to a key vault
 > * Configure client-side encryption options using a key stored in a key vault
 > * Create a blob service client object with client-side encryption enabled
 > * Upload an encrypted blob, then download and decrypt the blob
@@ -181,7 +181,7 @@ In this example, we create a key and add it to the key vault using the Azure Key
 In the sample below, we create a [KeyClient](/dotnet/api/azure.security.keyvault.keys.keyclient?view=azure-dotnet) object for the specified vault. The `KeyClient` object is then used to create a new RSA key in the specified vault.
 
 ```csharp
-var keyName = "TestRSAKey";
+var keyName = "testRSAKey";
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
 
 // URI for the key vault resource
@@ -284,8 +284,8 @@ Console.WriteLine((await BinaryData.FromStreamAsync(downloadInfo.Content)).ToStr
 
 ## Next steps
 
-For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](/previous-versions/azure/dn261237(v=azure.100)).
+In this tutorial, you learned how to use .NET client libraries to perform client-side encryption for blob upload and download operations.
 
-For more information about the Blob REST API, see [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API).
+For more information about client-side encryption, see [Client-side encryption for blobs](client-side-encryption.md).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](/archive/blogs/windowsazurestorage/).
+For more information about Azure Key Vault, see the [Azure Key Vault overview page](../../key-vault/general/overview.md)
