@@ -160,7 +160,7 @@ To learn how to create a Create an active directory application, service princip
 
 # [Publish profile](#tab/applevel)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Security > Secrets and variables > Actions > New repository secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -174,7 +174,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 # [Service principal](#tab/userlevel)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Security > Secrets and variables > Actions > New repository secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 

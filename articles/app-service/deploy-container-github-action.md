@@ -126,7 +126,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
 
 # [Publish profile](#tab/publish-profile)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Security > Secrets and variables > Actions > New repository secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -140,7 +140,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 # [Service principal](#tab/service-principal)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Security > Secrets and variables > Actions > New repository secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
 
