@@ -1,5 +1,5 @@
 ---
-title: Create a custom IPv6 address prefix
+title: Create a custom IPv6 address prefix - Azure PowerShell
 titleSuffix: Azure Virtual Network
 description: Learn about how to create a custom IPv6 address prefix using Azure PowerShell
 author: asudbring
