@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
-# Preview: Run scripts in your Linux VM by using managed Run Commands
+# Run scripts in your Linux VM by using managed Run Commands
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
