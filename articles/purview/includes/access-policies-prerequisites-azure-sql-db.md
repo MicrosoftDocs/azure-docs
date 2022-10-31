@@ -25,7 +25,7 @@ No restrictions, all Microsoft Purview regions are supported
 - France Central
 - UK South
 - Central India
-- Japan East
+- East Asia
 - South East Asia
 - Australia East
 
