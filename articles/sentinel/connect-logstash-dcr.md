@@ -3,7 +3,7 @@ title: Use Logstash to stream logs into custom and standard tables in Microsoft 
 description: Use Logstash to forward logs from external data sources into custom and standard tables in Microsoft Sentinel, and to configure the output with DCRs. 
 author: limwainstein
 ms.topic: how-to
-ms.date: 30/10/2021
+ms.date: 10/31/2021
 ms.author: lwainstein
 ---
 
@@ -107,7 +107,7 @@ input {
     ```
 1. Make sure that the referenced file path exists before creating the sample file. 
     1. Start Logstash. 
-        The plugin writes ten records to a sample file named *sampleFile<epoch seconds>.json* in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
+        The plugin writes ten records to a sample file named *sampleFile<\epoch\ seconds>.json* in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
         Here is part of a sample file that the plugin creates:
         ```
         [
@@ -159,7 +159,7 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
     ```
 1. Make sure that the file path exists before creating the sample file: 
     1. Start Logstash. 
-        The plugin writes ten records to a sample file named *sampleFile<epoch seconds>.json* in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
+        The plugin writes ten records to a sample file named *sampleFile<\epoch\ seconds>.json* in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
         Here is part of a sample file that the plugin creates:
         ```
         [
@@ -346,10 +346,6 @@ Note that:
 ```
 
 ### Configure Logstash configuration file
-
-In this section, you create resources to use for your DCR, in one of these scenarios:
-- [Configure Logstash configuration file for ingestion into a custom table](#configure-logstash-configuration-file-for-ingestion-into-a-custom-table)
-- [Configure Logstash configuration file for ingestion into a standard table](#configure-logstash-configuration-file-for-ingestion-into-a-standard-table)
 
 To configure the Logstash configuration file to ingest the logs into a custom table, retrieve these values:
 
