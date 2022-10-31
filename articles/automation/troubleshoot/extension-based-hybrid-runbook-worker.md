@@ -73,7 +73,8 @@ You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails 
 You are deploying the extension-based Hybrid Worker on a non-Azure VM that does not have Arc connected machine agent installed on it. 
 
 ### Resolution
-Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](/articles/azure-arc/servers/onboard-portal.md) for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/articles/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](https://learn.microsoft.com/azure/azure-arc/servers/onboard-portal)
+for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
  
 
 ### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled
@@ -87,7 +88,7 @@ User-assigned managed identity of the VM is enabled, but system-assigned managed
 ### Resolution
 Follow the steps listed below:
 
-1. [Enable](/articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) System-assigned managed identity of the VM. 
+1. [Enable](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) System-assigned managed identity of the VM. 
 2. [Delete](../extension-based-hybrid-runbook-worker-install.md#delete-a-hybrid-runbook-worker) the Hybrid Worker extension installed on the VM. 
 3. [Re-install]() the Hybrid Worker extension on the VM. 
 
