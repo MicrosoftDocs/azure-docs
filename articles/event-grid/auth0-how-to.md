@@ -14,13 +14,17 @@ This article describes how to connect your Auth0 and Azure accounts by creating 
 ## Send events from Auth0 to Azure Event Grid
 To send Auth0 events to Azure:
 
-1. [Register the Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with your Azure subscription.
-2. [Authorize Auth0](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
+1. [Register the Event Grid resource provider](#register-the-event-grid-resource-provider) with your Azure subscription.
+1. [Authorize partner](#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 3. Request Auth0 to enable events flow to a partner topic by [setting up an Auth0 partner topic](#set-up-an-auth0-partner-topic) in the Auth0 Dashboard.
-4. [Activate partner topic](subscribe-to-partner-events.md#activate-a-partner-topic) so that your events start flowing to your partner topic.
-5. [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events).
+4. [Activate partner topic](activate-a-partner-topic) so that your events start flowing to your partner topic.
+5. [Subscribe to events](subscribe-to-events).
 
-This article provides steps for doing the task #3 from the above list. All other tasks are documented in the [Subscribe to partner events](subscribe-to-partner-events.md) article. 
+
+[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+
+[!INCLUDE [authorize-partner-to-create-topic](includes/authorize-partner-to-create-topic.md)]
+
 
 ## Set up an Auth0 partner topic
 Part of the integration process is to set up Auth0 for use as an event source by using the [Auth0 Dashboard](https://manage.auth0.com/).
@@ -51,6 +55,9 @@ Try [invoking any of the Auth0 actions that trigger an event to be published](ht
 
 ## Delivery attempts and retries
 Auth0 events are delivered to Azure via a streaming mechanism. Each event is sent as it's triggered in Auth0. If Event Grid is unable to receive the event, Auth0 will retry up to three times to deliver the event. Otherwise, Auth0 will log the failure to deliver in its system.
+
+4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
+5. [Subscribe to events](#subscribe-to-events).
 
 ## Next steps
 
