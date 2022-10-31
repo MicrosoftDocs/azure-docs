@@ -40,31 +40,45 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `log_verbosity` | number | Different levels of log verbosity. |`not_set`, `debug`, `info`, `warning`, `error`, `critical` | `info` |
 | `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy`, `auc_weighted`, `average_precision_score_weighted`, `norm_macro_recall`, `precision_score_weighted` | `accuracy` |
 | `target_column_name` | string |  The name of the column to target for predictions. It must always be specified. This parameter is applicable to 'training_data' and 'validation_data'. | |  |
-| `training_data` | object |  The data to be used within the job. It should contain both training feature columns and a target column. the parameter training_data must always be provided. | |  |
-| `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
-| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
-| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure ML will system-generate an output location for the output. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
+| `training_data` | object |  The data to be used within the job. It should contain both training feature columns and a target column. the parameter training_data must always be provided. Refer to [training/validation input data specification](#training-or-validation-data) for further details on how to write this object.| |  |
+| `validation_data` | object |  The validation data to be used within the job. It should contain both training features and label column (optionally a sample weights column). If 'validation_data' is specified, then 'training_data' and 'target_column_name' parameters must be specified. Refer to [training/validation input data specification](#training-or-validation-data) for further details on how to write this object.| |  |
+| `validation_data_size` | float |  What fraction of the data to hold out for validation when user validation data is not specified. This should be between 0.0 and 1.0 non-inclusive. | |  |
 | `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the ocntext of the job and the value is limit value. If you want to specify a different mode for the output, provide an object containing the [limits](#limits). | | |
+| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object which has keys as listed in  [training parameters](#training-parameters). | | |
 
 ### Limits
 
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `timeout_minutes` | integer | Maximum amount of time in minutes that the whole AutoML job can take before the job terminates. This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size is not greater than 10,000,000 (rows times column) or an error results. | | |
-| `max_trials` | integer | The maximum total number of different algorithm and parameter combinations (trials) to try during an AutoML job. If not specified, the default is 1000 trials. If using 'enable_early_termination' the number of trials used can be smaller.  | |
-| `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. The default value is 1.  | |
-| `trial_timeout_minutes` | integer | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used.  | |
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `timeout_minutes` | integer | Maximum amount of time in minutes that the whole AutoML job can take before the job terminates. This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size is not greater than 10,000,000 (rows times column) or an error results. | | 8640 |
+| `max_trials` | integer | The maximum total number of different algorithm and parameter combinations (trials) to try during an AutoML job. If using 'enable_early_termination' the number of trials used can be smaller.  | | 1000 |
+| `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. | | 1 |
+| `trial_timeout_minutes` | integer | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used.  | | 43200 |
 
-### Training Data
+### Training Or Validation Data
 
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
 | `description` | string | The detailed information that describes this input data. | | |
-| `path` | sring | The maximum total number of different algorithm and parameter combinations (trials) to try during an AutoML job. If not specified, the default is 1000 trials. If using 'enable_early_termination' the number of trials used can be smaller.  | |
+| `path` | sring | The maximum total number of different algorithm and parameter combinations (trials) to try during an AutoML job. If not specified, the default is 1000 trials. If using 'enable_early_termination' the number of trials used can be smaller.  | | |
 | `mode` | string | | |
 | `type` | const |  In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an MLTable. | mltable | mltable|
 
+### Training Parameters
+
+#### Model specific hyperparameters
+
+#### Model agnostic hyperparameters
+
+#### Image classification (multi-class and multi-label) specific hyperparameters
+
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `model_name` | string | Model name to be used for image classification task at hand. | `mobilenetv2`, `resnet18`, `resnet34`, `resnet50`, `resnet101`, `resnet152`, `resnest50`, `resnest101`, `seresnext`, `vits16r224`, `vitb16r224`, `vitl16r224` | |
+| `training_crop_size` | integer | Image crop size that's input to your neural network for train dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- ViT-variants should have the same `validation_crop_size` and `training_crop_size`. <br>- Training run may get into CUDA OOM if the size is too big.|  | 224|
+| `validation_crop_size` | integer | Image crop size that's input to your neural network for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- ViT-variants should have the same `validation_crop_size` and `training_crop_size`. <br>- Training run may get into CUDA OOM if the size is too big.| | 224 |
+| `validation_resize_size` | integer | Image size to which to resize before cropping for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- Training run may get into CUDA OOM if the size is too big. | | 256 |
+| `weighted_loss` | integer | - `0` for no weighted loss. <br>- `1` for weighted loss with sqrt (class_weights). <br>- `2` for weighted loss with class_weights. | `0`, `1`, `2`| `0` |
 
 
 ### Distribution configurations
