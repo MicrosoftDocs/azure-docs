@@ -493,6 +493,8 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?term=defender%20for%20cloud
+  - name: Defender for Cloud glossary of terms
+    href: defender-for-cloud-glossary.md
   - name: Microsoft Defender for Cloud in the field
     items:
     - name: New AWS connector
