@@ -810,7 +810,9 @@ Following table describes the explainability algorithm specific tuning parameter
 | `integrated_gradients` | 1. `n_steps`: The number of steps used by the approximation method. Larger number of steps lead to better attributions (explanations). Range of n_steps is [2, inf), but the performance of attributions starts to converge after 50 steps.<br> `Optional, Int` <br><br> 2. `approximation_method`: Method for approximating the integral. Available approximation methods are `riemann_middle` and `gausslegendre`.<br> `Optional, String` | `n_steps = 50` <br> `approximation_method = riemann_middle` |
 
 
-Internally XRAI algorithm uses integrated gradients. So, `n_steps` parameter is required by both integrated gradients and XRAI algorithms.
+Internally XRAI algorithm uses integrated gradients. So, `n_steps` parameter is required by both integrated gradients and XRAI algorithms. Larger number of steps consume more time for approximating the explanations and it may result in timeout issues on the online endpoint.
+
+We recommend using XRAI > Guided GradCAM > Integrated Gradients > Guided BackPropagation algorithms for better explanations, whereas Guided BackPropagation > Guided GradCAM > Integrated Gradients > XRAI are recommended for faster explanations in the specified order.
 
 A sample request to the online endpoint looks like the following. This request generates explanations when `model_explainability` is set to `True`. Following request will generate visualizations and attributions using faster version of XRAI algorithm with 50 steps.
 
