@@ -47,16 +47,16 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 ## June 2022
 
-| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
 |------------------------------|------|-------------|
-| [Semantic search](semantic-search-overview.md) | Feature | New support for Storage Optimized tiers (L1, L2) | Public preview. |
-| [Debug Sessions](cognitive-search-debug-session.md) | Feature | **General availability**. Debug sessions, a built-in editor that runs in Azure portal, is now generally available. |
+| [Semantic search (preview)](semantic-search-overview.md) | Feature | New support for Storage Optimized tiers (L1, L2). |
+| [Debug Sessions](cognitive-search-debug-session.md) | Feature | **General availability**. Debug sessions, a bu|ilt-in editor that runs in Azure portal, is now generally available. |
 
 ## May 2022
 
 |Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
 |------------------------------|------|-------------|
-| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Please migrate your data ingestion code by November 2022. See the feature documentation for migration guidance.  | 
+| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Please migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
 
 ## February 2022
 
