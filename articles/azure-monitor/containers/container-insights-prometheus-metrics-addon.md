@@ -60,7 +60,7 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 #### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
-- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/azure/azure-cli-extensions-overview).
+- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Azure CLI version 2.41.0 or higher is required for this feature.
 
 #### Install metrics addon
@@ -136,7 +136,7 @@ The output will be similar to the following:
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
-- The template needs to be deployed in the same resource group as the cluster.
+- The template needs to be deployed in the Azure Managed Grafana workspaces resource group.
 
 ### Retrieve list of Grafana integrations
 If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Open the **Overview** page for the Azure Managed Grafana instance and select the JSON view. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
@@ -157,7 +157,7 @@ If you're using an existing Azure Managed Grafana instance that already has been
 ```
 
 ### Retrieve System Assigned identity for Grafana resource
-If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Open the **Overview** page for the Azure Managed Grafana instance and select the JSON view. Copy the value of the `principalId` field for the `SystemAssigned` identity.
+The system assigned identity for the Azure Managed Grafana resource is also required. To get to it, open the **Overview** page for the Azure Managed Grafana instance and select the JSON view. Copy the value of the `principalId` field for the `SystemAssigned` identity.
 
 ```json
 "identity": {
@@ -166,8 +166,7 @@ If you're using an existing Azure Managed Grafana instance that already has been
         "type": "SystemAssigned"
     },
 ```
-
-Assign the `Monitoring Data Reader` role to the Grafana System Assigned Identity. This is the principalId on the Azure Monitor Workspace resource. This will let the Azure Managed Grafana resource read data from the Azure Monitor Workspace and is a requirement for viewing the metrics.
+Please assign the `Monitoring Data Reader` on the Azure Monitor Workspace for the Grafana System Identity i.e. take the principal ID that you got from the Azure Managed Grafana Resource, open the Access Control Blade for the Azure Monitor Workspace and assign the `Monitoring Data Reader` Built-In role to the principal ID (System Assigned MSI for the Azure Managed Grafana resource). This will let the Azure Managed Grafana resource read data from the Azure Monitor Workspace and is a requirement for viewing the metrics.
 
 ### Download and edit template and parameter file
 
@@ -207,14 +206,15 @@ Assign the `Monitoring Data Reader` role to the Grafana System Assigned Identity
                 },
                 {
                     "azureMonitorWorkspaceResourceId": "full_resource_id_2"
-                }
+                },
                 {
-                "azureMonitorWorkspaceResourceId": "[parameters('azureMonitorWorkspaceResourceId')]"
+                    "azureMonitorWorkspaceResourceId": "[parameters('azureMonitorWorkspaceResourceId')]"
                 }
             ]
             }
         }
     ````
+    For e.g. In the above code snippet `full_resource_id_1` and `full_resource_id_2` were already present on the Azure Managed Grafana resource and we're manually adding them to the ARM template. The final `azureMonitorWorkspaceResourceId` already exists in the template and is being used to link to the Azure Monitor Workspace resource ID provided in the parameters file. Please note, You do not have to replace `full_resource_id_1` and `full_resource_id_2` and any other resource id's if no integrations are found in the retrieval step.
 
 
 ### Deploy template
@@ -268,7 +268,9 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 
 
 ## Uninstall metrics addon
-Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. The following command removes the agent from the cluster nodes and deletes the recording rules created for the data being collected from the cluster, it doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
+
+Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.
+The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/azure/azure-cli-extensions-overview). The following command removes the agent from the cluster nodes and deletes the recording rules created for the data being collected from the cluster, it doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
 
 ```azurecli
 az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>

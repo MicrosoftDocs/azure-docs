@@ -1,5 +1,5 @@
 ---
-title: Dynatrace for Azure overview - Azure partner solutions
+title: Dynatrace for Azure overview
 description: Learn about using the Dynatrace Cloud-Native Observability Platform in the Azure Marketplace.
 ms.topic: conceptual
 author: flang-msft

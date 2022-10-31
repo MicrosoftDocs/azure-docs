@@ -100,4 +100,4 @@ Your project is now fully upgraded to Unity 2020. Follow the instructions from e
 > [FAQ](../faq.md)
 
 > [!div class="nextstepaction"]
-> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme)

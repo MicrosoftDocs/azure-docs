@@ -64,10 +64,6 @@ landingContent:
       links:
       - text: Introducing Multivariate Anomaly Detection
         url: https://techcommunity.microsoft.com/t5/azure-ai/introducing-multivariate-anomaly-detection/ba-p/2260679
-    - linkListType: how-to-guide
-      links:
-      - text: 🆕Use Multivariate Anomaly Detector on your time series data
-        url: How-to/multivariate-how-to.md
     - linkListType: quickstart
       links:
         - text: Using C# (multivariate)

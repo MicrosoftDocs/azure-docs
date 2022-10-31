@@ -31,8 +31,6 @@
   items:
     - name: Identify anomalies in your data (univariate)
       href: how-to/identify-anomalies.md
-    - name: Detect anomalies using Multivariate Anomaly Detector
-      href: how-to/multivariate-how-to.md
     - name: Deploy Anomaly Detector (univariate)
       items:
         - name: Deploy to IoT Edge
@@ -50,6 +48,12 @@
             - name: All Cognitive Services containers documentation
               href: ../containers/index.yml
               maintainContext: true
+    - name: Multivariate Anomaly Detector
+      items:
+        - name: Train a model
+          href: how-to/train-model.md
+        - name: Batch inference      
+          href: how-to/batch-inference.md
     - name: Enterprise readiness
       items:
         - name: Set up Virtual Networks
