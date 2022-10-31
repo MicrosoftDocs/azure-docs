@@ -41,7 +41,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 ## Set up Azure AD applications
 
 
-### [AzureCLI >= v2.37](#tab/AzureCLI237)
+### [AzureCLI >= v2.37](#tab/AzureCLI)
 #### Create a server application
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
@@ -137,7 +137,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     ```
 
 
-### [AzureCLI < v2.37](#tab/AzureCLI)
+### [AzureCLI < v2.37](#tab/AzureCLI236)
 #### Create a server application
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
