@@ -116,13 +116,15 @@ The REST API examples in this article use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`,
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). You can retrieve a token with the following command. The token is stored in the `$TOKEN` environment variable:
 
-```azurecli
-TOKEN=$(az account get-access-token --query accessToken -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_access_token":::
 
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
+
+When training using the REST API, data and training scripts must be uploaded to a storage account that the workspace can access. The following example gets the storage information for your workspace and saves it into variables so we can use it later:
+
+:::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
 
 ---
 
@@ -211,9 +213,15 @@ You can use the stored run ID to return information about the job. The `--web` p
 
 # [REST API](#tab/restapi)
 
-As part of job submission, the training scripts and data must be uploaded to a cloud storage location that your AzureML workspace can access. These examples don't cover the uploading process. For information on using the Blob REST API to upload files, see the [Put Blob](/rest/api/storageservices/put-blob) reference. 
+As part of job submission, the training scripts and data must be uploaded to a cloud storage location that your AzureML workspace can access. 
 
-1. Create a versioned reference to the training data. In this example, the data is located at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`. In your workspace, you might upload the file to the default storage for your workspace:
+1. Use the following Azure CLI command to upload the training script. The command specifies the _directory_ that contains the files needed for training, not an individual file. If you'd like to use REST to upload the data instead, see the [Put Blob](/rest/api/storageservices/put-blob) reference:
+
+    ```azurecli
+    az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/testjob -s cli/jobs/single-step/scikit-learn/iris/src/ --account-name $AZURE_STORAGE_ACCOUNT
+    ```
+
+1. Create a versioned reference to the training data. In this example, the data is already in the cloud and located at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`. For more information on referencing data, see [Data in Azure Machine Learning](concept-data.md):
 
     ```bash
     DATA_VERSION=$RANDOM
