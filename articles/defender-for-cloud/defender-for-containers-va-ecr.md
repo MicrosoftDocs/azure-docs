@@ -60,9 +60,13 @@ To enable vulnerability assessment:
     
 1. Select **Update**.
 
-Findings are available as Defender for Cloud recommendations from 2 hours after vulnerability assessment is turned on.
+Findings are available as Defender for Cloud recommendations from 2 hours after vulnerability assessment is turned on. The recommendation also shows any reason that a repository is identified as not scannable ("Not applicable"), such as images pushed more than 3 months before you enabled vulnerability assessment.
 
 ## View and remediate findings
+
+Vulnerability assessment lists the repositories with vulnerable images as the results of the [Elastic container registry images should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/03587042-5d4b-44ff-af42-ae99e3c71c87) recommendation. From the recommendation, you can identify vulnerable images and get details about the vulnerabilities.
+
+Vulnerability findings for an image are still shown in the recommendation for 48 hours after an image is deleted.
 
 1. To view the findings, open the **Recommendations** page. If the scan found issues, you'll see the recommendation [Elastic container registry images should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/03587042-5d4b-44ff-af42-ae99e3c71c87).
 
@@ -86,7 +90,7 @@ Findings are available as Defender for Cloud recommendations from 2 hours after 
 
     This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
 
-1. Follow the steps in the remediation section of this pane.
+1. Follow the steps in the remediation section of the recommendation.
 
 1. When you've taken the steps required to remediate the security issue, replace the image in your registry:
 
