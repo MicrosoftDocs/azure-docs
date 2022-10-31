@@ -27,7 +27,7 @@ This video provides examples for making REST calls to Azure Maps Weather service
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player?format=ny]
 
 ## Prerequisites
 

@@ -34,8 +34,6 @@ In a Azure Virtual Desktop deployment, MSIX app attach can:
 - Reduce the time it takes for a user to sign in.
 - Reduce infrastructure requirements and cost.
 
-MSIX app attach must be applicable outside of VDI or SBC.
-
 ## Traditional app layering compared to MSIX app attach
 
 The following table compares key feature of MSIX app attach and app layering.

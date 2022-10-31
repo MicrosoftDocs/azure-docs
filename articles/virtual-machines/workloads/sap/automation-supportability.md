@@ -84,16 +84,15 @@ The automation framework uses or can use the following Azure services, features,
     - New or existing key vaults
     - Customer-managed keys for disk encryption
 - Azure Application Security Groups (ASG)
+- Azure Files for NFS
 - Azure NetApp Files (ANF)
     - For shared files
+    - For database files
 
 ## Unsupported Azure features
 
 At this time the automation framework **doesn't support** the following Azure services, features, or capabilities:
 
-- Azure Files for NFS
-- Azure NetApp Files (ANF)
-    - For database files
 
 ## Next steps
 

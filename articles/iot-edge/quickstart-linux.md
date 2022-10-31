@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine and then delete it when you're finished.
 
@@ -102,14 +102,14 @@ This section uses an Azure Resource Manager template to create a new virtual mac
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) template.
+Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.1) template.
 
 * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://aka.ms/iotedge-vm-deploy" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.1/edgeDeploy.json" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
@@ -122,7 +122,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    ```azurecli
    az deployment group create `
    --resource-group IoTEdgeResources `
-   --template-uri "https://aka.ms/iotedge-vm-deploy" `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.1/edgeDeploy.json" `
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
@@ -136,14 +136,14 @@ Use the following CLI command to create your IoT Edge device based on the prebui
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
-Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3) template.
+Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4) template.
 
 * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.3/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.4/edgeDeploy.json" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
@@ -156,7 +156,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    ```azurecli
    az deployment group create `
    --resource-group IoTEdgeResources `
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.3/edgeDeploy.json" `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.4/edgeDeploy.json" `
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
@@ -269,9 +269,9 @@ Follow these steps to start the **Set Modules** wizard to deploy your first modu
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Device Management**, select **IoT Edge**.
+1. From the menu on the left, under **Device Management**, select **Devices**.
 
-1. Select the device ID of the target device from the list of devices.
+1. Select the device ID of the target IoT Edge device from the list.
 
    When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
@@ -294,10 +294,10 @@ In **IoT Edge Module Marketplace**, search for and select the `Simulated Tempera
 
 Select **Runtime Settings** to open the settings for the edgeHub and edgeAgent modules. This settings section is where you can manage the runtime modules by adding environment variables or changing the create options.
 
-Update the **Image** field for both the edgeHub and edgeAgent modules to use the version tag 1.3. For example:
+Update the **Image** field for both the edgeHub and edgeAgent modules to use the version tag 1.4. For example:
 
-* `mcr.microsoft.com/azureiotedge-hub:1.3`
-* `mcr.microsoft.com/azureiotedge-agent:1.3`
+* `mcr.microsoft.com/azureiotedge-hub:1.4`
+* `mcr.microsoft.com/azureiotedge-agent:1.4`
 
 Select **Save** to apply your changes to the runtime modules.
 

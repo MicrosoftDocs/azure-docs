@@ -26,7 +26,7 @@ Check this article regularly to learn about:
 - Deprecated functionality
 
 > [!TIP]
-> To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://docs.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
+> To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
 
 ## December 2021
 

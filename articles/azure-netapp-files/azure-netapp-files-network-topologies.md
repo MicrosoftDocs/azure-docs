@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 10/26/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -33,7 +33,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ### Supported regions 
 
-Azure NetApp Files standard network features are supported for the following regions:
+Azure NetApp Files Standard network features are supported for the following regions:
 
 *   Australia Central
 *   Australia Central 2
@@ -41,15 +41,23 @@ Azure NetApp Files standard network features are supported for the following reg
 *   Australia Southeast
 *   Canada Central
 *   Central US
+*   East Asia
 *   East US
 *   East US 2
 *	France Central
 *   Germany West Central
 *   Japan East
+*   Korea Central
 *	North Central US
 *   North Europe
+*   Norway East
 *	South Central US
+*   South India 
+*   Southeast Asia
+*   Sweden Central
 *   Switzerland North
+*   UAE Central
+*   UAE North
 *   UK South
 *	West Europe
 *   West US
@@ -69,7 +77,7 @@ The following table describes what’s supported for each network features confi
 
 |      Features     |      Standard network features     |      Basic network features     |
 |---|---|---|
-|     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
+|     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
@@ -77,10 +85,12 @@ The following table describes what’s supported for each network features confi
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
 |     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
-|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
+|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)    |
 
 > [!IMPORTANT]
-> Upgrade from basic to standard network feature is not currently supported.
+> Conversion between Basic and Standard networking features in either direction is not currently supported. 
+>
+> Additionally, you can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
 
 ### Supported network topologies
 
@@ -99,6 +109,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
+| Connectivity over Active/Passive Zone Redundant gateways | Yes | Yes |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
 
 \* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
@@ -132,6 +143,9 @@ If the subnet has a combination of volumes with the Standard and Basic network f
 
 Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
+> [!NOTE]
+> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
+
 ## Azure native environments
 
 The following diagram illustrates an Azure-native environment:
@@ -158,7 +172,7 @@ The following diagram illustrates an Azure-native environment with cross-region 
 
 :::image type="content" source="../media/azure-netapp-files/azure-native-cross-region-peering.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/azure-native-cross-region-peering.png":::
 
-With the standard network feature, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds a second region to the configuration in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
+With Standard network features, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds a second region to the configuration in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
 
 In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2. VM5 in Region 2 can connect to Volume 2 in Region 1 via VNet peering between Region 1 and Region 2.
 

@@ -3,14 +3,14 @@ title: Azure Virtual Network
 description: Learn about Azure Virtual Network concepts and features, including address space, subnets, regions, and subscriptions. 
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 # Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
-ms.author: mbender
+ms.author: allensu
 ---
 
 # What is Azure Virtual Network?
@@ -39,9 +39,9 @@ Azure resources communicate securely with each other in one of the following way
 
 You can connect your on-premises computers and networks to a virtual network using any of the following options:
 
-- **Point-to-site virtual private network (VPN):** Established between a virtual network and a single computer in your network. Each computer that wants to establish connectivity with a virtual network must configure its connection. This connection type is great if you're just getting started with Azure, or for developers, because it requires little or no changes to your existing network. The communication between your computer and a virtual network is sent through an encrypted tunnel over the internet. To learn more, see [Point-to-site VPN](../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-network%2ftoc.json#).
-- **Site-to-site VPN:** Established between your on-premises VPN device and an Azure VPN Gateway that is deployed in a virtual network. This connection type enables any on-premises resource that you authorize to access a virtual network. The communication between your on-premises VPN device and an Azure VPN gateway is sent through an encrypted tunnel over the internet. To learn more, see [Site-to-site VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
-- **Azure ExpressRoute:** Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic does not go over the internet. To learn more, see [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Point-to-site virtual private network (VPN):** Established between a virtual network and a single computer in your network. Each computer that wants to establish connectivity with a virtual network must configure its connection. This connection type is great if you're just getting started with Azure, or for developers, because it requires little or no changes to your existing network. The communication between your computer and a virtual network is sent through an encrypted tunnel over the internet. To learn more, see [Point-to-site VPN](../vpn-gateway/point-to-site-about.md?toc=/azure/virtual-network/toc.json#).
+- **Site-to-site VPN:** Established between your on-premises VPN device and an Azure VPN Gateway that is deployed in a virtual network. This connection type enables any on-premises resource that you authorize to access a virtual network. The communication between your on-premises VPN device and an Azure VPN gateway is sent through an encrypted tunnel over the internet. To learn more, see [Site-to-site VPN](../vpn-gateway/design.md?toc=/azure/virtual-network/toc.json#s2smulti).
+- **Azure ExpressRoute:** Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic does not go over the internet. To learn more, see [ExpressRoute](../expressroute/expressroute-introduction.md?toc=/azure/virtual-network/toc.json).
 
 ### Filter network traffic
 
@@ -55,7 +55,7 @@ You can filter network traffic between subnets using either or both of the follo
 Azure routes traffic between subnets, connected virtual networks, on-premises networks, and the Internet, by default. You can implement either or both of the following options to override the default routes Azure creates:
 
 - **Route tables:** You can create custom route tables with routes that control where traffic is routed to for each subnet. Learn more about [route tables](virtual-networks-udr-overview.md#user-defined).
-- **Border gateway protocol (BGP) routes:** If you connect your virtual network to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate your on-premises BGP routes to your virtual networks. Learn more about using BGP with [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+- **Border gateway protocol (BGP) routes:** If you connect your virtual network to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate your on-premises BGP routes to your virtual networks. Learn more about using BGP with [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=/azure/virtual-network/toc.json) and [ExpressRoute](../expressroute/expressroute-routing.md?toc=/azure/virtual-network/toc.json#dynamic-route-exchange).
 
 ### Virtual network integration for Azure services
 
@@ -80,4 +80,4 @@ There is no charge for using Azure VNet; it is free of cost. Standard charges ar
 ## Next steps
  - Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md).
  - To get started using a virtual network, create one, deploy a few VMs to it, and communicate between the VMs. To learn how, see the [Create a virtual network](quick-create-portal.md) quickstart.
- - [Learn module: Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+ - [Learn module: Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)

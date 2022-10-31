@@ -2,8 +2,8 @@
 title: Firmware integrity - Azure Security
 description: Learn about cryptographic measurements to ensure firmware integrity.
 author: yosharm
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin

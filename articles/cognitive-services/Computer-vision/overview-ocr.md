@@ -1,7 +1,7 @@
 ---
-title: What is Optical character recognition?
+title: What is Optical Character Recognition (OCR)?
 titleSuffix: Azure Cognitive Services
-description: The optical character recognition (OCR) service extracts visible text in an image and returns it as structured strings.
+description: The optical character recognition (OCR) service extracts print and handwritten text from images.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,78 +9,56 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 09/23/2022
 ms.author: pafarley
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, ignite-2022
 ---
 
-# What is Optical character recognition?
+# What is Optical Character Recognition (OCR)
 
-Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as photos of street signs and products, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. Microsoft's OCR technologies support extracting printed text in [several languages](./language-support.md). 
+OCR or Optical Character Recognition is also referred to as text recognition or text extraction. Machine-learning based OCR techniques allow you to extract printed or handwritten text from images, such as posters, street signs and product labels, as well as from documents like articles, reports, forms, and invoices. The text is typically extracted as words, text lines, and paragraphs or text blocks, enabling access to digital version of the scanned text. This eliminates or significantly reduces the need for manual data entry.
 
-Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started with the REST API or a client SDK. Or, try out the capabilities of OCR quickly and easily in your browser using Vision Studio.
+## How is OCR related to Intelligent Document Processing (IDP)?
+
+Intelligent Document Processing (IDP) uses OCR as its foundational technology to additionally extract structure, relationships, key-values, entities, and other document-centric insights with an advanced machine-learning based AI service like [Form Recognizer](../../applied-ai-services/form-recognizer/overview.md). Form Recognizer includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Form Recognizer Read OCR](../../applied-ai-services/form-recognizer/concept-read.md).
+
+## Read OCR engine
+Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). This allows them to extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
+
+[!INCLUDE [read-editions](includes/read-editions.md)]
+
+## How to use OCR
+
+Try out OCR by using Vision Studio. Then follow one of the links to the Read edition in the later sections that best meet your requirements.
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
-![OCR demos](./Images/ocr-demo.gif)
-
-This documentation contains the following types of articles:
-* The [quickstarts](./quickstarts-sdk/client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
-* The [how-to guides](./how-to/call-read-api.md) contain instructions for using the service in more specific or customized ways.
-<!--* The [conceptual articles](how-to/call-read-api.md) provide in-depth explanations of the service's functionality and features.
-* The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
-
-For a more structured approach, follow a Learn module for OCR.
-* [Read Text in Images and Documents with the Computer Vision Service](/learn/modules/read-text-images-documents-with-computer-vision-service/)
-
-## Read API 
-
-The Computer Vision [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) is Azure's latest OCR technology ([learn what's new](./whats-new.md)) that extracts printed text (in several languages), handwritten text (in several languages), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports extracting both printed and handwritten text in the same image or document.
-
-![How OCR extracts text from images and documents.](./Images/how-ocr-works.svg)
-
-## Input requirements
-
-The **Read** call takes images and documents as its input. They have the following requirements:
-
-* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
-* For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
-* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
-* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
+:::image type="content" source="Images/vision-studio-ocr-demo.png" alt-text="Screenshot: Read OCR demo in Vision Studio.":::
 
 ## Supported languages
-The Read API latest generally available (GA) model supports 164 languages for print text and 9 languages for handwritten text.
 
-OCR for print text includes support for English, French, German, Italian, Portuguese, Spanish, Chinese, Japanese, Korean, Russian, Arabic, Hindi, and other international languages that use Latin, Cyrillic, Arabic, and Devanagari scripts.
+Both **Read** versions available today in Computer Vision support several languages for printed and handwritten text. OCR for printed text includes support for English, French, German, Italian, Portuguese, Spanish, Chinese, Japanese, Korean, Russian, Arabic, Hindi, and other international languages that use Latin, Cyrillic, Arabic, and Devanagari scripts. OCR for handwritten text includes support for English, Chinese Simplified, French, German, Italian, Japanese, Korean, Portuguese, and Spanish languages.
 
-OCR for handwritten text includes support for English, Chinese Simplified, French, German, Italian, Japanese, Korean, Portuguese, Spanish languages.
+Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
 
-See [How to specify the model version](./how-to/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
+## Read OCR common features
 
-## Key features
+The Read OCR model is available in Computer Vision and Form Recognizer with common baseline capabilities while optimizing for respective scenarios. The following list summarizes the common features:
 
-The Read API includes the following features.
-
-* Print text extraction in 164 languages
-* Handwritten text extraction in nine languages
-* Text lines and words with location and confidence scores
-* No language identification required
+* Printed and handwritten text extraction in supported languages
+* Pages, text lines and words with location and confidence scores
 * Support for mixed languages, mixed mode (print and handwritten)
-* Select pages and page ranges from large, multi-page documents
-* Natural reading order option for text line output (Latin only)
-* Handwriting classification for text lines (Latin only)
 * Available as Distroless Docker container for on-premises deployment
 
-Learn [how to use the OCR features](./how-to/call-read-api.md).
+## Use the cloud APIs or deploy on-premises
 
-## Use the cloud API or deploy on-premises
-The Read 3.x cloud APIs are the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
+The cloud APIs are the preferred option for most customers because of their ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
-For on-premises deployment, the [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
+For on-premises deployment, the [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the Computer Vision v3.2 generally available OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
 
 > [!WARNING]
-> The Computer Vision [RecognizeText](https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/587f2c6a1540550560080311) and [ocr](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) operations are no longer maintained, and are in the process of being deprecated in favor of the new [Read API](#read-api) covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).
+> The Computer Vision [ocr](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) and [RecognizeText](https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/587f2c6a1540550560080311) operations are no longer supported and should not be used.
 
 ## Data privacy and security
 
@@ -88,5 +66,6 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 ## Next steps
 
-- Get started with the [OCR (Read) REST API or client library quickstarts](./quickstarts-sdk/client-library.md).
-- Learn about the [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- For general (non-document) images, try the [Computer Vision 4.0 preview Image Analysis REST API quickstart](./concept-ocr.md).
+- For PDF, Office and HTML documents and document images, start with [Form Recognizer Read](../../applied-ai-services/form-recognizer/concept-read.md).
+- Looking for the previous GA version? Refer to the [Computer Vision 3.2 GA SDK or REST API quickstarts](./quickstarts-sdk/client-library.md).

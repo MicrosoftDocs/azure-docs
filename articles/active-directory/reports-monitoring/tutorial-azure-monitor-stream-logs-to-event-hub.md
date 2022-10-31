@@ -4,7 +4,7 @@ description: Learn how to set up Azure Diagnostics to push Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2021
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -40,7 +40,7 @@ To use this feature, you need:
 1. Select **Azure Active Directory** > **Audit logs**. 
 
 1. Select **Export Data Settings**.  
-    
+
 1. In the **Diagnostics settings** pane, do either of the following:
     * To change existing settings, select **Edit setting**.
     * To add new settings, select **Add diagnostics setting**.  
@@ -48,9 +48,9 @@ To use this feature, you need:
 
 1. Select the **Stream to an event hub** check box, and then select **Event Hub/Configure**.
 
-   [ ![Export settings](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png) ](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png)
-   
-   1. Select the Azure subscription and Event Hubs namespace that you want to route the logs to.  
+   [ ![Export settings](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png) ](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png#lightbox)
+
+   1. Select the Azure subscription and Event Hubs namespace that you want to route the logs to.
     The subscription and Event Hubs namespace must both be associated with the Azure AD tenant that the logs stream from. You can also specify an event hub within the Event Hubs namespace to which logs should be sent. If no event hub is specified, an event hub is created in the namespace with the default name **insights-logs-audit**.
 
    1. Select any combination of the following items:
@@ -71,7 +71,7 @@ To use this feature, you need:
 
 1. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
-    [ ![Audit logs](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)
+    [ ![Audit logs](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png#lightbox)
 
 ## Access data from your event hub
 
@@ -83,9 +83,9 @@ After data is displayed in the event hub, you can access and read the data in tw
     
     * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md).
     
-    * **IBM QRadar**: The DSM and Azure Event Hub Protocol are available for download at [IBM support](https://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
+    * **IBM QRadar**: The DSM and Azure Event Hubs Protocol are available for download at [IBM support](https://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
-    * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Install the Azure AD app and view the dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
+    * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Install the Azure AD app and view the dashboards](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure#viewing-azure-active-directory-dashboards). 
 
 * **Set up custom tooling**. If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up custom tooling by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 

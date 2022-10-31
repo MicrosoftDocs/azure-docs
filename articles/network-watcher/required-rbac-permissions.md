@@ -4,13 +4,13 @@ titleSuffix: Azure Network Watcher
 description: Learn which Azure role-based access control permissions are required to work with Network Watcher capabilities.
 services: network-watcher
 documentationcenter: ''
-author: damendo
+author: shijaiswal
 ms.service: network-watcher
 ms.workload:
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/07/2021
-ms.author: damendo
+ms.date: 10/07/2022
+ms.author: shijaiswal
 
 ---
 
@@ -54,13 +54,14 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 
 ## Packet capture
 
-| Action                                                              | Description                                                           |
-| ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture                           |
-| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture                                          |
-| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture                                           |
-| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture                                        |
-| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture                                        |
+Action | Description
+---    | ---        
+Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture.                     
+Microsoft.Network/networkWatchers/packetCaptures/stop/action | Stop a packet capture.                                          
+Microsoft.Network/networkWatchers/packetCaptures/read | Get a packet capture.                                           
+Microsoft.Network/networkWatchers/packetCaptures/write | Create a packet capture.                                        
+Microsoft.Network/networkWatchers/packetCaptures/delete | Delete a packet capture.
+Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read | View the status of a packet capture.
 
 ## IP flow verify
 

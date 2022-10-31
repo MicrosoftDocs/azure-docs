@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 08/30/2022
 ms.custom: devx-track-csharp
 ms.devlang: csharp
 ---
@@ -20,10 +20,11 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 ## Create a Static Web App in Visual Studio Code
 
-1. Select **Azure** from the Activity Bar, then select **Static Web Apps** from the Side bar. 
-1. Right-click on the subscription name then select **Create Static Web App (Advanced)**.    
+1. Select **Azure** from the Activity Bar, then open **Resources** from the Side bar. 
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click on the subscription name then select **Create Static Web App (Advanced)**.":::
+1. Right-click **Static Web Apps** and then select **Create Static Web App (Advanced)**.
+
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click **Static Web Apps** and then select **Create Static Web App (Advanced)**":::
 
 1. If you see a pop-up window in VS Code asking which branch you want to deploy from, select the default branch, usually **master** or **main**. 
 

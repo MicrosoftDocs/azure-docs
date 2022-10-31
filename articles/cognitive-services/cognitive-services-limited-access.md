@@ -3,12 +3,12 @@ title: Limited Access features for Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services that are available with Limited Access are described below.
 services: cognitive-services
-author: nitinme
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/16/2022
-ms.author: nitinme
+ms.author: pafarley
 ---
 
 # Limited Access features for Cognitive Services
@@ -27,7 +27,7 @@ The following services are Limited Access:
 
 - [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context): Pro features 
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context): All features 
-- [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context): Identify and Verify features
+- [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context): Identify and Verify features, face ID property
 - [Computer Vision](/legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context): Celebrity Recognition feature 
 - [Azure Video Indexer](../azure-video-indexer/limited-access-features.md): Celebrity Recognition and Face Identify features 
 
@@ -99,5 +99,3 @@ If you're an existing customer and your application for access is denied, you wi
 ## Help and support 
 
 Report abuse of Limited Access services [here](https://aka.ms/reportabuse).
-
-## Next steps

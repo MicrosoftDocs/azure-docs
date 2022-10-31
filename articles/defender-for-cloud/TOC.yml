@@ -37,7 +37,7 @@
     href: get-started.md
   - name: 2. Enable the enhanced security features
     href: enable-enhanced-security.md
-  - name: 3. Connect hybrid and multicloud machines
+  - name: 3. Connect hybrid and multicloud environments
     items:
     - name: Connect non-Azure machines
       displayName: azure stack, ash, windows, linux, hybrid, arc
@@ -48,14 +48,18 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-  - name: 4. Configure auto provisioning
-    href: enable-data-collection.md
-  - name: 5. Set up email notifications
+    - name: Connect GitHub repositories
+      displayName: GitHub, DevOps
+      href: quickstart-onboard-github.md
+    - name: Connect Azure DevOps repositories
+      displayName: DevOps, connect, Azure
+      href: quickstart-onboard-devops.md
+  - name: 4. Set up email notifications
     href: configure-email-notifications.md
-  - name: 6. Create auto-responses to alerts using an ARM template or Bicep
+  - name: 5. Create auto-responses to alerts using an ARM template or Bicep
     displayName: Resource Manager, ARM, Template
     href: quickstart-automation-alert.md
-  - name: 7. Choose standards for your compliance dashboard
+  - name: 6. Choose standards for your compliance dashboard
     displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
     href: update-regulatory-compliance-packages.md
 
@@ -73,6 +77,8 @@
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
+  - name: Enable pull request annotations in GitHub or in Azure DevOps
+    href: tutorial-enable-pull-request-annotations.md
 
 - name: Samples
   items:
@@ -81,22 +87,59 @@
 
 - name: Concepts
   items:
-  - name: The Defender for Cloud multicloud solution
-    href: multicloud.yml
-
-  - name: Cloud Security Posture Management concepts
+  - name: Protect multicloud resources
     items:
-    - name: Policies, initiatives, and recommendations
-      href: security-policy-concept.md
-    - name: Security posture
-      href: secure-score-security-controls.md
-    - name: Reference list of Azure recommendations
-      href: recommendations-reference.md
-    - name: Reference list of AWS recommendations
-      href: recommendations-reference-aws.md
-
-  - name: Cloud Workload Protection concepts
+    - name: The Defender for Cloud multicloud solution
+      href: multicloud.yml
+    - name: Planning multicloud security
+      items:
+      - name: Get started
+        href: plan-multicloud-security-get-started.md
+      - name: Determine business needs
+        href: plan-multicloud-security-determine-business-needs.md
+      - name: Define an adoption strategy
+        href: plan-multicloud-security-define-adoption-strategy.md
+      - name: Determine data residency requirements
+        href: plan-multicloud-security-determine-data-residency-requirements.md
+      - name: Determine compliance requirements
+        href: plan-multicloud-security-determine-compliance-requirements.md
+      - name: Determine ownership requirements
+        href: plan-multicloud-security-determine-ownership-requirements.md
+      - name: Determine access control requirements
+        href: plan-multicloud-security-determine-access-control-requirements.md
+      - name: Determine multicloud dependencies
+        href: plan-multicloud-security-determine-multicloud-dependencies.md
+      - name: Automate connector deployment
+        href: plan-multicloud-security-automate-connector-deployment.md
+      - name: Other resources
+        href: plan-multicloud-security-other-resources.md
+  - name: Improve your cloud security posture
     items:
+      - name: Policies, initiatives, and recommendations
+        href: security-policy-concept.md
+      - name: Security posture
+        href: secure-score-security-controls.md
+      - name: Cloud Security Posture Management (CSPM)
+        displayName: CSPM, cloud security, posture, management
+        href: concept-cloud-security-posture-management.md
+      - name: Microsoft cloud security benchmark (MCSB)
+        href: concept-regulatory-compliance.md
+      - name: What is the cloud security graph
+        displayName: What are the cloud security graph, attack path analysis, and the cloud security explorer?
+        href: concept-attack-path.md
+      - name: External attack surface management (EASM)
+        displayName: EASM, attack surface management
+        href: concept-easm.md
+      - name: Reference list of Azure recommendations
+        href: recommendations-reference.md
+      - name: Reference list of AWS recommendations
+        href: recommendations-reference-aws.md
+      - name: Reference list of attack paths
+        href: attack-path-reference.md
+  - name: Protect cloud workloads
+    items:
+    - name: Agentless scanning
+      href: concept-agentless-data-collection.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts
@@ -120,10 +163,20 @@
       href: windows-admin-center-integration.md
     - name: Integrate security solutions and data sources
       href: partner-integration.md
+    - name: Security graph
+      items:
+      - name: Identify and remediate attack paths
+        href: how-to-manage-attack-path.md
+      - name: Build queries with cloud security explorer
+        href: how-to-manage-cloud-security-explorer.md
   - name: Security recommendations
     items:
-    - name: Create custom security initiatives and policies
+    - name: Create custom Azure security initiatives and policies
       href: custom-security-policies.md
+    - name: Manage AWS assessments and standards
+      href: how-to-manage-aws-assessments-standards.md
+    - name: Manage GCP assessments and standards
+      href: how-to-manage-gcp-assessments-standards.md
     - name: Review your security recommendations
       href: review-security-recommendations.md
     - name: Remediate recommendations
@@ -151,10 +204,10 @@
     - name: Maintain network security best practices
       displayName: map, network map
       href: protect-network-resources.md
-    - name: Lockdown logins with multi-factor authentication
+    - name: Lock down logins with multi-factor authentication
       displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
       href: multi-factor-authentication-enforcement.md
-    - name: Additional threat protections
+    - name: Other threat protections
       href: other-threat-protections.md
   - name: Manage security by subscriptions, users, and permissions
     items:
@@ -202,6 +255,15 @@
 
 - name: Protect your workloads
   items:
+  - name: Settings & monitoring
+    items:
+    - name: Overview
+      displayName: auto, provisioning, auto-provisioning, Settings & monitoring
+      href: monitoring-components.md
+    - name: Deploy the Azure Monitor agent
+      href: auto-deploy-azure-monitoring-agent.md
+    - name: Working with the Log Analytics agent
+      href: working-with-log-analytics-agent.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -211,10 +273,10 @@
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
       href: apply-security-baseline.md
-    - name: Deploy the Azure Monitor agent
-      href: auto-deploy-azure-monitoring-agent.md
     - name: Vulnerability assessments
       items:
+      - name: Find vulnerabilities and software inventory with agentless scanning
+        href: enable-vulnerability-assessment-agentless.md
       - name: Find vulnerabilities with threat and vulnerability management
         displayName: mde, tvm, vulnerability, va, arc, hybrid
         href: deploy-vulnerability-assessment-tvm.md
@@ -274,12 +336,12 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Vulnerability assessment
+    - name: Vulnerability assessment for Azure Container Registry
       displayName: ACR, registry, images, qualys
-      href: defender-for-containers-usage.md
-    - name: Scan images in your CI/CD workflows
-      displayName: ACR, registry, images, trevi, vulnerabilities, scanner
-      href: defender-for-containers-cicd.md
+      href: defender-for-containers-va-acr.md
+    - name: Vulnerability assessment for Amazon Elastic Container Registry
+      displayName: AWS, ECR, registry, images, qualys
+      href: defender-for-containers-va-ecr.md
     - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
@@ -368,7 +430,22 @@
     - name: Enable Defender for DNS
       href: enable-enhanced-security.md
     - name: Respond to Microsoft Defender for DNS alerts
-      href: defender-for-dns-alerts.md  
+      href: defender-for-dns-alerts.md 
+  - name: Defender for DevOps
+    items:
+    - name: Overview
+      displayName: DevOps
+      href: defender-for-devops-introduction.md
+    - name: Configure the Microsoft Security DevOps GitHub action
+      displayName: GitHuB, DevOps, 
+      href: github-action.md
+    - name: Configure the Microsoft Security DevOps Azure DevOps extension
+      href: azure-devops-extension.md
+    - name: Discover misconfigurations in Infrastructure as Code
+      href: iac-vulnerabilities.md
+    - name: Detect exposed secrets in code
+      displayName: DevOps, CredScan, Credentials, leaks, 
+      href: detect-credential-leaks.md
 
 - name: Reference
   items:
@@ -378,7 +455,7 @@
   - name: How Microsoft secures customer data
     href: data-security.md
   - name: REST APIs documentation
-    href: /rest/api/securitycenter/
+    href: /rest/api/defenderforcloud/
   - name: Security baseline
     href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
   - name: FAQ for Microsoft Defender for Cloud
@@ -407,8 +484,8 @@
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?term=defender%20for%20cloud
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?term=defender%20for%20cloud
   - name: Microsoft Defender for Cloud in the field
     items:
     - name: New AWS connector
@@ -443,6 +520,10 @@
       href: episode-fifteen.md
     - name: Defender for Servers integration with Microsoft Defender for Endpoint
       href: episode-sixteen.md
+    - name: Defender for Servers integration with Microsoft Entra
+      href: episode-seventeen.md
+    - name: Defender for Azure Cosmos DB
+      href: episode-eighteen.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

@@ -61,8 +61,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab:
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iot-central-government-tab-overview1.png" alt-text="Application template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab.
 
 1. Select **Create app** under **Water consumption monitoring**.
 
@@ -92,8 +91,6 @@ The dashboard consists of different kinds of tiles:
 
 * **Water distribution area map**: The map uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays the device [location](../core/howto-use-location-data.md). Hover over the map and try the controls over the map, like *zoom in*, *zoom out*, or *expand*.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-map.png" alt-text="Water consumption monitoring dashboard map":::
-
 * **Average water flow line chart** and **Environmental condition line chart**: You can visualize one or multiple device telemetries plotted as a line chart over a desired time range.
 * **Average valve pressure heatmap chart**: You can choose the heatmap visualization type of device telemetry data you want to see distributed over a time range with a color index.
 * **Reset alert thresholds content tile**: You can include call-to-action content tiles and embed a link to an action page. In this case, the reset alert threshold takes you to the application **Jobs**, where you can run updates to device properties. You'll explore this option later in the [Configure jobs](../government/tutorial-water-consumption-monitoring.md#configure-jobs) section of this tutorial.
@@ -104,8 +101,6 @@ The dashboard consists of different kinds of tiles:
 You can customize views in the dashboard for operators.
 
 1. Select **Edit** to customize the **Wide World water consumption dashboard**. You can customize the dashboard by selecting the **Edit** menu. After the dashboard is in **edit** mode, you can add new tiles or you can configure it.
-
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="Edit dashboard":::
 
 To learn more, see [Create and customize dashboards](../core/howto-manage-dashboards.md).
 
@@ -118,8 +113,6 @@ The water consumption monitoring application comes with two reference device tem
 To view the device template:
 
 1. Select **Device templates** on the left pane of your application in Azure IoT Central. In the **Device templates** list, you'll see two device templates, **Smart Valve** and **Flow meter**.
-
-   ![Device template](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template.png)
 
 1. Select the **Flow meter** device template, and familiarize yourself with the device capabilities.
 
@@ -175,8 +168,6 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
 1. Select **Devices** > **All devices** on the left pane.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-devices.png" alt-text="All devices pane":::
-
 1. Select **Smart Valve 1**.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitor-device-1.png" alt-text="Smart Valve 1":::
@@ -203,8 +194,6 @@ The water consumption monitoring application you created has three preconfigured
 ### View rules
 
 1. Select **Rules** on the left pane.
-
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-rules.png" alt-text="Rules pane":::
 
 1. Select **High water flow alert**, which is one of the preconfigured rules in the application.
 

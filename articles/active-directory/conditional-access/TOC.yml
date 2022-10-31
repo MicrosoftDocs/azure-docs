@@ -37,6 +37,8 @@
     href: concept-conditional-access-report-only.md
   - name: Service dependencies
     href: service-dependencies.md
+  - name: Filter for applications
+    href: concept-filter-for-applications.md
   - name: Location conditions
     href: location-condition.md
   - name: Workload identities
@@ -82,6 +84,10 @@
       href: howto-conditional-access-policy-location.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
+    - name: Require MFA for Intune enrollment
+      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
+    - name: Require authentication strength for external users
+      href: howto-conditional-access-policy-authentication-strength-external.md
   - name: Configure resilience defaults
     href: resilience-defaults.md
   - name: Configure report only mode

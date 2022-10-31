@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/22/2021
+ms.date: 09/26/2022
 author: chugugrace
 ms.author: chugu
 ---
@@ -60,7 +60,7 @@ In this tutorial, you complete the following steps:
 
 To create your data factory via the Azure portal, follow the step-by-step instructions in [Create a data factory via the UI](./quickstart-create-data-factory-portal.md#create-a-data-factory). Select **Pin to dashboard** while doing so, to allow quick access after its creation. 
 
-After your data factory is created, open its overview page in the Azure portal. Select the **Author & Monitor** tile to open the **Let's get started** page on a separate tab. There, you can continue to create your Azure-SSIS IR.
+After your data factory is created, open its overview page in the Azure portal. Select the **Open Azure Data Factory Studio** tile to open the **Let's get started** page on a separate tab. There, you can continue to create your Azure-SSIS IR.
 
 ## Create an Azure-SSIS integration runtime
 
@@ -68,7 +68,7 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 1. On the home page, select the **Configure SSIS** tile. 
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
+   :::image type="content" source="./media/doc-common-process/configure-ssis-button.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure-SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section. 
 

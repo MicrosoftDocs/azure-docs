@@ -3,9 +3,9 @@ title: Azure Communication Services Call Recording API quickstart
 titleSuffix: An Azure Communication Services quickstart document
 description: Provides a quickstart sample for the Call Recording APIs.
 author: ravithanneeru
-manager: GrantMeStrength
+manager: tophpalmer
 services: azure-communication-services
-ms.author: jken
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -20,7 +20,7 @@ ms.custom: mode-api
 This quickstart gets you started recording voice and video calls. This quickstart assumes you've already used the [Calling client SDK](get-started-with-video-calling.md) to build the end-user calling experience. Using the **Calling Server APIs and SDKs** you can enable and manage recordings. 
 
 > [!NOTE]
-> **Unmixed audio-only** is still in a **Private Preview** and NOT enabled for Teams Interop meetings.
+> **Unmixed audio recording** is still in a **Private Preview**.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Build Call Recording server sample with C#](./includes/call-recording-samples/recording-server-csharp.md)]

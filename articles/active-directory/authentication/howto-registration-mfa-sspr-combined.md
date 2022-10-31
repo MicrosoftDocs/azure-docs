@@ -10,7 +10,7 @@ ms.date: 03/1/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
@@ -20,9 +20,7 @@ ms.collection: M365-identity-device-management
 Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Azure AD Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Azure AD Multi-Factor Authentication and SSPR.
 
 > [!NOTE]
-> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
-> 
-> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
+> Effective Oct. 1st, 2022, we will begin to enable combined registration for all users in Azure AD tenants created before August 15th, 2020. Tenants created after this date are enabled with combined registration. 
 
 To make sure you understand the functionality and effects before you enable the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
@@ -68,7 +66,7 @@ Complete the following steps to create a policy that applies to all selected use
 1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **+ New policy**.
 1. Enter a name for this policy, such as *Combined Security Info Registration on Trusted Networks*.
-1. Under **Assignments**, select **Users and groups**. Choose the users and groups you want this policy to apply to, then select **Done**.
+1. Under **Assignments**, select **Users or workload identities**.. Choose the users and groups you want this policy to apply to, then select **Done**.
 
    > [!WARNING]
    > Users must be enabled for combined registration.

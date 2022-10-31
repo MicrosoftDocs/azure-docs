@@ -1,28 +1,28 @@
 ---
-title: Create a table in Azure Cosmos DB Table API using .NET
-description: Learn how to create a table in your Azure Cosmos DB Table API account using the .NET SDK
+title: Create a table in Azure Cosmos DB for Table using .NET
+description: Learn how to create a table in your Azure Cosmos DB for Table account using the .NET SDK
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
-# Create a table in Azure Cosmos DB Table API using .NET
+# Create a table in Azure Cosmos DB for Table using .NET
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
-Tables in Azure Cosmos DB Table API are units of management for multiple items. Before you can create or manage items, you must first create a table.
+Tables in Azure Cosmos DB for Table are units of management for multiple items. Before you can create or manage items, you must first create a table.
 
 ## Name a table
 
 In Azure Cosmos DB, a table is analogous to a table in a relational database.
 
 > [!NOTE]
-> With Table API accounts, when you create your first table, a default database is automatically created in your Azure Cosmos account.
+> With API for Table accounts, when you create your first table, a default database is automatically created in your Azure Cosmos DB account.
 
 Here are some quick rules when naming a table:
 

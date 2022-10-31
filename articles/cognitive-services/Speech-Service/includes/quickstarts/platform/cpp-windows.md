@@ -75,7 +75,7 @@ Next, create your project and select the target architecture:
 
    If you're running 64-bit Windows, select **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
 
-#### Install the Speech SDK
+#### Install the Speech SDK by using Visual Studio
 
 Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and reference the Speech SDK in your project:
 

@@ -20,6 +20,7 @@ This tutorial describes how to create indoor maps for use in Microsoft Azure Map
 > * Convert your Drawing package into map data.
 > * Create a dataset from your map data.
 > * Create a tileset from the data in your dataset.
+> * Get the default map configuration ID from your tileset.
 
 In the next tutorials in the Creator series you'll learn to:
 
@@ -304,7 +305,7 @@ To create a tileset:
 5. Enter the following URL to the [Tileset API](/rest/api/maps/v2/tileset). The request should look like the following URL (replace `{datasetId`} with the `datasetId` obtained in the [Check the dataset creation status](#check-the-dataset-creation-status) section above:
 
     ```http
-    https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets?api-version=v20220901preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -339,6 +340,36 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="A screenshot of Postman highlighting the tileset ID that is part of the value of the resource location URL in the responses header.":::
 
+## The map configuration (preview)
+
+Once your tileset creation completes, you can get the `mapConfigurationId` using the [tileset get](/rest/api/maps/v20220901preview/tileset/get) HTTP request:
+
+1. In the Postman app, select **New**.
+
+2. In the **Create New** window, select **HTTP Request**.
+
+3. Enter a **Request name** for the request, such as *GET mapConfigurationId from Tileset*.
+
+4. Select the **GET** HTTP method.
+
+5. Enter the following URL to the [Tileset API](/rest/api/maps/v20220901preview/tileset), passing in the tileset ID you obtained in the previous step.
+
+    ```http
+    https://us.atlas.microsoft.com/tilesets/{tilesetId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    ```
+
+6. Select **Send**.
+
+7. The tileset JSON will appear in the body of the response, scroll down to see the `mapConfigurationId`:
+
+    ```json
+    "defaultMapConfigurationId": "5906cd57-2dba-389b-3313-ce6b549d4396"
+    ```
+
+For more information, see [Map configuration](creator-indoor-maps.md#map-configuration) in the indoor maps concepts article.
+
+<!--For additional information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).-->
+
 ## Additional information
 
 * For additional information see the how to [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md) article.
@@ -350,3 +381,6 @@ To learn how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) u
 
 > [!div class="nextstepaction"]
 > [Tutorial: Query datasets with WFS API](tutorial-creator-wfs.md)
+
+> [!div class="nextstepaction"]
+> [Create custom styles for indoor maps](how-to-create-custom-styles.md)

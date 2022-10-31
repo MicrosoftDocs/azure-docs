@@ -8,6 +8,8 @@
     href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
+  - name: What's new
+    href: whats-new.md  
   expanded: true
 - name: Quickstarts
   items:
@@ -93,6 +95,8 @@
   items: 
   - name: Azure Spot Virtual Machines
     href: use-spot.md
+  - name: Spot Priority Mix (preview)
+    href: spot-priority-mix.md
   - name: Reserved instances
     href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
   - name: Azure Hybrid Benefit
@@ -349,8 +353,8 @@
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator

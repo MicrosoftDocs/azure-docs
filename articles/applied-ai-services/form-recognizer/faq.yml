@@ -7,12 +7,14 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 07/14/2022
+  ms.date: 10/20/2022
   ms.author: lajanuar
+  monikerRange: '>=form-recog-2.1.0'
+  recommendations: false
 
 title: Form Recognizer frequently asked questions
 summary: |
-
+   [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 sections:
   - name: General concepts
     questions:
@@ -154,17 +156,17 @@ sections:
 
           Form Recognizer offers the latest development options within the following platforms:
 
-          - [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+          - [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 
           - [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-          - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4)
+          - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
-          - [Java](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar)
+          - [Java](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
 
           - [JavaScript/TypeScript](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 
-          - [Python](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/)
+          - [Python](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
 
       - question: |
           Where can I find the supported API version for the latest programming language SDKs?
@@ -172,28 +174,31 @@ sections:
 
           This table provides links to the latest SDK versions and shows the relationship between supported Form Recognizer SDK and API versions:
 
-            | Supported Language | Azure SDK client-library|API reference |Supported API version|
-            | ----- | -----|-----|-----|
-            | C#/.NET| [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.4/index.html)|[.NET SDK](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) |2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0 |
-            | Java | [4.0.0-beta.5](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.5/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)| 2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0 |
-            | JavaScript | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html)|[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) |2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0|
-            | Python | [3.2.0b5](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b5/index.html) |[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0|
+            | Supported Language | Azure SDK reference|Supported API version|
+            | ----- | -----|-----|
+            | C#/.NET| [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+            | Java | [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)| [**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+            | JavaScript | [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+            | Python | [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) |[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+
+           For more information, *see* [**Supported clients**](sdk-overview.md#supported-clients)
+
 
       - question: |
            What is the difference between Form Recognizer v3.0 and v2.1 and how do I migrate to the latest version?
         answer:  |
 
-          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features—version 2021-09-30-preview and newer, the most recent SDK is required and your application code must be updated to use the new clients.
+          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features, the most recent SDK is required, and your application code must be updated to use the new clients.
 
           This table provides links to detailed instructions for migrating to the newest version of Form Recognizer:
 
             | Language / API | Migration guide|
             | ----------- | ----------------  |
             | REST API    | [v3](v3-migration-guide.md)|
-            | C#/.NET| [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
-            | Java | [4.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
-            | JavaScript| [4.0.0-beta.3](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
-            | Python | [3.2.0b3](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
+            | C#/.NET| [4.0.0](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
+            | Java | [4.0.0](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
+            | JavaScript| [4.0.0](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
+            | Python | [3.2.0](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
 
       - question: |
             Which file formats does Form Recognizer support? Are there size limitations for input documents?
@@ -234,13 +239,13 @@ sections:
         answer: |
          Form Recognizer billing is  calculated monthly based on the model type and number of pages analyzed:
 
-          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
+          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When the service analyzes Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
 
           - When analyzing PDF and TIFF files, each page in the PDF file or each image in the TIFF file is counted as one page with no maximum character limits.
-          
+
           - When analyzing Microsoft Word and HTML files supported by only the Read model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters will add up to a total of three pages.
 
-          - In addition, when using the Read model, if your Microsoft Word, Excel, and PowerPoint pages have embedded images, each image will be analyzed and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains 2 embedded images, the total page count in the service output will be three text pages plus two images equaling a total of five pages.
+          - In addition, when using the Read model, if your Microsoft Word, Excel, and PowerPoint pages have embedded images, each image will be analyzed and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains two embedded images, the total page count in the service output will be three text pages plus two images equaling a total of five pages.
 
           - Training a custom model is always free with Form Recognizer. You’re only charged when a model is used to analyze a document.
 
@@ -324,11 +329,13 @@ sections:
       - question: |
           How many custom models can I compose into a single custom model?
         answer: |
-           With the [Model Compose](compose-custom-models.md#create-a-composed-model) operation, you can assign up to 100 models to a single model ID.
+           With the [Model Compose](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
 
            - When you make the Analyze request with a composed modelID, Form Recognizer classifies the submitted form, chooses the best model, and returns the results.
 
            - Model Compose is currently available only for custom models trained with labels.
+
+           - Analyzing a document with composed models is identical to analyzing a document with a single model, the analyze result returns a ```docType``` property indicating which of the component models was selected for analyzing the document. There is no change in pricing for analyzing a document with an individual custom model or a composed custom model.
 
            Learn more about [composed models](concept-custom.md).
 

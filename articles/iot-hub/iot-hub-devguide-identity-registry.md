@@ -1,5 +1,5 @@
 ---
-title: Understand the Azure IoT Hub identity registry | Microsoft Docs
+title: Understand the Azure IoT Hub identity registry
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
 author: kgremban
 ms.author: kgremban
@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/29/2021
-ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', ignite-2022]
 ---
 
 # Understand the identity registry in your IoT hub
@@ -72,9 +72,9 @@ Device identities can also be exported and imported from an IoT Hub via the Serv
 
 ## Device provisioning
 
-The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as table storage, blob storage, or Cosmos DB to store any additional device data.
+The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as Table storage, Blob storage, or Azure Cosmos DB to store any additional device data.
 
-*Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](https://azure.microsoft.com/documentation/services/iot-dps).
+*Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](../iot-dps/index.yml).
 
 ## Device heartbeat
 
@@ -83,7 +83,7 @@ The IoT Hub identity registry contains a field called **connectionState**. Only 
 If your IoT solution needs to know if a device is connected, you can implement the *heartbeat pattern*.
 In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). Therefore, even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution maintains a map with the last heartbeat received for each device. If the solution does not receive a heartbeat message within the expected time from the device, it assumes that there is a problem with the device.
 
-A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. To learn more about using these services with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). For more specific information about using Azure Monitor or Event Grid to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity](iot-hub-troubleshoot-connectivity.md). When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles](iot-hub-devguide-quotas-throttling.md).
+A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. To learn more about using these services with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-iot-hub-health-with-azure-resource-health). For more specific information about using Azure Monitor or Event Grid to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity](iot-hub-troubleshoot-connectivity.md). When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, consider using the simpler *short expiry time* pattern. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. If you request message acknowledgements, IoT Hub can notify you about which devices are able to receive messages and which are not.
@@ -129,7 +129,7 @@ Module identities are represented as JSON documents with the following propertie
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | authentication |optional |A composite object containing authentication information and security materials. For more information, see [Authentication Mechanism](/rest/api/iothub/service/modules/get-identity#authenticationmechanism) in the REST API documentation. |
-| managedBy | optional | Identifies who manages this module. For instance, this value is "IotEdge" if the edge runtime owns this module. |
+| managedBy | optional | Identifies who manages this module. For instance, this value is "Iot Edge" if the edge runtime owns this module. |
 | cloudToDeviceMessageCount | read-only | The number of cloud-to-module messages currently queued to be sent to the module. |
 | connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
@@ -170,4 +170,4 @@ To try out some of the concepts described in this article, see the following IoT
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)

@@ -4,7 +4,7 @@ description: Tips to avoid and fix configuration errors and other problems that 
 author: ekpgh    
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 05/27/2022
+ms.date: 08/29/2022
 ms.author: v-erinkelly
 ---
 
@@ -18,6 +18,12 @@ This article includes details about how to check ports and how to enable needed 
 > Before using this guide, read [prerequisites for NFS storage targets](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 If the solution to your problem is not included here, please [open a support ticket](hpc-cache-support-ticket.md) so that Microsoft Service and Support can work with you to investigate and solve the problem.
+
+## Provide sufficient connection threads
+
+Large HPC Cache systems make multiple connection requests to a storage target. For example, if your storage target uses the Ubuntu Linux `nfs-kernel-server` module, the default number of NFS daemon threads can be as low as eight. Increase the number of threads to 128 or 256, which are more reasonable numbers to support a medium or large HPC Cache.
+
+You can check or set the number of threads in Ubuntu by using the RPCNFSDCOUNT value in `/etc/init.d/nfs-kernel-server`.
 
 ## Check port settings
 

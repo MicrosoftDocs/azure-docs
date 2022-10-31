@@ -132,10 +132,7 @@ Use an Azure Resource Manager template to enable Change feed on your existing st
 
 ## Consume the change feed
 
-The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account.
-
-> [!NOTE]
-> In the current release, the $blobchangefeed container is visible only in Azure portal but not visible in Azure Storage Explorer. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs
+The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. The **$blobchangefeed** container can be viewed either via the Azure portal or via Azure Storage Explorer.
 
 Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK.
 
@@ -546,7 +543,7 @@ This section describes known issues and conditions in the current release of the
 
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
-- You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
+- You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file.
 
 ## Feature support

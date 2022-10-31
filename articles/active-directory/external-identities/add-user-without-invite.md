@@ -8,12 +8,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 09/15/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 
 ms.collection: M365-identity-device-management
 ---
@@ -22,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 You can now invite guest users by sending out a [direct link](redemption-experience.md#redemption-through-a-direct-link) to a shared app. With this method, guest users no longer need to use the invitation email, except in some special cases. A guest user clicks the app link, reviews and accepts the privacy terms, and then seamlessly accesses the app. For more information, see [B2B collaboration invitation redemption](redemption-experience.md).
 
-Before this new method was available, you could invite guest users without requiring the invitation email by adding an inviter (from your organization or from a partner organization) to the **Guest inviter** directory role, and then having the inviter add guest users to the directory, groups, or applications through the UI or through PowerShell. (If using PowerShell, you can suppress the invitation email altogether). For example:
+Before this new method was available, you could invite guest users without requiring the invitation email by adding an inviter (from your organization or from a partner organization) to the [**Guest inviter** directory role](external-collaboration-settings-configure.md#assign-the-guest-inviter-role-to-a-user), and then having the inviter add guest users to the directory, groups, or applications through the UI or through PowerShell. (If using PowerShell, you can suppress the invitation email altogether). For example:
 
 1. A user in the host organization (for example, WoodGrove) invites one user from the partner organization (for example, Sam@litware.com) as Guest.
 2. The administrator in the host organization [sets up policies](external-collaboration-settings-configure.md) that allow Sam to identify and add other users from the partner organization (Litware). (Sam must be added to the **Guest inviter** role.)

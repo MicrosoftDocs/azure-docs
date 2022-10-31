@@ -59,8 +59,7 @@ Microsoft provides technical support for the following examples:
   * Connectivity to other Azure services and applications
   * Ingress controllers and ingress or load balancer configurations
   * Network performance and latency
-  * [Network policies](use-network-policies.md#differences-between-azure-and-calico-policies-and-their-capabilities)
-
+  * [Network policies](use-network-policies.md#differences-between-azure-npm-and-calico-network-policy-and-their-capabilities)
 
 > [!NOTE]
 > Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.

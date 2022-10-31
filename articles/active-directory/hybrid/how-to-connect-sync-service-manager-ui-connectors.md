@@ -4,7 +4,7 @@ description: Understand the Connectors tab in the Synchronization Service Manage
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e

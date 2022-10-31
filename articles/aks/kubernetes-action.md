@@ -202,7 +202,7 @@ Review the following starter workflows for AKS. For more details on using starte
 - [Azure Kubernetes Service Kompose][aks-swf-kompose]
 
 > [!div class="nextstepaction"]
-> [Learn how to create multiple pipelines on GitHub Actions with AKS](/learn/modules/aks-deployment-pipeline-github-actions)
+> [Learn how to create multiple pipelines on GitHub Actions with AKS](/training/modules/aks-deployment-pipeline-github-actions)
 
 > [!div class="nextstepaction"]
 > [Learn about Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)

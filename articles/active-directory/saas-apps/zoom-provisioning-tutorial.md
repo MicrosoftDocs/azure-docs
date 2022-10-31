@@ -2,12 +2,15 @@
 title: 'Tutorial: Configure Zoom for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zoom.
 services: active-directory
+documentationcenter: ''
 author: twimmers
-writer: twimmers
-manager: CelesteDG
+writer: Thwimmer
+manager: beatrizd
+ms.assetid: d9bd44ed-2e9a-4a1b-b33c-cb9e9fe8ff47
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: thwimmer
@@ -41,17 +44,20 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Zoom to support provisioning with Azure AD
 
-1. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **Advanced > App Marketplace** in the left navigation pane.
+1. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **ADMIN > Advanced > App Marketplace** in the left navigation pane.
 
-	![Zoom Integrations](media/zoom-provisioning-tutorial/zoom01.png)
+	![Screenshot of Zoom Integrations.](media/zoom-provisioning-tutorial/app-navigations.png)
 
 2. Navigate to **Manage** in the top-right corner of the page. 
 
-	![Screenshot of the Zoom App Marketplace with the Manage option called out.](media/zoom-provisioning-tutorial/zoom02.png)
+	![Screenshot of the Zoom App Marketplace with the Manage option called out.](media/zoom-provisioning-tutorial/zoom-manage.png)
 
 3. Navigate to your created Azure AD app. 
 	
 	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
+
+	> [!NOTE]
+	> If you don't have an Azure AD app already created, then have a [JWT type Azure AD app](https://marketplace.zoom.us/docs/guides/build/jwt-app) created.
 
 4. Select **App Credentials** in the left navigation pane.
 
@@ -147,7 +153,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 * 05/14/2020 - Support for UPDATE operations  added for emails[type eq "work"] attribute.
-* 10/20/2020 - Added support for two new roles "Licensed" and "On-Prem" to replace existing roles "Pro" and "Corp". Support for roles "Pro" and "Corp" will be removed in the future.
+* 10/20/2020 - Added support for two new roles "Licensed" and "on-premises" to replace existing roles "Pro" and "Corp". Support for roles "Pro" and "Corp" will be removed in the future.
 
 ## Additional resources
 

@@ -32,7 +32,7 @@ Private endpoints of secured resources that are created through Azure SignalR Se
 > [!NOTE]
 > The examples in this article are based on the following assumptions:
 > * The resource ID of this Azure SignalR Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr_.
-> * The resource ID of upstream Azure Function is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Web/sites/contoso-func.
+> * The resource ID of upstream Azure Function is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Web/sites/contoso-func_.
 
 The rest of the examples show how the *contoso-signalr* service can be configured so that its upstream calls to function go through a private endpoint rather than public network.
 

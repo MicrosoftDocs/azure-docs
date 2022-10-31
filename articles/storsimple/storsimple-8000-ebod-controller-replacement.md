@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Replace an EBOD controller on your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 This tutorial explains how to replace a faulty EBOD controller module on your Microsoft Azure StorSimple device. To replace an EBOD controller module, you need to:

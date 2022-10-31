@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 08/31/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,7 +14,6 @@ ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
 ---
-
 # Troubleshoot devices by using the dsregcmd command
 
 This article covers how to use the output from the `dsregcmd` command to understand the state of devices in Azure Active Directory (Azure AD). The `dsregcmd /status` utility must be run as a domain user account.
@@ -29,7 +28,6 @@ This section lists the device join state parameters. The criteria that are requi
 | NO | NO | YES | Domain Joined |
 | YES | NO | YES | Hybrid AD Joined |
 | NO | YES | YES | On-premises DRS Joined |
-| | |
 
 > [!NOTE]
 > The Workplace Joined (Azure AD registered) state is displayed in the ["User state"](#user-state) section.
@@ -205,7 +203,6 @@ Active Directory Federation Services (AD FS). For hybrid Azure AD-joined devices
 This field is skipped if no diagnostics information is available.
 The diagnostics information fields are same as **AcquirePrtDiagnostics**
 
-
 ### Sample SSO state output
 
 ```
@@ -333,7 +330,7 @@ The following example shows that diagnostics tests are passing but the registrat
 This diagnostics section displays the output of sanity checks performed on a device that's joined to the cloud.
 
 - **AadRecoveryEnabled**: If the value is *YES*, the keys stored in the device aren't usable, and the device is marked for recovery. The next sign-in will trigger the recovery flow and re-register the device.
-- **KeySignTest**: If the value is *PASSED*, the device keys are in good health. If KeySignTest fails, the device is usually marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For hybrid Azure AD-joined devices, the recovery is silent. While the devices are Azure AD-joined or Azure AD registered, they will prompt for user authentication to recover and re-register the device, if necessary. 
+- **KeySignTest**: If the value is *PASSED*, the device keys are in good health. If KeySignTest fails, the device is usually marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For hybrid Azure AD-joined devices, the recovery is silent. While the devices are Azure AD-joined or Azure AD registered, they'll prompt for user authentication to recover and re-register the device, if necessary. 
    > [!NOTE]
    > The KeySignTest requires elevated privileges.
 

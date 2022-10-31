@@ -45,7 +45,7 @@ The following table lists the currently available versions of the default *Micro
 <sup>1</sup> Version 3.x of the extension bundle currently doesn't include the [Table Storage bindings](./functions-bindings-storage-table.md). If your app requires Table Storage, you'll need to continue using the 2.x version for now.
 
 > [!NOTE]
-> While you can a specify custom version range in host.json, we recommend you use a version value from this table.
+> Even though host.json supports custom ranges for `version`, you should use a version value from this table.
 
 ## Explicitly install extensions
 

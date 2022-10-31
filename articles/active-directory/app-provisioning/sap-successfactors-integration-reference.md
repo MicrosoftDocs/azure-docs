@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/11/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -216,7 +216,7 @@ Extending this scenario:
 
 ### Mapping employment status to account status
 
-By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. There is a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://userapps.support.sap.com/sap/support/knowledge/en/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
+By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. There is a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://launchpad.support.sap.com/#/notes/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
 
 If you are running into this issue or prefer mapping employment status to  account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here is a list of employment status codes that you can retrieve in the provisioning app. 
 * A = Active 

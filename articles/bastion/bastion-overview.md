@@ -5,13 +5,13 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 08/05/2022
+ms.date: 10/21/2022
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
 # What is Azure Bastion?
 
-Azure Bastion is a service you deploy that lets you connect to a virtual machine using your browser and the Azure portal. The Azure Bastion service is a fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
+ Azure Bastion is a service you deploy that lets you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
 
 Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH.
 
@@ -43,6 +43,8 @@ The following table shows features and corresponding SKUs.
 Azure Bastion is deployed to a virtual network and supports virtual network peering. Specifically, Azure Bastion manages RDP/SSH connectivity to VMs created in the local or peered virtual networks.
 
 RDP and SSH are some of the fundamental means through which you can connect to your workloads running in Azure. Exposing RDP/SSH ports over the Internet isn't desired and is seen as a significant threat surface. This is often due to protocol vulnerabilities. To contain this threat surface, you can deploy bastion hosts (also known as jump-servers) at the public side of your perimeter network. Bastion host servers are designed and configured to withstand attacks. Bastion servers also provide RDP and SSH connectivity to the workloads sitting behind the bastion, as well as further inside the network.
+
+Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
 :::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing the Azure Bastion architecture.":::
 
@@ -76,5 +78,5 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
 * [Quickstart: Deploy Bastion using default settings](quickstart-host-portal.md).
 * [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md).
-* [Learn module: Introduction to Azure Bastion](/learn/modules/intro-to-azure-bastion/).
+* [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

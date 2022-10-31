@@ -6,6 +6,7 @@ ms.author: saveenr
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: sql
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 02/02/2022
 ---
@@ -60,7 +61,7 @@ However, as you continue data exploration, you might want to create some utility
 
    > [!IMPORTANT]
    > Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
-   > the best performance in the queries that read data from Parquet files and cosmos Db containers.
+   > the best performance in the queries that read data from Parquet files and Azure Cosmos DB containers.
 
 1. Switch from master to `DataExplorationDB` using the following command. You can also use the UI control **use database** to switch your current database:
 

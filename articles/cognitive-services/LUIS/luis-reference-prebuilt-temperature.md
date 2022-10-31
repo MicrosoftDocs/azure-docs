@@ -14,6 +14,9 @@ ms.date: 10/14/2019
 ---
 
 # Temperature prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Temperature extracts a variety of temperature types. Because this entity is already trained, you do not need to add example utterances containing temperature to the application. Temperature entity is supported in [many cultures](luis-reference-prebuilt-entities.md).
 
 ## Types of temperature

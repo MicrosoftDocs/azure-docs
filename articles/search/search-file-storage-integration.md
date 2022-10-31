@@ -7,7 +7,7 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/21/2022
+ms.date: 09/07/2022
 ---
 
 # Index data from Azure Files
@@ -29,13 +29,23 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Read permissions on Azure Storage. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles instead, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
 
-+ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
++ A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer.
 
 ## Supported document formats
 
 The Azure Files indexer can extract text from the following document formats:
 
 [!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
+
+
+## How Azure Files are indexed
+
+By default, most files are indexed as a single search document in the index, including files with structured content, such as JSON or CSV, which are indexed as a single chunk of text. 
+
+A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or an .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
+
+Textual content of a document is extracted into a string field named "content". You can also extract standard and user-defined metadata.
+
 
 ## Define the data source
 

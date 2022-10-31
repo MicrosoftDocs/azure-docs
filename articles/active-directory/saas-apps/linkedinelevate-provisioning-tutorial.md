@@ -64,12 +64,12 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 4. Click **+ Add new SCIM configuration** and follow the procedure by filling in each field.
 
     > [!NOTE]
-    > When auto­assign licenses is not enabled, it means that only user data is synced.
+    > When auto-assign licenses is not enabled, it means that only user data is synced.
 
     ![Screenshot shows the LinkedIn Account Center Global Settings.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
     > [!NOTE]
-    > When auto­license assignment is enabled, you need to note the application instance and license type. Licenses are assigned on a first come, first serve basis until all the licenses are taken.
+    > When auto-license assignment is enabled, you need to note the application instance and license type. Licenses are assigned on a first come, first serve basis until all the licenses are taken.
 
     ![Screenshot shows the S C I M Setup page.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
@@ -95,7 +95,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
     * In the **Secret Token** field, enter the access token you generated in step 1 and click **Test Connection** .
 
-    * You should see a success notification on the upper­right side of
+    * You should see a success notification on the upper-right side of
     your portal.
 
 12. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.

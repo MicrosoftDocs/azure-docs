@@ -16,7 +16,7 @@ ms.date: 08/16/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-In [Issue Microsoft Entra Verified ID credentials from an application](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
+In [Issue Microsoft Entra Verified ID credentials from an application](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In a real-world scenario, where the issuer and verifier are separate organizations, the verifier uses *their own* Azure AD tenant to perform the verification of the credential that was issued by the other organization. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
 
 As a verifier, you unlock privileges to subjects that possess verified credential expert cards. In this tutorial, you run a sample application from your local computer that asks you to present a verified credential expert card, and then verifies it.
 
@@ -35,7 +35,7 @@ In this article, you learn how to:
 - If you want to clone the repository that hosts the sample app, install [Git](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-cannot-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
   - Android version 6.2206.3973 or later installed.
   - iOS version 6.6.2 or later installed.
@@ -115,7 +115,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
    "ClientId": "555555555-0000-0000-0000-000000000000",
    "ClientSecret": "123456789012345678901234567890",
    "VerifierAuthority": "did:ion:EiDJzvzaBMb_EWTWUFEasKzL2nL-BJPhQTzYWjA_rRz3hQ:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJzaWdfMmNhMzY2YmUiLCJwdWJsaWNLZXlKd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwia3R5IjoiRUMiLCJ4IjoiZDhqYmduRkRGRElzR1ZBTWx5aDR1b2RwOGV4Q2dpV3dWUGhqM0N...",
-   "CredentialManifest": " https://verifiedid.did.msidentity.com/v1.0/987654321-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+   "CredentialManifest": " https://verifiedid.did.msidentity.com/v1.0/987654321-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert"
  }
 }
 ```
@@ -127,7 +127,7 @@ Now you are ready to present and verify your first verified credential expert ca
 1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or from the command shell, run the following commands:
 
     ```bash
-    cd active-directory-verifiable-credentials-dotnet/1. asp-net-core-api-idtokenhint
+    cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint
     dotnet build "asp-net-core-api-idtokenhint.csproj" -c Debug -o .\bin\Debug\netcoreapp3.1  
     dotnet run
     ```

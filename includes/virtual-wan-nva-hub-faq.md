@@ -11,7 +11,7 @@ Unfortunately, we don't have capacity to on-board any new partner offers at this
 
 ### Can I deploy any NVA from Azure Marketplace into the Virtual WAN hub?
 
-Only partners listed in the [Partners](../articles/virtual-wan/about-nva-hub.md#partner) section can be deployed into the Virtual WAN hub.
+Only partners listed in the [Partners](../articles/virtual-wan/about-nva-hub.md#partners) section can be deployed into the Virtual WAN hub.
 
 ### What is the cost of the NVA?
 

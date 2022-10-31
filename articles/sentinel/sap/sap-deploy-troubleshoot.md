@@ -142,9 +142,8 @@ The following steps reset the connector and reingest SAP logs from the last 30 m
 1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
 
     ```bash
-    cd ~/sapcon/<SID>
-    ls
-    mv metadata.db metadata.old
+    cd /opt/sapcon/<SID>
+    rm metadata.db
     ```
 
     > [!NOTE]

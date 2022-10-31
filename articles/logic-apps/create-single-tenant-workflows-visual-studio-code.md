@@ -5,23 +5,23 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2022
-ms.custom: ignite-fall-2021
+ms.date: 09/06/2022
+ms.custom: ignite-fall-2021, engagement-fy23
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
 
-This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using Visual Studio Code with the **Azure Logic Apps (Standard)** extension. The logic app that you create with this extension is based on the **Logic App (Standard)** resource type, which provides the following capabilities:
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-* You can locally run and test logic app workflows in the Visual Studio Code development environment.
+This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using Visual Studio Code with the **Azure Logic Apps (Standard)** extension. When you use this extension, you create a Standard logic app resource and workflow that provides the following capabilities:
 
 * Your logic app can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
 
 * Workflows in the same logic app and tenant run in the same process as the Azure Logic Apps runtime, so they share the same resources and provide better performance.
 
-* You can deploy the **Logic App (Standard)** resource type directly to the single-tenant Azure Logic Apps environment or anywhere that Azure Functions can run, including containers, due to the Azure Logic Apps containerized runtime.
+* You can locally create, run, and test workflows in the Visual Studio Code development environment. You can deploy your logic app locally, to Azure, which includes the single-tenant Azure Logic Apps environment or App Service Environment v3 (ASEv3) - Windows plans only, and on-premises using containers, due to the Azure Logic Apps containerized runtime.
 
-For more information about the single-tenant Azure Logic Apps offering, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -172,7 +172,7 @@ To find and confirm these settings, follow these steps:
 
       ![Screenshot that shows Azure pane and selected filter icon.](./media/create-single-tenant-workflows-visual-studio-code/filter-subscription-list.png)
 
-      Or, in the Visual Studio Code status bar, select your Azure account. 
+      Or, in the Visual Studio Code status bar, select your Azure account.
 
    1. When another subscriptions list appears, select the subscriptions that you want, and then make sure that you select **OK**.
 
@@ -471,6 +471,12 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    }
    ```
 
+   > [!NOTE]
+   >
+   > If your project is NuGet package-based (.NET), not extension bundle-based (Node.js), 
+   > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. However, to use **Inline Code Operations**, 
+   > you must have `"FUNCTIONS_WORKER_RUNTIME"` set to `"node"`
+
 The first time when you start a local debugging session or run the workflow without debugging, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
 When you stop the debugging session for a workflow run that uses locally run webhook-based triggers or actions, the existing subscription registrations aren't deleted. To unregister, you have to manually remove or delete the subscription registrations.
@@ -478,7 +484,7 @@ When you stop the debugging session for a workflow run that uses locally run web
 > [!NOTE]
 > After your workflow starts running, the terminal window might show errors like this example:
 >
-> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
+> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.'`
 >
 > In this case, open the **local.settings.json** file in your project's root folder, and make sure that the property is set to `true`:
 >
@@ -488,7 +494,7 @@ When you stop the debugging session for a workflow run that uses locally run web
 
 ## Manage breakpoints for debugging
 
-Before you run and test your logic app workflow by starting a debugging session, you can set [breakpoints](https://code.visualstudio.com/docs/editor/debugging#_breakpoints) inside the **workflow.json** file for each workflow. No other setup is required. 
+Before you run and test your logic app workflow by starting a debugging session, you can set [breakpoints](https://code.visualstudio.com/docs/editor/debugging#_breakpoints) inside the **workflow.json** file for each workflow. No other setup is required.
 
 At this time, breakpoints are supported only for actions, not triggers. Each action definition has these breakpoint locations:
 
@@ -821,7 +827,7 @@ Deployment for the **Logic App (Standard)** resource type requires a hosting pla
             "IsEncrypted": false,
             "Values": {
                "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-               "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+               "FUNCTIONS_WORKER_RUNTIME": "node",
                "APPINSIGHTS_INSTRUMENTATIONKEY": <instrumentation-key>
             }
          }
@@ -1084,7 +1090,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
       "IsEncrypted": false,
       "Values": {
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "FUNCTIONS_WORKER_RUNTIME": "node",
          "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
       }
    }
@@ -1098,7 +1104,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
       "Values": {
          "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct; \
              AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "FUNCTIONS_WORKER_RUNTIME": "node",
          "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
       }
    }

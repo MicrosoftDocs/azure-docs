@@ -7,7 +7,8 @@ metadata:
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
-  ms.date: 01/02/2022
+  ms.custom: ignite-2022
+  ms.date: 11/24/2022
 title: 'FAQ - Questions about data collection, agents, and workspaces'
 summary: |
   Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
@@ -20,9 +21,11 @@ sections:
       - question: |
           Am I billed for Azure Monitor logs on the workspaces created by Defender for Cloud?
         answer: |
-          No. Workspaces created by Defender for Cloud, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Defender for Cloud billing is always based on your Defender for Cloud security policy and the solutions installed on a workspace:
+          As explained in the [pricing and billing FAQ](enhanced-security-features-overview.md#faq---pricing-and-billing), there is a 500-MB free data ingestion for each workspace. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
+
+          Workspaces created by Defender for Cloud, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Defender for Cloud billing is always based on your Defender for Cloud security policy and the solutions installed on a workspace:
           
-          - **Enhanced security off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Microsoft Defender for Cloud is off.
+          - **Enhanced security off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. There are no charges when there are no Defender plans enabled.
           
           - **All Microsoft Defender for Cloud plans enabled** – Defender for Cloud enables the "Security" solution on the default workspace.
           
@@ -38,7 +41,7 @@ sections:
         answer: |
           To monitor for security vulnerabilities and threats, Microsoft Defender for Cloud depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
           
-          The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
+          The agent is sometimes referred to as the Azure Monitor Agent (or "AMA"). 
           
           The agent collects various security-related configuration details and event logs from connected machines, and then copies the data to your Log Analytics workspace for further analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
           
@@ -48,7 +51,7 @@ sections:
           
           * [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
           
-          Learn more about the [data collected by the Log Analytics agent](enable-data-collection.md).
+          Learn more about the [data collected by the Log Analytics agent](monitoring-components.md#log-analytics-agent).
           
           
           
@@ -84,7 +87,7 @@ sections:
       - question: |
           What security events are collected by the Log Analytics agent?
         answer: |
-          For a full list of the security events collected by the agent, see [What event types are stored for the "Common" and "Minimal" security events settings?](enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
+          For a full list of the security events collected by the agent, see [What event types are stored for the "Common" and "Minimal" security events settings?](working-with-log-analytics-agent.md#what-event-types-are-stored-for-common-and-minimal).
           
           > [!IMPORTANT]
           > For some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 
@@ -112,7 +115,7 @@ sections:
           
           1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
-          1. Open the **Auto provisioning** page.
+          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
           1. For the Log Analytics agent, select **Edit configuration**. 
           
               :::image type="content" source="./media/enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="The configuration of the Log Analytics agent to use when using auto deploy" lightbox="./media/enable-data-collection/edit-configuration-auto-deploy-agent.png":::
@@ -141,7 +144,7 @@ sections:
         answer: |
           When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud does not override existing connections to user workspaces. Defender for Cloud will store security data from a VM in a workspace that is already connected, provided that the "Security" or "SecurityCenterFree" solution has been installed on it. Defender for Cloud may upgrade the extension version to the latest version in this process.
           
-          For more information, see [Automatic provisioning in cases of a pre-existing agent installation](enable-data-collection.md#preexisting).
+          For more information, see [Automatic provisioning in cases of a pre-existing agent installation](monitoring-components.md#preexisting).
           
           
           
@@ -175,14 +178,12 @@ sections:
       - question: |
           How do I stop the automatic agent installation and workspace creation?
         answer: |
-          You can turn off auto provisioning for your subscriptions in the security policy but this is not recommended. Turning off auto provisioning limits Defender for Cloud recommendations and alerts. To disable automatic provisioning for a specific agent or extension:
+          You can turn off extensions for your subscriptions in the security policy but this is not recommended. Turning off extensions limits Defender for Cloud recommendations and alerts. To disable automatic provisioning for a specific agent or extension:
           
           1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
-          1. From the **Auto provisioning** page, toggle the status of the agent or extension you want to stop being automatically provisioned.
-          
-              :::image type="content" source="./media/enable-data-collection/agent-toggles.png" alt-text="Enable auto deploy for the Log Analytics agent":::
-          
+          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+          1. Turn off the extension you want to stop being automatically provisioned.
           1. Select **Save**.
           
           
@@ -244,21 +245,23 @@ sections:
       - question: |
           How do I disable data collection?
         answer: |
-          Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection. By default, auto provisioning is disabled.
+          Deploying extensions with Defender for Cloud is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection.
           
-          If you've enabled it but now want to disable it:
+          If you've enabled an extension but now want to disable it:
           
           1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Environment settings**.
           
-          1. Select the subscription on which you want to disable automatic provisioning.
+          1. Select the subscription on which you want to disable the extension.
+
+          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
           
-          1. Open **Auto provisioning**, and set the status of the provisioning of the Log Analytics agent to **Off**.
+          1. Turn off the Log Analytics agent.
           
           
       - question: |
           How do I enable data collection?
         answer: |
-          You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Defender for Cloud**, and select **Security policy**. Select the subscription that you wish to enable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **On**.
+          Data collection is automatically turned on when you enable a Defender plan that requires a [monitoring component](monitoring-components.md).
           
           
       - question: |

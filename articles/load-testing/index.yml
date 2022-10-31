@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   ms.author: nicktrog
   author: ntrogh
-  ms.date: 05/05/2022
+  ms.date: 09/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -38,24 +38,36 @@ landingContent:
         links:
           - text: Identify performance bottlenecks
             url: tutorial-identify-bottlenecks-azure-portal.md
-          - text: Set up automated regression testing
-            url: tutorial-cicd-azure-pipelines.md
+          - text: Set up automated regression testing with CI/CD
+            url: tutorial-identify-performance-regression-with-cicd.md
 
   # Card
   - title: Configure load tests
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure for high scale
+          - text: Configure for high scale loads
             url: how-to-high-scale-load.md
           - text: Parameterize load tests
             url: how-to-parameterize-load-tests.md
-          - text: Configure server-side monitoring
-            url: how-to-monitor-server-side-metrics.md
-          - text: 'Define pass/fail criteria'
+          - text: 'Define test fail criteria'
             url: how-to-define-test-criteria.md
           - text: Use JMeter user properties
             url: how-to-configure-user-properties.md
+
+  # Card
+  - title: Run load tests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a load test with a JMeter script
+            url: how-to-create-and-run-load-test-with-jmeter-script.md
+          - text: Set up automated regression testing with CI/CD
+            url: tutorial-cicd-azure-pipelines.md
+          - text: Test applications with authentication
+            url: how-to-test-secured-endpoints.md
+          - text: Test a private endpoint with VNET injection
+            url: how-to-test-private-endpoint.md
           - text: Read data from a CSV file
             url: how-to-read-csv-data.md
 
@@ -66,21 +78,13 @@ landingContent:
         links:
           - text: Identify performance regressions by comparing test runs
             url: how-to-compare-multiple-test-runs.md
+          - text: Configure server-side monitoring
+            url: how-to-monitor-server-side-metrics.md
           - text: Get insights from App Service Diagnostics
             url: how-to-appservice-insights.md
           - text: Export test results for custom reporting
             url: how-to-export-test-results.md
 
-  # Card
-  - title: Automate load tests
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Automate load testing with Azure Pipelines
-            url: tutorial-cicd-azure-pipelines.md
-          - text: Automate load testing with GitHub Actions
-            url: tutorial-cicd-github-actions.md
-            
   # Card
   - title: Security
     linkLists:
@@ -96,19 +100,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Test a private endpoint with VNET injection
-            url: how-to-test-private-endpoint.md
+          - text: Create & manage tests
+            url: how-to-create-manage-test.md
           - text: Move between regions
             url: how-to-move-between-regions.md
           - text: Monitor Azure Load Testing
             url: monitor-load-testing.md
-
-  # Card
-  - title: Reference docs
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: REST API
-          url: /rest/api/loadtesting/
-        - text: Test configuration YAML
-          url: reference-test-config-yaml.md

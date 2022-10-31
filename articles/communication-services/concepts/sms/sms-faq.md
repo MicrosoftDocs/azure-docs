@@ -3,11 +3,11 @@ title: SMS FAQ
 titleSuffix: An Azure Communication Services concept document
 description: SMS FAQ
 author: prakulka
-manager: nmurav
+manager: shahen
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 06/30/2021
+ms.date: 08/19/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
@@ -62,8 +62,8 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers and c
 Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in to use it, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
 
 *Example:* 
-- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends the following default response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
-- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. Azure Communication Service sends the following default response for START/UNSTOP: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
+- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
+- **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
 - **HELP** - If the recipient wishes to get help with your service, they can send 'HELP' to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
 Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
@@ -82,27 +82,47 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ## Toll-Free Verification
-### What is toll free verification and why is it mandatory?
-The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and industry best practices. This also provides relevant service information to reduce the likelihood of false positive filtering and wrongful spam blocks.  
+### What is toll free verification?
+The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
 
-September 30, 2022 onwards, all new TFNs must complete a toll-free verification process. All existing TFNs must complete a toll-free verification process by September 30, 2022. If unverified, the TFNs may face SMS service interruptions. Verification can take up to 2-3 weeks.
- 
-This decision has been made to ensure that the toll-free messaging channel is aligned with both short code and 10 DLC, whereby all services are reviewed. It also ensures that the sending brand and the type of traffic your messaging channels deliver is known, documented, and verified. 
+This verification is **required** for TFNs sending messages to **Canada recipients** and is **not required** for TFNs sending [low throughput messages](#sms-to-us-phone-numbers) to **US recipients**. Verifying TFNs is free of cost.
+
+### What happens if I don't verify my toll-free numbers?
+What happens to the unverified toll-free number depends on the destination of SMS traffic.
+#### SMS to US phone numbers
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to stricter filtering and the following thresholds for messaging:
+
+- **Daily Limit:** 2,000 messages
+- **Weekly limit:** 12,000 messages
+- **Monthly limit:** 25,000 messages
+
+This does not apply to TFNs in a pending or verified status.
+
+#### SMS to Canadian phone numbers
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in pending or verified status.
+
+### What is a pending status? What can I do in a pending status?
+After submission of the toll-free verification application, we will process your application and send it to the toll-free messaging aggregator. This process usually takes in 4-6 business days. Once the application reaches the toll-free messaging aggregator the application status changes to pending until verified or rejected.
+
+Once in pending state, you can start sending SMS to US numbers without the thresholds mentioned above and be unblocked from sending SMS to Canadian destinations. TFNs in pending state are subject to reduced likelihood of filtering.
+
+### What happens after I submit the toll-free verification form?
+Updates for changes and the status of your applications will be communicated via the email you provide in the application. Results from the application can be: approved, denied or further clarification needed. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+
+The whole toll-free verification process takes about **5-6 weeks** but is subject to change depending on the volume of applications to the toll-free messaging aggregator and how detailed the application is.
 
 ### How do I submit a toll-free verification?
-For submitting the toll-free verification form, go to the Azure Communications Service Resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed in the infobox at the top of the phone numbers blade. 
+To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
 
-### What happens if I don't verify my toll-free numbers? 
-Unverified numbers may face SMS service interruptions and are subject to carrier filtering and throttling.
+### What are common reasons for toll-free verification delays? 
+Your application wait time increases when your application has missing or unclear information. 
 
-### What happens after I submit the toll-free verification form?
-Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 2-3 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
-
-### Can I send messages while I wait for approval?
-You will be able to send messages while you wait for approval but the traffic will be subject to carrier filtering and throttling if it's flagged as spam.
+- **Missing required information like Opt-in Image URL** - If there is no Opt-in option, provide a good justification. 
+- **Opt-in Image URL is not accessible to the public** - When you host your image on image hosting services (i.e. OneDrive, GoogleDrive, iCloud, Dropbox, etc.) make sure the public can view it. Test the URL by seeing if the URL can be viewed by a personal account. 
+- **Incorrect toll-free numbers** - Phone numbers have to be toll-free numbers, not local numbers, 10DLC, or short codes. 
  
 ## Character and rate limits
 ### What is the SMS character limit?
@@ -120,7 +140,9 @@ This table shows the maximum number of characters that can be sent per SMS segme
 
 ### Can I send/receive long messages (>2048 chars)?
 
-Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages.
+Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages. We recommend keeping SMS messages to a length of 320 characters and reducing the use of accents to ensure maximum delivery. 
+
+*Limitation of US short code - There is a known limit of ~4 segments when sending/receiving a message with Non-ASCII characters. Beyond 4 segments, the message may not be delivered with the right formatting.
 
 ### Are there any limits on sending messages?
 

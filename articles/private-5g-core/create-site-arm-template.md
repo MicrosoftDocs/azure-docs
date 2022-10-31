@@ -56,7 +56,8 @@ Four Azure resources are defined in the template.
     | **Location** | Enter *eastus*. |
     | **Existing Mobile Network Name** | Enter the name of the mobile network resource representing your private mobile network. |
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
-    | **Site Name** | Enter a name for your site. |
+    | **Site Name** | Enter a name for your site.|
+    | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
     | **Platform Type** | Ensure **AKS-HCI** is selected. |
     | **Control Plane Access Interface Name** | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
@@ -72,7 +73,7 @@ Four Azure resources are defined in the template.
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     | **Core Network Technology** | Enter *5GC* for 5G, or *EPC* for 4G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
-    | **Dns Addresses** | Enter the DNS server addresses. You can omit this if you don't want to configure a DNS server for the UEs in this data network. |
+    | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
 
 1. Select **Review + create**.

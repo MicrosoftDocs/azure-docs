@@ -31,14 +31,14 @@
   items:
   - name: Capture Event Hubs data in Parquet format
     href: event-hubs-parquet-capture-tutorial.md
+  - name: Write output data to delta table in ADLS Gen2
+    href: write-to-delta-table-adls-gen2.md
   - name: Build near-real time dashboards with no code editor
     href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
   - name: Integrate 3rd party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: Run a C# UDF
-    href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer
     href: visual-studio-code-custom-deserializer.md
   - name: Create an IoT Edge job
@@ -108,6 +108,8 @@
       items:
         - name: Azure Blob and Data Lake output overview
           href: blob-storage-azure-data-lake-gen2-output.md
+        - name: Write data to Delta Lake
+          href: write-to-delta-lake.md
         - name: Custom path patterns
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
     - name: Azure Event Hubs
@@ -116,9 +118,9 @@
       href: power-bi-output.md
     - name: Azure Cosmos DB
       items:
-        - name: Cosmos DB output overview
+        - name: Azure Cosmos DB output overview
           href: azure-cosmos-db-output.md
-        - name: Cosmos DB optimization
+        - name: Azure Cosmos DB optimization
           href: stream-analytics-documentdb-output.md
     - name: Azure Data Explorer
       href: azure-database-explorer-output.md
@@ -183,6 +185,8 @@
       href: stream-analytics-time-handling.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
+  - name: Job diagram 
+    href: job-diagram-with-metrics.md
   - name: Error policy
     href: stream-analytics-output-error-policy.md
 - name: How-to guides
@@ -229,12 +233,18 @@
     items:
     - name: Capture Event Hubs data in Parquet format
       href: capture-event-hub-data-parquet.md
-    - name: Materialize data to Cosmos DB
+    - name: Materialize data to Azure Cosmos DB
       href: no-code-materialize-cosmos-db.md
     - name: Filter and ingest Synapse SQL data
       href: filter-ingest-synapse-sql.md
     - name: Filter and ingest to Data Lake Storage Gen2
       href: filter-ingest-data-lake-storage-gen2.md
+    - name: Enrich data and ingest to event hub
+      href: no-code-enrich-event-hub-data.md
+    - name: Transform and ingest to SQL database
+      href: no-code-transform-filter-ingest-sql.md
+    - name: Filter and ingest to Azure Data Explorer
+      href: no-code-filter-ingest-data-explorer.md
   - name: Authenticate with managed identity
     items:
     - name: Managed Identities Overview
@@ -322,8 +332,8 @@
       href: set-up-cicd-pipeline.md
   - name: Visual Studio
     items:
-    - name: Install tools
-      href: stream-analytics-tools-for-visual-studio-install.md
+    - name: Migrate ASA projects to VSCode
+      href: migrate-to-vscode.md
     - name: Quickstart
       href: stream-analytics-quick-create-vs.md
     - name: Test locally with sample data
@@ -340,6 +350,8 @@
       href: custom-deserializer.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - name: Run a C# UDF
+      href: stream-analytics-edge-csharp-udf.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
   - name: Visual Studio Code
@@ -400,8 +412,14 @@
       href: app-insights-export-stream-analytics.md
     - name: Export to SQL using Stream Analytics
       href: app-insights-export-sql-stream-analytics.md
-  - name: Debug using job diagram (preview)
-    href: stream-analytics-job-diagram-with-metrics-new.md
+  - name: Debug and optimize using job diagram
+    items:
+    - name: Optimize query using job diagram simulator
+      href: optimize-query-using-job-diagram-simulator.md
+    - name: Physical job diagram
+      href: stream-analytics-job-physical-diagram-with-metrics.md
+    - name: Logical job diagram
+      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language

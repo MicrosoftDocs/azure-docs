@@ -18,34 +18,27 @@ This article shows you how to use the migration tool in the Azure CLI to migrate
 >[!NOTE]
 > The migration tool is in public preview.
 
-## Prerequisites
+## Getting started
 
-1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings. 
-2. Register your subscription for Azure Database Migration Service. (If you've already done it, you can skip this step.)
+1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings.
 
-   1. On the Azure portal, go to your subscription.
-
-      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png" alt-text="Screenshot of Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png":::
-
-   1. On the left menu, select **Resource Providers**. Search for **Microsoft.DataMigration**, and then select **Register**.
-
-      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png" alt-text="Screenshot of the Register button for Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png":::
-
-3. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
+2. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
 
    If the Azure CLI is already installed, check the version by using the `az version` command. The version should be 2.28.0 or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
-4. Run the `az login` command: 
+
+3. Run the `az login` command:
    
    ```bash
    az login
    ```
 
-   A browser window opens with the Azure sign-in page. Provide your Azure credentials to do a successful authentication. For other ways to sign with the Azure CLI, see [this article](/cli/azure/authenticate-azure-cli).   
-5. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). You need them to get started with the migration tool.
+   A browser window opens with the Azure sign-in page. Provide your Azure credentials to do a successful authentication. For other ways to sign with the Azure CLI, see [this article](/cli/azure/authenticate-azure-cli).
+
+4. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites). It is very important to complete the prerequisite steps before you initiate a migration using this tool.
 
 ## Migration CLI commands
 
-The migration tool comes with easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`. 
+The migration tool comes with easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`.
 
 For help with understanding the options associated with a command and with framing the right syntax, you can use the `help` parameter:
 
@@ -106,10 +99,10 @@ The structure of the JSON is:
 ```bash
 {
 "properties": {
- "SourceDBServerResourceId":"subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
+ "SourceDBServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
 
 "SourceDBServerFullyQualifiedDomainName": "fqdn of the source server as per the custom DNS server", 
-"TargetDBServerFullyQualifiedDomainName": "fqdn of the target server as per the custom DNS server"
+"TargetDBServerFullyQualifiedDomainName": "fqdn of the target server as per the custom DNS server",
 
 "SecretParameters": {
     "AdminCredentials": 
@@ -127,7 +120,7 @@ The structure of the JSON is:
 
 "MigrationResourceGroup":
     {
- "ResourceId":"subscriptions/<subscriptionid>/resourceGroups/<temp_rg_name>",
+ "ResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<temp_rg_name>",
  "SubnetResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<rg_name>/providers/Microsoft.Network/virtualNetworks/<Vnet_name>/subnets/<subnet_name>"
     },
 
@@ -145,6 +138,8 @@ The structure of the JSON is:
 }
 
 ```
+>[!NOTE]
+> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#migration-prerequisites) before you execute **Create** in case it is not yet done. It is very important to complete the prerequisite steps in before you initiate a migration using this tool.
 
 Here are the `create` parameters:
 

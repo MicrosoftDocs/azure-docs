@@ -3,7 +3,7 @@ title: Factors influencing the performance of Azure AD Connect
 description: This document explains the how various factors influence the Azure AD Connect provisioning engine. These factors will help organizations to plan their Azure AD Connect deployment to make sure it meets their sync requirements.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 tags: azuread
 ms.service: active-directory
 ms.subservice: hybrid

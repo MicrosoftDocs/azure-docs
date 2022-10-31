@@ -3,7 +3,7 @@ title: Create and use password policies in Azure AD Domain Services | Microsoft 
 description: Learn how and why to use fine-grained password policies to secure and control account passwords in an Azure AD DS managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory

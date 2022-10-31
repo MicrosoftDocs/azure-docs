@@ -1,19 +1,28 @@
 ---
-title: Form Recognizer business card model
+title: Business card data extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts related to data extraction and analysis using the prebuilt business card model.
+description: OCR and machine learning based business card scanning in Form Recognizer extracts key data from business cards.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer business card model
+# Business card data extraction
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
+## How business card data extraction works
+
+Business cards are a great way of representing a business or a professional. The company logo, fonts and background images found in business cards help the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integrated into them for the benefit of their users.
+
+## Form Recognizer Business Card model
 
 The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
@@ -23,19 +32,19 @@ The business card model combines powerful Optical Character Recognition (OCR) ca
 
 ## Development options
 
-The following tools are supported by Form Recognizer v2.1:
-
-| Feature | Resources |
-|----------|-------------------------|
-|**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
-
 The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Business card model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-businessCard**|
+|**Business card model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-businessCard**|
 
-### Try Form Recognizer
+The following tools are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+### Try business card data extraction
 
 See how data, including name, job title, address, email, and company name, is extracted from business cards using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
@@ -45,10 +54,10 @@ See how data, including name, job title, address, email, and company name, is ex
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+#### Form Recognizer Studio
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API.
+> Form Recognizer studio is available with the v3.0 API.
 
 1. On the Form Recognizer Studio home page, select **Business cards**
 
@@ -60,19 +69,6 @@ See how data, including name, job title, address, email, and company name, is ex
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
-
-#### Sample Labeling tool (API v2.1)
-
-You'll need a business card document. You can use our [sample business card document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/businessCard.png).
-
-  1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
-
-  1. Select **Business card** from the **Form Type** dropdown menu:
-
-      :::image type="content" source="media/try-business-card.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
-
-      > [!div class="nextstepaction"]
-      > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 
@@ -95,9 +91,10 @@ You'll need a business card document. You can use our [sample business card docu
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
+|Business card (v3.0 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
+|Business card (v2.1 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li> | Autodetected |
 
-## Field extraction
+## Field extractions
 
 |Name| Type | Description |Standardized output |
 |:-----|:----|:----|:----:|
@@ -115,22 +112,22 @@ You'll need a business card document. You can use our [sample business card docu
 | WorkPhones | Array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx |
 | OtherPhones     | Array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
 
-## Form Recognizer preview v3.0
+## Form Recognizer v3.0
 
- The Form Recognizer preview introduces several new features and capabilities.
+ Form Recognizer v3.0 introduces several new features and capabilities.
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
+  > [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
 
 * Explore our REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

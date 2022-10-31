@@ -29,7 +29,7 @@ Key features of the Calling SDK:
 
 ## Detailed capabilities 
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
+The following list presents the set of features that are currently available in the Azure Communication Services Calling SDKs.
 
 
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |
@@ -61,7 +61,7 @@ The following list presents the set of features which are currently available in
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Support for early media                                                                                             | ❌   | ✔️       | ✔️              | ✔️                 |
+|                   | Support for early media                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -83,7 +83,7 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
+| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
 
 While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.

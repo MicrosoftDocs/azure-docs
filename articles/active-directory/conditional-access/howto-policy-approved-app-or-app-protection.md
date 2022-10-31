@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,14 +43,13 @@ The following steps will help create a Conditional Access policy requiring an ap
 
 Organizations can choose to deploy this policy using the steps outlined below or using the [Conditional Access templates (Preview)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and exclude at least one account to prevent yourself from being locked out. If you don't exclude any accounts, you can't create the policy.
-   1. Select **Done**.
 1. Under **Cloud apps or actions**, select **All cloud apps**.
 1. Under **Conditions** > **Device platforms**, set **Configure** to **Yes**.
    1. Under **Include**, **Select device platforms**.
@@ -68,11 +67,11 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 This policy will block all Exchange ActiveSync clients using basic authentication from connecting to Exchange Online.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and exclude at least one account to prevent yourself from being locked out. If you don't exclude any accounts, you can't create the policy.
    1. Select **Done**.
