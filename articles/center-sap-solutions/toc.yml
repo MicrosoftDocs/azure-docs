@@ -54,5 +54,5 @@ items:
 
 - name: Resources
   items:
-  - name: SAP deployment automation framework
+  - name: SAP on Azure Deployment Automation Framework
     href: ../virtual-machines/workloads/sap/automation-deployment-framework.md
