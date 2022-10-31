@@ -102,7 +102,7 @@ $protectedsettings = @{
 **Azure VMs**
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Settings $settings
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings
 ```
 
 **Azure Arc-enabled VMs**
@@ -150,8 +150,6 @@ If you use a firewall to restrict access to the Internet, you must configure the
 There is a CPU quota limit of 25% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows Hybrid Runbook Worker.
 
 ## Create hybrid worker group
-
-You can create a Hybrid Worker Group via the Azure portal. Currently, creating through the Azure Resource Manager (ARM) template is not supported.
 
 To create a hybrid worker group in the Azure portal, follow these steps:
 
@@ -260,7 +258,33 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
    The hybrid worker group will be deleted.
 
-## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, and Azure CLI
+
+## Automatic upgrade of extension
+
+Hybrid Worker extension supports [Automatic upgrade](/articles/virtual-machines/automatic-extension-upgrade.md) of minor versions by default. We recommend that you enable Automatic upgrades to take advantage of any security or feature updates without manual overhead. However, to prevent the extension from automatically upgrading (for example, if there is a strict change windows and can only be updated at specific time), you can opt out of this feature by setting the `enableAutomaticUpgrade`property in ARM, Bicep template, PowerShell cmdlets to *false*. Set the same property to *true* whenever you want to re-enable the Automatic upgrade.
+
+    ```
+      $extensionType = "HybridWorkerForLinux/HybridWorkerForWindows"
+      $extensionName = "HybridWorkerExtension"
+      $publisher = "Microsoft.Azure.Automation.HybridWorker"
+
+      Set-AzVMExtension -ResourceGroupName <RGName> -Location <Location>  -VMName <vmName> -Name $extensionName -Publisher $publisher -ExtensionType $extensionType -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
+
+    ```
+Major version upgrades must be managed manually. Run the below cmdlets with the latest TypeHandlerVersion.
+
+**Azure VMs**
+```
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings
+```
+**Azure Arc-enabled VMs**
+
+```
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait
+```
+
+
+## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
 
 #### [Bicep template](#tab/bicep-template)
 
@@ -926,6 +950,22 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 - To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](/cli/azure/automation/hrwg?view=azure-cli-latest)
 - To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
+
+
+#### [PowerShell](#tab/ps)
+
+You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and Hybrid Runbook Worker groups:
+
+| PowerShell cmdlet | Description |
+| ----- | ----------- |
+|[`Get-AzAutomationHybridRunbookWorkerGroup`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Get-AzAutomationHybridRunbookWorkerGroup.md) | Gets Hybrid Runbook Worker group|
+|[`Remove-AzAutomationHybridRunbookWorkerGroup`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Remove-AzAutomationHybridRunbookWorkerGroup.md) | Removes Hybrid Runbook Worker group|
+|[`Set-AzAutomationHybridRunbookWorkerGroup`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Set-AzAutomationHybridRunbookWorkerGroup.md) | Updates Hybrid Worker group with Hybrid Worker credentials|
+|['New-AzAutomationHybridRunbookWorkerGroup'](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/New-AzAutomationHybridRunbookWorkerGroup.md) | Creates new Hybrid Runbook Worker group|
+|[`Get-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Get-AzAutomationHybridRunbookWorker.md) | Gets Hybrid Runbook Worker|
+|[`Move-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Move-AzAutomationHybridRunbookWorker.md) | Moves Hybrid Worker from one group to other|
+|[`New-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/New-AzAutomationHybridRunbookWorker.md) | Creates new Hybrid Runbook Worker|
+|[`Remove-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Remove-AzAutomationHybridRunbookWorker.md)| Removes Hybrid Runbook Worker|
 
 ---
 

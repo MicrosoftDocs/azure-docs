@@ -2,7 +2,7 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 09/28/2021
+ms.date: 10/31/2022
 ms.topic: troubleshooting 
 ms.custom: devx-track-azurepowershell
 ---
@@ -38,6 +38,64 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 - Run the log collector tool and review the collected logs.
    - For Windows: the logs are located at `C:\HybridWorkerExtensionLogs`. The tool is at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1`. The extension log is `HybridWorkerExtensionHandler.log`. The worker log is `SME.log`.
    - For Linux: the logs are located at `/home/nxautomation/run`. The tool is at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/logcollector.py`. The worker log is `worker.log`. The extension registration log is `register_log`. The extension startup log is `startup_log`. The extension log is `extension_out`.
+
+
+### Scenario: Hybrid Worker deployment fails with Private Link error
+
+#### Issue
+
+You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error: *Authentication failed for private links*.
+
+#### Cause
+The virtual network of the VM is different from the private endpoint of Azure Automation account, **or** they are not connected.  
+
+#### Resolution
+Ensure that the private end point of Azure Automation account is connected to the same Virtual Network, to which the VM is connected. Follow the steps mentioned in [Planning based on your network](../how-to/private-link-security.md#planning-based-on-your-network) to connect to a private endpoint. Also [set public network access flags](../how-to/private-link-security.md#set-public-network-access-flags) to configure an Automation account to deny all public configuration and allow only connections through private endpoints. For more information on how to configure DNS settings for private endpoints, see [DNS configuration](../how-to/private-link-security.md#dns-configuration)
+
+### Scenario: Hybrid Worker deployment fails when the provided Hybrid Worker group does not exist
+
+#### Issue
+You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error: *Account/Group specified does not exist*.
+
+#### Cause
+The Hybrid Runbook Worker group to which the Hybrid Worker is to be deployed is already deleted. 
+
+#### Resolution
+Ensure that you create the Hybrid Runbook Worker group and add the VM as a Hybrid Worker in that group. Follow  the steps mentioned in [create a Hybrid Runbook Worker group](../extension-based-hybrid-runbook-worker-install.md#create-hybrid-worker-group) using the Azure portal.
+
+### Scenario: Hybrid Worker deployment fails when system-assigned managed identity is not enabled on the VM
+
+### Issue
+You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error:  
+*Unable to retrieve IMDS identity endpoint for non-Azure VM. Ensure that the Azure connected machine agent is installed and System-assigned identity is enabled.*
+
+### Cause
+You are deploying the extension-based Hybrid Worker on a non-Azure VM that does not have Arc connected machine agent installed on it. 
+
+### Resolution
+Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](/articles/azure-arc/servers/onboard-portal.md) for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/articles/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+ 
+
+### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled
+
+### Issue
+You are deploying an extension-based Hybrid Runbook Worker on a VM, and it fails with error: *Invalid Authorization Token*.
+
+### Cause
+User-assigned managed identity of the VM is enabled, but system-assigned managed identity is not enabled. 
+
+### Resolution
+Follow the steps listed below:
+
+1. [Enable](/articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) System-assigned managed identity of the VM. 
+2. [Delete](../extension-based-hybrid-runbook-worker-install.md#delete-a-hybrid-runbook-worker) the Hybrid Worker extension installed on the VM. 
+3. [Re-install]() the Hybrid Worker extension on the VM. 
+
+
+
+
+
+
 
 ### Scenario: Runbook execution fails
 
