@@ -122,7 +122,7 @@ The service provider uses the `api-version` argument to ensure compatibility. Th
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
 
-When training using the REST API, data and training scripts must be uploaded to a storage account that the workspace can access. The following example gets the storage information for your workspace and saves it into variables so we can use it later:
+When you train using the REST API, data and training scripts must be uploaded to a storage account that the workspace can access. The following example gets the storage information for your workspace and saves it into variables so we can use it later:
 
 :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
 
@@ -237,7 +237,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     }"
     ```
 
-1. Register a versioned reference to the training script for use with a job. In this example, the script is located at `https://azuremlexamples.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob`. This `testjob` is the folder in Blob storage that contains the training script and any dependencies needed by the script. In the following example, the ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
+1. Register a versioned reference to the training script for use with a job. In this example, the script location is the default storage account and container you uploaded to in step 1. The ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
 
     ```bash
     TRAIN_CODE=$(curl --location --request PUT "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/codes/train-lightgbm/versions/1?api-version=$API_VERSION" \
@@ -246,7 +246,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     --data-raw "{
             \"properties\": {
             \"description\": \"Train code\",
-            \"codeUri\": \"https://azuremlexamples.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob\"
+            \"codeUri\": \"https://$AZURE_STORAGE_ACCOUNT.blob.core.windows.net/$AZUREML_DEFAULT_CONTAINER/testjob\"
         }
     }" | jq -r '.id')
     ```
