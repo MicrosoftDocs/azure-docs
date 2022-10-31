@@ -37,7 +37,7 @@ To submit an asynchronous job, review the [reference documentation](/rest/api/la
 1. In the `tasks` object, include the operations you want performed on your data. For example, if you wanted to perform sentiment analysis, you would include the `SentimentAnalysisLROTask` object.
 1. You can optionally:
     1. Choose a specific [version of the model](model-lifecycle.md) used on your data.
-    1. Include additional Language ervice features in the `tasks` object, to be performed on your data at the same time.   
+    1. Include additional Language service features in the `tasks` object, to be performed on your data at the same time.   
 
 Once you've created the JSON body for your request, add your key to the `Ocp-Apim-Subscription-Key` header. Then send your API request to job creation endpoint. For example:
 
@@ -51,7 +51,7 @@ A successful call will return a 202 response code. The `operation-location` in t
 GET {Endpoint}/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-05-01
 ```
 
-To [get the status and retrieve the results](/rest/api/language/text-analysis-runtime/job-status) of the request, send a GET request to the URL you received in the `operation-location` header from the previous API response. Remember to include your key in the `Ocp-Apim-Subscription-Key`. The response will include the results of your API call.
+To [get the status and retrieve the results](/rest/api/language/2022-05-01/text-analysis-runtime/job-status) of the request, send a GET request to the URL you received in the `operation-location` header from the previous API response. Remember to include your key in the `Ocp-Apim-Subscription-Key`. The response will include the results of your API call.
 
 ## Send asynchronous API requests using the client library
 
