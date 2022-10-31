@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/23/2022
+ms.date: 10/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -75,13 +75,13 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
-| VM Type | E4s_v3 (4 vCPU/32 GB RAM) | E4s_v3 (4 vCPU/32 GB RAM) | --- |
+| VM Type | E4s_v3/v4/v5 (4 vCPU/32 GB RAM) | E4s_v3/v4/v5 (4 vCPU/32 GB RAM) | --- |
 | Accelerated Networking | Enable | Enable | ---|
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 4 | 4 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SLES 12 SP4/ 15 SP1 or RHEL 7.6/8.1 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
@@ -96,13 +96,13 @@ An example of a configuration for a medium SAP ASE DB Server with a database siz
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
-| VM Type | E16s_v3 (16 vCPU/128 GB RAM) | E16s_v3 (16 vCPU/128 GB RAM) | --- |
+| VM Type | E16s_v3/v4/v5 (16 vCPU/128 GB RAM) | E16s_v3/v4/v5 (16 vCPU/128 GB RAM) | --- |
 | Accelerated Networking | Enable | Enable | ---|
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 8 | 8 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SLES 12 SP4/ 15 SP1 or RHEL 7.6/8.1 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4| --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
@@ -116,13 +116,13 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
-| VM Type | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
+| VM Type | E64s_v3/v4/v5 (64 vCPU/432 GB RAM) | E64s_v3/v4/v5 (64 vCPU/432 GB RAM) | --- |
 | Accelerated Networking | Enable | Enable | ---|
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 16 | 16 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SLES 12 SP4/ 15 SP1 or RHEL 7.6/8.1 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
@@ -143,7 +143,7 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | # of data devices | 32 | 32 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SLES 12 SP4/ 15 SP1 or RHEL 7.6/8.1 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |

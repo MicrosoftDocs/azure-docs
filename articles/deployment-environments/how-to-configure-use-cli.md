@@ -6,7 +6,7 @@ ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: meghaanand
 author: anandmeg
-ms.date: 10/12/2022
+ms.date: 10/26/2022
 ms.topic: how-to
 ---
 
@@ -25,9 +25,9 @@ This article shows you how to use the Deployment Environments Azure CLI extensio
 
     **Automated install**
 
-    Execute the script https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 directly in PowerShell to install:
+    Execute the script https://aka.ms/DevCenter/Install-DevCenterCli.ps1 directly in PowerShell to install:
     ```powershell
-    iex "& { $(irm https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 ) }"
+    iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
     ```
     
     This will uninstall any existing dev center extension and install the latest version.
@@ -36,7 +36,7 @@ This article shows you how to use the Deployment Environments Azure CLI extensio
     
     Run the following command in the Azure CLI:
     ```azurecli
-    az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-environments-0.1.0-py3-none-any.whl
+    az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
     ```
 1. Sign in to Azure CLI.
     ```azurecli
