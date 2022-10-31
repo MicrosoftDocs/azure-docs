@@ -81,7 +81,7 @@ Do the following steps in the Azure portal to order a device:
 
       ![Screenshot of the Enable option for for a Data Box order that will import files to storage accounts. The Enabled button is highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
-    - If you are using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, you will also see the **Enable copy to archive** option in addition to the **Enable large file shares** option. Enabling copy to archive will allow you to send your blobs to the archive tier directly. Any data that is uploaded to the archive tier is offline and will need to be rehydrated before reading or modifying. 
+    - If you are using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, you will also see the **Enable copy to archive** option in addition to the **Enable large file shares** option. Enabling copy to archive will allow you to send your blobs to the archive tier automatically. This is done in two steps with the each blob first being uploaded to the default access tier of the storage account and then its metadata updated to archive. Any data that is uploaded to the archive tier is offline and will need to be rehydrated before reading or modifying. 
     
         When copy to archive is enabled, you will see an extra archive share on the data box during the copy process.The extra share is available for [SMB, NFS, REST, and data copy service](../articles/databox/data-box-deploy-copy-data.md) methods. 
 
