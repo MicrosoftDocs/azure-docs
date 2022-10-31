@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 10/31/2022
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, ignite-2022
 ---
@@ -127,13 +127,22 @@ Total supported language codes: 7
 
 | Language              | Language code | Starting with model version |              Notes |
 |----------------------|-------------|------------------------------------|-------------------|
+| Arabic	 | `ar` | 2022-06-01 | |
+| Chinese (Simplified) | `zh-hans` | 2019-10-01 | `zh` also accepted |
 | English               |     `en`      |  2020-04-01              |                    |
 | French                |     `fr`      |         2021-10-01        |                    |
 | German                |     `de`      |         2021-10-01         |                    |
+| Hindi	 | `hi` | 2020-04-01 | |
 | Italian               |     `it`      |         2021-10-01         |                    |
+| Japanese	 | `ja` | 2019-10-01 | |
+| Korean	 | `ko` | 2019-10-01 | |
 | Portuguese (Brazil)   |    `pt-BR`    |         2021-10-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`    |         2021-10-01         | `pt` also accepted |
+| Russian	 | `ru` | 2022-06-01 | |
 | Spanish               |     `es`      |         2021-10-01         |                    |
+| Spanish               |     `es`      |         2021-10-01         |                    |
+| Swedish	 | `sv` | 2022-06-01 | |
+| Turkish	 | `tr` | 2022-10-01 | |
 
 ## Next steps
 
