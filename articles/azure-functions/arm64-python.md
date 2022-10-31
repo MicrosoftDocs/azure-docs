@@ -27,9 +27,11 @@ i386
 
 Additionally, check that you are using zsh.
 
-2. Next, install all needed packages in this environment. You can start by installing [homebrew](https://brew.sh/) to the path `/usr/local/bin/brew`.
+2. Next, install all needed packages in this environment. 
 
-Next, install you Python and Core Tools.
+* Install [homebrew](https://brew.sh/) to the path `/usr/local/bin/brew`.
+* Install Python 
+* Install the [Core Tools package](/functions-run-local.md#install-the-azure-functions-core-tools)
 
 3. Optionally, set aliases so it is easy to reference the right versions in Rosetta. Following is an example of terminal set up.
 
