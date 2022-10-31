@@ -27,7 +27,7 @@ As a Python developer, you may also be interested in one of the following articl
 ::: zone pivot="python-mode-decorators" 
 | Getting started | Concepts| 
 |--|--|--|
-| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Code Examples](functions-bindings-triggers-python.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | 
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <li>[Code Examples](functions-bindings-triggers-python.md)</li> |
 ::: zone-end
 
 > [!NOTE]
