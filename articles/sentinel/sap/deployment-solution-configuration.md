@@ -125,5 +125,5 @@ docker stop sapcon-[SID]
 The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. To reenable the Docker container, run this command: 
 
 ```
-docker start sapcon-[SID] and that would make the docker container start running.
+docker start sapcon-[SID]
 ```
