@@ -86,7 +86,7 @@ An IoT hub. It's recommended that you use an S1 (Standard) tier or above.
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot device-update account create](/cli/azure/iot/device-update/account#az-iot-device-update-account-create) command to create a new Device Update account.
+Use the [az iot du account create](/cli/azure/iot/device-update/account#az-iot-device-update-account-create) command to create a new Device Update account.
 
 Replace the following placeholders with your own information:
 
@@ -98,10 +98,10 @@ Replace the following placeholders with your own information:
    > Your Device Update account doesn't need to be in the same region as your IoT hubs, but for better performance it is recommended that you keep them geographically close.
 
 ```azurecli-interactive
-az iot device-update account create --resource-group <resource_group> --account <account_name> --location <region>
+az iot du account create --resource-group <resource_group> --account <account_name> --location <region>
 ```
 
-Use the [az iot device-update instance create](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-create) command to create a Device Update instance.
+Use the [az iot du instance create](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-create) command to create a Device Update instance.
 
 An *instance* of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. When you link an IoT hub to a Device Update instance, a new shared access policy is automatically created give Device Update permissions to work with IoT Hub (registry write and service connect). This policy ensures that access is only limited to Device Update.
 
@@ -112,7 +112,7 @@ Replace the following placeholders with your own information:
 * *\<iothub_id>*: The resource ID for the IoT hub that will be linked to this instance. You can retrieve your IoT hub resource ID by using the [az iot hub show](/cli/azure/iot/hub#az-iot-hub-show) command and querying for the ID value: `az iot hub show -n <iothub_name> --query id`.
 
 ```azurecli-interactive
-az iot device-update instance create --account <account_name> --instance <instance_name> --iothub-ids <iothub_id>
+az iot du instance create --account <account_name> --instance <instance_name> --iothub-ids <iothub_id>
 ```
 
 >[!TIP]
@@ -173,7 +173,7 @@ Replace the following placeholders with your own information:
 
 * *\<role>*: The Device Update role that you're assigning.
 * *\<user_group>*: The user or group that you want to assign the role to.
-* *\<account_id>*: The resource ID for the Device Update account that the user or group will get access to. You can retrieve the resource ID by using the [az iot device-update account show](/cli/azure/iot/device-update/account#az-iot-device-update-account-show) command and querying for the ID value: `az iot device-update account show -n <account_name> --query id`.
+* *\<account_id>*: The resource ID for the Device Update account that the user or group will get access to. You can retrieve the resource ID by using the [az iot du account show](/cli/azure/iot/device-update/account#az-iot-device-update-account-show) command and querying for the ID value: `az iot du account show -n <account_name> --query id`.
 
 ```azurecli-interactive
 az role assignment create --role '<role>' --assignee <user_group> --scope <account_id>
@@ -232,16 +232,16 @@ You can view, sort, and query all of your Device Update accounts and instances.
 
 # [Azure CLI](#tab/cli)
 
-To view all Device Update accounts, use the [az iot device-update account list](/cli/azure/iot/device-update/account#az-iot-device-update-account-list) command.
+To view all Device Update accounts, use the [az iot du account list](/cli/azure/iot/device-update/account#az-iot-device-update-account-list) command.
 
 ```azurecli-interactive
-az iot device-update account list 
+az iot du account list 
 ```
 
-To view all instances in an account, use the [az iot device-update instance list](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-list) command.
+To view all instances in an account, use the [az iot du instance list](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-list) command.
 
 ```azurecli-interactive
-az iot device-update instance list --account <account_name>
+az iot du instance list --account <account_name>
 ```
 
 Both `list` commands support additional grouping and filter operations. Use the `--query` argument to find accounts or instances based on conditions like tags. For example, `--query "[?tags.env == 'test']"`. Use the `--output` argument to format the results. For example, `--output table`.

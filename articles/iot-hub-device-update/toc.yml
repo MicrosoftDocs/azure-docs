@@ -82,7 +82,7 @@ items:
   items:
   - name: Create a Device Update account
     href: create-device-update-account.md
-    displayName: Azure CLI, az iot, az iot device-update
+    displayName: Azure CLI, az iot, az iot du
   - name: Provisioning device update agent
     href: device-update-agent-provisioning.md
   - name: Create an update
@@ -97,14 +97,14 @@ items:
     href: device-update-agent-check.md
   - name: Create a log collection operation
     href: device-update-log-collection.md
-    displayName: Azure CLI, az iot, az iot device-update
+    displayName: Azure CLI, az iot, az iot du
   - name: Use delta updates
     href: delta-updates.md
   - name: Use related files
     href: related-files.md
   - name: Configure private endpoints
     href: configure-private-endpoints.md
-    displayName: Azure CLI, az iot, az iot device-update
+    displayName: Azure CLI, az iot, az iot du
   - name: Device Update for Azure Real Time Operating System
     href: device-update-azure-real-time-operating-system.md
   - name: Use Microsoft Connected Cache

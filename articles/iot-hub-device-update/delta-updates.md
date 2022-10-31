@@ -183,7 +183,7 @@ The `downloadHandler` element is used to specify how the Device Update agent wil
 You can use the Azure Command Line Interface (CLI) to generate an import manifest for your delta update. If you haven't used the Azure CLI to create an import manifest before, refer to [these instructions](create-update.md#create-a-basic-device-update-import-manifest).
 
 ```azurecli
-    az iot device-update update init v5 `
+    az iot du update init v5 `
 --update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
 --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report>
 --step handler=microsoft/swupdate:2 properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'>
