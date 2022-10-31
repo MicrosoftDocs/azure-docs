@@ -54,7 +54,7 @@ Install the following for your local development environment.
 
 ## Fork and clone the search sample with git
 
-Forking the sample repository is critical to be able to deploy the Static Web App. The web apps determine the build actions and deployment content based on your own GitHub fork location. Code execution in the Static Web App is remote, with Azure Static Web Apps reading from the code in your forked sample.
+Forking the sample repository is critical to be able to deploy the Static Web App. The Azure Static web app determines the build actions and deployment content based on your own GitHub fork location. Code execution in the Static Web App is remote, with Azure Static Web Apps reading from the code in your forked sample.
 
 1. On GitHub, [fork the sample repository](https://github.com/Azure-Samples/azure-search-javascript-samples/fork). 
 

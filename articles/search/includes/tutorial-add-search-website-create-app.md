@@ -29,18 +29,21 @@ The Static Web app pulls the information and files for deployment from GitHub us
     |--|--|
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-dotnet-samples`. |
-    |Select a location for new resources.|Select a region close to you.|
     |Select a SKU| Select the free SKU for this tutorial.|
+    |Select a location for new resources.|Select a region close to you.|
     |Choose build preset to configure default project structure.|Select **Custom**|
     |Select the location of your application code|`search-website-functions-v4/client`<br><br>This is the path, from the root of the repository, to your Azure Static web app. |
-    |Select the location of your Azure Function code|`search-website-functions-v4/api`<br><br>This is the path, from the root of the repository, to your Azure Function app. If the step shows `search-website-functions-v4/api`, accept it and change it after the creation process completes. Those steps are provided at the end of this section.|
     |Enter the path of your build output...|`build`<br><br>This is the path, from your Azure Static web app, to your generated files.|
 
-1. The resource is created and a notification window appears. Select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
+1. The resource is created and a notification window appears. 
+
+     When the resource is created, it creates a GitHub action file on GitHub.
+
+1. Select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
 
     Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
 
-1. When the resource is created, it creates a GitHub action file on GitHub but doesn't pull that file down to your local computer. To continue working on this project, you need to sync your local fork with your remote fork. Use Git in the Visual Studio Code integrated terminal to sync your local forked repository:
+1. Synchronize your local fork with your remote fork by pulling the new GitHub action file to your local computer:
 
     ```bash
     git pull origin main
@@ -49,27 +52,32 @@ The Static Web app pulls the information and files for deployment from GitHub us
     * _origin_ refers to your forked repo. 
     * _main_ refers to the default branch.
 
-    The GitHub action file is in the local directory at the `./.github/workflows` directory. 
+1. Find and open the workflow file in the `./.github/workflows/` directory to include the path:
 
-1. In Visual Studio file explorer, open up your GitHub deployment action file. The file path and name _something_ looks `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
+    In Visual Studio file explorer, open up your GitHub deployment action file. The file path and name looks _something_ `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
+
 1. The _part_ of the YAML file relevant to the Static web app is shown below:
 
     :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml" highlight="28-33":::
 
-1. If your action file doesn't contain the correct settings (including the location of the `api`), update those values, then commit that change and push back to your GitHub fork. 
+1. Edit your action file to contain the following `api_location` property:
 
-    Commit changes to local repository.
+    ```yml
+    api_location: "search-website-functions-v4/api"
+    ```
+
+1. Commit changes to your local repository.
 
     ```bash
     git add *.yml && git commit -m "update action for Static web app" 
     ```
-    Push changes to GitHub.
+1. Push changes to GitHub.
 
     ```bash
     git push origin main 
     ```
 
-    The updated action in your fork creates a new build and deploy to your Static web app. Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
+    The updated action in your remote fork creates a new build and deploy to your Static web app. Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
 
 ## Get Cognitive Search query key in Visual Studio Code
 
@@ -123,7 +131,7 @@ The Azure Function app won't return Search data until the Search secrets are in 
     :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the Static Web App name and select **Browse site**.":::    
 
 1. Select **Open** in the pop-up dialog.
-1. In the website search bar, enter a search query such as `code`, _slowly_ so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
+1. In the website search bar, enter a search query such as `code`, so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
 1. Review the results then select one of the books to see more details. 
 
 
