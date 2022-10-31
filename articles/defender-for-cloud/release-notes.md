@@ -171,7 +171,7 @@ Microsoft Defender for Containers now provides agentless vulnerability assessmen
 
 Agentless vulnerability assessment scanning for images in ECR repositories helps reduce the attack surface of your containerized estate by continuously scanning images to identify and manage container vulnerabilities. With this new release, Defender for Cloud scans container images after they are pushed to the repository and continually reassess the ECR container images in the registry. The findings are available in Microsoft Defender for Cloud as recommendations, and you can use Defender for Cloud's built-in automated workflows to take action on the findings, such as opening a ticket for fixing a high severity vulnerability in an image.
 
-Learn more about [vulnerability assessment for Amazon ECR images](defender-for-containers-va-ecr.md).
+Learn more about [vulnerability assessment for Amazon ECR images](defender-for-containers-vulnerability-assessment-elastic.md).
 
 ## September 2022
 
@@ -236,7 +236,7 @@ The new release contains the following capabilities:
     > [!TIP]
     > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
 
-    |Recommendation| Assessment key|
+    | Recommendation | Assessment key |
     |--|--|
     |Accounts with owner permissions on Azure resources should be MFA enabled|6240402e-f77c-46fa-9060-a7ce53997754|
     |Accounts with write permissions on Azure resources should be MFA enabled|c0cb17b2-0607-48a7-b0e0-903ed22de39b|
