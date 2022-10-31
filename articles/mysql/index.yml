@@ -3,16 +3,17 @@ title:  Azure Database for MySQL documentation
 summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
 metadata:
   description: "Azure Database for MySQL is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server to deploy your MySQL database in Azure."
-  author: savjani
-  ms.author: pariks
-  ms.date: 04/27/2022
   ms.service: mysql
   ms.topic: landing-page
+  author: savjani
+  ms.author: pariks
+  ms.reviewer: maghan
+  ms.date: 09/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
-  # Card 1
+# Card 1
   - title: About Azure Database for MySQL
     linkLists:
       - linkListType: overview
@@ -29,38 +30,8 @@ landingContent:
         links:
           - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
- # Card 2
-  - title: Single Server
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Single Server?
-            url: single-server/single-server-overview.md
-          - text: What's new in Single Server?
-            url: single-server/single-server-whats-new.md
-          - text: View all Single server documentation
-            url: single-server/index.yml
-      - linkListType: whats-new
-        links:
-          - text: What's new in Single Server?
-            url: single-server/single-server-whats-new.md
-      - linkListType: concept
-        links:
-          - text: Server concepts
-            url: single-server/concepts-servers.md
-          - text: Understand pricing tiers
-            url: single-server/concepts-pricing-tiers.md
-          - text: Limitations
-            url: flexible-server/concepts-limitations.md
-      - linkListType: quickstart
-        links:
-          - text: Create a server using the Azure Portal
-            url: single-server/quickstart-create-mysql-server-database-using-azure-portal.md
-          - text: Create a server using Azure CLI
-            url: single-server/quickstart-create-mysql-server-database-using-azure-cli.md
 
-
- # Card 3
+# Card 2
   - title: Flexible Server
     linkLists:
       - linkListType: overview
@@ -88,7 +59,7 @@ landingContent:
           - text: Create a server using CLI
             url: flexible-server/quickstart-create-server-cli.md
 
-# Card 4
+# Card 3
   - title: Connect and query
     linkLists:
       - linkListType: how-to-guide
@@ -97,20 +68,14 @@ landingContent:
           url:  single-server/how-to-connect-overview-single-server.md
       - linkListType: quickstart
         links:
-          - text: Connect to Single server using MySQL Workbench
-            url: single-server/connect-workbench.md
-          - text: Connect to Single server using Java
-            url: single-server/connect-java.md
-          - text: Connect to Single server using PHP
-            url: single-server/connect-php.md
           - text: Connect to Flexible server using MySQL Workbench
-            url: single-server/connect-workbench.md
+            url: flexible-server/connect-workbench.md
           - text: Connect to Flexible server using PHP
             url: flexible-server/connect-php.md
           - text: Connect to Flexible server using Python
             url: flexible-server/connect-python.md
 
-# Card 5
+# Card 4
   - title: Migrations
     linkLists:
       - linkListType: how-to-guide
@@ -171,18 +136,46 @@ landingContent:
             url: single-server/concepts-compatibility.md
       - linkListType: tutorial
         links:
-          - text: Design a Database on Single Server
-            url: single-server/tutorial-design-database-using-portal.md
-          - text: Create a Web App with Flexible server in VNET
-            url: flexible-server/tutorial-webapp-server-vnet.md
-          - text: Deploy Spring Boot app on AKS with Flexible Server
-            url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
           - text: Build a PHP (Laravel) web app with Flexible server
             url: flexible-server/tutorial-php-database-app.md
-          - text: Build a PHP (Laravel) web app with Single Server
-            url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+          - text: Create a Web App with Flexible server in VNET
+            url: flexible-server/tutorial-webapp-server-vnet.md
+          - text: Deploy Java Spring Boot app on AKS with Flexible Server
+            url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
+          - text: Deploy WordPress on App Service with Flexible Server
+            url: flexible-server/tutorial-wordpress-app-service.md
 
 # Card 7
+  - title: Single Server
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Single Server?
+            url: single-server/single-server-overview.md
+          - text: What's new in Single Server?
+            url: single-server/single-server-whats-new.md
+          - text: View all Single server documentation
+            url: single-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Single Server?
+            url: single-server/single-server-whats-new.md
+      - linkListType: concept
+        links:
+          - text: Server concepts
+            url: single-server/concepts-servers.md
+          - text: Understand pricing tiers
+            url: single-server/concepts-pricing-tiers.md
+          - text: Limitations
+            url: flexible-server/concepts-limitations.md
+      - linkListType: quickstart
+        links:
+          - text: Create a server using the Azure Portal
+            url: single-server/quickstart-create-mysql-server-database-using-azure-portal.md
+          - text: Create a server using Azure CLI
+            url: single-server/quickstart-create-mysql-server-database-using-azure-cli.md
+
+# Card 8
   - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide
@@ -201,10 +194,14 @@ landingContent:
             url: single-server/how-to-troubleshoot-replication-latency.md
           - text: Troubleshoot database corruption
             url: single-server/how-to-fix-corrupt-database.md
+          - text: Troubleshoot connectivity issues
+            url: single-server/how-to-troubleshoot-connectivity-issues.md
           - text: Tune performance using the sys_schema
             url: single-server/how-to-troubleshoot-sys-schema.md
+          - text: Troubleshooting best practices
+            url: single-server/concepts-troubleshooting-best-practices.md
 
-# Card 8
+# Card 9
   - title: Reference
     linkLists:
       - linkListType: download

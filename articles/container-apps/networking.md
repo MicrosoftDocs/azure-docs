@@ -39,8 +39,11 @@ As you begin to design the network around your container app, refer to [Plan vir
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 
+> [!NOTE]
+> Moving VNETs among different resource groups or subscriptions is not supported if the VNET is in use by a Container Apps environment.
+
 <!--
-https://docs.microsoft.com/azure/azure-functions/functions-networking-options
+https://learn.microsoft.com/azure/azure-functions/functions-networking-options
 
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 -->
@@ -149,7 +152,8 @@ The second URL grants access to the log streaming service and the console. If ne
 
 ## Ports and IP addresses
 
-The subnet associated with a Container App Environment must have a CIDR prefix of /23.
+>[!NOTE]
+> The subnet associated with a Container App Environment requires a CIDR prefix of /23 or larger (/23, /22 etc.).
 
 The following ports are exposed for inbound connections.
 
@@ -189,10 +193,21 @@ If you're using the Azure CLI and the [platformReservedCidr](vnet-custom-interna
 
 There's no forced tunneling in Container Apps routes.
 
+## DNS
+-	**Custom DNS**: If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. If you do not use the Azure recursive resolvers, the Container Apps environment will not function.
+
+-	**VNET-scope ingress**: If you plan to use VNET-scope [ingress](./ingress.md#configuration) in an internal Container Apps environment, configure your domains in one of the following ways:
+
+    1. **Non-custom domains**: If you do not plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App Environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record that points to the static IP address of the Container Apps environment.
+
+    1. **Custom domains**: If you plan to use custom domains, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
+
 ## Managed resources
 
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. In addition to the [Azure Container Apps billing](https://docs.microsoft.com/azure/container-apps/billing), you will be billed for the following:
-- Three standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an internal environment, or four standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an external environment.
+When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. In addition to the [Azure Container Apps billing](./billing.md), you are billed for the following:
+
+- Two standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/), one for ingress and one for egress. If you need more IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
+
 - Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has less than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
 
 

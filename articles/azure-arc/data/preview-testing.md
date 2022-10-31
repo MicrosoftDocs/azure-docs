@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 06/28/2022
+ms.date: 09/07/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to validate upcoming releases.
@@ -24,7 +24,7 @@ Each month, Azure Arc-enabled data services is released on the second Tuesday of
 - 14 days before the release date, the *test* pre-release version is made available.
 - 7 days before the release date, the *preview* pre-release version is made available.
 
-The main difference between the test and preview pre-release versions is usually just quality and stability, but in some exceptional cases there may be new features introduced in between the test and preview releases.
+Normally, the main difference between the test and preview pre-release versions is quality and stability, but in some exceptional cases there may be new features introduced in between the test and preview releases.
 
 Normally, pre-release version binaries are available around 10:00 AM Pacific Time. Documentation follows later in the day.
 
@@ -58,13 +58,13 @@ To install a pre-release version, follow these pre-requisite instructions:
 If you use the Azure CLI extension:
 
 - Uninstall the Azure CLI extension (`az extension remove -n arcdata`).
-- Download the latest pre-release Azure CLI extension `.whl` file from [https://aka.ms/az-cli-arcdata-ext](https://aka.ms/az-cli-arcdata-ext).
+- Download the latest pre-release Azure CLI extension `.whl` file from the link in the [Current preview release information](#Current preview release information)
 - Install the latest pre-release Azure CLI extension (`az extension add -s <location of downloaded .whl file>`).
 
 If you use the Azure Data Studio extension to install:
 
 - Uninstall the Azure Data Studio extension. Select the Extensions panel and select on the **Azure Arc** extension, select **Uninstall**.
-- Download the latest pre-release Azure Data Studio extension .vsix files from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext) and [https://aka.ms/ads-azcli-ext](https://aka.ms/ads-azcli-ext).
+- Download the latest pre-release Azure Data Studio extension .vsix files from the links in the [Current preview release information](#Current preview release information)
 - Install the extensions by choosing File -> Install Extension from VSIX package and then browsing to the download location of the .vsix files. Install the `azcli` extension first and then `arc`.
 
 ### Install using Azure CLI
@@ -74,21 +74,69 @@ If you use the Azure Data Studio extension to install:
 
 #### Indirect connectivity mode
 
-If you install using the Azure CLI, follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). Once created, edit this custom configuration profile file enter the `docker` property values as required based on the information provided in the version history table on this page.
+If you install using the Azure CLI:
 
-For example:
+1. Follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). 
+1. Edit this custom configuration profile file. Enter the `docker` property values as required based on the information provided in the version history table on this page.
 
-```json
+   For example:
 
-        "docker": {
-            "registry": "mcr.microsoft.com",
-            "repository": "arcdata/test",
-            "imageTag": "v1.8.0_2022-06-07_5ba6b837",
-            "imagePullPolicy": "Always"
-        },
-```
+   ```json
 
-Once the file is edited, use the command `az arcdata dc create` as explained in [create a custom configuration profile](create-custom-configuration-template.md).
+           "docker": {
+               "registry": "mcr.microsoft.com",
+               "repository": "arcdata/test",
+               "imageTag": "v1.8.0_2022-06-07_5ba6b837",
+               "imagePullPolicy": "Always"
+           },
+   ```
+
+1. Use the command `az arcdata dc create` as explained in [create a custom configuration profile](create-custom-configuration-template.md).
+
+#### Direct connectivity mode
+
+If you install using the Azure CLI:
+
+1. Follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). 
+1. Edit this custom configuration profile file. Enter the `docker` property values as required based on the information provided in the version history table on this page.
+
+   For example:
+
+   ```json
+
+           "docker": {
+               "registry": "mcr.microsoft.com",
+               "repository": "arcdata/test",
+               "imageTag": "v1.8.0_2022-06-07_5ba6b837",
+               "imagePullPolicy": "Always"
+           },
+   ```
+1. Set environment variables for:
+
+   - `ARC_DATASERVICES_EXTENSION_VERSION_TAG`: Use the version of the **Arc enabled Kubernetes helm chart extension version** from the release details under [Current preview release information](#current-preview-release-information).
+   - `ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN`: `preview`
+
+   For example, the following command sets the environment variables on Linux.
+
+   ```console
+   export ARC_DATASERVICES_EXTENSION_VERSION_TAG='1.2.20031002'
+   export ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN='preview'
+   ```
+
+   The following command sets the environment variables on PowerShell
+
+   ```console
+   $ENV:ARC_DATASERVICES_EXTENSION_VERSION_TAG="1.2.20031002"
+   $ENV:ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN="preview"
+   ```
+
+1. Run `az arcdata dc create` as normal for the direct mode to:
+
+   - Create the extension, if it doesn't already exist
+   - Create the custom location, if it doesn't already exist
+   - Create data controller
+
+   For details see, [create a custom configuration profile](create-custom-configuration-template.md).
 
 ### Install using Azure Data Studio
 
@@ -111,7 +159,7 @@ Run the notebook by clicking **Run All**.
 
 Follow the instructions to [Arc-enabled the Kubernetes cluster](create-data-controller-direct-prerequisites.md) as normal.
 
-Open the Azure portal by using this special URL: [https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
+Open the Azure portal by using this special URL: [https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
 
 Follow the instructions to [Create the Azure Arc data controller from Azure portal - Direct connectivity mode](create-data-controller-direct-azure-portal.md) except that when choosing a deployment profile, select **Custom template** in the **Kubernetes configuration template** drop-down.  Set the repository to either `arcdata/test` or `arcdata/preview` as appropriate and enter the desired tag in the **Image tag** field.  Fill out the rest of the custom cluster configuration template fields as normal.
 

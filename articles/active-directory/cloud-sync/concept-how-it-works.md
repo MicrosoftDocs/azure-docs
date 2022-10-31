@@ -3,9 +3,10 @@ title: 'Azure AD Connect cloud sync deep dive - how it works'
 description: This topic provides deep dive information on how cloud sync works.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.subservice: hybrid
@@ -26,7 +27,7 @@ Cloud sync is built on top of the Azure AD services and has 2 key components:
 
 
 ## Initial setup
-During initial setup, the a few things are done that makes cloud sync happen.  These are: 
+During initial setup, a few things are done that makes cloud sync happen. These are: 
 
 - **During agent installation**: You configure the agent for the AD domains you want to provision from.  This configuration registers the domains in the hybrid identity service and establishes an outbound connection to the service bus listening for requests.
 - **When you enable provisioning**: You select the AD domain and enable provisioning which runs every 2 mins. Optionally you may deselect password hash sync and define notification email. You can also manage attribute transformation using Microsoft Graph APIs.

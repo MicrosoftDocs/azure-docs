@@ -1,14 +1,13 @@
 ---
-title: Create a T-SQL streaming job in Azure SQL Edge 
-description: Learn about creating Stream Analytics jobs in Azure SQL Edge. 
-keywords: 
-services: sql-edge
+title: Create a T-SQL streaming job in Azure SQL Edge
+description: Learn about creating Stream Analytics jobs in Azure SQL Edge.
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 07/27/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 07/27/2020
+services: sql-edge
 ---
 
 # Create a data streaming job in Azure SQL Edge 

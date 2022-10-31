@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: urimsft
 ms.author: uridor
-ms.date: 06/29/2022
+ms.date: 07/13/2022
 ---
 
 # Customer leads from your commercial marketplace offer
@@ -99,8 +99,9 @@ Here are some recommendations for driving leads through your sales cycle:
 - **Follow-up**: Don't forget to follow up within 24 hours. You will get the lead in your CRM of choice immediately after the customer deploys a test drive; email them within while they are still warm. Request scheduling a phone call to better understand if your product is a good solution for their problem. Expect the typical transaction to require numerous follow-up calls.
 - **Nurture**: Nurture your leads to get you on the way to a higher profit margin. Check in, but don't bombard them. We recommend you email leads at least a few times before you close them out; don't give up after the first attempt. Remember, these customers directly engaged with your product and spent time in a free trial; they are great prospects.
 
-After the technical setup is in place, incorporate these leads into your current sales and marketing strategy and operational processes. We're interested in better understanding your overall sales process and want to work closely with you to provide high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in [providing
-feedback](mailto:AzureMarketOnboard@microsoft.com) and suggestions to enable your sales team to be more successful with commercial marketplace leads.
+After the technical setup is in place, incorporate these leads into your current sales and marketing strategy and operational processes.
+
+We're interested in better understanding your overall sales process and want to work closely with you to provide high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Please share your feedback via the smile icon on the top right corner of Partner center. [Login](https://partner.microsoft.com/dashboard/home) to partner center.
 
 ## Next steps
 

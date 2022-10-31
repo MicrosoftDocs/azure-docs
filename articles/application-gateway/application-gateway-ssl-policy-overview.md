@@ -1,17 +1,17 @@
 ---
 title: TLS policy overview for Azure Application Gateway
-description: Learn how to configure TLS policy for Azure Application Gateway and reduce encryption and decryption overhead from a back-end server farm.
+description: Learn how to configure TLS policy for Azure Application Gateway and reduce encryption and decryption overhead from a backend server farm.
 services: application gateway
-author: amsriva
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.author: amsriva
+ms.author: greglin
 ---
 
 # Application Gateway TLS policy overview
 
-You can use Azure Application Gateway to centralize TLS/SSL certificate management and reduce encryption and decryption overhead from a back-end server farm. This centralized TLS handling also lets you specify a central TLS policy that's suited to your organizational security requirements. This helps you meet compliance requirements as well as security guidelines and recommended practices.
+You can use Azure Application Gateway to centralize TLS/SSL certificate management and reduce encryption and decryption overhead from a backend server farm. This centralized TLS handling also lets you specify a central TLS policy that's suited to your organizational security requirements. This helps you meet compliance requirements as well as security guidelines and recommended practices.
 
 The TLS policy includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during a TLS handshake. Application Gateway offers two mechanisms for controlling TLS policy. You can use either  a predefined policy or a custom policy.
 
@@ -74,9 +74,9 @@ If a TLS policy needs to be configured for your requirements, you can use a Cust
 > The newer, stronger ciphers and TLSv1.3 support are only available with the **CustomV2 policy (Preview)**. It provides enhanced security and performance benefits.
 
 > [!IMPORTANT]
-> - If you are using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU.
+> - If you're using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU.
 > This is not mandatory for Application Gateway v2 SKU (Standard_v2 or WAF_v2).
-> - The cipher suites “TLS_AES_128_GCM_SHA256” and “TLS_AES_256_GCM_SHA384” with TLSv1.3 are not customizable. Hence, these are included by default when choosing a CustomV2 policy with minimum protocol version 1.2 or 1.3.
+> - The cipher suites “TLS_AES_128_GCM_SHA256” and “TLS_AES_256_GCM_SHA384” are mandatory for TLSv1.3. You need NOT mention these explicitly when setting a CustomV2 policy with minimum protocol version 1.2 or 1.3 through [PowerShell](application-gateway-configure-ssl-policy-powershell.md) or CLI. Accordingly, these ciphers suites won't appear in the Get Details output, with an exception of Portal.
  
 
 ### Cipher suites
@@ -118,7 +118,7 @@ Application Gateway supports the following cipher suites from which you can choo
 
 - The connections to backend servers are always with minimum protocol TLS v1.0 and up to TLS v1.2. Therefore, only TLS versions 1.0, 1.1 and 1.2 are supported to establish a secured connection with backend servers. 
 - As of now, the TLS 1.3 implementation is not enabled with &#34;Zero Round Trip Time (0-RTT)&#34; feature.
-- Application Gateway v2 does not support the following DHE ciphers. These won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.
+- Application Gateway v2 doesn't support the following DHE ciphers. These won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.
   - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
   - TLS_DHE_RSA_WITH_AES_128_CBC_SHA
   - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384

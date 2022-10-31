@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 06/29/2022
+ms.date: 09/30/2022
 ---
 
 # Create an Azure Container offer
@@ -16,6 +16,8 @@ This article describes how to create an Azure Container offer. All offers go thr
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
+
+Before you can publish an Azure Container offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan an Azure Container offer](marketplace-containers.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
@@ -56,6 +58,19 @@ Review [Plan an Azure Container offer](marketplace-containers.md). It will expla
 ## Alias
 
 Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](azure-container-offer-listing.md) page.
+
+## Setup details
+
+You have two options – one is to sell and the other is to only list your offer using Microsoft.
+
+:::image type="content" source="./media/azure-container/sell-offer.png" alt-text="A screenshot of the Azure portal showing a selector to sell through Microsoft or only list the offer through Microsoft.":::
+
+If you are publishing Kubernetes applications, you can choose to sell through Microsoft and let Microsoft host transactions on your behalf. In this case, a set of required technical configuration will be needed for your service.
+
+If you are publishing container images, you can use Microsoft to list your offer but process the transactions independently. In this case, your offer will still be available in Azure Marketplace as a listing only offer.
+
+> [!NOTE]
+> Pricing options are only available if you are publishing Kubernetes applications. This choice cannot be changed once your offer is published.
 
 ## Customer leads
 

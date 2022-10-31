@@ -31,6 +31,12 @@ An AI system includes not only the technology, but also the people who will use 
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 
+## Scenarios
+
+*	Enhance search capabilities and search indexing - Customers can build knowledge graphs based on entities detected in documents to enhance document search as tags.
+*	Automate business processes - For example, when reviewing insurance claims, recognized entities like name and location could be highlighted to facilitate the review. Or a support ticket could be generated with a customer's name and company automatically from an email.
+*	Customer analysis – Determine the most popular information conveyed by customers in reviews, emails, and calls to determine the most relevant topics that get brought up and determine trends over time. 
+
 ## Next steps
 
 There are two ways to get started using the Named Entity Recognition (NER) feature:

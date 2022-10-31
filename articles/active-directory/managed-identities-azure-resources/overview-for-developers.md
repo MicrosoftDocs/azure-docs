@@ -4,7 +4,7 @@ description: An overview how developers can use managed identities for Azure res
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -330,7 +330,7 @@ dr.Close();
 
 #### [Java](#tab/java)
 
-If you use [Azure Spring Apps](/azure/spring-cloud/), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
+If you use [Azure Spring Apps](../../spring-apps/index.yml), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
 
 Open the `src/main/resources/application.properties` file, and add `Authentication=ActiveDirectoryMSI;` at the end of the following line. Be sure to use the correct value for `$AZ_DATABASE_NAME` variable.
 
@@ -338,7 +338,7 @@ Open the `src/main/resources/application.properties` file, and add `Authenticati
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
 
-Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](/azure/spring-cloud/connect-managed-identity-to-azure-sql/).
+Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](../../spring-apps/connect-managed-identity-to-azure-sql.md).
 
 ---
 
@@ -368,3 +368,4 @@ Tokens should be treated like credentials. Don't expose them to users or other s
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
+* Use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets

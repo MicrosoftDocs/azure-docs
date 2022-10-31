@@ -19,6 +19,10 @@ Properties represent point-in-time values. For example, a device can use a prope
 
 You can also define cloud properties in an Azure IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
 
+To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+
+To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+
 ## Define your properties
 
 Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on/off state of a device. Properties can also represent basic device properties, such as the software version of the device. You declare properties as read-only or writable.
@@ -218,11 +222,7 @@ For more information on device twins, see [Configure your devices from a back-en
 
 When the operator sets a writable property in the Azure IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds by using a device twin reported property. When Azure IoT Central receives the reported property value, it updates the property view with a status of **Accepted**.
 
-The following view shows the writable properties. When you enter the value and select **Save**, the initial status is **Pending**. When the device accepts the change, the status changes to **Accepted**.
-
-:::image type="content" source="media/howto-use-properties/status-pending.png" alt-text="Screenshot that shows Pending status for a property update.":::
-
-:::image type="content" source="media/howto-use-properties/accepted.png" alt-text="Screenshot that shows Accepted property for a completed update.":::
+When you enter the value and select **Save**, the initial status is **Pending**. When the device accepts the change, the status changes to **Accepted**.
 
 ## Use properties on unassigned devices
 

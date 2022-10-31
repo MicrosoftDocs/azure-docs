@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # Azure Data Factory - JSON Scripting Reference
@@ -826,7 +826,7 @@ To define an Azure Cosmos DB dataset, set the **type** of the dataset to **Docum
 For more information, see [Azure Cosmos DB connector](data-factory-azure-documentdb-connector.md#dataset-properties) article.
 
 ### Azure Cosmos DB Collection Source in Copy Activity
-If you are copying data from an Azure Cosmos DB, set the **source type** of the copy activity to **DocumentDbCollectionSource**, and specify following properties in the **source** section:
+If you are copying data from an Azure Cosmos DB instance, set the **source type** of the copy activity to **DocumentDbCollectionSource**, and specify following properties in the **source** section:
 
 
 | **Property** | **Description** | **Allowed values** | **Required** |
@@ -877,7 +877,7 @@ If you are copying data to Azure Cosmos DB, set the **sink type** of the copy ac
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
-| nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the Cosmos DB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
+| nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the Azure Cosmos DB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
 | writeBatchSize |Number of parallel requests to Azure Cosmos DB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from Azure Cosmos DB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to Azure Cosmos DB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (for example, S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
 | writeBatchTimeout |Wait time for the operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 
@@ -4061,7 +4061,7 @@ For more information, see [SFTP connector](data-factory-sftp-connector.md#copy-a
 ## HTTP
 
 ### Linked service
-To define a HTTP linked service, set the **type** of the linked service to **Http**, and specify following properties in the **typeProperties** section:
+To define an HTTP linked service, set the **type** of the linked service to **Http**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4150,7 +4150,7 @@ This linked service links your data factory to an on-premises HTTP web server. I
 For more information, see [HTTP connector](data-factory-http-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a HTTP dataset, set the **type** of the dataset to **Http**, and specify the following properties in the **typeProperties** section:
+To define an HTTP dataset, set the **type** of the dataset to **Http**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -4206,7 +4206,7 @@ To define a HTTP dataset, set the **type** of the dataset to **Http**, and speci
 For more information, see [HTTP connector](data-factory-http-connector.md#dataset-properties) article.
 
 ### HTTP Source in Copy Activity
-If you are copying data from a HTTP source, set the **source type** of the copy activity to **HttpSource**, and specify following properties in the **source** section:
+If you are copying data from an HTTP source, set the **source type** of the copy activity to **HttpSource**, and specify following properties in the **source** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -5538,7 +5538,7 @@ You can specify the following properties in a U-SQL Activity JSON definition. Th
 For more information, see [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md).
 
 ## Stored Procedure Activity
-You can specify the following properties in a Stored Procedure Activity JSON definition. The type property for the activity must be: **SqlServerStoredProcedure**. You must create an one of the following linked services and specify the name of the linked service as a value for the **linkedServiceName** property:
+You can specify the following properties in a Stored Procedure Activity JSON definition. The type property for the activity must be: **SqlServerStoredProcedure**. You must create a one of the following linked services and specify the name of the linked service as a value for the **linkedServiceName** property:
 
 - SQL Server
 - Azure SQL Database

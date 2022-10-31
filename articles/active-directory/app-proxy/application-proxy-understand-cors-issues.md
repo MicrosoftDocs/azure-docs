@@ -3,7 +3,7 @@ title: Understand and solve Azure Active Directory Application Proxy CORS issues
 description: Provides an understanding of CORS in Azure Active Directory Application Proxy, and how to identify and solve CORS issues. 
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

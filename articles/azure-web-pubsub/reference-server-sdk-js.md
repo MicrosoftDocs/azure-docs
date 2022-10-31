@@ -33,7 +33,7 @@ You can use this library in your app server side to manage the WebSocket client 
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub) |
-[API reference documentation](/javascript/api/overview/azure/webpubsub) |
+[API reference documentation](/javascript/api/overview/azure/web-pubsub) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 

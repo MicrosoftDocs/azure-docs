@@ -2,15 +2,14 @@
 title: "How to use Continuous Access Evaluation enabled APIs in your applications"
 description: How to increase app security and resilience by adding support for Continuous Access Evaluation, enabling long-lived access tokens that can be revoked based on critical events and policy evaluation.
 services: active-directory
-author: knicholasa
-manager: CelesteDG
-
+manager: martinco
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/09/2021
-ms.author: nichola
+author: janicericketts
+ms.author: jricketts
 ms.reviewer:
 # Customer intent: As an application developer, I want to learn how to use Continuous Access Evaluation for building resiliency through long-lived, refreshable tokens that can be revoked based on critical events and policy evaluation.
 ---
@@ -46,6 +45,8 @@ Your app would check for:
 - the existence of a WWW-Authenticate header containing:
   - an "error" parameter with the value "insufficient_claims"
   - a "claims" parameter
+
+# [.NET](#tab/dotnet)
 
 When these conditions are met, the app can extract and decode the claims challenge using MSAL.NET `WwwAuthenticateParameters` class.
 
@@ -97,7 +98,86 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
 
 You can test your application by signing in a user to the application then using the Azure portal to Revoke the user's sessions. The next time the app calls the CAE enabled API, the user will be asked to reauthenticate.
 
+# [JavaScript](#tab/JavaScript)
+
+When these conditions are met, the app can extract the claims challenge from the API response header as follows: 
+
+```javascript
+try {
+  const response = await fetch(apiEndpoint, options);
+
+  if (response.status === 401 && response.headers.get('www-authenticate')) {
+    const authenticateHeader = response.headers.get('www-authenticate');
+    const claimsChallenge = parseChallenges(authenticateHeader).claims;
+    
+    // use the claims challenge to acquire a new access token...
+  }
+} catch(error) {
+  // ...
+}
+
+// helper function to parse the www-authenticate header
+function parseChallenges(header) {
+    const schemeSeparator = header.indexOf(' ');
+    const challenges = header.substring(schemeSeparator + 1).split(',');
+    const challengeMap = {};
+
+    challenges.forEach((challenge) => {
+        const [key, value] = challenge.split('=');
+        challengeMap[key.trim()] = window.decodeURI(value.replace(/['"]+/g, ''));
+    });
+
+    return challengeMap;
+}
+```
+
+Your app would then use the claims challenge to acquire a new access token for the resource.
+
+```javascript
+const tokenRequest = {
+    claims: window.atob(claimsChallenge), // decode the base64 string
+    scopes: ['User.Read'],
+    account: msalInstance.getActiveAccount()
+};
+
+let tokenResponse;
+
+try {
+    tokenResponse = await msalInstance.acquireTokenSilent(tokenRequest);
+} catch (error) {
+     if (error instanceof InteractionRequiredAuthError) {
+        tokenResponse = await msalInstance.acquireTokenPopup(tokenRequest);
+    }
+}
+```
+
+Once your application is ready to handle the claim challenge returned by a CAE-enabled resource, you can tell Microsoft Identity your app is CAE-ready by adding a `clientCapabilities` property in the MSAL configuration.
+
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here', 
+        clientCapabilities: ["CP1"]
+        // remaining settings...
+    }
+}
+
+const msalInstance = new PublicClientApplication(msalConfig);
+
+```
+
+---
+
+You can test your application by signing in a user and then using the Azure portal to revoke the user's session. The next time the app calls the CAE-enabled API, the user will be asked to reauthenticate.
+
+## Code samples
+
+- [Enable your Angular single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your React single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+
 ## Next steps
 
 - [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) conceptual overview
 - [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
+

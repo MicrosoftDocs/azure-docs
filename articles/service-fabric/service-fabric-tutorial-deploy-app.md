@@ -1,11 +1,14 @@
 ---
 title: Deploy a Service Fabric app to a cluster in Azure 
 description: Learn how to deploy an existing application to a newly created Azure Service Fabric cluster from Visual Studio.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy a Service Fabric application to a cluster in Azure
 
 This tutorial is part two of a series. It shows you how to deploy an Azure Service Fabric application to a new cluster in Azure.

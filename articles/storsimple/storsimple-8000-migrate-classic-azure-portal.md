@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2019
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Migrate subscriptions and storage accounts associated with StorSimple Device Manager service
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 You may need to move your StorSimple service to a new enrollment or to a new subscription. These migration scenarios are either account changes or datacenter changes. Use the following table to understand which of these scenarios are supported including the detailed steps to move.
 

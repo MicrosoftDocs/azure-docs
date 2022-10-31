@@ -6,8 +6,8 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 06/17/2022
-ms.custom: ignite-fall-2021
+ms.date: 10/10/2022
+ms.custom: ignite-2022
 ---
 
 # Supported data sources and file types
@@ -20,18 +20,19 @@ The table below shows the supported capabilities for each data source. Select th
 
 |**Category**|  **Data Store**  |**Technical metadata** |**Classification** |**Lineage** | **Access Policy** | **Data Sharing** |
 |---|---|---|---|---|---|---|
-| Azure | [Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes (Preview)](how-to-data-owner-policies-storage.md) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
+| Azure |[Multiple sources](register-scan-azure-multiple-sources.md)| [Yes](register-scan-azure-multiple-sources.md#register) | [Yes](register-scan-azure-multiple-sources.md#scan) | No |[Yes (Preview)](register-scan-azure-multiple-sources.md#access-policy) | No |
+||[Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes (Preview)](register-scan-azure-blob-storage-source.md#access-policy) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
 ||    [Azure Cosmos DB](register-scan-azure-cosmos-database.md)| [Yes](register-scan-azure-cosmos-database.md#register) | [Yes](register-scan-azure-cosmos-database.md#scan)|No*|No| No|
 ||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | No | No|
 || [Azure Data Factory](how-to-link-azure-data-factory.md) | [Yes](how-to-link-azure-data-factory.md) | No | [Yes](how-to-link-azure-data-factory.md) | No | No|
 ||    [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)| [Yes](register-scan-adls-gen1.md#register) | [Yes](register-scan-adls-gen1.md#scan)| Limited* | No | No|
-||    [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)| [Yes](register-scan-adls-gen2.md#register) | [Yes](register-scan-adls-gen2.md#scan)| Limited* | [Yes (Preview)](how-to-data-owner-policies-storage.md) | [Yes](register-scan-adls-gen2.md#data-sharing) |
+||    [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)| [Yes](register-scan-adls-gen2.md#register) | [Yes](register-scan-adls-gen2.md#scan)| Limited* | [Yes (Preview)](register-scan-adls-gen2.md#access-policy) | [Yes](register-scan-adls-gen2.md#data-sharing) |
 || [Azure Data Share](how-to-link-azure-data-share.md) | [Yes](how-to-link-azure-data-share.md) | No | [Yes](how-to-link-azure-data-share.md) | No | No|
 || [Azure Database for MySQL](register-scan-azure-mysql-database.md) | [Yes](register-scan-azure-mysql-database.md#register) | [Yes](register-scan-azure-mysql-database.md#scan) | No* | No | No |
 || [Azure Database for PostgreSQL](register-scan-azure-postgresql.md) | [Yes](register-scan-azure-postgresql.md#register) | [Yes](register-scan-azure-postgresql.md#scan) | No* | No | No |
 ||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No | No |
 ||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  No | No |
-||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register) |[Yes](register-scan-azure-sql-database.md#scan)| [Yes (Preview)](register-scan-azure-sql-database.md#lineagepreview) | [Yes (Preview)](how-to-data-owner-policies-azure-sql-db.md) | No |
+||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register) |[Yes](register-scan-azure-sql-database.md#scan)| [Yes (Preview)](register-scan-azure-sql-database.md#lineagepreview) | [Yes (Preview)](register-scan-azure-sql-database.md#access-policy) | No |
 ||    [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)|  [Yes](register-scan-azure-sql-managed-instance.md#scan) | [Yes](register-scan-azure-sql-managed-instance.md#scan) | No* | No | No |
 ||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No| No |
 |Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No | No |
@@ -41,15 +42,16 @@ The table below shows the supported capabilities for each data source. Select th
 || [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No| No |
 || [MongoDB](register-scan-mongodb.md) | [Yes](register-scan-mongodb.md#register) | No | No | No | No |
 || [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#lineage) | No | No |
-|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  No | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
+|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
 || [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No | No |
 || [SAP Business Warehouse](register-scan-sap-bw.md) | [Yes](register-scan-sap-bw.md#register) | No | No | No | No |
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |
 || [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
-||    SQL Server on Azure-Arc| No |No | No |[Yes (Preview)](how-to-data-owner-policies-arc-sql-server.md) | No |
-||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)|  No | [Yes*](register-scan-teradata-source.md#lineage) | No| No |
+||    SQL Server on Azure-Arc| No |No | No |[Yes (Preview)](how-to-policies-data-owner-arc-sql-server.md) | No |
+||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
 |File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | No| No |
+||[HDFS](register-scan-hdfs.md)|[Yes](register-scan-hdfs.md)| [Yes](register-scan-hdfs.md)| No | No| No |
 |Services and apps|    [Erwin](register-scan-erwin-source.md)| [Yes](register-scan-erwin-source.md#register)| No | [Yes](register-scan-erwin-source.md#lineage)| No| No |
 ||    [Looker](register-scan-looker-source.md)| [Yes](register-scan-looker-source.md#register)| No | [Yes](register-scan-looker-source.md#lineage)| No| No |
 ||    [Power BI](register-scan-power-bi-tenant.md)| [Yes](register-scan-power-bi-tenant.md)| No | [Yes](how-to-lineage-powerbi.md)| No| No |
@@ -120,7 +122,7 @@ For all [system supported file types](#file-types-supported-for-scanning), if th
 
 Nested data, or nested schema parsing, isn't supported in SQL. A column with nested data will be reported and classified as is, and subdata won't be parsed.
 
-## Sampling within a file
+## Sampling data for classification
 
 In Microsoft Purview Data Map terminology,
 - L1 scan: Extracts basic information and meta data like file name, size and fully qualified name
@@ -133,7 +135,7 @@ For all structured file formats, the Microsoft Purview Data Map scanner samples 
 - For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it isn't subject to a deep scan (subject to classification). In that case, Microsoft Purview captures only basic meta data like file name and fully qualified name.
 - For **tabular data sources (SQL)**, it samples the top 128 rows.
-- For **Azure Cosmos DB (SQL API)**, up to 300 distinct properties from the first 10 documents in a container will be collected for the schema and for each property, values from up to 128 documents or the first 1 MB will be sampled.
+- For **Azure Cosmos DB for NoSQL**, up to 300 distinct properties from the first 10 documents in a container will be collected for the schema and for each property, values from up to 128 documents or the first 1 MB will be sampled.
 
 ## Resource set file sampling
 
@@ -144,12 +146,9 @@ File sampling for resource sets by file types:
 - **Delimited files (CSV, PSV, SSV, TSV)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 - **Data Lake file types (Parquet, Avro, Orc)** - 1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 - **Other structured file types (JSON, XML, TXT)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
-- **SQL objects and CosmosDB entities** - Each file is L3 scanned.
+- **SQL objects and Azure Cosmos DB entities** - Each file is L3 scanned.
 - **Document file types** - Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
-## Classification
-
-All 208 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in the Microsoft Purview Data Map](supported-classifications.md).
 
 ## Next steps
 

@@ -353,7 +353,7 @@ The following example shows the schema for a **ResourceActionSuccess** event. Th
 ```json
 [{   
   "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}" 
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
   "type": "Microsoft.Resources.ResourceActionSuccess",
   "time": "2018-10-08T22:46:22.6022559Z",
   "id": "{ID}",

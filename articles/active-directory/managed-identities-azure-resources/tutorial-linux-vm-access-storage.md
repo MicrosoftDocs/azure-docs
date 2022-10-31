@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a Linux VM s
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: 
 ms.custom: subject-rbac-steps
 ms.service: active-directory

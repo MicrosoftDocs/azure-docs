@@ -106,7 +106,7 @@ additionalContent:
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
         - text: Learn
-          url: /learn/browse/?products=azure-cognitive-services&term=Speech
+          url: /training/browse/?products=azure-cognitive-services&term=Speech
       - title: Support
         links:
         - text: Support and help

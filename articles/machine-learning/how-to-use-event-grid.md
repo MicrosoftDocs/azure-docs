@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/21/2022
+ms.date: 09/09/2022
 ---
 
 # Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
@@ -25,6 +25,7 @@ When to use Event Grid for event driven actions:
 * Trigger an ML pipeline when drift is detected
 
 ## Prerequisites
+
 To use Event Grid, you need contributor or owner access to the Azure Machine Learning workspace you will create events for.
 
 ## The event model & types
@@ -56,8 +57,8 @@ When setting up your events, you can apply filters to only trigger on specific e
 Subscriptions for Azure Machine Learning events are protected by Azure role-based access control (Azure RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription) of the event subscription or at a later time. 
 
 
-1. Go to the Azure portal, select a new subscription or an existing one. 
-
+1. Go to the Azure portal, select a new subscription or an existing one.
+1. Select the Events entry from the left navigation area, and then select **+ Event subscription**.
 1. Select the filters tab and scroll down to Advanced filters. For the **Key** and **Value**, provide the property types you want to filter by. Here you can see the event will only trigger when the run type is a pipeline run or pipeline step run.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filter events":::
@@ -180,13 +181,16 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 
 ### Example: Data drift triggers retraining
 
+> [!IMPORTANT]
+> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure ML CLI & SDK v2](concept-v2.md).
+
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
 This example shows how to use event grid with an Azure Logic App to trigger retraining. The example triggers an Azure Data Factory pipeline when data drift occurs between a model's training and serving datasets.
 
 Before you begin, perform the following actions:
 
-* Set up a dataset monitor to [detect data drift](how-to-monitor-datasets.md) in a workspace
+* Set up a dataset monitor to [detect data drift](v1/how-to-monitor-datasets.md) in a workspace
 * Create a published [Azure Data Factory pipeline](../data-factory/index.yml).
 
 In this example, a simple Data Factory pipeline is used to copy files into a blob store and run a published Machine Learning pipeline. For more information on this scenario, see how to set up a [Machine Learning step in Azure Data Factory](../data-factory/transform-data-machine-learning-service.md)
@@ -224,12 +228,6 @@ In this example, a simple Data Factory pipeline is used to copy files into a blo
 Now the data factory pipeline is triggered when drift occurs. View details on your data drift run and machine learning pipeline in [Azure Machine Learning studio](https://ml.azure.com). 
 
 :::image type="content" source="./media/how-to-use-event-grid/view-in-workspace.png" alt-text="Screenshot showing pipeline endpoints.":::
-
-### Example: Deploy a model based on tags
-
-An Azure Machine Learning model object contains parameters you can pivot deployments on such as model name, version, tag, and property. The model registration event can trigger an endpoint and you can use an Azure Function to deploy a model based on the value of those parameters.
-
-For an example, see the [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repository and follow the steps in the **readme** file.
 
 ## Next steps
 

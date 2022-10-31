@@ -3,16 +3,16 @@ title: Azure AD roles Discovery and insights (preview) in Privileged Identity Ma
 description: Discovery and insights (formerly Security Wizard) help you convert permanent Azure AD role assignments to just-in-time assignments with Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/27/2022
-ms.author: curtand
+ms.date: 07/29/2022
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -36,7 +36,7 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
+1. From the left menu, select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
 
     ![Azure AD roles - Discovery and insights page showing the 3 options](./media/pim-security-wizard/new-preview-link.png)
 

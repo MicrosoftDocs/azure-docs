@@ -29,7 +29,7 @@ This tutorial walks you through hosting a test EST server and configuring an IoT
 ## Prerequisites
 
 * An existing IoT Edge device with the [latest Azure IoT Edge runtime](how-to-update-iot-edge.md) installed. If you need to create a test device, complete [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](quickstart-linux.md).
-* Your IoT Edge device requires Azure IoT Edge runtime 1.2 or later for EST support. Azure IoT Edge runtime 1.3 is required for EST certificate renewal. 
+* Your IoT Edge device requires Azure IoT Edge runtime 1.2 or later for EST support. Azure IoT Edge runtime 1.3 or later required for EST certificate renewal. 
 * IoT Hub Device Provisioning Service (DPS) linked to IoT Hub. For information on configuring DPS, see [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
 ## What is Enrollment over Secure Transport?
@@ -124,7 +124,7 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
 1. You should see `-----BEGIN CERTIFICATE-----` midway through the output. Retrieving the certificate verifies that the server is reachable and can present its certificate.
 
 > [!TIP]
-> To run this container in the cloud, build the image and [push the image to Azure Container Registry](../container-registry/container-registry-get-started-portal.md). Then, follow the [quickstart to deploy to Azure Container Instance](/azure/container-instances/container-instances-quickstart-portal).
+> To run this container in the cloud, build the image and [push the image to Azure Container Registry](../container-registry/container-registry-get-started-portal.md). Then, follow the [quickstart to deploy to Azure Container Instance](../container-instances/container-instances-quickstart-portal.md).
 
 ## Download CA certificate
 
@@ -248,6 +248,14 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     default = "https://localhost:8085/.well-known/est"
     ```
 
+    > [!NOTE]
+    > In this example, IoT Edge uses username and password to authenticate to the EST server *everytime* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
+    > 
+    > 1. Consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md). 
+    > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/39b5c1ffee47235549fdf628591853a8989af989/edgelet/contrib/config/linux/template.toml#L232) as the provisioning certificate auto-renew configuration above. 
+    > 
+    > This way, IoT Edge certificate service uses the bootstrap certificate for initial authentication with EST server, and requests an identity certificate for future EST requests to the same server. If, for some reason, the EST identity certificate expires before renewal, IoT Edge falls back to using the bootstrap certificate. 
+
 1. Run `sudo iotedge config apply` to apply the new settings.
 1. Run `sudo iotedge check` to verify your IoT Edge device configuration. All **configuration checks** should succeed. For this tutorial, you can ignore production readiness errors and warnings, DNS server warnings, and connectivity checks.
 
@@ -298,11 +306,11 @@ You can immediately reissue the device identity certificates by removing the exi
 
     You should notice the certificate **Validity** date range has changed. 
 
-The following are optional other ways you can test certificate renewal. These checks demonstrate how DPS renews certificates when a device is reprovisioned or after certificate expiration. After each test, you can verify new thumbprints in the Azure portal and use `openssl` command to verify the new certificate.
+The following are optional other ways you can test certificate renewal. These checks demonstrate how IoT Edge renews certificates from the EST server when they expire or are missing. After each test, you can verify new thumbprints in the Azure portal and use `openssl` command to verify the new certificate.
 
-1. Try deleting the device from IoT Hub. DPS reprovisions the device in a few minutes with a new certificate and thumbprints.
-1. Try running `sudo iotedge system reprovision` on the device. DPS reprovisions the device in a few minutes with a new certificate and thumbprints.
 1. Try waiting a day for the certificate to expire. The test EST server is configured to create certificates that expire after one day. IoT Edge automatically renews the certificate.
+1. Try adjusting the percentage in `threshold` for auto renewal set in `config.toml` (currently set to 80% in the example configuration). For example, set it to `10%` and observe the certificate renewal every ~2 hours.
+1. Try adjusting the `threshold` to an integer followed by `m` (minutes). For example, set it to `60m` and observe certificate renewal 1 hours before expiry.
 
 ## Clean up resources
 
@@ -312,8 +320,8 @@ You can keep the resources and configurations that you created in this tutorial 
 
 ## Next steps
 
+* To use EST server to issue Edge CA certificates, see [example configuration](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md#edge-ca-certificate).
 * Using username and password to bootstrap authentication to EST server isn't recommended for production. Instead, consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md).
-* To use EST server to issue IoT Edge CA certificates, see [example configuration](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md#edge-ca-certificate).
 * EST server can be used to issue certificates for all devices in a hierarchy as well. Depending on if you have ISA-95 requirements, it may be necessary to run a chain of EST servers with one at every layer or use the API proxy module to forward the requests. To learn more, see [Kevin's blog](https://kevinsaye.wordpress.com/2021/07/21/deep-dive-creating-hierarchies-of-azure-iot-edge-devices-isa-95-part-3/).
 * For enterprise grade solutions, consider: [GlobalSign IoT Edge Enroll](https://www.globalsign.com/en/iot-edge-enroll) or [DigiCert IoT Device Manager](https://www.digicert.com/iot/iot-device-manager)
 * To learn more about certificates, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).

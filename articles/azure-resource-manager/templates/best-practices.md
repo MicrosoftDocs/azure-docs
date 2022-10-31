@@ -2,7 +2,7 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 09/01/2022
 ---
 # ARM template best practices
 
@@ -18,6 +18,7 @@ You're also limited to:
 * 256 variables
 * 800 resources (including [copy count](copy-resources.md))
 * 64 output values
+* 10 unique locations per subscription/tenant/management group scope
 * 24,576 characters in a template expression
 
 You can exceed some template limits by using a nested template. For more information, see [Using linked and nested templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
@@ -189,6 +190,23 @@ The following information can be helpful when you work with [resources](./syntax
     ]
     ```
 
+   If your ARM template is stored in a `.jsonc` file, comments using the `//` syntax are supported, as shown here.
+
+    ```javascript
+    "resources": [
+      {
+        // This storage account is used to store the VM disks.
+        "name": "[variables('storageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "location": "[resourceGroup().location]",
+          ...
+      }
+    ]
+    ```
+
+   For more details about comments and metadata see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata).
+
 * If you use a *public endpoint* in your template (such as an Azure Blob storage public endpoint), *don't hard-code* the namespace. Use the `reference` function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you're using for the storage account in your template.
 
     ```json
@@ -271,6 +289,14 @@ The following information can be helpful when you work with [resources](./syntax
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the `protectedSettings` property of the relevant extensions.
 
 * Specify explicit values for properties that have default values that could change over time. For example, if you're deploying an AKS cluster, you can either specify or omit the `kubernetesVersion` property. If you don't specify it, then [the cluster is defaulted to the N-1 minor version and latest patch](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). When you deploy the cluster using an ARM template, this default behavior might not be what you expect. Redeploying your template may result in the cluster being upgraded to a new Kubernetes version unexpectedly. Instead, consider specifying an explicit version number and then manually changing it when you're ready to upgrade your cluster.
+
+## Comments
+
+In addition to the `comments` property, comments using the `//` syntax are supported.  For more details about comments and metadata see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata). You may choose to save JSON files that contain `//` comments using the `.jsonc` file extension, to indicate the JSON file contains comments. The ARM service will also accept comments in any JSON file including parameters files.
+
+## Visual Studio Code ARM Tools
+
+Working with ARM templates is much easier with the Azure Resource Manager (ARM) Tools for Visual Studio Code. This extension provides language support, resource snippets, and resource auto-completion to help you create and validate Azure Resource Manager templates. To learn more and install the extension, see [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 
 ## Use test toolkit
 

@@ -1,14 +1,14 @@
 ---
 title: Migrate to the latest version of Azure Cognitive Service for Language
 titleSuffix: Azure Cognitive Services
-description: Learn how to move your Text Analytics applications to use the latest version of the Language Service.
+description: Learn how to move your Text Analytics applications to use the latest version of the Language service.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
-ms.date: 07/13/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---

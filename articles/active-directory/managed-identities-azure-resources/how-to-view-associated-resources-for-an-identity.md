@@ -64,7 +64,7 @@ https://management.azure.com/subscriptions/{resourceID of user-assigned identity
 
 | Parameter   | Example  |Description  |
 |---|---|---|
-| $filter  |  ```'type' eq 'microsoft.cognitiveservices/account' and contains(name, 'test')``` |  An OData expression that allows you to filter any of the available fields: name, type, resourceGroup, subscriptionId, subscriptionDisplayName<br/><br/>The following operations are supported: ```and```, ```or```, ```eq``` and ```contains``` |
+| $filter  |  ```type eq 'microsoft.cognitiveservices/account' and contains(name, 'test')``` |  An OData expression that allows you to filter any of the available fields: name, type, resourceGroup, subscriptionId, subscriptionDisplayName<br/><br/>The following operations are supported: ```and```, ```or```, ```eq``` and ```contains``` |
 |  $orderby |  ```name asc``` |  An OData expression that allows you to order by any of the available fields |
 |  $skip |  50 |  The number of items you want to skip while paging through the results. |
 | $top  |  10 | The number of resources to return. 0 will return only a count of the resources.  |

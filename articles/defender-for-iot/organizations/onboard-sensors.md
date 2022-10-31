@@ -27,6 +27,8 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
         1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
 
+           [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
         1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 ## Onboard OT sensors
@@ -68,6 +70,8 @@ A success message appears and your activation file is automatically downloaded, 
 However, until you activate your sensor, the sensor's status will show as **Pending Activation**.
 
 Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor. For more information, see [Upload new activation files](how-to-manage-individual-sensors.md#upload-new-activation-files).
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 ## Onboard Enterprise IoT sensors
 

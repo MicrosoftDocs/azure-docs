@@ -68,7 +68,7 @@ There are some changes needed on VMs before you migrate them to Azure.
 
 - For some operating systems, Azure Migrate makes changes automatically during the replication/migration process.
 - For other operating systems, you need to configure settings manually.
-- It's important to configure settings manually before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
+- It's important to configure settings manually before you begin migration. Some of the changes may affect VM boot up, or connectivity to the VM may not be established. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 
 Review the tables to identify the changes you need to make.
 
@@ -107,14 +107,16 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux  8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- Red Hat Enterprise Linux  8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
 - Debian 10, 9, 8, 7
 - Oracle Linux 8, 7.7-CI, 7.7, 6
 
-For other versions, prepare machines as summarized in the table.  
+For other versions, prepare machines as summarized in the table. 
+> [!Note]
+> Some changes may affect the VM boot up, or connectivity to the VM may not be established.
 
 
 **Action** | **Details** | **Linux version**

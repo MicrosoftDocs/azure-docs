@@ -1,9 +1,8 @@
 ---
 title: Configure Managed Service offer listing details in Microsoft Partner Center
 description: Configure Managed Service offer listing details on Azure Marketplace. 
-author:  Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: anbene
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

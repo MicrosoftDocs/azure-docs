@@ -1,11 +1,14 @@
 ---
 title: Azure Service Fabric DNS service
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
-
 ms.topic: conceptual
-ms.date: 7/20/2018
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol.
 

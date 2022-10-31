@@ -27,6 +27,8 @@
   items:
   - name: Route Server FAQ
     href: route-server-faq.md
+  - name: Next Hop IP support
+    href: next-hop-ip.md
   - name: ExpressRoute and Azure VPN support
     href: expressroute-vpn-support.md
   - name: Dual-homed network

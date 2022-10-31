@@ -7,100 +7,110 @@ ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 07/06/2022
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning 
 ---
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, your application monitors the user's reaction and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personalizer's ability to select the best content item based on the contextual information it receives.
+Azure Personalizer helps your applications make smarter decisions at scale using **reinforcement learning**. Personalizer can determine the best actions to take in a variety of scenarios:
+* E-commerce: What product should be shown to customers to maximize the likelihood of a purchase?
+* Content recommendation: What article should be shown to increase the click-through rate?
+* Content design: Where should an advertisement be placed to optimize user engagement on a website?
+* Communication: When and how should a notification be sent to maximize the chance of a response?
 
-> [!TIP]
-> Content is any unit of information, such as text, images, URL, emails, or anything else that you want to select from and show to your users.
+Personalizer processes information about the state of your application, scenario, and/or users (*contexts*), and a set of possible decisions and related attributes (*actions*) to determine the best decision to make. Feedback from your application (*rewards*) is sent to Personalizer to learn how to improve its decision-making ability in near-real time.
 
-This documentation contains the following article types:  
+To get started with the Personalizer, follow the [**quickstart guide**](quickstart-personalizer-sdk.md), or try Personalizer with this [interactive demo](https://personalizerdevdemo.azurewebsites.net/).
 
-* [**Quickstarts**](quickstart-personalizer-sdk.md) are getting-started instructions to guide you through making requests to the service.  
-* [**How-to guides**](how-to-settings.md) contain instructions for using the service in more specific or customized ways.  
-* [**Concepts**](how-personalizer-works.md) provide in-depth explanations of the service functionality and features.  
-* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that show you how to use the service as a component in broader business solutions.  
 
-Before you get started, try out [Personalizer with this interactive demo](https://personalizerdevdemo.azurewebsites.net/).
+This documentation contains the following types of articles:
 
-## How does Personalizer select the best content item?
+* [**Quickstarts**](quickstart-personalizer-sdk.md) provide step-by-step instructions to guide you through setup and sample code to start making API requests to the service.  
+* [**How-to guides**](how-to-settings.md) contain instructions for using Personalizer features and advanced capabilities.
+* [**Code samples**](https://github.com/Azure-Samples/cognitive-services-personalizer-samples) demonstrate how to use Personalizer and help you to easily interface your application with the service.
+* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer walk-throughs implementing Personalizer as a part of a broader business solution.  
+* [**Concepts**](how-personalizer-works.md) provide further detail on Personalizer features, capabilities, and fundamentals.
 
-Personalizer uses **reinforcement learning** to select the best item (_action_) based on collective behavior and reward scores across all users. Actions are the content items, such as news articles, specific movies, or products.
 
-The **Rank** call takes the action item, along with features of the action, and context features to select the top action item:
+## How does Personalizer work?
 
-* **Actions with features** - content items with features specific to each item
-* **Context features** - features of your users, their context or their environment when using your app
+Personalizer uses reinforcement learning to select the best *action* for a given *context* across all users in order to maximize an average *reward*. 
+* **Context**: Information that describes the state of your application, scenario, or user that may be relevant to making a decision.
+    * Example: The location, device type, age, and favorite topics of users visiting a web site.
+* **Actions**: A discrete set of items that can be chosen, along with attributes describing each item. 
+    * Example: A set of news articles and the topics that are discussed in each article. 
+* **Reward**: A numerical score between 0 and 1 that indicates whether the decision was *bad* (0), or *good* (1)
+    * Example: A "1" indicates that a user clicked on the suggested article, whereas a "0" indicates the user did not.
 
-The Rank call returns the ID of which content item, __action__, to show to the user, in the **Reward Action ID** field.
+### Rank and Reward APIs
 
-The __action__ shown to the user is chosen with machine learning models, that try to maximize the total amount of rewards over time.
+Personalizer empowers you to take advantage of the power and flexibility of reinforcement learning using just two primary APIs.
 
-### Sample scenarios
+The **Rank** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) is called by your application each time there is a decision to be made. The application sends a JSON containing a set of actions, features that describe each action, and features that describe the current context. Each Rank API call is known as an **event** and noted with a unique _event ID_. Personalizer then returns the ID of the best action that maximizes the total average reward as determined by the underlying model. 
 
-Let's take a look at a few scenarios where Personalizer can be used to select the best content to render for a user.
+The **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) is called by your application whenever there is feedback that can help Personalizer learn if the action ID returned in the *Rank* call provided value. For example, if a user clicked on the suggested news article, or completed the purchase of a suggested product. A call to then Reward API can be in real-time (just after the Rank call is made) or delayed to better fit the needs of the scenario. The reward score is determined your business metrics and objectives, and can be generated by an algorithm or rules in your application. The score is a real-valued number between 0 and 1. 
 
-|Content type|Actions (with features)|Context features|Returned Reward Action ID<br>(display this content)|
+###  Learning modes
+
+* **[Apprentice mode](concept-apprentice-mode.md)** Similar to how an apprentice learns a craft from observing an expert, Apprentice mode enables Personalizer to learn by observing your application's current decision logic. This helps to mitigate the so-called "cold start" problem with a new untrained model, and allows you to validate the action and context features that are sent to Personalizer. In Apprentice mode, each call to the Rank API returns the _baseline action_ or _default action_, that is the action that the application would've taken without using Personalizer. This is sent by your application to Personalizer in the Rank API as the first item in the set of possible actions.
+
+* **Online mode** Personalizer will return the best action, given the context, as determined by the underlying RL model and explores other possible actions that may improve performance. Personalizer learns from feedback provided in calls to the Reward API.
+
+Note that Personalizer uses collective information across all users to learn the best actions based on the current context. The service does not:
+* Persist and manage user profile information. Unique user IDs should not be sent to Personalizer.
+* Log individual users' preferences or historical data.
+
+
+### Example scenarios
+
+Here are a few examples where Personalizer can be used to select the best content to render for a user.
+
+|Content type|Actions {features}|Context features|Returned Reward Action ID<br>(display this content)|
 |--|--|--|--|
-|News list|a. `The president...` (national, politics, [text])<br>b. `Premier League ...` (global, sports, [text, image, video])<br> c. `Hurricane in the ...` (regional, weather, [text,image]|Device news is read from<br>Month, or season<br>|a `The president...`|
-|Movies list|1. `Star Wars` (1977, [action, adventure, fantasy], George Lucas)<br>2. `Hoop Dreams` (1994, [documentary, sports], Steve James<br>3. `Casablanca` (1942, [romance, drama, war], Michael Curtiz)|Device movie is watched from<br>screen size<br>Type of user<br>|3. `Casablanca`|
-|Products list|i. `Product A` (3 kg, $$$$, deliver in 24 hours)<br>ii. `Product B` (20 kg, $$, 2 week shipping with customs)<br>iii. `Product C` (3 kg, $$$, delivery in 48 hours)|Device shopping  is read from<br>Spending tier of user<br>Month, or season|ii. `Product B`|
+|News articles|a. `The president...`, {national, politics, [text]}<br>b. `Premier League ...` {global, sports, [text, image, video]}<br> c. `Hurricane in the ...` {regional, weather, [text,image]}|Country='USA',<br>Recent_Topics=('politics', 'business'),<br>Month='October'<br>|a `The president...`|
+|Movies|1. `Star Wars` {1977, [action, adventure, fantasy], George Lucas}<br>2. `Hoop Dreams` {1994, [documentary, sports], Steve James}<br>3. `Casablanca` {1942, [romance, drama, war], Michael Curtiz}|Device='smart TV',<br>Screen_Size='large',<br>Favorite_Genre='classics'<br>|3. `Casablanca`|
+|E-commerce Products|i. `Product A` {3 kg, $$$$, deliver in 1 day}<br>ii. `Product B` {20 kg, $$, deliver in 7 days}<br>iii. `Product C` {3 kg, $$$, deliver in 2 days}| Device='iPhone',<br>Spending_Tier='low',<br>Month='June'|ii. `Product B`|
 
-Personalizer used reinforcement learning to select the single best action, known as _reward action ID_. The machine learning model uses: 
 
-* A trained model - information previously received from the personalize service used to improve the machine learning model
-* Current data - specific actions with features and context features
+## Scenario requirements
 
-## When to use Personalizer
+Use Personalizer when your scenario has:
 
-Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called each time your application presents content. This is known as an **event**, noted with an _event ID_.
+* A limited set of actions or items to select from in each personalization event. We recommend no more than ~50 actions in each Rank API call. If you have a larger set of possible actions, we suggest using a [using a recommendation engine].(where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) or another mechanism to reduce the list of actions prior to calling the Rank API. 
+* Information describing the actions (_action features_).
+* Information describing the current context (_contextual features_).
+* Sufficient data volume to enable Personalizer to learn. In general, we recommend a minimum of ~1,000 events per day to enable Personalizer learn effectively. If Personalizer doesn't receive sufficient data, the service takes longer to determine the best actions. 
 
-Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. The reward score is between 0 and 1. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
 
-## Content requirements
 
-Use Personalizer when your content:
+## Integrating Personalizer in an application
 
-* Has a limited set of actions or items (max of ~50) to select from in each personalization event. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) to reduce the list down to 50 items for each time you call Rank on the Personalizer service.
-* Has information describing the content you want ranked: _actions with features_ and _context features_.
-* Has a minimum of ~1k/day content-related events for Personalizer to be effective. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the single best content item.
-
-Since Personalizer uses collective information in near real-time to return the single best content item, the service doesn't:
-* Persist and manage user profile information
-* Log individual users' preferences or history
-* Require cleaned and labeled content
-
-## How to design for and implement Personalizer
-
-1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
-1. Each [Personalizer Resource](how-to-settings.md) you create is considered one Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
+1. [Design](concepts-features.md) and plan the **_actions_**, and **_context_**. Determine the how to interpret feedback as a **_reward_** score.
+1. Each [Personalizer Resource](how-to-settings.md) you create is defined as one _Learning Loop_. The loop will receive the both the Rank and Reward calls for that content or user experience and train an underlying RL model. There are 
 
     |Resource type| Purpose|
     |--|--|
-    |[Apprentice mode](concept-apprentice-mode.md) `E0`|Train the Personalizer model without impacting your existing application, then deploy to Online learning behavior to a production environment|
-    |Standard, `S0`|Online learning behavior in a production environment|
-    |Free, `F0`| Try Online learning behavior in a non-production environment|
+    |[Apprentice mode](concept-apprentice-mode.md) - `E0`| Train Personalizer to mimic your current decision-making logic without impacting your existing application, before using _Online mode_ to learn better policies in a production environment.|
+    |_Online mode_ - Standard, `S0`| Personalizer uses RL to determine best actions in production.|
+    |_Online mode_ - Free, `F0`| Try Personalizer in a limited non-production environment.|
 
 1. Add Personalizer to your application, website, or system:
-    1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
-    1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
-    1. Apply _business logic_ to collected information about how the user behaved, to determine the **reward** score, such as:
+    1. Add a **Rank** call to Personalizer in your application, website, or system to determine the best action.
+    1. Use the the best action, as specified as a _reward action ID_ in your scenario.
+    1. Apply _business logic_ to user behavior or feedback data to determine the **reward** score. For example:
 
     |Behavior|Calculated reward score|
     |--|--|
-    |User selected best, single _content_ item (reward action ID)|**1**|
-    |User selected other content|**0**|
-    |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
+    |User selected a news article suggested by Personalizer |**1**|
+    |User selected a news article _not_ suggested by Personalizer |**0**|
+    |User hesitated to select a news article, scrolled around indecisively, and ultimately selected the news article suggested by Personalizer |**0.5**|
 
     1. Add a **Reward** call sending a reward score between 0 and 1
-        * Immediately after showing your content
-        * Or sometime later in an offline system
-    1. [Evaluate your loop](concepts-offline-evaluation.md) with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
+        * Immediately after feedback is received.
+        * Or sometime later in scenarios where delayed feedback is expected.
+    1. Evaluate your loop with an [offline evaluation](concepts-offline-evaluation.md) after a period of time when Personalizer has received significant data to make online decisions. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without code changes or user impact.
 
 ## Reference 
 

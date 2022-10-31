@@ -123,7 +123,7 @@ To learn more about using Azure NetApp Files for Oracle Databases on Azure, read
 
 ## Azure Backup service
 
-[The Azure Backup](../../../backup/backup-overview.md) is a fully managed PaaS that provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. Azure Backup can back up and restore on-premise clients, Azure VM’s, Azure Files shares, as well as SQL Server, Oracle, MySQL, PostreSQL, and SAP HANA databases on Azure VMs. 
+[The Azure Backup](../../../backup/backup-overview.md) is a fully managed PaaS that provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. Azure Backup can back up and restore on-premises clients, Azure VM’s, Azure Files shares, as well as SQL Server, Oracle, MySQL, PostreSQL, and SAP HANA databases on Azure VMs. 
 
 Azure Backup provides independent and isolated backups to guard against accidental destruction of original data. Backups are stored in a [Recovery Services vault](../../../backup/backup-azure-recovery-services-vault-overview.md) with built-in management of recovery points. Configuration and scalability are simple, backups are optimized, and you can easily restore as needed. It uses the underlying power and unlimited scale of the Azure cloud to deliver high-availability with no maintenance or monitoring overhead. Azure Backup doesn't limit the amount of inbound or outbound data you transfer, or charge for the data that's transferred, and data is secured in transit and at rest. 
 

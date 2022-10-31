@@ -117,6 +117,7 @@ Follow these recommendations for managing node types with Silver or Gold durabil
 Within certain constraints, node type durability level can be adjusted:
 
 * Node types with durability levels of Silver or Gold can't be downgraded to Bronze.
+* Downgrading node types with durability level of Gold to Silver is not supported.
 * Upgrading from Bronze to Silver or Gold can take a few hours.
 * When changing durability level, be sure to update it in both the Service Fabric extension configuration in your virtual machine scale set resource and in the node type definition in your Service Fabric cluster resource. These values must match.
 
@@ -159,9 +160,9 @@ The capacity needs of your cluster will be determined by your specific workload 
 
 By default, local SSD is configured to 64 GB. This can be configured in the MaxDiskQuotaInMB setting of the Diagnostics section of cluster settings.
 
-For instructions on how to adjust the cluster settings of a cluster hosted in Azure, see [Upgrade the configuration of a cluster in Azure](/azure/service-fabric/service-fabric-cluster-config-upgrade-azure#customize-cluster-settings-using-resource-manager-templates)
+For instructions on how to adjust the cluster settings of a cluster hosted in Azure, see [Upgrade the configuration of a cluster in Azure](./service-fabric-cluster-config-upgrade-azure.md#customize-cluster-settings-using-resource-manager-templates)
 
-For instructions on how to adjust the cluster settings of a standalone cluster hosted in Windows, see [Upgrade the configuration of a standalone cluster](/azure/service-fabric/service-fabric-cluster-config-upgrade-windows-server#customize-cluster-settings-in-the-clusterconfigjson-file)
+For instructions on how to adjust the cluster settings of a standalone cluster hosted in Windows, see [Upgrade the configuration of a standalone cluster](./service-fabric-cluster-config-upgrade-windows-server.md#customize-cluster-settings-in-the-clusterconfigjson-file)
 
 When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
 

@@ -57,10 +57,24 @@ landingContent:
             url: update-tle.md 
           - text: Cancel a contact
             url: delete-contact.md     
-            
+
   # Card
-  - title: Learn how to downlink from a public satellite
+  - title: Azure Orbital Analytics
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Orbital Analytics?
+            url: overview-analytics.md
+      - linkListType: concept
+        links:
+          - text: Geospatial reference architecture
+            url: geospatial-reference-architecture.md
+          - text: Spaceborne data analysis with Azure Synapse Analytics
+            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics 
+          - text: Organize spaceborne geospatial data with STAC
+            url: organize-stac-data.md
+          - text: Process Synthetic Aperture Radar (SAR) data
+            url: sar-reference-architecture.md   
       - linkListType: tutorial
         links:
           - text: Schedule a contact with NASA's AQUA public satellite
@@ -77,7 +91,5 @@ landingContent:
             url: concepts-contact.md
           - text: Contact profile
             url: concepts-contact-profile.md
-          - text: Geospatial reference architecture
-            url: geospatial-reference-architecture.md
           - text: Spacecraft object
             url: spacecraft-object.md

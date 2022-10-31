@@ -34,6 +34,8 @@ To perform guest OS operations on Arc-enabled VMs, you must enable guest managem
 |----------|----------|-----|
 |Custom Script extension |Microsoft.Compute | CustomScriptExtension |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |
+|Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute | HybridWorkerForWindows| 
+
 
 ### Linux extensions
 
@@ -41,6 +43,7 @@ To perform guest OS operations on Arc-enabled VMs, you must enable guest managem
 |----------|----------|-----|
 |Custom Script extension |Microsoft.Azure.Extensions |CustomScript |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |
+|Azure Automation Hybrid Runbook Worker extension (preview) | Microsoft.Compute | HybridWorkerForLinux|
 
 ## Enable guest management
 

@@ -109,9 +109,9 @@ Using one of the deployment options explained further in this guide, you can dep
    > [!NOTE]
    > For DNS configuration, you can also use your existing Azure Private DNS Zones from the dropdown list or add the required DNS records to your DNS Servers manually later. For more information, see [Configure DNS Name Resolution for private endpoints](./catalog-private-link-name-resolution.md)
 
-7. Go to the summary page, and select **Create** to create the portal private endpoint.
+7. Go to the summary page, and select **Create** to create the account private endpoint.
    
-8. Follow the same steps when you select **portal** for **Target sub-resource**.
+8. Repeat steps 2 through 7 to create the portal private endpoint. Make sure you select **portal** for **Target sub-resource**.
    
 9. From your Microsoft Purview account, under **Settings** select **Networking**, and then select **Ingestion private endpoint connections**.
 

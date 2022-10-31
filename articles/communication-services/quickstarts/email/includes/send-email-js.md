@@ -18,7 +18,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions.
 - An Azure Email Communication Services resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
 
@@ -155,17 +155,13 @@ To get the delivery status of email call GetMessageStatus API with MessageId
         }
       }
     } catch (e) {
-      console.log(e);
+        console.log(e);
     }
   }, 5000);
 
 ```
 
-| Status Name         | Description                                                                                                                                          |
-| --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Queued              | The email has been placed in the queue for delivery.                                                                                                 |
-| OutForDelivery      | The email is currently en route to its recipient(s).                                                                                                 |
-| Dropped             | The email message was dropped before the delivery could be successfully completed.                                                                   |
+[!INCLUDE [Email Message Status](./email-message-status.md)]
 
 ## Run the code
 
@@ -177,3 +173,72 @@ node ./send-email.js
 ## Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email)
+
+## Advanced
+
+### Send an email message to multiple recipients
+
+We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+
+```javascript
+const emailMessage = {
+  sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+  content: {
+    subject: "Welcome to Azure Communication Service Email.",
+    plainText: "<This email message is sent from Azure Communication Service Email using JS SDK.>"
+  },
+  recipients: {
+    to: [
+      { email: "<emailalias@emaildomain.com>" },
+      { email: "<emailalias2@emaildomain.com>" }
+    ],
+    cc: [
+      { 
+        email: "<ccemailalias@emaildomain.com>" 
+      }
+    ],
+    bcc: [
+      { 
+        email: "<bccemailalias@emaildomain.com>" }
+      }
+    ],
+  },
+};
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
+
+
+### Send an email message with attachments
+
+We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
+
+```javascript
+const fs = require("fs");
+
+const attachmentContent = fs.readFileSync(<your-attachment-path>).toString("base64");
+
+const attachment = {
+  name: "<your-attachment-name>",
+  attachmentType: "<your-attachment-type>",
+  contentBytesBase64: attachmentContent,
+}
+
+const emailMessage = {
+  sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+  content: {
+    subject: "Welcome to Azure Communication Service Email.",
+    plainText: "<This email message is sent from Azure Communication Service Email using JS SDK.>"
+  },
+  recipients: {
+    to: [
+      {
+        email: "<emailalias@emaildomain.com>",
+      },
+    ],
+  },
+  attachments: [attachment]
+};
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/07/2022
+ms.date: 08/10/2022
 ---
 
 # How to run Self-Hosted Integration Runtime in Windows container

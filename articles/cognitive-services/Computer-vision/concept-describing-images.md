@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 09/20/2022
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
-# Describe images with human-readable language
+# Image description generation
 
 Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
 
@@ -31,37 +31,66 @@ The following JSON response illustrates what the Analyze API returns when descri
 
 ![A black and white picture of buildings in Manhattan](./Images/bw_buildings.png)
 
+#### [Version 3.2](#tab/3-2)
+
 ```json
 {
-    "description": {
-        "tags": ["outdoor", "building", "photo", "city", "white", "black", "large", "sitting", "old", "water", "skyscraper", "many", "boat", "river", "group", "street", "people", "field", "tall", "bird", "standing"],
-        "captions": [
+   "description":{
+      "tags":[
+         "outdoor",
+         "city",
+         "white"
+      ],
+      "captions":[
+         {
+            "text":"a city with tall buildings",
+            "confidence":0.48468858003616333
+         }
+      ]
+   },
+   "requestId":"7e5e5cac-ef16-43ca-a0c4-02bd49d379e9",
+   "metadata":{
+      "height":300,
+      "width":239,
+      "format":"Png"
+   },
+   "modelVersion":"2021-05-01"
+}
+```
+#### [Version 4.0](#tab/4-0)
+
+```json
+{
+    "metadata":
+    {
+        "width": 239,
+        "height": 300
+    },
+    "descriptionResult":
+    {
+        "values":
+        [
             {
-                "text": "a black and white photo of a city",
-                "confidence": 0.95301952483304808
-            },
-            {
-                "text": "a black and white photo of a large city",
-                "confidence": 0.94085190563213816
-            },
-            {
-                "text": "a large white building in a city",
-                "confidence": 0.93108362931954824
+                "text": "a city with tall buildings",
+                "confidence": 0.3551448881626129
             }
         ]
-    },
-    "requestId": "b20bfc83-fb25-4b8d-a3f8-b2a1f084b159",
-    "metadata": {
-        "height": 300,
-        "width": 239,
-        "format": "Jpeg"
     }
 }
 ```
+---
 
 ## Use the API
 
-The image description feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Description` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"description"` section.
+#### [Version 3.2](#tab/3-2)
+
+The image description feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Description` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
+
+#### [Version 4.0](#tab/4-0)
+
+The image description feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Description` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
+
+---
 
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
 

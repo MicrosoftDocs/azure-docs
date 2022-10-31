@@ -1,6 +1,6 @@
 ---
 title: How to modify access permissions to Azure Monitor
-description: Learn how to manually set up permissions that allow your Azure Managed Grafana Preview instance to access a data source
+description: Learn how to manually set up permissions that allow your Azure Managed Grafana instance to access a data source
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
@@ -14,12 +14,12 @@ By default, when a Grafana instance is created, Azure Managed Grafana grants it 
 
 This means that the new Grafana instance can access and search all monitoring data in the subscription, including viewing the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
 
-In this article, you'll learn how to manually edit permissions for a specific resource.
+In this article, you'll learn how to manually grant permission for Azure Managed Grafana to access an Azure resource using a managed identity.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](/azure/managed-grafana/quickstart-managed-grafana-portal).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 - An Azure resource with monitoring data and write permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
 
 ## Sign in to Azure

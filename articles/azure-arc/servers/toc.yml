@@ -107,6 +107,8 @@
       href: plan-evaluate-on-azure-virtual-machine.md
     - name: Onboard to Microsoft Sentinel
       href: scenario-onboard-azure-sentinel.md
+    - name: Migrate to Azure Monitor Agent using Ansible
+      href: migrate-azure-monitor-agent-ansible.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
     - name: Manage with Windows Admin Center
@@ -125,8 +127,6 @@
       href: troubleshoot-vm-extensions.md
 - name: Reference
   items:
-  - name: Data residency
-    href: data-residency.md
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell

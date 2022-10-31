@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) simulator reference agent | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) simulator reference agent.
-author: valls
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
@@ -37,7 +37,7 @@ After the Device Update agent is running on an IoT device, you must add the devi
 
 1. From the Azure portal, start the Device Update for IoT Hub.
 1. Create a new device.
-1. On the left pane, go to **IoT Devices**. Then select **New**.
+1. On the left pane, go to **Devices**. Then select **New**.
 1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
 1. Select **Save**.
 1. Now, you're returned to the **Devices** page and the device you created should be in the list. Select that device.
@@ -128,7 +128,7 @@ Read the license terms prior to using the agent. Your installation and use const
 ## Add a tag to your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. From **IoT Devices** or **IoT Edge** on the left pane, find your IoT device and go to the device twin or module twin.
+1. From **Devices** on the left pane, find your IoT device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using the device identity with a Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
 

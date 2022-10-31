@@ -20,28 +20,28 @@ This article provides information to help you solve issues you might encounter w
 
 You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct.
 
-Also, there might be a problem with your subscription key or authorization token. For more information, see the next section.
+Also, there might be a problem with your Speech resource key or authorization token. For more information, see the next section.
 
 ## Error: HTTP 403 Forbidden or HTTP 401 Unauthorized
 
 This error often is caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
 
-* If you're using a subscription key for authentication, you might see the error because:
+* If you're using a resource key for authentication, you might see the error because:
 
-    - The subscription key is missing or invalid
-    - You have exceeded your subscription's usage quota
+    - The key is missing or invalid
+    - You have exceeded your resource's usage quota
 
 * If you're using an authorization token for authentication, you might see the error because:
 
     - The authorization token is invalid
     - The authorization token is expired
 
-### Validate your subscription key
+### Validate your resource key
 
-You can verify that you have a valid subscription key by running one of the following commands.
+You can verify that you have a valid resource key by running one of the following commands.
 
 > [!NOTE]
-> Replace `YOUR_SUBSCRIPTION_KEY` and `YOUR_REGION` with your own subscription key and associated region.
+> Replace `YOUR_RESOURCE_KEY` and `YOUR_REGION` with your own resource key and associated region.
 
 * PowerShell
 
@@ -49,7 +49,7 @@ You can verify that you have a valid subscription key by running one of the foll
     $FetchTokenHeader = @{
       'Content-type'='application/x-www-form-urlencoded'
       'Content-Length'= '0'
-      'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+      'Ocp-Apim-Subscription-Key' = 'YOUR_RESOURCE_KEY'
     }
     $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
     $OAuthToken
@@ -58,10 +58,10 @@ You can verify that you have a valid subscription key by running one of the foll
 * cURL
 
     ```
-    curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
+    curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
-If you entered a valid subscription key, the command returns an authorization token, otherwise an error is returned.
+If you entered a valid resource key, the command returns an authorization token, otherwise an error is returned.
 
 ### Validate an authorization token
 

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/26/2021
+ms.date: 08/26/2022
 ms.author: ladolan
 ---
 
@@ -43,6 +43,8 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Dadsv5-series](dasv5-dadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[DCasv5-series](dcasv5-dcadsv5-series.md) |  :x: | :heavy_check_mark: |
 |[DCadsv5-series](dcasv5-dcadsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Dpsv5-series](dpsv5-dpdsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Dpdsv5-series](dpsv5-dpdsv5-series.md) |  :x: | :heavy_check_mark: |
 |[Dv5-series](dv5-dsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dsv5-series](dv5-dsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ddv5-series](ddv5-ddsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
@@ -59,6 +61,8 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Eadsv5-series](easv5-eadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[ECasv5-series](ecasv5-ecadsv5-series.md) |  :x: | :heavy_check_mark: |
 |[ECadsv5-series](ecasv5-ecadsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Epsv5-series](epsv5-epdsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Epdsv5-series](epsv5-epdsv5-series.md) |  :x: | :heavy_check_mark: |
 |[Edv5-series](edv5-edsv5-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[Edsv5-series](edv5-edsv5-series.md) |  :heavy_check_mark: | :heavy_check_mark: |
 |[Ev5-series](ev5-esv5-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
@@ -80,6 +84,7 @@ Azure now offers generation 2 support for the following selected VM series:
 |[NCv2-series](ncv2-series.md)  |  :heavy_check_mark:  | :heavy_check_mark: |
 |[NCv3-series](ncv3-series.md) |  :heavy_check_mark: | :heavy_check_mark: |
 |[NCasT4_v3-series](nct4-v3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
+|[NC A100 v4-series](nc-a100-v4-series.md) |  :x: | :heavy_check_mark: |
 |[ND-series](nd-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[ND A100 v4-series](nda100-v4-series.md) |  :x: | :heavy_check_mark: |
 |[NDv2-series](ndv2-series.md) |  :x: | :heavy_check_mark: |
@@ -144,7 +149,7 @@ For more information, see [Trusted launch](trusted-launch.md).
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
+| [Azure disk encryption](../virtual-machines/disk-encryption-overview.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 

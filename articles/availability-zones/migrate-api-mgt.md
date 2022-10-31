@@ -33,7 +33,7 @@ In this article, we'll take you through the different options for availability z
     * Japan East
     * Korea Central (*)
     * North Europe
-    * Norway East (*)
+    * Norway East
     * South Africa North (*)
     * South Central US
     * Southeast Asia
@@ -60,7 +60,7 @@ There are no downtime requirements for any of the migration options.
 
 * Changes can take from 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
-* Migrating to availability zones or changing the availability zone configuration will trigger a public IP address change.
+* Migrating to availability zones or changing the availability zone configuration will trigger a public [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
 
 * If you've configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 

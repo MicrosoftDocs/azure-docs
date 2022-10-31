@@ -1,11 +1,11 @@
 ---
 title: Control access to Azure file shares - on-premises AD DS authentication
-description: Learn how to assign permissions to an Active Directory Domain Services identity that represents your storage account. This allows you control access with identity-based authentication.
+description: Learn how to assign permissions to an Active Directory Domain Services identity that represents your Azure storage account. This allows you to control access with identity-based authentication.
 author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 09/19/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
@@ -41,7 +41,7 @@ There are three scenarios where we instead recommend using default share-level p
 
 ## Share-level permissions
 
-The following table lists the share-level permissions and how they align with the built-in RBAC roles:
+The following table lists the share-level permissions and how they align with the built-in Azure role-based access control (RBAC) roles:
 
 |Supported built-in roles  |Description  |
 |---------|---------|
@@ -51,17 +51,20 @@ The following table lists the share-level permissions and how they align with th
 
 ## Share-level permissions for specific Azure AD users or groups
 
-If you intend to use a specific Azure AD user or group to access Azure file share resources, that identity must be a **hybrid identity that exists in both on-premises AD DS and Azure AD**. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals.
+If you intend to use a specific Azure AD user or group to access Azure file share resources, that identity must be a [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md) that exists in both on-premises AD DS and Azure AD. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync or Azure AD Connect cloud sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups and service principals.
 
 > [!IMPORTANT]
 > **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard. To mitigate any unintended future impact, we highly recommend declaring actions and data actions explicitly as opposed to using the wildcard.
 
 In order for share-level permissions to work, you must:
 
-- Sync the users **and** the groups from your local AD to Azure AD using Azure AD Connect sync
-- Add AD synced groups to RBAC role so they can access your storage account
+- Sync the users **and** the groups from your local AD to Azure AD using either the on-premises [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Azure Active Directory Admin Center.
+- Add AD synced groups to RBAC role so they can access your storage account.
 
-Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication.
+Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), aren't supported with AD DS authentication.
+
+> [!TIP]
+> Optional: Customers who want to migrate SMB server share-level permissions to RBAC permissions can use the `Move-OnPremSharePermissionsToAzureFileShare` PowerShell cmdlet to migrate directory and file-level permissions from on-premises to Azure. This cmdlet evaluates the groups of a particular on-premises file share, then writes the appropriate users and groups to the Azure file share using the three RBAC roles. You provide the information for the on-premises share and the Azure file share when invoking the cmdlet.
 
 You can use the Azure portal, Azure PowerShell module, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 

@@ -15,7 +15,7 @@ zone_pivot_groups: speech-studio-cli-rest
 
 # Create a Custom Speech project
 
-Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md). For example, you might create a project for English in the United States.
+Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
 
 ## Create a project
 
@@ -25,6 +25,10 @@ To create a Custom Speech project, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 1. Select the subscription and Speech resource to work with. 
+
+    > [!IMPORTANT]
+    > If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. See footnotes in the [regions](regions.md#speech-service) table for more information.
+
 1. Select **Custom speech** > **Create a new project**. 
 1. Follow the instructions provided by the wizard to create your project. 
 
@@ -41,7 +45,7 @@ To create a project, use the `spx csr project create` command. Construct the req
 
 Here's an example Speech CLI command that creates a project:
 
-```azurecli
+```azurecli-interactive
 spx csr project create --name "My Project" --description "My Project Description" --language "en-US"
 ```
 
@@ -75,7 +79,7 @@ The top-level `self` property in the response body is the project's URI. Use thi
 
 For Speech CLI help with projects, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr project
 ```
 
@@ -83,7 +87,7 @@ spx help csr project
 
 ::: zone pivot="rest-api"
 
-To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `locale` property. This should be the locale of the contained datasets. The locale can't be changed later.
 - Set the required `displayName` property. This is the project name that will be displayed in the Speech Studio.

@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 09/08/2022
 ms.author: v-baolianzou
 ---
 
 # Pronunciation assessment in Speech Studio
 
-Pronunciation assessment provides subjective and objective feedback to language learners. Practicing pronunciation and getting timely feedback are essential for improving language skills. Assessments driven by experienced teachers can take a lot of time and effort, and makes a high-quality assessment expensive for learners. Pronunciation assessment can help make the language assessment more engaging and accessible to learners of all backgrounds. 
+Pronunciation assessment uses the Speech-to-Text capability to provide subjective and objective feedback for language learners. Practicing pronunciation and getting timely feedback are essential for improving language skills. Assessments driven by experienced teachers can take a lot of time and effort and makes a high-quality assessment expensive for learners. Pronunciation assessment can help make the language assessment more engaging and accessible to learners of all backgrounds. 
 
 Pronunciation assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
 - At the full-text level, pronunciation assessment offers additional Fluency and Completeness scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words, and Completeness indicates how many words are pronounced in the speech to the reference text input. An overall score aggregated from Accuracy, Fluency and Completeness is then given to indicate the overall pronunciation quality of the given speech.  
@@ -24,18 +24,23 @@ Pronunciation assessment provides various assessment results in different granul
 
 This article describes how to use the pronunciation assessment tool through the [Speech Studio](https://speech.microsoft.com). You can get immediate feedback on the accuracy and fluency of your speech without writing any code. For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
+> [!NOTE]
+> Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+> 
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
+
 ## Try out pronunciation assessment
 
 You can explore and try out pronunciation assessment even without signing in. 
 
 > [!TIP]
-> To assess more than 5 seconds of speech with your own script, sign in with an Azure account and use your Speech or Cognitive Services resource.
+> To assess more than 5 seconds of speech with your own script, sign in with an [Azure account](https://azure.microsoft.com/free/cognitive-services) and use your <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Speech resource</a>.
 
 Follow these steps to assess your pronunciation of the reference text:
 
 1. Go to **Pronunciation Assessment** in the [Speech Studio](https://aka.ms/speechstudio/pronunciationassessment).
 
-1. Choose a supported [language](language-support.md#pronunciation-assessment) that you want to evaluate the pronunciation.
+1. Choose a supported [language](language-support.md?tabs=pronunciation-assessment) that you want to evaluate the pronunciation.
 
 1. Choose from the provisioned text samples, or under the **Enter your own script** label, enter your own reference text.
 

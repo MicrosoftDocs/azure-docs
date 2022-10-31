@@ -1,12 +1,12 @@
 ---
 title: Get managed resource group & resize VMs - Azure PowerShell
 description: Provides Azure PowerShell sample script that gets a managed resource group for an Azure Managed Application. The script resizes VMs.
-author: tfitzmac
+author: davidsmatlak
 
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
-ms.author: tomfitz
+ms.author: davidsmatlak
 ---
 
 # Get resources in a managed resource group and resize VMs with PowerShell

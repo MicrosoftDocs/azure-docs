@@ -254,7 +254,7 @@ In this section, you'll register your Blob Storage.
     body_input = {
             "kind": "AzureStorage",
             "properties": {
-                "endpoint": "endpoint": f"https://{storage_name}.blob.core.windows.net/",
+                "endpoint": f"https://{storage_name}.blob.core.windows.net/",
                 "resourceGroup": rg_name,
                 "location": rg_location,
                 "resourceName": storage_name,

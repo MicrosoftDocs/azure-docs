@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: ML pipelines with Python SDK v2 (preview)"
+title: "Tutorial: ML pipelines with Python SDK v2"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure ML Python SDK V2 (preview). 
+description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure ML Python SDK v2. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,20 @@ ms.topic: tutorial
 author: msdpalam
 ms.author: meeral
 ms.reviewer: sgilley
-ms.date: 05/10/2022
-ms.custom: sdkv2, event-tier1-build-2022
+ms.date: 08/29/2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 
-# Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook
+# Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
 > 
 
-In this tutorial, you'll use Azure Machine Learning (Azure ML) to create a production ready machine learning (ML) project, using AzureML Python SDK v2 (preview).
+In this tutorial, you'll use Azure Machine Learning (Azure ML) to create a production ready machine learning (ML) project, using AzureML Python SDK v2.
 
 You'll learn how to use the AzureML Python SDK v2 to:
 
@@ -46,52 +41,14 @@ You'll learn how to use the AzureML Python SDK v2 to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a cloud-based compute cluster to use for training your model.
+* Complete the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md) to clone the **SDK v2/tutorials** folder.
 
-## Install the SDK
 
-You'll complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+## Open the notebook
 
-First you'll install the v2 SDK on your compute instance:
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-
-1. Select the subscription and the workspace you created as part of the [Prerequisites](#prerequisites).
-
-1. On the left, select **Compute**.
-
-1. From the list of **Compute Instances**, find the one you created.
-
-1. Select on "Terminal", to open the terminal session on the compute instance.
-
-1. In the terminal window, install Python SDK v2 (preview) with this command:
-
-    ```
-    pip install --pre azure-ai-ml
-    ```
-
-    For more information, see [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
-
-## Clone the azureml-examples repo
-
-1. Now on the terminal, run the command:
-
-   ```
-   git clone --depth 1 https://github.com/Azure/azureml-examples
-   ```
-
-1. On the left, select **Notebooks**.
-
-1. Now, on the left, Select the **Files**
-
-    :::image type="content" source="media/tutorial-pipeline-python-sdk/clone-tutorials-users-files.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
-
-1. A list of folders shows each user who accesses the workspace. Select your folder, you'll find **azureml-samples** is cloned.
-
-## Open the cloned notebook
-
-1. Open the **tutorials** folder that was cloned into your **User files** section.
+1. Open the **tutorials** folder that was cloned into your **Files** section from the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md).
     
-1. Select the **e2e-ml-workflow.ipynb** file from your **azureml-examples/tutorials/e2e-ds-experience/** folder. 
+1. Select the **e2e-ml-workflow.ipynb** file from your **tutorials/azureml-examples/tutorials/e2e-ds-experience/** folder. 
 
     :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the open tutorials folder.":::
 
@@ -119,7 +76,7 @@ The Azure ML framework can be used from CLI, Python SDK, or studio interface. In
 
 Before creating the pipeline, you'll set up the resources the pipeline will use:
 
-* The dataset for training
+* The data asset for training
 * The software environment to run the pipeline
 * A compute resource to where the job will run
 
@@ -131,8 +88,8 @@ Before we dive in the code, you'll need to connect to your Azure ML workspace. T
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. At the bottom, select **View all properties in Azure portal**
-1. Copy the value from Azure portal into the code.
+1. You'll see the values you need for **<SUBSCRIPTION_ID>**, **<RESOURCE_GROUP>**, and **<AML_WORKSPACE_NAME>**.
+1. Copy a value, then close the window and paste that into your code.  Open the tool again to get the next value.
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
 
@@ -151,17 +108,17 @@ The data you use for training is usually in one of the locations below:
 * Web
 * Big Data Storage services (for example, Azure Blob, Azure Data Lake Storage, SQL)
  
-Azure ML uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the section below, you'll consume some data from web url as one example. Data from other sources can be created as well.
+Azure ML uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the section below, you'll consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
 
 [!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=credit_data)]
 
-This code just created a `Data` asset, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the dataset to your workspace so it becomes reusable across pipelines.
+This code just created a `Data` asset, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the data to your workspace so it becomes reusable across pipelines.
 
-Registering the dataset will enable you to:
+Registering the data asset will enable you to:
 
-* Reuse and share the dataset in future pipelines
-* Use versions to track the modification to the dataset
-* Use the dataset from Azure ML designer, which is Azure ML's GUI for pipeline authoring
+* Reuse and share the data asset in future pipelines
+* Use versions to track the modification to the data asset
+* Use the data asset from Azure ML designer, which is Azure ML's GUI for pipeline authoring
 
 Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. Once the authentication is complete, you'll then see the dataset registration completion message.
 
@@ -173,7 +130,7 @@ In the future, you can fetch the same dataset from the workspace using `credit_d
 
 Each step of an Azure ML pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-In this section, you'll provision a Linux compute cluster.
+In this section, you'll provision a Linux [compute cluster](how-to-create-attach-compute-cluster.md?tabs=python). See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
 For this tutorial you only need a basic cluster, so we'll  use a Standard_DS3_v2 model with 2 vCPU cores, 7 GB RAM and create an Azure ML Compute.  
 
@@ -310,9 +267,8 @@ This section shows different logged metrics. In this example. mlflow `autologgin
 
 ## Deploy the model as an online endpoint
 
-Now deploy your machine learning model as a web service in the Azure cloud.
-
-To deploy a machine learning service, you'll usually need:
+Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md).
+To deploy a machine learning service, you usually need:
 
 * The model assets (filed, metadata) that you want to deploy. You've already registered these assets in your training component.
 * Some code to run as a service. The code executes the model on a given input request. This entry script receives data submitted to a deployed web service and passes it to the model, then returns the model's response to the client. The script is specific to your model. The entry script must understand the data that the model expects and returns. When using a MLFlow model, as in this tutorial, this script is automatically created for you
@@ -368,4 +324,4 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn more about [Azure ML logging](/azure/machine-learning/how-to-use-mlflow-cli-runs).
+> Learn more about [Azure ML logging](./how-to-use-mlflow-cli-runs.md).

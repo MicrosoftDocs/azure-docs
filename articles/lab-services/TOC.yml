@@ -42,6 +42,8 @@
     href: tutorial-setup-lab-plan.md
   - name: Set up a lab (educator)
     href: tutorial-setup-lab.md 
+  - name: Set up lab to lab communication (admin, educator)
+    href: tutorial-create-lab-with-advanced-networking.md
   - name: Access a lab (student)
     href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
@@ -57,7 +59,13 @@
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
-    href: cost-management-guide.md        
+    href: cost-management-guide.md
+  - name: Azure Policies for Lab Services
+    href: azure-polices-for-lab-services.md
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Lab Services
+      href: reliability-in-azure-lab-services.md      
 - name: Scenarios
   items:  
   - name: Use Lab Services for conducting classes
@@ -119,6 +127,10 @@
     href: setup-guide.md
   - name: Create & configure lab plans (admin)
     items:
+    - name: Request core limit increase
+      href: how-to-request-capacity-increase.md
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Add a lab creator
@@ -156,7 +168,9 @@
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
     - name: Configure regions for labs
-      href: create-and-configure-labs-admin.md
+      href: create-and-configure-labs-admin.md     
+    - name: Restrict VM sizes allowed for labs
+      href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
@@ -199,6 +213,8 @@
       href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
+    - name: Troubleshooting lab creation
+      href: troubleshoot.md
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
@@ -213,6 +229,8 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
+    - name: How to troubleshoot a VM
+      href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)
@@ -244,7 +262,7 @@
       - name: Schedules and settings
         href: how-to-create-schedules-within-teams.md
       - name: Access a VM (student view)
-        href: how-to-access-vm-for-students-within-teams.md
+        href: how-to-access-vm-for-students-within-teams.md 
   - name: Earlier releases
     items:
     - name: Labs architecture fundamentals
@@ -267,6 +285,8 @@
         href: how-to-create-a-lab-with-shared-resource-1.md
       - name: Connect to a peer virtual network 
         href: how-to-connect-peer-virtual-network.md
+      - name: Configure firewall settings
+        href: how-to-configure-firewall-settings-1.md
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery-1.md
       - name: Specify Marketplace images for labs 
@@ -283,12 +303,12 @@
   items:
   - name: REST API
     href: /rest/api/labservices/
-  - name: Az.LabServices PowerShell module (preview)
+  - name: Az.LabServices PowerShell module
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
   - name: Built-in policies
-    href: /azure/governance/policy/samples/built-in-policies#lab-services
+    href: ../governance/policy/samples/built-in-policies.md#lab-services
   - name: Microsoft Azure SDK for Python
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources

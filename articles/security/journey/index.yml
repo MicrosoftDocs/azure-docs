@@ -34,7 +34,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Implement zero trust
-            url: https://docs.microsoft.com/security/zero-trust/
+            url: /security/zero-trust/
 
   # Card
   - title: Protect against ransomware and extortion 
@@ -100,7 +100,7 @@ landingContent:
           - text: Security best practices
             url: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Security controls and baselines
-            url: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            url: /security/benchmark/azure/introduction?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - linkListType: concept
         links:
           - text: Identity management

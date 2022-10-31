@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 07/11/2022 
+ms.date: 08/23/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,15 +18,18 @@ The Change Analysis service:
     - Easily navigate through all resource changes.
     - Identify relevant changes in the troubleshooting or monitoring context.
 
-Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription to make the tracked properties and proxied settings change data available. The `Microsoft.ChangeAnalysis` resource is automatically registered as you either: 
+Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription to make the resource properties and configuration change data available. The `Microsoft.ChangeAnalysis` resource is automatically registered as you either: 
 - Enter any UI entry point, like the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
 
-In this guide, you'll learn the two ways to enable Change Analysis for web app in-guest changes:
-- For one or a few web apps, enable Change Analysis via the UI.
+In this guide, you'll learn the two ways to enable Change Analysis for Azure Functions and web app in-guest changes:
+- For one or a few Azure Functions or web apps, enable Change Analysis via the UI.
 - For a large number of web apps (for example, 50+ web apps), enable Change Analysis using the provided PowerShell script.
 
-## Enable web app in-guest change collection via Azure Portal
+> [!NOTE]
+> Slot-level enablement for Azure Functions or web app is not supported at the moment.
+
+## Enable Azure Functions and web app in-guest change collection via the Change Analysis portal
 
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool) section.
 

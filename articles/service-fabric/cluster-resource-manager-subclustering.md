@@ -78,7 +78,7 @@ For example, if we have a node property called NodeColor and we have three nodes
 
 * Node 1: NodeColor=Red
 * Node 2: NodeColor=Blue
-* Node 2: NodeColor=Green
+* Node 3: NodeColor=Green
 
 And we have two services:
 

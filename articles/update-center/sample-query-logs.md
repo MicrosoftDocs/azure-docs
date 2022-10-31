@@ -1,8 +1,7 @@
 ---
 title: Sample query logs and results from Update management center (preview)
 description: The article provides details of sample query logs from update management center (preview) in Azure using Azure Resource Graph
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022

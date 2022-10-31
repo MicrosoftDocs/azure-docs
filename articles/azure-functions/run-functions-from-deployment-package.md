@@ -51,6 +51,9 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options
 + You can't use local cache when running from a deployment package.
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. To learn more, see [Remote build](functions-deployment-technologies.md#remote-build).
 
+> [!NOTE]
+> WEBSITE_RUN_FROM_PACKAGE does not work with MSDeploy as described [here](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You will receive an error during deployment like `ARM-MSDeploy Deploy Failed`.  Change /MSDeploy to /ZipDeploy and this error will be resolved.
+
 ### Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]

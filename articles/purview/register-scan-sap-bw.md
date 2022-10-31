@@ -6,15 +6,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP Business Warehouse in Microsoft Purview (Preview)
+# Connect to and manage SAP Business Warehouse in Microsoft Purview
 
 This article outlines how to register SAP Business Warehouse (BW), and how to authenticate and interact with SAP BW in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -22,7 +20,7 @@ This article outlines how to register SAP Business Warehouse (BW), and how to au
 |---|---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| No|No|
 
-The supported SAP BW versions are 7.3 to 7.5. SAP BW4/HANA isn't supported.
+The supported SAP BW versions are 7.3 to 7.5. SAP BW/4HANA isn't supported.
 
 When scanning SAP BW source, Microsoft Purview supports extracting technical metadata including:
 

@@ -67,6 +67,7 @@ Autoscale feature is available for the following services:
 
 * [Computer Vision](computer-vision/index.yml)
 * [Language](language-service/overview.md) (only available for sentiment analysis, key phrase extraction, named entity recognition, and text analytics for health)
+* [Form Recognizer](../applied-ai-services/form-recognizer/overview.md?tabs=v3-0)
 
 ### Can I test this feature using a free subscription?
 
@@ -77,4 +78,4 @@ No, the autoscale feature is not available to free tier subscriptions.
 - [Plan and Manage costs for Azure Cognitive Services](./plan-manage-costs.md).
 - [Optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

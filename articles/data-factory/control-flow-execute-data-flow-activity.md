@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 03/22/2022
+ms.date: 07/20/2022
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
@@ -79,10 +79,7 @@ traceLevel | Set logging level of your data flow activity execution | Fine, Coar
 
 ### Dynamically size data flow compute at runtime
 
-The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
-
-> [!NOTE]
-> When choosing driver and worker node cores in Azure Synapse Data Flows, a minimum of 3 nodes will always be utilized.
+The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties. You can choose small, medium, or large compute sizes. Optionally, pick "Custom" and configure the compute types and number of cores manually.
 
 :::image type="content" source="media/data-flow/dyna1.png" alt-text="Dynamic Data Flow":::
 

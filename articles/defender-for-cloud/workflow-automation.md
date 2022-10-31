@@ -2,7 +2,10 @@
 title: Workflow automation in Microsoft Defender for Cloud
 description: Learn how to create and automate workflows in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 06/26/2022
+author: bmansheim
+ms.author: benmansheim
+ms.custom: ignite-2022
+ms.date: 09/21/2022
 ---
 # Automate responses to Microsoft Defender for Cloud triggers
 
@@ -89,7 +92,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 You can also run Logic Apps manually when viewing any security alert or recommendation.
 
-To manually run a Logic App, open an alert or a recommendation and select **Trigger Logic App**:
+To manually run a Logic App, open an alert, or a recommendation and select **Trigger Logic App**:
 
 [![Manually trigger a Logic App.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -108,10 +111,12 @@ To implement these policies:
 
     |Goal  |Policy  |Policy ID  |
     |---------|---------|---------|
-    |Workflow automation for security alerts              |[Deploy Workflow Automation for Microsoft Defender for Cloud alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-    |Workflow automation for security recommendations     |[Deploy Workflow Automation for Microsoft Defender for Cloud recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
-    |Workflow automation for regulatory compliance changes|[Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
+    |Workflow automation for security alerts              |[Deploy Workflow Automation for Microsoft Defender for Cloud alerts](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+    |Workflow automation for security recommendations     |[Deploy Workflow Automation for Microsoft Defender for Cloud recommendations](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+    |Workflow automation for regulatory compliance changes|[Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
 
+    > [!NOTE]
+    > The three workflow automation policies have recently been rebranded. nfortunately, this change came with an unavoidable breaking change. To learn how to mitigate this breaking change, see [mitigate breaking change](#mitigate-breaking-change),
 
     > [!TIP]
     > You can also find these by searching Azure Policy:
@@ -147,13 +152,38 @@ For every active automation, we recommend you create an identical (disabled) aut
 
 Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
 
+### Mitigate breaking change
+
+Recently we've rebranded the following recommendation:
+
+- [Deploy Workflow Automation for Microsoft Defender for Cloud alerts](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1525828-9a90-4fcf-be48-268cdd02361e)
+- [Deploy Workflow Automation for Microsoft Defender for Cloud recommendations](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F73d6ab6c-2475-4850-afd6-43795f3492ef)
+- [Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509122b9-ddd9-47ba-a5f1-d0dac20be63c)
+
+Unfortunately, this change came with an unavoidable breaking change. The breaking change causes all of the old workflow automation policies that used the built-in connectors to be uncompliant.
+
+**To mitigate this issue**:
+
+1. Navigate to the logic app that is connected to the policy.
+1. Select **Logic app designer**.
+1. Select the **three dot** > **Rename**.
+1. Rename the Defender for cloud connector as follows:
+    
+    | Original name | New name|
+    |--|--|
+    |Deploy Workflow Automation for Microsoft Defender for Cloud alerts | When a Microsoft Defender for Cloud dAlert is created or triggered <sup>[1](#footnote1)</sup>|
+    | Deploy Workflow Automation for Microsoft Defender for Cloud recommendations | When a Microsoft Defender for Cloud Recommendation is created or triggered |
+    | Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance | When a Microsoft Defender for Cloud Regulatory Compliance Assessment is created or triggered |
+
+    <sup><a name="footnote1"></a>1</sup> The typo `Clou dAlert` is intentional.
+
 ## Next steps
 
 In this article, you learned about creating Logic Apps, automating their execution in Defender for Cloud, and running them manually.
 
 For related material, see: 
 
-- [The Microsoft Learn module on how to use workflow automation to automate a security response](/learn/modules/resolve-threats-with-azure-security-center/)
+- [The Learn module on how to use workflow automation to automate a security response](/training/modules/resolve-threats-with-azure-security-center/)
 - [Security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md)
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
 - [About Azure Logic Apps](../logic-apps/logic-apps-overview.md)

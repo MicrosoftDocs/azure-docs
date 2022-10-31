@@ -9,7 +9,7 @@
       - name: What is Azure Front Door (classic)?
         href: classic-overview.md
       - name: Choosing the right load balancer
-        href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+        href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
       - name: Tier comparison
         href: standard-premium/tier-comparison.md
   - name: CDN
@@ -37,6 +37,8 @@
         href: create-front-door-bicep.md
       - name: Create a Front Door - ARM template
         href: create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        href: create-front-door-terraform.md
     - name: Classic
       items:
       - name: Create a Front Door - Portal
@@ -51,6 +53,9 @@
       - name: Create a Front Door - ARM Template
         displayName: Resource Manager
         href: quickstart-create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        displayName: Terraform
+        href: quickstart-create-front-door-terraform.md
   - name: CDN
     items: 
     - name: Microsoft (classic)
@@ -158,6 +163,10 @@
         href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Private Link
         href: private-link.md
+      - name: Understand billing
+        href: billing.md
+      - name: Best practices
+        href: best-practices.md
     - name: Classic
       items:
         - name: Caching
@@ -202,6 +211,10 @@
         href: end-to-end-tls.md
       - name: Web Application Firewall
         href: web-application-firewall.md
+      - name: Geo-filtering
+        href: ../web-application-firewall/afds/waf-front-door-geo-filtering.md?toc=/azure/frontdoor/toc.json
+      - name: Secure traffic to origins
+        href: origin-security.md
     - name: Protocol
       items:
       - name: HTTP/2
@@ -245,7 +258,13 @@
         - name: Rules Engine
           href: standard-premium/how-to-configure-rule-set.md
         - name: Purge cache
-          href: standard-premium/how-to-cache-purge.md
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-cache-purge.md
+          - name: Azure PowerShell
+            href: standard-premium/how-to-cache-purge-powershell.md
+          - name: Azure CLI
+            href: standard-premium/how-to-cache-purge-cli.md
         - name: Compression
           href: standard-premium/how-to-compression.md
       - name: Enable Private Link to secure origins
@@ -253,9 +272,17 @@
         - name: Connect to an internal load balancer
           href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
         - name: Connect to a storage account
-          href: standard-premium/how-to-enable-private-link-storage-account.md
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-enable-private-link-storage-account.md
+          - name: Azure CLI
+            href: standard-premium/how-to-enable-private-link-storage-account-cli.md
         - name: Connect to an App service
-          href: standard-premium/how-to-enable-private-link-web-app.md
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-enable-private-link-web-app.md
+          - name: Azure CLI
+            href: standard-premium/how-to-enable-private-link-web-app-cli.md
       - name: Monitor and Reports
         items:
         - name: Configure diagnostic
@@ -264,8 +291,6 @@
           href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
-        - name: Configure classic diagnostics
-          href: front-door-diagnostics.md
     - name : Classic
       items:    
       - name: Add a custom domain
@@ -278,16 +303,18 @@
         href: front-door-tutorial-rules-engine.md
       - name: Configure HTTP to HTTPS redirect
         href: front-door-how-to-redirect-https.md
+      - name: Configure classic diagnostics
+        href: front-door-diagnostics.md
     - name: Secure with Web Application Firewall
       items:
       - name: Configure a security policy
-        href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2ftoc.json
+        href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=/azure/frontdoor/toc.json
       - name: Configure geo-filtering
-        href: ../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md?toc=%2fazure%2ffrontdoor%2ftoc.json
+        href: ../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md?toc=/azure/frontdoor/toc.json
       - name: Configure rate limits
-        href: ../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md?toc=%2fazure%2ffrontdoor%2ftoc.json
+        href: ../web-application-firewall/afds/waf-front-door-rate-limit-configure.md?toc=%2fazure%2ffrontdoor%2ftoc.json
       - name: Configure IP restriction
-        href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=%2fazure%2ffrontdoor%2ftoc.json
+        href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=/azure/frontdoor/toc.json
     - name: Troubleshoot
       items:
       - name: Troubleshooting Front Door issues
@@ -582,7 +609,7 @@
       - name: Go SDK
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/contentdeliverynetwork
+        href: /javascript/api/overview/azure/cdn
     - name: Classic
       items:
       - name: Azure CLI
@@ -592,7 +619,7 @@
       - name: REST API
         href: /rest/api/frontdoor/#front-door-classic
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/frontdoor
+        href: /javascript/api/overview/azure/arm-frontdoor-readme
       - name: Java SDK
         href: /java/api/overview/azure/resourcemanager-cdn-readme
   - name: CDN
@@ -674,4 +701,3 @@
         href: https://stackoverflow.com/questions/tagged/azure-cdn
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-    

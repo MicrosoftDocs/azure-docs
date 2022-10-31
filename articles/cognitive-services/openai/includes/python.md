@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use the OpenAI Service via the Python SDK'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions and search calls with the Python SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -16,9 +16,11 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here:<a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>
-- <a href="https://www.python.org/" target="_blank">Python 3.x</a>
-- The following python libraries: os, requests, json
+- Access granted to the Azure OpenAI service in the desired Azure subscription
+
+    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+- The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
 ## Set up
@@ -45,7 +47,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 ## Create a new Python application
 
-1. Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
+1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
 2. Replace the contents of quickstart.py with the following code. Modify the code to add your key, endpoint, and deployment name:
 
@@ -64,11 +66,14 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
     # Send a completion call to generate an answer
     print('Sending a test completion job')
-    start_phrase = 'When I go to the store, I want a'
+    start_phrase = 'Write a tagline for an ice cream shop. '
     response = openai.Completion.create(engine=deployment_id, prompt=start_phrase, max_tokens=10)
-    text = response['choices'][0]['text'].split('\n')[0]
+    text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
     print(start_phrase+text)
     ```
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
 1. Run the application with the `python` command on your quickstart file
 
@@ -80,21 +85,23 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 ```console
 Sending a test completion job
-"When I go to the store, I want a can of black beans"
+Write a tagline for an ice cream shop. The coldest ice cream in town!
 ```
 
 Run the code a few more times to see what other types of responses you get as the response won't always be the same.
 
 ### Understanding your results
 
-Since our example of `When I go to the store, I want a` provides very little context, it's normal for the model to not always return expected results. We're also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses with only our prompt text may occur as the model's response in that instance was split over multiple lines. If you wish to see the larger responses, you can remove `.split('\n')[0]` from your code and adjust the max number of tokens.
+Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
+
+The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 
 If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+- [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+- [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 

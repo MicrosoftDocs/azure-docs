@@ -2,6 +2,7 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
@@ -33,13 +34,13 @@ While going through the wizard on the portal is the simplest way to set up the i
 In this tutorial, you will, first, set up ingestion of a custom log, then. you will modify the KQL transformation for your custom log to include additional filtering and apply the changes to your DCR. Finally, we are going to combine all editing operations into a single PowerShell script, which can be used to edit any DCR for any of the above mentioned reasons.
 
 ## Set up new custom log
-Start by setting up a new custom log. Follow [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)]( ../logs/tutorial-custom-logs.md). Note the resource ID of the DCR created.
+Start by setting up a new custom log. Follow [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)]( ../logs/tutorial-logs-ingestion-portal.md). Note the resource ID of the DCR created.
 
 ## Retrieve DCR content
 In order to update DCR, we are going to retrieve its content and save it as a file, which can be further edited.
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
 
 2. Execute the following commands to retrieve DCR content and save it to a file. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file to store DCR.
 
@@ -60,11 +61,11 @@ code "temp.dcr"
 Let’s modify the KQL transformation within DCR to drop rows where RequestType is anything, but “GET”.
 1.	Open the file created in the previous part for editing using an editor of your choice.
 2.	Locate the line containing `”transformKql”` attribute, which, if you followed the tutorial for custom log creation, should look similar to this:
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 3.	Modify KQL transformation to include additional filter by RequestType
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | where RawData contains \"GET\"\n     | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 4.	Save the file with modified DCR content.

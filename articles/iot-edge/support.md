@@ -11,7 +11,7 @@ services: iot-edge
 
 # Azure IoT Edge supported systems
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides details about which systems and components are supported by IoT Edge, whether officially or in preview.
 
@@ -176,6 +176,8 @@ The following table lists the components included in each release starting with 
 
 | Release | aziot-edge | edgeHub<br>edgeAgent | aziot-identity-service |
 | ------- | ---------- | -------------------- | ---------------------- |
+| **1.4** | 1.4.0      | 1.4.0                | 1.4.0                  |
+| **1.3** | 1.3.0      | 1.3.0                | 1.3.0                  |
 | **1.2** | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br><br>1.2.7 | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br>1.2.6<br>1.2.7 | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br> |
 
 The following table lists the components included in each release up to the 1.1 LTS release. The components listed in this table can be installed or updated individually, and are backwards compatible with older versions.

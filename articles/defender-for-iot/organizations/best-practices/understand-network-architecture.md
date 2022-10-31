@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 When planning your network monitoring, you must understand your system network architecture and how it will need to connect to Defender for IoT. Also, understand where each of your system elements falls in the Purdue Reference model for Industrial Control System (ICS) OT network segmentation.
 
-Defender for IoT network sensors receive traffic from multiple sources, either by switch mirror ports (SPAN ports) or network TAPs. The network sensor's management port connects to the business, corporate, or sensor management network for network management from the Azure portal or an on-premises management system.
+Defender for IoT network sensors receive traffic from two main sources, either by switch mirror ports (SPAN ports) or network TAPs. The network sensor's management port connects to the business, corporate, or sensor management network for network management from the Azure portal or an on-premises management system.
 
 For example:
 

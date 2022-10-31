@@ -8,12 +8,11 @@ metadata:
   title: Azure Storage documentation
   description: Azure Storage documentation hub page. Points to service documentation for cloud and hybrid storage solutions, and services to transfer, share, and back up data. 
   ms.service: storage
+  ms.custom: ignite-2022
   ms.topic: hub-page
   author: normesta
   ms.author: normesta
   ms.date: 03/09/2022
-
-
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
@@ -30,7 +29,7 @@ highlightedContent:
     - title: Create a storage account
       itemType: how-to-guide
       url: ./common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - title: Build new Azure Storage skills with Microsoft Learn
+    - title: Build new Azure Storage skills
       itemType: learn
       url: /users/henryyan-8971/collections/d2zmi3jdje144m
     - title: Migrate data to Azure Storage
@@ -69,16 +68,16 @@ additionalContent:
           - url: ../azure-netapp-files/azure-netapp-files-introduction.md
             text: Use volumes provided by NetApp ONTAP (Azure NetApp Files)
         # Card
-        - title: Disk storage for IaaS workloads
+        - title: Storage for infrastructure
           links:
           - url: ../virtual-machines/managed-disks-overview.md
-            text: Learn about block-level storage volumes for Azure VMs
+            text: Learn about Azure managed disks for Azure VMs
           - url: ../virtual-machines/disks-types.md
             text: Understand the available disk types
-          - url: ../virtual-machines/windows/attach-managed-disk-portal.md
-            text: Add a new disk to a VM - Windows
-          - url: ../virtual-machines/linux/attach-disk-portal.md
-            text: Attach a data disk to a VM - Linux
+          - url: elastic-san/elastic-san-introduction.md
+            text: Learn about Azure Elastic SAN
+          - url: elastic-san/elastic-san-planning.md
+            text: Understand and plan for an Elastic SAN deployment
         # Card
         - title: Storage for asynchronous message queuing
           links:
@@ -92,9 +91,9 @@ additionalContent:
         - title: Storage for structured NoSQL data
           links:
           - url: ./tables/table-storage-overview.md
-            text: Store structured NoSQL data in the cloud (Table storage and Cosmos DB)
+            text: Store structured NoSQL data in the cloud (Table storage and Azure Cosmos DB)
           - url: ../cosmos-db/table-support.md
-            text: Compare Table storage and Cosmos DB Table API
+            text: Compare Table storage and Azure Cosmos DB for Table
           - url: ./tables/index.yml
             text: See more >
 
@@ -150,6 +149,8 @@ additionalContent:
             text: Use the AzCopy command-line tool
           - url: ./blobs/quickstart-storage-explorer.md
             text: Use the Azure Storage Explorer GUI-based tool              
+          - url: ./blobs/blobfuse2-what-is.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            text: Use BlobFuse2 to mount Azure blobs on Linux
         # Card
         - title: Control costs
           links:

@@ -2,11 +2,11 @@
 title: Samples overview page
 titleSuffix: An Azure Communication Services sample overview.
 description: Overview of available sample projects for Azure Communication Services.
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services

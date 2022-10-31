@@ -12,9 +12,6 @@ fluid.url: https://fluidframework.com/docs/deployment/azure-frs/
 
 # How to: Connect to an Azure Fluid Relay service
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
 > [!IMPORTANT]
@@ -26,7 +23,7 @@ The sections below will explain how to use `AzureClient` in your own application
 
 ## Connecting to the service
 
-To connect to an Azure Fluid Relay instance you first need to create an `AzureClient`. You must provide some configuration parameters including the the tenant ID, orderer and storage URLs, and a token provider to generate the JSON Web Token (JWT) that will be used to authorize the current user against the service. The `@fluidframework/test-client-utils` package provides an `InsecureTokenProvider` that can be used for development purposes.
+To connect to an Azure Fluid Relay instance, you first need to create an `AzureClient`. You must provide some configuration parameters including the tenant ID, service URL, and a token provider to generate the JSON Web Token (JWT) that will be used to authorize the current user against the service. The `@fluidframework/test-client-utils` package provides an `InsecureTokenProvider` that can be used for development purposes.
 
 > [!CAUTION]
 > The `InsecureTokenProvider` should only be used for development purposes because **using it exposes the tenant key secret in your client-side code bundle.** This must be replaced with an implementation of `ITokenProvider` that fetches the token from your own backend service that is responsible for signing it with the tenant key.
@@ -50,7 +47,7 @@ Now that you have an instance of `AzureClient`, you can start using it to create
 
 ### Token providers
 
-The [AzureFunctionTokenProvider](https://github.com/microsoft/FluidFramework/blob/main/azure/packages/azure-client/src/AzureFunctionTokenProvider.ts) is an implementation of `ITokenProvider` which ensures your tenant key secret is not exposed in your client-side bundle code. The `AzureFunctionTokenProvider` takes in your Azure Function URL appended by `/api/GetAzureToken` along with the current user object. Later on, it makes a `GET` request to your Azure Function by passing in the tenantId, documentId and userId/userName as optional parameters.
+The [AzureFunctionTokenProvider](https://github.com/microsoft/FluidFramework/blob/main/azure/packages/azure-client/src/AzureFunctionTokenProvider.ts) is an implementation of `ITokenProvider` that ensures your tenant key secret is not exposed in your client-side bundle code. The `AzureFunctionTokenProvider` takes in your Azure Function URL appended by `/api/GetAzureToken` along with the current user object. Later on, it makes a `GET` request to your Azure Function by passing in the tenantId, documentId and userId/userName as optional parameters.
 
 ```javascript
 const config = {
@@ -115,7 +112,7 @@ const { container, services } = await azureClient.createContainer(
 const id = await container.attach();
 ```
 
-The `container.attach()` call is when the container actually becomes connected to the service and is recorded in its blob storage. It returns an `id` which is the unique identifier to this container instance.
+The `container.attach()` call is when the container actually becomes connected to the service and is recorded in its blob storage. It returns an `id` that is the unique identifier to this container instance.
 
 Any client that wants to join the same collaborative session needs to call `getContainer` with the same container `id`.
 
@@ -134,7 +131,7 @@ The container being fetched back will hold the `initialObjects` as defined in th
 
 Calls to `createContainer` and `getContainer` return two values: a `container` -- described above -- and a `services` object.
 
-The `container` contains the Fluid data model and is service-agnostic. Any code you write against this container object returned by the `AzureClient` is reusable with the client for another service. An example of this is if you prototyped your scenario using `TinyliciousClient`, then all of your code interacting with the shared objects within the Fluid container can be reused when moving to using `AzureClient`.
+The `container` contains the Fluid data model and is service-agnostic. Any code you write against this container object returned by the `AzureClient` is reusable with the client for another service. An example is if you prototyped your scenario using `TinyliciousClient`, then all of your code interacting with the shared objects within the Fluid container can be reused when moving to using `AzureClient`.
 
 The `services` object contains data that is specific to the Azure Fluid Relay service. This object contains an `audience` value that can be used to manage the roster of users that are currently connected to the container.
 
@@ -178,7 +175,7 @@ audience.on("membersChanged", onAudienceChanged);
 
 `audience` also emits events for when the roster of members changes. `membersChanged` will fire for any roster changes, whereas `memberAdded` and `memberRemoved` will fire for their respective changes with the `clientId` and `member` values that have been modified. After any of these events fire, a new call to `getMembers` will return the updated member roster.
 
-A sample `AzureMember` object looks like the following:
+A sample `AzureMember` object looks like:
 
 ```json
 {
@@ -201,7 +198,7 @@ A sample `AzureMember` object looks like the following:
 }
 ```
 
-Alongside the user ID, name and additional details, `AzureMember` objects also hold an array of `connections`. If the user is logged into the session with only one client, `connections` will only have one value in it with the ID of the client and if is in read/write mode. However, if the same user is logged in from multiple clients (i.e. they are logged in from different devices or have multiple browser tabs open with the same container), `connections` here will hold multiple values for each client. In the example data above, we can see that a user with name "Test User" and ID "0e662aca-9d7d-4ff0-8faf-9f8672b70f15" currently has the container open from two different clients. The values in the `additionalDetails` field match up to the values provided in the `AzureFunctionTokenProvider` token generation.
+Alongside the user ID, name and additional details, `AzureMember` objects also hold an array of `connections`. If the user is logged into the session with only one client, `connections` will only have one value in it with the ID of the client, and whether is in read/write mode. However, if the same user is logged in from multiple clients (that is, they are logged in from different devices or have multiple browser tabs open with the same container), `connections` here will hold multiple values for each client. In the example data above, we can see that a user with name "Test User" and ID "0e662aca-9d7d-4ff0-8faf-9f8672b70f15" currently has the container open from two different clients. The values in the `additionalDetails` field match up to the values provided in the `AzureFunctionTokenProvider` token generation.
 
 These functions and events can be combined to present a real-time view of the users in the current session.
 

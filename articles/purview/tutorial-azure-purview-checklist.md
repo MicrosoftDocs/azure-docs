@@ -12,7 +12,11 @@ ms.date: 04/22/2022
 
 # Microsoft Purview (formerly Azure Purview) deployment checklist
 
-This article lists prerequisites that help you get started quickly on planning and deployment for your Microsoft Purview (formerly Azure Purview) account
+This article lists prerequisites that help you get started quickly on planning and deployment for your Microsoft Purview (formerly Azure Purview) account.
+
+If you are creating a plan to deploy Microsoft Purview, and also want to consider best practices as you develop your deployment strategy, then use [our deployment best practices guide](deployment-best-practices.md) to get started.
+
+If you are looking for a strictly technical deployment guide, this deployment checklist is for you.
 
 |No.  |Prerequisite / Action  |Required permission  |More guidance and recommendations  |
 |:---------|:---------|:---------|:---------|

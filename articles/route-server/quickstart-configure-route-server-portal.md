@@ -5,7 +5,7 @@ services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/08/2021
+ms.date: 07/19/2022
 ms.author: halkazwini
 ms.custom: mode-ui
 ---

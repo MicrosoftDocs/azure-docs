@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-build-2022
-ms.author: ssambare
-author: shivanissambare
-ms.reviewer: laobri
-ms.date: 10/21/2021
+author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
+ms.date: 09/07/2022
 ---
 
 # Create and use managed online endpoints in the studio
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 ## Create a managed online endpoint
 
-Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You cannot create an empty managed online endpoint.
+Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Endpoints** page.
@@ -42,10 +42,26 @@ Use the studio to create a managed online endpoint directly in your browser. Whe
 
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
 
-### Follow the setup wizard to configure your managed online endpoint.
+### Register the model
 
-1. You can use our sample [model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) and [scoring script](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py) from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1)
-1. On the **Environment** step of the wizard, you can select the **AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference** curated environment.
+A model registration is a logical entity in the workspace that may contain a single model file, or a directory containing multiple files. The steps in this article assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+
+To register the example model using Azure Machine Learning studio, use the following steps:
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Models** page.
+1. Select **Register**, and then **From local files**.
+1. Select __Unspecified type__ for the __Model type__, then select __Browse__, and __Browse folder__.
+
+    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/register-model-folder.png" alt-text="A screenshot of the browse folder option.":::
+
+1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you downloaded earlier. When prompted, select __Upload__. Once the upload completes, select __Next__.
+1. Enter a friendly __Name__ for the model. The steps in this article assume it's named `model-1`.
+1. Select __Next__, and then __Register__ to complete registration.
+
+For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
+
+### Follow the setup wizard to configure your managed online endpoint.
 
 You can also create a managed online endpoint from the **Models** page in the studio. This is an easy way to add a model to an existing managed online deployment.
 
@@ -54,7 +70,15 @@ You can also create a managed online endpoint from the **Models** page in the st
 1. Select a model by checking the circle next to the model name.
 1. Select **Deploy** > **Deploy to real-time endpoint**.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
+    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
+
+1. Enter an __Endpoint name__ and select __Managed__ as the compute type.
+1. Select __Next__, accepting defaults, until you're prompted for the environment. Here, select the following:
+
+    * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you downloaded earlier.
+    * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
+
+1. Select __Next__, accepting defaults, until you're prompted to create the deployment. Select the __Create__ button.
 
 ## View managed online endpoints
 
@@ -85,7 +109,7 @@ To use the monitoring tab, you must select "**Enable Application Insight diagnos
 
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" alt-text="A screenshot of monitoring endpoint-level metrics in the studio.":::
 
-For more information on how viewing additional monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+For more information on how viewing other monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 
 ## Add a deployment to a managed online endpoint
 

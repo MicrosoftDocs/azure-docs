@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 09/23/2022
 ms.author: banders
 ---
 
@@ -28,6 +28,8 @@ To set up the billing account, you must transition the billing of Azure subscrip
 
 Before you start the setup, we recommend you do the following actions:
 
+- Before you transition to the Microsoft Customer Agreement, **delete users using the EA portal that don't need access to the new billing account**.
+  - Deleting the users will simplify the transition and improve the security of your new billing account.
 - **Understand your new billing account**
   - Your new account simplifies billing for your organization. [Get a quick overview of your new billing account](../understand/mca-overview.md)
 - **Verify your access to complete the setup**
@@ -43,10 +45,9 @@ Before you start the setup, we recommend you do the following actions:
 
 ## Access required to complete the setup
 
-To complete the setup, you need the following access:
+To complete the setup, you need both of these roles:
 
-- Owner of the billing account that was created when the Microsoft Customer Agreement was signed. To learn more about billing accounts, see [Your billing account](../understand/mca-overview.md#your-billing-account).  
-&mdash; And &mdash;
+- Owner of the billing account that was created when the Microsoft Customer Agreement was signed. To learn more about billing accounts, see [Your billing account](../understand/mca-overview.md#your-billing-account).
 - Enterprise administrator on the enrollment that is renewed.
 
 ### Start migration and get permission needed to complete setup
@@ -153,7 +154,7 @@ An Azure Active Directory (AD) tenant is selected for the new billing account wh
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they'll get access to the new billing account during the setup. If they're not part of the tenant, they can't access the new billing account unless you invite them.
 
-When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
+When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. 
 
 ## View replaced features
 
@@ -201,7 +202,7 @@ Support benefits don't transfer as part of the transition. Purchase a new suppor
 
 ### Past charges and balance
 
-Charges and credits balance prior to transition can be viewed in your Enterprise Agreement enrollment through the Azure portal. <!--Todo - Add a link for this-->
+Charges and credits balance prior to transition can be viewed in your Enterprise Agreement enrollment through the Azure portal. 
 
 ### When should the setup be completed?
 

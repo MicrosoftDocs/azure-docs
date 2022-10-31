@@ -1,15 +1,19 @@
 ---
 title: Enable data contract serialization for remoting exceptions in Service Fabric
 description: Enable data contract serialization for remoting exceptions in Azure Service Fabric.
-ms.topic: conceptual
-ms.date: 03/30/2022
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Remoting exception serialization overview
 
 BinaryFormatter-based serialization isn't secure, so don't use BinaryFormatter for data processing. For more information on the security implications, see [Deserialization risks in the use of BinaryFormatter and related types](/dotnet/standard/serialization/binaryformatter-security-guide).
 
-Azure Service Fabric used BinaryFormatter for serializing exceptions. Starting with ServiceFabric v9.0, [data contract-based serialization](/dotnet/api/system.runtime.serialization.datacontractserializer?view=net-6.0) for remoting exceptions is available as an opt-in feature. We recommend that you opt for DataContract remoting exception serialization by following the steps in this article.
+Azure Service Fabric used BinaryFormatter for serializing exceptions. Starting with ServiceFabric v9.0, [data contract-based serialization](/dotnet/api/system.runtime.serialization.datacontractserializer) for remoting exceptions is available as an opt-in feature. We recommend that you opt for DataContract remoting exception serialization by following the steps in this article.
 
 Support for BinaryFormatter-based remoting exception serialization will be deprecated in the future.
 

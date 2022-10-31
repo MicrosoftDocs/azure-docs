@@ -1,27 +1,28 @@
 ---
 title: Upgrade Linux OS for Azure Service Fabric
 description: Learn about options for migrating your Azure Service Fabric cluster to another Linux operating system.
-author: DivyaC0403
-ms.author: dicherku
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
-ms.date: 06/01/2022
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Upgrade Linux OS for Azure Service Fabric
 
-This document describes how to migrate your Azure Service Fabric for Linux cluster from Ubuntu version 16.04 LTS to 18.04 LTS. Each operating system (OS) version requires a different Service Fabric runtime package. This article describes the steps required to facilitate a smooth migration to the newer version.
+This document describes how to migrate your Azure Service Fabric for Linux cluster from Ubuntu version 18.04 LTS to 20.04 LTS. Each operating system (OS) version requires a different Service Fabric runtime package. This article describes the steps required to facilitate a smooth migration to the newer version.
 
 ## Approach to migration
 
 The general approach to the migration follows these steps:
 
-1. Switch the Service Fabric cluster Azure Resource Manager resource `vmImage` to `Ubuntu18_04`. This setting pulls future code upgrades for this OS version. This temporary OS mismatch against existing node types blocks automatic code upgrade rollouts to ensure safe rollover.
+1. Switch the Service Fabric cluster Azure Resource Manager resource `vmImage` to `Ubuntu20_04`. This setting pulls future code upgrades for this OS version. This temporary OS mismatch against existing node types blocks automatic code upgrade rollouts to ensure safe rollover.
 
    > [!TIP]
    > Avoid issuing manual Service Fabric cluster code upgrades during the OS migration. Doing so may cause the old node type nodes to enter a state that requires human intervention.
 
-1. For each node type in the cluster, create another node type that targets the Ubuntu 18.04 OS image for the underlying Virtual Machine Scale Set. Each new node type assumes the role of its old counterpart.
+1. For each node type in the cluster, create another node type that targets the Ubuntu 20.04 OS image for the underlying Virtual Machine Scale Set. Each new node type assumes the role of its old counterpart.
 
    * A new primary node type has to be created to replace the old node type marked as `isPrimary: true`.
    * For each non-primary node type, these nodes types are marked `isPrimary: false`.
@@ -47,7 +48,7 @@ This procedure demonstrates how to quickly prototype the node type migration by 
     $resourceGroup="Group1"
     $clusterName="Contoso01SFCluster"
     # Update cluster vmImage to target OS. This registers the SF runtime package type that is supplied for upgrades.
-    Update-AzServiceFabricVmImage -ResourceGroupName $resourceGroup -ClusterName $clusterName -VmImage Ubuntu18_04
+    Update-AzServiceFabricVmImage -ResourceGroupName $resourceGroup -ClusterName $clusterName -VmImage Ubuntu20_04
     ```
 
 2. Add new node type counterpart for each of the existing node types:

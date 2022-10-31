@@ -1,16 +1,16 @@
 ---
-title: Troubleshooting Conditional Access policy changes - Azure Active Directory
+title: Troubleshoot Conditional Access policy changes - Azure Active Directory
 description: Diagnose changes to Conditional Access policy with the Azure AD audit logs.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/09/2021
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, martinco
 
 ms.collection: M365-identity-device-management
@@ -23,14 +23,14 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 
 - Send data to a Log Analytics workspace
 - Archive data to a storage account
-- Stream data to an Event Hub
+- Stream data to Event Hubs
 - Send data to a partner solution
  
 Find these options in the **Azure portal** > **Azure Active Directory**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one. 
 
 ## Use the audit log
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Audit logs**.
 1. Select the **Date** range you want to query in.
 1. Select **Activity** and choose one of the following

@@ -5,7 +5,7 @@ description: Learn how to connect VPN clients securely to a virtual network usin
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/10/2022
+ms.date: 07/27/2022
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -228,7 +228,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
     ```
 
-## 6. <a name="vpnclient"></a>Configure the VPN client
+## 6. <a name="vpnclient"></a>Configure the VPN client and connect
 
 The VPN client profile configuration packages contain the settings that help you configure VPN client profiles for a connection to the Azure VNet.
 
@@ -238,12 +238,7 @@ To generate a VPN client configuration package and configure a VPN client, see o
 * [RADIUS - password authentication for VPN clients](point-to-site-vpn-client-configuration-radius-password.md)
 * [RADIUS - other authentication methods for VPN clients](point-to-site-vpn-client-configuration-radius-other.md)
 
-## <a name="connect"></a>7. Connect to Azure
-
-Use the steps in one of the following articles to connect to Azure.
-
-* [Windows native VPN client](point-to-site-vpn-client-configuration-radius-certificate.md#windows-vpn-client)
-* [macOS VPN client](point-to-site-vpn-client-configuration-radius-certificate.md#mac-macos-vpn-client)
+After you configure the VPN client, connect to Azure.
 
 ## <a name="verify"></a>To verify your connection
 

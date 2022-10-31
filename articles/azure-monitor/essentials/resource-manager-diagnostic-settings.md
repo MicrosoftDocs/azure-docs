@@ -43,7 +43,7 @@ param storageAccountId string
 @description('The resource Id for the event hub authorization rule.')
 param eventHubAuthorizationRuleId string
 
-@description('The name of teh event hub.')
+@description('The name of the event hub.')
 param eventHubName string
 
 resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
@@ -125,7 +125,7 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
     "eventHubName": {
       "type": "string",
       "metadata": {
-        "description": "The name of teh event hub."
+        "description": "The name of the event hub."
       }
     }
   },
@@ -588,7 +588,7 @@ param eventHubAuthorizationRuleId string
 @description('The name of the event hub.')
 param eventHubName string
 
-resource vault 'Microsoft.KeyVault/managedHSMs@2021-11-01-preview' existing = {
+resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' existing = {
   name: vaultName
 }
 
@@ -664,7 +664,7 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
     {
       "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "scope": "[format('Microsoft.KeyVault/managedHSMs/{0}', parameters('vaultName'))]",
+      "scope": "[format('Microsoft.KeyVault/vaults/{0}', parameters('vaultName'))]",
       "name": "[parameters('settingName')]",
       "properties": {
         "workspaceId": "[parameters('workspaceId')]",
@@ -1675,7 +1675,8 @@ resource diagnosticSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-pre
 }
 
 resource blob 'Microsoft.Storage/storageAccounts/blobServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 resource blobSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasblob) {
@@ -1708,7 +1709,8 @@ resource blobSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
 }
 
 resource table 'Microsoft.Storage/storageAccounts/tableServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 resource tableSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hastable) {
@@ -1741,7 +1743,8 @@ resource tableSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview'
 }
 
 resource file 'Microsoft.Storage/storageAccounts/fileServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 resource fileSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasfile) {
@@ -1774,7 +1777,8 @@ resource fileSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
 }
 
 resource queue 'Microsoft.Storage/storageAccounts/queueServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 

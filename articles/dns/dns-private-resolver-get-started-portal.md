@@ -4,18 +4,18 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/02/2022
+ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
-ms.custom: mode-ui
+ms.custom: mode-ui, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
 
-# Quickstart: Create an Azure private DNS Resolver using the Azure portal
+# Quickstart: Create an Azure Private DNS Resolver using the Azure portal
 
-This quickstart walks you through the steps to create an Azure DNS Private Resolver (Public Preview) using the Azure portal. If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
+This quickstart walks you through the steps to create an Azure DNS Private Resolver using the Azure portal. If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
 
-Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multi-cloud and public DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multicloud and public DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Before you can use **Microsoft.Network** services with your Azure subscription, 
 
 First, create or choose an existing resource group to host the resources for your DNS resolver. The resource group must be in a [supported region](dns-private-resolver-overview.md#regional-availability). In this example, the location is **West Central US**. To create a new resource group:
 
-1. Select [Create a resource group](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup).
+1. Select [Create a resource group](https://portal.azure.com/#create/Microsoft.ResourceGroup).
 2. Select your subscription name, enter a name for the resource group, and choose a supported region.
 3. Select **Review + create**, and then select **Create**.
 
@@ -61,8 +61,8 @@ Next, add a virtual network to the resource group that you created, and configur
 
 ## Create a DNS resolver inside the virtual network 
 
-1. To display the **DNS Private Resolvers** resource during public preview, open the following [preview-enabled Azure portal link](https://go.microsoft.com/fwlink/?linkid=2194569).
-2. Search for and select **DNS Private Resolvers**, select **Create**, and then on the **Basics** tab for **Create a DNS Private Resolver** enter the following:
+1. Open the Azure portal and search for **DNS Private Resolvers**.
+2. Select **DNS Private Resolvers**, select **Create**, and then on the **Basics** tab for **Create a DNS Private Resolver** enter the following:
     - Subscription: Choose the subscription name you're using.
     - Resource group: Choose the name of the resource group that you created.
     - Name: Enter a name for your DNS resolver (ex: mydnsresolver).
@@ -78,7 +78,7 @@ Next, add a virtual network to the resource group that you created, and configur
 5. Select the **Outbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myoutboundendpoint).
 6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.1.1.0/28) and then select **Save**.
 7. Select the **Ruleset** tab, select **Add a ruleset**, and enter the following:
-    - Ruleset name: Enter a name for your ruleset (ex: myruleset).
+    - Ruleset name: Enter a name for your ruleset (ex: **myruleset**).
     - Endpoints: Select the outbound endpoint that you created (ex: myoutboundendpoint). 
 8. Under **Rules**, select **Add** and enter your conditional DNS forwarding rules. For example:
     - Rule name: Enter a rule name (ex: contosocom).
@@ -95,7 +95,7 @@ Next, add a virtual network to the resource group that you created, and configur
 
     ![create resolver - review](./media/dns-resolver-getstarted-portal/resolver-review.png)
 
-    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it is deployed.
+    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it's deployed.
 
     ![create resolver - status](./media/dns-resolver-getstarted-portal/resolver-status.png)
 

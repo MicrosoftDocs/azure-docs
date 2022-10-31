@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 08/17/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
@@ -177,6 +177,13 @@ Consider the following example scenario:
 * Administrator *A* resets their password by using SSPR.
 * Administrators *B*, *C*, and *D* receive an email alerting them of the password reset.
 
+> [!NOTE]
+> Email notifications from the SSPR service will be sent from the following addresses based on the Azure cloud you are working with: 
+> - Public: msonlineservicesteam@microsoft.com
+> - China: msonlineservicesteam@oe.21vianet.com 
+> - Government: msonlineservicesteam@azureadnotifications.us
+
+> If you observe issues in receiving notifications, please check your spam settings. 
 ## On-premises integration
 
 If you have a hybrid environment, you can configure Azure AD Connect to write password change events back from Azure AD to an on-premises directory.

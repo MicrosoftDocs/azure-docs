@@ -5,14 +5,14 @@ description: Learn how to use the cross-tenant access activity workbook.
 services: active-directory
 documentationcenter: ''
 author: msmimart
-manager: celestedg
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/14/2022
+ms.date: 08/26/2022
 ms.author: mimart
 
 ms.collection: M365-identity-device-management

@@ -3,7 +3,7 @@ title: Analyze usage in Log Analytics workspace in Azure Monitor
 description: Methods and queries to analyze the data in your Log Analytics workspace to help you understand usage and potential cause for high usage.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/24/2022
+ms.date: 08/25/2022
 ---
  
 # Analyze usage in Log Analytics workspace
@@ -27,7 +27,7 @@ You should start your analysis with existing tools in Azure Monitor. These requi
 - Top resources contributing data
 - Trend of data ingestion
 
-See the **Usage** tab for a breakdown of ingestion by solution and table. This can help you quickly identify the tables that contribute to the bulk of your data volume. It also shows trending of data collection over time to determine if data collection steadily increase over time or suddenly increased in response to a particular configuration change.
+See the **Usage** tab for a breakdown of ingestion by solution and table. This can help you quickly identify the tables that contribute to the bulk of your data volume. It also shows trending of data collection over time to determine if data collection steadily increases over time or suddenly increased in response to a particular configuration change.
 
 Select **Additional Queries** for pre-built queries that help you further understand your data patterns.
 
@@ -98,20 +98,20 @@ Analyze the amount of billable data collect from a virtual machine or set of vir
 > [!WARNING]
 > Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
 
-**Billable data volume by computer**
+**Billable data volume by computer for the last full day**
   
 ```kusto
-find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, Type
+find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _BilledSize, _IsBillable, Computer, Type
 | where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName 
 | sort by BillableDataBytes desc nulls last
 ```
 
-**Count of billable events by computer**
+**Count of billable events by computer for the last full day**
 
 ```kusto
-find where TimeGenerated > ago(24h) project _IsBillable, Computer
+find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _IsBillable, Computer, Type
 | where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
@@ -124,19 +124,19 @@ Analyze the amount of billable data collected from a particular resource or set 
 > [!WARNING]
 > Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
 
-**Billable data volume by resource ID**
+**Billable data volume by resource ID for the last full day**
 
 ```kusto
-find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
+find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId 
 | sort by BillableDataBytes nulls last
 ```
 
-**Billable data volume by resource group**
+**Billable data volume by resource group for the last full day**
 
 ```kusto
-find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
+find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
 | extend resourceGroup = tostring(split(_ResourceId, "/")[4] )
@@ -151,14 +151,18 @@ It may be helpful to parse the **_ResourceId** :
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
 ```
 
-**Billable data volume by subscription**
+**Billable data volume by subscription for the last full day**
 
 ```kusto
-find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, _SubscriptionId
+find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _BilledSize, _IsBillable, _SubscriptionId
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _SubscriptionId 
 | sort by BillableDataBytes nulls last
 ```
+
+> [!TIP]
+> For workspaces with large data volumes, doing queries such as shown in this section -- which query large volumes of raw data -- might need to be restricted to a single day. To track trends over time, consider settting up a [Power BI report](./log-powerbi.md) and using [incremental refresh](./log-powerbi.md#collect-data-with-power-bi-dataflows) to collect data volumes per resource once a day. 
+
 ## Querying for common data types
 If you find that you have excessive billable data for a particular data type, then you may need to perform a query to analyze data in that table. The following queries provide samples for some common data types:
 
@@ -167,6 +171,7 @@ If you find that you have excessive billable data for a particular data type, th
 ```kusto
 SecurityEvent 
 | summarize AggregatedValue = count() by EventID
+| order by AggregatedValue desc nulls last
 ```
 
 **Log Management** solution
@@ -175,6 +180,7 @@ SecurityEvent
 Usage 
 | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
 | summarize AggregatedValue = count() by DataType
+| order by AggregatedValue desc nulls last
 ```
 
 **Perf** data type
@@ -225,10 +231,9 @@ There are two approaches to investigating the amount of data collected for Appli
 
 
 > [!NOTE]
-> The queries in this section will work for both a workspace-based and classic Application Insights resource since [backwards compatibility](../app/convert-classic-resource.md#understanding-log-queries) allows you to continue to use [legacy table names](../app/apm-tables.md). For a workspace-based resource, open **Logs** from the **Log Analytics workspace** menu. For a classic resource, open **Logs** from the **Application Insights** menu.
+> Queries against Application Insights table except `SystemEvents` will work for both a workspace-based and classic Application Insights resource, since [backwards compatibility](../app/convert-classic-resource.md#understand-log-queries) allows you to continue to use [legacy table names](../app/apm-tables.md). For a workspace-based resource, open **Logs** from the **Log Analytics workspace** menu. For a classic resource, open **Logs** from the **Application Insights** menu.
 
-
-**Operations generate the most data volume in the last 30 days (workspace-based or classic)**
+**Dependency operations generate the most data volume in the last 30 days (workspace-based or classic)**
 
 ```kusto
 dependencies
@@ -237,93 +242,50 @@ dependencies
 | render barchart  
 ```
 
-
-**Data volume ingested in the last 24 hours (classic)**
+**Daily data volume by type for this Application Insights resource the last 7 days (classic only)**
 
 ```kusto
 systemEvents
-| where timestamp >= ago(24h)
+| where timestamp >= startofday(ago(7d)) and timestamp < startofday(now())
 | where type == "Billing"
 | extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
 | extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
-| summarize sum(BillingTelemetrySizeInBytes)
+| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d)  
 ```
-
-**Data volume by type ingested in the last 24 hours (classic)**
-
-```kusto
-systemEvents
-| where timestamp >= startofday(ago(30d))
-| where type == "Billing"
-| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
-| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
-| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) 
-| render barchart  
-```
-
-**Count of event types ingested in the last 24 hours (classic)**
-
-```kusto
-systemEvents
-| where timestamp >= startofday(ago(30d))
-| where type == "Billing"
-| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
-| summarize count() by BillingTelemetryType, bin(timestamp, 1d)
-| render barchart  
-```
-
 
 ### Data volume trends for workspace-based resources
 To look at the data volume trends for [workspace-based Application Insights resources](../app/create-workspace-resource.md), use a query that includes all of the Application insights tables. The following queries use the [tables names specific to workspace-based resources](../app/apm-tables.md#table-schemas).
 
 
-**Data volume trends for all Application Insights resources in a workspace for the last week**
+**Daily data volume by type for all Application Insights resources in a workspace for the 7 days**
 
 ```kusto
-union (AppAvailabilityResults),
-      (AppBrowserTimings),
-      (AppDependencies),
-      (AppExceptions),
-      (AppEvents),
-      (AppMetrics),
-      (AppPageViews),
-      (AppPerformanceCounters),
-      (AppRequests),
-      (AppSystemEvents),
-      (AppTraces)
+union AppAvailabilityResults,
+      AppBrowserTimings,
+      AppDependencies,
+      AppExceptions,
+      AppEvents,
+      AppMetrics,
+      AppPageViews,
+      AppPerformanceCounters,
+      AppRequests,
+      AppSystemEvents,
+      AppTraces
 | where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
-| render areachart 
 ```
 
-**Data volume trends for a specific Application Insights resources in a workspace for the last week**
+To look at the data volume trends for only a single Application Insights resource, add the following line before the `summarize` in the above query:
 
 ```kusto
-union (AppAvailabilityResults),
-      (AppBrowserTimings),
-      (AppDependencies),
-      (AppExceptions),
-      (AppEvents),
-      (AppMetrics),
-      (AppPageViews),
-      (AppPerformanceCounters),
-      (AppRequests),
-      (AppSystemEvents),
-      (AppTraces)
-| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
-| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
-| render areachart
 ```
 
-
+> [!TIP]
+> For workspaces with large data volumes, doing queries such as this one above which query large volumes of raw data might need to be restricted to a single day. To track trends over time, consider settting up a [Power BI report](./log-powerbi.md) and using [incremental refresh](./log-powerbi.md#collect-data-with-power-bi-dataflows) to collect data volumes per resource once a day. 
 
 ## Understanding nodes sending data
 If you don't have excessive data from any particular source, you may have an excessive number of agents that are sending data.
-
-> [!WARNING]
-> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
-
 
 **Count of agent nodes that are sending a heartbeat each day in the last month**
 
@@ -334,6 +296,8 @@ Heartbeat
 | render timechart
 ```
 
+> [!WARNING]
+> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
 **Count of nodes sending any data in the last 24 hours**
 
 ```kusto
@@ -429,4 +393,4 @@ W3CIISLog
 - See [Azure Monitor Logs pricing details](cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
 - See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
-- See [Ingestion-time transformations in Azure Monitor Logs (preview)](ingestion-time-transformations.md) for details on using ingestion-time transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.
+- See [Data collection transformations in Azure Monitor (preview)](../essentials/data-collection-transformations.md) for details on using transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.

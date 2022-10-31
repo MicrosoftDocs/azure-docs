@@ -2,11 +2,11 @@
 title: 'Tutorial: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure application gateway'
 description: Use this tutorial to learn how to enable the Ingress Controller add-on for your new AKS cluster with a new application gateway instance.
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/12/2022
-ms.author: caya
+ms.date: 07/15/2022
+ms.author: greglin
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -50,13 +50,13 @@ You'll now deploy a new AKS cluster with the AGIC add-on enabled. If you don't p
 
 In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [managed identities](../aks/use-managed-identity.md). The AGIC add-on will be enabled in the resource group that you created, **myResourceGroup**. 
 
-Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing application gateway instance will mean an automatic creation of a Standard_v2 SKU application gateway instance. So, you'll also specify the name and subnet address space of the application gateway instance. The name of the application gateway instance will be **myApplicationGateway**, and the subnet address space will be **10.225.0.0/16**.
+Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing application gateway instance will automatically create a Standard_v2 SKU application gateway instance. You'll need to specify a name and subnet address space for the new application gateway instance. The address space must be from 10.224.0.0/12 prefix used by the AKS virtual network without overlapping with 10.224.0.0/16 prefix used by the AKS subnet. In this tutorial, use *myApplicationGateway* for the application gateway name and *10.225.0.0/16* for its subnet address space.
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.225.0.0/16" --generate-ssh-keys
 ```
 
-To configure more parameters for the above command, got to [az aks create](/cli/azure/aks#az-aks-create). 
+To configure more parameters for the above command, see [az aks create](/cli/azure/aks#az-aks-create). 
 
 > [!NOTE]
 > The AKS cluster that you created will appear in the resource group that you created, **myResourceGroup**. However, the automatically created application gateway instance will be in the node resource group, where the agent pools are. The node resource group is named **MC_resource-group-name_cluster-name_location** by default, but can be modified. 

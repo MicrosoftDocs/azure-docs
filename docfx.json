@@ -11,6 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
@@ -22,6 +23,20 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-form-recognizer",
+        "src": "articles/applied-ai-services/form-recognizer",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -73,6 +88,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/obj/**",
           "healthcare-apis/**"
@@ -82,6 +98,22 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-form-recognizer",
+        "src": "articles/applied-ai-services/form-recognizer",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -130,6 +162,10 @@
       "grp-iot-edge": {
         "dest": "destiotedge",
         "moniker_range": ">=iotedge-2018-06"
+      },
+      "grp-form-recognizer": {
+        "dest": "destformrecognizer",
+        "moniker_range": ">=form-recog-2.1.0"
       }
     },
     "overwrite": [],
@@ -150,6 +186,7 @@
         "Azure"
       ],
       "recommendations": true,
+      "recommendation_types": ["Learn"],
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "contributors_to_exclude": [
@@ -214,7 +251,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "zr-msft",
+        "articles/aks/**/*.md": "MGoedtel",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -222,8 +259,8 @@
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/automanage/*md": "orspod",
-        "articles/automation/**/*.md": "sgsneha",
-        "articles/update-center/**/*.md": "sgsneha",
+        "articles/automation/**/*.md": "SnehaSudhirG",
+        "articles/update-center/**/*.md": "SnehaSudhirG",
         "articles/azure-arc/**/*.md": "JnHs",
         "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-functions/**/*.md": "ggailey777",
@@ -250,17 +287,17 @@
         "articles/azure-portal/**/*.yml": "JnHs",
         "articles/azure-relay/*.md": "spelluru",
         "articles/azure-resource-manager/*.md": "tfitzmac",
-        "articles/azure-resource-manager/custom-providers/**/*.md": "tfitzmac",
+        "articles/azure-resource-manager/custom-providers/**/*.md": "davidsmatlak",
         "articles/azure-resource-manager/managed-applications/**/*.md": "davidsmatlak",
         "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
-        "articles/azure-vmware/**/*.md": "suzizuber",
+        "articles/azure-vmware/**/*.md": "jjaygbay1",
         "articles/backup/**/*.md": "v-amallick",
         "articles/backup/**/*.yml": "v-amallick",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
-        "articles/batch/**/*.md": "prkannap",
+        "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
@@ -283,7 +320,7 @@
         "articles/applied-ai-services/form-recognizer/**/*.md": "laujan",
         "articles/cognitive-services/LUIS/**/*.md": "aahill",
         "articles/applied-ai-services/metrics-advisor/**/*.md": "mrbullwinkle",
-        "articles/cognitive-services/personalizer/**/*.md": "edjez",
+        "articles/cognitive-services/personalizer/**/*.md": "jcodella",
         "articles/cognitive-services/QnAMaker/**/*.md": "jboback",
         "articles/cognitive-services/openai/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/Speech-Service/**/*.md": "eric-urban",
@@ -311,7 +348,7 @@
         "articles/hdinsight/*.yml": "sreekzz",
         "articles/hdinsight/**/*.md": "sreekzz",
         "articles/jenkins/**/*.md": "TomArcherMsft",
-        "articles/lab-services/**/*.md": "j-martens",
+        "articles/lab-services/**/*.md": "ntrogh",
         "articles/lighthouse/**/*.md": "JnHs",
         "articles/logic-apps/*.md": "ecfan",
         "articles/marketplace/**/*.md": "mingshen-ms",
@@ -321,6 +358,10 @@
         "articles/notebooks/*.md": "j-martens",
         "articles/open-datasets/**/*.md": "samuel100",
         "articles/open-datasets/**/*.yml": "samuel100",
+        "articles/openshift/**/*.md": "johnmarco",
+        "articles/openshift/**/*.yml": "johnmarco",
+        "articles/quotas/**/*.md": "JnHs",
+        "articles/quotas/**/*.yml": "JnHs",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "rboucher",
@@ -356,7 +397,7 @@
         "articles/ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/api-management/**/*.md": "https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858",
         "articles/application-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=8d429912-8326-ec11-b6e6-000d3a4f0789",
-        "articles/application-insights/**/*.md": "https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0",
+        "articles/application-insights/**/*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
         "articles/app-service/**/*.md": "https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c",
         "articles/app-service-mobile/**/*.md": "https://github.com/Azure/azure-mobile-apps/issues",
         "articles/automation/**/*.md": "https://feedback.azure.com/d365community/forum/8ddd03a2-0225-ec11-b6e6-000d3a4f0858",
@@ -368,7 +409,7 @@
         "articles/azure-government/**/*.md": "",
         "articles/azure-maps/**/*.md": "https://feedback.azure.com/d365community/forum/fc834083-0925-ec11-b6e6-000d3a4f09d0",
         "articles/azure-monitor/**/*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
-        "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0",
+        "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
         "articles/azure-monitor/log-query/**/*.md": "https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0",
         "articles/azure-percept/**/*.md": "https://feedback.azure.com/d365community/forum/4a4c60f9-4e4d-ec11-8f8e-0022481f2bb0",
         "articles/azure-monitor/platform/**/alert-*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
@@ -389,6 +430,7 @@
         "articles/biztalk-services/**/*.md": "https://feedback.azure.com/d365community/forum/6b0c7198-0c25-ec11-b6e6-000d3a4f07b8",
         "articles/blockchain/**/*.md": "https://feedback.azure.com/d365community/forum/1117d1aa-0c25-ec11-b6e6-000d3a4f07b8",
         "articles/cdn/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=78a5490b-8326-ec11-b6e6-000d3a4f0789",
+        "articles/center-sap-solutions/*.md": "https://feedback.azure.com/d365community/forum/9ed90375-d5e0-ec11-bb3d-000d3a57bc26",
         "articles/chef/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/cloudfoundry/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/cloud-partner-portal/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
@@ -444,6 +486,7 @@
         "articles/docker/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/documentdb/**/*.md": "https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858",
         "articles/dotnet/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "articles/energy-data-services/**/*.md": "https://feedback.azure.com/d365community/forum/f0544cc4-c338-ed11-9db0-000d3a1f475f",
         "articles/event-grid/**/*.md": "https://feedback.azure.com/d365community/forum/a095b5b5-f124-ec11-b6e6-000d3a4f0da0",
         "articles/event-hubs/**/*.md": "https://feedback.azure.com/d365community/forum/86c37ae9-7526-ec11-b6e6-000d3a4f032c",
         "articles/expressroute/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=a34c3e27-8326-ec11-b6e6-000d3a4f0789",
@@ -467,6 +510,7 @@
         "articles/lighthouse/**/*.md": "https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0",
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789",
         "articles/load-testing/**/*.md": "https://github.com/microsoft/azure-load-testing/issues",
+        "articles/dev-box/**/*.md": "https://feedback.azure.com/d365community/forum/dbaa0c2b-4e1d-ed11-b83d-000d3a4d97ea", 
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c",
         "articles/machine-learning/**/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
@@ -517,6 +561,7 @@
         "articles/terraform/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/time-series-insights/**/*.md": "https://feedback.azure.com/d365community/forum/873d6d1c-0c25-ec11-b6e6-000d3a4f07b8",
         "articles/traffic-manager/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=40ace5ab-8326-ec11-b6e6-000d3a4f0789",
+        "articles/update-center/**/*.md": "https://feedback.azure.com/d365community/forum/721a322e-bd25-ec11-b6e6-000d3a4f0f1c",
         "articles/virtual-desktop/**/*.md": "https://techcommunity.microsoft.com/t5/azure-virtual-desktop/idb-p/AzureVirtualDesktop",
         "articles/virtual-machines/**/*.md": "https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c",
         "articles/virtual-machine-scale-sets/**/*.md": "https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c",
@@ -559,7 +604,7 @@
         "articles/azure-arc/servers/**/*.md": "rayoflores",
         "articles/azure-functions/**/*.md": "mijacobs",
         "articles/azure-monitor/**/*.md": "orspodek",
-        "articles/azure-portal/**/*.md": "evansma",
+        "articles/azure-portal/**/*.md": "rayoflores",
         "articles/azure-sql/**/*.md": "jroth",
         "articles/azure-sql-edge/**/*.md" : "jroth",
         "articles/azure-vmware/**/*.md": "rayoflores",
@@ -574,6 +619,7 @@
         "articles/devtest-labs/**/*.md": "j-martens",
         "articles/lab-services/**/*.md": "j-martens",
         "articles/migrate/**/*.md": "evansma",
+        "articles/quotas/**/*.md": "rayoflores",
         "articles/remote-rendering/**/*.md": "jlyons",
         "articles/site-recovery/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "mamccrea",
@@ -581,7 +627,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "zarhoads",
+        "articles/aks/**/*.md": "magoedte",
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -598,7 +644,7 @@
         "articles/azure-monitor/*.*": "bwren",
         "articles/azure-monitor/app/*.md": "aaronmax",
         "articles/azure-monitor/agents/*.md": "guywild",
-        "articles/azure-monitor/alerts/*.md": "abbyweisberg", 
+        "articles/azure-monitor/alerts/*.md": "abbyweisberg",
         "articles/azure-monitor/autoscale/*.md": "edbaynash",
         "articles/azure-monitor/change/*.md": "hannahhunter",
         "articles/azure-monitor/containers/*.md": "bwren",
@@ -611,18 +657,18 @@
         "articles/azure-monitor/visualize/**/*.md": "abbyweisberg",
         "articles/azure-monitor/vm/*.md": "bwren",
         "articles/azure-percept/*.md": "ngt",
-        "articles/azure-percept/*.yml": "ngt",        
+        "articles/azure-percept/*.yml": "ngt",
         "articles/azure-portal/**/*.md": "jenhayes",
         "articles/azure-portal/**/*.yml": "jenhayes",
         "articles/azure-relay/*.md": "spelluru",
         "articles/azure-resource-manager/*.md": "tomfitz",
-        "articles/azure-resource-manager/custom-providers/**/*.md": "tomfitz",
+        "articles/azure-resource-manager/custom-providers/**/*.md": "davidsmatlak",
         "articles/azure-resource-manager/managed-applications/**/*.md": "davidsmatlak",
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
-        "articles/azure-vmware/**/*.md": "v-szuber",
+        "articles/azure-vmware/**/*.md": "jacobjaygbay",
         "articles/backup/**/*.md": "v-amallick",
         "articles/backup/**/*.yml": "v-amallick",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
@@ -649,7 +695,7 @@
         "articles/applied-ai-services/form-recognizer/**/*.md": "lajanuar",
         "articles/cognitive-services/LUIS/**/*.md": "aahi",
         "articles/applied-ai-services/metrics-advisor/**/*.md": "mbullwin",
-        "articles/cognitive-services/personalizer/**/*.md": "edjez",
+        "articles/cognitive-services/personalizer/**/*.md": "jacodel",
         "articles/cognitive-services/QnAMaker/**/*.md": "jboback",
         "articles/cognitive-services/openai/**/*.md": "mbullwin",
         "articles/cognitive-services/Speech-Service/**/*.md": "eur",
@@ -687,6 +733,10 @@
         "articles/notebooks/*.md": "joshuapa",
         "articles/open-datasets/**/*.md": "samkemp",
         "articles/open-datasets/**/*.yml": "samkemp",
+        "articles/openshift/**/*.md": "johnmarc",
+        "articles/openshift/**/*.yml": "johnmarc",
+        "articles/quotas/**/*.md": "jenhayes",
+        "articles/quotas/**/*.yml": "jenhayes",
         "articles/search/*.md": "heidist",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-fabric/*.md": "sukanyas",
@@ -699,8 +749,8 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako",
-        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",  
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "juliako",        
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "juliako",
         "articles/azure-video-indexer/*.md": "Juliako"
       },
       "ms.collection": {
@@ -800,6 +850,8 @@
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
         "acticles/object-anchors/**/*.md": "azure-object-anchors",
+        "articles/openshift/**/*.md": "azure-redhat-openshift",
+        "articles/quotas/**/*.md": "azure-quotas",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/sentinel/**/*.md": "microsoft-sentinel",
         "articles/service-bus-messaging/*.md": "service-bus-messaging",
@@ -829,7 +881,8 @@
         "articles/azure-monitor/change/*.md": "change-analysis",
         "articles/azure-monitor/containers/**/*.md": "containers",
         "articles/azure-monitor/essentials/**/*.md": "essentials",
-        "articles/azure-monitor/snapshot-debugger/**/*.md": "snapshot-debugger",
+        "articles/azure-monitor/profiler/*.md": "profiler",
+        "articles/azure-monitor/snapshot-debugger/*.md": "snapshot-debugger",
         "articles/azure-monitor/*.md": "general",
         "articles/azure-monitor/insights/**/*.md": "insights",
         "articles/azure-monitor/logs/**/*.md": "logs",
@@ -887,7 +940,8 @@
         "articles/sentinel/**/*.md": "microsoft-sentinel"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
@@ -1041,8 +1095,8 @@
         "articles/azure-sql/virtual-machines/**/*.yml": "SQL Server on Azure VMs",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer",
-        "articles/azure-video-analyzer/video-analyzer-media-docs/*.md": "Azure Video Analyzer for Media",
-        "articles/azure-video-analyzer/video-analyzer-media-docs/*.yml": "Azure Video Analyzer for Media",     
+        "articles/azure-video-indexer/*.md": "Azure Video Indexer",
+        "articles/azure-video-indexer/*.yml": "Azure Video Indexer",     
         "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
         "articles/azure-vmware/**/*.yml" : "Azure VMware Solution",
         "articles/backup/**/*.md": "Azure Backup",
@@ -1090,8 +1144,14 @@
         "articles/object-anchors/**/*.yml": "Azure Object Anchors",
         "articles/open-datasets/**/*.md": "Azure Open Datasets",
         "articles/open-datasets/**/*.yml": "Azure Open Datasets",
+        "articles/openshift/**/*.md": "Azure Red Hat OpenShift",
+        "articles/openshift/**/*.yml": "Azure Red Hat OpenShift",
+        "articles/partner-solutions/**/*.md": "Azure Native ISV Services",
+        "articles/partner-solutions/**/*.yml": "Azure Native ISV Services",
         "articles/purview/**/*.md": "Microsoft Purview",
         "articles/purview/**/*.yml": "Microsoft Purview",
+        "articles/quotas/**/*.md": "Azure Quotas",
+        "articles/quotas/**/*.yml": "Azure Quotas",
         "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
         "articles/scheduler/*.md": "Azure Scheduler",
@@ -1114,7 +1174,9 @@
         "articles/virtual-machines/windows/sql/**/*.md": "SQL Server on Azure VM",
         "articles/virtual-machines/windows/sql/**/*.yml": "SQL Server on Azure VM",
         "articles/virtual-machines/workloads/**/*.md": "Azure Virtual Machines",
-        "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines"
+        "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines",
+        "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
+        "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions"
       }
     },
     "template": [
@@ -1159,6 +1221,7 @@
           "articles/defender-for-iot/organizations/alert-engine-messages.md",
           "articles/dms/known-issues-troubleshooting-dms.md",
           "articles/dms/tutorial-mysql-azure-mysql-online.md",
+          "articles/dms/tutorial-mysql-azure-single-to-flex-online-portal.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
           "articles/mariadb/**/*.md",
           "articles/mysql/**/*.md",

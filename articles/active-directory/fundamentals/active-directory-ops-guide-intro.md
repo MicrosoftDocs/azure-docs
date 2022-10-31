@@ -3,13 +3,13 @@ title: Azure Active Directory operations reference guide
 description: This operations reference guide describes the checks and actions you should take to secure and maintain identity and access management, authentication, governance, and operations
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: rkarlin
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 10/31/2019
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 

@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/25/2022
 ---
 
 # Data Factory metrics and alerts
@@ -86,6 +86,9 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="Screenshot that shows alert details.":::
 
 1. Define the action group.
+
+   > [!NOTE]
+   > The action group must be created within the same resource group as the data factory instance in order to be available for use from the data factory.
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Screenshot that shows creating a rule, with New action group highlighted.":::
 

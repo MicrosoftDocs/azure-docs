@@ -12,15 +12,15 @@ ms.custom: subject-rbac-steps
 
 # IoT Hub support for managed identities 
 
-Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. This eliminates the needs for developers having to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. IoT Hub supports both. 
+Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. This eliminates the need for developers having to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. IoT Hub supports both. 
 
 In IoT Hub, managed identities can be used for egress connectivity from IoT Hub to other Azure services for features such as [message routing](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [bulk device import/export](iot-hub-bulk-identity-mgmt.md). In this article, you learn how to use system-assigned and user-assigned managed identities in your IoT hub for different functionalities.
 
 ## Prerequisites
 
-- Read the documentation of [managed identities for Azure resources](./../active-directory/managed-identities-azure-resources/overview.md) to understand the differences between system-assigned and user-assigned managed identity.
+- Understand the managed identity differences between *system-assigned* and *user-assigned* in [What are managed identities for Azure resources?](./../active-directory/managed-identities-azure-resources/overview.md)
 
-- If you don’t have an IoT hub, [create one](iot-hub-create-through-portal.md) before continuing.
+- An [IoT hub](iot-hub-create-through-portal.md) 
 
 ## System-assigned managed identity
 
@@ -417,7 +417,7 @@ result = iothub_job_manager.create_import_export_job(JobProperties(
 ## SDK samples
 - [.NET SDK sample](https://aka.ms/iothubmsicsharpsample)
 - [Java SDK sample](https://aka.ms/iothubmsijavasample)
-- [Python SDK sample](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-hub/samples)
+- [Python SDK sample](https://github.com/Azure/azure-iot-hub-python/tree/main/samples)
 - Node.js SDK samples: [bulk device import](https://aka.ms/iothubmsinodesampleimport), [bulk device export](https://aka.ms/iothubmsinodesampleexport)
 
 ## Next steps

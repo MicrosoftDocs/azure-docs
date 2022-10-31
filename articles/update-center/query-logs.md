@@ -1,8 +1,7 @@
 ---
 title: Query logs and results from Update management center (preview)
 description: The article provides details on how you can review logs and search results from update management center (preview) in Azure using Azure Resource Graph
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -11,11 +10,11 @@ ms.topic: conceptual
 
 # Overview of query logs in update management center (Preview)
 
-Logs created from operations like update assessments and installations are stored by Update management center (preview) in an [Azure Resource Graph](/azure/governance/resource-graph/overview). The Azure Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update management center (preview) uses the Azure Resource Graph to store its results, and you can view the update history of the last 30 days from the resources.
+Logs created from operations like update assessments and installations are stored by Update management center (preview) in an [Azure Resource Graph](../governance/resource-graph/overview.md). The Azure Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update management center (preview) uses the Azure Resource Graph to store its results, and you can view the update history of the last 30 days from the resources.
 
-Azure Resource Graph's query language is based on the [Kusto query language](/azure/governance/resource-graph/concepts/query-language) used by Azure Data Explorer. 
+Azure Resource Graph's query language is based on the [Kusto query language](../governance/resource-graph/concepts/query-language.md) used by Azure Data Explorer. 
 
-The article describes the structure of the logs from Update management center (Preview) and how you can use [Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal) to analyze them in support of your reporting, visualizing, and export needs.
+The article describes the structure of the logs from Update management center (Preview) and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
 
 ## Log structure
 

@@ -29,7 +29,7 @@ Datastores securely connect to your storage service on Azure without putting you
 
 To understand where datastores fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-For a low code experience, see how to use the [Azure Machine Learning studio to create and register datastores](../how-to-connect-data-ui.md#create-datastores).
+For a low code experience, see how to use the [Azure Machine Learning studio to create and register datastores](how-to-connect-data-ui.md#create-datastores).
 
 >[!TIP]
 > This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](../how-to-assign-roles.md#default-roles).
@@ -68,7 +68,7 @@ For a low code experience, see how to use the [Azure Machine Learning studio to 
 Datastores currently support storing connection information to the storage services listed in the following matrix. 
 
 > [!TIP]
-> **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move-data-to-supported-azure-storage-solutions) to a supported Azure storage solution. 
+> **For unsupported storage solutions** (those not listed in the table below), you may run into issues connecting and working with your data. We suggest you [move your data](#move-data-to-supported-azure-storage-solutions) to a supported Azure storage solution. Doing this may also help with additional scenarios, like saving data egress cost during ML experiments.
 
 | Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](/rest/api/azureml/) | VS Code
 ---|---|---|---|---|---|---
@@ -156,7 +156,7 @@ Within this section are examples for how to create and register a datastore via 
 
  To create datastores for other supported storage services, see the [reference documentation for the applicable `register_azure_*` methods](/python/api/azureml-core/azureml.core.datastore.datastore#methods).
 
-If you prefer a low code experience, see [Connect to data with Azure Machine Learning studio](../how-to-connect-data-ui.md).
+If you prefer a low code experience, see [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
 >[!IMPORTANT]
 > If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
 
@@ -251,7 +251,7 @@ If you prefer to create and manage datastores using the Azure Machine Learning V
 
 After you create a datastore, [create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. 
 
-With datasets, you can [download or mount](../how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services for model training on a compute target. [Learn more about how to train ML models with datasets](../how-to-train-with-datasets.md).
+With datasets, you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services for model training on a compute target. [Learn more about how to train ML models with datasets](how-to-train-with-datasets.md).
 
 
 
@@ -290,18 +290,18 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |
 | [Batch prediction](../tutorial-pipeline-batch-scoring-classification.md) | ✔ | Make predictions on large quantities of data asynchronously. |
-| [Web service](../how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
+| [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
 
 For situations where the SDK doesn't provide access to datastores, you might be able to create custom code by using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 
 ## Move data to supported Azure storage solutions
 
-Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](../../data-factory/quickstart-create-data-factory-copy-data-tool.md). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
+Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](../../data-factory/quickstart-hello-world-copy-data-tool.md). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
 
 Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors at no extra cost. These connectors include Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery.
 
 ## Next steps
 
 * [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
-* [Train a model](../how-to-set-up-training-targets.md)
-* [Deploy a model](../how-to-deploy-and-where.md)
+* [Train a model](how-to-set-up-training-targets.md)
+* [Deploy a model](how-to-deploy-and-where.md)

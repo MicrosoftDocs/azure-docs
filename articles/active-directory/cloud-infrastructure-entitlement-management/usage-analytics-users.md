@@ -2,13 +2,14 @@
 title: View analytic information about users in Permissions Management
 description: How to view analytic information about users in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View analytic information about users
@@ -108,7 +109,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Identity Subtype**, select the type of user: **All**, **ED**, **Local**, or **Cross Account**.
+1. From the **Identity Subtype**, select the type of user: **All**, **ED** (Enterprise Directory), **Local**, or **Cross Account**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes.

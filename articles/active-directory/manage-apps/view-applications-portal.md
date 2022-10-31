@@ -77,4 +77,4 @@ If you created a test application named **Azure AD SAML Toolkit 1** that was use
 
 Learn how to delete an enterprise application.
 > [!div class="nextstepaction"]
-> [Delete an application](add-application-portal.md)
+> [Delete an application](delete-application-portal.md)

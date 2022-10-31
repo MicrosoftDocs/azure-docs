@@ -1,20 +1,24 @@
 ---
 title: Create a Managed Service offer for the commercial marketplace
 description: Create a new Managed Service offer for Azure Marketplace. 
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: anbene
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 07/20/2022
 ---
 
 # Create a Managed Service offer for the commercial marketplace
 
 This article explains how to create a Managed Service offer for the Microsoft commercial marketplace using Partner Center.
 
-To publish a Managed Service offer, you must have earned a Gold or Silver Microsoft Competency in Cloud Platform. If you haven’t already done so, read [Plan a Managed Service offer for the commercial marketplace](./plan-managed-service-offer.md). It will help you prepare the assets you need when you create the offer in Partner Center.
+## Before you begin
+
+To publish a Managed Service offer, you must meet the following prerequisites:
+
+- Have earned a Gold or Silver Microsoft Competency in Cloud Platform. If you haven’t already done so, read [Plan a Managed Service offer for the commercial marketplace](./plan-managed-service-offer.md). It will help you prepare the assets you need when you create the offer in Partner Center.
+- Have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 ## Create a new offer
 

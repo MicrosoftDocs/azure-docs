@@ -2,13 +2,21 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 08/08/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Install Bicep tools
 
-Let's make sure your environment is set up for developing and deploying Bicep files.
+Let's make sure your environment is set up for working with Bicep files. To author and deploy Bicep files, we recommend any of the following options:
+
+| Tasks | Options | Bicep CLI installation |
+| ------ | ------- | ----------- |
+| Author | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+| Deploy | [Azure CLI](#azure-cli) | automatic |
+|  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
+|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+|  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
 ## VS Code and Bicep extension
 
@@ -29,13 +37,11 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 
 If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
-## Deployment environment
-
-After setting up your development environment, you need to install Bicep CLI for your deployment environment. Depending on whether you want to use [Azure CLI](#azure-cli) or [Azure PowerShell](#azure-powershell), the steps to set up a local deployment environment are different. Those steps are shown in the next sections.
-
-To deploy Bicep files from an Azure Pipeline, see [Integrate Bicep with Azure Pipelines](add-template-to-azure-pipelines.md). To deploy Bicep files through GitHub Actions, see [Deploy Bicep files by using GitHub Actions](deploy-github-actions.md).
+You can deploy your Bicep files directly from the VS Code editor. For more information, see [Deploy Bicep files from Visual Studio Code](deploy-vscode.md).
 
 ## Azure CLI
+
+When you use Azure CLI with Bicep, you have everything you need to [deploy](deploy-cli.md) and [decompile](decompile.md) Bicep files. Azure CLI automatically installs the Bicep CLI when a command is executed that needs it.
 
 You must have Azure CLI version **2.20.0 or later** installed. To install or update Azure CLI, see:
 
@@ -49,24 +55,16 @@ To verify your current version, run:
 az --version
 ```
 
-You now have everything you need to [deploy](deploy-cli.md) and [decompile](decompile.md) Bicep files. Azure CLI will automatically install the Bicep CLI when a command is executed that needs it.
-
-To manually start the Bicep CLI installation, use:
+To validate your Bicep CLI installation, use:
 
 ```azurecli
-az bicep install
+az bicep version
 ```
 
 To upgrade to the latest version, use:
 
 ```azurecli
 az bicep upgrade
-```
-
-To validate the install, use:
-
-```azurecli
-az bicep version
 ```
 
 For more commands, see [Bicep CLI](bicep-cli.md).
@@ -216,3 +214,5 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 
 If you have problems with your Bicep installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
+
+To deploy Bicep files from an Azure Pipeline, see [Integrate Bicep with Azure Pipelines](add-template-to-azure-pipelines.md). To deploy Bicep files through GitHub Actions, see [Deploy Bicep files by using GitHub Actions](deploy-github-actions.md).

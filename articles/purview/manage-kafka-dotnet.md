@@ -7,7 +7,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: csharp
-ms.date: 06/12/2022
+ms.date: 09/29/2022
 ms.custom: mode-other
 ---
 
@@ -15,7 +15,7 @@ ms.custom: mode-other
 This quickstart teaches you how to send and receive *Atlas Kafka* topics events.  We'll make use of *Azure Event Hubs* and the **Azure.Messaging.EventHubs** .NET library.
 
 > [!IMPORTANT]
-> A managed event hub is created automatically when your *Microsoft Purview* account is created. See, [Purview account creation](create-catalog-portal.md). You can publish messages to Event Hubs Kafka topic, ATLAS_HOOK. Purview will receive it, process it and notify Kafka topic ATLAS_ENTITIES of entity changes. This quickstart uses the new **Azure.Messaging.EventHubs** library.
+> A managed event hub is created automatically when your *Microsoft Purview* account is created. See, [Microsoft Purview account creation](create-catalog-portal.md). You can publish messages to Event Hubs Kafka topic, ATLAS_HOOK. Microsoft Purview will receive it, process it and notify Kafka topic ATLAS_ENTITIES of entity changes. This quickstart uses the new **Azure.Messaging.EventHubs** library.
 
 
 ## Prerequisites
@@ -31,8 +31,8 @@ To follow this quickstart, you need certain prerequisites in place:
     >[!NOTE]
     >Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/pricing/details/purview/).
 
-## Publish messages to Purview 
-Let's create a .NET Core console application that sends events to Purview via Event Hubs Kafka topic, **ATLAS_HOOK**.
+## Publish messages to Microsoft Purview 
+Let's create a .NET Core console application that sends events to Microsoft Purview via Event Hubs Kafka topic, **ATLAS_HOOK**.
 
 ## Create a Visual Studio project
 
@@ -86,13 +86,13 @@ Next create a C# .NET console application in Visual Studio:
     private const string eventHubName = "<EVENT HUB NAME>";
     ```
 
-    You can get the Event Hubs namespace associated with the Purview account by looking at the Atlas kafka endpoint primary/secondary connection strings. These can be found in **Properties** tab of your Purview account.
+    You can get the Event Hubs namespace associated with the Microsoft Purview account by looking at the Atlas kafka endpoint primary/secondary connection strings. These can be found in **Properties** tab of your account.
 
     :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="A screenshot that shows an Event Hubs Namespace.":::
 
-    The event hub name for sending messages to Purview is **ATLAS_HOOK**.
+    The event hub name for sending messages to Microsoft Purview is **ATLAS_HOOK**.
 
-3. Replace the `Main` method with the following `async Main` method and add an `async ProduceMessage` to push messages into Purview. See the comments in the code for details.
+3. Replace the `Main` method with the following `async Main` method and add an `async ProduceMessage` to push messages into Microsoft Purview. See the comments in the code for details.
 
     ```csharp
         static async Task Main()
@@ -240,8 +240,8 @@ Next create a C# .NET console application in Visual Studio:
 
 ```
 
-## Receive Purview messages
-Next learn how to write a .NET Core console application that receives messages from event hubs using an event processor. The event processor manages persistent checkpoints and parallel receptions from event hubs. This simplifies the process of receiving events. You need to use the ATLAS_ENTITIES event hub to receive messages from Purview.
+## Receive Microsoft Purview messages
+Next learn how to write a .NET Core console application that receives messages from event hubs using an event processor. The event processor manages persistent checkpoints and parallel receptions from event hubs. This simplifies the process of receiving events. You need to use the ATLAS_ENTITIES event hub to receive messages from Microsoft Purview.
 
 > [!WARNING]
 > Event Hubs SDK uses the most recent version of Storage API available. That version may not necessarily be available on your Stack Hub platform. If you run this code on Azure Stack Hub, you will experience runtime errors unless you target the specific version you are using. If you're using Azure Blob Storage as a checkpoint store, review the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and in your code, target that version.
@@ -301,11 +301,11 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
         private const string blobContainerName = "<BLOB CONTAINER NAME>";
     ```
 
-    You can get event hub namespace associated with your Purview account by looking at your Atlas kafka endpoint primary/secondary connection strings. This can be found in the **Properties** tab of your Purview account.
+    You can get event hub namespace associated with your Microsoft Purview account by looking at your Atlas kafka endpoint primary/secondary connection strings. This can be found in the **Properties** tab of your Microsoft Purview account.
 
     :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="A screenshot that shows an Event Hubs Namespace.":::
 
-    Use **ATLAS_ENTITIES** as the event hub name when sending messages to Purview.
+    Use **ATLAS_ENTITIES** as the event hub name when sending messages to Microsoft Purview.
 
 3. Replace the `Main` method with the following `async Main` method. See the comments in the code for details.
 
@@ -361,7 +361,7 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
     > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
 6. Run the receiver application.
 
-### An example of a Message received from Purview
+### An example of a Message received from Microsoft Purview
 
 ```json
 {
@@ -396,9 +396,6 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
 				}
 }
 ```
-
-> [!IMPORTANT]
-> Atlas currently supports the following operation types: **ENTITY_CREATE_V2**, **ENTITY_PARTIAL_UPDATE_V2**, **ENTITY_FULL_UPDATE_V2**, **ENTITY_DELETE_V2**. Pushing messages to Purview is currently enabled by default. If your scenario involves reading from Purview contact us, as it needs to be allow-listed. You'll need to provide your subscription id and the name of Purview account.
 
 
 ## Next steps

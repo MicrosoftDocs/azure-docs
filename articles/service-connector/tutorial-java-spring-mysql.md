@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Deploy a Spring Cloud Application Connected to Azure Database for MySQL with Service Connector'
 description: Create a Spring Boot application connected to Azure Database for MySQL with Service Connector.
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022

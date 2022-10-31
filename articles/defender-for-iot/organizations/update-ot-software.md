@@ -19,7 +19,7 @@ When downloading your update files from the Azure portal, you’ll see the optio
 
 Make sure to select the file that matches your upgrade scenario.
 
-Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
+Updates from legacy versions may require a series of software updates: If you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version. For example:
 
 :::image type="content" source="media/update-ot-software/legacy.png" alt-text="Screenshot of the multiple download options displayed.":::
 
@@ -29,9 +29,9 @@ Updates from legacy versions may require a series of software updates. For examp
 
     For more information, see [OT sensor cloud connection methods](architecture-connections.md) and [Connect your OT sensors to the cloud](connect-sensors.md).
 
-- Make sure that your firewall rules are configured as needed for the new version you're updating to. For example, the new version may require a new or modified firewall rule to support [sensor access to the Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+- Make sure that your firewall rules are configured as needed for the new version you're updating to. For example, the new version may require a new or modified firewall rule to support sensor access to the Azure portal. From the **Sites and sensors** page, select **More actions > Download sensor endpoint details** for the full list of endpoints required to access the Azure portal.
 
-    For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).
+    For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements) and [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 ## Update an on-premises management console
 
@@ -53,6 +53,8 @@ In such cases, make sure to update your on-premises management consoles *before*
 
     Make sure to select the version for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 1. On your on-premises management console, select **System Settings** > **Version Update**.
 
 1. In the **Upload File** dialog, select **BROWSE FILE** and then browse to and select the update file you'd downloaded from the Azure portal.
@@ -60,8 +62,6 @@ In such cases, make sure to update your on-premises management consoles *before*
     The update process starts, and may take about 30 minutes. During your upgrade, the system is rebooted twice.
 
     Sign in when prompted and check the version number listed in the bottom-left corner to confirm that the new version is listed.
-
-
 
 ## Update your sensors
 
@@ -93,15 +93,17 @@ This procedure describes how to manually download the new sensor software versio
 
     Make sure you're downloading the correct file for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 1. On your sensor console, select **System Settings** > **Sensor management** > **Software Update**.
 
-1. On the **Software Update** pane on the right, select **Upload file**, and then navigate to and select your downloaded `legacy-sensor-secured-patcher-<Version number>.tar` file.
+1. On the **Software Update** pane on the right, select **Upload file**, and then navigate to and select your downloaded `legacy-sensor-secured-patcher-<Version number>.tar` file. For example:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the Software Update pane on the sensor." lightbox="media/how-to-manage-individual-sensors/upgrade-pane-v2.png":::
 
     The update process starts, and may take about 30 minutes. During your upgrade, the system is rebooted twice.
 
-    Sign in when prompted, and then return to the **System Settings** > **Sensor management** > **Software Update** pane to confirm that the new version is listed.
+    Sign in when prompted, and then return to the **System Settings** > **Sensor management** > **Software Update** pane to confirm that the new version is listed. For example:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in." lightbox="media/how-to-manage-individual-sensors/defender-for-iot-version.png":::
 
@@ -117,11 +119,13 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
 **To update several sensors**:
 
-1. On the Azure portal, go to **Defender for IoT** > **Updates**. Under **Sensors**, select **Download** and save the file.
+1. On the Azure portal, go to **Defender for IoT** > **Updates**. Under **Sensors**, select **Download** and save the file. For example:
 
    :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT." lightbox="media/how-to-manage-individual-sensors/updates-page.png":::
 
     Make sure you're downloading the correct file for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
+
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 1. On your on-premises management console, select **System Settings**, and identify the sensors that you want to update.
 
@@ -129,8 +133,7 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
     Also make sure that sensors you *don't* want to update are *not* selected.
 
-    Save your changes when you're finished selecting sensors to update.
-
+    Save your changes when you're finished selecting sensors to update. For example:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
 
@@ -165,7 +168,7 @@ This procedure is relevant only if you're updating sensors from software version
 
 1. Select the site where you want to update your sensor, and then browse to the sensor you want to update.
 
-1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**.
+1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**. For example:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
 
@@ -175,6 +178,7 @@ This procedure is relevant only if you're updating sensors from software version
 
 1. Verify that the status showing in the new sensor row has switched to **Pending activation**.
 
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 > [!NOTE]
 > The previous sensor is not automatically deleted after your update. After you've updated the sensor software, make sure to [remove the previous sensor from Defender for IoT](#remove-your-previous-sensor).
@@ -209,7 +213,7 @@ In such cases:
 
 1. Verify that your sensors are connected successfully.
 
-1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](/azure/iot-hub/iot-hub-create-through-portal).
+1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](../../iot-hub/iot-hub-create-through-portal.md).
 
 ## Next steps
 

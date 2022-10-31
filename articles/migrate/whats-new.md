@@ -13,6 +13,21 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (October 2022)
+
+- Support for export of errors and notifications from the portal for software inventory and agentless dependency.
+
+## Update (September 2022)
+
+- Support for pausing and resuming ongoing replications without having to do a complete replication again. You can also retry VM migrations without the need to do a full initial replication again. 
+- Enhanced notifications for test migration and migration completion status. 
+- Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
+- Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+
+## Update (August 2022)
+
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
+
 ## Update (June 2022)
 
 - Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
@@ -111,13 +126,13 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 
 ## Update (July 2020)
 
-- Agentless VMware migration now supports concurrent replication of 300 VMs per vCenter
+- Agentless VMware migration now supports concurrent replication of 300 VMs per vCenter.
 
 ## Update (June 2020)
 
 - Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) are now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
 - Support for multiple credentials on appliance for physical server discovery.
-- Support to allow Azure sign in from appliance for tenant where tenant restriction has been configured.
+- Support to allow Azure sign-in from appliance for tenant where tenant restriction has been configured.
 
 ## Update (April 2020)
 

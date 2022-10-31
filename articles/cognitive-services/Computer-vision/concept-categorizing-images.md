@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Categorize images by subject matter
+# Image categorization
 
 In addition to tags and a description, Image Analysis can return the taxonomy-based categories detected in an image. Unlike tags, categories are organized in a parent/child hierarchy, and there are fewer of them (86, as opposed to thousands of tags). All category names are in English. Categorization can be done by itself or alongside the newer tags model.
 

@@ -3,7 +3,7 @@ title: Profile Azure Functions app with Application Insights Profiler
 description: Enable Application Insights Profiler for Azure Functions app.
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 07/15/2022
 ms.reviewer: jogrima
 ---
 
@@ -17,12 +17,11 @@ In this article, you'll use the Azure portal to:
 > [!NOTE]
 > You can enable the Application Insights Profiler for Azure Functions apps on the **App Service** plan. 
 
-## Pre-requisites
+## Prerequisites
 
 - [An Azure Functions app](../../azure-functions/functions-create-function-app-portal.md). Verify your Functions app is on the **App Service** plan. 
      
   :::image type="content" source="./media/profiler-azure-functions/choose-plan.png" alt-text="Screenshot of where to select App Service plan from drop-down in Functions app creation.":::
-
 
 - Linked to [an Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
 
@@ -70,26 +69,14 @@ The app settings now show up in the table:
    :::image type="content" source="./media/profiler-azure-functions/app-settings-table.png" alt-text="Screenshot showing the two new app settings in the table on the configuration blade.":::
 
 
-## View the Profiler data for your Azure Functions app
-
-1. Under **Settings**, select **Application Insights (preview)** from the left menu.
-
-   :::image type="content" source="./media/profiler-azure-functions/app-insights-menu.png" alt-text="Screenshot showing application insights from the left menu of the Functions app.":::
-
-1. Select **View Application Insights data**.
-
-   :::image type="content" source="./media/profiler-azure-functions/view-app-insights-data.png" alt-text="Screenshot showing the button for viewing application insights data for the Functions app.":::
-
-1. On the App Insights page for your Functions app, select **Performance** from the left menu.
-
-   :::image type="content" source="./media/profiler-azure-functions/performance-menu.png" alt-text="Screenshot showing the performance link in the left menu of the app insights blade of the functions app.":::
-
-1. Select **Profiler** from the top menu of the Performance blade.
-
-   :::image type="content" source="./media/profiler-azure-functions/profiler-function-app.png" alt-text="Screenshot showing link to profiler for functions app.":::
+> [!NOTE]
+> You can also enable Profiler using:  
+> - [Azure Resource Manager Templates](../app/azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager)
+> - [Azure PowerShell](/powershell/module/az.websites/set-azwebapp)
+> - [Azure CLI](/cli/azure/webapp/config/appsettings)
 
 
 ## Next Steps
-
-- Set these values using [Azure Resource Manager Templates](../app/azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp), or the [Azure CLI](/cli/azure/webapp/config/appsettings).
-- Learn more about [Profiler settings](profiler-settings.md).
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)

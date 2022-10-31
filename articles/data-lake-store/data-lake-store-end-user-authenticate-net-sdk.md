@@ -5,7 +5,7 @@ description: Learn how to achieve end-user authentication with Azure Data Lake S
 author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
-ms.date: 05/29/2018
+ms.date: 09/22/2022
 ms.author: normesta
 ms.custom: devx-track-csharp
 
@@ -75,7 +75,7 @@ For ease of use, the following snippet uses default values for client ID and red
     {
         //User login via interactive popup
         string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+        string CLIENTID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
         System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
         System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
         string MY_DOCUMENTS = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);

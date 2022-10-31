@@ -24,7 +24,7 @@ If you are not familiar with MLflow, you may not be aware of the difference betw
 
 Any file generated (and captured) from an experiment's run or job is an artifact. It may represent a model serialized as a Pickle file, the weights of a PyTorch or TensorFlow model, or even a text file containing the coefficients of a linear regression. Other artifacts can have nothing to do with the model itself, but they can contain configuration to run the model, pre-processing information, sample data, etc. As you can see, an artifact can come in any format. 
 
-You can log artifacts in MLflow in a similar way you log a file with Azure ML SDK v1:
+You may have been logging artifacts already:
 
 ```python
 filename = 'model.pkl'
@@ -36,18 +36,28 @@ mlflow.log_artifact(filename)
 
 ### Models
 
-A model in MLflow is also an artifact, as it matches the definition we introduced above. However, we make stronger assumptions about this type of artifacts. Such assumptions allow us to create a clear contract between the saved artifacts and what they mean. When you log your models as artifacts (simple files), you need to know what the model builder meant for each of them in order to know how to load the model for inference. When you log your models as a Model entity, you should be able to tell what it is based on the contract mentioned.
+A model in MLflow is also an artifact. However, we make stronger assumptions about this type of artifacts. Such assumptions provide a clear contract between the saved files and what they mean. When you log your models as artifacts (simple files), you need to know what the model builder meant for each of them in order to know how to load the model for inference. On the contrary, MLflow models can be loaded using the contract specified in the [The MLModel format](concept-mlflow-models.md#the-mlmodel-format).
 
-Logging models has the following advantages:
+In Azure Machine Learning, logging models has the following advantages:
 > [!div class="checklist"]
-> * You don't need to provide an scoring script nor an environment for deployment.
-> * Swagger is enabled in endpoints automatically and the __Test__ feature can be used in Azure ML studio.
+> * You can deploy them on real-time or batch endpoints without providing an scoring script nor an environment.
+> * When deployed, Model's deployments have a Swagger generated automatically and the __Test__ feature can be used in Azure ML studio.
 > * Models can be used as pipelines inputs directly.
-> * You can use the Responsable AI dashbord.
+> * You can use the [Responsible AI dashbord (preview)](how-to-responsible-ai-dashboard.md).
 
-## The MLModel format
+Models can get logged by using MLflow SDK:
 
-MLflow adopts the MLModel format as a way to create a contract between the artifacts and what they represent. The MLModel format stores assets in a folder. Among them, there is a particular file named MLModel. This file is the single source of truth about how a model can be loaded and used.
+```python
+import mlflow
+mlflow..sklearn.log_model(sklearn_estimator, "classifier")
+```
+
+
+## The MLmodel format
+
+MLflow adopts the MLmodel format as a way to create a contract between the artifacts and what they represent. The MLmodel format stores assets in a folder. Among them, there is a particular file named MLmodel. This file is the single source of truth about how a model can be loaded and used.
+
+![a sample MLflow model in MLmodel format](media/concept-mlflow-models/mlflow-mlmodel.png)
 
 The following example shows how the `MLmodel` file for a computer version model trained with `fastai` may look like:
 
@@ -103,8 +113,8 @@ Signatures are indicated when the model gets logged and persisted in the `MLmode
 
 There are two types of signatures:
 
-* **Column-based signature** corresponding to signatures that operate to tabular data. Models with this signature can expect to receive `pandas.DataFrame` objects as inputs.
-* **Tensor-based signature:** corresponding to signatures that operate with n-dimensional arrays or tensors. Models with this signature can expect to receive a `numpy.ndarray` as inputs (or a dictionary of `numpy.ndarray` in the case of named-tensors).
+* **Column-based signature** corresponding to signatures that operate to tabular data. For models with this signature, MLflow supplies `pandas.DataFrame` objects as inputs.
+* **Tensor-based signature:** corresponding to signatures that operate with n-dimensional arrays or tensors. For models with this signature, MLflow supplies `numpy.ndarray` as inputs (or a dictionary of `numpy.ndarray` in the case of named-tensors).
 
 The following example corresponds to a computer vision model trained with `fastai`. This model receives a batch of images represented as tensors of shape `(300, 300, 3)` with the RGB representation of them (unsigned integers). It outputs batches of predictions (probabilities) for two classes. 
 
@@ -123,7 +133,7 @@ signature:
 ```
 
 > [!TIP]
-> Azure Machine Learning generates Swagger endpoints for MLflow models with a signature available. This makes easier to test deployed endpoints using the Azure ML studio.
+> Azure Machine Learning generates Swagger for model's deployment in MLflow format with a signature available. This makes easier to test deployed endpoints using the Azure ML studio.
 
 ### Model's environment
 
@@ -167,8 +177,8 @@ Models created as MLflow models can be loaded back directly from the run where t
 
 There are two workflows available for loading models:
 
-* **Loading back the same object and types that were logged:**: You can load models using MLflow SDK and obtain an instance of the model with types belonging to the training library. For instance, an ONNX model will return a `ModelProto` while a decision tree trained with Scikit-Learn model will return a `DecisionTreeClassifier` object. Use `mlflow.<flavor>.load_model()` to do so.
-* **Loading back a model for running inference:** You can load models using MLflow SDK and obtain a wrapper where MLflow warranties there will be a `predict` function. It doesn't matter which flavor you are using, every MLflow model needs to implement this contract. Furthermore, MLflow warranties that this function can be called using arguments of type `pandas.DataFrame`, `numpy.ndarray` or `dict[strin, numpyndarray]` (depending on the signature of the model). MLflow handles the type conversion to the input type the model actually expects. Use `mlflow.pyfunc.load_model()` to do so.
+* **Loading back the same object and types that were logged:** You can load models using MLflow SDK and obtain an instance of the model with types belonging to the training library. For instance, an ONNX model will return a `ModelProto` while a decision tree trained with Scikit-Learn model will return a `DecisionTreeClassifier` object. Use `mlflow.<flavor>.load_model()` to do so.
+* **Loading back a model for running inference:** You can load models using MLflow SDK and obtain a wrapper where MLflow warranties there will be a `predict` function. It doesn't matter which flavor you are using, every MLflow model needs to implement this contract. Furthermore, MLflow warranties that this function can be called using arguments of type `pandas.DataFrame`, `numpy.ndarray` or `dict[string, numpyndarray]` (depending on the signature of the model). MLflow handles the type conversion to the input type the model actually expects. Use `mlflow.pyfunc.load_model()` to do so.
 
 ## Start logging models
 

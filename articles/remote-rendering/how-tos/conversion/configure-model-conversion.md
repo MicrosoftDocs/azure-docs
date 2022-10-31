@@ -13,7 +13,7 @@ This chapter documents the options for the model conversion.
 
 ## Settings file
 
-If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide additional configuration for the model conversion process.
+If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide extra configuration for the model conversion process.
 For example, `box.ConversionSettings.json` would be used when converting `box.gltf`.
 
 The contents of the file should satisfy the following json schema:
@@ -91,7 +91,7 @@ The schema is identical for converting triangular meshes and point clouds. Howev
 
 ## Settings for triangular meshes
 
-For converting a triangular mesh, for instance from an .fbx file, all parameters from the schema above do affect the outcome. The parameters are explained in detail now:
+When converting a triangular mesh, for instance from an .fbx file, all parameters from the schema above do affect the outcome. The parameters are explained in detail now:
 
 ### Geometry parameters
 
@@ -127,7 +127,7 @@ If a model is defined using gamma space, then these options should be set to tru
 * `gammaToLinearVertex` - Convert :::no-loc text="vertex"::: colors from gamma space to linear space
 
 > [!NOTE]
-> For FBX files these settings are set to `true` by default. For all other file types, the default is `false`.
+> For FBX, E57, PLY, LAS, LAZ and XYZ files these settings are set to `true` by default. For all other file types, the default is `false`.
 
 ### Scene parameters
 
@@ -252,12 +252,13 @@ The properties that do have an effect on point cloud conversion are:
 * `scaling` - same meaning as for triangular meshes.
 * `recenterToOrigin` - same meaning as for triangular meshes.
 * `axis` - same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, however most point cloud data will be rotated compared to renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
-* `gammaToLinearVertex` - similar to triangular meshes, this flag can be used when point colors are expressed in gamma space. In practice, when enabled, makes the point cloud appear darker.
+* `gammaToLinearVertex` - similar to triangular meshes, this flag indicates whether point colors should be converted from gamma space to linear space. Default value for point cloud formats (E57, PLY, LAS, LAZ and XYZ) is true.
+
 * `generateCollisionMesh` - similar to triangular meshes, this flag needs to be enabled to support [spatial queries](../../overview/features/spatial-queries.md). But unlike for triangular meshes, this flag doesn't incurs longer conversion times, larger output file sizes, or longer runtime loading times. So disabling this flag can't be considered an optimization.
 
 ## Memory optimizations
 
-Memory consumption of loaded content may become a bottleneck on the rendering system. If the memory payload becomes too large, it may compromise rendering performance or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
+Memory consumption of loaded content may become a bottleneck on the rendering system. If the memory payload becomes too large, it may compromise rendering performance, or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
 
 > [!NOTE]
 > The following optimizations apply to triangular meshes. There is no way to optimize the output of point clouds through conversion settings.
@@ -276,7 +277,7 @@ A simple way to test whether instancing information gets preserved during conver
 
 #### Example: Instancing setup in 3ds Max
 
-[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently with regard to instancing in the exported `.fbx` file.
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently regarding instancing in the exported `.fbx` file.
 
 ![Cloning in 3ds Max](./media/3dsmax-clone-object.png)
 
@@ -328,7 +329,7 @@ Because lighting is already baked into the textures, no dynamic lighting is need
 
 ### Use case: Visualization of compact machines, etc.
 
-In these use cases, the models often have very high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case don't apply here:
+In these use cases, the models often have high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case don't apply here:
 
 * Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to `dynamic`.
 * Ray casts are typically an integral part of the application, so collision meshes must be generated.

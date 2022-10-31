@@ -100,7 +100,7 @@ This quickstart shows how to deploy a Ruby on Rails app to App Service on Linux 
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/ruby-docs-hello-world.](media/quickstart-ruby/fork-details-ruby-docs-hello-world-repo.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/ruby-docs-hello-world
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/ruby-docs-hello-world`
 
 ---
 

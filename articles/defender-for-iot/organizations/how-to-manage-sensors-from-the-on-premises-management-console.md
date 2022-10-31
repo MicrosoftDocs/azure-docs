@@ -57,9 +57,12 @@ You can define the following sensor system settings from the management console:
 
 ## Update threat intelligence packages
 
-The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content. 
+The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content.
 
-You can manually upload this file in the Azure portal and automatically update it to sensors. 
+You can manually upload this file in the Azure portal and automatically update it to sensors.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 
 **To update the threat intelligence data:**
 

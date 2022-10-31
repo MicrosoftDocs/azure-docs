@@ -7,7 +7,7 @@ ms.date: 05/25/2022
 ---
 
 # Design a Log Analytics workspace architecture
-While a single [Log Analytics workspace](log-analytics-workspace-overview.md) may be sufficient for many environments using Azure Monitor and Microsoft Sentinel, many organizations will create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces and the configuration and placement of those workspace to meet your particular requirements while optimizing your costs.
+While a single [Log Analytics workspace](log-analytics-workspace-overview.md) may be sufficient for many environments using Azure Monitor and Microsoft Sentinel, many organizations will create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces and the configuration and placement of those workspaces to meet your particular requirements while optimizing your costs.
 
 > [!NOTE]
 > This article includes both Azure Monitor and Microsoft Sentinel since many customers need to consider both in their design, and most of the decision criteria applies to both. If you only use one of these services, then you can simply ignore the other in your evaluation.
@@ -15,7 +15,7 @@ While a single [Log Analytics workspace](log-analytics-workspace-overview.md) ma
 ## Design strategy
 Your design should always start with a single workspace since this reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace. As you identify criteria to create additional workspaces, your design should use the fewest number that will match your particular requirements.
 
-Designing a workspace configuration includes evaluation of multiple criteria, some of which may in conflict. For example, you may be able to reduce egress charges by creating a separate workspace in each Azure region, but consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria below independently and consider your particular requirements and priorities in determining which design will be most effective for your particular environment.
+Designing a workspace configuration includes evaluation of multiple criteria, some of which may be in conflict. For example, you may be able to reduce egress charges by creating a separate workspace in each Azure region, but consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria below independently and consider your particular requirements and priorities in determining which design will be most effective for your particular environment.
 
 
 ## Design criteria
@@ -41,7 +41,8 @@ The exception is if combining data in the same workspace helps you reach a [comm
 If you create separate workspaces for other criteria then you'll usually create additional workspace pairs. For example, if you have two Azure tenants, you may create four workspaces - an operational and security workspace in each tenant.
 
 
-- **If you use both Azure Monitor and Microsoft Sentinal**, create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
+- **If you use both Azure Monitor and Microsoft Sentinel**, create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
+- **If you use both Microsoft Sentinel and Microsoft Defender for Cloud**, consider using the same workspace for both solutions to keep security data in one place.
 
 
 ### Azure tenants
@@ -106,14 +107,14 @@ While you should avoid sending duplicate data to multiple workspaces because of 
 ### Data access control
 When you grant a user [access to a workspace](manage-access.md#azure-rbac), they have access to all data in that workspace. This is appropriate for a member of a central administration or security team who must access data for all resources. Access to the workspace is also determined by resource-context RBAC and table-level RBAC.
 
-Resource-context RBAC](manage-access.md#access-mode)
+[Resource-context RBAC](manage-access.md#access-mode)
 By default, if a user has read access to an Azure resource, they inherit permissions to any of that resource's monitoring data sent to the workspace. This allows users to access information about resources they manage without being granted explicit access to the workspace. If you need to block this access, you can change the [access control mode](manage-access.md#access-control-mode) to require explicit workspace permissions.
 
 - **If you want users to be able to access data for their resources**, keep the default access control mode of *Use resource or workspace permissions*.
 - **If you want to explicitly assign permissions for all users**, change the access control mode to *Require workspace permissions*.
 
 
-[Table-level RBAC](manage-access.md#table-level-azure-rbac)
+[Table-level RBAC](manage-access.md#set-table-level-read-access)
 With table-level RBAC, you can grant or deny access to specific tables in the workspace. This allows you to implement granular permissions required for specific situations in your environment.
 
 For example, you might grant access to only specific tables collected by Sentinel to an internal auditing team. Or you might deny access to security related tables to resource owners who need operational data related to their resources.
@@ -179,7 +180,7 @@ In a hybrid model, each tenant has its own workspace, and some mechanism is used
 
 There are two options to implement logs in a central location:
 
-- Central workspace. The service provider creates a workspace in its tenant and use a script that utilizes the [Query API](api/overview.md) with the [custom logs API](custom-logs-overview.md) to bring the data from the tenant workspaces to this central location. Another option is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to copy data to the central workspace.
+- Central workspace. The service provider creates a workspace in its tenant and use a script that utilizes the [Query API](api/overview.md) with the [logs ingestion API](logs-ingestion-api-overview.md) to bring the data from the tenant workspaces to this central location. Another option is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to copy data to the central workspace.
 
 - Power BI. The tenant workspaces export data to Power BI using the integration between the [Log Analytics workspace and Power BI](log-powerbi.md). 
 

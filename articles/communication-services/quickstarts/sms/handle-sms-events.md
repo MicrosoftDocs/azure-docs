@@ -2,10 +2,10 @@
 title: Quickstart - Handle SMS and delivery report events
 titleSuffix: Azure Communication Services
 description: "In this quickstart, you'll learn how to handle Azure Communication Services events. See how to create, receive, and subscribe to SMS and delivery report events."
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-ms.author: rifox
+ms.author: chpalm
 ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services

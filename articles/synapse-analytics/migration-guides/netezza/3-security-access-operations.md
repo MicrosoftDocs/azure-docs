@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/31/2022
+ms.date: 08/11/2022
 ---
 
 # Security, access, and operations for Netezza migrations
 
-This article is part three of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for security access operations.
+This article is part three of a seven-part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. The focus of this article is best practices for security access operations.
 
 ## Security considerations
 
@@ -281,12 +281,6 @@ User-defined restore points are also supported, allowing manual triggering of sn
 
 As well as the snapshots described previously, Azure Synapse also performs as standard a geo-backup once per day to a [paired data center](/azure/best-practices-availability-paired-regions). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region aren't available.
 
-| Technique | Description |
-|-----------|-------------|
-| **Scheduler rules**                      | Scheduler rules influence the scheduling of plans. Each scheduler rule specifies a condition or set of conditions. Each time the scheduler receives a plan, it evaluates all modifying scheduler rules and carries out the appropriate actions. Each time the scheduler selects a plan for execution, it evaluates all limiting scheduler rules. The plan is executed only if doing so wouldn't exceed a limit imposed by a limiting scheduler rule. Otherwise, the plan waits. This provides you with a way to classify and manipulate plans in a way that influences the other WLM techniques (SQB, GRA, and PQE). |
-| **Guaranteed resource allocation (GRA)** | You can assign a minimum share and a maximum percentage of total system resources to entities called *resource groups*. The scheduler ensures that each resource group receives system resources in proportion to its minimum share. A resource group receives a larger share of resources when other resource groups are idle, but never receives more than its configured maximum percentage. Each plan is associated with a resource group, and the settings of that resource group settings determine what fraction of available system resources are to be made available to process the plan. |
-| **Short query bias (SQB)**               | Resources (that is, scheduling slots, memory, and preferential queuing) are reserved for short queries. A short query is a query for which the cost estimate is less than a specified maximum value (the default is two seconds). With SQB, short queries can run even when the system is busy processing other, longer queries. |
-| **Prioritized query execution (PQE)**    | Based on settings that you configure, the system assigns a priority&mdash;critical, high, normal, or low&mdash;to each query. The priority depends on factors such as the user, group, or session associated with the query. The system can then use the priority as a basis for allocating resources. |
 
 ### Workload management
 
@@ -295,11 +289,35 @@ As well as the snapshots described previously, Azure Synapse also performs as st
 
 Netezza incorporates various features for managing workloads:
 
+| Technique | Description |
+|-----------|-------------|
+| **Scheduler rules**                      | Scheduler rules influence the scheduling of plans. Each scheduler rule specifies a condition or set of conditions. Each time the scheduler receives a plan, it evaluates all modifying scheduler rules and carries out the appropriate actions. Each time the scheduler selects a plan for execution, it evaluates all limiting scheduler rules. The plan is executed only if doing so wouldn't exceed a limit imposed by a limiting scheduler rule. Otherwise, the plan waits. This provides you with a way to classify and manipulate plans in a way that influences the other WLM techniques (SQB, GRA, and PQE). |
+| **Guaranteed resource allocation (GRA)** | You can assign a minimum share and a maximum percentage of total system resources to entities called *resource groups*. The scheduler ensures that each resource group receives system resources in proportion to its minimum share. A resource group receives a larger share of resources when other resource groups are idle, but never receives more than its configured maximum percentage. Each plan is associated with a resource group, and the settings of that resource group settings determine what fraction of available system resources are to be made available to process the plan. |
+| **Short query bias (SQB)**               | Resources (that is, scheduling slots, memory, and preferential queuing) are reserved for short queries. A short query is a query for which the cost estimate is less than a specified maximum value (the default is two seconds). With SQB, short queries can run even when the system is busy processing other, longer queries. |
+| **Prioritized query execution (PQE)**    | Based on settings that you configure, the system assigns a priority&mdash;critical, high, normal, or low&mdash;to each query. The priority depends on factors such as the user, group, or session associated with the query. The system can then use the priority as a basis for allocating resources. |
+
+Azure Synapse automatically logs resource utilization statistics. Metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Azure Synapse also logs connectivity information, such as failed connection attempts.
+
+>[!TIP]
+>Low-level and system-wide metrics are automatically logged within Azure.
+
 In Azure Synapse, resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There's a trade-off between memory and concurrency.
 
-See [Resource classes for workload management](/azure/sql-data-warehouse/resource-classes-for-workload-management) for detailed information.
+Azure Synapse supports these basic workload management concepts:
+
+- **Workload classification**: you can assign a request to a workload group to set importance levels.
+
+- **Workload importance**: you can influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of the queue.
+
+- **Workload isolation**: you can reserve resources for a workload group, assign maximum and minimum usage for varying resources, limit the resources a group of requests can consume can, and set a timeout value to automatically kill runaway queries.
+
+Running mixed workloads can pose resource challenges on busy systems. A successful [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md) scheme effectively manages resources, ensures highly efficient resource utilization, and maximizes return on investment (ROI). The [workload classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md), [workload importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md), and [workload isolation](../../sql-data-warehouse/sql-data-warehouse-workload-isolation.md) gives more control over how workload utilizes system resources.
+
+The [workload management guide](../../sql-data-warehouse/analyze-your-workload.md) describes the techniques to analyze the workload, manage and monitor workload importance](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md), and the steps to [convert a resource class to a workload group](../../sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). Use the [Azure portal](../../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md) and [T-SQL queries on DMVs](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) to monitor the workload to ensure that the applicable resources are efficiently utilized. Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring all aspects of workload management. These views are useful when actively troubleshooting and identifying performance bottlenecks in your workload.
 
 This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of "spiky" workloads, such as workloads with temporary, intense bursts of activity surrounded by periods of infrequent activity.
+
+For more information on workload management in Azure Synapse, see [Workload management with resource classes](../../sql-data-warehouse/resource-classes-for-workload-management.md).
 
 ### Scale compute resources
 

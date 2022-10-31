@@ -4,7 +4,7 @@ description: Learn how to delete an Azure Arc-enabled SQL Managed Instance and o
 ms.custom: kr2b-contr-experiment
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

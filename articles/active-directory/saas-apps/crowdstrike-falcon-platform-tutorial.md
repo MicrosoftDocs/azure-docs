@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/28/2022
+ms.date: 07/29/2022
 ms.author: jeedes
 
 ---
@@ -53,6 +53,8 @@ To configure the integration of CrowdStrike Falcon Platform into Azure AD, you n
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **CrowdStrike Falcon Platform** in the search box.
 1. Select **CrowdStrike Falcon Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for CrowdStrike Falcon Platform
 
@@ -105,10 +107,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Sign-on URL |
     | -------------- |
-    | `https://falcon.crowdstrike.com/login` |
-    | `https://falcon.us-2.crowdstrike.com/login` |
-    | `https://falcon.eu-1.crowdstrike.com/login` |
-    | `https://falcon.laggar.gcw.crowdstrike.com/login` |
+    | `https://falcon.crowdstrike.com/login/sso` |
+    | `https://falcon.us-2.crowdstrike.com/login/sso` |
+    | `https://falcon.eu-1.crowdstrike.com/login/sso` |
+    | `https://falcon.laggar.gcw.crowdstrike.com/login/sso` |
     |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.

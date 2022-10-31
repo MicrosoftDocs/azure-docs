@@ -50,16 +50,16 @@ To verify that events are being received in your Event Hubs, you can check the g
 ### Verify content of telemetry data
 
 You can enable Event Hubs Capture feature that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
-Follow the [instructions to enable Capture](/azure/event-hubs/event-hubs-capture-enable-through-portal). Once enabled, you can check your container and view/download the data.
+Follow the [instructions to enable Capture](../event-hubs/event-hubs-capture-enable-through-portal.md). Once enabled, you can check your container and view/download the data.
 
 ## Event Hubs consumer
 
 Code: Event Hubs Consumer. 
 Event Hubs documentation provides guidance on how to write simple consumer apps to receive events from your Event Hubs:
-- [Python](/azure/event-hubs/event-hubs-python-get-started-send)
-- [.NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
-- [Java](/azure/event-hubs/event-hubs-java-get-started-send)
-- [JavaScript](/azure/event-hubs/event-hubs-node-get-started-send)
+- [Python](../event-hubs/event-hubs-python-get-started-send.md)
+- [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](../event-hubs/event-hubs-java-get-started-send.md)
+- [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)
 
 ## Understanding telemetry points
 
@@ -201,6 +201,5 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 
 ## Next steps
 
-- [Event Hubs using Python Getting Started](/azure/event-hubs/event-hubs-python-get-started-send)
-- [Azure Event Hubs client library for Python code samples](/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples)
-
+- [Event Hubs using Python Getting Started](../event-hubs/event-hubs-python-get-started-send.md)
+- [Azure Event Hubs client library for Python code samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples)

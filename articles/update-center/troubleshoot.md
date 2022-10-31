@@ -1,8 +1,7 @@
 ---
 title: Troubleshoot known issues with update management center (preview)
 description: The article provides details on the known issues and troubleshooting any problems with update management center (preview).
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 ms.date: 04/21/2022
 ms.topic: conceptual
 ms.author: sudhirsneha
@@ -39,7 +38,7 @@ To review the logs related to all actions performed by the extension, check for 
 
 ### Arc-enabled servers
 
-For Arc-enabled servers, review the [troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) article for general troubleshooting steps.
+For Arc-enabled servers, review the [troubleshoot VM extensions](../azure-arc/servers/troubleshoot-vm-extensions.md) article for general troubleshooting steps.
 
 To review the logs related to all actions performed by the extension, on Windows check for more details in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
 

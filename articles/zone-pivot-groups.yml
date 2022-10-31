@@ -255,6 +255,19 @@ groups:
     title: Python
   - id: programming-language-embedded-c
     title: Embedded C
+- id: programming-languages-set-twenty-eight
+# Owner: aahi
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -266,6 +279,7 @@ groups:
     title: Language Detection
   - id: text-analytics-sentiment-analysis
     title: Sentiment Analysis
+##### Begin azure-functions    
 - id: programming-languages-set-functions-lang-workers
   title: Programming languages
   prompt: Choose a programming language
@@ -332,6 +346,15 @@ groups:
     title: Visual Studio
   - id: development-environment-cli
     title: Command line
+- id: python-mode-functions
+  title: Python mode
+  prompt: Choose a Python programming model
+  pivots:
+  - id: python-mode-configuration
+    title: v1
+  - id: python-mode-decorators
+    title: v2
+### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
@@ -357,7 +380,7 @@ groups:
     title: JavaScript
   - id: devlang-react
     title: React
-## WEB APP ##  
+## WEB APP ##
 - id: web-app-quickstart
   title: web-app-quickstart
   prompt: Choose a language or framework
@@ -374,7 +397,7 @@ groups:
     title: Java
   - id: devlang-python
     title: Python
-## WEB API ##  
+## WEB API ##
 - id: web-api-quickstart
   title: web-api-quickstart
   prompt: Choose a language or framework
@@ -383,7 +406,7 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
-## Mobile app ##  
+## Mobile app ##
 - id: mobile-app-quickstart
   title: desktop-app-quickstart
   prompt: Choose a language or framework
@@ -391,8 +414,8 @@ groups:
   - id: devlang-android
     title: Android
   - id: devlang-ios
-    title: iOS and macOS 
-## Desktop app##  
+    title: iOS and macOS
+## Desktop app##
 - id: desktop-app-quickstart
   title: desktop-app-quickstart
   prompt: Choose a language or framework
@@ -450,6 +473,20 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-rest-api
+    title: REST API
+  - id: vision-studio
+    title: Vision Studio
+- id: programming-languages-ocr
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-rest-api
@@ -674,6 +711,15 @@ groups:
     title: CLI
   - id: rest-api
     title: REST
+- id: speech-cli-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-cli
+    title: CLI
+  - id: rest-api
+    title: REST
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -711,7 +757,20 @@ groups:
   - id: programming-language-java
     title: Java
 - id: programming-languages-spark-all-minus-sql
-# Owner: euang
+# Owner: midesa
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-r
+    title: R
+- id: programming-languages-spark-all-minus-sql-r
+# Owner: midesa
   title: Programming languages
   prompt: Choose a language
   pivots:
@@ -845,7 +904,15 @@ groups:
     title: Windows with Maven
   - id: platform-windows-development-environment-azure-portal
     title: Windows with Azure portal
-- id: app-service-containers-windows-linux-portal
+- id: app-service-containers-windows-linux
+  title: App Service with custom containers
+  prompt: Choose a custom container platform
+  pivots:
+  - id: container-linux
+    title: Linux container
+  - id: container-windows
+    title: Windows container    
+- id: app-service-containers-windows-linux-portal-ps-cli
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
   pivots:
@@ -857,6 +924,10 @@ groups:
     title: Windows container - Visual Studio
   - id: container-windows-azure-portal
     title: Windows container - Azure portal
+  - id: container-windows-powershell
+    title: Windows container - PowerShell
+  - id: container-windows-cli
+    title: Windows container - CLI
 - id: app-service-containers-code
   title: App Service containers and code
   prompt: Choose a hosting platform
@@ -867,8 +938,8 @@ groups:
     title: Windows container
   - id: code-windows
     title: Windows code
-- id: programming-languages-spring-cloud
-# Owner: bmitchell287
+- id: programming-languages-spring-apps
+# Owner: karler
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -951,10 +1022,12 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
-- id: acs-js-csharp-java-python-swift-android
+- id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: platform-azcli
+    title: Azure CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -1147,6 +1220,24 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: acs-js-csharp-java-python-ios-android-rest
+  title: Language
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-ios
+    title: iOS
+  - id: programming-language-android
+    title: Android
+  - id: programming-language-rest
+    title: REST
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
@@ -1268,6 +1359,17 @@ groups:
     title: Portal
   - id: cli
     title: CLI
+# Owner: mbullwin
+- id: openai-fine-tuning
+  title: Programming languages
+  prompt: Choose your preferred fine-tuning method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -1392,6 +1494,15 @@ groups:
     title: Alerts
   - id: workbooks
     title: Workbooks
+# Owner: patricka
+- id: iotedge-dev
+  title: IoT Edge development tool
+  prompt: Choose an Azure IoT Edge development tool
+  pivots:
+  - id: iotedge-dev-cli
+    title: Command line interface
+  - id: iotedge-dev-vscode
+    title: Azure IoT Edge VS Code extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods
@@ -1406,6 +1517,34 @@ groups:
   - id: identity-mi-methods-arm
     title: Resource Manager
   - id: identity-mi-methods-rest
+    title: REST
+# Owner: ryanwi
+- id: identity-wif-mi-methods
+  title: Workload identity federation for managed identities methods
+  prompt: Choose an option
+  pivots:
+  - id: identity-wif-mi-methods-azp
+    title: Azure portal
+  - id: identity-wif-mi-methods-powershell
+    title: Azure PowerShell 
+  - id: identity-wif-mi-methods-azcli
+    title: Azure CLI
+  - id: identity-wif-mi-methods-arm
+    title: Resource Manager
+  - id: identity-wif-mi-methods-rest
+    title: REST
+# Owner: ryanwi
+- id: identity-wif-apps-methods
+  title: Workload identity federation for apps methods
+  prompt: Choose an option
+  pivots:
+  - id: identity-wif-apps-methods-azp
+    title: Azure portal
+  - id: identity-wif-apps-methods-azcli
+    title: Azure CLI
+  - id: identity-wif-apps-methods-powershell
+    title: PowerShell
+  - id: identity-wif-apps-methods-rest
     title: REST
 - id: identity-mi-method-sub
   title: Managed identities method subset
@@ -1576,6 +1715,15 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
+# Owner: cebundy
+- id: container-apps-interface-types
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: command-line
+    title: Command Line
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
@@ -1595,15 +1743,20 @@ groups:
   - id: azure-sql-elastic-pool
     title: Elastic pool
 # Owner: karler
-- id: spring-cloud-tier-selection
-  title: Azure Spring Cloud tier
-  prompt: Select an Azure Spring Cloud tier
+- id: spring-apps-tier-selection
+  title: Azure Spring Apps tier
+  prompt: Select an Azure Spring Apps tier
   pivots:
   - id: sc-standard-tier
     title: Basic/Standard tier
   - id: sc-enterprise-tier
     title: Enterprise tier
-# Owner: jomondi
+########### BEGIN APPLICATION MANAGEMENT
+# Service:       Active Directory (active-directory)
+# Sub-service:   APPLICATION MANAGEMENT(manage-apps)
+# Referenced by: /articles/active-directory/manage-apps/*
+# Owner(s):      jomondi, celested
+## Home realm discovery ##
 - id: home-realm-discovery
   title: hrd-policy
   prompt: Choose an option
@@ -1612,6 +1765,65 @@ groups:
     title: PowerShell
   - id: graph-hrd
     title: Graph
+## template with all
+- id: enterprise-apps-all
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+## Template without portal
+- id: enterprise-apps-minus-portal
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+## template without graph
+- id: enterprise-apps-minus-graph
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+## template without azure AD PowerShell
+- id: enterprise-apps-minus-aad-powershell
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph API
+## Create service principal with appId
+- id: enterprise-apps-cli
+  title: Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: msgraph-powershell
+    title: Microsoft graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+  - id: azure-cli
+    title: Azure CLI
+  - id: admin-consent-url
+    title: Admin consent URL
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
@@ -1629,7 +1841,7 @@ groups:
   - id: aro-arm
     title: Azure Resource Manager
   - id: aro-bicep
-    title: Bicep   
+    title: Bicep
 # Owner: cshoe
 - id: container-apps-image-build-type
   title: Container build method
@@ -1645,9 +1857,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: aro-azurecli
-    title: Azure CLI  
+    title: Azure CLI
   - id: aro-azureportal
-    title: Azure portal  
+    title: Azure portal
 # Owner: cshoe
 - id: devops-or-github
   title: Code host
@@ -1686,3 +1898,52 @@ groups:
     title: OT sensor console
   - id: experience-cm
     title: On-premises management console
+# Owner: v-yilinhu
+- id: programming-languages-batch-linux-nodes
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+# Owner: maximrytych-ms
+- id: acs-programming-languages-csharp-python
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+# Owner: jorgegarc
+- id: acs-xamarin-react
+  title: Cross-platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: platform-xamarin
+    title: Xamarin
+  - id: platform-react
+    title: React Native
+# Owner: jodowns
+- id: web-application-firewall-configuration
+  title: Deployment options
+  prompt: Choose how you deploy your resources
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: PowerShell
+  - id: cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep
+# Owner: v-amallick
+- id: backup-vaults-recovery-services-vault-backup-vault
+  title: Vaults
+  prompt: Choose a vault
+  pivots:
+  - id: vaults-recovery-services-vault
+    title: Recovery Services vault
+  - id: vaults-backup-vault
+    title: Backup vault

@@ -47,7 +47,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Neural voice support
-          url: language-support.md#prebuilt-neural-voices
+          url: language-support.md
         - text: SSML phonetic sets
           url: speech-ssml-phonetic-sets.md
         - text: Text-to-speech pricing

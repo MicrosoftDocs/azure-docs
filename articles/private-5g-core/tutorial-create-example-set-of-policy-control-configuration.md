@@ -17,6 +17,7 @@ Azure Private 5G Core Preview provides flexible traffic handling. You can custom
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a new service that filters packets based on their protocol.
 > * Create a new service that blocks traffic labeled with specific remote IP addresses and ports.
 > * Create a new service that limits the bandwidth of traffic on matching flows.
@@ -39,7 +40,7 @@ In this step, we'll create a service that filters packets based on their protoco
 
 To create the service:
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the Mobile Network resource representing your private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
@@ -61,9 +62,9 @@ To create the service:
     |**Maximum bit rate (MBR) - Uplink**     | `2 Gbps`        |
     |**Maximum bit rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Not preemptable**.        |
+    |**Preemption vulnerability**     | Select **Not preemptible**.        |
 
 1. Under **Data flow policy rules**, select **Add a policy rule**.
 
@@ -126,7 +127,7 @@ To create the service:
     |Field  |Value  |
     |---------|---------|
     |**Template name**     |`icmp_and_udp_traffic`         |
-    |**Protocols**     | Tick both the **UDP** and **ICMP** checkboxes.        |
+    |**Protocols**     | Select both the **UDP** and **ICMP** checkboxes.        |
     |**Direction**     | Select **Bidirectional**.        |
     |**Remote IPs**     | `any`        |
     |**Ports**     | Leave blank.        |
@@ -173,9 +174,9 @@ To create the service:
     |**Maximum bit rate (MBR) - Uplink**     | `2 Gbps`        |
     |**Maximum bit rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Not preemptable**.        |
+    |**Preemption vulnerability**     | Select **Not preemptible**.        |
 
 1. Under **Data flow policy rules**, select **Add a policy rule**.
 
@@ -260,9 +261,9 @@ To create the service:
     |**Maximum bit rate (MBR) - Uplink**     | `10 Mbps`        |
     |**Maximum bit rate (MBR) - Downlink**     | `15 Mbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Preemptable**.        |
+    |**Preemption vulnerability**     | Select **Preemptible**.        |
 
 1. Under **Data flow policy rules**, select **Add a policy rule**.
 
@@ -356,12 +357,11 @@ Let's create the SIM policies.
     |**Service configuration**     | Select **service_restricted_udp_and_icmp** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Allocation and Retention Priority level**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Preemptable**.        |
+    |**Preemption vulnerability**     | Select **Preemptible**.        |
     |**Default session type**     | Select **IPv4**.        |
-    |**Additional allowed session types**     | Select **IPv6**.        |
 
 1. Select **Add**.
 
@@ -418,12 +418,11 @@ Let's create the SIM policies.
     |**Service configuration**     | Select **service_blocking_udp_from_specific_sources** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Allocation and Retention Priority level**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Preemptable**.        |
+    |**Preemption vulnerability**     | Select **Preemptible**.        |
     |**Default session type**     | Select **IPv4**.        |
-    |**Additional allowed session types**     | Select **IPv6**.        |
 
 1. Select **Add**.
 1. On the **Basics** configuration tab, select **Review + create**.
@@ -476,30 +475,26 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
 
-1. In the **Resource** menu, select **Add SIMs**.
+1. Select **View SIMs**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/add-sims.png" alt-text="Screenshot of the Azure portal showing the Add SIMs button on a Mobile Network resource":::
+    :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource.":::
 
 1. Select **Create** and then **Upload JSON from file**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload J S O N from file and Add manually.":::
+    :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload JSON from file and Add manually.":::
 
 1. Select **Browse** and then select the JSON file you created at the start of this step.
+1. Under **SIM group name**, select **Create new** and then enter **SIMGroup1** into the field that appears.
 1. Select **Add**.
-1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
+1. The Azure portal will now begin deploying the SIM group and SIMs. When the deployment is complete, select **Go to resource group**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
+    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM group and SIM resources through a J S O N file. The Go to resource button is highlighted.":::
 
-1. In the **Resource group** that appears, select the **Mobile Network** resource representing your private mobile network.
-1. In the **Resource** menu, select **SIMs**.
+1. In the **Resource group** that appears, select the **SIMGroup1** resource you've just created. You'll then see your new SIMs in the SIM group.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-resource-menu-option.png" alt-text="Screenshot of the Azure portal. The SIMs option in the resource menu for a private mobile network is highlighted.":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a SIM group containing two SIMs." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png":::
 
-1. Your new **SIM1** and **SIM2** SIM resources are shown in the list.
-
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png" alt-text="Screenshot of the Azure portal. It shows the SIMs currently provisioned for the private mobile network." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png":::
-
-1. Tick the checkbox next to **SIM1**.
+1. Select the checkbox next to **SIM1**.
 1. In the **Command** bar, select **Assign SIM policy**.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/assign-sim-policy-from-sims-list.png" alt-text="Screenshot of the Azure portal showing a list of SIMs. The SIM1 resource and the Assign SIM policy option are highlighted."::: 
@@ -512,11 +507,10 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 1. Once the deployment is complete, select **Go to Resource**.
 1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png" alt-text="Screenshot of the Azure portal showing a SIM resource. The SIM policy field is highlighted in the Management section." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png" alt-text="Screenshot of the Azure portal showing a SIM resource. The SIM policy field is highlighted in the Management section." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy-enlarged.png":::
 
-1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the **Resource** menu, select **SIMs**.
-1. Tick the checkbox next to **SIM2**.
+1. In the **SIM group** field under **Essentials**, select **SIMGroup1** to return to the SIM group. 
+1. Select the checkbox next to **SIM2**.
 1. In the **Command** bar, select **Assign SIM policy**.
 1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-2**.
 1. Select the **Assign SIM policy** button.
@@ -530,14 +524,14 @@ You have now provisioned two SIMs and assigned each of them a different SIM poli
 You can now delete each of the resources we've created during this tutorial.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the **Resource** menu, select **SIMs**.
-1. Tick the checkboxes next to **SIM1** and **SIM2**, and then select **Delete** from the **Command** bar. 
-1. Select **Delete** to confirm your choice.
-1. Once the SIMs have been deleted, select **SIM policies** from the **Resource** menu.
-1. Tick the checkboxes next to **sim-policy-1** and **sim-policy-2**, and then select **Delete** from the **Command** bar.
+1. In the **Resource** menu, select **SIM groups**.
+1. Select the checkbox next to **SIMGroup1**, and then select **Delete** from the **Command** bar.
+1. Select **Delete** to confirm your choice. 
+1. Once the SIM group has been deleted, select **SIM policies** from the **Resource** menu.
+1. Select the checkboxes next to **sim-policy-1** and **sim-policy-2**, and then select **Delete** from the **Command** bar.
 1. Select **Delete** to confirm your choice.
 1. Once the SIM policies have been deleted, select **Services** from the **Resource** menu.
-1. Tick the checkboxes next to **service_unrestricted_udp_and_icmp**, **service_blocking_udp_from_specific_sources**, and **service_traffic_limits**, and then select **Delete** from the command bar.
+1. Select the checkboxes next to **service_unrestricted_udp_and_icmp**, **service_blocking_udp_from_specific_sources**, and **service_traffic_limits**, and then select **Delete** from the command bar.
 1. Select **Delete** to confirm your choice.
 
 ## Next steps

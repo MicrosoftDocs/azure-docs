@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual 
-ms.date: 05/24/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -107,6 +107,21 @@ So what does it actually mean to have high precision or high recall for a certai
 | High | Low | The model extracts this entity well, however it is with low confidence as it is sometimes extracted as another type. |
 | Low | Low | This entity type is poorly handled by the model, because it is not usually extracted. When it is, it is not with high confidence. |
 
+## Guidance
+
+After you trained your model, you will see some guidance and recommendation on how to improve the model. It's recommended to have a model covering all points in the guidance section.
+
+* Training set has enough data: When an entity type has fewer than 15 labeled instances in the training data, it can lead to lower accuracy due to the model not being adequately trained on these cases. In this case, consider adding more labeled data in the training set. You can check the *data distribution* tab for more guidance.
+
+* All entity types are present in test set: When the testing data lacks labeled instances for an entity type, the model’s test performance may become less comprehensive due to untested scenarios. You can check the *test set data distribution* tab for more guidance.
+
+* Entity types are balanced within training and test sets: When sampling bias causes an inaccurate representation of an entity type’s frequency, it can lead to lower accuracy due to the model expecting that entity type to occur too often or too little. You can check the *data distribution* tab for more guidance.
+
+* Entity types are evenly distributed between training and test sets: When the mix of entity types doesn’t match between training and test sets, it can lead to lower testing accuracy due to the model being trained differently from how it’s being tested. You can check the *data distribution* tab for more guidance.
+
+* Unclear distinction between entity types in training set: When the training data is similar for multiple entity types, it can lead to lower accuracy because the entity types may be frequently misclassified as each other. Review the following entity types and consider merging them if they’re similar. Otherwise, add more examples to better distinguish them from each other. You can check the *confusion matrix* tab for more guidance.
+
+
 ## Confusion matrix
 
 A Confusion matrix is an N x N matrix used for model performance evaluation, where N is the number of entities.
@@ -117,7 +132,7 @@ You can use the Confusion matrix to identify entities that are too close to each
 
 The highlighted diagonal in the image below is the correctly predicted entities, where the predicted tag is the same as the actual tag.
 
-:::image type="content" source="../media/confusion-matrix-example.png" alt-text="A screenshot of an example confusion matrix" lightbox="../media/confusion-matrix-example.png":::
+:::image type="content" source="../media/confusion.png" alt-text="A screenshot that shows an example confusion matrix." lightbox="../media/confusion.png":::
 
 You can calculate the entity-level and model-level evaluation metrics from the confusion matrix:
 

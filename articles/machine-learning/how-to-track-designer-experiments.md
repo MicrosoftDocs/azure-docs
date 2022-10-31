@@ -66,16 +66,16 @@ After the pipeline run completes, you can see the *Mean_Absolute_Error* in the E
 
 1. Navigate to the **Jobs** section.
 1. Select your experiment.
-1. Select the run in your experiment you want to view.
+1. Select the job in your experiment you want to view.
 1. Select **Metrics**.
 
-    ![View run metrics in the studio](./media/how-to-log-view-metrics/experiment-page-metrics-across-runs.png)
+    ![View job metrics in the studio](./media/how-to-log-view-metrics/experiment-page-metrics-across-runs.png)
 
 ## Next steps
 
 In this article, you learned how to use logs in the designer. For next steps, see these related articles:
 
 
-* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#azure-machine-learning-designer).
+* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](v1/how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
 * Learn how to use [Execute Python Script](./algorithm-module-reference/execute-python-script.md) in the designer.
