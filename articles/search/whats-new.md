@@ -56,19 +56,19 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 |Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
 |------------------------------|------|-------------|
-| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Please migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
+| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
 
 ## February 2022
 
 |Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
 |------------------------------|------|-------------|
-| [Index aliases](search-how-to-alias.md) | Feature | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. When index names change, for example if you version the index,instead of updating the references to an index name in your application, you can just update the mapping for your alias. |
+| [Index aliases](search-how-to-alias.md) | Feature | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. When index names change, for example if you version the index, instead of updating the references to an index name in your application, you can just update the mapping for your alias. |
 
 ## 2021 announcements
 
 | Month | Feature | Description |
 |-------|---------|-------------|
-| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. Public preview in the portal and preview REST APIs.|
+| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | This configuration is a new addition to the 2021-04-30-Preview API, and is now required for semantic queries. Public preview in the portal and preview REST APIs.|
 | November | [Azure Files indexer (preview)](./search-file-storage-integration.md) | Public preview in the portal and preview REST APIs.|
 | July | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Public preview announcement. |
 | July | [Role-based access control for data plane (preview)](search-security-rbac.md) | Public preview announcement. |
