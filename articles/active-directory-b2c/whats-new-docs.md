@@ -27,7 +27,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md)
 - [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
-- [Azure Active Directory B2C documentation # Required; page title displayed in search results. Include the brand. < 60 chars.](index.yml)
+- [Azure Active Directory B2C documentation landing page](index.yml)
 - [Publish your Azure Active Directory B2C app to the Azure Active Directory app gallery](publish-app-to-azure-ad-app-gallery.md)
 - [JSON claims transformations](json-transformations.md)
 
