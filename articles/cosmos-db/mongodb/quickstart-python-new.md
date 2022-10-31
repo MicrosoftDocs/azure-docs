@@ -16,7 +16,7 @@ ms.custom: devx-track-js, ignite-2022
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Get started with the PyMongo package to create databases, collections, and doc withing your Azure CosmosDB resource. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the PyMongo package to create databases, collections, and doc withing your Azure Cosmos DB resource. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) are available on GitHub as a Python project.
@@ -112,7 +112,7 @@ pip install -r requirements.txt
 
 ## Object model
 
-Before you continue building the application, let's look into the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
+Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
 
 * Azure Cosmos DB for MongoDB account
 * Databases 
