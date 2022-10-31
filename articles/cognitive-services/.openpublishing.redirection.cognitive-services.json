@@ -5779,7 +5779,17 @@
             "source_path_from_root": "/articles/cognitive-services/cognitive-services-security.md",
             "redirect_url": "/azure/cognitive-services/security-features",
             "redirect_document_id": true
-        }
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/overview-multivariate.md",
+            "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/overview-univariate.md",
+            "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+            "redirect_document_id": false
+        } 
         
     ]
 }

@@ -57,4 +57,19 @@ sections:
           How should I select the structure type of my destination table in the Synapse dedicated SQL pool?
         answer: |
           You can refer to [Indexing tables - Azure Synapse Analytics | Microsoft Docs](../sql-data-warehouse/sql-data-warehouse-tables-index.md) to understand the three options for table structure type. When clustered columnstore index is chosen, data type with max length (eg. VARCHAR(MAX)) is not supported.
-          
+      - question: |
+          Do I need to clean up data in the landing zone?
+        answer: |
+          No. There is a background thread that removes committed files after around 24 hours as long as the link is continuously running. When the link is stopped then the entire landing zone folder is removed.
+      - question: |
+          Where is my landing zone located?
+        answer: |
+          For Azure SQL Database, the landing zone is fully managed and is located in the same region as your target Azure Synapse Analytics workspace. For SQL Server 2022, the landing zone is customer-managed and can be located where you like.
+      - question: |
+          What type of encryption is applied to the landing zone?
+        answer: |
+          For Azure SQL Database, the landing zone is fully managed and is encrypted with the same key as the target Azure Synapse Analytics workspace - either platform-managed or customer-managed. For SQL Server 2022, the landing zone is customer-managed and can be encrypted with either a platform-managed key or a customer-managed key.
+      - question: |
+          I updated all of the records in my source table. When I ran a query against the dedicated SQL pool I saw all of my data gone. I re-ran the query and all of the data was back - with the updates. Why does this happen?
+        answer: |
+          The ingestion service processes updates as a delete followed by an insert - all in the same transaction. By default, dedicated SQL pools run in READ UNCOMMITTED mode - which allows you to see the changes before the transaction has been committed. To ensure that you do not see these in-process changes, you can turn on READ COMMITTED SNAPSHOT ISOLATION.

@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume from 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 10/27/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -12,7 +12,9 @@ ms.custom: references_regions, ignite-2022
 
 # Connect to Elastic SAN (preview) volumes - Linux
 
-This article explains how to connect to an elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN (preview) volumes - Windows](elastic-san-connect-windows.md)
+This article explains how to connect to an Elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN (preview) volumes - Windows](elastic-san-connect-windows.md).
+
+In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
 
 ## Prerequisites
 
@@ -23,9 +25,16 @@ This article explains how to connect to an elastic storage area network (SAN) vo
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
-## Enable Storage service endpoint
+## Networking configuration
 
-In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN.
+To connect to a SAN volume, you need to enable the storage service endpoint on your Azure virtual network subnet, and then connect your volume groups to your Azure virtual network subnets.
+
+### Enable Storage service endpoint
+
+In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN. To enable service point for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+
+> [!NOTE]
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 # [Portal](#tab/azure-portal)
 
@@ -56,11 +65,11 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 ```
 ---
 
-## Configure networking
+### Configure volume group networking
 
 Now that you've enabled the service endpoint, configure the network security settings on your volume groups. You can grant network access to a volume group from one or more Azure virtual networks.
 
-By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For more information on networking, see [Configure Elastic SAN networking (preview)](elastic-san-networking.md).
+By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For details on accessing your volumes from another region, see [Enabling access to virtual networks in other regions (preview)](elastic-san-networking.md#enabling-access-to-virtual-networks-in-other-regions-preview).
 
 # [Portal](#tab/azure-portal)
 
@@ -79,7 +88,10 @@ Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $resourceGroupName -El
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
+# First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.
+virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $resourceGroupName --query 'length(networkAcls.virtualNetworkRules)'
+
+az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
 ```
 ---
 
@@ -89,19 +101,19 @@ You can either create single sessions or multiple-sessions to every Elastic SAN 
 
 When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
-## Environment setup
+### Environment setup
 
 To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
 
 As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
 
-### Multipath I/O
+#### Multipath I/O - for multi-session connectivity
 
 Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
 
-Once you've installed the package, check if **/etc/multipath.conf** exists. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. As an example, `mpathconf --enable` to create **/etc/multipath.conf** will create the file on RHEL. 
+Once you've installed the package, check if **/etc/multipath.conf** exists. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. As an example, `mpathconf --enable` will create **/etc/multipath.conf** on RHEL. 
 
-You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults that'll generally be applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the man page for multipath.conf.
+You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults are generally applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the man page for multipath.conf.
 
 ```
 defaults {
@@ -138,7 +150,13 @@ You should see a list of output that looks like the following:
 
 Note down the values for **targetIQN**, **targetPortalHostName**, and **targetPortalPort**, you'll need them for the next sections.
 
-## Multi-session connections
+## Determine sessions to create
+
+You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
+
+For multi-session connections, install [Multipath I/O - for multi-session connectivity](#multipath-io---for-multi-session-connectivity).
+
+### Multi-session connections
 
 To establish multiple sessions to a volume, first you'll need to create a single session with particular parameters. 
 
@@ -168,7 +186,7 @@ for i in `seq 1 numberOfAdditionalSessions`; do sudo iscsiadm -m session -r sess
 
 You can verify the number of sessions using `sudo multipath -ll`
 
-## Single-session connections
+### Single-session connections
 
 To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
 

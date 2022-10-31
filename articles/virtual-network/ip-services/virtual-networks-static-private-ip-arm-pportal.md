@@ -1,12 +1,12 @@
 ---
-title: Create a VM with a static private IP address - Azure portal
+title: 'Create a VM with a static private IP address - Azure portal'
 description: Learn how to create a virtual machine with a static private IP address using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/01/2021
+ms.date: 10/27/2022
 ms.custom: template-how-to 
 ---
 
@@ -24,9 +24,9 @@ Use the following steps to create a virtual machine, virtual network, and subnet
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+2. In the search box at the top of the portal, enter *Virtual machine*. Select **Virtual machines** in the search results.
 
-3. Select **+ Create**, then **+ Virtual machine** in **Virtual machines**.
+3. Select **+ Create** then **Azure Virtual machine**.
 
 4. In **Create a virtual machine**, enter or select the following information:
 
@@ -34,11 +34,12 @@ Use the following steps to create a virtual machine, virtual network, and subnet
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
+    | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
     | **Instance details** |   |
-    | Virtual machine name | Enter **myVM**. |
+    | Virtual machine name | Enter *myVM*. |
     | Region | Select **(US) East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
     | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
     | Azure Spot instance | Leave unchecked. |
     | Size | Select a size. |
@@ -52,7 +53,7 @@ Use the following steps to create a virtual machine, virtual network, and subnet
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png" alt-text="Screenshot of create virtual machine.":::
 
     > [!WARNING]
-    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../../bastion/bastion-overview.md)**
+    > Port 3389 is selected to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../../bastion/bastion-overview.md)**
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -94,12 +95,12 @@ In this section, you'll change the private IP address from **dynamic** to **stat
 
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-ip-configuration.png" alt-text="Screenshot of select ip configuration.":::
 
-7. Select **Static** in **Assignment**. Select **Save**.
+7. Select **Static** in **Assignment**. Change the private IP address if you want a different one, and then select **Save**.
 
+    > [!WARNING]
+    > If you change the private IP address, the VM associated with the network interface will be restarted to utilize the new IP address. 
+    
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-static-assignment.png" alt-text="Screenshot of select static assignment.":::
-
-    > [!NOTE]
-    > If you notice after selecting **Save** that the assignment is still set to **Dynamic**, the IP address you typed is already in use. Try another IP address.
 
 To change the IP address back to dynamic set the assignment for your private IP address to **Dynamic**, and then select **Save**.
 
@@ -112,11 +113,11 @@ To change the IP address back to dynamic set the assignment for your private IP 
 
 When no longer needed, delete the resource group and all of the resources it contains:
 
-1. Enter **myResourceGroup** in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 
 2. Select **Delete resource group**.
 
-3. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
 

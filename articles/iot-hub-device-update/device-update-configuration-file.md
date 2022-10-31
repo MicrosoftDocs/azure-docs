@@ -16,7 +16,7 @@ The Device Update agent gets its configuration information from the `du-config.j
 * AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["model"]
 * DeviceInformation.manufacturer
 * DeviceInformation.model
-* additonal
+* additionalProperties
 * connectionData
 * connectionType
 

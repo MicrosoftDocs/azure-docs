@@ -19,17 +19,21 @@ The Device Update agent consists of two conceptual layers:
 
 ## The interface layer
 
-The interface layer is made up of the [Device Update core interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
+The interface layer is made up of the [Device Update core interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface), [Device information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface) and [Diagnostic information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/diagnostics_component/diagnostics_interface).
 
 These interfaces rely on a configuration file for the device specific values that need to be reported to the Device Update services. For more information, see [Device Update configuration file](device-update-configuration-file.md).
 
 ### Device Update core interface
 
-The *Device Update core interface* is the primary communication channel between the Device Update agent and services. For more information, see [Device Update core interface](device-update-plug-and-play.md#device-update-core-interface).
+The *Device Update interface* is the primary communication channel between the Device Update agent and services. For more information, see [Device Update core interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/iot/deviceupdate-1.json).
 
 ### Device information interface
 
-The *device information interface* is used to implement the `Azure IoT PnP DeviceInformation` interface. For more information, see [Device information interface](device-update-plug-and-play.md#device-information-interface).
+The *device information interface* is used to implement the `Azure IoT PnP DeviceInformation` interface. For more information, see [Device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json).
+
+### Diagnostic information interface
+
+The *diagnostic information interface* is used to enable [remote log collection](device-update-diagnostics.md#remote-log-collection) for diagnostics. For more information, see [Device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
 ## The platform Layer
 
