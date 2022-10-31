@@ -14,10 +14,7 @@ manager: femila
 
 ## Prerequisites
 
-To start collecting connection quality data, you’ll need to do the following things:
-
-- Set up a Log Analytics workspace.
-- Enable the **Network Data Logs** and **Connection Graphics Data Logs Preview** tables in your Azure Virtual Desktop host pools.
+To start collecting connection quality data, you’ll need to [set up a Log Analytics workspace](diagnostics-log-analytics.md).
 
 >[!NOTE]
 >Normal storage charges for Log Analytics will apply. Learn more at [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
