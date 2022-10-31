@@ -1,19 +1,16 @@
 ---
 
 title: View applied Conditional Access policies in Azure AD sign-in logs
-description: Learn how to view Conditional Access policies in Azure AD sign-in logs so that you can assess the impact of those policies.
+description: Learn how to view Conditional Access policies in Azure AD sign-in logs so that you can assess the effect of those policies.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/14/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler 
 
 ms.collection: M365-identity-device-management
@@ -21,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # View applied Conditional Access policies in Azure AD sign-in logs
 
-With Conditional Access policies, you can control how your users get access to the resources of your Azure tenant. As a tenant admin, you need to be able to determine what impact your Conditional Access policies have on sign-ins to your tenant, so that you can take action if necessary. 
+With Conditional Access policies, you can control how your users get access to the resources of your Azure tenant. As a tenant admin, you need to be able to determine what effect your Conditional Access policies have on sign-ins to your tenant, so that you can take action if necessary. 
 
-The sign-in logs in Azure Active Directory (Azure AD) give you the information that you need to assess the impact of your policies. This article explains how to view applied Conditional Access policies in those logs.
+The sign-in logs in Azure Active Directory (Azure AD) give you the information that you need to assess the effect of your policies. This article explains how to view applied Conditional Access policies in those logs.
 
 ## What you should know
 
@@ -37,7 +34,7 @@ Some scenarios require you to get an understanding of how your Conditional Acces
 
 - *Helpdesk administrators* who need to look at applied Conditional Access policies to understand if a policy is the root cause of a ticket that a user opened. 
 
-- *Tenant administrators* who need to verify that Conditional Access policies have the intended impact on the users of a tenant.
+- *Tenant administrators* who need to verify that Conditional Access policies have the intended effect on the users of a tenant.
 
 You can access the sign-in logs by using the Azure portal, Microsoft Graph, and PowerShell.  
 
