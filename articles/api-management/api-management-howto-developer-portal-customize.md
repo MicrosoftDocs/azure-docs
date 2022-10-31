@@ -6,8 +6,9 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 10/31/2022
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # Tutorial: Access and customize the developer portal
@@ -111,7 +112,7 @@ Whenever you make a change in the portal, you need to save it manually by select
 
 ## Customize the portal's content
 
-Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page.
+Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page. You can also make certain portal content accessible only to selected users and groups.
 
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
@@ -162,19 +163,20 @@ Although you don't need to adjust any styles, you may consider adjusting particu
 1. Select outside the pop-up windows to exit the container settings.
 1. Click **Save**.
 
+### Visibility and access controls
+
+Some pages and functionality of the developer portal are available only to authenticated users. For example, different menus can be configured for authenticated and anonymous users.
+
+For more fine-grained access control, you can configure which portal content appears to different [users and groups](api-management-howto-create-groups.md) you've set up. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or, you might want to make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
+
+* When you add or edit a page, select the **Access** tab to choose the users and groups that can access the page
+* When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to choose the users and groups that can see the element on the page
+
 ### Customization example
 
 In the following video, we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
-
-### Visibility and access controls
-
-By default, the portal's content is the same for all visitors. However, you can control how the portal content appears to different [users and groups](api-management-howto-create-groups.md) you've configured. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or you might want to make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
-
-* When you add or edit a page, select the **Access** tab to choose who can access the page
-* When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to choose who can see the element on the page
-
 
 ## <a name="publish"></a> Publish the portal
 
