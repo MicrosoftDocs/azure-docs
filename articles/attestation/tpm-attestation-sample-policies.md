@@ -79,7 +79,7 @@ c:[type=="boolProperties", issuer=="AttestationPolicy"] => add(type="elamDriverL
 };
 
 ```
-### Attestation policy to authorize only those TPMs that match known PCR hashs.
+### Attestation policy to authorize only those TPMs that match known PCR hashes.
 
 ```
 version=1.2;
