@@ -35,6 +35,8 @@ For information about how to use a gateway with other services, see the followin
 * [Microsoft Power Apps on-premises data gateway](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
+<a name="supported-connections"></a>
+
 ## Supported data sources
 
 In Azure Logic Apps, an on-premises data gateway supports [on-premises connectors](../connectors/managed.md#on-premises-connectors) for the following data sources:
@@ -64,7 +66,7 @@ Azure Logic Apps supports read and write operations through the data gateway, bu
 
 * You already [installed an on-premises data gateway on a local computer](logic-apps-gateway-install.md). This gateway installation must exist before you can create a gateway resource that links to this installation. You can install only one data gateway per local computer.
 
-* You have the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that you used for your gateway installation. This Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You have to use the same Azure account and subscription to create your gateway resource in Azure because only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
+* You have the [same Azure account and subscription](logic-apps-gateway-install.md#requirements) that you used for your gateway installation. This Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You have to use the same Azure account and subscription to create your gateway resource in Azure because only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
 
   * When you create a gateway resource in Azure, you select a gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
 
@@ -73,6 +75,8 @@ Azure Logic Apps supports read and write operations through the data gateway, bu
     > [!NOTE]
     > Currently, you can't share a gateway resource or installation across multiple subscriptions. 
     > To submit product feedback, see [Microsoft Azure Feedback Forum](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+
+<a name="create-gateway-resource"></a>
 
 ## Create Azure gateway resource
 
@@ -103,6 +107,8 @@ After you install a gateway on a local computer, create the Azure resource for y
    :::image type="content" source="./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png" alt-text="Screenshot of the Azure portal 'Create a gateway' page. The 'Name,' 'Region,' and other boxes have values. The 'Review + create' button is selected.":::
 
 1. On the validation page that appears, confirm all the information that you provided, and then select **Create**.
+
+<a name="connect-logic-app-gateway"></a>
 
 ## Connect to on-premises data
 
@@ -169,6 +175,8 @@ To find all API connections associated with your Azure subscription, use one of 
 * In the Azure search box, enter **api connections**, and then select **API Connections**.
 * From the Azure portal menu, select **All resources**. Set the **Type** filter to **API Connection**.
 
+<a name="change-delete-gateway-resource"></a>
+
 ## Delete gateway resource
 
 To create a different gateway resource, link your gateway installation to a different gateway resource, or remove the gateway resource, you can delete the gateway resource without affecting the gateway installation.
@@ -178,6 +186,8 @@ To create a different gateway resource, link your gateway installation to a diff
 1. On the gateway resource toolbar, select **Delete**.
 
    :::image type="content" source="./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png" alt-text="Screenshot of an on-premises data gateway resource in the Azure portal. On the toolbar, 'Delete' is highlighted.":::
+
+<a name="faq"></a>
 
 ## Frequently asked questions
 
