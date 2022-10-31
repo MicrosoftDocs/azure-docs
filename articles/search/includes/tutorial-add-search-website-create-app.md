@@ -16,7 +16,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 1. Right-click **Static Web Apps** and then select **Create Static Web App (Advanced)**.
 
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click **Static Web Apps** and then select **Create Static Web App (Advanced)**":::
+    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Screenshot of Visual Studio Code, with the Azure Static Web Apps explorer showing the option to create an advanced static web app.":::
 
 1. If you see a pop-up window in VS Code asking which branch you want to deploy from, select the default branch, usually **master** or **main**. 
 
@@ -87,7 +87,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
 
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**.":::
+    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="Screenshot of Visual Studio Code showing the Azure Cognitive Search explorer, with the **Copy Query Key** option shown.":::
 
 1. Keep this query key, you will need to use it in the next section. The query key is able to query your Index. 
 
@@ -98,11 +98,11 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. Select **Azure** from the Activity Bar. 
 1. Right-click on your Static Web Apps resource then select **Open in Portal**.
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Right-click on your JavaScript Static Web Apps resource then select Open in Portal.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Screenshot of Visual Studio Code showing Azure Static Web Apps explorer with the **Open in Portal** option shown.":::
 
 1. Select **Configuration** then select **+ Add**.
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Configuration then select Add for your JavaScript app.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer with the **Configuration** option shown.":::
 
 1. Add each of the following settings:
 
@@ -117,12 +117,12 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
 1. Select **Save** to save the settings. 
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings for your JavaScript app..":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of browser showing Azure portal with the button to save the settings for your app..":::
 
 1. Return to VS Code. 
 1. Refresh your static web app to see the application settings. 
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Refresh your JavaScript static web app to see the application settings.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer with the new application settings.":::
 
 ## Use search in your static web app
 
@@ -130,7 +130,7 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. In the Side bar, **right-click on your Azure subscription** under the `Static Web Apps` area and find the static web app you created for this tutorial.
 1. Right-click the static web app name and select **Browse site**.
     
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the static web App name and select **Browse site**.":::    
+    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer showing the **Browse site** option.":::    
 
 1. Select **Open** in the pop-up dialog.
 1. In the website search bar, enter a search query such as `code`, so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
