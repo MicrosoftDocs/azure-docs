@@ -31,10 +31,10 @@ You could choose the batch inference API, or the streaming inference API for det
 ### Request
 
 With the synchronous API, you can get inference results point by point in real time, and no need for compressing and uploading task like for training and asynchronous inference. Here are some requirements for the synchronous API:
-* Need to put data in **JSON format** into the API request body.
+* You need to put data in **JSON format** into the API request body.
 * Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables, and at least `1 sliding window length`.
 
-You submit a bunch of timestamps of multiple variables into in JSON format in the request body, with an API call like this:
+You can submit a bunch of timestamps of multiple variables in JSON format in the request body, with an API call like this:
 
 **{{endpoint}}/anomalydetector/v1.1/multivariate/models/{modelId}:detect-last**
 
@@ -95,8 +95,8 @@ A sample request:
 
 #### Required parameters
 
-* **variableName**: This name should be exactly the same with your training data.
-* **timestamps**: The length of the timestamps should equal to **1 sliding window**, since every streaming inference call will use 1 sliding window to detect the last point in the sliding window.
+* **variableName**: This name should be exactly the same as in your training data.
+* **timestamps**: The length of the timestamps should be equal to **1 sliding window**, since every streaming inference call will use 1 sliding window to detect the last point in the sliding window.
 * **values**: The values of each variable in every timestamp that was inputted above.
 
 #### Optional parameters
