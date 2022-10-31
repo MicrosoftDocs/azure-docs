@@ -25,9 +25,9 @@ As a Python developer, you may also be interested in one of the following articl
 | <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-| Getting started | Concepts| 
+| Getting started | Concepts| Samples |
 |--|--|--|
-| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | 
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <li>[Code Examples](functions-bindings-triggers-python.md)</li> |
 ::: zone-end
 
 > [!NOTE]
@@ -90,18 +90,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-At this time, only specific triggers and bindings are supported by the v2 programming model. Supported triggers and bindings are as follows.
-
-| Type | Trigger | Input Binding | Output Binding |
-| --- | --- | --- | --- |
-| HTTP | x |   |   |
-| Timer | x |   |   |
-| Azure Queue Storage | x |   | x |
-| Azure Service Bus Topic | x |   | x |
-| Azure Service Bus Queue | x |   | x |
-| Azure Cosmos DB | x | x | x |
-| Azure Blob Storage | x | x | x |
-| Azure Event Grid | x |   | x |
+At this time, only specific triggers and bindings are supported by the v2 programming model. For more information, see [Triggers and inputs](#triggers-and-inputs).
 
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
@@ -259,10 +248,9 @@ app.register_functions(bp)
 ```
 
 ::: zone-end 
-
+::: zone pivot="python-mode-configuration"  
 ## Import behavior
 
-::: zone pivot="python-mode-configuration"  
 You can import modules in your function code using both absolute and relative references. Based on the folder structure shown above, the following imports work from within the function file *<project_root>\my\_first\_function\\_\_init\_\_.py*:
 
 ```python
@@ -350,7 +338,7 @@ When the function is invoked, the HTTP request is passed to the function as `req
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
 
-As an example, the following code demonstrates the difference between the two:
+As an example, the following code demonstrates how to define a Blob storage input binding:
 
 ```json
 // local.settings.json
@@ -358,7 +346,8 @@ As an example, the following code demonstrates the difference between the two:
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+    "AzureWebJobsStorage": "<azure-storage-connection-string>",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
   }
 }
 ```
@@ -384,16 +373,16 @@ At this time, only specific triggers and bindings are supported by the v2 progra
 
 | Type | Trigger | Input Binding | Output Binding |
 | --- | --- | --- | --- |
-| HTTP | x |   |   |
-| Timer | x |   |   |
-| Azure Queue Storage | x |   | x |
-| Azure Service Bus topic | x |   | x |
-| Azure Service Bus queue | x |   | x |
-| Azure Cosmos DB | x | x | x |
-| Azure Blob Storage | x | x | x |
-| Azure Event Grid | x |   | x |
+| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
+| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
+| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
+| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
+| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
+| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
+| [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
+| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
 
-To learn more about defining triggers and bindings in the v2 model, see this [documentation](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
+For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
 
 ::: zone-end
 
@@ -667,7 +656,7 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
   "extensionBundle": 
   {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[2.*, 3.0.0)"
+    "version": "[3.*, 4.0.0)"
   },
   "extensions": 
   {
@@ -715,7 +704,38 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions, which is shown in the following example: 
+You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. You must first update the host.json file to include an HTTP `routePrefix`, as shown in the following example:
+
+```json
+{
+  "version": "2.0",
+  "logging": 
+  {
+    "applicationInsights": 
+    {
+      "samplingSettings": 
+      {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "extensionBundle": 
+  {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+  },
+  "extensions": 
+  {
+    "http": 
+    {
+        "routePrefix": ""
+    }
+  }
+}
+```
+
+The framework code looks like the following example:
 
 # [ASGI](#tab/asgi)
 
