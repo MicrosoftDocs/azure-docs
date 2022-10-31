@@ -36,7 +36,7 @@ Before authoring data policies in the Microsoft Purview governance portal, you'l
 ## Create a new policy
 
 This section describes the steps to create a new policy in Microsoft Purview.
-Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-and-publish-data-owner-policies).
+Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-or-update-access-policies).
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -81,7 +81,7 @@ Now that you have created your policy, you will need to publish it for it to bec
 ## Publish a policy
 A newly created policy is in the **draft** state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
 
-Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-and-publish-data-owner-policies)
+Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-publish-data-owner-policies)
 
 The steps to publish a policy are as follows:
 
@@ -105,7 +105,7 @@ The steps to publish a policy are as follows:
 ## Update or delete a policy
 
 Steps to update or delete a policy in Microsoft Purview are as follows.
-Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-and-publish-data-owner-policies)
+Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-or-update-access-policies)
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 

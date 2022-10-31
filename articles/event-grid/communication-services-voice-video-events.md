@@ -48,7 +48,7 @@ This section contains an example of what that data would look like for each even
           "index": 0,
           "endReason": "SessionEnded",
           "contentLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/video",
-          "metadataLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/acsmetadata"
+          "metadataLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/acsmetadata",
 	  "deleteLocation": "https://us-storage.asm.skype.com/v1/objects/0-eus-d1-83e9599991e21ad21220427d78fbf558"
         }
       ]
