@@ -244,7 +244,7 @@
   - name: Entitlement management - Microsoft Graph API
     href: /graph/api/resources/entitlementmanagement-overview
   - name: Lifecycle Workflows - Microsoft Graph API
-    href: /graph/api/resources/identitygovernance-lifecycleworkflows-overview
+    href: /graph/api/resources/identitygovernance-lifecycleworkflows-overview?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
   - name: Lifecycle Workflows - FAQs (Preview)
     href: workflows-faqs.md  
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
