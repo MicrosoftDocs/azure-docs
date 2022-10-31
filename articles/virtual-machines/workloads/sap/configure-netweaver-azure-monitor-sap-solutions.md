@@ -56,7 +56,7 @@ To configure the NetWeaver provider for the current Azure Monitor for SAP soluti
 
 Refer to troubleshooting section to resolve any issue faced while adding the SAP NetWeaver Provider. 
 
-### Prerequisite Unprotect methods for metrics
+### Prerequisite unprotect methods for metrics
 
 This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch specific metrics, you need to unprotect some methods in each SAP instance:
 
@@ -196,7 +196,7 @@ To validate the rules, run a test query against the web methods. Replace the `<h
   $sapcntrl.$Function($FunctionObject)
  ```
 
-### determine all hostname associated with a SAP system 
+### Determine all hostname associated with a SAP system 
     
 To determine all SAP hostnames associated with the SID, log in to the SAP system using the `sidadm` user. Then, run the following command:
 
@@ -213,7 +213,7 @@ Possible Causes: The operation failed with error: ‘Error occurred while valida
     
 Recommended Action: ‘Ensure that the SOAP web service methods are unprotected correctly. Refer to public documentation for more details.'. (Code: ProviderInstanceValidationOperationFailed) 
     
-#### Incorrect userName and Password 
+#### Incorrect username and password 
 The provider settings validation operation has failed with code 'NetWeaverAuthenticationFailed'.
     
 Possible Causes: The operation failed with error: 'Authentication failed, incorrect SAP NetWeaver username, password or client Id.'.
@@ -236,7 +236,7 @@ Possible Causes: Authentication failed, roles file is not uploaded in the SAP Sy
     
 Recommended Action: Ensure that the roles file is uploaded correctly in SAP System. Refer to public documentation for more details.(Code: ProviderInstanceValidationOperationFaile) 
  
-#### Incorrect Input provided 
+#### Incorrect input provided 
 The provider settings validation operation has failed with code 'SOAPApiConnectionError'. 
     
 Possible Causes: The operation failed with error: 'Unable to reach the hostname: (hostname) with the input provided.  
