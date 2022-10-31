@@ -7,7 +7,7 @@ ms.author: benmansheim
 author: bmansheim
 ---
 
-# Exclude a storage account from per-transaction Microsoft Defender for Storage protections
+# Exclude a storage account from a protected subscription in the per-transaction plan
 
 When you [enable Microsoft Defender for Storage](../storage/common/azure-defender-storage-configure.md) on a subscription for the per-transaction pricing, all current and future Azure Storage accounts in that subscription are protected. You can exclude specific storage accounts from the Defender for Storage protections using the Azure portal, PowerShell, or the Azure CLI.
 
