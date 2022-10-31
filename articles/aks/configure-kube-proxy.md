@@ -118,7 +118,7 @@ az aks update -g <resourceGroup> -n <clusterName> --kube-proxy-config kube-proxy
 
 ## Next steps
 
-Learn more about utilizing the Standard Load Balancer for inbound traffic at the [AKS Standard Load Balancer documentation][load-balancer-standard.md].
+Learn more about utilizing the Standard Load Balancer for inbound traffic at the [AKS Standard Load Balancer documentation](load-balancer-standard.md).
 
 Learn more about using Internal Load Balancer for Inbound traffic at the [AKS Internal Load Balancer documentation](internal-lb.md).
 
