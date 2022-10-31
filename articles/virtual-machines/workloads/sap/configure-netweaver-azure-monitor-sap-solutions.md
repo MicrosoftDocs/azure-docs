@@ -276,7 +276,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 
 After updating the parameter, restart the **SAPStartSRV** service on each of the instances in the SAP system. Restarting the services doesn't restart the SAP system. Only the **SAPStartSRV** service (in Windows) or daemon process (in Unix/Linux) is restarted.
 
-You must restart **SAPStartSRV** on each instance of the SAP system for the SAP Control web methods to be unprotected. These read-only SOAP APIs are required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these method results empty or missing visualizations on the NetWeaver metric workbook.
+You must restart **SAPStartSRV** on each instance of the SAP system for the SAP Control web methods to be unprotected. These read-only SOAP APIs are required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these methods results empty or missing visualizations on the NetWeaver metric workbook.
 
 On Windows, open the SAP Microsoft Management Console (MMC) / SAP Management Console (MC).  Right-click on each instance and select **All Tasks** &gt; **Restart Service**.
   
