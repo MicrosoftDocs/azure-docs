@@ -67,7 +67,7 @@ All of the resources referenced above will be created in the new resource group,
    :::image type="content" source="media/quickstart-get-started/resource-group-contents.png" alt-text="A screenshot of the contents of the resource group created for the demo.":::
 
 1. Select the data factory in the resource group to view it. Then select the **Launch Studio** button to continue.
-   :::image type="content" source="media/quickstart-get-started/launchstudio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
+   :::image type="content" source="media/quickstart-get-started/launchadfstudio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
 
 1. Select on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/> and then the **Pipeline** created by the template.  Then check the source data by selecting **Open**.
 
