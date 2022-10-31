@@ -122,7 +122,9 @@ To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop th
 docker stop sapcon-[SID]
 ```
 
-The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. To reenable the Docker container, run this command: 
+The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This both stops the ingestion and billing for the SAP system related to the connector.
+
+If you need to reenable the Docker container, run this command: 
 
 ```
 docker start sapcon-[SID]
