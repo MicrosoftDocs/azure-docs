@@ -1,11 +1,11 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 08/15/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
