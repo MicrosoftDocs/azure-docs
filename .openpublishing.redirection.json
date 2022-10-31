@@ -29353,6 +29353,11 @@
             "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
             "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
+            "redirect_document_id": false
         }
     ]
 }
