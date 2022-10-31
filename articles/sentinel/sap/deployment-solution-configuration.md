@@ -96,3 +96,34 @@ By default, all analytics rules provided in the Microsoft Sentinel Solution for 
 6. Brute force (RFC)
 7. Function module tested
 8. The SAP audit log monitoring analytics rules
+
+## Reduce the amount of SAP log ingestion
+
+To reduce the number of logs ingested into the Microsoft Sentinel workspace, you can stop ingestion for a specific log. To do this, edit the *systemconfig.ini* file, and for the relevant log, change the `True` value to `False`.
+
+For example, to stop the `ABAPJobLog`, change its value to `False`:
+
+```
+ABAPJobLog = False
+```
+
+You can also [stop the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection). 
+
+> [!NOTE]
+>
+> Once you stop one of the logs, the workbooks and analytics queries that use that log may not work.
+> [Understand which log each workbook uses](sap-solution-security-content.md#built-in-workbooks) and [understand which log each analytic rule uses](sap-solution-security-content.md#built-in-analytics-rules).
+
+## Stop log ingestion and disable the connector
+
+To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, run this command: 
+
+```
+docker stop sapcon-[SID]
+```
+
+The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. To reenable the Docker container, run this command: 
+
+```
+docker start sapcon-[SID] and that would make the docker container start running.
+```
