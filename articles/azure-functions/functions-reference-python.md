@@ -704,9 +704,7 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions, which is shown in the following example:
-
-The host.json file should be updated to include an HTTP `routePrefix`, as shown in the following example.
+You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. You must first update the host.json file to include an HTTP `routePrefix`, as shown in the following example:
 
 ```json
 {
