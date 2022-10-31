@@ -137,7 +137,7 @@ Create or update Run Command on a VM passing the script content directly to -Sou
 Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVML -RunCommandName MyRunCommand2 -Location EastUS2EUAP -SourceScript "id; echo HelloWorld"
 ```
 ### Create or update Run Command on a VM using SourceCommandId
-Create or update Run Command on a VM using pre-existing `commandId`. Available commandIds can be retrieved using [Get-AzVMRunCommandDocument](https://learn.microsoft.com/powershell/module/az.compute/get-azvmruncommanddocument?view=azps-9.0.1).
+Create or update Run Command on a VM using pre-existing `commandId`. Available commandIds can be retrieved using [Get-AzVMRunCommandDocument](/powershell/module/az.compute/get-azvmruncommanddocument).
 
 ```azurepowershell-interactive
 Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVMEE -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceCommandId DisableWindowsUpdate
