@@ -3,7 +3,7 @@ title: How to manage inactive user accounts in Azure AD | Microsoft Docs
 description: Learn about how to detect and handle user accounts in Azure AD that have become obsolete
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: markvi
+ms.author: billmath
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management

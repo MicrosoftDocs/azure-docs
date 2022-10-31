@@ -3,7 +3,7 @@ title: Azure AD PowerShell cmdlets for reporting | Microsoft Docs
 description: Reference of the Azure AD PowerShell cmdlets for reporting.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: markvi
+ms.author: billmath
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management 

@@ -4,7 +4,7 @@ title: What are Azure Active Directory reports? | Microsoft Docs
 description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/22/2022
-ms.author: markvi
+ms.author: billmath
 ms.reviewer: sarbar  
 
 # Customer intent: As an Azure AD administrator, I want to understand what Azure AD reports are available and how I can use them to gain insights into my environment. 

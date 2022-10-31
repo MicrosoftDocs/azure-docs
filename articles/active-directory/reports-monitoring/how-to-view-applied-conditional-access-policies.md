@@ -4,7 +4,7 @@ title: View applied Conditional Access policies in Azure AD sign-in logs
 description: Learn how to view Conditional Access policies in Azure AD sign-in logs so that you can assess the impact of those policies.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 09/14/2022
-ms.author: markvi
+ms.author: billmath
 ms.reviewer: besiler 
 
 ms.collection: M365-identity-device-management

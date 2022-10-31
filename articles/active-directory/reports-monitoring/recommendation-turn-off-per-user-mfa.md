@@ -3,7 +3,7 @@ title: Azure Active Directory recommendation - Turn off per user MFA in Azure AD
 description: Learn why you should turn off per user MFA in Azure AD
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: markvi
+ms.author: billmath
 ms.reviewer: hafowler
 
 ms.collection: M365-identity-device-management

@@ -4,7 +4,7 @@ title: Sign in diagnostics for Azure AD scenarios
 description: Lists the scenarios that are supported by the sign-in diagnostics for Azure AD.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: markvi
+ms.author: billmath
 ms.reviewer: tspring  
 
 # Customer intent: As an Azure AD administrator, I want to know the scenarios that are supported by the sign in diagnostics for Azure AD so that I can determine whether the tool can help me with a sign-in issue.
