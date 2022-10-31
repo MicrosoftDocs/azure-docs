@@ -78,6 +78,15 @@ When the process completes, the GitHub connector appears on your Environment set
 
 The Defender for DevOps service automatically discovers the repositories you selected and analyzes them for any security issues. The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository. This can take up to an average of 3 hours.
 
+## Limitations
+
+| __LIMITATIONS__ | __REFERENCE SCREENSHOT__ |
+| ----------- | ----------- |
+|  Connector Name Cannot be more than 20 Characters  | ![4-MS-Defender-DevOps-Security](https://user-images.githubusercontent.com/29681063/196059400-01e97de4-08a5-4595-8708-e65d559293f9.jpg) |
+| Defender for DevOps Only Supports Central US During Preview | ![5-MS-Defender-DevOps-Security](https://user-images.githubusercontent.com/29681063/196059467-278a0def-5be6-4bb3-a662-aa6c0cbe1e07.jpg) |
+| In Order to Create Github Connector, Subscription MUST BE Registered to "Microsoft.SecurityDevOps" | ![6-MS-Defender-DevOps-Security](https://user-images.githubusercontent.com/29681063/196059536-6005496f-92c1-495d-88b9-7151267344ec.jpg) |
+| If the user waits too long after successful completion of the Step - "Authorize Defender for DevOps" + "Install Defender for DevOps Apps", it Fails to create the Connector with the Error - "The code Passed is Incorrect or Expired" | ![10](https://user-images.githubusercontent.com/29681063/196059656-6c79b49a-e014-44e2-9374-71de637caec7.jpg) |
+
 ## Learn more
 
 - You can learn more about [how Azure and GitHub integrate](/azure/developer/github/).
