@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Windows 10 Enterprise multi-session FAQ - Azure
-  description: Frequently asked questions and best practices for using Windows 10 Enterprise multi-session for Azure Virtual Desktop.
+  title: Windows 10 and Windows 11 Enterprise multi-session FAQ - Azure
+  description: Frequently asked questions and best practices for using Windows 10 and Windows 11 Enterprise multi-session for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: faq
   ms.prod: windows
@@ -9,7 +9,7 @@ metadata:
   ms.author: helohr
   manager: femila
 title: Windows 10 Enterprise multi-session FAQ
-summary: This article answers frequently asked questions and explains best practices for Windows 10 Enterprise multi-session.
+summary: This article answers frequently asked questions and explains best practices for Windows 10 and Windows 11 Enterprise multi-session.
 
 
 sections:
@@ -27,8 +27,8 @@ sections:
         answer: |
           Windows 10 Enterprise multi-session is a virtual edition of Windows 10 Enterprise. One of the differences is that this operating system (OS) reports the [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem) as having a value of 3, the same value as Windows Server. This property keeps the OS compatible with existing RDSH management tooling, RDSH multi-session-aware applications, and mostly low-level system performance optimizations for RDSH environments. Some application installers can block installation on Windows 10 multi-session depending on whether they detect the ProductType is set to Client. If your app won't install, contact your application vendor for an updated version.
           
-      - question: Can I run Windows 10 Enterprise multi-session on-premises?
-        answer: Windows 10 Enterprise multi-session can't run in on-premises production environments because it's optimized for the Azure Virtual Desktop service for Azure. It's against the licensing agreement to run Windows 10 Enterprise multi-session outside of Azure for production purposes. Windows 10 Enterprise multi-session won't activate against on-premises Key Management Services (KMS).
+      - question: Can I run Windows 10 or Windows 11 Enterprise multi-session outside of the Azure Virtual Desktop service?
+        answer: Windows 10 or 11 Enterprise multi-session is not permitted in production environments outside of the Azure Virtual Desktop service, which is provided only by Microsoft or the Azure Virtual Desktop Approved Providers Citrix and VMWare, and it is against the licensing agreement to run Windows 10 or 11 multi-session outside of the Azure Virtual Desktop Service for production purposes. In addition, Windows 10 and 11 multisession won’t activate against on-premises Key Management Services (KMS).
 
       - question: Can I upgrade a Windows 10 VM to Windows 10 Enterprise multi-session?
         answer: No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows 10 Professional or Enterprise to Windows 10 Enterprise multi-session. Also, if you deploy a Windows 10 Enterprise multi-session VM and then update the product key to another edition, you won't be able to switch the VM back to Windows 10 Enterprise multi-session and will need to redeploy the VM. Changing your Azure Virtual Desktop VM SKU to another edition is not supported.
