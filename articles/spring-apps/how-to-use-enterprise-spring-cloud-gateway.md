@@ -126,6 +126,7 @@ The route config definition includes the following parts:
 - OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition.
 - routes: A list of route rules about how the traffic goes to one app.
 - protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. Its supported values are `HTTP` or `HTTPS`, the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
+- app level routes: There are three route properties can be configured at app level to avoid repetition across all or most routes in the route configuration. Note that the concrete routing rule will override app level routing rule for same property. The following properties can be defined at app level: `predicates`, `filters`, and `ssoEnabled`. Another thing to notice is that if you are using `OpenAPI URI` feature to define routes, the only app level routing property to support is `filters`.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
 
@@ -151,7 +152,7 @@ Here's a sample of the JSON file that is passed to the `--routes-file` parameter
          "predicates": [
             "<predicate-of-route>",
          ],
-         "ssoEnabled": true,
+         "sso_enabled": true,
          "filters": [
             "<filter-of-route>",
          ],
@@ -160,6 +161,13 @@ Here's a sample of the JSON file that is passed to the `--routes-file` parameter
          ],
          "order": 0
       }
+   ],
+   "predicates": [
+      "<app-level-predicate-of-route>",
+   ],
+   "sso_enabled": false,
+   "filters": [
+      "<app-level-filter-of-route>",
    ]
 }
 ```
