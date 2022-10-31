@@ -54,6 +54,10 @@ All user interactions with Chaos Studio happen through Azure Resource Manager. I
 
 Azure Chaos Studio doesn't support Private Link for agent-based scenarios.
 
+## Service tags 
+A service tag is a group of IP address prefixes that can be assigned to in-bound and out-bound NSG rules. It handles updates to the group of IP address prefixes  without any intervention. This benefits you because you can use service tags to explicitly allow in-bound traffic from Chaos Studio, without needing to know the IP addresses of the platform. Currently service tags can be enabled via PowerShell.
+* Limitation of service tags is that they can only be used with resources that have a public IP address. If a resource only has a private IP address, then service tags will not be able to allow traffic to route to it. 
+
 ## Data encryption
 
 Chaos Studio encrypts all data by default. Chaos Studio only accepts input for system properties like managed identity object IDs, experiment/step/branch names, and fault parameters (for example, the network port range to block in a network disconnect fault). These properties shouldn't be used to store sensitive data such as payment information or passwords. For more on how Chaos Studio protects your data, see [the Azure customer data protection article](../security/fundamentals/protection-customer-data.md).
