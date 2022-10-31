@@ -36,7 +36,7 @@ Besides the ability to subscribe to Microsoft Graph API events via Event Grid, y
 
 1. [Register the Event Grid resource provider](#register-the-event-grid-resource-provider) with your Azure subscription.
 1. [Authorize partner](#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
-3. [Enable events to flow to a partner topic](#enable-microsoft-graph-api-events-to-flow-to-your-partner-topic)
+3. [Enable events to flow to a partner topic](#enable-graph-api-events-to-flow-to-your-partner-topic)
 4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
 5. [Subscribe to events](#subscribe-to-events).
 

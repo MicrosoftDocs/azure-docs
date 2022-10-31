@@ -16,7 +16,7 @@ First, create an event handler that will handle events from the partner. For exa
 Then, create an event subscription for the partner topic using the event handler you created. 
 
 #### Create an event handler
-To test your partner topic, you'll need an event handler. Go to your Azure subscription and spin up a service that's supported as an [event handler](event-handlers.md) such as an [Azure Function](custom-event-to-function.md). For an example, see [Event Grid Viewer sample](custom-event-quickstart-portal.md#create-a-message-endpoint) that you can use as an event handler via webhooks. 
+To test your partner topic, you'll need an event handler. Go to your Azure subscription and spin up a service that's supported as an [event handler](../event-handlers.md) such as an [Azure Function](../custom-event-to-function.md). For an example, see [Event Grid Viewer sample](../custom-event-quickstart-portal.md#create-a-message-endpoint) that you can use as an event handler via webhooks. 
 
 #### Subscribe to the partner topic
 Subscribing to the partner topic tells Event Grid where you want your partner events to be delivered.

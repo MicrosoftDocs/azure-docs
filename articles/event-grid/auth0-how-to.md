@@ -56,8 +56,10 @@ Try [invoking any of the Auth0 actions that trigger an event to be published](ht
 ## Delivery attempts and retries
 Auth0 events are delivered to Azure via a streaming mechanism. Each event is sent as it's triggered in Auth0. If Event Grid is unable to receive the event, Auth0 will retry up to three times to deliver the event. Otherwise, Auth0 will log the failure to deliver in its system.
 
-4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
-5. [Subscribe to events](#subscribe-to-events).
+[!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
+
+[!INCLUDE [subscribe-to-events](includes/subscribe-to-events.md)]
+
 
 ## Next steps
 
