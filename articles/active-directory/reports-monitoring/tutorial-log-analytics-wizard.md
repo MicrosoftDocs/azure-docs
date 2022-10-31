@@ -8,8 +8,8 @@ ms.subservice: report-monitor
 ms.topic: tutorial
 ms.date: 10/31/2022
 
-ms.author: shlipsey3
-author: srahlipsey
+ms.author: sarahlipsey
+author: shlipsey3
 manager: amycolannino
 ms.reviewer: sandeo
 
