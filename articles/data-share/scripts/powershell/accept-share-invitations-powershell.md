@@ -3,7 +3,7 @@ title: "PowerShell script: Accept invitation from an Azure Data Share"
 description: This PowerShell script accepts invitations from an existing data share.
 services: data-share
 author: sidontha
-ms.author: sidonta
+ms.author: sidontha
 ms.service: data-share
 ms.topic: article
 ms.date: 10/31/2022 
