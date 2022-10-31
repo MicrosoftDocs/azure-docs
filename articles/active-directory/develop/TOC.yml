@@ -146,8 +146,10 @@
       items:
         - name: Workload identity federation
           href: workload-identity-federation.md
-        - name: Trust an external identity provider (federation)
+        - name: Configure an app to trust an external identity provider
           href: workload-identity-federation-create-trust.md
+        - name: Configure a managed identity to trust an external identity provider
+          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
@@ -783,6 +785,8 @@
               href: active-directory-signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md
+            - name: Federated identity credentials considerations and limitations
+              href: workload-identity-federation-considerations.md
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol

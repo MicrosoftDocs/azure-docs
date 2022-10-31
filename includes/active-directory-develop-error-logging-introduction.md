@@ -1,6 +1,6 @@
 ---
-author: mmacy
-ms.author: marsma
+author: cilwerner
+ms.author: cwerner
 ms.date: 12/16/2020
 ms.service: active-directory
 ms.subservice: develop

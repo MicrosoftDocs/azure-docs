@@ -1,6 +1,6 @@
 ---
 title: 'Disable group writeback in Azure AD Connect'
-description: This article describes how to disable Group Writeback in Azure AD Connect. 
+description: This article describes how to disable group writeback in Azure AD Connect by using the wizard and PowerShell. 
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,48 +14,47 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Disabling group writeback 
-The following document will walk you thorough disabling group writeback. To disable group writeback for your organization, use the following steps: 
+# Disable group writeback 
+This article walks you through disabling group writeback in Azure Active Directory (Azure AD) Connect. 
 
-1. Launch the Azure Active Directory Connect wizard and navigate to the Additional Tasks page. Select the Customize synchronization options task and click next. 
-2. On the Optional Features page, uncheck group writeback. You'll receive a warning letting you know that groups will be deleted. Click Yes. 
- >[!Important] 
- >Disabling Group Writeback will cause any groups that were previously created by this feature to be deleted from your local Active Directory on the next synchronization cycle. 
+## Disable group writeback by using the wizard
 
-3. Uncheck the box 
-4. Click Next. 
-5. Click Configure. 
-
-
->[!Note] 
->Disabling Group Writeback will set the Full Import and Full Synchronization flags to 'true' on the Azure Active Directory Connector, causing the rule changes to propagate through on the next synchronization cycle, deleting the groups that were previously written back to your Active Directory. 
-
+1. Open the Azure AD Connect wizard and go to the **Additional Tasks** page. Select the **Customize synchronization options task**, and then select **Next**. 
+2. On the **Optional Features** page, clear the checkbox for group writeback. In the warning that groups will be deleted, select **Yes**. 
  
+   > [!IMPORTANT] 
+   > Disabling group writeback sets the flags for full import and full synchronization in Active Directory Connect to `true`. It will cause any groups that were previously created by this feature to be deleted from your local Active Directory instance in the next synchronization cycle. 
 
-## Rolling back group writeback 
+3. Select **Next**. 
+4. Select **Configure**. 
 
-To disable or roll back group writeback via PowerShell, do the following: 
 
-1. Open a PowerShell prompt as administrator. 
-2. Disable the sync scheduler after verifying that no synchronization operations are running: 
-``` PowerShell 
- Set-ADSyncScheduler -SyncCycleEnabled $false  
- ``` 
+## Disable or roll back group writeback via PowerShell 
+
+1. Open a PowerShell prompt as an administrator. 
+2. Disable the sync scheduler after verifying that no synchronization operations are running:
+
+   ``` PowerShell 
+   Set-ADSyncScheduler -SyncCycleEnabled $false  
+   ``` 
 3. Import the ADSync module: 
- ``` PowerShell 
- Import-Module  'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1' 
- ``` 
+
+   ``` PowerShell 
+   Import-Module  'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1' 
+   ``` 
 4. Disable the group writeback feature for the tenant: 
- ``` PowerShell 
- Set-ADSyncAADCompanyFeature -GroupWritebackV2 $false 
- ``` 
-5. Re-enable the Sync Scheduler 
- ``` PowerShell 
- Set-ADSyncScheduler -SyncCycleEnabled $true  
- ``` 
+
+   ``` PowerShell 
+   Set-ADSyncAADCompanyFeature -GroupWritebackV2 $false 
+   ``` 
+5. Re-enable the sync scheduler:
+
+   ``` PowerShell 
+   Set-ADSyncScheduler -SyncCycleEnabled $true  
+   ``` 
 
 
-## Next Steps: 
+## Next steps 
 
 - [Azure AD Connect group writeback](how-to-connect-group-writeback-v2.md) 
 - [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 

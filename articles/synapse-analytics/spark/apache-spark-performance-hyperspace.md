@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 02/15/2022
 ms.reviewer: euang
-zone_pivot_groups: programming-languages-spark-all-minus-sql
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 # Hyperspace: An indexing subsystem for Apache Spark
@@ -238,7 +238,7 @@ deptLocation: String = /your-path/departments.parquet
 
 Let's verify the contents of the Parquet files we created to make sure they contain expected records in the correct format. Later, we'll use these data files to create Hyperspace indexes and run sample queries.
 
-Running the following cell produces and output that displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
+Running the following cell produces an output that displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
 
 :::zone pivot = "programming-language-scala"
 

@@ -75,12 +75,10 @@ items:
 - name: Support and help
   expanded: false
   items:
-  - name: Support and help options for Azure AD
-    href: support-help-options.md
   - name: Find your tenant ID
     href: active-directory-how-to-find-tenant.md
-  - name: Get support for Azure Active Directory
-    href: active-directory-troubleshooting-support-howto.md
+  - name: Get support for Azure AD
+    href: how-to-get-support.md
 - name: Reference
   expanded: false
   items:
@@ -89,6 +87,8 @@ items:
     items:
     - name: What's new in Azure Active Directory
       href: whats-new.md
+    - name: What's new in sovereign clouds?
+      href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
       href: whats-new-archive.md
   - name: Frequently asked questions
@@ -140,6 +140,12 @@ items:
         href: road-to-the-cloud-migrate.md
     - name: Parallel identity options
       href: azure-active-directory-parallel-identity-options.md
+    - name: Automate identity provisioning to applications
+      items:
+      - name: Automate identity provisioning to applications introduction
+        href: automate-provisioning-to-applications-introduction.md
+      - name: Solutions to automate identity provisioning to applications
+        href: automate-provisioning-to-applications-solutions.md
     - name: Multi-tenant user management
       items:
       - name: Multi-tenant user management introduction
@@ -276,6 +282,8 @@ items:
         href: security-operations-introduction.md
       - name: Security operations for user accounts
         href: security-operations-user-accounts.md
+      - name: Security operations for consumer accounts
+        href: security-operations-consumer-accounts.md
       - name: Security operations for privileged accounts
         href: security-operations-privileged-accounts.md
       - name: Security operations for PIM

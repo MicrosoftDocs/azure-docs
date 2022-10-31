@@ -286,7 +286,64 @@ public void eventHubProcessor(
 
  In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventHubTrigger` annotation on parameters whose value comes from the event hub. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
+
+The following example illustrates extensive use of `SystemProperties` and other Binding options for further introspection of the Event along with providing a well-formed `BlobOutput` path that is Date hierarchical.
+
+```java
+package com.example;
+import java.util.Map;
+import java.time.ZonedDateTime;
+
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+/**
+ * Azure Functions with Event Hub trigger.
+ * and Blob Output using date in path along with message partition ID
+ * and message sequence number from EventHub Trigger Properties
+ */
+public class EventHubReceiver {
+
+    @FunctionName("EventHubReceiver")
+    @StorageAccount("bloboutput")
+                                
+    public void run(
+            @EventHubTrigger(name = "message",
+                eventHubName = "%eventhub%",
+                consumerGroup = "%consumergroup%",
+                connection = "eventhubconnection",
+                cardinality = Cardinality.ONE)
+            String message,
+            
+            final ExecutionContext context,
+            
+            @BindingName("Properties") Map<String, Object> properties,
+            @BindingName("SystemProperties") Map<String, Object> systemProperties,
+            @BindingName("PartitionContext") Map<String, Object> partitionContext,
+            @BindingName("EnqueuedTimeUtc") Object enqueuedTimeUtc,
+
+            @BlobOutput(
+                name = "outputItem",
+                path = "iotevents/{datetime:yy}/{datetime:MM}/{datetime:dd}/{datetime:HH}/" +
+                       "{datetime:mm}/{PartitionContext.PartitionId}/{SystemProperties.SequenceNumber}.json")
+            OutputBinding<String> outputItem) {
+
+        var et = ZonedDateTime.parse(enqueuedTimeUtc + "Z"); // needed as the UTC time presented does not have a TZ
+                                                             // indicator
+        context.getLogger().info("Event hub message received: " + message + ", properties: " + properties);
+        context.getLogger().info("Properties: " + properties);
+        context.getLogger().info("System Properties: " + systemProperties);
+        context.getLogger().info("partitionContext: " + partitionContext);
+        context.getLogger().info("EnqueuedTimeUtc: " + et);
+
+        outputItem.setValue(message);
+    }
+}
+
+```
+
 ::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 

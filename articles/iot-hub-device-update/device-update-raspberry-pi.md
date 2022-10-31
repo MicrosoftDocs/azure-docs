@@ -1,8 +1,8 @@
 ---
 title: Device Update for IoT Hub tutorial using the Raspberry Pi 3 B+ reference Yocto image | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ reference Yocto image.
-author: ValOlson
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
@@ -214,10 +214,10 @@ Use that version number in the later "Import the update" section.
 ## Add a tag to your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. On the left pane, under **Devices** or **IoT Edge**, find your IoT device and go to the device twin or module twin.
+1. On the left pane, under **Devices**, find your IoT device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using the device identity with the Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
-    
+
     ```JSON
         "tags": {
                 "ADUGroup": "<CustomTagValue>"

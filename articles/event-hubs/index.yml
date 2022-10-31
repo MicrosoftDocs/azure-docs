@@ -56,11 +56,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Explore Azure Event Hubs
-            url: /learn/modules/azure-event-hubs/
+            url: /training/modules/azure-event-hubs/
           - text: Enable reliable messaging for Big Data applications using Azure Event Hubs
-            url: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+            url: /training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
 
   # Card
   - title: Create a dedicated cluster

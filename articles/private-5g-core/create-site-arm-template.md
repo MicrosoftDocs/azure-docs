@@ -46,7 +46,7 @@ Four Azure resources are defined in the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
     
     | Field | Value |
     |--|--|
@@ -58,30 +58,24 @@ Four Azure resources are defined in the template.
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site.|
     | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
-    | **Platform Type** | Ensure **AKS-HCI** is selected. |
-    | **Control Plane Access Interface Name** | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
+    | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
+    | **Control Plane Access Interface Name** | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface. |
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
-    | **User Plane Access Interface Name** | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
-    | **User Plane Access Interface Ip Address** | Leave this field blank. |
-    | **Access Subnet** | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation. |
-    | **Access Gateway** | Enter the access subnet default gateway. |
-    | **User Plane Data Interface Name** | Enter the name of the user plane interface on the data network. This must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device. |
-    | **User Plane Data Interface Ip Address** | Leave this field blank. |
-    | **User Plane Data Interface Subnet** | Enter the network address of the data subnet in CIDR notation. |
-    | **User Plane Data Interface Gateway** | Enter the data subnet default gateway. |
+    | **User Plane Access Interface Name** | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface. |
+    | **User Plane Data Interface Name** | Enter the virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     | **Core Network Technology** | Enter *5GC* for 5G, or *EPC* for 4G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
-    | **Dns Addresses** | Enter the DNS server addresses. You can omit this if you don't want to configure a DNS server for the UEs in this data network. |
+    | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
 
-1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+3. Select **Review + create**.
+4. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display a confirmation screen when the site has been created.
+5. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display a confirmation screen when the site has been created.
 
 ## Review deployed resources
 

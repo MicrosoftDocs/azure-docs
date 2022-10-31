@@ -12,6 +12,9 @@ ms.date: 01/07/2022
 
 # Design with intent and entity models
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Language understanding provides two types of models for you to define your app schema. Your app schema determines what information you receive from the prediction of a new user utterance.
 
 The app schema is built from models you create using [machine teaching](#authoring-uses-machine-teaching):

@@ -62,7 +62,7 @@ For a complete list of options to update an IoT hub, see the [**az iot hub updat
 
 ## Register a new device in the IoT hub
 
-In this section, you create a device identity in the identity registry in your IoT hub. A device can't connect to a hub unless it has an entry in the identity registry. For more information, see [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md). This device identity is [IoT Edge](/azure/iot-edge) enabled.
+In this section, you create a device identity in the identity registry in your IoT hub. A device can't connect to a hub unless it has an entry in the identity registry. For more information, see [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md). This device identity is [IoT Edge](../iot-edge/index.yml) enabled.
 
 Run the following command to create a device identity. Use your IoT hub name and create a new device ID name in place of `{iothub_name}` and `{device_id}`. This command creates a device identity with default authorization (shared private key).
 
@@ -72,7 +72,7 @@ az iot hub device-identity create -n {iothub_name} -d {device_id} --ee
 
 The result is a JSON printout which includes your keys and other information.
 
-Alternatively, there are several options to register a device using different kinds of authorization. To explore the options, see [Examples](/device-identity?view=azure-cli-latest#az-iot-hub-device-identity-create-examples&preserve-view=true) on the **az iot hub device-identity** reference page.
+Alternatively, there are several options to register a device using different kinds of authorization. To explore the options, see [Examples](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create-examples) on the **az iot hub device-identity** reference page.
 
 ## Remove an IoT Hub
 

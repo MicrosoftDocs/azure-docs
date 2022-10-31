@@ -35,18 +35,18 @@ For your custom Windows image, you must choose the right [parent image (base ima
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):20H2
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):ltsc2019
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-20H2
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-ltsc2019
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-1809
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-1809
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-1809
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-1809
+- [https://mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/windows/servercore:ltsc2022)
+- [https://mcr.microsoft.com/windows/servercore:ltsc2019](https://mcr.microsoft.com/windows/servercore:ltsc2019)
+- [https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022](https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019](https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019)
+- [https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-1809](https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-1809)
+- [https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-1809](https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-1809)
+- [https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-1809](https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-1809)
+- [https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-ltsc2022)
+- [https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-1809](https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-1809)
 
 ::: zone-end
 
@@ -170,7 +170,7 @@ In PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB_HOST"="myownserver.mysql.database.azure.com"}
 ```
 
-When your app runs, the App Service app settings are injected into the process as environment variables automatically. You can verify container environment variables with the URL `https://<app-name>.scm.azurewebsites.net/Env)`.
+When your app runs, the App Service app settings are injected into the process as environment variables automatically. You can verify container environment variables with the URL `https://<app-name>.scm.azurewebsites.net/Env`.
 
 If your app uses images from a private registry or from Docker Hub, credentials for accessing the repository are saved in environment variables: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`. Because of security risks, none of these reserved variable names are exposed to the application.
 
@@ -202,6 +202,18 @@ When persistent storage is disabled, then writes to the `C:\home` directory are 
 
 The only exception is the `C:\home\LogFiles` directory, which is used to store the container and application logs. This folder will always persist upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-windows) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage will not affect the application logging behavior.
 
+By default, persistent storage is *disabled* on Windows custom containers. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` via the [Cloud Shell](https://shell.azure.com). In Bash:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+```
+
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
+```
+
 ::: zone-end
 
 ::: zone pivot="container-linux"
@@ -214,19 +226,19 @@ The only exception is the `/home/LogFiles` directory, which is used to store the
 
 It is recommended to write data to `/home` or a [mounted azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths will not be persistent during restarts and will be saved to platform-managed host disk space separate from the App Service Plans file storage quota.
 
-::: zone-end
-
-By default, persistent storage is disabled on custom containers and the setting is exposed in the app settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, persistent storage is *enabled* on Linux custom containers. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `false` via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 In PowerShell:
 
 ```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
 ```
+
+::: zone-end
 
 > [!NOTE]
 > You can also [configure your own persistent storage](configure-connect-to-azure-storage.md).

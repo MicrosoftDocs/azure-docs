@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: firewall
  ms.topic: include
- ms.date: 08/19/2022
+ ms.date: 10/27/2022
  ms.author: victorh
  ms.custom: include file
 ---
@@ -13,9 +13,9 @@
 | Resource | Limit |
 | --- | --- |
 | Data throughput |30 Gbps|
-|Rule limits|10,000 unique source/destinations in network and application rules <br><br> **Unique source/destinations in network** = sum of (unique source addresses * unique destination addresses for each rule)|
+|Rule limits|10,000 unique source/destinations in network rules <br><br> **Unique source/destinations in network** = sum of (unique source addresses * unique destination addresses for each rule)|
 |Total size of rules within a single Rule Collection Group| 1 MB for Firewall policies created before July 2022<br>2 MB for Firewall policies created after July 2022|
-|Number of Rule Collection Groups in a firewall policy|50 for Firewall policies created before July 2022<br>100 for Firewall policies created after July 2022|
+|Number of Rule Collection Groups in a firewall policy|50 for Firewall policies created before July 2022<br>60 for Firewall policies created after July 2022|
 |Maximum DNAT rules|250 maximum unique destinations (public IP address, port, and protocol)<br><br> The DNAT limitation is due to the underlying platform.<br><br>For example, you can configure 500 UDP rules to the same destination IP address and port (one unique destination), while 500 rules to the same IP address but to 500 different ports exceeds the limit (500 unique destinations).|
 |Minimum AzureFirewallSubnet size |/26|
 |Port range in network and application rules|1 - 65535|

@@ -21,6 +21,7 @@ Azure Communication Services emits the following voice and video calling event t
 | Microsoft.Communication.CallEnded   | Published when call is ended  |
 | Microsoft.Communication.CallParticipantAdded | Published when participant is added  |
 | Microsoft.Communication.CallParticipantRemoved | Published when participant is removed  |
+| Microsoft.Communication.IncomingCall | Published when there is an incoming call  |
 
 ## Event responses
 
@@ -37,8 +38,8 @@ This section contains an example of what that data would look like for each even
 [
  {
   "id": "7283825e-f8f1-4c61-a9ea-752c56890500",
-  "topic": "/subscriptions/{subscription-id}/resourcegroups/}{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
-  "subject": "/recording/call/{call-id}/recordingId/{recording-id}",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/recording/call/{call-id}/serverCallId/{server-call-id}/recordingId/{recording-id}",
   "data": {
     "recordingStorageInfo": {
       "recordingChunks": [
@@ -47,7 +48,8 @@ This section contains an example of what that data would look like for each even
           "index": 0,
           "endReason": "SessionEnded",
           "contentLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/video",
-          "metadataLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/acsmetadata"
+          "metadataLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/acsmetadata",
+	  "deleteLocation": "https://us-storage.asm.skype.com/v1/objects/0-eus-d1-83e9599991e21ad21220427d78fbf558"
         }
       ]
     },
@@ -234,6 +236,41 @@ This section contains an example of what that data would look like for each even
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "eventTime": "2021-09-22T17:28:41.1497652Z"
+  }
+]
+```
+
+### Microsoft.Communication.IncomingCall
+
+```json
+[
+  {
+    "id": "d5546be8-227a-4db8-b2c3-4f06fd675fd6",
+    "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+    "subject": "/caller/8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-2033-438d-1000-343a0d006e10/recipient/8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-1889-f3a7-6a0b-343a0d0061f3",
+    "data": {
+	  "to": {
+       "kind": "communicationUser",
+        "rawId": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-1889-f3a7-6a0b-343a0d0061f3",
+        "communicationUser": {
+          "id": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-1889-f3a7-6a0b-343a0d0061f3"
+        }
+	  },
+      "from": {
+        "kind": "communicationUser",
+        "rawId": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-2033-438d-1000-343a0d006e10",
+        "communicationUser": {
+          "id": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-2033-438d-1000-343a0d006e10"
+		  }
+      },
+      "callerDisplayName": "",
+      "incomingCallContext": "eyJhbGciOiJub25lIiwidHliSldUIn0.eyJjYyI6Ikg0c0lBQi9iT0JiOUs0SVhtQS9UMGhJbFVaUUlHQVBIc1J1M1RlbzgyNW4xcmtHJNa2hCNVVTQkNUbjFKTVo1NCt3ZDk1WFY0ZnNENUg0VDV2dk5VQ001NWxpRkpJb0pDUWlXS0F3OTJRSEVwUWo4aFFleDl4ZmxjRi9lMTlaODNEUmN6QUpvMVRWVXoxK1dWYm1lNW5zNmF5cFRyVGJ1KzMxU3FMY3E1SFhHWHZpc3FWd2kwcUJWSEhta0xjVFJEQ0hlSjNhdzA5MHE2T0pOaFNqS0pFdXpCcVdidzRoSmJGMGtxUkNaOFA4T3VUMTF0MzVHN0kvS0w3aVQyc09aS2F0NHQ2cFV5d0UwSUlEYm4wQStjcGtiVjlUK0E4SUhLZ2JKUjc1Vm8vZ0hFZGtRT3RCYXl1akc4cUt2U1dITFFCR3JFYjJNY3RuRVF0TEZQV1JEUzJHMDk3TGU5VnhhTktob2JIV0wzOHdab3dWcGVWZmsrL2QxYVZnQ2U1bVVLQTh1T056YmpvdXdnQjNzZTlnTEhjNFlYem5BVU9nRGY5dUFQMndsMXA0WU5nK1cySVRxSEtZUzJDV25IcEUySkhVZzd2UnVHOTBsZ081cU81MngvekR0OElYWHBFSi9peUxtNkdibmR1eEdZREozRXNWWXh4ZzZPd1hqc0pCUjZvR1U3NDIrYTR4M1RpQXFaV245UVIrMHNaVDg3YXpRQzbDNUR3BuZFhST1FTMVRTRzVVTkRGeU5UVjNORTFHU2kxck1UTk9VMUF0TWtWNVNreFRUVVI0YlMxRk1VdEVabnBRTjFsQ1EwWkVlVTQxZURCc1IyaHljVTVYTFROeWVTMVJNVjgyVFhrdGRFNUJZV3hrZW5SSVUwMTFVVE5GWkRKUkluMTlmUS5hMTZ0eXdzTDhuVHNPY1RWa2JnV3FPbTRncktHZmVMaC1KNjZUZXoza0JWQVJmYWYwOTRDWDFJSE5tUXRJeDN1TWk2aXZ3QXFFQWV1UlNGTjhlS3gzWV8yZXppZUN5WDlaSHp6Q1ZKemdZUVprc0RjYnprMGJoR09laWkydkpEMnlBMFdyUW1SeGFxOGZUM25EOUQ1Z1ZSUVczMGRheGQ5V001X1ZuNFNENmxtLVR5TUSVEifQ.",
+      "correlationId": "d732db64-4803-462d-be9c-518943ea2b7a"
+    },
+    "eventType": "Microsoft.Communication.IncomingCall",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2022-08-25T19:27:24.2415391Z"
   }
 ]
 ```

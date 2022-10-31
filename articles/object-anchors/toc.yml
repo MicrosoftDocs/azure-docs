@@ -44,7 +44,7 @@ items:
 - name: References
   items:
   - name: Conversion SDK for .NET
-    href: /dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre
+    href: /dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme
   - name: Runtime SDK for Unity
     href: /dotnet/api/Microsoft.Azure.ObjectAnchors/
   - name: Runtime SDK for HoloLens C++/WinRT

@@ -84,7 +84,7 @@ az webapp up --runtime "PHP:8.0" --os-type=linux
 ```
 
 - If the `az` command isn't recognized, be sure you have [Azure CLI](/cli/azure/install-azure-cli) installed.
-- The `--runtime "php|8.0"` argument creates the web app with PHP version 8.0.
+- The `--runtime "PHP:8.0"` argument creates the web app with PHP version 8.0.
 - The `--os-type=linux` argument creates the web app on App Service on Linux.
 - You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name will be automatically generated.
 - You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.

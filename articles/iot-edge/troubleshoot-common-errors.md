@@ -190,7 +190,7 @@ If you don't need to use the IoT Edge device as a gateway, then you can remove t
 
 In the Azure portal:
 
-1. Navigate to your IoT hub and select **IoT Edge**.
+1. Navigate to your IoT hub and select **Devices** under the **Device management** menu.
 
 2. Select the IoT Edge device that you want to update.
 

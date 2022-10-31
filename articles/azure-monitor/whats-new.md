@@ -2,24 +2,92 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 10/13/2022
 ms.author: edbaynash
-ms.reviewer: bwren
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
 
-## August  2022
+## September 2022
 
 
 ### Agents
 
 | Article | Description |
 |---|---|
+|[Azure Monitor Agent overview](./agents/agents-overview.md)|Added Azure Monitor Agent support for ARM64-based virtual machines for a number of distributions. <br><br>Azure Monitor Agent and legacy agents don't support machines and appliances that run heavily customized or stripped-down versions of  operating system distributions. <br><br>Azure Monitor Agent versions 1.15.2 and higher now support syslog RFC formats, including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).|
+
+### Alerts
+
+| Article | Description |
+|---|---|
+|[Convert ITSM actions that send events to ServiceNow to secure webhook actions](./alerts/itsm-convert-servicenow-to-webhook.md)|As of September 2022, we're starting the 3-year process of deprecating support of using ITSM actions to send events to ServiceNow. Learn how to convert ITSM actions that send events to ServiceNow to secure webhook actions|
+|[Create a new alert rule](./alerts/alerts-create-new-alert-rule.md)|Added description of all available monitoring services to create a new alert rule and alert processing rules pages. <br><br>Added support for regional processing for metric alert rules that monitor a custom metric with the scope defined as one of the supported regions. <br><br> Clarified that selecting the **Automatically resolve alerts** setting makes log alerts stateful.<|
+|[Types of Azure Monitor alerts](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-types)|Azure Database for PostgreSQL - Flexible Servers  is supported for monitoring multiple resources.|
+|[Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](./alerts/alerts-log-api-switch.md)|The process of moving legacy log alert rules management from the legacy API to the current API is now supported by the government cloud.|
+
+### Application insights
+
+| Article | Description |
+|---|---|
+|[Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](./app/java-in-process-agent.md)|New OpenTelemetry `@WithSpan` annotation guidance.|
+|[Capture Application Insights custom metrics with .NET and .NET Core](./app/tutorial-asp-net-custom-metrics.md)|Tutorial steps and images have been updated.|
+|[Configuration options - Azure Monitor Application Insights for Java](/azure/azure-monitor/app/java-in-process-agent)|Connection string guidance updated.|
+|[Enable Application Insights for ASP.NET Core applications](./app/tutorial-asp-net-core.md)|Tutorial steps and images have been updated.|
+|[Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](./app/opentelemetry-enable.md)|Our product feedback link at the bottom of each document has been fixed.|
+|[Filter and preprocess telemetry in the Application Insights SDK](./app/api-filtering-sampling.md)|Added sample initializer to control which client IP gets used as part of geo-location mapping.|
+|[Java Profiler for Azure Monitor Application Insights](./app/java-standalone-profiler.md)|Our new Java Profiler was announced at Ignite. Read all about it!|
+|[Release notes for Azure Web App extension for Application Insights](./app/web-app-extension-release-notes.md)|Added release notes for 2.8.44 and 2.8.43.|
+|[Resource Manager template samples for creating Application Insights resources](./app/resource-manager-app-resource.md)|Fixed inaccurate tagging of workspace-based resources as still in Preview.|
+|[Unified cross-component transaction diagnostics](./app/transaction-diagnostics.md)|A complete FAQ section is added to help troubleshoot Azure portal errors, such as "error retrieving data".|
+|[Upgrading from Application Insights Java 2.x SDK](./app/java-standalone-upgrade-from-2x.md)|Additional upgrade guidance added. Java 2.x has been deprecated.|
+|[Using Azure Monitor Application Insights with Spring Boot](./app/java-spring-boot.md)|Configuration options have been updated.|
+
+### Autoscale
+| Article | Description |
+|---|---|
+|[Autoscale with multiple profiles](./autoscale/autoscale-multiprofile.md)|New article: Using multiple profiles in autoscale with CLI PowerShell and templates.|
+|[Flapping in Autoscale](./autoscale/autoscale-flapping.md)|New Article: Flapping in autoscale.|
+|[Understand Autoscale settings](./autoscale/autoscale-understanding-settings.md)|Clarified how often autoscale runs.|
+
+### Change analysis
+| Article | Description |
+|---|---|
+|[Troubleshoot Azure Monitor's Change Analysis](./change/change-analysis-troubleshoot.md)|Added section about partial data and how to mitigate to the troubleshooting guide.|
+
+### Essentials
+| Article | Description |
+|---|---|
+|[Structure of transformation in Azure Monitor (preview)](./essentials/data-collection-transformations-structure.md)|New KQL functions supported.|
+
+### Virtual Machines
+| Article | Description |
+|---|---|
+|[Migrate from Service Map to Azure Monitor VM insights](./vm/vminsights-migrate-from-service-map.md)|Added a new article with guidance for migrating from the Service Map solution to Azure Monitor VM insights.|
+
+### Network Insights
+
+| Article | Description |
+|---|---|
+|[Network Insights](../network-watcher/network-insights-overview.md)| Onboarded the new topology experience to Network Insights in Azure Monitor.|
+
+
+### Visualizations
+| Article | Description |
+|---|---|
+|[Access deprecated Troubleshooting guides in Azure Workbooks](./visualize/workbooks-access-troubleshooting-guide.md)|New article: Access deprecated Troubleshooting guides in Azure Workbooks.|
+
+
+## August  2022
+
+### Agents
+
+| Article | Description |
+|---|---|
 |[Log Analytics agent overview](agents/log-analytics-agent.md)|Restructured the Agents section and rewrote the Agents Overview article to reflect that Azure Monitor Agent is the primary agent for collecting monitoring data.|
-|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
+|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](https://learn.microsoft.com/azure/migrate/concepts-dependency-visualization)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
 
 
 ### Alerts
@@ -28,7 +96,7 @@ This article lists significant changes to Azure Monitor documentation.
 |:---|:---|
 |[Create Azure Monitor alert rules](alerts/alerts-create-new-alert-rule.md)|Added support for data processing in a specified region, for action groups and for metric alert rules that monitor a custom metric.|
 
-### Application-insights
+### Application insights
 
 | Article | Description |
 |---|---|
@@ -53,7 +121,7 @@ This article lists significant changes to Azure Monitor documentation.
 |[Autoscale in Microsoft Azure](autoscale/autoscale-overview.md)|Updated conceptual diagrams|
 |[Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)](autoscale/autoscale-predictive.md)|Predictive autoscale (preview) is now available in all regions|
 
-### Change-analysis
+### Change analysis
 
 | Article | Description |
 |---|---|

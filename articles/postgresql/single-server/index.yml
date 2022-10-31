@@ -35,7 +35,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: 'Learning module: Create an Azure Database for PostgreSQL server'
-            url: /learn/modules/create-azure-db-for-postgresql-server/
+            url: /training/modules/create-azure-db-for-postgresql-server/
       - linkListType: concept
         links:
           - text: Pricing tiers

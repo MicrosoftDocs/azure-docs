@@ -24,6 +24,7 @@ In this article:
 - What happens to your data?
 - Effect on existing verifiable credentials.
 
+
 ## Prerequisites
 
 - Complete verifiable credentials onboarding.

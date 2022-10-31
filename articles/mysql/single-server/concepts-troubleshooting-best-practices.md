@@ -13,6 +13,8 @@ ms.date: 07/22/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Use the sections below to keep your MySQL databases running smoothly and use this information as guiding principles for ensuring that the schemas are designed optimally and provide the best performance for your applications.
 
 ## Check the number of indexes

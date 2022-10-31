@@ -9,6 +9,9 @@ ms.date: 05/04/2020
 
 # Upgrade composite entity to machine-learning entity
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Upgrade composite entity to machine-learning entity to build an entity that receives more complete predictions with better decomposability for debugging the entity.
 
 ## Current version model restrictions

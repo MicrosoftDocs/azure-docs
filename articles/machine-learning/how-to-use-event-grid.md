@@ -229,12 +229,6 @@ Now the data factory pipeline is triggered when drift occurs. View details on yo
 
 :::image type="content" source="./media/how-to-use-event-grid/view-in-workspace.png" alt-text="Screenshot showing pipeline endpoints.":::
 
-### Example: Deploy a model based on tags
-
-An Azure Machine Learning model object contains parameters you can pivot deployments on such as model name, version, tag, and property. The model registration event can trigger an endpoint and you can use an Azure Function to deploy a model based on the value of those parameters.
-
-For an example, see the [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repository and follow the steps in the **readme** file.
-
 ## Next steps
 
 Learn more about Event Grid and give Azure Machine Learning events a try:

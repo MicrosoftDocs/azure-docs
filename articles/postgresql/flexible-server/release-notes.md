@@ -16,6 +16,14 @@ ms.date: 08/25/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release: September 2022
+
+* Support for [Fast Restore](./concepts-backup-restore.md) 
+* General availability of [Geo-Redundant Backups](./concepts-backup-restore.md)                
+ 
+Please see the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
+
+
 ## Release: August 2022
 
 * Support for [PostgreSQL minor version](./concepts-supported-versions.md) 14.4. <sup>$</sup>

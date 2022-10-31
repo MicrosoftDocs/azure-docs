@@ -99,17 +99,16 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the user attributes that are synchronized from Azure AD to Atea in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atea for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Atea API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|Supported for filtering|
-      |---|---|---|
-      |userName|String|&check;|
-      |active|Boolean|
-      |emails[type eq "work"].value|String|
-      |name.givenName|String|
-      |name.familyName|String|
-      |name.formatted|String|
-      |phoneNumbers[type eq "mobile"].value|String|
-      |locale|String|
-      |nickName|String|
+      Attribute|Type|Supported for filtering|Required by LawVu|
+      |---|---|---|---|
+      |userName|String|&check;|&check;|
+      |active|Boolean||&check;|
+      |emails[type eq "work"].value|String||&check;|
+      |name.givenName|String|||
+      |name.familyName|String|||
+      |name.formatted|String||&check;|
+      |phoneNumbers[type eq "mobile"].value|String|||
+      |locale|String|||
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -133,6 +132,11 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion.
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change Log
+* 10/25/2022 - Drop core user attribute **nickName**. 
+* 10/25/2022 - Changed the mapping of core user attribute **name.formatted** to **Join(" ", [givenName], [surname]) -> name.formatted**.
+* 10/25/2022 - Domain name of all OAuth config urls of Atea app changed to Atea owned domain.
 
 ## Additional resources
 
