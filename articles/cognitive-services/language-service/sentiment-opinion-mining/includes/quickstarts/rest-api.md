@@ -5,32 +5,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 10/31/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime)
+[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
 
-Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you will use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
+Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you'll use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
 ## Prerequisites
 
-* The current version of [cURL](https://curl.haxx.se/).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.
-
-> [!NOTE]
-> * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
-
-
-|parameter  |Description  |
-|---------|---------|
-|`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
-|`-H Content-Type: application/json`     | The content type for sending JSON data.          |
-|`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
-|`-d <documents>`     | The JSON containing the documents you want to send.         |
-
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
@@ -39,39 +25,94 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
-## Sentiment analysis and opinion mining
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
-[!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
+## Create a JSON file with the example request body
 
-> [!NOTE]
-> The below examples include a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about assessments (adjectives) related to targets (nouns) in the text.
+In a code editor, create a new file named `request_body.json` and copy the following JSON example. This example request will be sent to the API in the next step.
 
-```bash
-curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
--H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
--d \
-'
+```json
 {
-    "kind": "SentimentAnalysis",
-    "parameters": {
-        "modelVersion": "latest",
-        "opinionMining": "True"
-    },
-    "analysisInput":{
-        "documents":[
-            {
-                "id":"1",
-                "language":"en",
-                "text": "The food and service were unacceptable. The concierge was nice, however."
-            }
-        ]
-    }
-}
-'
+	"kind": "SentimentAnalysis",
+	"parameters": {
+		"modelVersion": "latest",
+		"opinionMining": "True"
+	},
+	"analysisInput":{
+		"documents":[
+			{
+				"id":"1",
+				"language":"en",
+				"text": "The food and service were unacceptable. The concierge was nice, however."
+			}
+		]
+	}
+} 
 ```
 
-### JSON response
+Save `request_body.json` somewhere on your computer. For example, your desktop.  
+
+## Send a sentiment analysis and opinion mining API request
+
+> [!NOTE]
+> The below examples include a request for the opinion mining feature of sentiment analysis, which provides granular information about assessments (adjectives) related to targets (nouns) in the text.
+
+Use the following commands to send the API request using the program you're using. Copy the command into your terminal, and run it.
+
+|parameter  |Description  |
+|---------|---------|
+|`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
+|`-H Content-Type: application/json`     | The content type for sending JSON data.          |
+|`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
+|`-d <documents>`     | The JSON file containing the documents you want to send.         |
+
+# [Windows](#tab/windows)
+
+ Replace `C:\Users\<myaccount>\Desktop\test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
+
+### Command prompt
+
+```terminal
+curl -X POST "%LANGUAGE_ENDPOINT%/language/:analyze-text?api-version=2022-05-01" ^
+-H "Content-Type: application/json" ^
+-H "Ocp-Apim-Subscription-Key: %LANGUAGE_KEY%" ^
+-d "@C:\Users\<myaccount>\Desktop\test_sentiment_payload.json"
+```
+
+### PowerShell
+
+```terminal
+curl.exe -X POST $env:LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 `
+-H "Content-Type: application/json" `
+-H "Ocp-Apim-Subscription-Key: $env:LANGUAGE_KEY" `
+-d "@C:\Users\<myaccount>\Desktop\test_sentiment_payload.json"
+```
+
+#### [Linux](#tab/linux)
+
+Use the following commands to send the API request using the program you're using. Replace `/home/mydir/test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
+
+```terminal
+curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
+-d "@/home/mydir/test_sentiment_payload.json"
+```
+
+#### [macOS](#tab/macos)
+
+Use the following commands to send the API request using the program you're using. Replace `/home/mydir/test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
+
+```terminal
+curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
+-d "@/home/mydir/test_sentiment_payload.json"
+```
+
+---
+
+## JSON response
 
 ```json
 {
@@ -189,4 +230,4 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
 
 * [Sentiment analysis and opinion mining language support](../../language-support.md)
 * [How to call the API](../../how-to/call-api.md)  
-* [Reference documentation](/rest/api/language/text-analysis-runtime)
+* [Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)

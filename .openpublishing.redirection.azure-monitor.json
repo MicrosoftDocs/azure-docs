@@ -5468,8 +5468,26 @@
         }
         ,
         {
+            "source_path_from_root": "/articles/automation/migrate-oms-update-deployments.md",
+            "redirect_url": "/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand",
+            "redirect_document_id": false
+        }
+        ,
+        {
             "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-template",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-integrations.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-logic-app.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
             "redirect_document_id": false
         }
     ]

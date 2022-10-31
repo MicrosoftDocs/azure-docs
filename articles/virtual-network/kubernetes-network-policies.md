@@ -3,7 +3,7 @@ title: Azure Kubernetes network policies | Microsoft Docs
 description: Learn about Kubernetes network policies to secure your Kubernetes cluster.
 services: virtual-network
 documentationcenter: na
-author: aanandr
+author: asudbring
 manager: NarayanAnnamalai
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/25/2018
-ms.author: aanandr
+ms.author: allensu
 ms.custom: 
 
 ---

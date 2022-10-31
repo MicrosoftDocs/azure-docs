@@ -17,14 +17,18 @@ ms.custom:
 - East US
 - East US 2
 - South Central US
+- West Central US
+- West US
 - West US3
 - Canada Central
 - Brazil South
 - North Europe
 - West Europe
 - France Central
+- Switzerland North
 - UK South
 - UAE North
+- South Africa North
 - Central India
 - Korea Central
 - Japan East
