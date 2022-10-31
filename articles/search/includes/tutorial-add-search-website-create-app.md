@@ -22,9 +22,9 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     This setting means only changes you commit to that branch are deployed to your static web app. 
 
-1. If you see a pop-up window asking you to commit your changes, do not do this. The secrets from the bulk import step should not be committed to the repository. 
+1. If you see a pop-up window asking you to commit your changes, don't do this. The secrets from the bulk import step shouldn't be committed to the repository. 
 
-    To rollback the changes, in VS Code select the Source Control icon in the Activity bar, then select each changed file in the Changes list and select the **Discard changes** icon.
+    To roll back the changes, in VS Code select the Source Control icon in the Activity bar, then select each changed file in the Changes list and select the **Discard changes** icon.
 
 1. Follow the prompts to provide the following information:
 
@@ -89,7 +89,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="Screenshot of Visual Studio Code showing the Azure Cognitive Search explorer, with the **Copy Query Key** option shown.":::
 
-1. Keep this query key, you will need to use it in the next section. The query key is able to query your Index. 
+1. Keep this query key, you'll need to use it in the next section. The query key is able to query your Index. 
 
 ## Add configuration settings in Azure portal
 

@@ -14,4 +14,4 @@ ms.service: cognitive-search
 1. Select a location close to you.
 1. When you create the Cognitive Search and Static Web Apps resources, later in the tutorial, use this resource group. 
 
-    Creating a resource group gives you a logical unit to manage the resources, including deleting them when you are finished using them.
+    Creating a resource group gives you a logical unit to manage the resources, including deleting them when you're finished using them.

@@ -14,7 +14,7 @@ ms.devlang: javascript
 
 # 4 - JavaScript Search integration cheat sheet
 
-In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your JavaScript app, this article explains what you need to know.
+In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your JavaScript app, this article explains what you need to know.
 
 The application is available: 
 * [Sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4)
@@ -67,7 +67,7 @@ The Suggest function API is called in the React app at `\src\components\SearchBa
 
 ## Azure Function: Get specific document 
 
-The `Lookup` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api/Lookup/index.js) takes a ID and returns the document object from the Search Index. 
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api/Lookup/index.js) takes an ID and returns the document object from the Search Index. 
 
 Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Lookup/function.json) bindings.
 

@@ -48,7 +48,7 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
     :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="In the Side bar, right-click on your Search resource and select **Copy Admin Key**.":::
 
-1. Keep this admin key, you will need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
+1. Keep this admin key, you'll need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
 
 ## Prepare the bulk import script for Search
 
@@ -95,7 +95,7 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
 
 ## Rollback bulk import file changes
 
-Use the following git command in the VS Code integrated terminal at the `bulk-insert` directory, to rollback the changes. They are not needed to continue the tutorial and you shouldn't save or push these secrets to your repo. 
+Use the following git command in the VS Code integrated terminal at the `bulk-insert` directory, to roll back the changes. They aren't needed to continue the tutorial and you shouldn't save or push these secrets to your repo. 
 
 ```git
 git checkout .
@@ -103,7 +103,7 @@ git checkout .
 
 ## Copy your Search resource name
 
-Note your **Search resource name**. You will need this to connect the Azure Function app to your Search resource. 
+Note your **Search resource name**. You'll need this to connect the Azure Function app to your Search resource. 
 
 > [!CAUTION]
 > While you may be tempted to use your Search admin key in the Azure Function, that isn't following the principle of least privilege. The Azure Function will use the query key to conform to least privilege. 
