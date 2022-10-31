@@ -41,6 +41,102 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 ## Set up Azure AD applications
 
 
+### [AzureCLI >= v2.37](#tab/AzureCLI237)
+#### Create a server application
+1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
+
+    ```azurecli
+    CLUSTER_NAME="<clusterName>"
+    TENANT_ID="<tenant>"
+    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
+    echo $SERVER_APP_ID
+    ```
+
+1. To grant "Sign in and read user profile" API permissions to the server application. Copy this JSON and save it in a file called oauth2-permissions.json: 
+
+    ```json
+    {
+        "oauth2PermissionScopes": [
+            {
+                "adminConsentDescription": "Sign in and read user profile",
+                "adminConsentDisplayName": "Sign in and read user profile",
+                "id": "<unique_guid>",
+                "isEnabled": true,
+                "type": "User",
+                "userConsentDescription": "Sign in and read user profile",
+                "userConsentDisplayName": "Sign in and read user profile",
+                "value": "User.Read"
+            }
+        ]
+    }
+    ```
+
+1.  Update the application's group membership claims. Run the commands in the same directory as `oauth2-permissions.json` file.  RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
+    
+    ```azurecli 
+        az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
+        az ad app update --id ${SERVER_APP_ID} --set  api=@oauth2-permissions.json
+        az ad app update --id ${SERVER_APP_ID} --set  signInAudience=AzureADMyOrg
+        SERVER_OBJECT_ID=$(az ad app show --id "${SERVER_APP_ID}" --query "id" -o tsv)
+        az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${SERVER_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
+    ```
+
+
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). Please refer to [this](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset) to set a custom expiry duration.
+
+    ```azurecli
+        az ad sp create --id "${SERVER_APP_ID}"
+        SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}"  --query password -o tsv) 
+    ```
+
+1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
+
+    ```azurecli
+        az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+        az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --scope User.Read
+    ```
+
+    > [!NOTE]
+    > An Azure tenant administrator has to run this step.
+    > 
+    > For usage of this feature in production, we recommend that you  create a different server application for every cluster.  
+
+#### Create a client application
+
+1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
+
+    ```azurecli
+        CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
+        CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --is-fallback-public-client --public-client-redirect-uris "api://${TENANT_ID}/${CLIENT_UNIQUE_SUFFIX}" --query appId -o tsv)
+        echo $CLIENT_APP_ID 
+    ```
+
+
+2. Create a service principal for this client application:
+
+    ```azurecli
+    az ad sp create --id "${CLIENT_APP_ID}"
+    ```
+
+3. Get the `oAuthPermissionId` value for the server application:
+
+    ```azurecli
+        az ad app show --id "${SERVER_APP_ID}" --query "api.oauth2PermissionScopes[0].id" -o tsv
+    ```
+
+4. Grant the required permissions for the client application. RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
+
+    ```azurecli
+        az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
+        RESOURCE_APP_ID=$(az ad app show --id "${CLIENT_APP_ID}"  --query "requiredResourceAccess[0].resourceAppId" -o tsv)
+        az ad app permission grant --id "${CLIENT_APP_ID}" --api "${RESOURCE_APP_ID}" --scope User.Read
+        az ad app update --id ${CLIENT_APP_ID} --set  signInAudience=AzureADMyOrg
+        CLIENT_OBJECT_ID=$(az ad app show --id "${CLIENT_APP_ID}" --query "id" -o tsv)
+        az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${CLIENT_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
+    ```
+
+
 ### [AzureCLI < v2.37](#tab/AzureCLI)
 #### Create a server application
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
@@ -105,104 +201,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
         az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
     ```
-
-### [AzureCLI >= v2.37](#tab/AzureCLI237)
-#### Create a server application
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
-
-    ```azurecli
-    CLUSTER_NAME="<clusterName>"
-    TENANT_ID="<tenant>"
-    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
-    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
-    echo $SERVER_APP_ID
-    ```
-
-1. To grant "Sign in and read user profile" API permissions to the server application. Copy this JSON and save it in a file called oauth2-permissions.json: 
- 
-    ```json
-    {
-        "oauth2PermissionScopes": [
-            {
-                "adminConsentDescription": "Sign in and read user profile",
-                "adminConsentDisplayName": "Sign in and read user profile",
-                "id": "<oauth_app_ID>",
-                "isEnabled": true,
-                "type": "User",
-                "userConsentDescription": "Sign in and read user profile",
-                "userConsentDisplayName": "Sign in and read user profile",
-                "value": "User.Read"
-            }
-        ]
-    }
-    ```
-
-1.  Update the application's group membership claims. RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
-    
-    ```azurecli 
-        az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
-        az ad app update --id ${SERVER_APP_ID} --set  api=@oauth2-permissions.json
-        az ad app update --id ${SERVER_APP_ID} --set  signInAudience=AzureADMyOrg
-        SERVER_OBJECT_ID=$(az ad app show --id "${SERVER_APP_ID}" --query "id" -o tsv)
-        az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${SERVER_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
-    ```
-
-
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). Please refer to [this](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset) to set a custom expiry duration.
-
-    ```azurecli
-        az ad sp create --id "${SERVER_APP_ID}"
-        SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}"  --query password -o tsv) 
-    ```
-
-1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
-
-    ```azurecli
-        az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-        az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --scope User.Read
-    ```
-
-    > [!NOTE]
-    > An Azure tenant administrator has to run this step.
-    > 
-    > For usage of this feature in production, we recommend that you  create a different server application for every cluster.  
-
-#### Create a client application
-
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
-
-    ```azurecli
-        CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
-        CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --is-fallback-public-client --public-client-redirect-uris "api://${TENANT_ID}/${CLIENT_UNIQUE_SUFFIX}" --query appId -o tsv)
-        echo $CLIENT_APP_ID 
-    ```
-
-
-2. Create a service principal for this client application:
-
-    ```azurecli
-    az ad sp create --id "${CLIENT_APP_ID}"
-    ```
-
-3. Get the `oAuthPermissionId` value for the server application:
-
-    ```azurecli
-        az ad app show --id "${SERVER_APP_ID}" --query "api.oauth2PermissionScopes[0].id" -o tsv
-    ```
-
-4. Grant the required permissions for the client application. RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
-
-    ```azurecli
-        az ad app permission add --id "${CLIENT_APP_ID}" --api "$ENV:SERVER_APP_ID" --api-permissions <oAuthPermissionId>=Scope
-        az ad app permission grant --id "${CLIENT_APP_ID}" --api <oAuthPermissionId> --scope User.Read
-        #
-        az ad app update --id ${SERVER_APP_ID} --set  signInAudience=AzureADMyOrg
-        CLIENT_OBJECT_ID=$(az ad app show --id "${CLIENT_APP_ID}" --query "id" -o tsv)
-        az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${CLIENT_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
-    ```
-
 ---
-
 
 ## Create a role assignment for the server application
 
