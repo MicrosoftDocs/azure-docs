@@ -2,7 +2,7 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 04/25/2022
+ms.date: 10/28/2022
 ms.custom: mvc, devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -346,9 +346,15 @@ az backup restore restore-disks \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
-    --restore-mode OriginalLocation 
+    --restore-mode OriginalLocation \
     --storage-account mystorageaccount \
-    --rp-name myRecoveryPointName \ 
+
+--target-resource-group "Target_RG" \
+    --rp-name myRecoveryPointName \
+    --target-vm-name "TargetVirtualMachineName" \
+    --target-vnet-name "Target_VNet" \
+    --target-vnet-resource-group "Target_VNet_RG" \
+    --target-subnet-name "targetSubNet"
 ```
 
 ```output

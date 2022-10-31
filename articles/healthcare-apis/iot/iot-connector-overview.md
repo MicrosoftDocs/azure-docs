@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 10/17/2022
+ms.date: 10/28/2022
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ MedTech service is important because healthcare data can be difficult to access 
 
 The following diagram outlines the basic elements of how MedTech service transforms medical device data into a standardized FHIR resource in the cloud.
 
-:::image type="content" source="media/iot-what-is/what-is-simple-diagram.png" alt-text="Simple diagram showing MedTech service." lightbox="media/iot-what-is/what-is-simple-diagram.png":::
+:::image type="content" source="media/iot-what-is/what-is-simple-diagram.png" alt-text="Simple diagram showing the MedTech service." lightbox="media/iot-what-is/what-is-simple-diagram.png":::
 
 These elements are:
 
@@ -68,7 +68,7 @@ MedTech service delivers your data to FHIR service in Azure Health Data Services
 
 ### Configurable
 
-Your MedTech service can be customized and configured by using [Device](how-to-use-device-mappings.md) and [FHIR destination](how-to-use-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR observation resources.
+Your MedTech service can be customized and configured by using [device](how-to-use-device-mappings.md) and [FHIR destination](how-to-use-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR observation resources.
 
 Useful options could include:
 
@@ -108,13 +108,13 @@ The following Microsoft solutions can use MedTech service for extra functionalit
 
 In this article, you learned about the MedTech service. To learn more about the MedTech service data flow and how to deploy the MedTech service in the Azure portal, see
 
->[!div class="nextstepaction"]
->[The MedTech service data flows](iot-data-flow.md)
+> [!div class="nextstepaction"]
+> [MedTech service data flows](iot-data-flow.md)
 
->[!div class="nextstepaction"]
->[Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md)
+> [!div class="nextstepaction"]
+> [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md)
 
->[!div class="nextstepaction"]
->[Frequently asked questions about the MedTech service](iot-connector-faqs.md)
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](iot-connector-faqs.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
