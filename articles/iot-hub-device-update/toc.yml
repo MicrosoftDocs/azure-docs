@@ -6,7 +6,7 @@ items:
   items:
   - name: What is Device Update for IoT Hub?
     href: understand-device-update.md
-  - name: Device Update for IoT Hub (Public Preview Documentation)
+  - name: Device Update for IoT Hub public preview documentation
     href: /previous-versions/azure/iot-hub-device-update/understand-device-update
 - name: Tutorials
   items:
@@ -89,7 +89,7 @@ items:
     href: create-update.md
   - name: Import an update
     href: import-update.md
-  - name: Create a group
+  - name: Manage device groups
     href: create-update-group.md
   - name: Deploy an update
     href: deploy-update.md
