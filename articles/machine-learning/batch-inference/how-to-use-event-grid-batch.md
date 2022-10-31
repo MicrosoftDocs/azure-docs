@@ -37,7 +37,7 @@ The workflow will work in the following way:
 
 ## Authenticating against batch endpoints
 
-Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
+Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
 We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario. 
 
@@ -52,7 +52,7 @@ We recommend to using a service principal for authentication and interaction wit
 
 ## Enabling data access
 
-We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. When reading data from cloud locations, batch deployments use the identity of the compute to gain access instead of the identity used to submit the job. In order to ensure the identity of the compute does have read access to the underlying data, we will need to assign to it a user assigned managed identity. Follow these steps to ensure data access:
+We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. Batch deployments use the identity of the compute to mount the data. The identity of the job is used to read the data once mounted for external storage accounts. You will need to assign a user-assigned managed identity to the compute cluster in order to ensure it does have access to mount the underlying data. Follow these steps to ensure data access:
 
 1. Create a [managed identity resource](../../active-directory/managed-identities-azure-resources/overview.md):
 
@@ -252,7 +252,7 @@ We want to trigger the Logic App each time a new file is created in a given fold
    :::image type="content" source="./media/how-to-use-event-grid-batch/invoke.png" alt-text="Screenshot of the invoke activity of the Logic App.":::
    
    > [!NOTE]
-   > Notice that this last action will trigger the batch deployment job, but it will not wait for its completion. Logic Apps are not long running applications. If you need to wait for the job to complete, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
+   > Notice that this last action will trigger the batch deployment job, but it will not wait for its completion. AzureLogic Apps is not designed for long-running applications. If you need to wait for the job to complete, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
 
 1. Click on __Save__.
 

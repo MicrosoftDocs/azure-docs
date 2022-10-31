@@ -540,8 +540,8 @@ In this section, you'll add code to retrieve messages from the queue.
     // the client that owns the connection and can be used to create senders and receivers
     ServiceBusClient client;
     
-    // the sender used to publish messages to the queue
-    ServiceBusSender sender;
+    // the processor that reads and processes messages from the queue
+    ServiceBusProcessor processor;
     
     // The Service Bus client types are safe to cache and use as a singleton for the lifetime
     // of the application, which is best practice when messages are being published or read

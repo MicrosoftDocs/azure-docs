@@ -2,7 +2,7 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 10/24/2022
 ms.custom: references_regions
 ms.reviewer: mmcc
 ---
@@ -20,7 +20,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
 * [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
-* If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
+* If you're looking to [explore your data in Power BI](../logs/log-powerbi.md), you can do that without using Continuous Export if you've [migrated to a workspace-based resource](convert-classic-resource.md).
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 

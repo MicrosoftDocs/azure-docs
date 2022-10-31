@@ -66,6 +66,8 @@
       href: howto-verifiable-credentials-partner-au10tix.md
     - name: LexisNexis
       href: howto-verifiable-credentials-partner-lexisnexis.md
+    - name: Vu
+      href: partner-vu.md
 - name: Samples
   expanded: true
   items:

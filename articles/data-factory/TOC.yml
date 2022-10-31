@@ -29,6 +29,8 @@ items:
     href: data-flow-create.md
   - name: Training modules
     href: quickstart-learn-modules.md
+  - name: Azure Data Factory Studio Learning center
+    href: https://ms-adf.azure.com/learn
 - name: Tutorials
   items:
   - name: List of tutorials
@@ -1180,7 +1182,7 @@ items:
       - name: Azure files
         href: connector-troubleshoot-azure-files.md
         displayName: troubleshooting
-      - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+      - name: Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server
         href: connector-troubleshoot-synapse-sql.md
         displayName: troubleshooting
       - name: Azure Table Storage
