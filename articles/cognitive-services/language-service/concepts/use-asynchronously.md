@@ -37,7 +37,7 @@ To submit an asynchronous job, review the [reference documentation](/rest/api/la
 1. In the `tasks` object, include the operations you want performed on your data. For example, if you wanted to perform sentiment analysis, you would include the `SentimentAnalysisLROTask` object.
 1. You can optionally:
     1. Choose a specific [version of the model](model-lifecycle.md) used on your data.
-    1. Include additional Language ervice features in the `tasks` object, to be performed on your data at the same time.   
+    1. Include additional Language service features in the `tasks` object, to be performed on your data at the same time.   
 
 Once you've created the JSON body for your request, add your key to the `Ocp-Apim-Subscription-Key` header. Then send your API request to job creation endpoint. For example:
 
