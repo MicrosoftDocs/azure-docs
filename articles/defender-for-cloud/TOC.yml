@@ -336,10 +336,10 @@
       href: defender-for-containers-enable.md
     - name: Vulnerability assessment for Azure Container Registry
       displayName: ACR, registry, images, qualys
-      href: defender-for-containers-va-acr.md
+      href: defender-for-containers-vulnerability-assessment-azure.md
     - name: Vulnerability assessment for Amazon Elastic Container Registry
       displayName: AWS, ECR, registry, images, qualys
-      href: defender-for-containers-va-ecr.md
+      href: defender-for-containers-vulnerability-assessment-elastic.md
     - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
