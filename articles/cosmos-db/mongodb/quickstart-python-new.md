@@ -87,7 +87,7 @@ python-dotenv
 
 Create a virtual environment and install the packages with:
 
-#### [Windows](#tab/windows-venv)
+#### [Windows](#tab/venv-windows)
 
 ```bash
 # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
@@ -96,7 +96,7 @@ source .venv/Scripts/activate
 pip install -r requirements.txt
 ```
 
-#### [Linux / macOS](#tab/linux+macos-venv)
+#### [Linux / macOS](#tab/venv-linux+macos)
 
 ```bash
 python3 -m venv .venv
