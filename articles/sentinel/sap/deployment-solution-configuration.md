@@ -107,7 +107,7 @@ For example, to stop ingesting the `ABAPJobLog`, change its value to `False`:
 ```
 ABAPJobLog = False
 ```
-The list of available logs can be found in the [systemconfig.ini reference](https://learn.microsoft.com/azure/sentinel/sap/reference-systemconfig#logs-activation-status-section).
+The list of available logs can be found in the [systemconfig.ini reference](reference-systemconfig#logs-activation-status-section).
 It is also possible to [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection). 
 
 > [!NOTE]
