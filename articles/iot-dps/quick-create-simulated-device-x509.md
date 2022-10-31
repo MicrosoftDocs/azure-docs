@@ -628,32 +628,34 @@ In this section, you'll use your Windows command prompt.
     npm install
     ```
 
-1. In the command prompt, run the following commands to set environment variables used by the sample:
+    The sample uses five environment variables to authenticate and provision an IoT device using DPS. These environment variables are:
 
-    * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances: `global.azure-devices-provisioning.net`.
-    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** you used for your device, *my-x509-device*.
-    * Replace `certificate-file-path` with the device certificate file you generated previously, *device-cert.pem*.
-    * Replace `key-file-path` with the device private key file you generated previously, *device-key.pem*.
+    | Variable name              | Description                                     |
+    | :------------------------- | :---------------------------------------------- |
+    | `PROVISIONING_HOST`        |  The endpoint to use for connecting to your DPS instance. For this quickstart, use the global endpoint, `global.azure-devices-provisioning.net`. |
+    | `PROVISIONING_IDSCOPE`     |  The ID Scope for your DPS instance. |
+    | `PROVISIONING_REGISTRATION_ID` |  The registration ID for your device. It must match the subject common name in the device certificate. |
+    | `CERTIFICATE_FILE`         |  The path to your device certificate file. |
+    | `KEY_FILE`                 |  The path to your device private key file. |
+
+1. Add environment variables for the global device endpoint and ID scope. Replace `<id-scope>` with the value you copied in step 2.
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
-    ```
-
-    ```cmd
     set PROVISIONING_IDSCOPE=<id-scope>
     ```
 
-    ```cmd
-    set PROVISIONING_REGISTRATION_ID=<registration-id>
-    ```
+1. Set the environment variable for the device registration ID. The registration ID for the IoT device must match subject common name on its device certificate. If you followed the steps in this quickstart to generate a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
 
     ```cmd
-    set CERTIFICATE_FILE=<certificate-file-path>
+    set PROVISIONING_REGISTRATION_ID=my-x509-device
     ```
 
+1. Set the environment variables for the device certificate and device private key files.
+
     ```cmd
-    set KEY_FILE=<key-file-path>
+    set CERTIFICATE_FILE=.\device-cert.pem
+    set KEY_FILE=.\device-key.pem
     ```
 
 1. Run the sample and verify that the device was provisioned successfully.
@@ -694,11 +696,11 @@ In this section, you'll use your Windows command prompt.
 
     | Variable name              | Description                                     |
     | :------------------------- | :---------------------------------------------- |
-    | `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS resource |
-    | `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS resource |
-    | `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate |
-    | `X509_CERT_FILE`           |  Your device certificate filename |
-    | `X509_KEY_FILE`            |  The private key filename for your device certificate |
+    | `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS instance. |
+    | `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS instance. |
+    | `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate. |
+    | `X509_CERT_FILE`           |  Your device certificate filename. |
+    | `X509_KEY_FILE`            |  The private key filename for your device certificate. |
     | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |
 
 1. Add the environment variables for the global device endpoint and ID Scope.
@@ -708,9 +710,7 @@ In this section, you'll use your Windows command prompt.
     set PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
 
-1. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
-
-1. Set the environment variable for the registration ID as follows:
+1. Set the environment variable for the registration ID. The registration ID for the IoT device must match subject name on its device certificate. If you followed the steps in this quickstart to generate a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
 
     ```cmd
     set DPS_X509_REGISTRATION_ID=my-x509-device

@@ -27,7 +27,13 @@ The Azure IoT Hub Device Provisioning Service supports three forms of authentica
 * [Trusted platform module (TPM)](concepts-tpm-attestation.md)
 * [Symmetric keys](./concepts-symmetric-key-attestation.md)
 
+::: zone pivot="programming-language-ansi-c"
 This tutorial uses the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example), which provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it is strongly recommended to help protect sensitive information like your device certificate's private key.
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
+A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it is strongly recommended to help protect sensitive information like your device certificate's private key.
+::: zone-end
 
 In this tutorial, you'll complete the following objectives:
 
@@ -36,8 +42,8 @@ In this tutorial, you'll complete the following objectives:
 > * Create a certificate chain of trust to organize a set of devices using X.509 certificates.
 > * Complete proof of possession with a signing certificate used with the certificate chain.
 > * Create a new group enrollment that uses the certificate chain.
-> * Set up the development environment for provisioning a device using code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
-> * Provision a device using the certificate chain with the custom Hardware Security Module (HSM) sample in the SDK.
+> * Set up the development environment.
+> * Provision a device using the certificate chain using sample code in the SDK.
 
 ## Prerequisites
 
@@ -682,7 +688,7 @@ In this section, you create two device certificates and their full chain certifi
     cat ./certs/device-01.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/device-01-full-chain.cert.pem
     ```  
 
-1. Open the certificate chain file, *./certs/device-01-full-chain.cert.pem*, in a text editor to examine it. The certificate chain text contains the full chain of all three certificates. You'll use this text as the certificate chain with in the custom HSM device code later in this tutorial for `device-01`.
+1. Open the certificate chain file, *./certs/device-01-full-chain.cert.pem*, in a text editor to examine it. The certificate chain text contains the full chain of all three certificates. You'll use this certificate chain later in this tutorial to provision `device-01`.
 
     The full chain text has the following format:
 
@@ -698,7 +704,7 @@ In this section, you create two device certificates and their full chain certifi
     -----END CERTIFICATE-----
     ```
 
-1. To create the private key, X.509 certificate, and full chain certificate for the second device, copy and paste this script into your GitBash command prompt. To create certificates for more devices, you can modify the `registration_id` variable declared at the beginning of the script.
+1. To create the private key, X.509 certificate, and full chain certificate for the second device, copy and paste this script into your Git Bash command prompt. To create certificates for more devices, you can modify the `registration_id` variable declared at the beginning of the script.
 
     # [Windows](#tab/windows)
 
@@ -1005,10 +1011,10 @@ In the rest of this section, you'll use your Windows command prompt.
 
 3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\Getting Started\X509Sample* directory off the directory where you cloned the samples on your computer.
 
-4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in the step 2. Replace `<your-certificate-folder>` with the full path to the folder where you ran your OpenSSL commands.
+4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in the step 2. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>/certs/device-01-full-chain.cert.pfx -p 1234
+    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234
     ```
 
    The device connects to DPS and is assigned to an IoT hub. Then, the device sends a telemetry message to the IoT hub. You should see output similar to the following:
@@ -1038,7 +1044,7 @@ In the rest of this section, you'll use your Windows command prompt.
 5. To register your second device, re-run the sample using its full chain certificate.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>/certs/device-02-full-chain.cert.pfx -p 1234
+    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
     ```
 
 ::: zone-end
