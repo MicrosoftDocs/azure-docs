@@ -32,6 +32,7 @@ Data flows through the scenario as follows:
 1. The storage account sends a response to the Front Door PoP.
 1. When the PoP receives the response, it stores it in its cache for subsequent requests.
 1. The PoP returns the response to the client.
+1. Any requests directly to the storage account through the internet are blocked by the Azure Storage firewall.
 
 ## Components
 
