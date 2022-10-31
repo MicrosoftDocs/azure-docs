@@ -19,9 +19,11 @@ In this tutorial, you learn how to:
 > * Remove a commissioned payment HSM
 > * Verify that the payment HSM has been deleted
 
-## Remove a payment HSM from the payshield manager
+## Remove a payment HSM from the payShield manager
 
-Navigate to the payshield manager, following the steps in [Access the payShield manager](access-payshield-manager.md#access-the-payshield-manager). From there, select "Remove device"
+Navigate to the payShield manager, following the steps in [Access the payShield manager](access-payshield-manager.md#access-the-payshield-manager). From there, select "Remove device".
+
+:::image type="content" source="./media/payshield-manager-remove-device.png" alt-text="Screenshot of the payShield manager for Azure Payment HSM, remove device screen.":::
 
 > [!IMPORTANT]
 > The payment HSM must be in a Secure state before RELEASE button is enabled. To do this, login with both Left and Right Keys and change state to Secure.

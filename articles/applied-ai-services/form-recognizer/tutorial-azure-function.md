@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 08/23/2022
+ms.date: 10/31/2022
 ms.author: lajanuar
 ms.custom: VS Code-azure-extension-update-completed
 ---
@@ -149,6 +149,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
     import time
     from requests import get, post
     import os
+    import requests
     from collections import OrderedDict
     import numpy as np
     import pandas as pd
@@ -192,7 +193,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
 
     if resp.status_code != 202:
         print("POST analyze failed:\n%s" % resp.text)
-    quit()
+        quit()
     print("POST analyze succeeded:\n%s" % resp.headers)
     get_url = resp.headers["operation-location"]
 
@@ -212,7 +213,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
         results = resp_json
     else:
         print("GET Layout results failed:\n%s")
-    quit()
+        quit()
 
     results = resp_json
 
