@@ -29,7 +29,7 @@ For more information about security in Azure, review these topics:
 
 * [Azure encryption overview](../security/fundamentals/encryption-overview.md)
 * [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md)
-* [Azure Security Benchmark](../security/benchmarks/overview.md)
+* [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 <a name="secure-operations"></a>
 
@@ -957,7 +957,7 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
   * On-premises data gateway
 
-    Many managed connectors in Azure Logic Apps facilitate secured connections to on-premises systems, such as File System, SQL, SharePoint, and DB2. The gateway sends data from on-premises sources on encrypted channels through the Azure Service Bus. All traffic originates as secured outbound traffic from the gateway agent. Learn [how the on-premises data gateway works](logic-apps-gateway-install.md#how-the-gateway-works).
+    Many managed connectors in Azure Logic Apps facilitate secured connections to on-premises systems, such as File System, SQL, SharePoint, and DB2. The gateway sends data from on-premises sources on encrypted channels through the Azure Service Bus. All traffic originates as secured outbound traffic from the gateway agent. Learn [how the on-premises data gateway works](logic-apps-gateway-install.md#gateway-cloud-service).
 
   * Connect through Azure API Management
 

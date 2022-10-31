@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, azla
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 10/31/2022
 
 #Customer intent: As a software developer, I want to create logic app workflows that can access data in on-premises systems, which requires that I install and set up the on-premises data gateway.
 ---
@@ -24,6 +24,8 @@ For information about how to use the gateway with these services, see these arti
 * [Microsoft Power BI on-premises data gateway](/power-bi/service-gateway-onprem)
 * [Microsoft Power Apps on-premises data gateway](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
+
+<a name="requirements"></a>
 
 ## Prerequisites
 
@@ -90,6 +92,8 @@ For information about how to use the gateway with these services, see these arti
 
   * Logic Apps supports read and write operations through the gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
+<a name="install-gateway"></a>
+
 ## Install data gateway
 
 1. [Download and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
@@ -143,7 +147,9 @@ For information about how to use the gateway with these services, see these arti
 
    :::image type="content" source="./media/logic-apps-gateway-install/finished-gateway-default-location.png" alt-text="Screenshot of the gateway installer window with a 'Close' button and green check marks for Power Apps, Power Automate, and Power BI.":::
 
-1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
+1. Now [create the Azure resource for your gateway installation](logic-apps-gateway-connection.md).
+
+<a name="communication-settings"></a>
 
 ## Check or adjust communication settings
 
@@ -155,6 +161,8 @@ For more information, see these articles:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
+
+<a name="high-availability"></a>
 
 ## High availability support
 
@@ -175,6 +183,8 @@ To install another gateway after you set up your primary gateway:
 1. Select **Configure**.
 
 For more information, see [High availability clusters for on-premises data gateway](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+
+<a name="update-gateway-installation"></a>
 
 ## Change location, migrate, restore, or take over existing gateway
 
@@ -203,6 +213,8 @@ If you must change your gateway's location, move your gateway installation to a 
 
 To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](/data-integration/gateway/service-gateway-tenant-level-admin).
 
+<a name="restart-gateway"></a>
+
 ## Restart gateway
 
 By default, the gateway installation on your local computer runs as a Windows service account named "On-premises data gateway service." However, the gateway installation uses the `NT SERVICE\PBIEgwService` name for its **Log On As** account credentials and has **Log on as a service** permissions.
@@ -211,6 +223,8 @@ By default, the gateway installation on your local computer runs as a Windows se
 > Your Windows service account differs from the account that's used for connecting to on-premises data sources and from the Azure account that you use when you sign in to cloud services.
 
 Like any other Windows service, you can start and stop a gateway in various ways. For more information, see [Restart an on-premises data gateway](/data-integration/gateway/service-gateway-restart).
+
+<a name="gateway-cloud-service"></a>
 
 ## How the gateway works
 
@@ -268,6 +282,8 @@ Here are ways that you can match your on-premises Active Directory accounts with
   > [!NOTE]
   > Synchronizing accounts with the Azure AD Connect tool creates new accounts in your Azure AD tenant.
 
+<a name="faq"></a>
+
 ## FAQ and troubleshooting
 
 * [On-premises data gateway FAQ](/data-integration/gateway/service-gateway-onprem-faq)
@@ -276,6 +292,6 @@ Here are ways that you can match your on-premises Active Directory accounts with
 
 ## Next steps
 
-* [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md)
-* [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Connect to on-premises data from logic apps](logic-apps-gateway-connection.md)
+* [Enterprise integration features](logic-apps-enterprise-integration-overview.md)
 * [Connectors for Azure Logic Apps](../connectors/apis-list.md)
