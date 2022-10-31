@@ -25,6 +25,10 @@ There are several built-in Azure Policy definitions to manage WAF resources. A b
 
 4. **Web Application Firewall (WAF) should use the specified mode for Application Gateway**: Mandates the use of 'Detection' or 'Prevention' mode to be active on all Web Application Firewall policies for Application Gateway. The policy definition has three effects: Audit, Deny, and Disable. Audit tracks when a WAF does not fit the specified mode. Deny prevents any WAF from being created if it is not in the correct mode. Disabled turns off the policy assignment.
 
+5. **Azure Application Gateway should have Resource logs enabled**: Mandates the enabling of Resource logs on all Application Gateways (Plus WAF). The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when an Application Gateway does not have resource logs enabled and notifies the user that the Application Gateway does not comply. Disabled turns off the policy assignment.
+
+6. **Azure Front Door should have Resource logs enabled**: Mandates the enabling of Resource logs on Azure Front Door Service (Plus WAF). The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when a Front Door service does not have resource logs enabled and notifies the user that the service does not comply. Disabled turns off the policy assignment.
+
 ## Launch an Azure Policy
 
 1.	On the Azure home page, type Policy in the search bar and click the Azure Policy icon
