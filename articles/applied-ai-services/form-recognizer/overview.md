@@ -1,13 +1,13 @@
 ---
-title: Intelligent document processing - Form Recognizer
+title: Form Recognizer overview
 titleSuffix: Azure Applied AI Services
-description: Machine-learning based OCR and document understanding service to automate extraction of text, table and structure, and key-value pairs from your forms and documents.
+description: Machine-learning based OCR and intelligent document processing understanding service to automate extraction of text, table and structure, and key-value pairs from your forms and documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/20/2022
+ms.date: 10/31/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -16,13 +16,7 @@ recommendations: false
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 
-# What is Intelligent Document Processing?
-
-Intelligent Document Processing (IDP) refers to capturing, transforming, and processing data from documents (e.g., PDF, or scanned documents including Microsoft Office and HTML documents). It typically uses advanced machine-learning based technologies like computer vision, Optical Character Recognition (OCR), document layout analysis, and Natural Language Processing (NLP) to extract meaningful information, process and integrate with other systems.
-
-IDP solutions can extract data from structured documents with pre-defined layouts like a tax form, unstructured or free-form documents like a contract, and semi-structured documents. They have a wide variety of benefits spanning knowledge mining, business process automation, and industry-specific applications. Examples include invoice processing, medical claims processing, and contracts workflow automation.
-
-## What is Azure Form Recognizer?
+# What is Azure Form Recognizer?
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
