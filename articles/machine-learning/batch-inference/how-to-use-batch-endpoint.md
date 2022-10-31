@@ -386,10 +386,6 @@ A deployment is a set of resources required for hosting the model that does the 
     1. On __Instance count__, enter the number of compute instances you want for the deployment. In this case, we will use 2.
     1. Click on __Next__.
 
-        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen.":::
-    
-    1. Complete the wizard.
-
 1. Create the deployment:
 
     # [Azure ML CLI](#tab/cli)
@@ -421,7 +417,7 @@ A deployment is a set of resources required for hosting the model that does the 
     
     In the wizard, click on __Create__ to start the deployment process.
     
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
+    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen.":::
 
 
 1. Check batch endpoint and deployment details.

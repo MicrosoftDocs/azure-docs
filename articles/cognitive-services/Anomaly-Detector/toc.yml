@@ -29,31 +29,35 @@
       href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/samples-multivariate
 - name: How-to guides
   items:
-    - name: Identify anomalies in your data (univariate)
-      href: how-to/identify-anomalies.md
-    - name: Deploy Anomaly Detector (univariate)
+    - name: Univariate Anomaly Detection
       items:
-        - name: Deploy to IoT Edge
-          href: how-to/deploy-anomaly-detection-on-iot-edge.md
-        - name: Containers
-          items:
-            - name: Install and run containers
-              displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
-              href: anomaly-detector-container-howto.md
-            - name: Configure containers
-              href: anomaly-detector-container-configuration.md
-              displayName: docker, container, alike, billing, log, mount, run, pull, port
-            - name: Use container instances
-              href: how-to/deploy-anomaly-detection-on-container-instances.md
-            - name: All Cognitive Services containers documentation
-              href: ../containers/index.yml
-              maintainContext: true
-    - name: Multivariate Anomaly Detector
+      - name: Identify anomalies in your data 
+        href: how-to/identify-anomalies.md
+      - name: Deploy Anomaly Detector (univariate)
+        items:
+          - name: Deploy to IoT Edge
+            href: how-to/deploy-anomaly-detection-on-iot-edge.md
+          - name: Containers
+            items:
+              - name: Install and run containers
+                displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+                href: anomaly-detector-container-howto.md
+              - name: Configure containers
+                href: anomaly-detector-container-configuration.md
+                displayName: docker, container, alike, billing, log, mount, run, pull, port
+              - name: Use container instances
+                href: how-to/deploy-anomaly-detection-on-container-instances.md
+              - name: All Cognitive Services containers documentation
+                href: ../containers/index.yml
+                maintainContext: true
+    - name: Multivariate Anomaly Detection
       items:
         - name: Train a model
           href: how-to/train-model.md
         - name: Batch inference      
           href: how-to/batch-inference.md
+        - name: Streaming inference
+          href: how-to/streaming-inference.md
     - name: Enterprise readiness
       items:
         - name: Set up Virtual Networks
