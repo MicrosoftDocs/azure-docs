@@ -1,10 +1,10 @@
 ---
-author: ElazarK
 ms.service: defender-for-cloud
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/14/2022
-ms.author: elkrieger
+ms.author: benmansheim
+author: bmansheim
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 

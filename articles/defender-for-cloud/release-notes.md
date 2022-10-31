@@ -63,11 +63,11 @@ Agentless vulnerability scanning is available in both Defender Cloud Security Po
 
 ### Defender for DevOps (Preview)
 
-Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, Google, and on-premises resources. 
+Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across hybrid and multicloud environments including Azure, AWS, Google, and on-premises resources. 
 
 Now, the new Defender for DevOps service integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration we are empowering security teams to protect their resources from code to cloud.
 
-Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high level overview of the discovered security issues that exist within them in a unified DevOps Security page.
+Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
 Security teams can configure pull request annotations to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
 
@@ -150,7 +150,7 @@ We are announcing the addition of the new Defender Cloud Security Posture Manage
 - Attack path analysis
 - Agentless scanning for machines
 
-You can learn more about the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md).
+Larn more about the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md).
 
 ### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 
@@ -335,7 +335,7 @@ Note, if you're using the preview version, the `AKS-AzureDefender` feature flag 
 
 Defender for Container's vulnerability assessment (VA) is able to detect vulnerabilities in OS packages deployed via the OS package manager. We have now extended VA's abilities to detect vulnerabilities included in language specific packages.
 
-This feature is in `preview` and is only available for Linux images.
+This feature is in preview and is only available for Linux images.
 
 To see all of the included language specific packages that have been added, check out Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md#registries-and-images).
 
@@ -496,7 +496,7 @@ There are now connector-level settings for Defender for Servers in multicloud.
 
 The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
 
-All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#defender-for-servers-plans).
+All auto-provisioning components available in the connector-level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#defender-for-servers-plans).
 
 Updates in the UI include a reflection of the selected pricing tier and the required components configured.
 
