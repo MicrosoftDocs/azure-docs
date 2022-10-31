@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Back up blobs in a storage account using Azure Data Protection via REST API
 
-Azure Backup enables you easily configure operational backup for protecting block blobs in your storage accounts.
+Azure Backup enables you to easily configure operational backup for protecting block blobs in your storage accounts.
 
 This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level. So, all blobs in the storage account are protected with operational backup.
 
@@ -37,7 +37,7 @@ Once you create the vault and policy, you need to consider two critical points t
 
 #### Storage account that contains the blobs for protection
 
-Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This'll serve as the identifier of the storage account.
+Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This serves as the identifier of the storage account.
 
 For example, we'll use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *west US*.
 
@@ -281,7 +281,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 Once the request validation is complete, you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). A Backup instance represents an item protected with data protection service of Azure Backup within the backup vault. In this case, the storage account is the backup instance and you can use the same request body, which was validated above, with minor additions.
 
-Use a unique name for the backup instance. So, we recommend you use a combination of the resource name and a unique identifier. We will use an example of "msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d" here and mark it as the backup instance name.
+Use a unique name for the backup instance. So, we recommend you use a combination of the resource name and a unique identifier. In this example, use *msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d* here and mark it as the backup instance name.
 
 To create or update the backup instance, use the following *PUT* operation.
 
@@ -305,7 +305,7 @@ To create a backup instance, following are the components of the request body
 
 ##### Example request for configure backup
 
-We will use the same request body that we used to validate the backup request with a unique name as we mentioned [above](#configure-backup).
+Use the same request body that you used to validate the backup request with a unique name as we mentioned [above](#configure-backup).
 
 ```json
 {
