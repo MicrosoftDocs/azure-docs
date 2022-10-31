@@ -12,7 +12,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Quickstart: Media Streaming
+# Quickstart: Subscribing to audio streams from an ongoing call
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
