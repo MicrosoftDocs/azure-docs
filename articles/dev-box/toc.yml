@@ -35,7 +35,9 @@
     - name: Configure an Azure Compute Gallery
       href: how-to-configure-azure-compute-gallery.md
     - name: Manage a dev center
-      href: how-to-manage-dev-center.md  
+      href: how-to-manage-dev-center.md
+    - name: Manage a dev box  
+      href: how-to-manage-dev-boxes.md
 - name: Reference
   items:
     - name: REST API
