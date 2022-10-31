@@ -77,8 +77,6 @@
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
-  - name: Enable pull request annotations in GitHub or in Azure DevOps
-    href: tutorial-enable-pull-request-annotations.md
 
 - name: Samples
   items:
@@ -360,9 +358,6 @@
       - name: Overview
         displayName: database
         href: defender-for-sql-introduction.md
-      - name: Scan your SQL resources for vulnerabilities
-        href: defender-for-sql-on-machines-vulnerability-assessment.md
-        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
       - name: Customize SQL information protection policy
         displayName: sql, database, data discovery
         href: sql-information-protection-policy.md
@@ -371,6 +366,9 @@
       - name: Enable Defender for SQL servers on machines
         href: defender-for-sql-usage.md
         displayName: hybrid, arc, Azure Defender
+      - name: Scan your SQL resources for vulnerabilities
+        href: defender-for-sql-on-machines-vulnerability-assessment.md
+        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
     - name: Defender for open-source relational databases
       items: 
       - name: Overview
@@ -398,7 +396,7 @@
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage, storage, Azure-native security, automated response, alerts, security, hash reputation analysis
       href: defender-for-storage-introduction.md
     - name: Enable Defender for Storage
-      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json#set-up-microsoft-defender-for-cloud
+      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
     - name: Exclude a storage account
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-exclude.md
@@ -445,7 +443,10 @@
       href: iac-vulnerabilities.md
     - name: Detect exposed secrets in code
       displayName: DevOps, CredScan, Credentials, leaks, 
-      href: detect-credential-leaks.md
+      href: detect-exposed-secrets.md
+    - name: Enable pull request annotations in GitHub or in Azure DevOps
+      displayName: PR annotations, annotations, DevOps, GitHub, pull request
+      href: enable-pull-request-annotations.md
 
 - name: Reference
   items:

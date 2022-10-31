@@ -29,6 +29,8 @@ items:
     href: data-flow-create.md
   - name: Training modules
     href: quickstart-learn-modules.md
+  - name: Azure Data Factory Studio Learning center
+    href: https://ms-adf.azure.com/learn
 - name: Tutorials
   items:
   - name: List of tutorials
