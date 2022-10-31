@@ -37,7 +37,7 @@ Deployment, device and update management and diagnostic actions will not be allo
 * Retry Deployment 
 * Get Device
 
-The permission can be set from IoT Hub Access Control (IAM). Refer to [Configure Access for Azure Device update service principal in linked IoT hub](configure-access-control-du.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub)
+The permission can be set from IoT Hub Access Control (IAM). Refer to [Configure Access for Azure Device update service principal in linked IoT hub](configure-access-control-device-update.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub)
 
 ## Authenticate to Device Update REST APIs
 
