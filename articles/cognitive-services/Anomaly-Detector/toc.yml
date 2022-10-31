@@ -52,6 +52,8 @@
                 maintainContext: true
     - name: Multivariate Anomaly Detection
       items:
+        - name: Create an Anomaly Detector Resource
+          href: how-to/create-resource.md
         - name: Train a model
           href: how-to/train-model.md
         - name: Batch inference      
