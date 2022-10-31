@@ -84,11 +84,11 @@ When storage activity anomalies occur, you receive an email notification with in
 
 The email also includes details on possible causes and recommended actions to investigate and mitigate the potential threat.
 
-:::image type="content" source="media/defender-for-storage-introduction/storage-advanced-threat-protection-alert-email.png" alt-text="Microsoft Defender for Storage alert email":::
+:::image type="content" source="media/defender-for-storage-introduction/storage-advanced-threat-protection-alert-email.png" alt-text="Screenshot of Microsoft Defender for Storage alert email":::
 
 You can review and manage your current security alerts from Microsoft Defender for Cloud's [Security alerts tile](managing-and-responding-alerts.md). Select an alert for details and actions for investigating the current threat and addressing future threats.
 
-:::image type="content" source="media/defender-for-storage-introduction/storage-advanced-threat-protection-alert.png" alt-text="Microsoft Defender for Storage alert":::
+:::image type="content" source="media/defender-for-storage-introduction/storage-advanced-threat-protection-alert.png" alt-text="Screenshot of a Microsoft Defender for Storage alert" lightbox="media/defender-for-storage-introduction/storage-advanced-threat-protection-alert.png":::
 
 ## Limitations of hash reputation analysis
 
