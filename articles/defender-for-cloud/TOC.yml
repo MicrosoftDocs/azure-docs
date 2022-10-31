@@ -315,6 +315,12 @@
       - name: Overview
         displayName: fim, change
         href: file-integrity-monitoring-overview.md
+      - name: Enable File Integrity Monitoring (AMA)
+        displayName: fim, change, azure monitor agent
+        href: file-integrity-monitoring-enable-ama.md
+      - name: Enable File Integrity Monitoring (Log Analytics)
+        displayName: fim, change, log analytics, mma
+        href: file-integrity-monitoring-enable-log-analytics.md
       - name: Compare baselines using file integrity monitoring
         displayName: fim, change
         href: file-integrity-monitoring-usage.md
