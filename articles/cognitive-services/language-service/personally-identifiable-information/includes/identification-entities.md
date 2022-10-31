@@ -2,13 +2,13 @@
 title: Identification entities
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
