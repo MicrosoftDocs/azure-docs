@@ -59,7 +59,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Bulgarian                        | `bg-BG`      |   |      |   | ✔ |   |
 | Catalan                          | `ca-ES`      |   |      |   | ✔ |   |
 | Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔   | ✔ | ✔ | ✔ |
-| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*|   | ✔ | ✔ |
+| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*<br/>[Use other supported languages](#use-other-supported-languages)|   | ✔ | ✔ |
 | Chinese (Traditional)            | `zh-Hant`    |   |      |   | ✔ |  |
 | Croatian                         | `hr-HR`      |   |      |   | ✔ |  |
 | Czech                            | `cs-CZ`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
@@ -67,22 +67,22 @@ This section describes languages supported by Azure Video Indexer API.
 | Dutch                            | `nl-NL`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English Australia                | `en-AU`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English United Kingdom           | `en-GB`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| English United States            | `en-US`      | ✔ |  ✔\* | ✔\* | ✔ | ✔ |
+| English United States            | `en-US`      | ✔ |  ✔\*<br/>[Use other supported languages](#use-other-supported-languages) | ✔\* <br/>[Use other supported languages](#use-other-supported-languages)| ✔ | ✔ |
 | Estonian                         | `et-EE`      |   |       |   | ✔ |   |
 | Fijian                           | `en-FJ`      |   |       |   | ✔ |  |
 | Filipino                         | `fil-PH`     |   |       |   | ✔ |  |
 | Finnish                          | `fi-FI`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| French                           | `fr-FR`      | ✔ |  ✔\* | ✔\* | ✔ | ✔ |
+| French                           | `fr-FR`      | ✔ |  ✔\* <br/>[Use other supported languages](#use-other-supported-languages)| ✔\* <br/>[Use other supported languages](#use-other-supported-languages)| ✔ | ✔ |
 | French (Canada)                  | `fr-CA`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
-| German                           | `de-DE`      | ✔ |  ✔ \*| ✔ \*| ✔ | ✔ |
+| German                           | `de-DE`      | ✔ |  ✔ \* <br/>[Use other supported languages](#use-other-supported-languages)| ✔ \* <br/>[Use other supported languages](#use-other-supported-languages)| ✔ | ✔ |
 | Greek                            | `el-GR`      |   |       |   | ✔ |   |
 | Haitian                          | `fr-HT`      |   |       |   | ✔ |   |
 | Hebrew                           | `he-IL`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | Hindi                            | `hi-IN`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | Hungarian                        | `hu-HU`      |   |       |   | ✔ |  |
 | Indonesian                       | `id-ID`      |   |       |   | ✔ |  |
-| Italian                          | `it-IT`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
-| Japanese                         | `ja-JP`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
+| Italian                          | `it-IT`      | ✔ | ✔\* <br/>[Use other supported languages](#use-other-supported-languages) |  ✔ | ✔ | ✔ |
+| Japanese                         | `ja-JP`      | ✔ | ✔\* <br/>[Use other supported languages](#use-other-supported-languages) |  ✔ | ✔ | ✔ |
 | Kiswahili                        | `sw-KE`      |   |       |   | ✔ |  |
 | Korean                           | `ko-KR`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Latvian                          | `lv-LV`      |   |       |   | ✔ |  |
@@ -93,16 +93,16 @@ This section describes languages supported by Azure Video Indexer API.
 | Norwegian                        | `nb-NO`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
 | Persian                          | `fa-IR`      | ✔ |      |   | ✔ | ✔ |
 | Polish                           | `pl-PL`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| Portuguese                       | `pt-BR`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
+| Portuguese                       | `pt-BR`      | ✔ | ✔\* <br/>[Use other supported languages](#use-other-supported-languages) |  ✔ | ✔ | ✔ |
 | Portuguese (Portugal)            | `pt-PT`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Romanian                         | `ro-RO`      |   |       |   | ✔ |  |
-| Russian                          | `ru-RU`      | ✔ | ✔\*   |  ✔ | ✔ | ✔ |
+| Russian                          | `ru-RU`      | ✔ | ✔\* <br/>[Use other supported languages](#use-other-supported-languages)  |  ✔ | ✔ | ✔ |
 | Samoan                           | `en-WS`      |   |       |   | ✔ |  |
 | Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |       |   | ✔ |  |
 | Serbian (Latin)                  | `sr-Latn-RS` |   |       |   | ✔ |  |
 | Slovak                           | `sk-SK`      |   |       |   | ✔ |  |
 | Slovenian                        | `sl-SI`      |   |       |   | ✔ |  |
-| Spanish                          | `es-ES`      | ✔ | ✔\*  | ✔\*  | ✔ | ✔ |
+| Spanish                          | `es-ES`      | ✔ | ✔\*  <br/>[Use other supported languages](#use-other-supported-languages)| ✔\*  <br/>[Use other supported languages](#use-other-supported-languages)| ✔ | ✔ |
 | Spanish (Mexico)                 | `es-MX`      | ✔ |       |   | ✔ | ✔ |
 | Swedish                          | `sv-SE`      | ✔ |  ✔    |  ✔ | ✔ | ✔ |
 | Tamil                            | `ta-IN`      |   |        |  | ✔ | |
@@ -113,7 +113,9 @@ This section describes languages supported by Azure Video Indexer API.
 | Urdu                             | `ur-PK`      |    |      |   | ✔ |  |
 | Vietnamese                       | `vi-VN`      | ✔  |  ✔  | ✔  | ✔ |  |
 
-\*By default, languages marked with * (in the table above) are supported by language identification (LID) or/and multi-language identification (MLID) auto-detection. When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API, you can specify to use other supported languages, from the table above, by using `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
+### Use other supported languages 
+
+\*By default, languages marked with * (in the table above) are supported by language identification (LID) or/and multi-language identification (MLID) auto-detection. When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API, you can specify to use other supported language, from the table above, by using the `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
 
 > [!NOTE]
 > To change the default languages to auto-detect one or more languages by LID or MLID, set the `customLanguages` parameter. 
