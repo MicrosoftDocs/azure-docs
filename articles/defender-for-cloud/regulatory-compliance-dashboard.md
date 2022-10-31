@@ -300,7 +300,7 @@ On the main dashboard, you can see a report of passing and failing controls for 
 When you select **Download report**, select the standard and the format (PDF or CSV). The resulting report will reflect the current set of subscriptions you've selected in the portal's filter.
 
 - The PDF report shows a summary status for the standard you selected
-* The CSV report provides detailed results per resource, as it relates to policies associated with each control
+- The CSV report provides detailed results per resource, as it relates to policies associated with each control
 
 Currently, there's no support for downloading a report for a custom policy; only for the supplied regulatory standards.
 
