@@ -3,7 +3,7 @@ title: Tutorial - Archive directory logs to a storage account | Microsoft Docs
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account 
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: MarkusVi
 manager: amycolannino
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an Azure storage account so I can retain it for longer than the default retention period.

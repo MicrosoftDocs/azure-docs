@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: quickstart
 ms.date: 08/26/2022
-ms.author: billmath
-author: billmath
+ms.author: markvi
+author: MarkusVi
 manager: amycolannino
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management

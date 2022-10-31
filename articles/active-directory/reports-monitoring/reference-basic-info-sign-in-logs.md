@@ -3,7 +3,7 @@ title: Basic info in the Azure AD sign-in logs | Microsoft Docs
 description: Learn what the basic info in the sign-in logs is about.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: MarkusVi
 manager: amycolannino
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management

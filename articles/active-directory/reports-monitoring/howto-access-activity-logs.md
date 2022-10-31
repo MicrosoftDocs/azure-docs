@@ -3,7 +3,7 @@ title: Access activity logs in Azure AD | Microsoft Docs
 description: Learn how to choose the right method for accessing the activity logs in Azure AD.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: MarkusVi
 manager: amycolannino
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management

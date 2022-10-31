@@ -2,7 +2,7 @@
 title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
-author: billmath
+author: MarkusVi
 manager: amycolannino
 
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
@@ -13,7 +13,7 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: sarbar
 ---
 # How to use Azure Monitor workbooks for Azure Active Directory reports

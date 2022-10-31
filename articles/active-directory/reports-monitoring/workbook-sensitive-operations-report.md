@@ -4,7 +4,7 @@ title: Sensitive operations report workbook in  Azure AD | Microsoft Docs
 description: Learn how to use the sensitive operations report workbook.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: MarkusVi
 manager: amycolannino
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: sarbar 
 
 ms.collection: M365-identity-device-management

@@ -3,7 +3,7 @@ title: Usage and insights report | Microsoft Docs
 description: Introduction to usage and insights report in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: MarkusVi
 manager: amycolannino
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/26/2022
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: besiler
 ---
 
