@@ -126,7 +126,6 @@ Make a note of where the private SSH key is saved, and the value for "FullyQuali
 To create a VM on your new subnet:
 
 1. select "Virtual machines" from the "Create a Resource" screen of the Azure portal:
-
   :::image type="content" source="./media/portal-create-vm-1.png" alt-text="Screenshot of the portal resource picker.":::
 1. On the "Basics" tab of the creation screen, select the resource group that contains your payment HSM ("myResourceGroup"):
   :::image type="content" source="./media/portal-create-vm-2.png" alt-text="Screenshot of the portal main VM creation screen.":::
