@@ -48,6 +48,10 @@
             - name: All Cognitive Services containers documentation
               href: ../containers/index.yml
               maintainContext: true
+    - name: Multivariate Anomaly Detector
+      items:
+        - name: Train a model
+          href: how-to/train-model.md
     - name: Enterprise readiness
       items:
         - name: Set up Virtual Networks
