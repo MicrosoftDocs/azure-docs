@@ -20,7 +20,7 @@ This article describes how to secure outbound traffic from your applications hos
 ## Prerequisites
 
 - All prerequisites for [deploying Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md)
-- API version of `2022-09-01 preview` or later
+- An API version of `2022-09-01 preview` or later
 - [Azure CLI version 1.1.7 or later](/cli/azure/install-azure-cli)
 - Familiarity with information in the following articles:
   - [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md)
@@ -45,7 +45,7 @@ ASANAME="${PREFIX}"
 VNET_NAME="${PREFIX}-vnet"
 ASA_APP_SUBNET_NAME="asa-app-subnet"
 ASA_SERVICE_RUNTIME_SUBNET_NAME="asa-service-runtime-subnet"
-# DO NOT CHANGE FWSUBNET_NAME - This is currently a requirement for Azure Firewall.
+# Do not change FWSUBNET_NAME. This is currently a requirement for Azure Firewall.
 FWSUBNET_NAME="AzureFirewallSubnet"
 FWNAME="${PREFIX}-fw"
 FWPUBLICIP_NAME="${PREFIX}-fwpublicip"
