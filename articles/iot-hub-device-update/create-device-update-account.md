@@ -59,11 +59,11 @@ An IoT hub. It's required that you use an S1 (Standard) tier or above.
    * **IoT Hub Name**: Select the IoT Hub you want to link to your Device Update instance
    * Check the box to grant the right access to Azure Device Update service pricipal in the IoT Hub to set up and operate the Device Update Service. You need to have the right permissions to add access. 
    > [!NOTE]
-   > If you are unable to grant access to Azure Device Update service pricipal during resource creation, refer to [configure the access control for users and Azure Device Update service principal](configure-access-control-device-update.md) . If this access is not set you will not be able to run deployment, device management and diagnostic operations. Learn more about the [Azure Device Update service principal access](device-update-control-access.md#configuring-access-for-azure-device-update-service-principal-in-the-iot-hub).
+   > If you are unable to grant access to Azure Device Update service principal during resource creation, refer to [configure the access control for users and Azure Device Update service principal](configure-access-control-device-update.md) . If this access is not set you will not be able to run deployment, device management and diagnostic operations. Learn more about the [Azure Device Update service principal access](device-update-control-access.md#configuring-access-for-azure-device-update-service-principal-in-the-iot-hub).
 
    :::image type="content" source="media/create-device-update-account/account-details.png" alt-text="Screenshot of account details." lightbox="media/create-device-update-account/account-details.png":::
 
-5. Select **Next: Diagnostics**. Enabling Microsoft diganostics, gives Microsoft permission to collect, store, and analyze diagnostic log files from your devices when they encounter an update failure. In order to enable remote log collection for diagnostics, you need to link your Device Update instance to your Azure Blob storage account. Selecting the Azure Storage account will automatically update the storage details.
+5. Select **Next: Diagnostics**. Enabling Microsoft diagnostics, gives Microsoft permission to collect, store, and analyze diagnostic log files from your devices when they encounter an update failure. In order to enable remote log collection for diagnostics, you need to link your Device Update instance to your Azure Blob storage account. Selecting the Azure Storage account will automatically update the storage details.
 
    :::image type="content" source="media/create-device-update-account/account-diagnostics.png" alt-text="Screenshot of diagnostic details." lightbox="media/create-device-update-account/account-diagnostics.png":::
 
