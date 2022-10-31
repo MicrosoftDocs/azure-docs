@@ -981,13 +981,19 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ::: zone pivot="programming-language-csharp"
 
-The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS#12 formatted file (.pfx). The full chain certificates you created previously are in the PEM format. To convert the full chain certificates to PKCS#12 format, enter the following commands in your GitBash prompt from the directory where you previously ran the OpenSSL commands.
+The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS#12 formatted file (.pfx). The full chain certificates you created previously are in the PEM format. To convert the full chain certificates to PKCS#12 format, enter the following commands in your Git Bash prompt from the directory where you previously ran the OpenSSL commands.
 
-```bash
-openssl pkcs12 -inkey ./private/device-01.key.pem -in ./certs/device-01-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-01-full-chain.cert.pfx
+* device-01
 
-openssl pkcs12 -inkey ./private/device-02.key.pem -in ./certs/device-02-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-02-full-chain.cert.pfx
-```
+    ```bash
+    openssl pkcs12 -inkey ./private/device-01.key.pem -in ./certs/device-01-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-01-full-chain.cert.pfx
+    ```
+
+* device-02
+
+    ```bash
+    openssl pkcs12 -inkey ./private/device-02.key.pem -in ./certs/device-02-full-chain.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/device-02-full-chain.cert.pfx
+    ```
 
 In the rest of this section, you'll use your Windows command prompt.
 
@@ -999,10 +1005,10 @@ In the rest of this section, you'll use your Windows command prompt.
 
 3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\Getting Started\X509Sample* directory off the directory where you cloned the samples on your computer.
 
-4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. Replace `<your-certificate-folder>` with the full path to the folder where you ran your OpenSSL commands.
+4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in the step 2. Replace `<your-certificate-folder>` with the full path to the folder where you ran your OpenSSL commands.
 
     ```cmd
-    run -- -s 0ne005ED5E1 -c <your-certificate-folder>/certs/device-01-full-chain.cert.pfx -p 1234
+    run -- -s <id-scope> -c <your-certificate-folder>/certs/device-01-full-chain.cert.pfx -p 1234
     ```
 
    The device connects to DPS and is assigned to an IoT hub. Then, the device sends a telemetry message to the IoT hub. You should see output similar to the following:
@@ -1032,7 +1038,7 @@ In the rest of this section, you'll use your Windows command prompt.
 5. To register your second device, re-run the sample using its full chain certificate.
 
     ```cmd
-    run -- -s 0ne005ED5E1 -c <your-certificate-folder>/certs/device-02-full-chain.cert.pfx -p 1234
+    run -- -s <id-scope> -c <your-certificate-folder>/certs/device-02-full-chain.cert.pfx -p 1234
     ```
 
 ::: zone-end
@@ -1062,36 +1068,36 @@ In the following steps, use your Windows command prompt.
     var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
     ```
 
+    The sample uses five environment variables to authenticate and provision an IoT device using DPS. These environment variables are:
+
+    | Variable name              | Description                                     |
+    | :------------------------- | :---------------------------------------------- |
+    | `PROVISIONING_HOST`        |  The endpoint to use for connecting to your DPS instance. For this tutorial, use the global endpoint, `global.azure-devices-provisioning.net`. |
+    | `PROVISIONING_IDSCOPE`     |  The ID Scope for your DPS instance. |
+    | `PROVISIONING_REGISTRATION_ID` |  The registration ID for your device. It must match the subject common name in the device certificate. |
+    | `CERTIFICATE_FILE`           |  The path to your device full chain certificate file. |
+    | `KEY_FILE`            |  The path to your device certificate private key file. |
+
     The `ProvisioningDeviceClient.register()` method attempts to register your device.
 
-1. In the command prompt, run the following commands to set environment variables used by the sample:
-
-    * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances: `global.azure-devices-provisioning.net`.
-    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** you used for your device, *device-01*.
-    * Replace `certificate-file-path` with the device full chain certificate file you generated previously, *certs\device-01-full-chain.cert.pem*.
-    * Replace `key-file-path` with the device private key file you generated previously, *private\device-01.key.pem*.
-
-    (The paths shown above are relative to the directory where you ran the OpenSSL commands to create your certificate chain. Modify them accordingly for your system.)
+1. Add environment variables for the global device endpoint and ID scope. Replace `<id-scope>` with the value you copied in step 2.
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
-    ```
-
-    ```cmd
     set PROVISIONING_IDSCOPE=<id-scope>
     ```
 
-    ```cmd
-    set PROVISIONING_REGISTRATION_ID=<registration-id>
-    ```
+1. Set the environment variable for the device registration ID. The registration ID for the IoT device must match subject common name on its device certificate. For this tutorial, *device-01* is both the subject name and the registration ID for the device.
 
     ```cmd
-    set CERTIFICATE_FILE=<certificate-file-path>
+    set PROVISIONING_REGISTRATION_ID=device-01
     ```
 
+1. Set the environment variables for the device full chain certificate and device private key files you generated previously. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
+
     ```cmd
-    set KEY_FILE=<key-file-path>
+    set CERTIFICATE_FILE=<your-certificate-folder>\certs\device-01-full-chain.cert.pem
+    set KEY_FILE=<your-certificate-folder>\private\device-01.key.pem
     ```
 
 1. Run the sample and verify that the device was provisioned successfully.
@@ -1115,8 +1121,8 @@ In the following steps, use your Windows command prompt.
     |   Environment Variable        |  Value  |
     | :---------------------------- | :--------- |
     | PROVISIONING_REGISTRATION_ID  | `device-02` |
-    | CERTIFICATE_FILE              | *certs\device-02-full-chain.cert.pem* |
-    | KEY_FILE                      | *private\device-02.key.pem* |
+    | CERTIFICATE_FILE              | *<your-certificate-folder>\certs\device-02-full-chain.cert.pem* |
+    | KEY_FILE                      | *<your-certificate-folder>\private\device-02.key.pem* |
 
 ::: zone-end
 
@@ -1140,33 +1146,31 @@ In the following steps, use your Windows command prompt.
 
     | Variable name              | Description                                     |
     | :------------------------- | :---------------------------------------------- |
-    | `PROVISIONING_HOST`        |  The endpoint to use for connecting to your DPS instance. For this tutorial, use the global endpoint, `global.azure-devices-provisioning.net` |
-    | `PROVISIONING_IDSCOPE`     |  The ID Scope for your DPS instance |
-    | `DPS_X509_REGISTRATION_ID` |  The registration ID for your device. It must match the subject common name in the device certificate |
-    | `X509_CERT_FILE`           |  The path to your device full chain certificate file |
-    | `X509_KEY_FILE`            |  The path to your device certificate private key file |
+    | `PROVISIONING_HOST`        |  The endpoint to use for connecting to your DPS instance. For this tutorial, use the global endpoint, `global.azure-devices-provisioning.net`. |
+    | `PROVISIONING_IDSCOPE`     |  The ID Scope for your DPS instance. |
+    | `DPS_X509_REGISTRATION_ID` |  The registration ID for your device. It must match the subject common name in the device certificate. |
+    | `X509_CERT_FILE`           |  The path to your device full chain certificate file. |
+    | `X509_KEY_FILE`            |  The path to your device certificate private key file. |
     | `PASS_PHRASE`              |  The pass phrase used to encrypt the private key file (if used). Not needed for this tutorial. |
 
-1. Add the environment variables for the global device endpoint and ID Scope.
+1. Add the environment variables for the global device endpoint and ID Scope. You copied the ID scope for your instance in step 2.
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
     set PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
 
-1. The registration ID for the IoT device must match subject common name on its device certificate. For this tutorial, `device-01` is both the subject name and the registration ID for the device.
-
-1. Set the environment variable for the registration ID as follows:
+1. Set the environment variable for the device registration ID. The registration ID for the IoT device must match subject common name on its device certificate. For this tutorial, *device-01* is both the subject name and the registration ID for the device.
 
     ```cmd
     set DPS_X509_REGISTRATION_ID=device-01
     ```
 
-1. Set the environment variables for the certificate file and private key file. The paths shown are relative to the directory where you ran the OpenSSL commands to create your certificate chain. Modify them accordingly for your system.
+1. Set the environment variables for the device full chain certificate and device private key files you generated previously. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
 
     ```cmd
-    set X509_CERT_FILE=certs\device-01-full-chain.cert.pem
-    set X509_KEY_FILE=private\device-01.key.pem
+    set X509_CERT_FILE=<your-certificate-folder>\certs\device-01-full-chain.cert.pem
+    set X509_KEY_FILE=<your-certificate-folder>\private\device-01.key.pem
     ```
 
 1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
@@ -1213,8 +1217,8 @@ In the following steps, use your Windows command prompt.
     |   Environment Variable        |  Value  |
     | :---------------------------- | :--------- |
     | DPS_X509_REGISTRATION_ID      | `device-02` |
-    | X509_CERT_FILE                | *certs\device-02-full-chain.cert.pem* |
-    | X509_KEY_FILE                 | *private\device-02.key.pem* |
+    | X509_CERT_FILE                | *<your-certificate-folder>\certs\device-02-full-chain.cert.pem* |
+    | X509_KEY_FILE                 | *<your-certificate-folder>\private\device-02.key.pem* |
 
 ::: zone-end
 
