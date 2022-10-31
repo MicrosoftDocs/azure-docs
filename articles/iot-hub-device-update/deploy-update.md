@@ -92,7 +92,7 @@ An Azure CLI environment:
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device deployment create](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create) to create a deployment for a device group.
+Use [az iot du device deployment create](/cli/azure/iot/device-update/device/deployment#az-iot-du-device-deployment-create) to create a deployment for a device group.
 
 The `device deployment create` command takes the following arguments:
 
@@ -113,7 +113,7 @@ az iot du device deployment create \
     --update-version <update version>
 ```
 
-Optional arguments allow you to configure the deployment. For the full list, see [Optional parameters](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create-optional-parameters)
+Optional arguments allow you to configure the deployment. For the full list, see [Optional parameters](/cli/azure/iot/device-update/device/deployment#az-iot-du-device-deployment-create-optional-parameters)
 
 If you want to create an automatic rollback policy, add the following parameters:
 
@@ -171,19 +171,19 @@ az iot du device deployment create \
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device deployment list](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-list) to view all deployment for a device group.
+Use [az iot du device deployment list](/cli/azure/iot/device-update/device/deployment#az-iot-du-device-deployment-list) to view all deployment for a device group.
 
 ```azurecli
-az iot device-update device deployment list \
+az iot du device deployment list \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
     --group-id <device group id>
 ```
 
-Use [az iot du device deployment show](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-show) to view the details of a particular deployment.
+Use [az iot du device deployment show](/cli/azure/iot/device-update/device/deployment#az-iot-du-device-deployment-show) to view the details of a particular deployment.
 
 ```azurecli
-az iot device-update device deployment show \
+az iot du device deployment show \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
     --group-id <device group ID> \
@@ -193,7 +193,7 @@ az iot device-update device deployment show \
 Add the `--status` flag to return information about how many devices in the deployment are in progress, completed, or failed.
 
 ```azurecli
-az iot device-update device deployment show \
+az iot du device deployment show \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
     --group-id <device group ID> \
@@ -217,12 +217,12 @@ If your deployment fails for some reason, you can retry the deployment for faile
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device deployment retry](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-retry) to retry a deployment for a target subgroup of devices.
+Use [az iot du device deployment retry](/cli/azure/iot/device-update/device/deployment#az-iot-du-device-deployment-retry) to retry a deployment for a target subgroup of devices.
 
 This command takes the `--class-id` argument, which is generated from the model ID and compatibility properties reported by the device update agent.
 
 ```azurecli
-az iot device-update device deployment retry \
+az iot du device deployment retry \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
     --deployment-id <deployment ID> \

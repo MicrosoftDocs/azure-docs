@@ -106,7 +106,7 @@ To import an update, you first upload the update files and import manifest into 
 
 # [Azure CLI](#tab/cli)
 
-The [az iot du update stage](/cli/azure/iot/du/update#az-iot-du-update-stage) command handles the prerequisite steps of importing an update, including uploading the update files into a target storage container. An optional flag also lets this command automatically import the files after they're prepared. Otherwise, the [az iot du update import](/cli/azure/iot/du/update#az-iot-du-update-import) command completes the process.
+The [az iot du update stage](/cli/azure/iot/device-update/update#az-iot-du-update-stage) command handles the prerequisite steps of importing an update, including uploading the update files into a target storage container. An optional flag also lets this command automatically import the files after they're prepared. Otherwise, the [az iot du update import](/cli/azure/iot/device-update/update#az-iot-du-update-import) command completes the process.
 
 The `stage` command takes the following arguments:
 
@@ -154,9 +154,9 @@ az iot du update stage \
     --overwrite --then-import
 ```
 
-If you don't use the `--then-import` flag, the output of the `stage` command includes a prompt to run [az iot du update import](/cli/azure/iot/du/update#az-iot-du-update-import), including pre-populated arguments.
+If you don't use the `--then-import` flag, the output of the `stage` command includes a prompt to run [az iot du update import](/cli/azure/iot/device-update/update#az-iot-du-update-import), including pre-populated arguments.
 
-Use [az iot du update list](/cli/azure/iot/du/update#az-iot-du-update-list) to verify that your update or updates were successfully imported.
+Use [az iot du update list](/cli/azure/iot/device-update/update#az-iot-du-update-list) to verify that your update or updates were successfully imported.
 
 ```azurecli
 az iot du update list \
