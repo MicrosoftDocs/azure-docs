@@ -27,7 +27,7 @@ There are several built-in Azure Policy definitions to manage WAF resources. A b
 
 5. **Azure Application Gateway should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on all Application Gateways, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when an Application Gateway does not have resource logs, metrics enabled and notifies the user that the Application Gateway does not comply. Disabled turns off the policy assignment.
 
-6. **Azure Front Door should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on Azure Front Door Service (Plus WAF). The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when a Front Door service does not have resource logs, metrics enabled and notifies the user that the service does not comply. Disabled turns off the policy assignment.
+6. **Azure Front Door should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on Azure Front Door Service, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when a Front Door service does not have resource logs, metrics enabled and notifies the user that the service does not comply. Disabled turns off the policy assignment.
 
 ## Launch an Azure Policy
 
