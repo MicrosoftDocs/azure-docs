@@ -54,7 +54,7 @@ An IoT hub. It's required that you use an S1 (Standard) tier or above.
    * **Resource group**: An existing or new resource group.
    * **Name**: A name for your account.
    * **Location**: The Azure region where your account will be located. For information about which regions support Device Update for IoT Hub, see [Azure Products-by-region page](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
-   * Check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the [Configure access control roles](#configure-access-control-roles) section to provide a combination of roles to users and applications for the right level of access. You need to have Owner or User Access Administrator permissions in your subscription to manage roles.
+   * Check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the [Configure access control roles](configure-access-control-du.md) section to provide a combination of roles to users and applications for the right level of access. You need to have Owner or User Access Administrator permissions in your subscription to manage roles.
    * **Instance Name**: A name for your instance.
    * **IoT Hub Name**: Select the IoT Hub you want to link to your Device Update instance
    * Check the box to grant the right access to Azure Device Update service pricipal in the IoT Hub to set up and operate the Device Update Service. You need to have the right permissions to add access. 
