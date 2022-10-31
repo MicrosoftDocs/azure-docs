@@ -20,23 +20,24 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 ## November 2022
 
-|Sample&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  Description |
-|------------------------------------|--------------|
-| [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [(Retired) Visual Studio Code extension for Azure Cognitive Search](https://github.com/microsoft/vscode-azurecognitivesearch) | Feature | Retired. This preview feature isn't moving forward to general availability and has been removed from Azure Marketplace. See the [documentation](search-get-started-vs-code.md) for details. |
+| [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | Sample | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 
 ## October 2022
 
-|Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
-|------------------------------------|--------------|
-| [Compliance risk analysis using Azure Cognitive Search](/azure/architecture/guide/ai/compliance-risk-analysis) | Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
-| [Beiersdorf customer story using Azure Cognitive Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search) | This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |
+|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Compliance risk analysis using Azure Cognitive Search](/azure/architecture/guide/ai/compliance-risk-analysis) | Content | Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
+| [Beiersdorf customer story using Azure Cognitive Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search) | Content | This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |
 
 ## September 2022
 
-|Sample&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
-|------------------------------------|--------------|
-| [Azure Cognitive Search Lab](https://github.com/Azure-Samples/azure-search-lab/blob/main/README.md) | This C# sample provides the source code for building a web front-end that accesses all of the REST API calls against an index. This tool is used by support engineers to investigate customer support issues. You can try this [demo site](https://azuresearchlab.azurewebsites.net/) before building your own copy. |
-| [Event-driven indexing for Cognitive Search](https://github.com/aditmer/Event-Driven-Indexing-For-Cognitive-Search/blob/main/README.md) | This C# sample is an Azure Function app that demonstrates event-driven indexing in Azure Cognitive Search. If you've used indexers and skillsets before, you know that indexers can run on demand or on a schedule, but not in response to events. This demo shows you how to set up an indexing pipeline that responds to data update events. |
+|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Azure Cognitive Search Lab](https://github.com/Azure-Samples/azure-search-lab/blob/main/README.md) | Sample | This C# sample provides the source code for building a web front-end that accesses all of the REST API calls against an index. This tool is used by support engineers to investigate customer support issues. You can try this [demo site](https://azuresearchlab.azurewebsites.net/) before building your own copy. |
+| [Event-driven indexing for Cognitive Search](https://github.com/aditmer/Event-Driven-Indexing-For-Cognitive-Search/blob/main/README.md) | Sample | This C# sample is an Azure Function app that demonstrates event-driven indexing in Azure Cognitive Search. If you've used indexers and skillsets before, you know that indexers can run on demand or on a schedule, but not in response to events. This demo shows you how to set up an indexing pipeline that responds to data update events. |
 
 ## August 2022
 
@@ -55,7 +56,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | This indexer data source was introduced in May 2021 but won't be moving forward. Please migrate your data ingestion code by November 2022. See the feature documentation for migration guidance.  | Retired |
+| [(Retired) Power Query connector preview](search-how-to-index-power-query-data-sources.md) | This indexer data source was introduced in May 2021 but won't be moving forward. Please migrate your data ingestion code by November 2022. See the feature documentation for migration guidance.  | Retired |
 
 ## February 2022
 
