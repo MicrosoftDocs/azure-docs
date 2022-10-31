@@ -50,7 +50,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 |Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
 |------------------------------|------|-------------|
 | [Semantic search (preview)](semantic-search-overview.md) | Feature | New support for Storage Optimized tiers (L1, L2). |
-| [Debug Sessions](cognitive-search-debug-session.md) | Feature | **General availability**. Debug sessions, a bu|ilt-in editor that runs in Azure portal, is now generally available. |
+| [Debug Sessions](cognitive-search-debug-session.md) | Feature | **General availability**. Debug sessions, a built-in editor that runs in Azure portal, is now generally available. |
 
 ## May 2022
 
