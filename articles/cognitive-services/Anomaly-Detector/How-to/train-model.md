@@ -82,10 +82,10 @@ Other parameters for training API are optional:
 
 * **slidingWindow**: How many data points are used to determine anomalies. An integer between 28 and 2,880. The default value is 300. If `slidingWindow` is `k` for model training, then at least `k` points should be accessible from the source file during inference to get valid results.
 
-    MVAD takes a segment of data points to decide if the next data point is an anomaly. The length of the segment is `slidingWindow`.
+    Multivariate Anomaly Detection takes a segment of data points to decide if the next data point is an anomaly. The length of the segment is the `slidingWindow`.
     Please keep two things in mind when choosing a `slidingWindow` value:
     1. The properties of your data: whether it's periodic and the sampling rate. When your data is periodic, you could set the length of 1 - 3 cycles as the `slidingWindow`. When your data is at a high frequency (small granularity) like minute-level or second-level, you could set a relatively higher value of `slidingWindow`.
-    1. The trade-off between training/inference time and potential performance impact. A larger `slidingWindow` may cause longer training/inference time. There's **no guarantee** that larger `slidingWindow`s will lead to accuracy gains. A small `slidingWindow` may cause the model difficult to converge to an optimal solution. For example, it's hard to detect anomalies when `slidingWindow` has only two points.
+    1. The trade-off between training/inference time and potential performance impact. A larger `slidingWindow` may cause longer training/inference time. There's **no guarantee** that larger `slidingWindow`s will lead to accuracy gains. A small `slidingWindow` may make it difficult for the model to converge on an optimal solution. For example, it's hard to detect anomalies when `slidingWindow` has only two points.
 
 * **alignMode**: How to align multiple variables (time series) on timestamps. There are two options for this parameter, `Inner` and `Outer`, and the default value is `Outer`.
 
@@ -143,7 +143,7 @@ Other parameters for training API are optional:
 
 * **paddingValue**: Padding value is used to fill `nan` when `fillNAMethod` is `Fixed` and must be provided in that case. In other cases it's optional.
 
-* **displayName**: This is an optional parameter, which is used to identify models. For example, you can use it to mark parameters, data sources, and any other meta data about the model and its input data. The default value is an empty string.
+* **displayName**: This is an optional parameter, which is used to identify models. For example, you can use it to mark parameters, data sources, and any other metadata about the model and its input data. The default value is an empty string.
 
 ### Response
 
