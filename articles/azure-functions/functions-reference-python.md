@@ -733,7 +733,9 @@ You can use ASGI and WSGI-compatible frameworks such as Flask and FastAPI with y
     }
   }
 }
+```
 
+The framework code looks like the following example:
 
 # [ASGI](#tab/asgi)
 
