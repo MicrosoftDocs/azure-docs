@@ -68,7 +68,7 @@ Use the following values from your Azure AD Managed Identity for your GitHub wor
 
     The following screenshot demonstrates how to copy the managed identity ID and subscription ID.
 
-    ![Screenshot that demonstrates how to copy the managed identity ID and subscription ID from Azure portal.](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png)
+    [![Screenshot that demonstrates how to copy the managed identity ID and subscription ID from Azure portal.](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png)](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png#lightbox)
 
 - `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Azure Active Directory tenant ID](../fundamentals/active-directory-how-to-find-tenant.md).
 
