@@ -1,6 +1,11 @@
 {
   "redirections": [
   {
+    "source_path": "enable-partitions-premium.md",
+    "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-starndard",
+    "redirect_document_id": false
+  },
+  {
     "source_path": "migrate-java-apps-wild-fly.md",
     "redirect_url": "/azure/app-service/configure-language-java#use-service-bus-as-a-message-broker",
     "redirect_document_id": false
