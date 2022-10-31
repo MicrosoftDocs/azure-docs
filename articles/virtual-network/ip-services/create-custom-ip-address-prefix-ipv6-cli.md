@@ -1,7 +1,7 @@
 ---
 title: Create a custom IPv6 address prefix
 titleSuffix: Azure Virtual Network
-description: Learn about how to create a custom IPv6 address prefix using Azure PowerShell
+description: Learn about how to create a custom IPv6 address prefix using Azure CLI
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
 ---
-# Create a custom IPv6 address prefix using Azure PowerShell
+# Create a custom IPv6 address prefix using Azure CLI
 
 A custom IPv6 address prefix enables you to bring your own IPv6 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
 
@@ -52,7 +52,7 @@ To utilize the Azure BYOIP feature, you must perform and number of steps prior t
 
 ## Provisioning for IPv6
 
-The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges.  Note that some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-powershell.md) to focus on the differences between IPv4 and IPv6.
+The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges.  Note that some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-cli.md) to focus on the differences between IPv4 and IPv6.
 
 ### Create a resource group and specify the prefix and authorization messages
 
@@ -61,43 +61,41 @@ Create a resource group in the desired location for provisioning the global rang
 > [!IMPORTANT]
 > Although the resource for the global range will be associated with a region, the prefix will be advertised by the Microsoft WAN globally.
 
- ```azurepowershell-interactive
-$rg =@{
-    Name = 'myResourceGroup'
-    Location = 'WestUS2'
-}
-New-AzResourceGroup @rg
+```azurecli-interactive
+  az group create \
+    --name myResourceGroup \
+    --location westus2
 ```
 
 ### Provision a global custom IPv6 address prefix
 
-The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-AuthorizationMessage` and `-SignedMessage` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - PowerShell](create-custom-ip-address-prefix-powershell.md).)  Note that no zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
+The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-authorization-message` and `-signed-message` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - PowerShell](create-custom-ip-address-prefix-powershell.md).)  Note that no zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
 
- ```azurepowershell-interactive
-$prefix =@{
-    Name = 'myCustomIPv6GlobalPrefix'
-    ResourceGroupName = 'myResourceGroup'
-    Location = 'WestUS'
-    CIDR = '2a05:f500:2::/48'
-    AuthorizationMessage = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|2a05:f500:2::/48|yyyymmdd'
-    SignedMessage = $byoipauthsigned
-}
-$myCustomIpPrefix = New-AzCustomIPPrefix @prefix
+```azurecli-interactive
+  byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|2a05:f500:2::/48|yyyymmdd"
+  
+  az network custom-ip prefix create \
+    --name myCustomIPv6GlobalPrefix \
+    --resource-group myResourceGroup \
+    --location westus2 \
+    --cidr ‘2a05:f500:2::/48’ \
+    --authorization-message $byoipauth \
+    --signed-message $byoipauthsigned
 ```
 
 ### Provision a regional custom IPv6 address prefix
 
 After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created.  These ranges must always be of size /64 to be considered valid.  The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range.  The "children" custom IP prefixes will be advertised locally from the region they are created in.  Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required.  (Because these ranges will be advertised from a specific region, zones can be utilized.)
 
- ```azurepowershell-interactive
-$prefix =@{
-    Name = 'myCustomIPv6RegionalPrefix'
-    ResourceGroupName = 'myResourceGroup'
-    Location = 'EastUS2'
-    CIDR = '2a05:f500:2:1::/64'
-}
-$myCustomIpPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
+```azurecli-interactive
+  az network custom-ip prefix create \
+    --name myCustomIPv6RegionalPrefix \
+    --resource-group myResourceGroup \
+    --location westus2 \
+    --cidr ‘2a05:f500:2:1::/64’ \
+    --zone 1 2 3
 ```
+
 Similar to IPv4 custom IP prefixes, after the regional custom IP prefix is in a **Provisioned** state, public IP prefixes can be derived from the regional custom IP prefix.  These public IP prefixes and any public IP addresses derived from them can be attached to networking resources, though they are not yet being advertised.
 
 > [!IMPORTANT]
@@ -116,13 +114,20 @@ The safest strategy for range migrations is as follows:
 
 Using the example ranges above, the command sequence would be:
 
-```azurepowershell-interactive
-Update-AzCustomIpPrefix -ResourceId $myCustomIPv6RegionalPrefix.Id -Commission
-``` 
+```azurecli-interactive
+az network custom-ip prefix update \
+    --name myCustomIPv6GlobalPrefix \
+    --resource-group myResourceGroup \
+    --state commission 
+```
+
 Followed by:
 
-```azurepowershell-interactive
-Update-AzCustomIpPrefix -ResourceId $myCustomIPv6GlobalPrefix.Id -Commission
+```azurecli-interactive
+az network custom-ip prefix update \
+    --name myCustomIPv6RegionalPrefix \
+    --resource-group myResourceGroup \
+    --state commission 
 ```
 
 It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, note that this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).

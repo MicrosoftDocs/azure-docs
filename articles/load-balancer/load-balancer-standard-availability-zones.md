@@ -73,7 +73,7 @@ Using multiple frontends allow you to load balance traffic on more than one port
 
 ### Transition between regional zonal models
 
-In the case where a region is augmented to have [availability zones](../availability-zones/az-overview.md), any existing IPs would remain non-zonal like IPs used for load balancer frontends. To ensure your architecture can take advantage of the new zones, creation of new frontend IPs is recommended. Once created, you can replace the existing non-zonal frontend with a new zone-redundant frontend using the method described [here](../../virtual-network/ip-services/configure-public-ip-load-balancer#change-or-remove-public-ip-address.md).  All existing load balancing and NAT rules will transition to the new frontend.
+In the case where a region is augmented to have [availability zones](../availability-zones/az-overview.md), any existing IPs would remain non-zonal like IPs used for load balancer frontends. To ensure your architecture can take advantage of the new zones, creation of new frontend IPs is recommended. Once created, you can replace the existing non-zonal frontend with a new zone-redundant frontend using the method described [here](../virtual-network/ip-services/configure-public-ip-load-balancer#change-or-remove-public-ip-address.md).  All existing load balancing and NAT rules will transition to the new frontend.
 
 ### Control vs data plane implications
 

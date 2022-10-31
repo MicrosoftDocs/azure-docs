@@ -136,11 +136,12 @@ The following command creates a custom IP prefix in the specified region and res
 ```azurecli-interactive
   byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"
   
-  az network public-ip prefix create \
+  az network custom-ip prefix create \
     --name myCustomIpPrefix \
     --resource-group myResourceGroup \
     --location westus2 \
     --cidr ‘1.2.3.0/24’ \
+    --zone 1 2 3
     --authorization-message $byoipauth \
     --signed-message $byoipauthsigned
 ```
