@@ -12,7 +12,7 @@ ms.topic: quickstart
 ---
 # Quickstart: Build, publish, and translate with custom models
 
-Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST APIs. Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../../language-support.md).
+Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../../language-support.md).
 
 ## Prerequisites
 
@@ -151,7 +151,7 @@ Now you're ready to train your English-to-German model.
 
 1. After successful model training, select **Model details** from the left navigation menu.
 
-1. Select the model name *en-de with sample data* to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You'll use the `Category ID` to make translation requests.
+1. Select the model name *en-de with sample data*. Review training date/time, total training time, number of sentences used for training, tuning, testing, and dictionary. Check whether the system generated the test and tuning sets. You'll use the `Category ID` to make translation requests.
 
 1. Evaluate the model [BLEU](beginners-guide.md#what-is-a-bleu-score) score. The test set **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
 
