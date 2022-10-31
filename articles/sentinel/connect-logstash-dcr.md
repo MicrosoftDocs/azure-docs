@@ -199,7 +199,7 @@ In this section, you create resources to use for your DCR, in one of these scena
 
 #### Create DCR resources for ingestion into a custom table
 
-To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-portal)):  
+To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-portal.md)):  
 
 1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#prerequisites).
 1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-application).
