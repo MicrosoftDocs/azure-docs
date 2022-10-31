@@ -77,7 +77,7 @@ Device Update for IoT Hub communicates with IoT Hub to manage deployments and up
 
 1. In the Azure portal, navigate to the IoT hub connected to your Device Update instance.
 
-   :::image type="content" source="media/create-device-update-account/navigate-to-iot-hub.png" alt-text="Screenshot of instance and linked IoT hub." lightbox="media/create-device-update-account/navigate-to-iot-hub.png.png":::
+   :::image type="content" source="media/create-device-update-account/navigate-to-iot-hub.png" alt-text="Screenshot of instance and linked IoT hub." lightbox="media/create-device-update-account/navigate-to-iot-hub.png":::
 
 1. Select **Access Control(IAM)** from the navigation menu. Select **Add** > **Add role assignment**.
 
