@@ -13,9 +13,9 @@ ms.author: zhenlwa
 
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-In this quickstart, you will create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an ASP.NET Core app without restarting or redeploying it. 
+In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an ASP.NET Core app without restarting or redeploying it. 
 
-The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the ASP.NET Core app introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-aspnet-core-app.md) and the [tutorial](./enable-dynamic-configuration-aspnet-core.md) to create an ASP.NET Core app with dynamic configuration first.
+The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the ASP.NET Core app introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-aspnet-core-app.md), and the [tutorial](./enable-dynamic-configuration-aspnet-core.md) to create an ASP.NET Core app with dynamic configuration first.
 
 ## Prerequisites
 
@@ -164,7 +164,7 @@ Leave the rest of fields empty for now. Select **Apply** to save the new feature
     <h1>This is the beta website.</h1>
     ```
 
-    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the *Beta* page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag is not enabled, the page will return 404 Not Found.
+    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the *Beta* page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
 
     ```csharp
     using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -222,7 +222,7 @@ Leave the rest of fields empty for now. Select **Apply** to save the new feature
 
     ![Feature flag after enabled](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-1. Select the *Beta* menu. It will bring you to the beta website that you just enabled dynamically.
+1. Select the *Beta* menu. It will bring you to the beta website that you enabled dynamically.
 
     ![Feature flag beta page](./media/quickstarts/aspnet-core-feature-flag-local-beta.png)
 
