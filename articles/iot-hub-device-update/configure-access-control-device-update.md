@@ -10,9 +10,9 @@ ms.service: iot-hub-device-update
 
 # Configure access control roles for Device Update resources
 
-## Configure access control for Device Update account
+In order for users to have access to Device Update, they must be granted access to the Device Update account, Instance and set the required access to the linked IoT hub. 
 
-In order for users to have access to Device Update, they must be granted access to this resource. 
+## Configure access control for Device Update account
 
 # [Azure portal](#tab/portal)
 
@@ -86,7 +86,7 @@ Device Update for IoT Hub communicates with IoT Hub to manage deployments and up
 
 3. In the **Role** tab, select **IoT Hub Data Contributor**. Select **Next**.
 
-**   :::image type="content" source="media/create-device-update-account/role-assignment-iot-hub.png" alt-text="Screenshot of access Control role assignment within IoT Hub." lightbox="media/create-device-update-account/role-assignment-iot-hub.png":::**
+   :::image type="content" source="media/create-device-update-account/role-assignment-iot-hub.png" alt-text="Screenshot of access Control role assignment within IoT Hub." lightbox="media/create-device-update-account/role-assignment-iot-hub.png":::**
 
 4. For **Assign access to**, select **User, group, or service principal**. Select **Select Members** and search for '**Azure Device Update**'
 
