@@ -68,7 +68,7 @@ const languageKey = process.env.LANGUAGE_KEY;
 const languageEndpoint = process.env.LANGUAGE_ENDPOINT;
 
 // Authenticate the client with your key and endpoint.
-const textAnalyticsClient = new TextAnalyticsClient(LanguageEndpoint,  new AzureKeyCredential(languageKey));
+const textAnalyticsClient = new TextAnalyticsClient(languageEndpoint,  new AzureKeyCredential(languageKey));
 
 // Example method for detecting sentiment and opinions in text.
 async function sentimentAnalysisWithOpinionMining(client){
