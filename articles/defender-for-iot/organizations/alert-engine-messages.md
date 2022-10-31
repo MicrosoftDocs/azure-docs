@@ -27,6 +27,40 @@ See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-m
 | Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
 | Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but isn't defined as a scanning device. |
 
+## Supported alert categories
+
+Each alert has one of the following categories:
+
+:::row:::
+   :::column span="":::
+      - Abnormal Communication Behavior
+      - Abnormal HTTP Communication Behavior
+      - Authentication
+      - Backup
+      - Bandwidth Anomalies
+      - Buffer overflow
+      - Command Failures
+      - Configuration changes
+      - Custom Alerts
+      - Discovery
+      - Firmware change
+      - Illegal commands
+   :::column-end:::
+   :::column span="":::
+      - Internet Access
+      - Operation Failures
+      - Operational issues
+      - Programming
+      - Remote access
+      - Restart/Stop Commands
+      - Scan
+      - Sensor traffic
+      - Suspicion of malicious activity
+      - Suspicion of Malware
+      - Unauthorized Communication Behavior
+      - Unresponsive
+   :::column-end:::
+:::row-end:::
 
 ## Policy engine alerts
 
