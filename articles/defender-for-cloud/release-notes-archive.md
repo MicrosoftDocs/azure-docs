@@ -59,7 +59,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
+Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md).
 
 ### New alert for Microsoft Defender for Storage (preview)
 
@@ -875,7 +875,7 @@ It's likely that this change will impact your secure scores. For most subscripti
 
 ### Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link
 
-Azure Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
+Azure Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md).
 
 To limit access to a registry hosted in Azure Container Registry, assign virtual network private IP addresses to the registry endpoints and use Azure Private Link as explained in [Connect privately to an Azure container registry using Azure Private Link](../container-registry/container-registry-private-link.md).
 
@@ -1213,7 +1213,7 @@ Learn more about Security Center's vulnerability scanners:
 
 - [Azure Defender's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Azure Defender's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
-- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-containers-va-acr.md)
+- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-containers-vulnerability-assessment-azure.md)
 
 ### SQL data classification recommendation severity changed
 
@@ -1329,7 +1329,7 @@ New vulnerabilities are discovered every day. With this update, container images
 
 Scanning is charged on a per image basis, so there's no additional charge for these rescans.
 
-Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
+Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md).
 
 ### Use Azure Defender for Kubernetes to protect hybrid and multicloud Kubernetes deployments (in preview)
 
@@ -2411,7 +2411,7 @@ This option is available from the recommendations details pages for:
 - **Vulnerabilities in Azure Container Registry images should be remediated**
 - **Vulnerabilities in your virtual machines should be remediated**
 
-Learn more in [Disable specific findings for your container images](defender-for-containers-va-acr.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
+Learn more in [Disable specific findings for your container images](defender-for-containers-vulnerability-assessment-azure.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
 
 ### Exempt a resource from a recommendation
 
@@ -2454,7 +2454,7 @@ The security findings are now available for export through continuous export whe
 Related pages:
 
 - [Security Center's integrated Qualys vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
-- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-containers-va-acr.md)
+- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-containers-vulnerability-assessment-azure.md)
 - [Continuous export](continuous-export.md)
 
 ### Prevent security misconfigurations by enforcing recommendations when creating new resources
