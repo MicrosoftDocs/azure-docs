@@ -5,8 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/28/2022
 ms.topic: conceptual
-ms.custom: references_regions
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, references_regions
 ---
 
 # Azure Automation runbook types
