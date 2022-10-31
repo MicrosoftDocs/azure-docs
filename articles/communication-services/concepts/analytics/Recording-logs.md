@@ -36,10 +36,10 @@ Please note there is 5 minutes delay between when the log is emitted and the dat
 |ChannelType|	String |The recording's channel type, i.e., mixed, unmixed|
 |RecordingStartTime|	DateTime|The time that the recording started |
 |ContentType|	String | The recording's content, i.e., Audio Only, Audio - Video, Transcription, etc.|
-|FormatType|	String | The recording's file format.
+|FormatType|	String | The recording's file format|
 |RecordingLength|	Double | 	Duration of the recording in seconds|
 |AudioChannelsCount|	Integer | Total number of audio channels in the recording|
-|RecordingEndReason|	String | The reason why the recording ended |   .
+|RecordingEndReason|	String | The reason why the recording ended |   
 
 
 ### Call recording and sample data
@@ -119,5 +119,3 @@ If the agent initiated a recording and stopped and restarted the recording  mult
 Refer to call recording for more info 
 [Azure Communication Services Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording.md) 
 
-[!IMPORTANT]
-Recording summary logs are governed by ACS data retention policy, that means any recording log is only available for 48hrs and will be deleted after that
