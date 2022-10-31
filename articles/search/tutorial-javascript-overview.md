@@ -1,7 +1,7 @@
 ---
 title: "JavaScript tutorial: Search integration overview"
 titleSuffix: Azure Cognitive Search
-description: Technical overview and setup for adding search to a website and deploying to Azure Static Web App. 
+description: Technical overview and setup for adding search to a website and deploying to an Azure Static Web Apps. 
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -14,7 +14,7 @@ ms.devlang: javascript
 
 # 1 - Overview of adding search to a website
 
-This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
+This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web Apps resource. 
 
 The application is available: 
 * [Sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4)
@@ -54,7 +54,7 @@ Install the following for your local development environment.
 
 ## Fork and clone the search sample with git
 
-Forking the sample repository is critical to be able to deploy the Static Web App. The Azure Static web app determines the build actions and deployment content based on your own GitHub fork location. Code execution in the Static Web App is remote, with Azure Static Web Apps reading from the code in your forked sample.
+Forking the sample repository is critical to be able to deploy the Static Web App. The static web app determines the build actions and deployment content based on your own GitHub fork location. Code execution in the Static Web App is remote, with the static web app reading from the code in your forked sample.
 
 1. On GitHub, [fork the sample repository](https://github.com/Azure-Samples/azure-search-javascript-samples/fork). 
 

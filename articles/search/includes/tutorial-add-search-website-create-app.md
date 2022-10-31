@@ -3,7 +3,7 @@ ms.topic: include
 ms.date: 10/26/2022
 ---
 
-Deploy the search-enabled website as an Azure Static web app. This deployment includes both the React app and the Function app.  
+Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app and the Function app.  
 
 The Static Web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
 
@@ -32,8 +32,8 @@ The Static Web app pulls the information and files for deployment from GitHub us
     |Select a SKU| Select the free SKU for this tutorial.|
     |Select a location for new resources.|Select a region close to you.|
     |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your application code|`search-website-functions-v4/client`<br><br>This is the path, from the root of the repository, to your Azure Static web app. |
-    |Enter the path of your build output...|`build`<br><br>This is the path, from your Azure Static web app, to your generated files.|
+    |Select the location of your application code|`search-website-functions-v4/client`<br><br>This is the path, from the root of the repository, to your static web app. |
+    |Enter the path of your build output...|`build`<br><br>This is the path, from your static web app, to your generated files.|
 
 1. The resource is created and a notification window appears. 
 
@@ -54,7 +54,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 1. In Visual Studio file explorer, find and open the workflow file in the `./.github/workflows/` directory. The file path and name looks _something_ `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
 
-    The _part_ of the YAML file relevant to the Static web app is shown below:
+    The _part_ of the YAML file relevant to the static web app is shown below:
 
     :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml" highlight="28-33":::
 
@@ -67,7 +67,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 1. Commit changes to your local repository.
 
     ```bash
-    git add *.yml && git commit -m "update action for Static web app" 
+    git add *.yml && git commit -m "update action for static web app" 
     ```
 
 1. Push changes to GitHub.
@@ -76,7 +76,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
     git push origin main 
     ```
 
-    The updated action in your remote fork creates a new build and deploy to your Static web app. Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
+    The updated action in your remote fork creates a new build and deploy to your static web app. Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
 
 ## Get Cognitive Search query key in Visual Studio Code
 
@@ -93,9 +93,9 @@ The Static Web app pulls the information and files for deployment from GitHub us
 The Azure Function app won't return Search data until the Search secrets are in settings. 
 
 1. Select **Azure** from the Activity Bar. 
-1. Right-click on your Static web app resource then select **Open in Portal**.
+1. Right-click on your Static Web Apps resource then select **Open in Portal**.
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Right-click on your JavaScript Static web app resource then select Open in Portal.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Right-click on your JavaScript Static Web Apps resource then select Open in Portal.":::
 
 1. Select **Configuration** then select **+ Add**.
 
@@ -117,17 +117,17 @@ The Azure Function app won't return Search data until the Search secrets are in 
     :::image type="content" source="../media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings for your JavaScript app..":::
 
 1. Return to VS Code. 
-1. Refresh your Static web app to see the Static web app's application settings. 
+1. Refresh your static web app to see the application settings. 
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Refresh your JavaScript Static web app to see the Static web app's application settings.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Refresh your JavaScript static web app to see the application settings.":::
 
-## Use search in your Static web app
+## Use search in your static web app
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon.
-1. In the Side bar, **right-click on your Azure subscription** under the `Static web apps` area and find the Static web app you created for this tutorial.
-1. Right-click the Static Web App name and select **Browse site**.
+1. In the Side bar, **right-click on your Azure subscription** under the `Static Web Apps` area and find the static web app you created for this tutorial.
+1. Right-click the static web app name and select **Browse site**.
     
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the Static Web App name and select **Browse site**.":::    
+    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the static web App name and select **Browse site**.":::    
 
 1. Select **Open** in the pop-up dialog.
 1. In the website search bar, enter a search query such as `code`, so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
@@ -146,5 +146,5 @@ To clean up the resources created in this tutorial, delete the resource group.
 
 1. In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and find the resource group you created for this tutorial.
 1. Right-click the resource group name then select **Delete**.
-    This deletes both the Search and Static web app resources.
+    This deletes both the Search and Static Web Apps resources.
 1. If you no longer want the GitHub fork of the sample, remember to delete that on GitHub. Go to your fork's **Settings** then delete the fork. 
