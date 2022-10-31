@@ -115,6 +115,10 @@ The following table provides the options and descriptions for the **Client app**
 |Reporting Web Services| |Used to retrieve report data in Exchange Online.|
 |Other clients| |Shows all sign-in attempts from users where the client app isn't included or unknown.|
 
+> [!NOTE]
+> IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
+> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
+
 ## Analyze the sign-in logs
 
 Now that your sign-in logs table is formatted appropriately, you can more effectively analyze the data. Some common scenarios are described here, but they aren't the only ways to analyze sign-in data. Further analysis and retention of sign-in data can be accomplished by exporting the logs to other tools. 
@@ -128,16 +132,6 @@ If a sign-in failed, you can get more information about the reason in the **Basi
 For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-aadsts-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
 
 ![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
-
-### Risky sign-in data in Azure AD Identity Protection
-
-Sign-in log data visualization that relates to risky sign-ins is available in the **Azure AD Identity Protection** overview. Access to other risky sign-in related reports and policies can be accessed from this page. For more information about the Azure AD Identity Protection tools, see the [Azure AD Identity Protection overview](../identity-protection/overview-identity-protection.md).
-
-When you select a day in the graph, a sign-ins log is opened with the filters automatically set to capture risky sign-ins. You can adjust the filters and columns just like you would on the main sign-ins log.
-
-> [!NOTE]
-> IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
-> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 ### Authentication details
 
@@ -166,6 +160,12 @@ The **Authentication details** tab can initially show incomplete or inaccurate d
 
 - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
 - The **Primary authentication** row isn't initially logged. 
+
+### Risky sign-in data in Azure AD Identity Protection
+
+Sign-in log data visualization that relates to risky sign-ins is available in the **Azure AD Identity Protection** overview. Access to other risky sign-in related reports and policies can be accessed from this page. For more information about the Azure AD Identity Protection tools, see the [Azure AD Identity Protection overview](../identity-protection/overview-identity-protection.md).
+
+When you select a day in the graph, a sign-ins log is opened with the filters automatically set to capture risky sign-ins. You can adjust the filters and columns just like you would on the main sign-ins log.
 
 ## Microsoft 365 activity logs
 
