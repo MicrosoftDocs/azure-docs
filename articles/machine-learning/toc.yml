@@ -212,6 +212,11 @@
           href: concept-data.md
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+          - name: Export and delete data
+            displayName: GDPR
+            href: how-to-export-delete-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -507,10 +512,8 @@
           items:
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Safe rollout for online endpoints (CLI)
+            - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Safe rollout for online endpoints (SDK)
-              href: how-to-safely-rollout-managed-endpoints-sdk-v2.md
             - name: Deployment scenarios
               items:
                 - name: Deploy a MLflow model with an online endpoint
@@ -549,32 +552,36 @@
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items:
-            - name: Batch scoring with batch endpoints (CLI)
-              href: how-to-use-batch-endpoint.md
-            - name: Batch scoring with batch endpoints (SDK)
-              href: how-to-use-batch-endpoint-sdk-v2.md
-            - name: Batch endpoints in studio
-              href: how-to-use-batch-endpoints-studio.md
-            - name: Use REST to deploy a model as a batch endpoint
-              href: how-to-deploy-batch-with-rest.md
+            - name: Batch scoring with batch endpoints
+              href: batch-inference/how-to-use-batch-endpoint.md
+            - name: Accessing data from batch endpoints jobs
+              href: batch-inference/how-to-access-data-batch-endpoints-jobs.md
             - name: Troubleshoot batch endpoints
-              href: how-to-troubleshoot-batch-endpoints.md
+              href: batch-inference/how-to-troubleshoot-batch-endpoints.md
+            - name: Security
+              items:
+                - name: Authentication on batch endpoints
+                  href: batch-inference/how-to-authenticate-batch-endpoint.md
+                - name: Network isolation in batch endpoints
+                  href: batch-inference/how-to-secure-batch-endpoint.md
             - name: Scenarios
               items:
-                - name: Using low priority VMs in batch deployments
+                - name: Use low priority VMs in batch deployments
                   href: batch-inference/how-to-use-low-priority-batch.md
-                - name: Using MLflow models in batch deployments
+                - name: Use MLflow models in batch deployments
                   href: batch-inference/how-to-mlflow-batch.md
-                - name: Image processing tasks with batch deployments
+                - name: Image processing with batch deployments
                   href: batch-inference/how-to-image-processing-batch.md
-                - name: NLP tasks with batch deployments
+                - name: Text processing with batch deployments
                   href: batch-inference/how-to-nlp-processing-batch.md
-                - name: Customize outputs in batch deployments
+                - name: Customize outputs in batch jobs
                   href: batch-inference/how-to-deploy-model-custom-output.md
-                - name: Invoking batch endpoints from Azure Data Factory
+                - name: Invoke batch endpoints from Azure Data Factory
                   href: batch-inference/how-to-use-batch-azure-data-factory.md
-                - name: Invoking batch endpoints from Event Grid events in storage
+                - name: Invoke batch endpoints from Event Grid events in storage
                   href: batch-inference/how-to-use-event-grid-batch.md
+                - name: Use REST to deploy a model as batch endpoints
+                  href: how-to-deploy-batch-with-rest.md
         - name: Deploying MLflow models
           items:
             - name: Deploy MLflow models
@@ -699,6 +706,8 @@
           href: reference-yaml-environment.md
         - name: Data
           href: reference-yaml-data.md
+        - name: MLTable
+          href: reference-yaml-mltable.md
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule

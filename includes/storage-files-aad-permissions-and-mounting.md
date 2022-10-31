@@ -23,12 +23,7 @@ We have introduced three Azure built-in roles for granting share-level permissio
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
-You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions. Be aware that the share-level Azure role assignment can take some time to be in effect. 
-
-> [!NOTE]
-> Remember to [sync your AD DS credentials to Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) if you plan to use your on-premises AD DS for authentication. Password hash sync from AD DS to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from your on-premises AD DS.
-
-The general recommendation is to use share-level permission for high-level access management to an AD group representing a group of users and identities, then leverage Windows ACLs for granular access control at the directory/file level.
+You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions. Be aware that the share-level Azure role assignment can take some time to be in effect. The general recommendation is to use share-level permission for high-level access management to an AD group representing a group of users and identities, then leverage Windows ACLs for granular access control at the directory/file level.
 
 ### Assign an Azure role to an AD identity
 
@@ -141,7 +136,7 @@ Sign in to the VM by using the Azure AD identity to which you granted permission
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Run the PowerShell script below or [use the Azure portal](../articles/storage/files/storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. Because you've been authentication, you won't need to provide the storage account key. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md).
+Run the PowerShell script below or [use the Azure portal](../articles/storage/files/storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. Because you've been authenticated, you won't need to provide the storage account key. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md).
 
 Always mount Azure file shares using file.core.windows.net, even if you set up a private endpoint for your share. Using CNAME for file share mount isn't supported for identity-based authentication.
 

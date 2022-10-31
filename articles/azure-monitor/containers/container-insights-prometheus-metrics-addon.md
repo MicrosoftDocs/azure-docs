@@ -60,7 +60,7 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 #### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
-- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/azure/azure-cli-extensions-overview).
+- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Azure CLI version 2.41.0 or higher is required for this feature.
 
 #### Install metrics addon
@@ -182,7 +182,7 @@ Assign the `Monitoring Data Reader` role to the Grafana System Assigned Identity
     | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys that will be used in the resource's labels metric. |
-    | `metrican'tationsAllowList` | Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
+    | `metricAnnotationsAllowList` | Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
     | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |

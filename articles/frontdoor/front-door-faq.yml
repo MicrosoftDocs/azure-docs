@@ -7,7 +7,7 @@ metadata:
   ms.service: frontdoor
   ms.topic: faq
   ms.workload: infrastructure-services
-  ms.date: 09/14/2021
+  ms.date: 10/25/2022
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -95,65 +95,7 @@ sections:
       - question: |
           How do I lock down the access to my backend to only Azure Front Door?
         answer: |
-          > [!NOTE]
-          > New SKU Front Door Premium provides a more recommended way to lock down your application via Private Endpoint. [Learn more about Private Endpoint](private-link.md)
-          
-          To lock down your application to accept traffic only from your specific Front Door, you can set up IP ACLs for your backend or restrict the traffic on your backend to the specific value of the header 'X-Azure-FDID' sent by Front Door. These steps are detailed out as below:
-          
-          - Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer the IP details below for ACLing your backend:
-           
-              - Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's backend IP address range or you can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](../virtual-network/network-security-groups-overview.md#security-rules).
-              - Azure's [basic infrastructure services](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`
-          
-              > [!WARNING]
-              > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
-          
-          - Look for the `Front Door ID` value under the Overview section from Front Door portal page. You can then filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with that value to ensure only your own specific Front Door instance is allowed (because the IP ranges above are shared with other Front Door instances of other customers).
-          
-          - Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value. Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) capability without needing to change your application or host.
-          
-            Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
-          
-            ```xml
-            <?xml version="1.0" encoding="UTF-8"?>
-            <configuration>
-                <system.webServer>
-                    <rewrite>
-                        <rules>
-                            <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
-                                <match url="*" />
-                                <conditions>
-                                    <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
-                                </conditions>
-                                <action type="AbortRequest" />
-                            </rule>
-                        </rules>
-                    </rewrite>
-                </system.webServer>
-            </configuration>
-            ```
-              
-            Here's an example for [AKS NGINX ingress controller](../aks/ingress-basic.md):
-            
-            ```yaml
-            apiVersion: networking.k8s.io/v1
-            kind: Ingress
-            metadata:
-              name: frontdoor-ingress
-              annotations:
-                kubernetes.io/ingress.class: nginx
-                nginx.ingress.kubernetes.io/enable-modsecurity: "true"
-                nginx.ingress.kubernetes.io/modsecurity-snippet: |
-                  SecRuleEngine On
-                  SecAuditLog /var/log/modsec_audit.log
-                  SecRule REQUEST_HEADERS:X-Azure-FDID "!@eq xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" "log,deny,id:107,status:403,msg:\'Traffic incoming from a different Frontdoor\'"
-            spec:
-              #section omitted on purpose
-            ```
-            
-          - Azure Front Door also supports the *AzureFrontDoor.Frontend* service tag, which provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door. Azure Front Door also supports an additional service tag, *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
-          
-            If using Application Gateway as a backend to Azure Front Door, then the check on the `X-Azure-FDID` header can be done in a custom WAF rule.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
+          Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
       - question: |
           Can the anycast IP change over the lifetime of my Front Door?
@@ -203,7 +145,17 @@ sections:
       - question: |
           Can I configure Azure CDN behind my Front Door profile or vice versa?
         answer:  |
-          Azure Front Door and Azure CDN can't be configured together because both services utilizes the same Azure edge sites when responding to requests. 
+          Azure Front Door and Azure CDN can't be configured together because both services utilize the same Azure edge sites when responding to requests. 
+
+      - question: |
+          Which network service tags does Front Door support?
+        answer:  |
+          Azure Front Door supports three service tags:
+          - The *AzureFrontDoor.Backend* service tag provides the list of IP addresses that Front Door uses to connect to your origins. You can use this service tag when you [secure traffic to your origins](origin-security.md).
+          - The *AzureFrontDoor.Frontend* service tag provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door.
+          - The *AzureFrontDoor.FirstParty* service tag is used internally within Azure.
+          
+          See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
 
   - name: Performance
     questions:
@@ -218,7 +170,7 @@ sections:
       - question: | 
           How does Front Door handle ‘domain fronting’ behavior? 
         answer: |
-          As of April 29, 2022, Microsoft has made a change to the behavior of Azure Front Door Standard/Premium/(classic) and Azure CDN from Microsoft (classic) in alignment with its commitment to stop allowing domain fronting behavior on its platform.  Once blocking domain fronting is enabled, AFD and CDN resources will block any HTTP request that exhibit this behavior.
+          As of April 29, 2022, Microsoft has made a change to the behavior of Azure Front Door Standard/Premium/(classic) and Azure CDN from Microsoft (classic) in alignment with its commitment to stop allowing domain fronting behavior on its platform.  Once blocking domain fronting is enabled, AFD and CDN resources will block any HTTP request that exhibits this behavior.
           If this behavior is enabled for your resource, requests where Host header in HTTP/HTTPS requests doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
           
           If you wish to block domain fronting for any existing Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources or for new Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources, please create a support request and provide your subscription and 
@@ -252,7 +204,7 @@ sections:
       - question: |
           What is the retention policy on the diagnostics logs?
         answer: |
-          Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. For more information, see [Azure Front Door Diagnostics](front-door-diagnostics.md).
+          Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hubs or Azure Monitor logs. For more information, see [Azure Front Door Diagnostics](front-door-diagnostics.md).
           
       - question: |
           How do I get audit logs for Azure Front Door?

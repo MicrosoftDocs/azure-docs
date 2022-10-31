@@ -2103,7 +2103,7 @@
         {
             "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
             "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#analyze-receipts",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract-v1.md",
@@ -2183,7 +2183,7 @@
         {
             "source_path_from_root": "/articles/cognitive-services/immersive-reader/ios-picture-immersive-reader-tutorial.md",
             "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-ios-picture-immersive-reader",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/immersive-reader/ios-quickstart.md",
@@ -5779,7 +5779,27 @@
             "source_path_from_root": "/articles/cognitive-services/cognitive-services-security.md",
             "redirect_url": "/azure/cognitive-services/security-features",
             "redirect_document_id": true
-        }
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/overview-multivariate.md",
+            "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/overview-univariate.md",
+            "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/tutorials/learn-multivariate-anomaly-detection.md",
+            "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/How-to/multivariate-how-to.md",
+            "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+            "redirect_document_id": false
+        }  
         
     ]
 }

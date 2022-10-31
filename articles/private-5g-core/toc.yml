@@ -24,6 +24,8 @@ items:
   items:
   - name: Key components of a private mobile network
     href: key-components-of-a-private-mobile-network.md
+  - name: Private mobile network design requirements
+    href: private-mobile-network-design-requirements.md
   - name: Statement of compliance
     href: statement-of-compliance.md
   - name: Policy control

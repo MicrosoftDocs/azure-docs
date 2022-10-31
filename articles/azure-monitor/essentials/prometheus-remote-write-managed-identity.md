@@ -163,7 +163,44 @@ This step isn't required if you're using an AKS identity since it will already h
     ```
 
 
+## Verify remote write is working correctly
+
+You can verify that Prometheus data is being sent into your Azure Monitor workspace in a couple of ways.
+
+1. By viewing your container log using kubectl commands:
+
+    ```azurecli
+    kubectl logs <Prometheus-Pod-Name> <Azure-Monitor-Side-Car-Container-Name>
+    # example: kubectl logs prometheus-prometheus-kube-prometheus-prometheus-0 prom-remotewrite
+     ```
+     Expected output: time="2022-10-19T22:11:58Z" level=info msg="Metric packets published in last 1 minute" avgBytesPerRequest=19809 avgRequestDuration=0.17153638698214294 failedPublishingToAll=0 successfullyPublishedToAll=112 successfullyPublishedToSome=0
+
+    You can confirm that the data is flowing via remote write if the above output has non-zero value for “avgBytesPerRequest” and “avgRequestDuration”.
+
+2. By performing PromQL queries on the data and verifying results
+    This can be done via Grafana. Refer to our documentation for [getting Grafana setup with Managed Prometheus](prometheus-grafana.md).
+
+## Troubleshooting remote write setup
+
+1.	If the data is not flowing
+You can run the following commands to view errors from the container that cause the data not flowing.
+
+    ```azurecli
+    kubectl --namespace <Namespace> describe pod <Prometheus-Pod-Name>
+     ```   
+These logs should indicate the errors if any in the remote write container.
+
+2.	If the container is restarting constantly
+This is likely due to misconfiguration of the container. In order to view the configuration values set for the container, run the following command: 
+    ```azurecli
+    kubectl get po <Prometheus-Pod-Name> -o json | jq -c  '.spec.containers[] | select( .name | contains(" <Azure-Monitor-Side-Car-Container-Name> "))'
+     ``` 
+Output:
+{"env":[{"name":"INGESTION_URL","value":"https://my-azure-monitor-workspace.eastus2-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-00000000000000000/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview"},{"name":"LISTENING_PORT","value":"8081"},{"name":"IDENTITY_TYPE","value":"userAssigned"},{"name":"AZURE_CLIENT_ID","value":"00000000-0000-0000-0000-00000000000"}],"image":"mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2","imagePullPolicy":"Always","name":"prom-remotewrite","ports":[{"containerPort":8081,"name":"rw-port","protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/var/run/secrets/kubernetes.io/serviceaccount","name":"kube-api-access-vbr9d","readOnly":true}]}
+
+Verify the configuration values especially “AZURE_CLIENT_ID” and “IDENTITY_TYPE”
 
 ## Next steps
 
+- [Setup Grafana to use Managed Prometheus as a data source](prometheus-grafana.md).
 - [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).

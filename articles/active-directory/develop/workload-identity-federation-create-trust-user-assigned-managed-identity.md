@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/26/2022
+ms.date: 10/24/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: shkhalide, udayh, vakarand
@@ -257,6 +257,79 @@ az identity federated-credential delete --name $ficId --identity-name $uaId --re
 
 ::: zone-end
 
+::: zone pivot="identity-wif-mi-methods-powershell"
+## Prerequisites
+
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- Get the information for your external IdP and software workload, which you need in the following steps.
+- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+- To run the example scripts, you have two options:
+  - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
+  - Run scripts locally with Azure PowerShell, as described in the next section.
+- [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
+- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+
+### Configure Azure PowerShell locally
+
+To use Azure PowerShell locally for this article instead of using Cloud Shell:
+
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+
+1. Sign in to Azure.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    You might need to `Exit` out of the current PowerShell session after you run this command for the next step.
+
+1. Install the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
+
+    ```azurepowershell
+    Install-Module -Name Az.ManagedServiceIdentity
+    ```
+
+## Configure a federated identity credential on a user-assigned managed identity
+
+Run the New-AzFederatedIdentityCredentials command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
+
+```azurepowershell
+New-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 `
+    -Name fic-pwsh01 -Issuer "https://kubernetes-oauth.azure.com" -Subject "system:serviceaccount:ns:svcaccount"
+```
+
+## List federated identity credentials on a user-assigned managed identity
+
+Run the Get-AzFederatedIdentityCredentials command to read all the federated identity credentials configured on a user-assigned managed identity:
+
+```azurepowershell
+Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01
+```
+
+## Get a federated identity credential on a user-assigned managed identity
+
+Run the Get-AzFederatedIdentityCredentials command to show a federated identity credential (by ID):
+
+```azurepowershell
+Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 -Name fic-pwsh01
+```
+
+## Delete a federated identity credential from a user-assigned managed identity
+
+Run the Remove-AzFederatedIdentityCredentials command to delete a federated identity credential under an existing user assigned identity.
+
+```azurepowershell
+Remove-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 -Name fic-pwsh01
+```
+
+::: zone-end
 ::: zone pivot="identity-wif-mi-methods-arm"
 
 ## Prerequisites
@@ -285,7 +358,7 @@ All of the template parameters are mandatory.
 
 There is a limit of 3-120 characters for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
 
-You must add exactly 1 audience to a federated identity credential, this gets verified during token exchange. Use “api://AzureADTokenExchange” as the default value.
+You must add exactly 1 audience to a federated identity credential. The audience is verified during token exchange. Use “api://AzureADTokenExchange” as the default value.
 
 List, Get, and Delete operations are not available with template. Refer to Azure CLI for these operations.  By default, all child federated identity credentials are created in parallel, which triggers concurrency detection logic and causes the deployment to fail with a 409-conflict HTTP status code. To create them sequentially, specify a chain of dependencies using the *dependsOn* property.
 
@@ -483,7 +556,7 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-Delete a federated identity credentials on the specified user-assigned managed identity.
+Delete a federated identity credential on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"

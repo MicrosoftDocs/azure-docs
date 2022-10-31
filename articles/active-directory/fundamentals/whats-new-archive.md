@@ -1717,7 +1717,7 @@ To access these details, go to the Azure AD sign-in logs, select a sign-in, and 
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
  
-Along with the public preview of attributed based access control for specific Azure RBAC role, you can also add ABAC conditions inside Privileged Identity Management for your eligible assignments. [Learn more](../../role-based-access-control/conditions-overview.md#conditions-and-privileged-identity-management-pim).
+Along with the public preview of attributed-based access control (ABAC) for specific Azure roles, you can also add ABAC conditions inside Privileged Identity Management for your eligible assignments. [Learn more](../../role-based-access-control/conditions-overview.md#conditions-and-azure-ad-pim).
 
 ---
 
