@@ -19,7 +19,7 @@ Azure Advisor helps you improve the speed and responsiveness of your business-cr
 
 ## Optimize virtual machine (VM) performance by right-sizing highly utilized instances 
 
-You can improve the quality of your workload and prevent many performance-related issues (i.e., throttling, high latency) by regularly assessing your [performance efficiency](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/overview). Performance efficiency is defined by the [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/) as the ability of your workload to adapt to changes in load. Performance efficiency is one of the five pillars of architectural excellence on Azure.  
+You can improve the quality of your workload and prevent many performance-related issues (i.e., throttling, high latency) by regularly assessing your [performance efficiency](/azure/architecture/framework/scalability/overview). Performance efficiency is defined by the [Azure Well-Architected Framework](/azure/architecture/framework/) as the ability of your workload to adapt to changes in load. Performance efficiency is one of the five pillars of architectural excellence on Azure.  
 
 Unless by design, we recommend keeping your application's usage well below your virtual machine's size limits, so it can better operate and easily accommodate changes.
 
@@ -65,4 +65,4 @@ To learn more about Advisor recommendations and best practices, see:
 * [Advisor reliability recommendations](advisor-reference-reliability-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)
 * [Advisor operational excellence recommendations](advisor-reference-operational-excellence-recommendations.md)
-* [The Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/)
+* [The Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
