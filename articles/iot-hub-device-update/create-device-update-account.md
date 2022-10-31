@@ -114,6 +114,7 @@ az iot device-update instance create --account <account_name> --instance <instan
 
 Once you have created the resource, [configure the access control for users and Azure Device Update service principal](configure-access-control-du.md).
 
+---
 
 ## Next steps
 
