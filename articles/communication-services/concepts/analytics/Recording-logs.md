@@ -12,12 +12,14 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-#### Example 1: Call recording for " One call to one recording"
+
 ## Call Recording Summary Log
 Call recording summary logs provide details about the call duration, media content (e.g., Audio-Video, Unmixed, Transcription, etc.), the format types used for the recording (e.g., WAV, MP4, etc.), as well as the reason of why the recording ended.
 
 Recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot) or ended  due to a system failure.
 
+[!IMPORTANT]
+Please note there is 5 minutes delay between when the log is emitted and the data ingestion to Azure monitor.
 
 ### Properties Description
 
@@ -116,3 +118,6 @@ If the agent initiated a recording and stopped and restarted the recording  mult
 ```
 Refer to call recording for more info 
 [Azure Communication Services Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording.md) 
+
+[!IMPORTANT]
+Recording summary logs are governed by ACS data retention policy, that means any recording log is only available for 48hrs and will be deleted after that
