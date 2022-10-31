@@ -4,7 +4,8 @@ description: This article describes the types of runbooks that you can use in Az
 services: automation
 ms.subservice: process-automation
 ms.date: 10/28/2022
-ms.topic: conceptual 
+ms.topic: conceptual
+ms.custom: references_regions
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -119,7 +120,7 @@ The following are the current limitations and known issues with PowerShell runbo
 - Source control integration doesn't support PowerShell 7.2 (preview). Also, PowerShell 7.2 (preview) runbooks in source control gets created in Automation account as Runtime 5.1.
 - Currently, only cloud jobs are supported for PowerShell 7.2 (preview) runtime versions. 
 - Logging job operations to the Log Analytics workspace through linked workspace or diagnostics settings are not supported. 
-- Currently, PowerShell 7.2 (preview) runbooks are only supported from Azure Portal. Rest API and PowerShell is not supported. 
+- Currently, PowerShell 7.2 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell is not supported. 
 - Az module 8.3.0 is installed by default and cannot be managed at the automation account level. Use custom modules to override the Az module to the desired version.
 - The imported PowerShell 7.2 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
 
@@ -211,7 +212,7 @@ Following are the limitations of Python runbooks
 - For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
 - Currently, only cloud jobs are supported for Python 3.10 (preview) runtime versions. 
 - Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages are not imported into automation account.
-- Currently, Python 3.10 (preview) runbooks are only supported from Azure Portal. Rest API and PowerShell is not supported.
+- Currently, Python 3.10 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell is not supported.
 
 ---
 
