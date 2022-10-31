@@ -45,8 +45,6 @@ You'll need to first define how to authenticate with Azure. You can use a [servi
 
 ### Create secrets
 
-# [Service principal](#tab/userlevel)
-
 [!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Step 3. Update `setup.sh` to connect to your Azure Machine Learning workspace
