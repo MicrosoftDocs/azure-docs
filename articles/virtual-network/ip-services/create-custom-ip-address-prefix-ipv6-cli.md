@@ -35,20 +35,17 @@ The steps in this article detail the process to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell installed locally or Azure Cloud Shell.
-- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-- Ensure your Az.Network module is 4.21.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if necessary.
-- A customer owned IP range to provision in Azure.
+- This tutorial requires version 2.37 or later of the Azure CLI (you can run az version to determine which you have). If using Azure Cloud Shell, the latest version is already installed.
+- Sign in to Azure CLI and ensure you've selected the subscription with which you want to use this feature using `az account`.
+- A customer owned IPv4 range to provision in Azure.
     - A sample customer range (2a05:f500:2::/48) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
-
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-powershell.md#pre-provisioning-steps) for details.  Note all these steps should be completed for the IPv6 global (parent) range.
+To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-cli.md#pre-provisioning-steps) for details.  Note all these steps should be completed for the IPv6 global (parent) range.
 
 ## Provisioning for IPv6
 
@@ -69,7 +66,7 @@ Create a resource group in the desired location for provisioning the global rang
 
 ### Provision a global custom IPv6 address prefix
 
-The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-authorization-message` and `-signed-message` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - PowerShell](create-custom-ip-address-prefix-powershell.md).)  Note that no zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
+The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-authorization-message` and `-signed-message` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - CLI](create-custom-ip-address-prefix-cli.md).)  Note that no zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
 
 ```azurecli-interactive
   byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|2a05:f500:2::/48|yyyymmdd"
