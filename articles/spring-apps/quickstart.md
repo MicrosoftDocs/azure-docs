@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 08/22/2022
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
 
 # Quickstart: Deploy your first application to Azure Spring Apps
@@ -35,6 +35,7 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 
 ## Provision an instance of Azure Spring Apps
 
