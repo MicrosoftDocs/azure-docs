@@ -10,10 +10,7 @@ ms.date: 01/20/2022
 ms.author: lajanuar
 ms.topic: how-to
 ---
-# Train a custom model | Preview
-
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
+# Train a custom model 
 
 A model provides translations for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A minimum of 10,000 parallel training sentences are required to train a full model.
 

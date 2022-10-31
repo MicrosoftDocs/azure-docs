@@ -10,7 +10,7 @@ ms.author: lajanuar
 ms.date: 02/25/2022
 ms.topic: overview
 ---
-# Custom Translator for beginners | Preview
+# Custom Translator for beginners 
 
  [Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and doesn't require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translator API](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
 

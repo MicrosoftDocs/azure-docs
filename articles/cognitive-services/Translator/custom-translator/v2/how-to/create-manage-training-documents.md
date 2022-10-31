@@ -11,10 +11,7 @@ ms.author: lajanuar
 ms.topic: how-to
 ---
 
-# Build and manage training documents | Preview
-
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
+# Build and manage training documents 
 
 [Custom Translator](../../overview.md) enables you to build translation models that reflect your business, industry, and domain-specific terminology and style. Training and deploying a custom model is easy and does not require any programming skills. Custom Translator allows you to upload parallel files, translation memory files, or zip files.
 

@@ -1,7 +1,7 @@
 ---
 title: Create and manage a project
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a project in the Azure Cognitive Services Custom Translator Preview.
+description: How to create and manage a project in the Azure Cognitive Services Custom Translator.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -11,10 +11,7 @@ ms.author: lajanuar
 ms.topic: how-to
 ---
 
-# Create and manage a project | Preview
-
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
+# Create and manage a project 
 
 A project contains translation models for one language pair. Each project includes all documents that were uploaded into that workspace with the correct language pair.
 
