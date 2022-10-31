@@ -5944,11 +5944,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/index.md",
-            "redirect_url": "/azure/partner-solutions/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
             "redirect_url": "/azure/fxt-edge-filer/add-nodes",
             "redirect_document_id": false
