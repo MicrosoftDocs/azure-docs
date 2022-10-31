@@ -29355,7 +29355,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
             "redirect_document_id": false
         }
