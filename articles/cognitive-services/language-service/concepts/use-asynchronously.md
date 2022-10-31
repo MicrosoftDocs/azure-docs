@@ -51,7 +51,7 @@ A successful call will return a 202 response code. The `operation-location` in t
 GET {Endpoint}/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-05-01
 ```
 
-To [get the status and retrieve the results](/rest/api/language/text-analysis-runtime/job-status) of the request, send a GET request to the URL you received in the `operation-location` header from the previous API response. Remember to include your key in the `Ocp-Apim-Subscription-Key`. The response will include the results of your API call.
+To [get the status and retrieve the results](/rest/api/language/2022-05-01/text-analysis-runtime/job-status) of the request, send a GET request to the URL you received in the `operation-location` header from the previous API response. Remember to include your key in the `Ocp-Apim-Subscription-Key`. The response will include the results of your API call.
 
 ## Send asynchronous API requests using the client library
 
