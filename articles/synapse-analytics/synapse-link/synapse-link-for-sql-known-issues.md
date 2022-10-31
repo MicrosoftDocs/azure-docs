@@ -107,6 +107,23 @@ This is the list of known limitations for Azure Synapse Link for SQL.
         ```sql
         EXEC sys.sp_change_feed_disable_db
 
+### DateTime2(7) and Time(7) Could Cause Snapshot Hang
+* Applies To - Azure SQL Database
+* Issue - One of the preview limitations with the data types DateTime2(7) and Time(7) is the loss of precision (only 6 digits are supported). When certain database settings are turned on (`NUMERIC_ROUNDABORT`, `ANSI_WARNINGS`, and `ARITHABORT`), the snapthot process can hang, requiring a database failover to recover.
+* Resolution - To resolve this situation, take the following steps:
+1. Turn off all three database settings.
+    ```sql
+    ALTER DATABASE <logical_database_name> SET NUMERIC_ROUNDABORT OFF
+    ALTER DATABASE <logical_database_name> SET ANSI_WARNINGS OFF
+    ALTER DATABASE <logical_database_name> SET ARITHABORT OFF
+    ```
+1. Run the following query to verify that the settings are in fact turned off.
+    ```sql
+    SELECT name, is_numeric_roundabort_on, is_ansi_warnings_on, is_arithabort_on
+    FROM sys.databases
+    WHERE name = 'logical_database_name'
+    ```
+1. Open an Azure support ticket requesting a database failover. Alternately, you could change the Service Level Objective (SLO) of your database instead of opening a ticket.
 
 ## Next steps
 

@@ -14,6 +14,8 @@ items:
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
     href: language-studio.md
+  - name: Language support
+    href: concepts/language-support.md
 - name: Samples
   items:
   - name: Developer overview
@@ -106,6 +108,8 @@ items:
       href: custom-text-classification/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-text-classification/fail-over.md
+    - name: Deploy to multiple regions
+      href: concepts/custom-features/multi-region-deployment.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -113,6 +117,8 @@ items:
     - name: Accepted data formats
       href: custom-text-classification/concepts/data-formats.md
       displayName: Data representation
+    - name: Project versioning
+      href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
@@ -206,6 +212,10 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Accepted data formats
         href: custom-named-entity-recognition/concepts/data-formats.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
   - name: Reference
     items:
     - name: Glossary
@@ -268,6 +278,10 @@ items:
         href: conversational-language-understanding/how-to/migrate-from-luis.md
   - name: Concepts
     items:
+      - name: Best practices
+        href: conversational-language-understanding/concepts/best-practices.md
+      - name: Multilingual projects
+        href: conversational-language-understanding/concepts/multiple-languages.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
@@ -276,6 +290,8 @@ items:
         href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
   - name: Tutorials
     items:
       - name: Use Bot Framework
@@ -573,6 +589,8 @@ items:
     items:
     - name: Recognized entity categories
       href: named-entity-recognition/concepts/named-entity-categories.md 
+    - name: Entity resolution
+      href: named-entity-recognition/concepts/entity-resolutions.md
   - name: Tutorials
     items:
     - name: Extract information in Excel using Power Automate 
@@ -657,6 +675,12 @@ items:
         href: orchestration-workflow/concepts/none-intent.md
       - name: Data formats
         href: orchestration-workflow/concepts/data-formats.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering
@@ -1075,7 +1099,7 @@ items:
     - name: REST API
       items:
         - name: Document summarization
-          href: https://go.microsoft.com/fwlink/?linkid=2195178
+          href: https://go.microsoft.com/fwlink/?linkid=2211684
         - name: Conversation summarization
           href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs

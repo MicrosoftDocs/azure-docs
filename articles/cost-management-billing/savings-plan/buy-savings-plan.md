@@ -30,7 +30,7 @@ Savings plan discounts only apply to resources associated with subscriptions pur
 
 ### Microsoft Customer Agreement (MCA) customers
 
--	Customers with pilling profile contributor permissions and above can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No specific permissions on a subscription needed.
+-	Customers with billing profile contributor permissions and above can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No specific permissions on a subscription needed.
 -	Subscription owners for one of the subscriptions in the billing profile can purchase savings plans from **Home** > **Savings plan**.
 -	To disallow savings plan purchases on a billing profile, billing profile contributors can navigate to the Policies menu under the billing profile and adjust **Azure Savings Plan** option.
 

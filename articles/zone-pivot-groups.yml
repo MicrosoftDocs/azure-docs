@@ -1913,3 +1913,12 @@ groups:
     title: Azure CLI
   - id: bicep
     title: Bicep
+# Owner: v-amallick
+- id: backup-vaults-recovery-services-vault-backup-vault
+  title: Vaults
+  prompt: Choose a vault
+  pivots:
+  - id: vaults-recovery-services-vault
+    title: Recovery Services vault
+  - id: vaults-backup-vault
+    title: Backup vault

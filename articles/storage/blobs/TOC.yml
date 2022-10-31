@@ -540,15 +540,15 @@ items:
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=/azure/storage/blobs/toc.json
       - name: BlobFuse
         items:
-        - name: What is BlobFuse2?
+        - name: What is BlobFuse2 Preview?
           href: blobfuse2-what-is.md
         - name: Deploy BlobFuse2 on Linux
           href: blobfuse2-how-to-deploy.md
         - name: Deploy BlobFuse v1 on Linux
           href: storage-how-to-mount-container-linux.md
-        - name: Health Monitor
+        - name: Health Monitor for BlobFuse2
           href: blobfuse2-health-monitor.md
-        - name: Troubleshooting
+        - name: Troubleshoot BlobFuse2
           href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json
@@ -752,7 +752,7 @@ items:
         href: ../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json
     - name: BlobFuse2
       items:
-      - name: Configuration settings
+      - name: Configure settings
         href: blobfuse2-configuration.md?toc=/azure/storage/blobs/toc.json
       - name: Commands
         items:

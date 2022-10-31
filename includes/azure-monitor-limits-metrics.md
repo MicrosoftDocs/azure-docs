@@ -43,23 +43,21 @@ Prometheus queries are created using PromQL and can be authored in either Azure 
 
 
 **Query pre-parsing limits**<br>
-Based on query time range and request type over a 30-second window.<br>
-Each value is per user (Azure AD or System Identity).
+Based on query time range and request type over a 30-second window.
 
 | Limit | Value |
 |:---|:---|
-| Query hours per Azure Managed Grafana Workspace | 30,000 |
+| Query hours per user (Azure AD, managed identity, Azure Managed Grafana Workspace) | 30,000 |
 | Query hours per Azure Monitor workspace | 60,000 |
 | Query hours per Azure tenant | 600,000 |
 
 
 **Query post-parsing limits**<br>
-Based on query time range and range vectors in query over a 30-second window.<br>
-Each value is per user (Azure AD or System Identity).
+Based on query time range and range vectors in query over a 30-second window.
 
 | Limit | Value |
 |:---|:---|
-| Query hours per Azure Managed Grafana Workspace | 2,000,000 |
+| Query hours per user (Azure AD, managed identity, Azure Managed Grafana Workspace) | 2,000,000 |
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
 

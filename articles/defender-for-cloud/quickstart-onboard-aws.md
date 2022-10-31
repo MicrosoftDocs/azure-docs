@@ -354,7 +354,7 @@ The following IAM permissions are needed to discover AWS resources:
 | API Gateway | `apigateway:GET` |
 | Application Auto Scaling | `application-autoscaling:Describe*` |
 | Auto scaling | `autoscaling-plans:Describe*` <br> `autoscaling:Describe*` |
-| Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe* <br>acm:List*` |
+| Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe*` <br> `acm:List*` |
 | CloudFormation | `cloudformation:Describe*` <br> `cloudformation:List*` |
 | CloudFront | `cloudfront:DescribeFunction` <br> `cloudfront:GetDistribution` <br> `cloudfront:GetDistributionConfig` <br> `cloudfront:List*` |
 | CloudTrail | `cloudtrail:Describe*` <br> `cloudtrail:GetEventSelectors` <br> `cloudtrail:List*` <br> `cloudtrail:LookupEvents` |
@@ -374,10 +374,10 @@ The following IAM permissions are needed to discover AWS resources:
 | ELB – elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
 | Elastic search | `es:Describe*` <br> `es:List*` |
 | EMR – elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
-| GuardDute | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
+| GuardDuty | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
 | IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
 | KMS | `kms:Describe*` <br> `kms:List*` |
-| LAMDBA | `lambda:GetPolicy` <br> `lambda:List*` |
+| Lambda | `lambda:GetPolicy` <br> `lambda:List*` |
 | Network firewall | `network-firewall:DescribeFirewall` <br> `network-firewall:DescribeFirewallPolicy` <br> `network-firewall:DescribeLoggingConfiguration` <br> `network-firewall:DescribeResourcePolicy` <br> `network-firewall:DescribeRuleGroup` <br> `network-firewall:DescribeRuleGroupMetadata` <br> `network-firewall:ListFirewallPolicies` <br> `network-firewall:ListFirewalls` <br> `network-firewall:ListRuleGroups` <br> `network-firewall:ListTagsForResource` |
 | RDS | `rds:Describe*` <br> `rds:List*` |
 | RedShift | `redshift:Describe*` |

@@ -1,12 +1,12 @@
 ---
 title: How to manage network connections
-titleSuffix: Microsoft Dev Box
-description: This article describes how to create, delete, attach and remove Microsoft Dev Box network connections.
+titleSuffix: Microsoft Dev Box Preview
+description: This article describes how to create, delete, attach and remove Microsoft Dev Box Preview network connections.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/15/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
@@ -66,7 +66,7 @@ Network ingress and egress can be controlled using a firewall, network security 
 If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 ## Plan a network connection
-The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
+The following steps show you how to create and configure a network connection in Microsoft Dev Box Preview.  
 ### Types of Azure Active Directory Join
 The Dev Box service requires a configured and working Azure AD join or Hybrid AD join, which defines how dev boxes join your domain and access resources. 
 
@@ -169,4 +169,4 @@ The network connection will no longer be available for use in the dev center.
 ## Next steps
 
 <!-- [Manage a dev center](./how-to-manage-dev-center.md) -->
-- [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md)
+- [Quickstart: Configure a Microsoft Dev Box Preview Project](./quickstart-configure-dev-box-project.md)

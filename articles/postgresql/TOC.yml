@@ -484,6 +484,8 @@
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
+    - name: Azure AD Authentication
+      href: flexible-server/concepts-azure-ad-authentication.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
@@ -544,9 +546,18 @@
       - name: Troubleshoot high memory utilization
         href: flexible-server/how-to-high-memory-utilization.md 
         displayName: High Memory Utilization
+      - name: Troubleshoot High IO utilization
+        href: flexible-server/how-to-high-io-utilization.md 
+        displayName: High IOPS Utilization
       - name: Troubleshoot autovacuum 
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
+      - name: Best practices for bulk data upload 
+        href: flexible-server/how-to-bulk-load-data.md
+        displayName: Best practices for bulk data upload
+      - name: Best practices for pg_dump and restore
+        href: flexible-server/how-to-pgdump-restore.md
+        displayName: Best practices for pg_dump and restore
   - name: How-to guides
     items:
     - name: Manage a server
@@ -595,6 +606,18 @@
       - name: Azure CLI
         href: flexible-server/howto-configure-server-parameters-using-cli.md
         displayName: application development, server parameters
+    - name: Enable Authentication
+      items:
+        - name: Create users
+          href: flexible-server/how-to-create-users.md
+          displayName: non-admin user, application development
+        - name: Configure Azure AD integration
+          href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
+          displayName: application development, azure ad, active directory
+        - name: Connect with Managed Identity
+          href: flexible-server/how-to-connect-with-managed-identity.md
+        - name: Manage Azure AD users
+          href: flexible-server/how-to-manage-azure-ad-users.md
     - name: Scale a server
       items:
       - name: Azure portal
@@ -629,6 +652,10 @@
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
+- name: Hyperscale (Citus)
+  items:
+  - name: Where is Hyperscale (Citus)?
+    href: hyperscale/moved.md
 - name: Samples
   items:
   - name: Azure CLI samples

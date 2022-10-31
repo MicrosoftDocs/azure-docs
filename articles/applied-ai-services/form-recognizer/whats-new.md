@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -291,7 +291,7 @@ This new release includes the following updates:
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
 * [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
-Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-v3-sdk-rest-api.md), or [.NET](quickstarts/get-started-v3-sdk-rest-api.md) SDK for the v3.0 preview API.
+Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 #### Form Recognizer model data extraction
 
@@ -449,7 +449,7 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Form Recognizer Studio to test the different prebuilt models or label and train a custom model
 
-Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-v3-sdk-rest-api.md), or [.NET](quickstarts/get-started-v3-sdk-rest-api.md) SDK for the v3.0 preview API.
+Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 #### Form Recognizer model data extraction
 
@@ -984,7 +984,7 @@ For more information about the Form Recognizer Sample Labeling tool, review the 
 
 ### TLS 1.2 enforcement
 
-TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/cognitive-services-security.md).
+TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/security-features.md).
 
 ## January 2020
 

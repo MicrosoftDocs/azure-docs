@@ -32,7 +32,7 @@ If you don't have access to install the extension, you must request access from 
 
 **To configure the Microsoft Security DevOps Azure DevOps extension**:
 
-1. Sign in to [Azure DevOps](https://dev.azure.com/)
+1. Sign in to [Azure DevOps](https://dev.azure.com/).
 
 1. Navigate to **Shopping Bag** > **Manage extensions**.
 
@@ -41,7 +41,7 @@ If you don't have access to install the extension, you must request access from 
 1. Select **Shared**.
 
     > [!Note]
-    > If you have already [installed the Microsoft Security DevOps extension](azure-devops-extension.md), it will be listed under Installed tab.
+    > If you've already [installed the Microsoft Security DevOps extension](azure-devops-extension.md), it will be listed in the **Installed** tab.
 
 1. Select **Microsoft Security DevOps**.
 
@@ -49,13 +49,13 @@ If you don't have access to install the extension, you must request access from 
 
 1. Select **Install**.
 
-1. Select the appropriate Organization from the dropdown menu.
+1. Select the appropriate organization from the dropdown menu.
 
 1. Select **Install**.
 
 1. Select **Proceed to organization**.
 
-## Configure your Pipelines using YAML
+## Configure your pipelines using YAML
 
 **To configure your pipeline using YAML**:
 
@@ -81,7 +81,7 @@ If you don't have access to install the extension, you must request access from 
 
     :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter pipeline.":::
 
-1.  Paste the following YAML into the pipeline
+1.  Paste the following YAML into the pipeline:
 
     ```yml
     # Starter pipeline
@@ -110,7 +110,7 @@ If you don't have access to install the extension, you must request access from 
 
 1. Select **Save and run**.
 
-1. Select **Save and run** to commit the pipeline.
+1. To commit the pipeline, select **Save and run**.
 
 The pipeline will run for a few minutes and save the results.
 
@@ -125,4 +125,4 @@ Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [connect your Azure DevOps](quickstart-onboard-devops.md) to Defender for Cloud.
 
-[Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md)
+[Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md).

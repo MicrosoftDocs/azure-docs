@@ -123,16 +123,16 @@ There are sample notebooks available in studio to help you learn more about Azur
 
     :::image type="content" source="media/quickstart-run-notebooks/samples.png" alt-text="Screenshot: Sample notebooks.":::
 
-1. The **v1** folder can be used with the previous, v1 version of the SDK. If you're just starting, you won't need these samples.
-1. Use notebooks in the **v2** folder for examples that show the current version of the SDK, v2.
-1. Select the notebook **v2/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb**.  You'll see a read-only version of the notebook.  
+1. The **SDK v1** folder can be used with the previous, v1 version of the SDK. If you're just starting, you won't need these samples.
+1. Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
+1. Select the notebook **SDK v2/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb**.  You'll see a read-only version of the notebook.  
 1. To get your own copy, you can select **Clone this notebook**.  This action will also copy the rest of the folder's content for that notebook.  No need to do that now, though, as you're going to instead clone the whole folder.
 
 ## Clone tutorials folder
 
 You can also clone an entire folder.  The **tutorials** folder is a good place to start learning more about how Azure Machine Learning works.
 
-1. Open the **v2** folder.
+1. Open the **SDK v2** folder.
 1. Select the **"..."** at the right of **tutorials** folder to get the menu, then select **Clone**.
     
     :::image type="content" source="media/quickstart-run-notebooks/clone-folder.png" alt-text="Screenshot: clone v2 tutorials folder.":::

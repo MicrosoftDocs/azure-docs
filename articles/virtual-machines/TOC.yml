@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's new
+  href: whats-new.md  
 - name: Quickstarts
   items:
   - name: Create a Linux VM
@@ -674,6 +676,8 @@
     - name: ARM template
       displayName: pre-empt, preempt, spot, low priority, low-priority, ARM, template
       href: ./linux/spot-template.md
+    - name: Spot Priority Mix (preview)
+      href: ../virtual-machine-scale-sets/spot-priority-mix.md?toc=/azure/virtual-machines/toc.json
     - name: VM size recommendation 
       href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md?toc=/azure/virtual-machines/toc.json
     - name: Error codes
@@ -1118,8 +1122,8 @@
         - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
           displayname: Server side encryption, encryption, ADE
-      - name: Enable cross-tenant customer-managed keys
-        href: disks-cross-tenant-cmk.md
+      - name: Use customer-managed keys across Azure AD tenants
+        href: disks-cross-tenant-customer-managed-keys.md
         displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
         items:

@@ -11,7 +11,7 @@ ms.author: jasteppe
 
 # Part 3: Manual Deployment and Post-deployment of MedTech service
 
-When you are satisfied with your configuration and it has been successfully validated, you can complete the deployment and post-deployment process.
+When you're satisfied with your configuration and it has been successfully validated, you can complete the deployment and post-deployment process.
 
 ## Create your manual deployment
 
@@ -77,7 +77,7 @@ For more information about authorizing access to Event Hubs resources, see [Auth
 
 ### Grant access to the FHIR service
 
-The process for granting your MedTech service system-assigned managed identity access to your FHIR service requires the same 13 steps that you used to grant access to your device message event hub. The only exception will be a change to step 6. Your MedTech service system-assigned managed identity will require you to select the **View** button directly across from **FHIR Data Writer** access instead of the button across from **Azure Event Hubs Data Receiver**.
+The process for granting your MedTech service system-assigned managed identity access to your FHIR service requires the same 13 steps that you used to grant access to your device message event hub. There are two exceptions. The first is that, instead of navigating to the Access Control (IAM) menu from within your event hub (as outlined in steps 1-4), you should navigate to the equivalent Access Control (IAM) menu from within your FHIR service. The second exception is that, in step 6, your MedTech service system-assigned managed identity will require you to select the **View** button directly across from **FHIR Data Writer** access instead of the button across from **Azure Event Hubs Data Receiver**.
 
 The **FHIR Data Writer** role provides read and write access to your FHIR service, which your MedTech service uses to access or persist data. Because the MedTech service is deployed as a separate resource, the FHIR service will receive requests from the MedTech service. If the FHIR service doesn’t know who's making the request, it will deny the request as unauthorized.
 

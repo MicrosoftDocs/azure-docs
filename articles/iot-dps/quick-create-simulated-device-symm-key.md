@@ -766,7 +766,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-Provision an X.509 certificate device:
+Provision multiple symmetric key devices using an enrollment group:
 
 > [!div class="nextstepaction"]
-> [Quickstart - Provision an X.509 device using the Azure IoT C SDK](quick-create-simulated-device-x509.md)
+> [Tutorial: Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md)

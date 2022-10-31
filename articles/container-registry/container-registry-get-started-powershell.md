@@ -42,10 +42,10 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
 
-The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* in the following command, then run it to create the registry:
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "mycontainerregistry." Replace *mycontainerregistry* in the following command, then run it to create the registry:
 
 ```powershell
-$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "mycontainerregistry" -EnableAdminUser -Sku Basic
 ```
 
 [!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]

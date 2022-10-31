@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 # Azure AD permissions for communication as Teams user
-In this article, you will learn about Azure AD permissions available for communication as a Teams user in Azure Communication Services.
+In this article, you will learn about Azure AD permissions available for communication as a Teams user in Azure Communication Services. Azure AD application for Azure Communication Services provides delegated permissions for chat and calling. Both permissions are required to exchange Azure AD access token for Communication Services access token for Teams users.
 
 ## Delegated permissions
 

@@ -24,7 +24,6 @@ To write data in Delta Lake, you need to connect to an Azure Data Lake Storage G
 
 |Property Name  |Description  |
 |----------|-----------|
-|Storage container     |A logical grouping for blobs stored in the Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.       | 
 |Event Serialization Format|Serialization format for output data. JSON, CSV, AVRO, Parquet are supported. Delta Lake is listed as an option here. The data will be in Parquet format if Delta Lake is selected.  |
 |Delta path name| The path that is used to write your delta lake table within the specified container. It includes the table name. More details in the section below |
 |Partition Column |Optional. The {field} name from your output data to partition. Only one partition column is supported. The column's value must be of string type |  
@@ -74,7 +73,8 @@ The transaction log enables Delta Lake to guarantee exactly once processing. Azu
 
 Schema enforcement means that all new writes to a table are enforced to be compatible with the target table's schema at write time, to ensure data quality.
 
-All records of output data are projected to the schema of the existing table. If the output is being written to a new delta table, the table schema will be created with the first record.
+All records of output data are projected to the schema of the existing table. If the output is being written to a new delta table, the table schema will be created with the first record. If the incoming data has one extra column compared to the existing table schema, it will be written in the table without the extra column. If the incoming data is missing one column compared to the existing table schema, it will be written in the table with the column being null.
+
 
 At the failure of schema conversion, the job behavior will follow the [output data error handing policy](stream-analytics-output-error-policy.md) configured at the job level.
 
@@ -85,6 +85,9 @@ At the failure of schema conversion, the job behavior will follow the [output da
 - Schema checking in query testing isn't available.
 - Checkpoints for delta lake aren't taken by Stream Analytics.
 
+## Regions Availability
+
+The feature is currently supported in West Central US, Japan East and Canada Central. 
 
 ## Next steps
 

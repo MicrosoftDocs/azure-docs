@@ -32,17 +32,17 @@ In this tutorial, you accomplish the following tasks:
 > [!TIP]
 > If you're looking for a template (Microsoft Bicep or Hashicorp Terraform) that demonstrates how to create a secure workspace, see [Tutorial - Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
+After completing this tutorial, you will have the following architecture:
+
+* An Azure Virtual Network, which contains three subnets:
+    * __Training__: Contains the Azure Machine Learning workspace, dependency services, and resources used for training models.
+    * __Scoring__: Contains resources used to deploy models as endpoints.
+    * __AzureBastionSubnet__: Used by the Azure Bastion service to securely connect clients to Azure Virtual Machines.
+
 ## Prerequisites
 
 * Familiarity with Azure Virtual Networks and IP networking. If you are not familiar, try the [Fundamentals of computer networking](/training/modules/network-fundamentals/) module.
 * While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI extension for Machine Learning v2.
-
-## Limitations
-
-The steps in this article put Azure Container Registry behind the VNet. In this configuration, you can't deploy models to Azure Container Instances inside the VNet. For more information, see [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md).
-
-> [!TIP]
-> As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints (preview)](how-to-secure-online-endpoint.md).
 
 ## Create a virtual network
 
@@ -334,19 +334,24 @@ There are several ways that you can connect to the secured workspace. The steps 
 
 ### Create a jump box (VM)
 
-Use the following steps to create a Data Science Virtual Machine for use as a jump box:
+Use the following steps to create an Azure Virtual Machine to use as a jump box. Azure Bastion enables you to connect to the VM desktop through your browser. From the VM desktop, you can then use the browser on the VM to connect to resources inside the VNet, such as Azure Machine Learning studio. Or you can install development tools on the VM. 
 
-1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select the __Data science virtual machine - Windows__ entry, and then select __Create__.
+> [!TIP]
+> The steps below create a Windows 11 enterprise VM. Depending on your requirements, you may want to select a different VM image. The Windows 11 (or 10) enterprise image is useful if you need to join the VM to your organization's domain.
+
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Virtual Machine__. Select the __Virtual Machine__ entry, and then select __Create__.
+
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide values for the following fields:
 
     * __Virtual machine name__: A unique name for the VM.
     * __Username__: The username you will use to log in to the VM.
     * __Password__: The password for the username.
     * __Security type__: Standard.
-    * __Image__: Data Science Virtual Machine - Windows Server 2019 - Gen1.
+    * __Image__: Windows 11 Enterprise.
 
-        > [!IMPORTANT]
-        > Do not select a Gen2 image.
+        > [!TIP]
+        > If Windows 11 Enterprise isn't in the list for image selection, use _See all images__. Find the __Windows 11__ entry from Microsoft, and use the __Select__ drop-down to select the enterprise image.
+
 
     You can leave other fields at the default values.
 
@@ -499,4 +504,4 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
-Now that you have created a secure workspace and can access studio, learn how to [run a Python script](tutorial-azure-ml-in-a-day.md) using Azure Machine Learning.
+Now that you have created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).

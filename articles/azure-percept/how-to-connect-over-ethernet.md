@@ -11,6 +11,8 @@ ms.custom: template-how-to
 
 # Connect to Azure Percept DK over Ethernet
 
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 In this how-to guide you'll learn how to launch the Azure Percept DK setup experience over an Ethernet connection. It's a companion to the [Quick Start: Set up your Azure Percept DK and deploy your first AI model](./quickstart-percept-dk-set-up.md) guide. See each option outlined below and choose which one is most appropriate for your environment.
 
 ## Prerequisites

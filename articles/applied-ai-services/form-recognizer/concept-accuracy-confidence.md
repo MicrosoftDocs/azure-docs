@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ---
 
@@ -64,7 +64,7 @@ The accuracy of your model is affected by variances in the visual structure of y
 
 * Separate visually distinct document types to train different models.
   * As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model.
-  * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](compose-custom-models-v2-1.md#create-a-composed-model) the different variations into a single model.
+  * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true#create-a-composed-model) the different variations into a single model.
 
 * Make sure that you don't have any extraneous labels.
 

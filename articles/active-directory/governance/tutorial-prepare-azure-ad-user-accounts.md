@@ -58,8 +58,8 @@ First we'll create our employee, Melva Prince.
   "displayName": "Melva Prince",
   "mailNickname": "mprince",
   "department": "sales",
-  "mail": "mpricne@<your tenant name here>",
-  "employeeHireDate": "2022-04-15T22:10:00Z"
+  "mail": "mprince@<your tenant name here>",
+  "employeeHireDate": "2022-04-15T22:10:00Z",
   "userPrincipalName": "mprince@<your tenant name here>",
   "passwordProfile" : {
     "forceChangePasswordNextSignIn": true,
@@ -84,7 +84,7 @@ Next, we'll create Britta Simon.  This is the account that will be used as our m
   "mailNickname": "bsimon",
   "department": "sales",
   "mail": "bsimon@<your tenant name here>",
-  "employeeHireDate": "2021-01-15T22:10:00Z"
+  "employeeHireDate": "2021-01-15T22:10:00Z",
   "userPrincipalName": "bsimon@<your tenant name here>",
   "passwordProfile" : {
     "forceChangePasswordNextSignIn": true,

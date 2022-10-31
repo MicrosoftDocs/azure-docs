@@ -19,9 +19,9 @@ keywords: computer vision, computer vision applications, computer vision service
 
 The Computer Vision Image Analysis service can extract a wide variety of visual features from your images. For example, it can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
-The latest version of Image Analysis, 4.0, has new features like OCR and people detection, and it uses updated models that have achieved human parity in certain recognition tasks. If your resource belongs to one of the regions enabled for 4.0 (East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US), we recommend you use this version going forward.
+The latest version of Image Analysis, 4.0, which is now in public preview, has new features like synchronous OCR and people detection. We recommend you use this version going forward.
 
-You can use Image Analysis through a client library SDK or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
+You can use Image Analysis through a client library SDK or by calling the [REST API](https://aka.ms/vision-4-0-ref) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
 
 > [!div class="nextstepaction"]
 > [Quickstart](quickstarts-sdk/image-analysis-client-library.md)

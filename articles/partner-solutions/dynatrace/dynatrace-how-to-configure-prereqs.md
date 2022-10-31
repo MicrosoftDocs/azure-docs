@@ -4,17 +4,17 @@ description: This article describes how to complete the prerequisites for Dynatr
 ms.topic: conceptual
 author: flang-msft
 ms.author: franlanglois
-ms.date: 08/24/2022
+ms.date: 10/12/2022
 
 ---
 
 # Configure pre-deployment
 
-This article describes the prerequisites that must be completed before you create the first instance of Dynatrace resource in Azure.
+This article describes the prerequisites that must be completed in your Azure subscription or Azure Active Directory before you create your first Dynatrace resource in Azure.
 
 ## Access control
 
-To set up the Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. First, [confirm that you have the appropriate access](/azure/role-based-access-control/check-access) before starting the setup.
 
 ## Add enterprise application
 

@@ -85,6 +85,7 @@ Follow these steps to create a new console application for speech recognition.
     import java.util.concurrent.Future;
 
     public class SpeechRecognition {
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         private static String speechKey = System.getenv("SPEECH_KEY");
         private static String speechRegion = System.getenv("SPEECH_REGION");
 

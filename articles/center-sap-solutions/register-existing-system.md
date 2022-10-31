@@ -66,8 +66,8 @@ ACSS uses this user-assigned managed identity to install VM extensions on the AS
 
 To provide permissions to the SAP system resources to a user-assigned managed identity:
 
-1. Create a new user-assigned managed identity if needed or use an existing one.
-1. Assign **Contributor** role access to the user-assigned managed identity on all Resource Groups in which the SAP system resources exist. That is, Compute, Network and Storage Resource Groups.
+1. [Create a new user-assigned managed identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) if needed or use an existing one.
+1. [Assign **Contributor** role access](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#manage-access-to-user-assigned-managed-identities) to the user-assigned managed identity on all Resource Groups in which the SAP system resources exist. That is, Compute, Network and Storage Resource Groups.
 1. Once the permissions are assigned, this managed identity can be used in ACSS to register and manage SAP systems.
 
 ## Register SAP system

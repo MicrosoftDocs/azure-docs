@@ -128,7 +128,9 @@
   - name: Create & configure lab plans (admin)
     items:
     - name: Request core limit increase
-      href: how-to-request-capacity-increase.md  
+      href: how-to-request-capacity-increase.md
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Add a lab creator

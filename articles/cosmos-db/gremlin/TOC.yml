@@ -155,6 +155,12 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -302,14 +308,12 @@
           href: ../synapse-link-power-bi.md
         - name: Configure custom partitioning
           href: ../configure-custom-partitioning.md          
-    - name: Back up and restore
+    - name: Manage back up and restore
       items:
         - name: Manage continuous backup
           items:
             - name: Permissions and roles - Continuous backup
               href: ../continuous-backup-restore-permissions.md
-            - name: Create account - Continuous backup
-              href: ../provision-account-continuous-backup.md
             - name: Get the latest restorable timestamp
               href: ../get-latest-restore-timestamp.md
             - name: Restore an account - Continuous backup

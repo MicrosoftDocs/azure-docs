@@ -19,6 +19,8 @@ The catalog could be a repository hosted in [GitHub](https://github.com) or in [
 * To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 * To learn how to host a Git repository in an Azure DevOps Services project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
 
+We offer an example [Sample Catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can attach as-is, or you can fork and customize the catalog items. You can attach your private repo to use your own catalog items.
+
 In this article, you'll learn how to:
 
 * [Add a new catalog](#add-a-new-catalog)

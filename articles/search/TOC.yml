@@ -3,12 +3,14 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Cognitive Search?
+  - name: What's Cognitive Search?
     href: search-what-is-azure-search.md
+  - name: What's new in Search?
+    href: whats-new.md
   - name: Features in Search
     href: search-features-list.md
-  - name: New in Search
-    href: whats-new.md
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
   - name: Portal
@@ -17,10 +19,10 @@
       href: search-get-started-portal.md
     - name: Create a demo app
       href: search-create-app-portal.md
-    - name: Create a knowledge store
-      href: knowledge-store-create-portal.md
     - name: Create a skillset
       href: cognitive-search-quickstart-blob.md
+    - name: Create a knowledge store
+      href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
   - name: Visual Studio Code 
@@ -89,7 +91,7 @@
       href: search-howto-index-encrypted-blobs.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Enrich with SynapseML
+  - name: Index at scale (Apache Spark)
     href: search-synapseml-cognitive-services.md
   - name: Enrich with AI (skills)
     items:
@@ -140,7 +142,9 @@
     - name: Query types and composition
       href: search-query-overview.md
     - name: Relevance scoring
-      href: index-similarity-and-scoring.md     
+      href: index-similarity-and-scoring.md
+    - name: Semantic ranking
+      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
@@ -454,11 +458,9 @@
       href: search-normalizers.md
   - name: Relevance
     items:
-    - name: Similarity ranking
+    - name: Configure scoring
       href: index-ranking-similarity.md
-    - name: Semantic ranking
-      href: semantic-ranking.md
-    - name: Scoring profiles 
+    - name: Add a scoring profile
       href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:
@@ -618,8 +620,6 @@
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.yml
   - name: Demo sites
     href: resource-demo-sites.md
   - name: Tools

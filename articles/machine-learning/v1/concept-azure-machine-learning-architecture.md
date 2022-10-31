@@ -260,7 +260,7 @@ Azure Machine Learning provides the following monitoring and logging capabilitie
 
 ### Studio
 
-[Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
+[Azure Machine Learning studio](../overview-what-is-azure-machine-learning.md#studio) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
 
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 

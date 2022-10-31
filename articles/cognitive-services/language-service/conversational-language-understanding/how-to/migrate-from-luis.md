@@ -19,8 +19,8 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 CLU offers the following advantages over LUIS: 
 
-- Improved accuracy with state-of-the-art machine learning models for better intent classification and entity extraction. 
-- Multilingual support for model learning and training. 
+- Improved accuracy with state-of-the-art machine learning models for better intent classification and entity extraction. LUIS required more examples to generalize certain concepts in intents and entities, while CLU's more advanced machine learning reduces the burden on customers by requiring significantly less data.  
+- Multilingual support for model learning and training. Train projects in one language and immediately predict intents and entities across 96 languages.
 - Ease of integration with different CLU and [custom question answering](../../question-answering/overview.md) projects using [orchestration workflow](../../orchestration-workflow/overview.md). 
 - The ability to add testing data within the experience using Language Studio and APIs for model performance evaluation prior to deployment. 
 
@@ -32,9 +32,9 @@ The following table presents a side-by-side comparison between the features of L
 
 |LUIS features | CLU features | Post migration |
 |:------------:|:----------------------------------------------:|:--------------:|
-|Machine-learned and Structured ML entities| Learned [entity components](#how-are-entities-different-in-clu) |Machine-learned entities without subentities will be transferred as CLU entities. Structured ML entities will only transfer leaf nodes (lowest level subentities without their own subentities) as entities in CLU. The name of the entity in CLU will be the name of the subentity concatenated with the parent. For example, _Order.Size_|
-|List and prebuilt entities| List and prebuilt [entity components](#how-are-entities-different-in-clu) | List and prebuilt entities will be transferred as entities in CLU with a populated entity component based on the entity type.|
-|Regex and `Pattern.Any` entities| Not currently available | `Pattern.Any` entities will be removed. Regex entities will be removed.|
+|Machine-learned and Structured ML entities| Learned [entity components](#how-are-entities-different-in-clu) |Machine-learned entities without subentities will be transferred as CLU entities. Structured ML entities will only transfer leaf nodes (lowest level subentities that do not have their own subentities) as entities in CLU. The name of the entity in CLU will be the name of the subentity concatenated with the parent. For example, _Order.Size_|
+|List, regex, and prebuilt entities| List, regex, and prebuilt [entity components](#how-are-entities-different-in-clu) | List, regex, and prebuilt entities will be transferred as entities in CLU with a populated entity component based on the entity type.|
+|`Pattern.Any` entities| Not currently available | `Pattern.Any` entities will be removed.|
 |Single culture for each application|[Multilingual models](#how-is-conversational-language-understanding-multilingual) enable multiple languages for each project. |The primary language of your project will be set as your LUIS application culture. Your project can be trained to extend to different languages.|
 |Entity roles  |[Roles](#how-are-entity-roles-transferred-to-clu) are no longer needed. | Entity roles will be transferred as entities.|
 |Settings for: normalize punctuation, normalize diacritics, normalize word form, use all training data  |[Settings](#how-is-the-accuracy-of-clu-better-than-luis) are no longer needed. |Settings will not be transferred.  |
@@ -42,10 +42,10 @@ The following table presents a side-by-side comparison between the features of L
 |Entity features| Entity components| List or prebuilt entities added as features to an entity will be transferred as added components to that entity. [Entity features](#how-do-entity-features-get-transferred-in-clu) will not be transferred for intents. |
 |Intents and utterances| Intents and utterances |All intents and utterances will be transferred. Utterances will be labeled with their transferred entities. |
 |Application GUIDs |Project names| A project will be created for each migrating application with the application name. Any special characters in the application names will be removed in CLU.|
-|Versioning| Can only be stored [locally](#how-do-i-manage-versions-in-clu). | A project will be created for the selected application version. |
-|Evaluation using batch testing |Evaluation using testing sets | [Uploading your testing dataset](../how-to/tag-utterances.md#how-to-label-your-utterances) will be required.|  
+|Versioning| Every time you train, a model is created and acts as a version of your [project](#how-do-i-manage-versions-in-clu). | A project will be created for the selected application version. |
+|Evaluation using batch testing |Evaluation using testing sets | [Adding your testing dataset](../how-to/tag-utterances.md#how-to-label-your-utterances) will be required.|  
 |Role-Based Access Control (RBAC) for LUIS resources |Role-Based Access Control (RBAC) available for Language resources |Language resource RBAC must be [manually added after migration](../../concepts/role-based-access-control.md). |
-|Single training mode| Standard and advanced [training modes](#how-are-the-training-times-different-in-clu) | Training will be required after application migration. |
+|Single training mode| Standard and advanced [training modes](#how-are-the-training-times-different-in-clu-how-is-standard-training-different-from-advanced-training) | Training will be required after application migration. |
 |Two publishing slots and version publishing |Ten deployment slots with custom naming | Deployment will be required after the application’s migration and training. |
 |LUIS authoring APIs and SDK support in .NET, Python, Java, and Node.js |[CLU Authoring REST APIs](/rest/api/language/conversational-analysis-authoring). | For more information, see the [quickstart article](../quickstart.md?pivots=rest-api) for information on the CLU authoring APIs. [Refactoring](#do-i-have-to-refactor-my-code-if-i-migrate-my-applications-from-luis-to-clu) will be necessary to use the CLU authoring APIs. |
 |LUIS Runtime APIs and SDK support in .NET, Python, Java, and Node.js |[CLU Runtime APIs](/rest/api/language/conversation-analysis-runtime). CLU Runtime SDK support for [.NET](/dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true) and [Python](/python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true). | See [how to call the API](../how-to/call-api.md#use-the-client-libraries-azure-sdk) for more information. [Refactoring](#do-i-have-to-refactor-my-code-if-i-migrate-my-applications-from-luis-to-clu) will be necessary to use the CLU runtime API response. |
@@ -77,7 +77,6 @@ Follow these steps to begin migration using the [LUIS Portal](https://www.luis.a
 
     > [!NOTE] 
     > Special characters are not supported by conversational language understanding. Any special characters in your selected LUIS application names will be removed in your new migrated applications. 
-
     :::image type="content" source="../media/backwards-compatibility/select-applications.svg" alt-text="A screenshot showing the application selection window." lightbox="../media/backwards-compatibility/select-applications.svg":::
 
 1. Review your Language resource and LUIS applications selections. Click **Finish** to migrate your applications.  
@@ -141,9 +140,15 @@ CLU supports the model JSON version 7.0.0. If the JSON format is older, it would
 
 ### How are entities different in CLU? 
 
-In CLU, a single entity can have multiple entity components, which are different methods for extraction. Those components are then combined together using rules you can define. The available components are: learned (equivalent to ML entities in LUIS), list, and prebuilt.
+In CLU, a single entity can have multiple entity components, which are different methods for extraction. Those components are then combined together using rules you can define. The available components are: 
+- Learned: Equivalent to ML entities in LUIS, labels are used to train a machine-learned model to predict an entity based on the content and context of the provided labels.
+- List: Just like list entities in LUIS, list components exact match a set of synonyms and maps them back to a normalized value called a **list key**.
+- Prebuilt: Prebuilt components allow you to define an entity with the prebuilt extractors for common types available in both LUIS and CLU.
+- Regex: Regex components use regular expressions to capture custom defined patterns, exactly like regex entities in LUIS.
 
-After migrating, your structured machine-learned leaf nodes and  bottom-level subentities will be transferred to the new CLU model while all the parent entities and higher-level entities will be ignored. The name of the entity will be the bottom-level entity’s name concatenated with its parent entity. 
+Entities in LUIS will be transferred over as entities of the same name in CLU with the equivalent components transferred.
+
+After migrating, your structured machine-learned leaf nodes and bottom-level subentities will be transferred to the new CLU model while all the parent entities and higher-level entities will be ignored. The name of the entity will be the bottom-level entity’s name concatenated with its parent entity. 
 
 #### Example: 
 
@@ -157,12 +162,22 @@ Migrated LUIS entity in CLU:
 
 * Pizza Order.Topping 
 * Pizza Order.Size 
-  
+ 
+You also cannot label 2 different entities in CLU for the same span of characters. Learned components in CLU are mutually exclusive and do not provide overlapping predictions for learned components only. When migrating your LUIS application, entity labels that overlapped preserved the longest label and ignored any others.  
+
 For more information on entity components, see [Entity components](../concepts/entity-components.md).
 
 ### How are entity roles transferred to CLU? 
 
 Your roles will be transferred as distinct entities along with their labeled utterances. Each role’s entity type will determine which entity component will be populated. For example, a list entity role will be transferred as an entity with the same name as the role, with a populated list component. 
+
+### How do entity features get transferred in CLU? 
+
+Entities used as features for intents will not be transferred. Entities used as features for other entities will populate the relevant component of the entity. For example, if a list entity named _SizeList_ was used as a feature to a machine-learned entity named _Size_, then the _Size_ entity will be transferred to CLU with the list values from _SizeList_ added to its list component. The same is applied for prebuilt and regex entities.
+
+### How are entity confidence scores different in CLU? 
+
+Any extracted entity has a 100% confidence score and therefore entity confidence scores should not be used to make decisions between entities.  
 
 ### How is conversational language understanding multilingual? 
 
@@ -178,21 +193,55 @@ Runtime utterance (French): *Comment ça va?*
 
 Predicted intent: Greeting 
 
-### How are entity confidence scores different in CLU? 
-
-Any extracted entity has a 100% confidence score and therefore entity confidence scores should not be used to make decisions between entities.  
-
 ### How is the accuracy of CLU better than LUIS? 
 
 CLU uses state-of-the-art models to enhance machine learning performance of different models of intent classification and entity extraction. 
 
 These models are insensitive to minor variations, removing the need for the following settings: _Normalize punctuation_, _normalize diacritics_, _normalize word form_, and _use all training data_.  
 
-Additionally, the new models do not support phrase list features as they no longer require supplementary information from the user to provide semantically similar words for better accuracy. Patterns were also used to provide improved intent classification using rule-based matching techniques that are not necessary in the new model paradigm.
+Additionally, the new models do not support phrase list features as they no longer require supplementary information from the user to provide semantically similar words for better accuracy. Patterns were also used to provide improved intent classification using rule-based matching techniques that are not necessary in the new model paradigm. The question below explains this in more detail. 
+
+### What do I do if the features I am using in LUIS are no longer present?
+
+There are several features that were present in LUIS that will no longer be available in CLU. This includes the ability to do feature engineering, having patterns and pattern.any entities, and structured entities. If you had dependencies on these features in LUIS, use the following guidance:
+
+- **Patterns**: Patterns were added in LUIS to assist the intent classification through defining regular expression template utterances. This included the ability to define Pattern only intents (without utterance examples). CLU is capable of generalizing by leveraging the state-of-the-art models. You can provide a few utterances to that matched a specific pattern to the intent in CLU, and it will likely classify the different patterns as the top intent without the need of the pattern template utterance. This simplifies the requirement to formulate these patterns, which was limited in LUIS, and provides a better intent classification experience. 
+
+- **Phrase list features**: The ability to associate features mainly occurred to assist the classification of intents by highlighting the key elements/features to use. This is no longer required since the deep models used in CLU already possess the ability to identify the elements that are inherent in the language. In turn removing these features will have no effect on the classification ability of the model.
+
+- **Structured entities**: The ability to define structured entities was mainly to enable multilevel parsing of utterances. With the different possibilities of the sub-entities, LUIS needed all the different combinations of entities to be defined and presented to the model as examples. In CLU, these structured entities are no longer supported, since overlapping learned components are not supported. There are a few possible approaches to handling these structured extractions:
+    - **Non-ambiguous extractions**: In most cases the detection of the leaf entities is enough to understand the required items within a full span. For example, structured entity such as _Trip_ that fully spanned a source and destination (_London to New York_ or _Home to work_) can be identified with the individual spans predicted for source and destination. Their presence as individual predictions would inform you of the _Trip_ entity.
+    - **Ambiguous extractions**: When the boundaries of different sub-entities are not very clear. To illustrate, take the example “I want to order a pepperoni pizza and an extra cheese vegetarian pizza”. While the different pizza types as well as the topping modifications can be extracted, having them extracted without context would have a degree of ambiguity of where the extra cheese is added. In this case the extent of the span is context based and would require ML to determine this. For ambiguous extractions you can use one of the following approaches:
+
+1. Combine sub-entities into different entity components within the same entity.
+
+#### Example: 
+
+LUIS Implementation: 
+
+* Pizza Order (entity)  
+   * Size (subentity) 
+   * Quantity (subentity) 
+
+CLU Implementation: 
+
+* Pizza Order (entity) 
+   * Size (list entity component: small, medium, large) 
+   * Quantity (prebuilt entity component: number) 
+
+In CLU, you would label the entire span for _Pizza Order_ inclusive of the size and quantity, which would return the pizza order with a list key for size, and a number value for quantity in the same entity object. 
+
+2. For more complex problems where entities contain several levels of depth, you can create a project for each level of depth in the entity structure. This gives you the option to:
+- Pass the utterance to each project.
+- Combine the analyses of each project in the stage proceeding CLU. 
+
+For a detailed example on this concept, check out the pizza sample projects available on [GitHub](https://aka.ms/clu-pizza).
 
 ### How do I manage versions in CLU? 
 
-Although CLU does not offer versioning, you can export your CLU projects using [Language Studio](https://language.cognitive.azure.com/home) or [programmatically](../how-to/fail-over.md#export-your-primary-project-assets) and store different versions of the assets locally.
+CLU saves the data assets used to train your model. You can export a model's assets or load them back into the project at any point. So models act as different versions of your project.
+
+You can export your CLU projects using [Language Studio](https://language.cognitive.azure.com/home) or [programmatically](../how-to/fail-over.md#export-your-primary-project-assets) and store different versions of the assets locally.
 
 ### Why is CLU classification different from LUIS? How does None classification work? 
 
@@ -226,39 +275,26 @@ If you are using the LUIS [programmatic](https://westus.dev.cognitive.microsoft.
 
 You can use the [.NET](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.0.0-beta.3/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples/) or [Python](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md) CLU runtime SDK to replace the LUIS runtime SDK. There is currently no authoring SDK available for CLU. 
 
-### How are the training times different in CLU? 
+### How are the training times different in CLU? How is standard training different from advanced training?
 
-CLU offers standard training, which trains and learns in English and is comparable to the training time of LUIS. It also offers advanced training, which takes a considerably longer duration as it extends the training to all other [supported languages](../language-support.md). 
+CLU offers standard training, which trains and learns in English and is comparable to the training time of LUIS. It also offers advanced training, which takes a considerably longer duration as it extends the training to all other [supported languages](../language-support.md). The train API will continue to be an asynchronous process, and you will need to assess the change in the DevOps process you employ for your solution. 
 
-### How can I link subentities to parent entities from my LUIS application in CLU? 
+### How has the experience changed in CLU compared to LUIS? How is the development lifecycle different?
 
-One way to implement the concept of subentities in CLU is to combine the subentities into different entity components within the same entity.  
+In LUIS you would Build-Train-Test-Publish, whereas in CLU you Build-Train-Evaluate-Deploy-Test. 
 
-#### Example: 
+1. **Build**: In CLU, you can define your intents, entities, and utterances before you train. CLU additionally offers you the ability to specify _test data_ as you build your application to be used for model evaluation. Evaluation assesses how well your model is performing on your test data and provides you with precision, recall, and F1 metrics.
+2. **Train**: You create a model with a name each time you train. You can overwrite an already trained model. You can specify either _standard_ or _advanced_ training, and determine if you would like to use your test data for evaluation, or a percentage of your training data to be left out from training and used as testing data. After training is complete, you can evaluate how well your model is doing on the outside. 
+3. **Deploy**: After training is complete and you have a model with a name, it can be deployed for predictions. A deployment is also named and has an assigned model. You could have multiple deployments for the same model. A deployment can be overwritten with a different model, or you can swap models with other deployments in the project.
+4. **Test**: Once deployment is complete, you can use it for predictions through the deployment endpoint. You can also test it in the studio in the Test deployment page. 
 
-LUIS Implementation: 
+This process is in contrast to LUIS, where the application ID was attached to everything, and you deployed a version of the application in either the staging or production slots.
 
-* Pizza Order (entity)  
-   * Size (subentity) 
-   * Quantity (subentity) 
+This will influence the DevOps processes you use.
 
-CLU Implementation: 
+### Does CLU have container support?
 
-* Pizza Order (entity) 
-   * Size (list entity component: small, medium, large) 
-   * Quantity (prebuilt entity component: number) 
-
-In CLU, you would label the entire span for _Pizza Order_ inclusive of the size and quantity, which would return the pizza order with a list key for size, and a number value for quantity in the same entity object. 
-
-For more complex problems where entities contain several levels of depth, you can create a project for each couple of levels of depth in the entity structure. This gives you the option to:
-1. Pass the utterance to each project.
-1. Combine the analyses of each project in the stage proceeding CLU. 
-
-For a detailed example on this concept, check out the pizza bot sample available on [GitHub](https://github.com/Azure-Samples/cognitive-service-language-samples/tree/main/CoreBotWithCLU).
-
-### How do entity features get transferred in CLU? 
-
-Entities used as features for intents will not be transferred. Entities used as features for other entities will populate the relevant component of the entity. For example, if a list entity named _SizeList_ was used as a feature to a machine-learned entity named _Size_, then the _Size_ entity will be transferred to CLU with the list values from _SizeList_ added to its list component. 
+No, you cannot export CLU to containers.
 
 ### How will my LUIS applications be named in CLU after migration?
 

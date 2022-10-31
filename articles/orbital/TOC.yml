@@ -50,4 +50,6 @@ items:
   - name: Spacecraft object
     href: spacecraft-object.md
   - name: Organize spaceborne geospatial data with STAC
-    href: organize-stac-data.md   
+    href: organize-stac-data.md
+  - name: SAR reference architecture
+    href: sar-reference-architecture.md  

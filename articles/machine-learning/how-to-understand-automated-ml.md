@@ -38,7 +38,7 @@ For example, automated ML generates the following charts based on experiment typ
 ## View job results
 
 After your automated ML experiment completes, a history of the jobs can be found via:
-  - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
+  - A browser with [Azure Machine Learning studio](https://ml.azure.com)
   - A Jupyter notebook using the [JobDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:

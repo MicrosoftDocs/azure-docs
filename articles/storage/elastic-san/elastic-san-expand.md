@@ -35,7 +35,7 @@ Update-AzElasticSan -ResourceGroupName $resourceGroupName -Name $sanName -BaseSi
 # You can either update the base size or the additional size.
 # This command updates the base size, to update the additional size, replace -base-size-tib $newBaseSizeTib with –extended-capacity-size-tib $newExtendedCapacitySizeTib
 
-az elastic-san update -e $sanName -g $resourceGroupName –base-size-tib $newBaseSizeTib
+az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBaseSizeTib
 ```
 
 ---
@@ -53,7 +53,7 @@ Update-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san update -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName –size-gib $newVolumeSize
+az elastic-san volume update -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --size-gib $newVolumeSize
 ```
 
 ---

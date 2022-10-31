@@ -61,6 +61,8 @@ The Data Migration tool is an open-source solution that imports data to Azure Co
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command-line (dt.exe). In fact, there's an option to output the associated command after setting up an import through the UI. You can transform tabular source data, such as SQL Server or CSV files, to create hierarchical relationships (subdocuments) during import. Keep reading to learn more about source options, sample commands to import from each source, target options, and viewing import results.
 
 > [!NOTE]
+> We recommend using [container copy jobs](intra-account-container-copy.md) for copying data within the same Azure Cosmos DB account.
+> 
 > You should only use the Azure Cosmos DB migration tool for small migrations. For large migrations, view our [guide for ingesting data](migration-choices.md).
 
 ## <a id="Install"></a>Installation

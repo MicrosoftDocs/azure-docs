@@ -30,6 +30,7 @@ In this tutorial, you learn how to:
 > * Enable a traffic flow log for an NSG, using Network Watcher's NSG flow log capability
 > * Download logged data
 > * View logged data
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -70,7 +71,7 @@ In this tutorial, you learn how to:
 
 6. Select **Create**.
 
-The virtual machine takes a few minutes to create. Don't continue with remaining steps until the VM has finished creating. While the portal creates the virtual machine, it also creates a network security group with the name **myVM-nsg**, and associates it to the network interface for the VM.
+The virtual machine takes a few minutes to create. Don't continue with the remaining steps until the VM has finished creating. While the portal creates the virtual machine, it also creates a network security group with the name **myVM-nsg** and associates it with the network interface for the VM.
 
 ## Enable Network Watcher
 
@@ -125,7 +126,7 @@ NSG flow log data is written to an Azure Storage account. Complete the following
 
 5. Select **Create**.
 
-The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. In all cases, the storage account must be in the same region as the NSG.
+The storage account may take around a minute to create. Don't continue with the remaining steps until the storage account is created. In all cases, the storage account must be in the same region as the NSG.
 
 1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
 
@@ -173,7 +174,7 @@ The storage account may take around minute to create. Don't continue with remain
 
 ## View flow log
 
-The following example json displays data that you'll see in the PT1H.json file for each flow logged:
+The following example JSON displays data that you'll see in the PT1H.json file for each flow logged:
 
 ### Version 1 flow log event
 ```json
@@ -244,7 +245,7 @@ The following example json displays data that you'll see in the PT1H.json file f
 }
 ```
 
-The value for **mac** in the previous output is the MAC address of the network interface that was created when the VM was created. The comma-separated information for **flowTuples**, is as follows:
+The value for **mac** in the previous output is the MAC address of the network interface that was created when the VM was created. The comma-separated information for **flowTuples** is as follows:
 
 | Example data | What data represents   | Explanation                                                                              |
 | ---          | ---                    | ---                                                                                      |
@@ -257,10 +258,10 @@ The value for **mac** in the previous output is the MAC address of the network i
 | O            | Direction              | Whether the traffic was inbound (I) or outbound (O).                                     |
 | A            | Action                 | Whether the traffic was allowed (A) or denied (D).  
 | C            | Flow State **Version 2 Only** | Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is ended. Statistics are provided. |
-| 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since last update. |
-| 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. |
-| 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
-| 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.|
+| 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since the last update. |
+| 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload. |
+| 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since the last update. |
+| 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload.|
 
 ## Next steps
 
@@ -269,7 +270,7 @@ In this tutorial, you learned how to:
 * Enable NSG flow logging for an NSG
 * Download and view data logged in a file. 
 
-The raw data in the json file can be difficult to interpret. To visualize Flow Logs data, you can use [Azure Traffic Analytics](traffic-analytics.md) and  [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+The raw data in the JSON file can be difficult to interpret. To visualize Flow Logs data, you can use [Azure Traffic Analytics](traffic-analytics.md) and  [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 For alternate methods of enabling NSG Flow Logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md), and [Resource Manager templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).
 

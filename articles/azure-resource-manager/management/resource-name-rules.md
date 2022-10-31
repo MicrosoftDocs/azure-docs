@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 09/28/2022
+ms.date: 10/05/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -525,7 +525,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | workspaces | resource group | 3-33 | Alphanumerics and hyphens. |
-> | workspaces / computes | workspace | 2-16 | Alphanumerics and hyphens. |
+> | workspaces / computes | workspace | 3-24 for compute instance<br>3-32 for AML compute<br>2-16 for other compute types | Alphanumerics and hyphens. |
 
 ## Microsoft.ManagedIdentity
 

@@ -39,12 +39,12 @@ Call recording currently supports mixed audio+video MP4 and mixed audio MP3/WAV 
 
 | Channel type              | Content format               | Output                                                                                | Scenario                                                | Release Stage |
 |---------------------|-----------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------|----------------|
-| Mixed audio+video   | Mp4                         | Single file, single channel                                                           | Keeping records and meeting notes Coaching and Training | Public Preview |
-| Mixed audio    | Mp3 (lossy)/ wav (lossless) | Single file, single channel                                                           | Compliance & Adherence Coaching and Training            | Public Preview |
-| **Unmixed audio**  | wav                     | Single file, up to 5 wav channels | Quality Assurance  Analytics                            | **Private Preview** |
+| Mixed audio+video   | Mp4                         | Single file, single channel                                                           | keeping records and meeting notes, coaching and training | Public Preview |
+| Mixed audio    | Mp3 (lossy)/ wav (lossless) | Single file, single channel                                                           | compliance & adherence, coaching and training            | Public Preview |
+| **Unmixed audio**  | wav                     | Single file, up to 5 wav channels | quality assurance, advance analytics                            | **Private Preview** |
 
 ## Run-time Control APIs
-Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs are [Out-of-Call APIs](./call-automation-apis.md#out-of-call-apis), using the `serverCallId` to initiate recording. Once a call is created, a `serverCallId` is returned via the `Microsoft.Communication.CallLegStateChanged` event after a call has been established. The `serverCallId` can be found in the `data.serverCallId` field. See our [Call Recording Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn about retrieving the `serverCallId` from the Calling Client SDK. A `recordingOperationId` is returned when recording is started, which is then used for follow-on operations like pause and resume.   
+Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use the `serverCallId` to initiate recording. Once a call is created, a `serverCallId` is returned via the `Microsoft.Communication.CallLegStateChanged` event after a call has been established. The `serverCallId` can be found in the `data.serverCallId` field. Learn how to [Get `serverCallId`](../../quickstarts/voice-video-calling/get-server-call-id.md) from the Calling Client SDK. A `recordingOperationId` is returned when recording is started, which is then used for follow-on operations like pause and resume.   
 
 | Operation                            | Operates On            | Comments                       |
 | :-------------------- | :--------------------- | :----------------------------- |
@@ -66,8 +66,8 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 ```typescript
 {
     "id": string, // Unique guid for event
-    "topic": string, // Azure Communication Services resource id
-    "subject": string, // /recording/call/{call-id}
+    "topic": string, // /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}
+    "subject": string, // /recording/call/{call-id}/serverCallId/{serverCallId}
     "data": {
         "recordingStorageInfo": {
             "recordingChunks": [

@@ -54,10 +54,7 @@ Automated ML supports model training for computer vision tasks like image classi
        ```python
        pip install azure-ai-ml
        ```
-  
-    > [!NOTE]
-    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
-
+   
 ---
 
 ## Select your task type

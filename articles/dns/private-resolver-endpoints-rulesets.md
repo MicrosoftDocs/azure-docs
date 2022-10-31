@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 10/13/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -44,9 +44,9 @@ DNS forwarding rulesets enable you to specify one or more custom DNS servers to 
 Rulesets have the following associations: 
 - A single ruleset can be associated with multiple outbound endpoints. 
 - A ruleset can have up to 1000 DNS forwarding rules. 
-- A ruleset can be linked to any number of virtual networks in the same region
+- A ruleset can be linked to up to 500 virtual networks in the same region
 
-A ruleset can't be linked to a virtual network in another region. 
+A ruleset can't be linked to a virtual network in another region. For more information about ruleset and other private resolver limits, see [What are the usage limits for Azure DNS?](dns-faq.yml#what-are-the-usage-limits-for-azure-dns-).
 
 ### Ruleset links
 

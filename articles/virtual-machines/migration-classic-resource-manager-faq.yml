@@ -8,7 +8,7 @@ metadata:
   ms.subservice: classic-to-arm-migration
   ms.workload: infrastructure-services
   ms.topic: faq
-  ms.date: 02/06/2020
+  ms.date: 10/10/2022
   ms.author: tagore
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
@@ -22,7 +22,7 @@ sections:
       - question: |
           What is Azure Service Manager and what does it mean by classic?
         answer: |
-          The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+          The word "classic" in IaaS VMs (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
       - question: |
           What is Azure Resource Manager?
@@ -42,12 +42,12 @@ sections:
       - question: |
           What is the definition of an existing customer on IaaS Virtual Machines (classic)?
         answer: |
-          Customer who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered as an existing customer. Only these customers get until March 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
+          Customers who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered existing customers. Only these customers get until March 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
 
       - question: |
           Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
         answer: |
-          As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, please contact support to add your subscription to the allow list.
+          As part of the retirement process, IaaS VMs (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, contact support to add your subscription to the allowlist.
 
       - question: |
           Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
@@ -98,7 +98,7 @@ sections:
           When you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
           
           1. In the Recovery Services vault, go to the **Backup Items** blade and select the VM. 
-          2. Click Stop Backup. Select "Retain Backup Data" in the dropdown menu..
+          2. Click Stop Backup. Select **Retain Backup Data** in the dropdown menu.
           
           > [!NOTE]
           > This option will stop all future backup jobs from protecting your VM. However, Azure Backup service will retain the recovery points that have been backed up.  You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore the VM if needed. If you decide to resume VM protection, then you can use *Resume backup* option.
@@ -144,13 +144,13 @@ sections:
       - question: |
           How do I migrate my classic storage accounts to Resource Manager?
         answer: |
-          If you have a classic VM attached to your account, please migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
+          If you have a classic VM attached to your account, migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure portal, with PowerShell or with Azure CLI.
           1. [Migrate using PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps#step-52-migrate-a-storage-account)
           2. [Migrate using Azure CLI](/azure/virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account)
-          3. [Migrate using Azure Portal](/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
+          3. [Migrate using Azure portal](/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
         
       - question: |
-          What is the official date classic storage accounts will be cut-off from creation?
+          What is the official date classic storage accounts will be cut off from creation?
         answer: |
           Subscriptions created after August 2022 will no longer be able to create classic storage accounts. However, any existing subscription before August 2022 can continue to create and manage classic storage resources until the retirement date of 31 August 2024.
 
@@ -162,7 +162,7 @@ sections:
       - question: |
           How do I identify my classic storage accounts in my subscription?
         answer: |
-          In Azure Portal, search for Storage Account to get the list of all storage accounts. Look at the Type column to identify the classic ones. If Type is microsoft.classicstorage/storageaccounts then the account is classic.
+          In Azure portal, search for Storage Account to get the list of all storage accounts. Look at the Type column to identify the classic ones. If Type is microsoft.classicstorage/storageaccounts then the account is classic.
 
       - question : |
           Can Microsoft migrate this data for me?

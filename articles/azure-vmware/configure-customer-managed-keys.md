@@ -1,12 +1,12 @@
 ---
-title: Configure customer-managed key encryption at rest in Azure VMware Solution
+title: Configure customer-managed key encryption at rest in Azure VMware Solution (Preview)
 description: Learn how to encrypt data in Azure VMware Solution with customer-managed keys using Azure Key Vault.
 ms.topic: how-to 
 ms.date: 6/30/2022
 
 ---
 
-# Configure customer-managed key encryption at rest in Azure VMware Solution
+# Configure customer-managed key encryption at rest in Azure VMware Solution (Preview)
 
 
 This article illustrates how to encrypt VMware vSAN Key Encryption Keys (KEKs) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault.

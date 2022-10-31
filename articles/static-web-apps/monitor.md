@@ -64,11 +64,11 @@ Using the following steps to view traces in your application.
 
 1. Hover your mouse over any card in the _Queries_ window.
 
-1. Select the **Load Editor** button.
+2. Select **Load Editor**.
 
-1. Replace the generated query with the word `traces`.
+3. Replace the generated query with the word `traces`.
 
-1. Select the **Run** button.
+4. Select **Run**.
 
 :::image type="content" source="media/monitoring/azure-static-web-apps-application-insights-traces.png" alt-text="View Application Insights traces":::
 

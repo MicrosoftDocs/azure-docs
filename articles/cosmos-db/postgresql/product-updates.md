@@ -41,7 +41,7 @@ Here are the features currently available for preview:
 ## Contact us
 
 Let us know about your experience using preview features, by emailing [Ask
-Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com).
+Azure Cosmos DB for PostgreSQL](mailto:AskCosmosDB4Postgres@microsoft.com).
 (This email address isn't a technical support channel. For technical problems,
 open a [support
 request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)

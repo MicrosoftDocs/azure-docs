@@ -7,9 +7,9 @@ ms.author: makromer
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.date: 10/14/2022
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -22,7 +22,7 @@ To learn more, see [Azure Data Factory overview](introduction.md) or [Azure Syna
 
 ## Overview
 
-When you perform data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property inside the source transformation. Support for full-fidelity CDC, which includes row markers for upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several ADF connectors. To easily capture changes and deltas, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well, which you'll find in the table below.
+When you perform data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property inside the source transformation. Support for full-fidelity CDC, which includes row markers for inserts, upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several ADF connectors. To easily capture changes and deltas, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well, which you'll find in the table below.
 
 ## CDC Connector support
 
@@ -31,7 +31,7 @@ When you perform data integration and ETL processes in the cloud, your jobs can 
 | [ADLS Gen1](load-azure-data-lake-store.md) | &nbsp; | ✓    |  &nbsp;    |
 | [ADLS Gen2](load-azure-data-lake-storage-gen2.md) | &nbsp; | ✓    |  &nbsp;    |
 | [Azure Blob Storage](connector-azure-blob-storage.md) | &nbsp;    | ✓    | &nbsp;   |   
-| [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md) | &nbsp; | ✓ | &nbsp; |
+| [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md) | ✓ | ✓ | &nbsp; |
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) | &nbsp; | ✓ | &nbsp; |
 | [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md) | &nbsp; | ✓ | &nbsp; |
 | [Azure SQL Database](connector-azure-sql-database.md) | ✓ | ✓ | [✓](tutorial-incremental-copy-portal.md) |

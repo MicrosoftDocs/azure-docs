@@ -44,6 +44,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.7 | 10/2022 | 04/2023 |
 | 22.2.6 | 09/2022 | 04/2023 |
 | 22.2.5 | 08/2022 | 04/2023 |
 | 22.2.4 | 07/2022 | 04/2023 |
@@ -63,7 +64,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**All supported OT sensor software versions**: <br>- [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal-public-preview)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks-public-preview)<br><br> **All OT sensor software versions 22.x**: [Updates for Azure cloud connection firewall rules](#updates-for-azure-cloud-connection-firewall-rules-public-preview) <br><br>**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>**Microsoft Sentinel integration**: <br>- [Investigation enhancements with IoT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub)|
+|**OT networks**     |**All supported OT sensor software versions**: <br>- [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal-public-preview)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks-public-preview)<br><br> **All OT sensor software versions 22.x**: [Updates for Azure cloud connection firewall rules](#updates-for-azure-cloud-connection-firewall-rules-public-preview) <br><br>**Sensor software version 22.2.7**: <br> - Bug fixes and stability improvements <br> **Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>**Microsoft Sentinel integration**: <br>- [Investigation enhancements with IoT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub)|
 
 ### Security recommendations for OT networks (Public preview)
 

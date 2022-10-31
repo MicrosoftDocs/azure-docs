@@ -289,7 +289,7 @@ keytool -importcert -alias bc2025ca -file bc2025.crt
 echo "deb https://downloads.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
-sudo apt-get install cassandra
+sudo apt-get install cassandra=3.11.13
 ```
 
 **Connect with Unix/Linux/Mac:**

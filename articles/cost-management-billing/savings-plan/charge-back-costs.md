@@ -73,10 +73,12 @@ If you're an EA admin, you can download the CSV file that contains new usage dat
 
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
-1. Select the billing account.
-2. Select **Usage + charges**.
-3. Select **Download**.
-4. In **Usage Details**, select **Amortized usage data**.
+1. Select the scope.
+    1. For EA, your scope is the enrollment.
+    1. For MCA, your scope is the billing account.
+1. Select **Usage + charges**.
+1. Select **Download**.
+1. In **Usage Details**, select **Amortized usage data**.
 
 The CSV files that you download contain actual costs and amortized costs.
 

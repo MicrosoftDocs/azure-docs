@@ -20,7 +20,7 @@ ms.custom: mvc
 # Tutorial: Monitor network communication between two virtual machine scale sets using the Azure portal
 
 > [!NOTE]
-> This tutorial cover Connection Monitor. Try the new and improved [Connection Monitor](connection-monitor-overview.md) to experience enhanced connectivity monitoring
+> This tutorial covers Connection Monitor. Try the new and improved [Connection Monitor](connection-monitor-overview.md) to experience enhanced connectivity monitoring
 
 > [!IMPORTANT]
 > Starting 1 July 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate from Connection Monitor (classic) to the new Connection Monitor](migrate-to-connection-monitor-from-connection-monitor-classic.md) in Azure Network Watcher before 29 February 2024.
@@ -41,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual machine scale set 
 
-Create a virtual machine scale set 
+Create a virtual machine scale set.
 
 ## Create a load balancer
 
@@ -71,16 +71,16 @@ First, create a public Standard Load Balancer by using the portal. The name and 
 
 ## Create virtual machine scale set
 
-You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
+You can deploy a scale set with a Windows Server image or Linux images such as RHEL, CentOS, Ubuntu, or SLES.
 
 1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. Select **Create** on the **Virtual machine scale sets** page, which will open the **Create a virtual machine scale set** page. 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and select *myVMSSResourceGroup* from resource group list. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and select *myVMSSResourceGroup* from the resource group list. 
 1. Type *myScaleSet* as the name for your scale set.
 1. In **Region**, select a region that is close to your area.
 1. Under **Orchestration**, ensure the *Uniform* option is selected for **Orchestration mode**. 
 1. Select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
 1. Enter your desired username, and select which authentication type you prefer.
-   - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+   - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lowercase character, one uppercase character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. Only provide your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
    
  
@@ -110,7 +110,7 @@ Complete the steps in [create a VM](./connection-monitor.md#create-the-first-vm)
 
 |Step|Setting|Value|
 |---|---|---|
-| 1 | Select a version of **Ubuntu Server** |                                                                         |
+| 1 | Select a version of the **Ubuntu Server** |                                                                         |
 | 3 | Name                                  | myVm2                                                                   |
 | 3 | Authentication type                   | Paste your SSH public key or select **Password**, and enter a password. |
 | 3 | Resource group                        | Select **Use existing** and select **myResourceGroup**.                 |
@@ -241,7 +241,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
         * **Disable traceroute**: This check box applies when the protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
     * **Destination port**: You can provide a destination port of your choice.
     	* **Listen on port**: This check box applies when the protocol is TCP. Select this check box to open the chosen TCP port if it's not already open. 
-    * **Test Frequency**: In this list, specify how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select **custom** to enter another frequency that's between 30 seconds and 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in every 30-second period.
+    * **Test Frequency**: In this list, specify how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select **custom** to enter another frequency that's between 30 seconds and 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once every 30 seconds period.
     * **Success Threshold**: You can set thresholds on the following network parameters:
        * **Checks failed**: Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For the TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this value represents the percentage of HTTP requests that received no response.
        * **Round trip time**: Set the RTT, in milliseconds, for how long sources can take to connect to the destination over the test configuration.
@@ -250,8 +250,8 @@ In the Azure portal, to create a test group in a connection monitor, you specify
        
 * **Test Groups**: You can add one or more Test Groups to a Connection Monitor. These test groups can consist of multiple Azure or Non-Azure endpoints.
     * For selected Azure VMs or Azure virtual machine scale sets and Non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the Network Performance Monitor solution for Non-Azure endpoints will be auto enablement once the creation of Connection Monitor begins.
-    * In case the virtual machine scale set selected is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale set as endpoints. In-case the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
-    * In the scenario mentioned above, user can consent to auto upgradation of virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for virtual machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
+    * In case the virtual machine scale set selected is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with the virtual machine scale set as endpoints. In case the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
+    * In the scenario mentioned above, user can consent to auto upgradation of the virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for virtual machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
 
    :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up a test groups and consent for auto-upgradation of VMSS in Connection Monitor.":::
 
@@ -275,13 +275,13 @@ In the Azure portal, to create alerts for a connection monitor, you specify valu
 
 :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement-create.png" alt-text="Screenshot that shows the Create alert tab in Connection Monitor.":::
 
-Once all the steps are completed, the process will proceed with unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by creation of Connection Monitor. 
+Once all the steps are completed, the process will proceed with the unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by creation of Connection Monitor. 
 Once the creation process is successful, it will take ~ 5 mins for the connection monitor to show up on the dashboard.  
 
 ## Virtual machine scale set  coverage
 
 Currently, Connection Monitor provides default coverage for the scale set instances selected as endpoints. What this means is, only a default % of all the scale set instances added would be randomly selected to monitor connectivity from the scale set to the endpoint. 
-As a best practice, to avoid loss of data due to downscaling of instances, it is advised to select ALL instances in a scale set while creating a test group instead of selecting particular few for monitoring your endpoints. 
+As a best practice, to avoid loss of data due to downscaling of instances, it is advised to select ALL instances in a scale set while creating a test group instead of selecting a particular few for monitoring your endpoints. 
 
 
 ## Scale limits
@@ -303,7 +303,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this tutorial, you learned how to monitor a connection between a virtual machine scale set  and a VM. You learned that a network security group rule prevented communication to a VM. To learn about all of the different responses connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address.
+In this tutorial, you learned how to monitor a connection between a virtual machine scale set  and a VM. You learned that a network security group rule prevented communication to a VM. To learn about all of the different responses the connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address.
 
 * Learn [how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
 * Learn [how to diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network).

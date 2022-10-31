@@ -13,27 +13,25 @@ ms.custom: references_regions, event-tier1-build-2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
 
-This how-to guide describes how a data owner can delegate authoring policies in Microsoft Purview to enable access to Azure SQL DB. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. The first two actions are supported only at server level. *Modify* is not supported at this point. 
+This guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to Azure SQL Database. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. The first two actions are supported only at server level. *Modify* is not supported at this point. 
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
-[!INCLUDE [Access policies Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
+[!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
-## Microsoft Purview Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+## Microsoft Purview configuration
 
 ### Register the data sources in Microsoft Purview
-The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
+The Azure SQL Database data source needs to be registered first with Microsoft Purview before creating access policies. You can follow these guides:
 
-[Register and scan Azure SQL DB](./register-scan-azure-sql-database.md)
+[Register and scan Azure SQL Database](./register-scan-azure-sql-database.md)
 
 After you've registered your resources, you'll need to enable Data Use Management. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**:
-
 [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this screenshot. This will enable the access policies to be used with the given Azure SQL server and all its contained databases.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
 

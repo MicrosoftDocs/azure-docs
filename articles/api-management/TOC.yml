@@ -334,10 +334,6 @@
                     href: developer-portal-deprecated-migration.md
                   - name: Extend portal with custom functionality
                     href: developer-portal-extend-custom-functionality.md
-                  - name: Contribute widgets
-                    href: developer-portal-widget-contribution-guidelines.md
-                  - name: Use community widgets
-                    href: developer-portal-use-community-widgets.md
                   - name: Enable console OAuth support
                     href: api-management-howto-oauth2.md
                   - name: Integrate Application Insights

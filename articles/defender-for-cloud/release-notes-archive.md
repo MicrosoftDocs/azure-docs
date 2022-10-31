@@ -521,7 +521,7 @@ Learn more in [Prioritize security actions by data sensitivity](information-prot
 
 Microsoft Defender for Cloud's security recommendations are enabled and supported by the Azure Security Benchmark.
 
-[Azure Security Benchmark](../security/benchmarks/introduction.md) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+[Azure Security Benchmark](/security/benchmark/azure/introduction) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
 From Ignite 2021, Azure Security Benchmark **v3** is available in [Defender for Cloud's regulatory compliance dashboard](update-regulatory-compliance-packages.md) and enabled as the new default initiative for all Azure subscriptions protected with Microsoft
 Defender for Cloud.
@@ -1190,7 +1190,7 @@ The new vulnerability scanning feature for container images, utilizing Trivy, he
 
 Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
 
-Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-containers-cicd.md).
+Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-devops-introduction.md).
 
 ### More Resource Graph queries available for some recommendations
 

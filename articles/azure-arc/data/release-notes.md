@@ -39,7 +39,13 @@ New for this release:
   - New command to list AD Connectors `az arcdata ad-connector list --k8s-namespace <namespace> --use-k8s`
   - Az CLI Polling for AD Connector create/update/delete: This feature changes the default behavior of `az arcdata ad-connector create/update/delete` to hang and wait until the operation finishes. To override this behavior, the user has to use the `--no-wait` flag when invoking the command. 
 
+Deprecation and breaking changes notices:
 
+The following properties in the Arc SQL Managed Instance status will be deprecated/moved in the _next_ release:
+- `status.logSearchDashboard`: use `status.endpoints.logSearchDashboard` instead.
+- `status.metricsDashboard`: use `status.endpoints.metricsDashboard` instead.
+- `status.primaryEndpoint`: use `status.endpoints.primary` instead.
+- `status.readyReplicas`: uses `status.roles.sql.readyReplicas` instead.
 
 ## September 13, 2022
 

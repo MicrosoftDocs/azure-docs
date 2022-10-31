@@ -23,7 +23,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > Some limitations may be encountered during public preview, which will be resolved before going into GA. 
 > - It is currently not possible to use JMS on partitioned entities. 
 > - Metrics are currently only available on an aggregated namespace level, not for individual partitions.
-> - This feature is rolling out during Ignite 2022, and will initially be available in East US and South Central US, with more regions following later.
+> - This feature is rolling out during Ignite 2022, and will initially be available in East US and North Europe, with more regions following later.
 
 ## Use Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 

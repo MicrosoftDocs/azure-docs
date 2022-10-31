@@ -5,7 +5,7 @@ author: harperche
 ms.author: harpercheng
 ms.service: batch
 ms.topic: how-to
-ms.date: 10/07/2022
+ms.date: 10/12/2022
 ---
 
 # Migrate Batch account certificates to Azure Key Vault
@@ -22,7 +22,7 @@ Certificates are often required in various scenarios such as decrypting a secret
 
 After the certificates feature in Azure Batch is retired on February 29, 2024, a certificate in Batch won't work as expected. After that date, you'll no longer be able to add certificates to a Batch account or link these certificates to Batch pools. Pools that continue to use this feature after this date may not behave as expected such as updating certificate references or the ability to install existing certificate references. 
 
-## Alternative: Use Azure Key Vault VM Extension with Pool User-assigned Managed Identity
+## Alternative: Use Azure Key Vault VM extension with pool user-assigned managed identity
 
 Azure Key Vault is a fully managed Azure service that provides controlled access to store and manage secrets, certificates, tokens, and keys. Key Vault provides security at the transport layer by ensuring that any data flow from the key vault to the client application is encrypted. Azure Key Vault gives you a secure way to store essential access information and to set fine-grained access control. You can manage all secrets from one dashboard. Choose to store a key in either software-protected or hardware-protected hardware security modules (HSMs). You also can set Key Vault to auto-renew certificates.
 
@@ -32,7 +32,7 @@ For a complete guide on how to enable Azure Key Vault VM Extension with Pool Use
 
 - Do `CloudServiceConfiguration` pools support Azure Key Vault VM extension and managed identity on pools?
 
-  No. `CloudServiceConfiguration` pools will be [retired](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) on the same date as Azure Batch account certificate retirement on February 29, 2024. We recommend that you migrate to `VirtualMachinceConfiguration` pools before that date where you'll be able to use these solutions.
+  No. `CloudServiceConfiguration` pools will be [retired](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) on the same date as Azure Batch account certificate retirement on February 29, 2024. We recommend that you migrate to `VirtualMachineConfiguration` pools before that date where you'll be able to use these solutions.
 
 - Do user subscription pool allocation Batch accounts support Azure Key Vault?
 

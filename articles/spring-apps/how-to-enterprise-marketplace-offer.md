@@ -38,14 +38,14 @@ To see the offering and read a detailed description, see [Azure Spring Apps Ente
 
 To see the supported plans in your market, select **Plans + Pricing**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise Tier V M ware Tanzu offering.":::
+:::image type="content" source="media/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise Tier V M ware Tanzu offering.":::
 
 > [!NOTE]
 > If you see "No plans are available for market '\<Location>'", that means none of your Azure subscriptions can purchase the SaaS offering. For more information, see [No plans are available for market '\<Location>'](./troubleshoot.md#no-plans-are-available-for-market-location) in [Troubleshooting](./troubleshoot.md).
 
 To see the Enterprise Tier creation page, select **Subscribe**
 
-:::image type="content" source="media/enterprise/how-to-enterprise-marketplace-offer/marketplace-view.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise Tier offering with 'Subscribe' highlighted.":::
+:::image type="content" source="media/how-to-enterprise-marketplace-offer/marketplace-view.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise Tier offering with 'Subscribe' highlighted.":::
 
 ## Next steps
 

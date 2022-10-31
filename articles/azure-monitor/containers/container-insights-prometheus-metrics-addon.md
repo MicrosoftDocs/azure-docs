@@ -12,7 +12,6 @@ This article describes how to configure Container insights to send Prometheus me
 
 ## Prerequisites
 
-- The cluster must be [onboarded to Container insights](container-insights-enable-aks.md).
 - The cluster must use [managed identity authentication](container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
@@ -25,6 +24,10 @@ Use any of the following methods to install the metrics addon on your cluster an
 ### [Azure portal](#tab/azure-portal)
 
 Managed Prometheus can be enabled in the Azure portal through either Container insights or an Azure Monitor workspace.
+
+### Prerequisites
+
+- The cluster must be [onboarded to Container insights](container-insights-enable-aks.md).
 
 #### Enable from Container insights
 
@@ -57,7 +60,7 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 #### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
-- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
+- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/azure/azure-cli-extensions-overview).
 - Azure CLI version 2.41.0 or higher is required for this feature.
 
 #### Install metrics addon
