@@ -30,7 +30,7 @@ More information about policies:
 -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
 -   [Validate Azure Active Directory Token](api-management-access-restriction-policies.md#ValidateAAD) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP Header, query parameter, or token value.
--   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+-   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header, query parameter, or token value.
 -   [Validate client certificate](api-management-access-restriction-policies.md#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
 ## Advanced policies

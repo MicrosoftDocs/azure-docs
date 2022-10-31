@@ -26,8 +26,8 @@ This article provides a reference for API Management access restriction policies
 -   [Restrict caller IPs](#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -   [Set usage quota by subscription](#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
--   [Validate Azure Active Directory Token](#ValidateAAD) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP Header, query parameter, or token value.
--   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP header or a specified query parameter.
+-   [Validate Azure Active Directory token](#ValidateAAD) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP header, query parameter, or token value.
+-   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP header, query parameter, or token value.
 -  [Validate client certificate](#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
 > [!TIP]
@@ -561,7 +561,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateAAD"></a> Validate Azure Active Directory token
 
-The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service.  The JWT can be extracted from a specified HTTP header, query parameter, or provided using a policy expression or context variable.
+The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service.  The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
 
 ### Policy statement
 
@@ -571,15 +571,15 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
     query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
     token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
-    failed-validation-httpcode="http status code to return on failure"
+    failed-validation-httpcode="HTTP status code to return on failure"
     failed-validation-error-message="error message to return on failure"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
     <client-application-ids>
-        <application-id>Client Application ID from Azure Active Directory</application-id>
+        <application-id>Client application ID from Azure Active Directory</application-id>
         <!-- If there are multiple client application IDs, then add additional application-id elements -->
     </client-application-ids>
     <backend-application-ids>
-        <application-id>Backend Application ID from Azure Active Directory</application-id>
+        <application-id>Backend application ID from Azure Active Directory</application-id>
         <!-- If there are multiple backend application IDs, then add additional application-id elements -->
     </backend-application-ids>
     <audiences>
@@ -589,7 +589,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     <required-claims>
         <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
             <value>claim value as it is expected to appear in the token</value>
-            <!-- if there is more than one allowed values, then add additional value elements -->
+            <!-- if there is more than one allowed value, then add additional value elements -->
         </claim>
         <!-- if there are multiple possible allowed values, then add additional value elements -->
     </required-claims>
@@ -600,7 +600,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 #### Simple token validation
 
-The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the `Authorization` header using the `Bearer` scheme.
+The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the `Authorization` header using the `Bearer` scheme. In this example, the Azure AD tenant ID and client application ID are provided using named values.
 
 ```xml
 <validate-azure-ad-token tenant-id="{{aad-tenant-id}}">
@@ -612,7 +612,9 @@ The following policy is the minimal form of the `validate-azure-ad-token` policy
 
 #### Validate that audience and claim are correct
 
-The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`. The decoded JWT is provided in the `jwt` variable after validation. For more details on optional claims, read [Provide optional claims to your app](/azure/active-directory/develop/active-directory-optional-claims).  
+The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`. The hostname is provided using a policy expression, and the Azure AD tenant ID and client application ID are provided using named values. The decoded JWT is provided in the `jwt` variable after validation.
+
+For more details on optional claims, read [Provide optional claims to your app](/azure/active-directory/develop/active-directory-optional-claims).  
 
 ```xml
 <validate-azure-ad-token tenant-id="{{aad-tenant-id}}" output-token-variable-name="jwt">
@@ -645,7 +647,7 @@ The following policy checks that the audience is the hostname of the API Managem
 | Name                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | failed-validation-error-message | Error message to return in the HTTP response body if the JWT doesn't pass validation. This message must have any special characters properly escaped.                                                                                                                                                                                                                                                                                                 | No                                                                               | Default error message depends on validation issue, for example "JWT not present." |
-| failed-validation-httpcode      | HTTP Status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
+| failed-validation-httpcode      | HTTP status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | match                           | The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> - `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> - `any` - at least one claim value must be present in the token for validation to succeed.                                                       | No                                                                               | all                                                                               |
 | output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
