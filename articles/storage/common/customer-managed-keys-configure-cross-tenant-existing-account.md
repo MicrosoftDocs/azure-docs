@@ -65,7 +65,7 @@ After you've specified the key from the key vault in the customer's tenant, the 
 
 ### [PowerShell](#tab/azure-powershell)
 
-To configure cross-tenant customer-managed keys for a new storage account with PowerShell, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 9.1.0 or later.
+To configure cross-tenant customer-managed keys for a new storage account with PowerShell, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 5.1.0 or later. This module is installed with the [Az PowerShell module](https://www.powershellgallery.com/packages/Az), version 9.1.0 or later.
 
 Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
 
@@ -90,7 +90,15 @@ Set-AzStorageAccount -ResourceGroupName $isvRgName `
 
 ### [Azure CLI](#tab/azure-cli)
 
-N/A
+To configure cross-tenant customer-managed keys for an existing storage account with Azure CLI, first install the Azure CLI, version 2.42.0 or later. For more information about installing Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+Next, call [az storage account update](/cli/azure/storage/account#az-storage-account-update), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
+
+Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```azurecli
+
+```
 
 ---
 
