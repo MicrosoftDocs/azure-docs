@@ -1,21 +1,21 @@
 ---
-title: Overview of consent and permissions
-description: Learn about the fundamental concepts of consents and permissions in Azure AD
+title: Overview of user and admin consent
+description: Learn about the fundamental concepts of user and admin consent in Azure AD
 services: active-directory
 author: psignoret
-manager: CelesteDG
+manager: mwongerapk
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/16/2021
+ms.date: 09/28/2022
 ms.author: phsignor
 ms.collection: M365-identity-device-management
 ---
 
-# Consent and permissions overview
+# User and admin consent in Azure Active Directory
 
-In this article, you’ll learn the foundational concepts and scenarios around consent and permissions in Azure Active Directory (Azure AD).
+In this article, you’ll learn the foundational concepts and scenarios around user and admin consent in Azure Active Directory (Azure AD).
 
 Consent is a process where users can grant permission for an application to access a protected resource. To indicate the level of access required, an application requests the API permissions it requires. For example, an application can request the permission to see a signed-in user's profile and read the contents of the user's mailbox.
 
@@ -82,8 +82,8 @@ After users submit the admin consent request, the admins who have been designate
 After the admin consent workflow is enabled, users can request admin approval for an application that they're unauthorized to consent to. Here are the steps in the process:
 
 1. A user attempts to sign in to the application.
-1. An "Approval required" message appears. The user types a justification for needing access to the application and then selects "Request approval."
-1. A "Request sent" message confirms that the request was submitted to the admin. If the user sends several requests, only the first request is submitted to the admin.
+1. An **Approval required** message appears. The user types a justification for needing access to the application and then selects "Request approval."
+1. A **Request sent** message confirms that the request was submitted to the admin. If the user sends several requests, only the first request is submitted to the admin.
 1. The user receives an email notification when the request is approved, denied, or blocked.
 
 ## Next steps

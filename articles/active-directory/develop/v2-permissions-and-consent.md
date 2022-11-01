@@ -112,7 +112,7 @@ Applications in Microsoft identity platform rely on consent in order to gain acc
 
 In the static user consent scenario, you must specify all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Microsoft identity platform will prompt the user to provide consent at this time.
 
-Static permissions also enables administrators to [consent on behalf of all users](#requesting-consent-for-an-entire-tenant) in the organization.
+Static permissions also enable administrators to [consent on behalf of all users](#requesting-consent-for-an-entire-tenant) in the organization.
 
 While static permissions of the app defined in the Azure portal keep the code nice and simple, it presents some possible issues for developers:
 
@@ -157,7 +157,7 @@ After the user enters their credentials, the Microsoft identity platform checks 
 
 At this time, the `offline_access` ("Maintain access to data you have given it access to") permission and `User.Read` ("Sign you in and read your profile") permission are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality. The `offline_access` permission gives the app access to refresh tokens that are critical for native apps and web apps. The `User.Read` permission gives access to the `sub` claim. It allows the client or app to correctly identify the user over time and access rudimentary user information.
 
-![Example screenshot that shows work account consent.](./media/v2-permissions-and-consent/work_account_consent.png)
+:::image type="content" source="./media/consent-types-developer/request-permissions-through-consent.png" alt-text="Example screenshot that shows work account consent." lightbox="./media/consent-framework/grant-consent.png":::
 
 When the user approves the permission request, consent is recorded. The user doesn't have to consent again when they later sign in to the application.
 
@@ -318,7 +318,7 @@ The scope parameter value is constructed by using the identifier URI for the res
 
 Using `scope={resource-identifier}/.default` is functionally the same as `resource={resource-identifier}` on the v1.0 endpoint (where `{resource-identifier}` is the identifier URI for the API, for example `https://graph.microsoft.com` for Microsoft Graph).
 
-The `.default` scope can be used in any OAuth 2.0 flow and to initiate [admin consent](v2-admin-consent.md). It's use is required in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).
+The `.default` scope can be used in any OAuth 2.0 flow and to initiate [admin consent](v2-admin-consent.md). Its use is required in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
 Clients can't combine static (`.default`) consent and dynamic consent in a single request. So `scope=https://graph.microsoft.com/.default Mail.Read` results in an error because it combines scope types.
 
@@ -326,7 +326,7 @@ Clients can't combine static (`.default`) consent and dynamic consent in a singl
 
 The `.default` scope is functionally identical to the behavior of the `resource`-centric v1.0 endpoint. It carries the consent behavior of the v1.0 endpoint as well. That is, `.default` triggers a consent prompt only if consent has not been granted for any delegated permission between the client and the resource, on behalf of the signed-in user.
 
-If consent does exists, the returned token contains all scopes granted for that resource for the signed-in user. However, if no permission has been granted for the requested resource (or if the `prompt=consent` parameter has been provided), a consent prompt is shown for all required permissions configured on the client application registration, for all APIs in the list.
+If consent does exist, the returned token contains all scopes granted for that resource for the signed-in user. However, if no permission has been granted for the requested resource (or if the `prompt=consent` parameter has been provided), a consent prompt is shown for all required permissions configured on the client application registration, for all APIs in the list.
 
 For example, if the scope `https://graph.microsoft.com/.default` is requested, your application is requesting an access token for the Microsoft Graph API. If at least one delegated permission has been granted for Microsoft Graph on behalf of the signed-in user, the sign-in will continue and all Microsoft Graph delegated permissions which have been granted for that user will be included in the access token. If no permissions have been granted for the requested resource (Microsoft Graph, in this example), then a consent prompt will be presented for all required permissions configured on the application, for all APIs in the list.
 

@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Authentication on batch endpoints
 
-Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
+Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it. 
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Batch endpoints support Azure Active Directory authentication, or `aad_token`. T
 
 ## How authentication works
 
-To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a security principal. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
+To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
 
 > [!div class="checklist"]
 > * Read batch endpoints/deployments.
@@ -62,7 +62,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 1. Once authenticated, use the following command to run a batch deployment job:
 
     ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
     ```
 
 # [Azure ML SDK for Python](#tab/sdk)
@@ -85,13 +85,13 @@ In this case, we want to execute a batch endpoint using the identity of the user
     ```python
     job = ml_client.batch_endpoints.invoke(
             endpoint_name, 
-            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
         )
     ```
 
 # [REST](#tab/rest)
 
-When working with REST APIs, we recommend to using either a service principal or a managed identity to interact with the API.
+When working with REST APIs, we recommend to using either a [service principal](#running-jobs-using-a-service-principal) or a [managed identity](#running-jobs-using-a-managed-identity) to interact with the API.
 
 ---
 
@@ -101,8 +101,8 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure ML CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
-1. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```bash
     az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
@@ -111,7 +111,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 1. Once authenticated, use the following command to run a batch deployment job:
 
     ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/
     ```
 
 # [Azure ML SDK for Python](#tab/sdk)
@@ -139,7 +139,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
     ```python
     job = ml_client.batch_endpoints.invoke(
             endpoint_name, 
-            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
         )
     ```
 
@@ -151,9 +151,14 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
     
     __Request__:
     
-    ```Body
-    POST /{TENANT_ID}/oauth2/token
-    Host:https://login.microsoftonline.com
+    ```http
+    POST /{TENANT_ID}/oauth2/token HTTP/1.1
+    Host: login.microsoftonline.com
+    ```
+    
+    __Body__:
+    
+    ```
     grant_type=client_credentials&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>&resource=https://ml.azure.com
     ```
     
@@ -178,7 +183,7 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
     	    "InputData": {
     		"mnistinput": {
     		    "JobInputType" : "UriFolder",
-    		    "Uri":  "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
+    		    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
     	        }
             }
         }
@@ -189,15 +194,21 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
 
 ### Running jobs using a managed identity
 
+You can use managed identities to invoke batch endpoint and deployments. Please notice that this manage identity doesn't belong to the batch endpoint, but it is the identity used to execute the endpoint and hence create a batch job. Both user assigned and system assigned identities can be use in this scenario.
+
 # [Azure ML CLI](#tab/cli)
 
-On resources configured for managed identities for Azure resources, you can sign in using the managed identity. Signing in with the resource's identity is done through the `--identity` flag.
+On resources configured for managed identities for Azure resources, you can sign in using the managed identity. Signing in with the resource's identity is done through the `--identity` flag. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ```bash
 az login --identity
 ```
 
-For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+Once authenticated, use the following command to run a batch deployment job:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
+```
 
 # [Azure ML SDK for Python](#tab/sdk)
 
@@ -220,7 +231,7 @@ Once authenticated, use the following command to run a batch deployment job:
 ```python
 job = ml_client.batch_endpoints.invoke(
         endpoint_name, 
-        input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+        input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
     )
 ```
 
