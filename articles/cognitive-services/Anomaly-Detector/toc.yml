@@ -52,6 +52,8 @@
                 maintainContext: true
     - name: Multivariate Anomaly Detection
       items:
+        - name: Create an Anomaly Detector Resource
+          href: how-to/create-resource.md
         - name: Prepare and upload your data
           href: how-to/prepare-data.md
         - name: Train a model
